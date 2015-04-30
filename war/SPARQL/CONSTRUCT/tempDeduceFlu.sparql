@@ -1,0 +1,17 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX naturopathy: <http://sensormeasurement.appspot.com/naturopathy#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX food: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#>
+PREFIX recipe: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX generic: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/generic.owl#>
+PREFIX nat: <http://sensormeasurement.appspot.com/naturopathy-dataset/>
+
+CONSTRUCT {?m naturopathy:hasDisease nat:Flu} WHERE {
+?m rdf:type m3:BodyTemperature.
+?m m3:hasValue ?v.
+FILTER ( ?v > 38 ).
+}
+

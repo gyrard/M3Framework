@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY cito "http://purl.org/spar/cito/">
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+    <!ENTITY dcterms "http://purl.org/dc/terms/">
+    <!ENTITY transport "http://sensormeasurement.appspot.com/ont/m3/transport#" >
+]>
+
+
+<rdf:RDF xmlns="&transport;"
+     xml:base="&transport;"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:transport="&transport;"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:cito="&cito;"
+     xmlns:foaf="&foaf;"
+     xmlns:dcterms="&dcterms;"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="&transport;">
+        <rdfs:comment>Transport ontology for the transport web service of the swot application</rdfs:comment>
+        <cito:citesAsDataSource>
+	    	<foaf:Document rdf:about="http://sisinflab.poliba.it/ruta/bag/iDriveSafe.txt">
+   				<rdfs:label>Inspired by "Knowledge-based real-time car monitoring and driving assitance". [Ruta et al. 2010-2012]</rdfs:label>
+   				<dcterms:description xml:lang="en">Safety devices suggested according to the weather conditions</dcterms:description>
+   			</foaf:Document>
+   		</cito:citesAsDataSource> 
+    </owl:Ontology>
+    
+    <!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+    
+	<owl:Class rdf:ID="SafetyDevice">
+		<rdfs:label xml:lang="en">SafetyDevice</rdfs:label>
+		<rdfs:comment xml:lang="en">Safety device used in a car such as ABE, ESP, etc.</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="DriverState">
+		<rdfs:label xml:lang="en">DriverState</rdfs:label>
+		<rdfs:comment xml:lang="en">DriverState (e.g., tired, nervous, medicated, ill, drunk)</rdfs:comment>
+    </owl:Class>
+    
+     <owl:Class rdf:ID="Action">
+		<rdfs:label xml:lang="en">Action</rdfs:label>
+		<rdfs:comment xml:lang="en">Action (e.g., make a  break)</rdfs:comment>
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:ID="hasDriverState">
+		<rdfs:label xml:lang="en">hasDriverState</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+    
+    
+    <!-- to refactor -->
+    
+    <owl:Class rdf:ID="WaterTransportation">		
+		<rdfs:label xml:lang="en">Water Transportation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AirTransportation">		
+		<rdfs:label xml:lang="en">Air Transportation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LandTransportation">		
+		<rdfs:label xml:lang="en">Land Transportation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Car">		
+		<rdfs:label xml:lang="en">Car</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Train">		
+		<rdfs:label xml:lang="en">Train</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Road">		
+		<rdfs:label xml:lang="en">Road</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Rail">		
+		<rdfs:label xml:lang="en">Rail</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Bicycle">		
+		<rdfs:label xml:lang="en">Bicycle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Bus">		
+		<rdfs:label xml:lang="en">Bus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Plane">		
+		<rdfs:label xml:lang="en">Plane</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Boat">		
+		<rdfs:label xml:lang="en">Boat</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#hasDriverState -->
+
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#hasWeather -->
+
+    <owl:ObjectProperty rdf:about="http://sensormeasurement.appspot.com/ransport#hasWeather">
+        <rdfs:label>hasWeather</rdfs:label>
+        <rdfs:range rdf:resource="http://sensormeasurement.appspot.com/ransport#WheaterCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#put -->
+
+    <owl:ObjectProperty rdf:about="http://sensormeasurement.appspot.com/ransport#put">
+        <rdfs:label>put</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#putOn -->
+
+    <owl:ObjectProperty rdf:about="http://sensormeasurement.appspot.com/ransport#putOn">
+        <rdfs:label>putOn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#doABreak -->
+
+    <owl:DatatypeProperty rdf:about="http://sensormeasurement.appspot.com/ransport#doABreak">
+        <rdfs:comment>doABreak</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#stop -->
+
+    <owl:DatatypeProperty rdf:about="http://sensormeasurement.appspot.com/ransport#stop">
+        <rdfs:comment>stop</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Accident -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Accident"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Alarm -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Alarm">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#SafetyTools"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Avenue -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Avenue">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Road"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Bus -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Bus">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Vehicule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Car -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Car">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Vehicule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Driver -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Driver"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Highway -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Highway">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Road"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Lights -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Lights">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#SafetyTools"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Moto -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Moto">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Vehicule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#OldDriver -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#OldDriver">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Driver"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Panne -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Panne"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#PregnantDriver -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#PregnantDriver">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Driver"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Reverse -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Reverse"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Road -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Road"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#SafetyTools -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#SafetyTools"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Sensor -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Sensor"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#State -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#State"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Street -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Street">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Road"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Tools -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Tools"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Traffic -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Traffic"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Truk -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Truk">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Vehicule"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#Vehicule -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#Vehicule"/>
+    
+
+
+
+    <!-- http://sensormeasurement.appspot.com/ransport#YoungDriver -->
+
+    <owl:Class rdf:about="http://sensormeasurement.appspot.com/ransport#YoungDriver">
+        <rdfs:subClassOf rdf:resource="http://sensormeasurement.appspot.com/ransport#Driver"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+

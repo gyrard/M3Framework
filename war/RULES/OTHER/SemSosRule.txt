@@ -1,0 +1,29 @@
+[HighWindSpeedObservationRule:
+(?w_obs rdf:type w:WindSpeedObservation)
+(?w_obs om:samplingTime ?time)
+(?w_obs om:observationLocation ?location)
+(?w_obs om:result ?result)
+(?result om:uom w:MPH)
+(?result om:value ?value)
+greaterThan(?value 35)
+->
+(?w_obs rdf:type w:HighWindSpeedObservation)] 
+
+[BlizzardObservationRule:
+(?w_obs rdf:type w:HighWindSpeedObservation)
+(?w_obs om:samplingTime ?time)
+(?w_obs om:observationLocation ?location)
+(?v_obs rdf:type w:LowVisibilityObservation)
+(?v_obs om:samplingTime ?time)
+(?v_obs om:observationLocation ?location)
+(?p_obs rdf:type w:SnowfallObservation)
+(?p_obs om:samplingTime ?time)
+(?p_obs om:observationLocation ?location)
+makeTemp(?blizzard)
+->
+(?blizzard rdf:type w:Blizzard)
+(?blizzard om:eventTime ?time)
+(?blizzard om:eventLocation ?location)
+(?w_obs om:featureOfInterest ?blizzard)
+(?v_obs om:featureOfInterest ?blizzard)
+(?p_obs om:featureOfInterest ?blizzard)] 

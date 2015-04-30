@@ -1,0 +1,695 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix weather-dataset: http://sensormeasurement.appspot.com/dataset/weather-dataset/
+@prefix naturopathy: http://sensormeasurement.appspot.com/naturopathy#
+@prefix naturopathy-dataset: http://sensormeasurement.appspot.com/naturopathy-dataset/
+
+################################################################ LINKED OPEN RULES - WEATHER ######################################################################
+# Last update: 11 September 2014
+# Creator: Gyrard
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# Number of rules = 55 rules
+
+# Correctness means that are no incompatibility with other rules.
+# Completeness means that all sensor values are covered by an high level information.
+
+################################################################ GNU License ######################################################################
+#
+#	Machine to Machine Measurement (M3) Framework 
+#    Copyright(c) 2012 - 2015 Eurecom
+#
+#    M3 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    M3 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with M3. The full GNU General Public License is 
+#    included in this distribution in the file called "COPYING". If not, 
+#    see <http://www.gnu.org/licenses/>.
+#
+#    Contact Information
+#    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+#  
+#	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+#	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+#	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+#  
+#  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+
+
+
+################################################################ TO DO, REMARKS ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too
+# ADD (?measurement m3:hasUnit m3:Okta) for m3:CloudCover
+# ADD (?measurement m3:hasUnit m3:Percent) for m3:Humidity
+# ADD (?measurement m3:hasUnit m3:DegreeAngle) for m3:WindDirection
+# ADD (?measurement m3:hasUnit m3:DegreeAngle) for m3:SunPositionDirection
+# ADD (?measurement m3:hasUnit m3:DegreeAngle) for m3:SunPositionElevation
+# ADD (?measurement m3:hasUnit m3:Pascal) for m3:AtmosphericPressure
+# ADD (?measurement m3:hasUnit m3:WattPerMeterSquare) for m3:SolarRadiation
+
+################################################################ PRECIPITATION RULES ######################################################################
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 100 mm/h THEN TropicalStormRain
+# add (?t m3:hasUnit m3:MilimeterPerHour)   
+[TropicalStormRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,100)
+			  ->
+				(?measurement rdf:type weather-dataset:TropicalStormRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 20 and lessThan 50 mm/h THEN HeavyRain
+# add (?t m3:hasUnit m3:MilimeterPerHour)   
+[HeavyRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,50)
+			  ->
+				(?measurement rdf:type weather-dataset:HeavyRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 5 and lessThan 20 mm/h THEN MediumRain
+[MediumRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,5)
+              lessThan(?v,20)
+			  ->
+				(?measurement rdf:type weather-dataset:MediumRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 0 and lessThan 5 mm/h THEN LightRain
+[LightRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,5)
+			  ->
+				(?measurement rdf:type weather-dataset:LightRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 50 and lessThan 100 mm/h THEN ExtremelyHeavyRain
+[ExtremelyHeavyRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,50)
+              lessThan(?v,100)
+			  ->
+				(?measurement rdf:type weather-dataset:ExtremelyHeavyRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# IF Precipitation = 0 mm THEN NoPrecipitation
+[NoPrecipitation: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)
+			  ->
+				(?measurement rdf:type weather-dataset:NoPrecipitation)
+]
+
+################################################################ SOLAR RADIATION RULES ######################################################################
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+
+# Completeness: ok
+# Correctness: ok, we choose Staroch rules (5 rules), conflict resolved with Kofler
+# we chose Staroch's rule since they are more precise
+
+# Rule: IF m3:SolarRadiation greaterThan 0 and lessThan 250 m3:WattPerMeterSquare THEN LowRadiation
+[LowRadiation: 
+              (?measurement rdf:type m3:SolarRadiation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,250)
+			  ->
+			  (?measurement rdf:type weather-dataset:LowRadiation)
+]
+
+# Rule: IF m3:SolarRadiation greaterThan 750 m3:WattPerMeterSquare THEN VeryHighRadiation
+[VeryHighRadiation: 
+              (?measurement rdf:type m3:SolarRadiation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,750)
+			  ->
+			  (?measurement rdf:type weather-dataset:VeryHighRadiation)
+]
+
+# Rule: IF m3:SolarRadiation greaterThan 500 and lessThan 750 m3:WattPerMeterSquare THEN HighRadiation
+[HighRadiation: 
+              (?measurement rdf:type m3:SolarRadiation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,500)
+              lessThan(?v,750)
+			  ->
+			  (?measurement rdf:type weather-dataset:HighRadiation)
+]
+
+# Rule: IF m3:SolarRadiation greaterThan 250 and lessThan 500 m3:WattPerMeterSquare THEN MediumRadiation
+[MediumRadiation: 
+              (?measurement rdf:type m3:SolarRadiation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,250)
+              lessThan(?v,500)
+			  ->
+			  (?measurement rdf:type weather-dataset:MediumRadiation)
+]
+
+# Rule: NoRadiation, IF m3:SolarRadiation = 0 m3:WattPerMeterSquare THEN NoRadiation
+[NoRadiation: 
+              (?measurement rdf:type m3:SolarRadiation)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)
+			  ->
+			  (?measurement rdf:type weather-dataset:NoRadiation)
+]
+
+################################################################ ATMOSPHERIC PRESSURE RULES ######################################################################
+# Completeness: ok
+# Correctness: ok, we choose Staroch rules (5 rules), conflict resolved with Kofler
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+
+# Rule: IF m3:AtmosphericPressure lessThan 998 000 m3:Pascal THEN VeryLowPressure
+[VeryLowPressure: 
+              (?measurement rdf:type m3:AtmosphericPressure)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,998000)
+			  ->
+			  (?measurement rdf:type weather-dataset:VeryLowPressure)
+]
+
+# Rule: IF m3:AtmosphericPressure greaterThan 1018 000 AND lessThan 1028 000 m3:Pascal THEN HighPressure
+[HighPressure: 
+              (?measurement rdf:type m3:AtmosphericPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,1018000)
+              lessThan(?v,1028000)
+			  ->
+			  (?measurement rdf:type weather-dataset:HighPressure)
+]
+
+# Rule: IF m3:AtmosphericPressure greaterThan 1028 000 m3:Pascal THEN VeryHighPressure
+[VeryHighPressure: 
+              (?measurement rdf:type m3:AtmosphericPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,1028000)
+			  ->
+			  (?measurement rdf:type weather-dataset:VeryHighPressure)
+]
+
+# Rule: IF m3:AtmosphericPressure greaterThan 1008 000 AND lessThan 1018 000 m3:Pascal THEN AveragePressure
+[AveragePressure: 
+              (?measurement rdf:type m3:AtmosphericPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,1008000)
+              lessThan(?v,1018000)
+			  ->
+			  (?measurement rdf:type weather-dataset:AveragePressure)
+]
+
+# Rule: IF m3:AtmosphericPressure greaterThan 998 000 AND lessThan 1008 000 m3:Pascal THEN LowPressure
+[LowPressure: 
+              (?measurement rdf:type m3:AtmosphericPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,998000)
+              lessThan(?v,1008000)
+			  ->
+			  (?measurement rdf:type weather-dataset:LowPressure)
+]
+
+################################################################ SUN POSITION ELEVATION RULES ######################################################################
+# Completeness: NO see values
+# Correctness: NO see values, Staroch rules (8 rules)
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+
+# Rule: IF m3:SunPositionElevation greaterThan -90 and lessThan -18 m3:DegreeAngle THEN SunNight
+[SunNight: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-90)
+              lessThan(?v,-18)
+			  ->
+				(?measurement rdf:type weather-dataset:SunNight)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan -90 and lessThan 0 m3:DegreeAngle THEN SunBelowHorizon
+[SunBelowHorizon: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-90)
+              lessThan(?v,0)
+			  ->
+				(?measurement rdf:type weather-dataset:SunBelowHorizon)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan -18 and lessThan 0 m3:DegreeAngle THEN SunTwilight
+[SunTwilight: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-18)
+              lessThan(?v,0)
+			  ->
+				(?measurement rdf:type weather-dataset:SunTwilight)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan -12 and lessThan -6 m3:DegreeAngle THEN SunNauticalTwilight
+[SunNauticalTwilight: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-12)
+              lessThan(?v,-6)
+			  ->
+				(?measurement rdf:type weather-dataset:SunNauticalTwilight)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan 0 and lessThan 6 m3:DegreeAngle THEN SolarTwilight
+[SolarTwilight: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,6)
+			  ->
+				(?measurement rdf:type weather-dataset:SolarTwilight)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan -6 and lessThan 0 m3:DegreeAngle THEN SunCivilTwilight
+[SunCivilTwilight: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-6)
+              lessThan(?v,0)
+			  ->
+				(?measurement rdf:type weather-dataset:SunCivilTwilight)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan -18 and lessThan -12 m3:DegreeAngle THEN SunAstronomicalTwilight
+[SunAstronomicalTwilight: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-18)
+              lessThan(?v,-12)
+			  ->
+				(?measurement rdf:type weather-dataset:SunAstronomicalTwilight)
+]
+
+# Rule: IF m3:SunPositionElevation greaterThan 0 and lessThan 90 m3:DegreeAngle THEN SunDay
+[SunDay: 
+              (?measurement rdf:type m3:SunPositionElevation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,90)
+			  ->
+				(?measurement rdf:type weather-dataset:SunDay)
+]
+
+################################################################ CLOUD COVER RULES ######################################################################
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+
+# Rule: IF m3:CloudCover > 9 m3:Okta THEN UnknownCloudCover
+[UnknownCloudCover: 
+              (?measurement rdf:type m3:CloudCover)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,9)
+			  ->
+			  (?measurement rdf:type weather-dataset:UnknownCloudCover)
+]
+
+# Rule: IF m3:CloudCover greaterThan 5 AND lessThan 8 m3:Okta THEN MostlyCloudy
+[MostlyCloudy: 
+              (?measurement rdf:type m3:CloudCover)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,5)
+              lessThan(?v,8)
+			  ->
+				(?measurement rdf:type weather-dataset:MostlyCloudy)
+]
+
+# Rule: IF m3:CloudCover greaterThan 0 AND lessThan 5 m3:Okta THEN PartlyCloudy
+[PartlyCloudy: 
+              (?measurement rdf:type m3:CloudCover)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,5)
+			  ->
+				(?measurement rdf:type weather-dataset:PartlyCloudy)
+]
+
+# Rule: IF m3:CloudCover = 8 m3:Okta THEN Overcast
+[Overcast: 
+              (?measurement rdf:type m3:CloudCover)
+              (?measurement m3:hasValue ?v)
+              equal(?v,8)
+			  ->
+			  (?measurement rdf:type weather-dataset:Overcast)
+]
+
+# Rule: IF m3:CloudCover = 0 m3:Okta THEN NoCloudCover
+[NoCloudCover: 
+              (?measurement rdf:type m3:CloudCover)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)
+			  ->
+			  (?measurement rdf:type weather-dataset:NoCloudCover)
+]
+
+################################################################ HUMIDITY RULES ######################################################################
+
+# Completeness: ok
+# Correctness: conflict resolved, we choose Staroch rules (5 rules)
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+
+# Rule: IF Humidity greaterThan 30 m3:Percent AND lessThan 40 m3:Percent THEN DryHumidity
+[DryHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)
+              lessThan(?v,40)
+			  ->
+				(?measurement rdf:type weather-dataset:DryHumidity)
+]
+ 
+# Rule: IF Humidity greaterThan 40 m3:Percent AND lessThan 70 m3:Percent THEN AverageHumidity
+[AverageHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,40)
+              lessThan(?v,70)
+			  ->
+				(?measurement rdf:type weather-dataset:AverageHumidity)
+]
+
+# Rule: IF Humidity greaterThan 80 m3:Percent THEN VeryMoistHumidity
+[VeryMoistHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,80)
+			  ->
+				(?measurement rdf:type weather-dataset:VeryMoistHumidity)
+]
+
+# Rule: IF Humidity lessThan 30 m3:Percent THEN VeryDryHumidity
+[VeryDryHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,30)
+			  ->
+				(?measurement rdf:type weather-dataset:VeryDryHumidity)
+]
+
+# Rule:  IF Humidity greaterThan 70 m3:Percent AND lessThan 80 m3:Percent THEN MoistHumidity
+[MoistHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,70)
+              lessThan(?v,80)
+			  ->
+				(?measurement rdf:type weather-dataset:MoistHumidity)
+]
+
+################################################################ WIND DIRECTION RULES ######################################################################
+# Completeness: ok
+# Correctness: Staroch rules (5 rules)
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+
+# Rule: IF m3:WindDirection greaterThan 225 m3:DegreeAngle AND lessThan 315 m3:DegreeAngle THEN WestWind
+[WestWind: 
+              (?measurement rdf:type m3:WindDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,225)
+              lessThan(?v,315)
+			  ->
+				(?measurement rdf:type weather-dataset:WestWind)
+]
+
+# Rule: IF m3:WindDirection greaterThan 135 m3:DegreeAngle AND lessThan 225 m3:DegreeAngle THEN SouthWind
+[SouthWind: 
+              (?measurement rdf:type m3:WindDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,135)
+              lessThan(?v,225)
+			  ->
+				(?measurement rdf:type weather-dataset:SouthWind)
+]
+
+# Rule: IF m3:WindDirection greaterThan 45 m3:DegreeAngle AND lessThan 135 m3:DegreeAngle THEN EastWind
+[EastWind: 
+              (?measurement rdf:type m3:WindDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,45)
+              lessThan(?v,135)
+			  ->
+				(?measurement rdf:type weather-dataset:EastWind)
+]
+
+# Rule: IF m3:WindDirection (greaterThan 0 m3:DegreeAngle AND lessThan 45 m3:DegreeAngle) OR (greaterThan 315 m3:DegreeAngle AND lessThan 360 m3:DegreeAngle) THEN NorthWind
+[NorthWind: 
+              (?measurement rdf:type m3:WindDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,45)
+			  ->
+				(?measurement rdf:type weather-dataset:NorthWind)
+]
+
+[NorthWindBis: 
+              (?measurement rdf:type m3:WindDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,315)
+              lessThan(?v,360)
+			  ->
+				(?measurement rdf:type weather-dataset:NorthWind)
+]
+
+################################################################ SUN POSITION DIRECTION RULES ######################################################################
+# Completeness: ok
+# Correctness: Staroch rules (5 rules)
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+
+# Rule: IF m3:SunPositionDirection greaterThan 225 and lessThan 315 m3:DegreeAngle THEN SunFromWest
+[SunFromWest: 
+              (?measurement rdf:type m3:SunPositionDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)
+              lessThan(?v,315)
+			  ->
+				(?measurement rdf:type weather-dataset:SunFromWest)
+]
+
+# Rule: IF m3:SunPositionDirection greaterThan 135 and lessThan 225 m3:DegreeAngle THEN SunFromSouth
+[SunFromSouth: 
+              (?measurement rdf:type m3:SunPositionDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,135)
+              lessThan(?v,225)
+			  ->
+				(?measurement rdf:type weather-dataset:SunFromSouth)
+]
+
+# Rule: IF m3:SunPositionDirection greaterThan 45 and lessThan 135 m3:DegreeAngle THEN SunFromEast
+[SunFromEast: 
+              (?measurement rdf:type m3:SunPositionDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,45)
+              lessThan(?v,135)
+			  ->
+				(?measurement rdf:type weather-dataset:SunFromEast)
+]
+
+# Rule: IF m3:SunPositionDirection (greaterThan 0 and lessThan 45) or (greaterThan 315 and lessThan 360) m3:DegreeAngle THEN SunFromNorth
+[SunFromNorth: 
+              (?measurement rdf:type m3:SunPositionDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,45)
+			  ->
+				(?measurement rdf:type weather-dataset:SunFromNorth)
+]
+
+[SunFromNorthBis: 
+              (?measurement rdf:type m3:SunPositionDirection)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,315)
+              lessThan(?v,360)
+			  ->
+				(?measurement rdf:type weather-dataset:SunFromNorth)
+]
+
+
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# kofler snow rule (temperature <= 0 && precipitation > 0)
+# rule involves two sensors: temperature + precipitation 
+[Snowy: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              le(?v,0)
+              (?measurement2 rdf:type m3:Precipitation)
+              (?measurement2 m3:hasValue ?v2)
+              greaterThan(?v2,0)
+			  -> 
+				(?measurement rdf:type weather-dataset:Snowy)
+				(?measurement2 rdf:type weather-dataset:Snowy)
+]
+
+
+
+################################################################ LUMINOSITY LUX RULES ######################################################################
+
+# See wikipedia - Illuminance Rules - http://en.wikipedia.org/wiki/Lux
+# Other Illuminance Rules http://repairfaq.cis.upenn.edu/sam/icets/basicp.htm
+
+# between 32 000  and 130 000 lux: direct sunlight
+# Bright sunlight > 20,000 Lux
+[SunnyLuminosity: 
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,32000)
+              lessThan(?v,130000)
+			  ->
+			  
+			  (?measurement rdf:type weather-dataset:Sunny)
+]
+
+[Dark: 
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)
+			  ->
+			  
+			  (?measurement rdf:type weather-dataset:Dark)
+]
+
+# Daylight, clear sky 10,000 Lux
+[ClearSky: 
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,9900)
+              ->
+              (?measurement rdf:type naturopathy-dataset:Yellow)
+              (?measurement rdf:type weather-dataset:Sunny)
+]
+
+# Daylight, cloudy sky 5000 Lux
+[CloudySky: 
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,4900)
+              lessThan(?v,5100)
+              ->
+              (?measurement rdf:type naturopathy-dataset:Gray)
+              (?measurement rdf:type weather-dataset:Cloudy)
+]
+
+
+
+################################################################ SEASON RULES ######################################################################
+
+
+
+# to do add reference authors and check, improve rules
+
+[WindSpeedRainy: 
+              (?measurement rdf:type m3:WindSpeed)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,60)
+			  ->
+				(?measurement rdf:type weather-dataset:Windy)
+]
+
+[Frosty: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type weather-dataset:Frosty)
+]
+
+[Cold: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,10)
+               ->
+              (?measurement rdf:type weather-dataset:Cold)
+]
+
+# add proof
+[SunnyTemperature: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25) 
+			  ->
+				(?measurement rdf:type weather-dataset:Sunny)
+]
+
+# add proof
+[WinterTemperature: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,10)
+              ->
+              (?measurement rdf:type naturopathy-dataset:Winter)
+]           
+
+# add proof                    
+[SummerTemperature: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)
+              ->
+              (?measurement rdf:type naturopathy-dataset:Summer)
+]
+
+# add proof        
+[SpringTemperature: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,25)
+              greaterThan(?v,15)
+              ->
+              (?measurement rdf:type naturopathy-dataset:Spring) 
+]          

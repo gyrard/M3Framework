@@ -1,0 +1,2521 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protont "http://proton.semanticweb.org/2005/04/protont#" >
+    <!ENTITY protonu "http://proton.semanticweb.org/2005/04/protonu#" >
+    <!ENTITY protons "http://proton.semanticweb.org/2005/04/protons#" >
+    <!ENTITY geographydataset "http://fusion.cs.uni-jena.de/geographydataset.owl#" >
+    <!ENTITY Text "http://fusion.cs.uni-jena.de/geographydataset.owl#Text/" >
+]>
+
+
+<rdf:RDF xmlns="http://fusion.cs.uni-jena.de/geographydataset.owl#"
+     xml:base="http://fusion.cs.uni-jena.de/geographydataset.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Text="&geographydataset;Text/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:protons="http://proton.semanticweb.org/2005/04/protons#"
+     xmlns:geographydataset="http://fusion.cs.uni-jena.de/geographydataset.owl#"
+     xmlns:protonu="http://proton.semanticweb.org/2005/04/protonu#"
+     xmlns:protont="http://proton.semanticweb.org/2005/04/protont#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment
+            >An example ontology for the Jena Geography Dataset by University Jena.</rdfs:comment>
+        <owl:imports rdf:resource="http://proton.semanticweb.org/2005/04/protonu"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#adjacentTo -->
+
+    <owl:ObjectProperty rdf:about="#adjacentTo">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:comment
+            >A location is adjacent to another location, i.e. they share a border.</rdfs:comment>
+        <rdfs:range rdf:resource="&protont;Location"/>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#belongsToTimeZone -->
+
+    <owl:ObjectProperty rdf:about="#belongsToTimeZone">
+        <rdfs:comment
+            >Denoting that a location belongs to a time zone. A location may belong to multiple time zones, like the USA.</rdfs:comment>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+        <rdfs:subPropertyOf rdf:resource="&protont;locatedIn"/>
+        <rdfs:range rdf:resource="&protonu;TimeZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#describes -->
+
+    <owl:ObjectProperty rdf:about="#describes">
+        <rdfs:comment
+            >An statement describes an entity or holds information about an entity.</rdfs:comment>
+        <rdfs:range rdf:resource="&protons;Entity"/>
+        <rdfs:domain rdf:resource="&protont;Statement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#endsWithString -->
+
+    <owl:ObjectProperty rdf:about="#endsWithString">
+        <rdfs:subPropertyOf rdf:resource="#substring"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#equalMeasure -->
+
+    <owl:ObjectProperty rdf:about="#equalMeasure">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:comment
+            >Used to express that two measures are equal, e.g. 32&#176; Fahrenheit and 0&#176; Celsius.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Measure"/>
+        <rdfs:range rdf:resource="#Measure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasAltitude -->
+
+    <owl:ObjectProperty rdf:about="#hasAltitude">
+        <rdfs:range rdf:resource="#LengthMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="#quantifiedBy"/>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasArea -->
+
+    <owl:ObjectProperty rdf:about="#hasArea">
+        <rdfs:range rdf:resource="#AreaMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="#quantifiedBy"/>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasAverageTemperature -->
+
+    <owl:ObjectProperty rdf:about="#hasAverageTemperature">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <dc:title
+            >denotes the average temperature of a location</dc:title>
+        <rdfs:range rdf:resource="#TemperatureMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="#quantifiedBy"/>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasClimate -->
+
+    <owl:ObjectProperty rdf:about="#hasClimate">
+        <rdfs:range rdf:resource="#ClimateData"/>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasColor -->
+
+    <owl:ObjectProperty rdf:about="#hasColor">
+        <rdfs:range rdf:resource="#Color"/>
+        <rdfs:domain rdf:resource="&protont;Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasFileType -->
+
+    <owl:ObjectProperty rdf:about="#hasFileType">
+        <rdfs:domain rdf:resource="#DigitalFile"/>
+        <rdfs:range rdf:resource="#DigitalFileType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="#hasLocation">
+        <rdfs:range rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasMeasurementUnit -->
+
+    <owl:ObjectProperty rdf:about="#hasMeasurementUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Measure"/>
+        <rdfs:range rdf:resource="#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasMidPoint -->
+
+    <owl:ObjectProperty rdf:about="#hasMidPoint">
+        <rdfs:comment
+            >Something is the center or midpoint of something else.</rdfs:comment>
+        <owl:inverseOf rdf:resource="#isMidPointOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasNumberCode -->
+
+    <owl:ObjectProperty rdf:about="#hasNumberCode">
+        <dc:title
+            >associates an object with a number or code, that may or may not be used to identify that object (e.g. US state codes, social security numbers, license plates, ...)</dc:title>
+        <rdfs:range rdf:resource="#Code"/>
+        <owl:inverseOf rdf:resource="#identifiesObject"/>
+        <rdfs:domain rdf:resource="&protons;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasObjectValue -->
+
+    <owl:ObjectProperty rdf:about="#hasObjectValue">
+        <dc:title
+            >A generic has Object value property</dc:title>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasPhoneCode -->
+
+    <owl:ObjectProperty rdf:about="#hasPhoneCode">
+        <rdfs:range rdf:resource="#PhoneCode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasPopulation -->
+
+    <owl:ObjectProperty rdf:about="#hasPopulation">
+        <rdfs:range rdf:resource="#Population"/>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#identifiesLocation -->
+
+    <owl:ObjectProperty rdf:about="#identifiesLocation">
+        <rdfs:range rdf:resource="&protont;Location"/>
+        <rdfs:domain rdf:resource="&protonu;Address"/>
+        <owl:inverseOf rdf:resource="&protonu;hasAddress"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#identifiesObject -->
+
+    <owl:ObjectProperty rdf:about="#identifiesObject">
+        <dc:title
+            >Links a number or code to the object that is identified by or associated with this code (e.g. US states and state codes, persons and social security numbers, cars and license plates, ...). This property is not required to guarantee a unique identification in the sense of a key.</dc:title>
+        <rdfs:domain rdf:resource="#Code"/>
+        <rdfs:range rdf:resource="&protons;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#isMidPointOf -->
+
+    <owl:ObjectProperty rdf:about="#isMidPointOf">
+        <rdfs:comment
+            >Something is in the middle or center of something else.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&protont;locatedIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#isRepresentedBy -->
+
+    <owl:ObjectProperty rdf:about="#isRepresentedBy">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#InformationRepresentation"/>
+        <owl:inverseOf rdf:resource="#representsInformation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#issuedBy -->
+
+    <owl:ObjectProperty rdf:about="#issuedBy">
+        <rdfs:comment
+            >Links a number code to the organization or agent that issued the code or the database that is stems from (e.g. the US Postal Service ist linked to US Zip Codes via this property)</rdfs:comment>
+        <rdfs:domain rdf:resource="#Code"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&protont;Agent"/>
+                    <rdf:Description rdf:about="&protonu;Dataset"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#northwestCorner -->
+
+    <owl:ObjectProperty rdf:about="#northwestCorner">
+        <rdfs:comment
+            >The northwest corner of a geographic area</rdfs:comment>
+        <rdfs:domain rdf:resource="#GeographicArea"/>
+        <rdfs:range rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#offSetEast -->
+
+    <owl:ObjectProperty rdf:about="#offSetEast">
+        <rdfs:comment
+            >Allows to specify an offset for a map, i.e. a length measure for how far to move the centre of a map to the east (positive) or west (negative).</rdfs:comment>
+        <rdfs:domain rdf:resource="#Map"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#offSetNorth -->
+
+    <owl:ObjectProperty rdf:about="#offSetNorth">
+        <rdfs:comment
+            >Allows to specify an offset for a map, i.e. a length measure for how far to move the centre of a map to the north (positive) or south (negative).</rdfs:comment>
+        <rdfs:domain rdf:resource="#Map"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#quantifiedBy -->
+
+    <owl:ObjectProperty rdf:about="#quantifiedBy">
+        <rdfs:comment
+            >Two entities are related with respect to some quantifications, i.e. one entitiy or a property of an entity is quantified by another entity.</rdfs:comment>
+        <rdfs:range rdf:resource="#Measure"/>
+        <owl:inverseOf rdf:resource="#quantifies"/>
+        <rdfs:domain rdf:resource="&protons;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#quantifies -->
+
+    <owl:ObjectProperty rdf:about="#quantifies">
+        <dc:title
+            >Two entities are related with respect to some quantifications, i.e. one entitiy quantifies another entity.</dc:title>
+        <rdfs:domain rdf:resource="#Measure"/>
+        <rdfs:range rdf:resource="&protons;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#representsInformation -->
+
+    <owl:ObjectProperty rdf:about="#representsInformation">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment
+            >Links an instance of class InformationRepresentation to the entity, thing, information, etc. that it represents.</rdfs:comment>
+        <rdfs:domain rdf:resource="#InformationRepresentation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#similarTo -->
+
+    <owl:ObjectProperty rdf:about="#similarTo">
+        <rdfs:comment
+            >A generic similar to relation.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#southeastCorner -->
+
+    <owl:ObjectProperty rdf:about="#southeastCorner">
+        <dc:title
+            >The southeast corner of a geographic area</dc:title>
+        <rdfs:domain rdf:resource="#GeographicArea"/>
+        <rdfs:range rdf:resource="&protont;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#startsWithString -->
+
+    <owl:ObjectProperty rdf:about="#startsWithString">
+        <rdfs:subPropertyOf rdf:resource="#substring"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#substring -->
+
+    <owl:ObjectProperty rdf:about="#substring">
+        <rdfs:domain rdf:resource="#Text"/>
+        <rdfs:range rdf:resource="#Text"/>
+        <rdfs:subPropertyOf rdf:resource="&protont;partOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#traverses -->
+
+    <owl:ObjectProperty rdf:about="#traverses">
+        <rdfs:domain rdf:resource="#Route"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#OrderedListOfLocations"/>
+                    <rdf:Description rdf:about="&protont;Location"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#uses -->
+
+    <owl:ObjectProperty rdf:about="#uses">
+        <rdfs:comment
+            >Something uses another thing.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="&protont;locatedIn"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#partOf -->
+
+    <owl:ObjectProperty rdf:about="&protont;partOf"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#subRegionOf -->
+
+    <owl:ObjectProperty rdf:about="&protont;subRegionOf"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#hasAddress -->
+
+    <owl:ObjectProperty rdf:about="&protonu;hasAddress"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#daylightSavingTime -->
+
+    <owl:DatatypeProperty rdf:about="#daylightSavingTime">
+        <rdfs:comment
+            >Specifies whether a location uses daylight saving time or not respectively whether a given time interval is specified with daylight saving time or not.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&protont;Location"/>
+                    <rdf:Description rdf:about="&protont;TimeInterval"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#gMTOffset -->
+
+    <owl:DatatypeProperty rdf:about="#gMTOffset">
+        <rdfs:comment
+            >The offset of a time zone as compared to GMT.</rdfs:comment>
+        <rdfs:domain rdf:resource="&protonu;TimeZone"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasDataValue">
+        <rdfs:comment
+            >A generic has a value property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#houseNumber -->
+
+    <owl:DatatypeProperty rdf:about="#houseNumber">
+        <rdfs:comment
+            >Allows to specify the house number of an address. Note that an address can be linked to locations (city, state, country, street) via the hasLocation property and to a zip code via the hasNumberCode property.</rdfs:comment>
+        <rdfs:domain rdf:resource="&protonu;Address"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#imageScale -->
+
+    <owl:DatatypeProperty rdf:about="#imageScale">
+        <rdfs:comment
+            >The scale, i.e. factor of magnification or minimization of an image of something.</rdfs:comment>
+        <rdfs:domain rdf:resource="#GraphicalInformationRepresentation"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#linewidth -->
+
+    <owl:DatatypeProperty rdf:about="#linewidth">
+        <rdfs:domain rdf:resource="#GeometricFigureInformationRepresentation"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#localTime -->
+
+    <owl:DatatypeProperty rdf:about="#localTime">
+        <rdfs:comment
+            >Allows to specify the current local time of a location.</rdfs:comment>
+        <rdfs:domain rdf:resource="&protont;Location"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#transparency -->
+
+    <owl:DatatypeProperty rdf:about="#transparency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment
+            >the quality of being opaque to a degree; the degree to which something reduces the passage of light as a value between 0 (full transparency) and 100 (full opaqueness).</rdfs:comment>
+        <rdfs:domain rdf:resource="&protons;Entity"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#travelTime -->
+
+    <owl:DatatypeProperty rdf:about="#travelTime">
+        <rdfs:comment
+            >The time to travel a route</rdfs:comment>
+        <rdfs:domain rdf:resource="#Route"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#xResolution -->
+
+    <owl:DatatypeProperty rdf:about="#xResolution">
+        <rdfs:domain rdf:resource="#DigitalImage"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#yResolution -->
+
+    <owl:DatatypeProperty rdf:about="#yResolution">
+        <rdfs:domain rdf:resource="#DigitalImage"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ATM -->
+
+    <owl:Class rdf:about="#ATM">
+        <rdfs:subClassOf rdf:resource="#Machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AbstractInformationRepresentation -->
+
+    <owl:Class rdf:about="#AbstractInformationRepresentation">
+        <rdfs:subClassOf rdf:resource="#InformationRepresentation"/>
+        <rdfs:comment
+            >A logical, abstract view on information representation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AccuracyMeasure -->
+
+    <owl:Class rdf:about="#AccuracyMeasure">
+        <rdfs:subClassOf rdf:resource="#Measure"/>
+        <rdfs:comment
+            >Any measure used to quantify an accuracy or precision.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AdministrativeDivision -->
+
+    <owl:Class rdf:about="#AdministrativeDivision">
+        <rdfs:subClassOf rdf:resource="#Categorization"/>
+        <rdfs:comment
+            >All categorization that are administrative divisions like city, district, province, state, nation, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AerialMap -->
+
+    <owl:Class rdf:about="#AerialMap">
+        <rdfs:subClassOf rdf:resource="#Map"/>
+        <rdfs:comment
+            >A map based on aerial or satellite photos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AirportCode -->
+
+    <owl:Class rdf:about="#AirportCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An international code identifying an airport</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Algorithm -->
+
+    <owl:Class rdf:about="#Algorithm">
+        <rdfs:subClassOf rdf:resource="#ScientificAbstraction"/>
+        <rdfs:comment
+            >Any algorithm or methodology that solves a specific task (e.g. a computation).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AltitudeAboveSeaLevel -->
+
+    <owl:Class rdf:about="#AltitudeAboveSeaLevel">
+        <rdfs:subClassOf rdf:resource="#GeographicAbstraction"/>
+        <rdfs:subClassOf rdf:resource="#LengthMeasure"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The notion of altitude (e.g. of a mountain above sea level)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Angle -->
+
+    <owl:Class rdf:about="#Angle">
+        <rdfs:subClassOf rdf:resource="#GeometricAbstraction"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >the space between two lines or planes that intersect; the inclination of one line to another; measured in degrees or radians</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AngleMeasure -->
+
+    <owl:Class rdf:about="#AngleMeasure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#UnitMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:onClass rdf:resource="#AngleUnit"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataValue"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A measure quantifying an angle, a number and an associated AngleUnit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AngleUnit -->
+
+    <owl:Class rdf:about="#AngleUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A unit to measure an angle (like degrees, radians, etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AreaMeasure -->
+
+    <owl:Class rdf:about="#AreaMeasure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#UnitMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:onClass rdf:resource="#AreaUnit"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataValue"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A measure quantifying an area, a number and an associated AreaUnit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AreaUnit -->
+
+    <owl:Class rdf:about="#AreaUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A unit to quantify an area, like square metre, acre, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Bearing -->
+
+    <owl:Class rdf:about="#Bearing">
+        <rdfs:subClassOf rdf:resource="#Angle"/>
+        <rdfs:subClassOf rdf:resource="#GeographicAbstraction"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The interpretation of an angle for geographic and navigational purposes. North corresponds to 0&#176;, east to 90&#176;, south to 180&#176;, and west to 270&#176;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#CanadianPostalCode -->
+
+    <owl:Class rdf:about="#CanadianPostalCode">
+        <rdfs:subClassOf rdf:resource="#PostalCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Categorization -->
+
+    <owl:Class rdf:about="#Categorization">
+        <rdfs:subClassOf rdf:resource="&protont;Abstract"/>
+        <rdfs:comment
+            >A categorization like mammal or carnivore. Instances of this class are not instances of the category. Elephant is not an instance of this class, Mammal is. I.e. this class contains concepts that are used for categorization and thus as the semantic base for classes. The concept mammal is used as the semantic base for the class mammal that collect all individuals that are mammals. The class mammal represents the collection of individuals whereas the concept mammal represents an abstract idea of a particular type of animal with certain features.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#CensusData -->
+
+    <owl:Class rdf:about="#CensusData">
+        <rdfs:subClassOf rdf:resource="#StatisticalData"/>
+        <rdfs:comment
+            >Census data for some location.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Circle -->
+
+    <owl:Class rdf:about="#Circle">
+        <rdfs:subClassOf rdf:resource="#GeometricFigure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#CircularGeographicArea -->
+
+    <owl:Class rdf:about="#CircularGeographicArea">
+        <rdfs:subClassOf rdf:resource="#GeographicArea"/>
+        <dc:date
+            >Geographic areas defined by a center and a radius.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ClimateData -->
+
+    <owl:Class rdf:about="#ClimateData">
+        <rdfs:subClassOf rdf:resource="#StatisticalData"/>
+        <rdfs:comment
+            >Data about the climate of some location.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Code -->
+
+    <owl:Class rdf:about="#Code">
+        <rdfs:subClassOf rdf:resource="&protont;Number"/>
+        <rdfs:comment
+            >Any number used to identify something</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Color -->
+
+    <owl:Class rdf:about="#Color">
+        <rdfs:subClassOf rdf:resource="&protonu;NaturalPhenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Computer -->
+
+    <owl:Class rdf:about="#Computer">
+        <rdfs:subClassOf rdf:resource="#Machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#CongressionalDistrict -->
+
+    <owl:Class rdf:about="#CongressionalDistrict">
+        <rdfs:subClassOf rdf:resource="#ElectorialRegion"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >a territorial division of a state or country; entitled to elect one (or more) member to a national parliament (e.g. the US house of representatives)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Coordinate -->
+
+    <owl:Class rdf:about="#Coordinate">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <dc:date
+            >Coordinates may refer to geographic coordinates, but also to coordinates in some other reference grid, like pixel coordinates in digital images.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#CountryCallingPhoneCode -->
+
+    <owl:Class rdf:about="#CountryCallingPhoneCode">
+        <rdfs:subClassOf rdf:resource="#PhoneCode"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An international code prefexing phone numbers in a specific country defined by ITU-T recommendation E.164.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DepthUnderSurfaceMeasure -->
+
+    <owl:Class rdf:about="#DepthUnderSurfaceMeasure">
+        <rdfs:subClassOf rdf:resource="#LengthMeasure"/>
+        <rdfs:comment
+            >Measuring the depth under surface, e.g. of a mine, a fault, an earthquake, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Diagram -->
+
+    <owl:Class rdf:about="#Diagram">
+        <rdfs:subClassOf rdf:resource="#GraphicalInformationRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DigitalFile -->
+
+    <owl:Class rdf:about="#DigitalFile">
+        <rdfs:subClassOf rdf:resource="#DigitalInformationRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DigitalFileType -->
+
+    <owl:Class rdf:about="#DigitalFileType">
+        <rdfs:subClassOf rdf:resource="#InformationEncoding"/>
+        <rdfs:comment
+            >A way of internally representing and encoding digital information (PNG, DOC, JPG, ...).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DigitalImage -->
+
+    <owl:Class rdf:about="#DigitalImage">
+        <rdfs:subClassOf rdf:resource="#DigitalFile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DigitalInformationRepresentation -->
+
+    <owl:Class rdf:about="#DigitalInformationRepresentation">
+        <rdfs:subClassOf rdf:resource="#InformationRepresentation"/>
+        <rdfs:comment
+            >Any information representation based in digital computer based representation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DigitalRepresentationFormat -->
+
+    <owl:Class rdf:about="#DigitalRepresentationFormat">
+        <rdfs:subClassOf rdf:resource="#InformationEncoding"/>
+        <rdfs:comment
+            >Any formats like XML, HTML, JSON, Plain Text</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DigitalTextFile -->
+
+    <owl:Class rdf:about="#DigitalTextFile">
+        <rdfs:subClassOf rdf:resource="#DigitalFile"/>
+        <rdfs:subClassOf rdf:resource="#TextFile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Directions -->
+
+    <owl:Class rdf:about="#Directions">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&protont;InformationResource"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#describes"/>
+                        <owl:someValuesFrom rdf:resource="#Route"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Any information that holds instructions, directions, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DrivingDirections -->
+
+    <owl:Class rdf:about="#DrivingDirections">
+        <rdfs:subClassOf rdf:resource="#Directions"/>
+        <dc:date
+            >Directions to navigate a route meant for motorized travel.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Earthquake -->
+
+    <owl:Class rdf:about="#Earthquake">
+        <rdfs:subClassOf rdf:resource="#NaturalEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ElectorialRegion -->
+
+    <owl:Class rdf:about="#ElectorialRegion">
+        <rdfs:subClassOf rdf:resource="&protonu;PoliticalRegion"/>
+        <rdfs:comment
+            >A region that identifes a district that elects a representative to a political body like parliament or town council. Please note that such districts often but not always coincide with districts used for political organization (like city or county boundaries).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#FIPSCode -->
+
+    <owl:Class rdf:about="#FIPSCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment
+            >Federal information processing standards codes (FIPS codes) are a standardized set of numeric or alphabetic codes issued by the National Institute of Standards and Technology (NIST) to ensure uniform identification of geographic entities through all federal government agencies. The entities covered include: states and statistically equivalent entities, counties and statistically equivalent entities, named populated and related location entities (such as, places and county subdivisions), and American Indian and Alaska Native areas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicAbstraction -->
+
+    <owl:Class rdf:about="#GeographicAbstraction">
+        <rdfs:subClassOf rdf:resource="&protont;Abstract"/>
+        <rdfs:comment
+            >Any sort of abstraction used to refer to geographic items. Concrete geographic objects (e.g. Germany) are not member of this class. Abstractions like the distance between two locations are member of this class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicArea -->
+
+    <owl:Class rdf:about="#GeographicArea">
+        <rdfs:subClassOf rdf:resource="&protont;Location"/>
+        <rdfs:comment
+            >An area that has an extent on the surface of the globe (or some other planet). It is defined by some shape and a set of coordinates. In the simplest case a rectangle identified by two locations (northwest and southeast corner).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicCoordinate -->
+
+    <owl:Class rdf:about="#GeographicCoordinate">
+        <rdfs:subClassOf rdf:resource="#Coordinate"/>
+        <rdfs:subClassOf rdf:resource="&protont;Location"/>
+        <rdfs:comment
+            >A geographic coordinate identifying a point in space according to some reference system (e.g. wgs84). Note that the same coordinate specified with respect to the same reference system may have different representations, i.e. decimal or degree-based.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicCoordinateSystem -->
+
+    <owl:Class rdf:about="#GeographicCoordinateSystem">
+        <rdfs:subClassOf rdf:resource="#GeographicAbstraction"/>
+        <rdfs:comment
+            >A geographic coordinate system enables every location on the Earth to be specified in three coordinates, using mainly a spherical coordinate system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicDataSource -->
+
+    <owl:Class rdf:about="#GeographicDataSource">
+        <rdfs:subClassOf rdf:resource="&protons;Trusted"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicDistance -->
+
+    <owl:Class rdf:about="#GeographicDistance">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#LengthMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasLocation"/>
+                        <owl:onClass rdf:resource="&protont;Location"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#GeographicAbstraction"/>
+        <rdfs:comment
+            >Instances of this class denote the distance between two locations. This class concerns the abstract concept of distance between two locations, as opposed to Route which concerns the concrete routes linking two locations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeographicDivision -->
+
+    <owl:Class rdf:about="#GeographicDivision">
+        <rdfs:subClassOf rdf:resource="#Categorization"/>
+        <rdfs:comment
+            >All categorizations based on geographic features (e.g. continent, island, ocean, etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeometricAbstraction -->
+
+    <owl:Class rdf:about="#GeometricAbstraction">
+        <rdfs:subClassOf rdf:resource="&protont;Abstract"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeometricFigure -->
+
+    <owl:Class rdf:about="#GeometricFigure">
+        <rdfs:subClassOf rdf:resource="#GeometricAbstraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GeometricFigureInformationRepresentation -->
+
+    <owl:Class rdf:about="#GeometricFigureInformationRepresentation">
+        <rdfs:subClassOf rdf:resource="#GraphicalInformationRepresentation"/>
+        <rdfs:comment
+            >A visual representation of a geometric figure, like a circle. Useful to seperate inherent concepts of a circle (like the radius) from visual aspects (like the color or line thickness) of its representation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GraphicalInformationRepresentation -->
+
+    <owl:Class rdf:about="#GraphicalInformationRepresentation">
+        <rdfs:subClassOf rdf:resource="#InformationRepresentation"/>
+        <rdfs:comment
+            >Any graphical representation of information, like maps, diagrams, ...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Highway -->
+
+    <owl:Class rdf:about="#Highway">
+        <rdfs:subClassOf rdf:resource="&protonu;Roadway"/>
+        <rdfs:comment
+            >A major road designed for fast motorized travel.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#IATAAirportCode -->
+
+    <owl:Class rdf:about="#IATAAirportCode">
+        <rdfs:subClassOf rdf:resource="#AirportCode"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A three character IATA (International Air Transport Association) airport code.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ICAOAirportCode -->
+
+    <owl:Class rdf:about="#ICAOAirportCode">
+        <rdfs:subClassOf rdf:resource="#AirportCode"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A four character ICAO (International Civil Aviation Organization) airport code</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ISOCountryCode -->
+
+    <owl:Class rdf:about="#ISOCountryCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment
+            >A two character ISO code identifying countries</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ISOCurrencyCode -->
+
+    <owl:Class rdf:about="#ISOCurrencyCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A three letter code identifying a currency according to ISO 4217.
+
+ISO 4217 is the international standard describing three-letter codes (also known as the currency code) to define the names of currencies established by the International Organization for Standardization (ISO). The ISO 4217 code list is the established norm in banking and business all over the world for defining different currencies, and in many countries the codes for the more common currencies are so well known publicly, that exchange rates published in newspapers or posted in banks use only these to define the different currencies, instead of translated currency names or ambiguous currency symbols. ISO 4217 codes are used on airline tickets and international train tickets to remove any ambiguity about the price.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Icon -->
+
+    <owl:Class rdf:about="#Icon">
+        <rdfs:subClassOf rdf:resource="#Image"/>
+        <rdfs:comment
+            >Usually a small and schematic image used to mark something.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Image -->
+
+    <owl:Class rdf:about="#Image">
+        <rdfs:subClassOf rdf:resource="#GraphicalInformationRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Index -->
+
+    <owl:Class rdf:about="#Index">
+        <rdfs:subClassOf rdf:resource="#Code"/>
+        <rdfs:comment
+            >The index of an item in a sequence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#InformationEncoding -->
+
+    <owl:Class rdf:about="#InformationEncoding">
+        <rdfs:subClassOf rdf:resource="&protont;Object"/>
+        <rdfs:comment
+            >Any type of information encoding and representation format (the format, not the representation itself). Examples: HTML, JSON, XML, ASCII,</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#InformationRepresentation -->
+
+    <owl:Class rdf:about="#InformationRepresentation">
+        <rdfs:subClassOf rdf:resource="&protont;Object"/>
+        <rdfs:comment
+            >A representation of some form of information, like a file, an image, a book etc. Note that this class concerns only the representation aspect, but not the information itself which is captured by the class Statement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Intersection -->
+
+    <owl:Class rdf:about="#Intersection">
+        <rdfs:subClassOf rdf:resource="&protonu;Roadway"/>
+        <rdfs:comment
+            >An intersection of two (or more) streets.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#KoreanPostalCode -->
+
+    <owl:Class rdf:about="#KoreanPostalCode">
+        <rdfs:subClassOf rdf:resource="#PostalCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#LengthMeasure -->
+
+    <owl:Class rdf:about="#LengthMeasure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#UnitMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:onClass rdf:resource="#LengthUnit"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataValue"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Any measure denoting a length, identified by a number and a unit (e.g. 5 cm, 200 miles).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#LengthUnit -->
+
+    <owl:Class rdf:about="#LengthUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Line -->
+
+    <owl:Class rdf:about="#Line">
+        <rdfs:subClassOf rdf:resource="#Polyline"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Machine -->
+
+    <owl:Class rdf:about="#Machine">
+        <rdfs:subClassOf rdf:resource="&protont;Object"/>
+        <rdfs:comment
+            >All engineered and human built machines.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Mainland -->
+
+    <owl:Class rdf:about="#Mainland">
+        <rdfs:subClassOf rdf:resource="&protonu;LandRegion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&protont;subRegionOf"/>
+                <owl:someValuesFrom rdf:resource="&protonu;Continent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >A region of land that is part of a continent, i.e. does not include islands.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#MajorIntersection -->
+
+    <owl:Class rdf:about="#MajorIntersection">
+        <rdfs:subClassOf rdf:resource="#Intersection"/>
+        <dc:date
+            >An intersection of two major roads, e.g. roads linking cities.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Map -->
+
+    <owl:Class rdf:about="#Map">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#GraphicalInformationRepresentation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#representsInformation"/>
+                        <owl:someValuesFrom rdf:resource="&protont;Location"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Any instance of map, i.e. graphical representation of a location.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Measure -->
+
+    <owl:Class rdf:about="#Measure">
+        <rdfs:subClassOf rdf:resource="&protont;Number"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Any number/measure used to quantify something.
+Typically either a number in conjunction with a unit (2 hours, 70 km, 1 Ghz) or an instance from an enumerated scale (e.g. severity, one of severe, high, medium, low, unknown).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#MimeTypeDigitalRepresentationFormat -->
+
+    <owl:Class rdf:about="#MimeTypeDigitalRepresentationFormat">
+        <rdfs:subClassOf rdf:resource="#DigitalRepresentationFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Motorway -->
+
+    <owl:Class rdf:about="#Motorway">
+        <rdfs:subClassOf rdf:resource="&protonu;Roadway"/>
+        <rdfs:comment
+            >An intersection free road designed and built for fast motorized traffic (e.g. US interstates, German Autobahnen)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#NAICSCode -->
+
+    <owl:Class rdf:about="#NAICSCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <dc:date
+            >The North American Industry Classification System (NAICS) is the standard used by US Federal statistical agencies in classifying business establishments for the purpose of collecting, analyzing, and publishing statistical data related to the U.S. business economy.
+
+http://www.census.gov/epcd/naics02/naicod02.htm</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#NaturalEvent -->
+
+    <owl:Class rdf:about="#NaturalEvent">
+        <rdfs:subClassOf rdf:resource="&protont;Event"/>
+        <rdfs:comment
+            >All sorts of natural, possibly reocurring, events. Tides, sunrise and sunset, annual floodings of a river, natural disasters, ...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#NauticalTimeZoneSuffix -->
+
+    <owl:Class rdf:about="#NauticalTimeZoneSuffix">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment
+            >About 1950, a letter suffix was added to the time zone descriptions, assigning Z to the zero zone, and A&#8211;M (except J) to the east and N&#8211;Y to the west (J may be assigned to local time in non-nautical applications; zones M and Y have the same clock time but differ by 24 hours: a full day). These were to be vocalized using a phonetic alphabet which included Zulu for GMT, leading sometimes to the use of the term &quot;Zulu Time&quot;. The Greenwich time zone runs from 7.5&#176;W to 7.5&#176;E Longitude, while zone A runs from 7.5&#176;E to 22.5&#176;E Longitude, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ObservationFacility -->
+
+    <owl:Class rdf:about="#ObservationFacility">
+        <rdfs:subClassOf rdf:resource="&protonu;Facility"/>
+        <rdfs:comment
+            >A facility used to observe and monitor something</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ObservedChange -->
+
+    <owl:Class rdf:about="#ObservedChange">
+        <rdfs:subClassOf rdf:resource="&protont;Event"/>
+        <rdfs:comment
+            >An observed change of a condition of interest within a specified period of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#OrderedListOfEntities -->
+
+    <owl:Class rdf:about="#OrderedListOfEntities">
+        <rdfs:subClassOf rdf:resource="#AbstractInformationRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#OrderedListOfLocations -->
+
+    <owl:Class rdf:about="#OrderedListOfLocations">
+        <rdfs:subClassOf rdf:resource="#OrderedListOfEntities"/>
+        <rdfs:comment
+            >This is a temporary workaround to represent an ordered list of locations. A proper formalization would probably require to model a list in a LISP-like style.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#PhoneCode -->
+
+    <owl:Class rdf:about="#PhoneCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The phone code associated with a region, a city, an association, ...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Point -->
+
+    <owl:Class rdf:about="#Point">
+        <rdfs:subClassOf rdf:resource="#GeometricFigure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Polygone -->
+
+    <owl:Class rdf:about="#Polygone">
+        <rdfs:subClassOf rdf:resource="#GeometricFigure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Polyline -->
+
+    <owl:Class rdf:about="#Polyline">
+        <rdfs:subClassOf rdf:resource="#GeometricFigure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Population -->
+
+    <owl:Class rdf:about="#Population">
+        <rdfs:subClassOf rdf:resource="&protont;Group"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The population, usually of a certain location, like a city or a country.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#PostalCode -->
+
+    <owl:Class rdf:about="#PostalCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <rdfs:comment
+            >A post code / zip code used for the distribution of mail and as part of postal addresses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ProbabilityMeasure -->
+
+    <owl:Class rdf:about="#ProbabilityMeasure">
+        <rdfs:subClassOf rdf:resource="#Measure"/>
+        <rdfs:comment
+            >A measure used to quantify a probability or certainty in percent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#PublicTransportationDirections -->
+
+    <owl:Class rdf:about="#PublicTransportationDirections">
+        <rdfs:subClassOf rdf:resource="#Directions"/>
+        <rdfs:comment
+            >Directions relying on public transportation and (to some extent) walking, to travel from one location to another location.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RSSFeed -->
+
+    <owl:Class rdf:about="#RSSFeed">
+        <rdfs:subClassOf rdf:resource="&protonu;Dataset"/>
+        <rdfs:comment
+            >A dataset in the form of an RSS feed.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Rectangle -->
+
+    <owl:Class rdf:about="#Rectangle">
+        <rdfs:subClassOf rdf:resource="#Polygone"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RectangularGeographicArea -->
+
+    <owl:Class rdf:about="#RectangularGeographicArea">
+        <rdfs:subClassOf rdf:resource="#GeographicArea"/>
+        <rdfs:comment
+            >A rectangular geographic area identified by its northwest and southeast corner.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RichterMagnitudeMeasure -->
+
+    <owl:Class rdf:about="#RichterMagnitudeMeasure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#UnitMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:hasValue rdf:resource="#RichterMagnitudeUnit"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataValue"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <dc:date
+            >A measure to quantify the magnitude of or seismic energy released by an earthquake</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Route -->
+
+    <owl:Class rdf:about="#Route">
+        <rdfs:subClassOf rdf:resource="&protont;Location"/>
+        <rdfs:comment
+            >The concepts of geographic routes, i.e. the connection of several locations for the purpose of traveling from one location to another. The length of a route can be specified by using the hasMeasure property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RouteMap -->
+
+    <owl:Class rdf:about="#RouteMap">
+        <rdfs:subClassOf rdf:resource="#Map"/>
+        <rdfs:comment
+            >A map displaying one or multiple routes (driving route, bird migration routes, historical routes, ...)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Runway -->
+
+    <owl:Class rdf:about="#Runway">
+        <rdfs:subClassOf rdf:resource="&protonu;TransportFacility"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A runway of an airport</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#SchematicMap -->
+
+    <owl:Class rdf:about="#SchematicMap">
+        <rdfs:subClassOf rdf:resource="#Map"/>
+        <rdfs:comment
+            >A map which abstracts from certain features to focus on some features, e.g. a road map.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ScientificAbstraction -->
+
+    <owl:Class rdf:about="#ScientificAbstraction">
+        <rdfs:subClassOf rdf:resource="&protont;Abstract"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Square -->
+
+    <owl:Class rdf:about="#Square">
+        <rdfs:subClassOf rdf:resource="#Rectangle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#StateCode -->
+
+    <owl:Class rdf:about="#StateCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <dc:date
+            >Any code to identify a state/province within a country/nation.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#StatisticalData -->
+
+    <owl:Class rdf:about="#StatisticalData">
+        <rdfs:subClassOf rdf:resource="&protont;InformationResource"/>
+        <rdfs:comment
+            >All sorts of statistic data</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Sunrise -->
+
+    <owl:Class rdf:about="#Sunrise">
+        <rdfs:subClassOf rdf:resource="#NaturalEvent"/>
+        <rdfs:subClassOf rdf:resource="&protont;TimeInterval"/>
+        <rdfs:subClassOf rdf:resource="&protonu;NaturalPhenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Sunset -->
+
+    <owl:Class rdf:about="#Sunset">
+        <rdfs:subClassOf rdf:resource="#NaturalEvent"/>
+        <rdfs:subClassOf rdf:resource="&protont;TimeInterval"/>
+        <rdfs:subClassOf rdf:resource="&protonu;NaturalPhenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TemperatureMeasure -->
+
+    <owl:Class rdf:about="#TemperatureMeasure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#UnitMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:onClass rdf:resource="#TemperatureUnit"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataValue"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A measure quantifying an area, a number and an associated AreaUnit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TemperatureUnit -->
+
+    <owl:Class rdf:about="#TemperatureUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A unit to quantify a temperature, like celsius, kelvin, fahrenheit, ...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Text -->
+
+    <owl:Class rdf:about="#Text">
+        <rdfs:subClassOf rdf:resource="#TextualInformationRepresentation"/>
+        <rdfs:comment>Any string</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TextFile -->
+
+    <owl:Class rdf:about="#TextFile">
+        <rdfs:subClassOf rdf:resource="#TextualInformationRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TextualInformationRepresentation -->
+
+    <owl:Class rdf:about="#TextualInformationRepresentation">
+        <rdfs:subClassOf rdf:resource="#InformationRepresentation"/>
+        <rdfs:comment
+            >Any information representation based on language text, written or spoken.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Thumbnail -->
+
+    <owl:Class rdf:about="#Thumbnail">
+        <rdfs:subClassOf rdf:resource="#Image"/>
+        <rdfs:comment
+            >A small image usually used as preview for or representative of a larger image.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TimeMeasure -->
+
+    <owl:Class rdf:about="#TimeMeasure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#UnitMeasure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:onClass rdf:resource="#TimeUnit"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataValue"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TimeUnit -->
+
+    <owl:Class rdf:about="#TimeUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+        <rdfs:comment
+            >A unit to measure the time (hour, second, ...)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TopLevelDomainCode -->
+
+    <owl:Class rdf:about="#TopLevelDomainCode">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+        <dc:date
+            >Any of the DNS top level domains (de, com, us, mobi, ...).</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TrafficIncident -->
+
+    <owl:Class rdf:about="#TrafficIncident">
+        <rdfs:subClassOf rdf:resource="&protont;Event"/>
+        <dc:date
+            >Anything that might impede the traffic: Accidents, construction sites, road closures, ...</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Travel -->
+
+    <owl:Class rdf:about="#Travel">
+        <rdfs:subClassOf rdf:resource="&protont;Event"/>
+        <rdfs:comment
+            >Any instance of travelling, like a flight.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Twilight -->
+
+    <owl:Class rdf:about="#Twilight">
+        <rdfs:subClassOf rdf:resource="#NaturalEvent"/>
+        <rdfs:subClassOf rdf:resource="&protont;TimeInterval"/>
+        <rdfs:subClassOf rdf:resource="&protonu;NaturalPhenomenon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#UKPostalCode -->
+
+    <owl:Class rdf:about="#UKPostalCode">
+        <rdfs:subClassOf rdf:resource="#PostalCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#URL -->
+
+    <owl:Class rdf:about="#URL">
+        <rdfs:subClassOf rdf:resource="&protonu;InternetAddress"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#US3DigitZipCode -->
+
+    <owl:Class rdf:about="#US3DigitZipCode">
+        <rdfs:subClassOf rdf:resource="#USPostalCode"/>
+        <rdfs:comment
+            >A three digit US zip code identifying only the sectional center facility but not the post office.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#US5DigitZipCode -->
+
+    <owl:Class rdf:about="#US5DigitZipCode">
+        <rdfs:subClassOf rdf:resource="#US3DigitZipCode"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A five digit US zip code</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#USAreaPhoneCode -->
+
+    <owl:Class rdf:about="#USAreaPhoneCode">
+        <rdfs:subClassOf rdf:resource="#PhoneCode"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasDataValue"/>
+                <owl:someValuesFrom>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&owl;DataRange"/>
+                        <xsd:minInclusive rdf:datatype="&xsd;integer">100</xsd:minInclusive>
+                        <xsd:maxInclusive rdf:datatype="&xsd;integer">999</xsd:maxInclusive>
+                        <owl:onDataRange rdf:resource="&xsd;int"/>
+                    </rdf:Description>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >A US area phone code (three digits)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#USPostalCode -->
+
+    <owl:Class rdf:about="#USPostalCode">
+        <rdfs:subClassOf rdf:resource="#PostalCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#USStateCode -->
+
+    <owl:Class rdf:about="#USStateCode">
+        <rdfs:subClassOf rdf:resource="#StateCode"/>
+        <rdfs:comment
+            >A two character code identifying US states.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#USZipCodePlus2 -->
+
+    <owl:Class rdf:about="#USZipCodePlus2">
+        <rdfs:subClassOf rdf:resource="#US5DigitZipCode"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A US zip code consisting of five base digits plus two extension digits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#USZipCodePlus4 -->
+
+    <owl:Class rdf:about="#USZipCodePlus4">
+        <rdfs:subClassOf rdf:resource="#USZipCodePlus2"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A US zip code consisting of five base digits plus four extension digits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#UniqueIdentifier -->
+
+    <owl:Class rdf:about="#UniqueIdentifier">
+        <rdfs:subClassOf rdf:resource="#Code"/>
+        <rdfs:comment
+            >Any code that uniquely identifies the object of interest within the context of interest.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Unit -->
+
+    <owl:Class rdf:about="#Unit">
+        <rdfs:subClassOf rdf:resource="&protont;Abstract"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Any unit, usually used in conjunction with a number to quantify something. Examples: meter, herz, kilograms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#UnitMeasure -->
+
+    <owl:Class rdf:about="#UnitMeasure">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Measure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasMeasurementUnit"/>
+                        <owl:onClass rdf:resource="#Unit"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <dc:date
+            >A measure based on a number associated with a unit.</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#VersionNumber -->
+
+    <owl:Class rdf:about="#VersionNumber">
+        <rdfs:subClassOf rdf:resource="#Index"/>
+        <rdfs:comment
+            >A number used to identify and distinguish different versions of the same entity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#WGS84GeographicCoordinate -->
+
+    <owl:Class rdf:about="#WGS84GeographicCoordinate">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#GeographicCoordinate"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#uses"/>
+                        <owl:hasValue rdf:resource="#WGS84CoordinateSystem"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#GeographicCoordinate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#WalkingDirections -->
+
+    <owl:Class rdf:about="#WalkingDirections">
+        <rdfs:subClassOf rdf:resource="#Directions"/>
+        <rdfs:comment
+            >Directions to navigate a route meant for pedestrians</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Weather -->
+
+    <owl:Class rdf:about="#Weather">
+        <rdfs:subClassOf rdf:resource="&protont;Situation"/>
+        <rdfs:comment
+            >the atmospheric conditions that comprise the state of the atmosphere in terms of temperature and wind and clouds and precipitation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#WeatherData -->
+
+    <owl:Class rdf:about="#WeatherData">
+        <rdfs:subClassOf rdf:resource="#StatisticalData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#WeatherStation -->
+
+    <owl:Class rdf:about="#WeatherStation">
+        <rdfs:subClassOf rdf:resource="#ObservationFacility"/>
+        <rdfs:comment
+            >A station that monitors and files weather information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protons#Entity -->
+
+    <owl:Class rdf:about="&protons;Entity"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protons#Trusted -->
+
+    <owl:Class rdf:about="&protons;Trusted"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Abstract -->
+
+    <owl:Class rdf:about="&protont;Abstract"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Agent -->
+
+    <owl:Class rdf:about="&protont;Agent"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Event -->
+
+    <owl:Class rdf:about="&protont;Event"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Group -->
+
+    <owl:Class rdf:about="&protont;Group"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#InformationResource -->
+
+    <owl:Class rdf:about="&protont;InformationResource"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Location -->
+
+    <owl:Class rdf:about="&protont;Location"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Number -->
+
+    <owl:Class rdf:about="&protont;Number"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Object -->
+
+    <owl:Class rdf:about="&protont;Object"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Situation -->
+
+    <owl:Class rdf:about="&protont;Situation"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#Statement -->
+
+    <owl:Class rdf:about="&protont;Statement"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protont#TimeInterval -->
+
+    <owl:Class rdf:about="&protont;TimeInterval"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Address -->
+
+    <owl:Class rdf:about="&protonu;Address"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Continent -->
+
+    <owl:Class rdf:about="&protonu;Continent"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Country -->
+
+    <owl:Class rdf:about="&protonu;Country"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Currency -->
+
+    <owl:Class rdf:about="&protonu;Currency">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Dataset -->
+
+    <owl:Class rdf:about="&protonu;Dataset"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Facility -->
+
+    <owl:Class rdf:about="&protonu;Facility"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#InternationalOrganization -->
+
+    <owl:Class rdf:about="&protonu;InternationalOrganization"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#InternetAddress -->
+
+    <owl:Class rdf:about="&protonu;InternetAddress"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#LandRegion -->
+
+    <owl:Class rdf:about="&protonu;LandRegion"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#NaturalPhenomenon -->
+
+    <owl:Class rdf:about="&protonu;NaturalPhenomenon"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#PhoneNumber -->
+
+    <owl:Class rdf:about="&protonu;PhoneNumber">
+        <rdfs:subClassOf rdf:resource="#UniqueIdentifier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#PoliticalRegion -->
+
+    <owl:Class rdf:about="&protonu;PoliticalRegion"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Roadway -->
+
+    <owl:Class rdf:about="&protonu;Roadway"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#TimeZone -->
+
+    <owl:Class rdf:about="&protonu;TimeZone">
+        <rdfs:subClassOf rdf:resource="#GeographicArea"/>
+    </owl:Class>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#TransportFacility -->
+
+    <owl:Class rdf:about="&protonu;TransportFacility"/>
+    
+
+
+    <!-- http://proton.semanticweb.org/2005/04/protonu#Vehicle -->
+
+    <owl:Class rdf:about="&protonu;Vehicle">
+        <rdfs:subClassOf rdf:resource="#Machine"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Africa -->
+
+    <protonu:Continent rdf:about="#Africa"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Antarctica -->
+
+    <protonu:Continent rdf:about="#Antarctica"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Asia -->
+
+    <protonu:Continent rdf:about="#Asia"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Australia -->
+
+    <protonu:Country rdf:about="#Australia"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#AustraliaOceania -->
+
+    <protonu:Continent rdf:about="#AustraliaOceania"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Canada -->
+
+    <protonu:Country rdf:about="#Canada">
+        <protont:subRegionOf rdf:resource="#NorthAmerica"/>
+    </protonu:Country>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#DegreeAngleUnit -->
+
+    <AngleUnit rdf:about="#DegreeAngleUnit">
+        <rdfs:comment
+            >A degree (in full, a degree of arc, arc degree, or arcdegree), usually denoted by &#176; (the degree symbol), is a measurement of plane angle, representing 1&#8260;360 of a full rotation;</rdfs:comment>
+    </AngleUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Europe -->
+
+    <protonu:Continent rdf:about="#Europe"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GIF -->
+
+    <DigitalFileType rdf:about="#GIF"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GTOPO30ElevationDataset -->
+
+    <protons:Trusted rdf:about="#GTOPO30ElevationDataset">
+        <rdf:type rdf:resource="&protonu;Dataset"/>
+        <rdfs:comment
+            >GTOPO30 is a global digital elevation model (DEM) with a horizontal grid spacing of 30 arc seconds (approximately 1 kilometer). GTOPO30 was derived from several raster and vector sources of topographic information.</rdfs:comment>
+    </protons:Trusted>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Geonames.org -->
+
+    <protonu:Dataset rdf:about="#Geonames.org">
+        <rdf:type rdf:resource="&protons;Trusted"/>
+        <rdfs:comment
+            >http://www.geonames.org/about.html
+
+The GeoNames geographical database is available for download free of charge under a creative commons attribution license. It contains over eight million geographical names and consists of 6.5 million unique features whereof 2.2 million populated places and 1.8 million alternate names. All features are categorized into one out of nine feature classes and further subcategorized into one out of 645 feature codes. (more statistics ...).
+The data is accessible free of charge through a number of webservices and a daily database export. GeoNames is already serving up to over 11 million web service requests per day.</rdfs:comment>
+    </protonu:Dataset>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#GreatBritain -->
+
+    <protonu:Country rdf:about="#GreatBritain"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#HourTimeUnit -->
+
+    <TimeUnit rdf:about="#HourTimeUnit"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#ISO -->
+
+    <protonu:InternationalOrganization rdf:about="#ISO">
+        <rdfs:comment
+            >The International Organization for Standardization (http://www.iso.org/iso/home.htm)</rdfs:comment>
+    </protonu:InternationalOrganization>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#InternationalFootLengthUnit -->
+
+    <LengthUnit rdf:about="#InternationalFootLengthUnit">
+        <rdfs:comment
+            >In 1958 the United States and countries of the Commonwealth of Nations defined the length of the international yard to be 0.9144 metres. Consequently, the international foot is defined to be equal to 0.3048 metres (equivalent to 304.8 millimetres).
+
+The international standard symbol for a foot is &quot;ft&quot; (see ISO 31-1, Annex A). In some cases, the foot is denoted by a prime, which is often approximated by an apostrophe, and the inch by a double prime. For example, 2 feet 4 inches is denoted as 2&#8242;4&#8243;. This use can cause confusion, because the prime and double prime are also international standard symbols for arcminutes and arcseconds.</rdfs:comment>
+    </LengthUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#InternationalMileLengthUnit -->
+
+    <LengthUnit rdf:about="#InternationalMileLengthUnit">
+        <rdfs:comment
+            >The international mile of 5,280 feet, 1,760 yards, or exactly 1,609.344 meters.</rdfs:comment>
+    </LengthUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#InternationalYardLengthUnit -->
+
+    <LengthUnit rdf:about="#InternationalYardLengthUnit">
+        <rdfs:comment
+            >A yard (abbreviation: yd) is a unit of length in several different systems, including English units, Imperial units, and United States customary units. Its size can vary from system to system. The most commonly used yard today is the international yard, which is equal to 0.9144 metre.</rdfs:comment>
+    </LengthUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#JPG -->
+
+    <DigitalFileType rdf:about="#JPG"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#JSON -->
+
+    <DigitalRepresentationFormat rdf:about="#JSON"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#KML -->
+
+    <DigitalRepresentationFormat rdf:about="#KML">
+        <rdfs:comment
+            >Google Earth KML data format.</rdfs:comment>
+    </DigitalRepresentationFormat>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#KilometerLengthUnit -->
+
+    <LengthUnit rdf:about="#KilometerLengthUnit">
+        <rdfs:comment
+            >The kilometre (American spelling: kilometer), symbol km is a unit of length in the metric system, equal to one thousand metres.</rdfs:comment>
+    </LengthUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#MeterLengthUnit -->
+
+    <LengthUnit rdf:about="#MeterLengthUnit">
+        <rdfs:comment
+            >The metre or meter is a unit of length. It is the basic unit of length in the metric system and in the International System of Units (SI), used around the world for general and scientific purposes. Historically, the metre was defined by the French Academy of Sciences as the length between two marks on a platinum-iridium bar, which was designed to represent 1&#8260;10,000,000 of the distance from the equator to the north pole through Paris. In 1983, it was redefined by the International Bureau of Weights and Measures as the distance travelled by light in absolute vacuum in 1&#8260;299,792,458 of a second.</rdfs:comment>
+    </LengthUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#MinuteTimeUnit -->
+
+    <TimeUnit rdf:about="#MinuteTimeUnit"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#NZMGCoordinateSystem -->
+
+    <GeographicCoordinateSystem rdf:about="#NZMGCoordinateSystem">
+        <rdfs:comment
+            >The New Zealand Map Grid Coordinate System used for mapping applications in New Zealand.</rdfs:comment>
+    </GeographicCoordinateSystem>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#NauticalMileLengthUnit -->
+
+    <LengthUnit rdf:about="#NauticalMileLengthUnit">
+        <rdfs:comment
+            >A nautical mile or sea mile is a unit of length. It corresponds approximately to one minute of latitude along any meridian. It is a non-SI unit used especially by navigators in the shipping and aviation industries. It is commonly used in international law and treaties, especially regarding the limits of territorial waters. It developed from the geographical mile.
+The international standard definition is: 1 nautical mile = 1,852 metres exactly.</rdfs:comment>
+    </LengthUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#NorthAmerica -->
+
+    <protonu:Continent rdf:about="#NorthAmerica"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#PNG -->
+
+    <DigitalFileType rdf:about="#PNG"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RDF -->
+
+    <DigitalRepresentationFormat rdf:about="#RDF"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RadianAngleUnit -->
+
+    <AngleUnit rdf:about="#RadianAngleUnit">
+        <rdfs:comment
+            >The radian is a unit of plane angle, equal to 180/&#960; degrees, or about 57.2958 degrees. It is the standard unit of angular measurement in all areas of mathematics beyond the elementary level.</rdfs:comment>
+    </AngleUnit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#RichterMagnitudeUnit -->
+
+    <Unit rdf:about="#RichterMagnitudeUnit">
+        <rdfs:comment
+            >The Richter magnitude scale, or more correctly local magnitude ML scale, assigns a single number to quantify the amount of seismic energy released by an earthquake. It is a base-10 logarithmic scale obtained by calculating the logarithm of the combined horizontal amplitude of the largest displacement from zero on a Wood&#8211;Anderson torsion seismometer output. So, for example, an earthquake that measures 5.0 on the Richter scale has a shaking amplitude 10 times larger than one that measures 4.0. The effective limit of measurement for local magnitude is about ML = 6.8.</rdfs:comment>
+    </Unit>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#SRTM3ElevationDataset -->
+
+    <protonu:Dataset rdf:about="#SRTM3ElevationDataset">
+        <rdf:type rdf:resource="&protons;Trusted"/>
+        <rdfs:comment
+            >Shuttle Radar Topography Mission (SRTM) elevation data. SRTM consisted of a specially modified radar system that flew onboard the Space Shuttle Endeavour during an 11-day mission in February of 2000. The dataset covers land areas between 60 degrees north and 56 degrees south.</rdfs:comment>
+    </protonu:Dataset>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#SecondTimeUnit -->
+
+    <TimeUnit rdf:about="#SecondTimeUnit"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#SouthAmerica -->
+
+    <protonu:Continent rdf:about="#SouthAmerica"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#SouthKorea -->
+
+    <protonu:Country rdf:about="#SouthKorea"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#TIF -->
+
+    <DigitalFileType rdf:about="#TIF"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Text/HTML -->
+
+    <MimeTypeDigitalRepresentationFormat rdf:about="#Text/HTML"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Text/Plain -->
+
+    <MimeTypeDigitalRepresentationFormat rdf:about="#Text/Plain"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Text/XML -->
+
+    <MimeTypeDigitalRepresentationFormat rdf:about="#Text/XML"/>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#USA -->
+
+    <protonu:Country rdf:about="#USA">
+        <rdfs:comment
+            >The United States of America</rdfs:comment>
+        <protont:subRegionOf rdf:resource="#NorthAmerica"/>
+    </protonu:Country>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#WGS84CoordinateSystem -->
+
+    <GeographicCoordinateSystem rdf:about="#WGS84CoordinateSystem">
+        <rdfs:comment
+            >The WGS84 geographic coordinate system that is the base for the GPS system.</rdfs:comment>
+    </GeographicCoordinateSystem>
+    
+
+
+    <!-- http://fusion.cs.uni-jena.de/geographydataset.owl#Wikipedia -->
+
+    <protonu:Dataset rdf:about="#Wikipedia">
+        <rdf:type rdf:resource="&protons;Trusted"/>
+        <rdfs:comment
+            >Wikipedia (pronunciation Spoken content icon) is a free,[5] multilingual encyclopedia project supported by the non-profit Wikimedia Foundation. Its name is a portmanteau of the words wiki (a technology for creating collaborative websites) and encyclopedia. Wikipedia&#39;s 10 million articles have been written collaboratively by volunteers around the world, and almost all of its articles can be edited by anyone who can access the Wikipedia website.[6] Launched in January 2001 by Jimmy Wales and Larry Sanger,[7] it is currently the largest and most popular[1] general reference work on the Internet.[8][9][10]</rdfs:comment>
+    </protonu:Dataset>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.941) http://owlapi.sourceforge.net -->
+

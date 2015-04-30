@@ -1,0 +1,1933 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#fuzzy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DateOfMonthReportWasMade -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DateOfMonthReportWasMade">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.6</fuzzy>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DateOfMonthReportWasMade"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#EventIsQualifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#EventIsQualifiedBy">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#EventIsQualifiedBy"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureChange -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureChange">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureFallingRapidly"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureMeasurement"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.5</fuzzy>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureChange"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureMeasurement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureMeasurement"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <fuzzy>0.6</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureMeasurement"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ReportedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ReportedFrom">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hydrometeorological"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ReportedFrom"/>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TemperatureMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TemperatureMeasurement">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Celsius"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TemperatureMeasurement"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEventBeginTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEventBeginTime">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.6</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEventBeginTime"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEventEndTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEventEndTime">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.3</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEventEndTime"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#altitude -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#altitude">
+        <rdfs:label rdf:datatype="&xsd;string">altitude</rdfs:label>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#altitude"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#celsiusTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#celsiusTemperature">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Celsius"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#celsiusTemperature"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#fahrenheitTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#fahrenheitTemperature">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DewPointTemperature"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fahrenheit"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DewPointTemperature"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#fahrenheitTemperature"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasInterval -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasInterval">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Interval"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSpeed -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSpeed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HightSpeed"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HightSpeed"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSpeed"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#humidityPercent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#humidityPercent">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Humidity"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.6</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#humidityPercent"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#knotsSpeed -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#knotsSpeed">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#KilometresPerHour"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#knotsSpeed"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#latitude -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#latitude">
+        <rdfs:label rdf:datatype="&xsd;string">lattitude</rdfs:label>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#latitude"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#longtitude -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#longtitude">
+        <rdfs:label rdf:datatype="&xsd;string">longtitude</rdfs:label>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.5</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#longtitude"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#millimetersOfMercury -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#millimetersOfMercury">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#mmHG"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.4</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#millimetersOfMercury"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#visibilityDistance -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#visibilityDistance">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Kilomitres"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#visibilityDistance"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasAltitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasAltitude">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.5</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasAltitude"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasBaseNeutrons -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasBaseNeutrons">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.4</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasBaseNeutrons"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasDate"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasDegree -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasDegree">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasDegree"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasHumidity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasHumidity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Humidity"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Humidity"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasHumidity"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasPressure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasPressure">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasPressure"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasProtons -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasProtons">
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasRain -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasRain">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasReportModifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasReportModifier">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.5</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasReportModifier"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSaltPercent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSaltPercent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.5</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSaltPercent"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSnow -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSnow">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSpeedValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSpeedValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#KilometresPerHour"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#KilometresPerHour"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSpeedValue"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSunshine -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSunshine">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSymbol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasSymbol">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasTemperature">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasTime">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedWeatherEvent"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.6</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasTime"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <fuzzy>0.7</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedWeatherEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasTime"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasUnits -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasUnits">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Units"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Units"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasUnits"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindDirection -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindDirection">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.3</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindDirection"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <fuzzy>0.6</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindDirection"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindSpeed">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    <owl:Axiom>
+        <fuzzy>0.5</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#hasWindSpeed"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;domain"/>
+    </owl:Axiom>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Blowing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Blowing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#BrackishWater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#BrackishWater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SaltWater"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Brine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Brine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SaltWater"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Celsius -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Celsius">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CentralDenseOvercast -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CentralDenseOvercast">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Overcasts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ChinookWind -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ChinookWind"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ClathrateHydrate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ClathrateHydrate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hydrate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Clear -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Clear">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ClearSky -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ClearSky">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CloudCover -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CloudCover">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Cloudy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Cloudy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DewPointTemperature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DewPointTemperature"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DustStorm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DustStorm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SevereWeather"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fahrenheit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fahrenheit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FewCloudLayer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FewCloudLayer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Freezing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Freezing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FreshWater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FreshWater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#GustingWind -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#GustingWind">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HeavyRainfall -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HeavyRainfall">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HightPressure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HightPressure"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HightSpeed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HightSpeed"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Humidity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Humidity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hydrate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hydrate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hydrometeorological -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hydrometeorological"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Interval -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Interval">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#UnitAbbreviate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#KilometresPerHour -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#KilometresPerHour">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Kilomitres -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Kilomitres">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LandLash -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LandLash">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LiquidWater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LiquidWater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MajorWeatherDescription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MajorWeatherDescription">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Measured -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Measured">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MinorWeatherDescription -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MinorWeatherDescription">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#NorthEast -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#NorthEast"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Overcast -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Overcast">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Overcasts -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Overcasts">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PartlyCloudy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PartlyCloudy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PartlySunny -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PartlySunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Point">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Measured"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureFallingRapidly -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureFallingRapidly">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#PressureEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainband -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainband">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SalineWater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SalineWater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SaltWater"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SaltWater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SaltWater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SeaLevelPressure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SeaLevelPressure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SeaWater -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SeaWater">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SaltWater"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SevereWeather -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SevereWeather">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Shower -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Shower">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Showers -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Showers">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#SkyCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#visibility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sunlit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sunlit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sunny -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sunny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sky-Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Temperature"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TemperatureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TemperatureEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Measured"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Thunderstorm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Thunderstorm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedAndDatedWeatherEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedAndDatedWeatherEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedWeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedWeatherEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedWeatherEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#UnitAbbreviate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#UnitAbbreviate"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Units -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Units"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WaterVapor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WaterVapor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherDescriptor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherIntensity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherIntensity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherReport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#TimedAndDatedWeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindChill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindChill"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#inHG -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#inHG">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Units"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#mmHG -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#mmHG">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Units"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#visibility -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#visibility">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#A_Few_Clouds -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#A_Few_Clouds">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#A_Few_Clouds_and_Breezy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#A_Few_Clouds_and_Breezy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#A_Few_Clouds_with_Haze -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#A_Few_Clouds_with_Haze">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acenaphthene -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acenaphthene">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acenaphthylence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acenaphthylence">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acetonittrile -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acetonittrile">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acrolein -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Acrolein">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+        <hasPressure>{992-998}</hasPressure>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AlabamaWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AlabamaWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AlaskaWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AlaskaWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Alaska_Daylight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Alaska_Daylight">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Alma-Ata -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Alma-Ata">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Alpha_Time -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Alpha_Time">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Aluminum -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Aluminum">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ammonia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ammonia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Anadyr_Summer_ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Anadyr_Summer_">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Aqtobe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Aqtobe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ArizonaWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ArizonaWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ArkansasWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ArkansasWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#As -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#As">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Atlantic_Daylight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Atlantic_Daylight">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Time"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AverageDistance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AverageDistance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AverageRainfall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AverageRainfall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CLOUD_DROPLETS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CLOUD_DROPLETS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Clear_and_Breezy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Clear_and_Breezy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Clear_with_Haze -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Clear_with_Haze">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ColoradoWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ColoradoWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ConnecticutWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#ConnecticutWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DelawareWeather -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#DelawareWeather">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#CurrentWeather"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Dokko -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Dokko">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fair_ -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fair_">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fair_and_Breezy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fair_and_Breezy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fair_with_Haze -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Fair_with_Haze">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FarDistance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FarDistance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <fuzzy rdf:datatype="&xsd;double">0.8</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#FarDistance"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Freezing_Drizzle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Freezing_Drizzle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Freezing_Rain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Freezing_Rain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HCM -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HCM">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <hasTemperature>{12-21};{22-24}</hasTemperature>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HaNoi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HaNoi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <hasRain>{Yes};{No}</hasRain>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Heavy_Ice_Pellets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Heavy_Ice_Pellets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HeightPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HeightPressure">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HeightRainfall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#HeightRainfall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hichu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Hichu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice_Crystals -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice_Crystals">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice_Pellets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice_Pellets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice_Pellets_in_Vicinity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Ice_Pellets_in_Vicinity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Kote -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Kote">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LIQUID_RAIN_DROPS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LIQUID_RAIN_DROPS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Light_Freezing_Drizzle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Light_Freezing_Drizzle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Light_Freezing_Rain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Light_Freezing_Rain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Light_Ice_Pellets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Light_Ice_Pellets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LowPressure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LowPressure">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <fuzzy rdf:datatype="&xsd;double">0.2</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AirPressure"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LowPressure"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LowRainfall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#LowRainfall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MediumRainfall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MediumRainfall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Rainfall"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MidiumDistance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MidiumDistance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <fuzzy rdf:datatype="&xsd;double">0.5</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#MidiumDistance"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Mostly_Cloudy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Mostly_Cloudy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Mostly_Cloudy_and_Breezy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Mostly_Cloudy_and_Breezy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Mostly_Cloudy_with_Haze -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Mostly_Cloudy_with_Haze">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#NeatDistance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#NeatDistance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <fuzzy rdf:datatype="&xsd;double">0.3</fuzzy>
+        <owl:annotatedTarget rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Distance"/>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#NeatDistance"/>
+        <owl:annotatedProperty rdf:resource="&rdf;type"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Out -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Out">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Over -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Over">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Oxy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Oxy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#QuangBinh -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#QuangBinh">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <hasSunshine>{No}</hasSunshine>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sb -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Sb">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Chemical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Seoul -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Seoul">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#City"/>
+        <hasSnow>{Yes}</hasSnow>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Showers_Hail -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Showers_Hail">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Showers_Ice_Pellets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Showers_Ice_Pellets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Smoke -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Smoke">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed_Racer_Sr -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed_Racer_Sr">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Thunderstorm_Ice_Pellets -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Thunderstorm_Ice_Pellets">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WeatherCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Uchi_Kuro_Bushi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Uchi_Kuro_Bushi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Under -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Under">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Spatial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WATER_VAPOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WATER_VAPOR">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Water"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Webbing_of_the_Hand -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Webbing_of_the_Hand">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#AtmosphericPressure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Wind"/>
+        <hasWindDirection>{S,W-S};{W-N}</hasWindDirection>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#WindEvent"/>
+        <hasWindSpeed>{40-50};{0-10}</hasWindSpeed>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#X_Racer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#X_Racer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#Speed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#celsiusMap -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#celsiusMap">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#UnitAbbreviate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#fahrenheit -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#fahrenheit">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/2011/9/Weather3.owl#UnitAbbreviate"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

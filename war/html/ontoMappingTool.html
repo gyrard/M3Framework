@@ -1,0 +1,410 @@
+<h1>Ontology/Dataset Matching Tools</h1>
+
+<div class="hero-unit">
+
+
+
+<ul>
+<li> <a href="http://www.ontologymatching.org/projects.html" >Ontology matching web site</a></li>
+<li> <a href="http://book.ontologymatching.org/" >Ontology Matching Book, Second Edition [Euzenat et al. 2013]</a></li>
+<li> <a href="http://hal.inria.fr/docs/00/91/79/10/PDF/shvaiko2013a.pdf" >Ontology matching: state of the art and future challenges [Shvaiko et al. 2013]</a></li>
+<li>Looking for a matching tool available online, easy to test (e.g., Aroma, LogMap), could be integrated as a jar in our framework</li>
+<li>Test 1: Equivalence (e.g., Snowy, SnowyWeatherState)</li>
+<li>Test 2: Etymology=stemming (e.g., Rain/Rainy, fog/foggy)</li>
+<li>Test 3: Synonyms (e.g., Rain/Precipitation)</li>
+<li>Test 4: Modelling (e.g., driver'state as a concept or as a property)</li>
+<li>Semantic similarity, string-based similarity, termonological (Jaccard, Leveinstein, SMOA labels and descriptions) fog/foggy</li>
+<li>Linguistic similarity (dictionnary, Wordnet, synset) </li>
+<li>Structural similarity (semantics of terms/ontological context):
+	<ul>
+		<li>Hyponym (... is a kind of person) </li>
+		<li>Hypernym (person is a kind of ...) </li>
+		<li>Holonym (person is a part of ...) </li>
+		<li>Moronym (part of person) </li>
+		<li>Synonym (e.g., rain/precipitation)</li>
+		<li>Antonym </li>
+		</ul>
+</li>
+<li>Java API for WordNet searching (JAWS)</li>
+<li>Wordnet synset for synonyms</li>
+<li>Differences between usual ontologies and IoT ontologies: 
+<ul>
+<li>No labels or comments</li>
+<li>No domain or range</li>
+<li>No attributes for a concept (e.g., Person, name, tel)</li>
+<li>Need a dictionnary specific to our domain (Wordnet, synset not enough)</li>
+<li>We do not have the dataset with the ontology</li>
+<li>Different language</li>
+<li>Abbreviation (e.g., SPO2)</li>
+</ul>
+</li>
+
+
+</ul>
+
+<h3>Linguistic Similarity + Dictionnary</h3>
+<table border>
+<tr>
+	<td>Name & URL tool</td>
+	<td>Comments</td>
+	<td>Dictionnary</td>
+	<td>Useful for our work? If yes, tested?</td>
+</tr>
+
+
+
+<tr>
+	<td><a href="http://csu6325.cs.ox.ac.uk/" >LogMap <img src="images/semanticWeb/logmap.png" width="100" height="100"/> </td>
+	<td>User-friendly interface</td>
+	<td>WordNet, but not the version online?</td>
+	<td>Useful, Test 1 and 2 ok since June 2014, test 4 no</td>
+</tr>
+
+<tr>
+	<td><a href="https://gforge.inria.fr/projects/aroma/" >Aroma</a> </td>
+	<td></td>
+	<td></td>
+	<td>Useful, Test 1 and 2 ok</td>
+</tr>
+
+<tr>
+	<td>BLOOMS+ <a href ="https://github.com/jainprateek/BLOOMS">Java Code</a>, <a href="http://wiki.knoesis.org/index.php/BLOOMS">Main page</a></td>
+	<td>Paper: Ontology Alignment for Linked Open Data [Hitzler, Sheth et al. 2010]</td>
+	<td>Wordnet, use the disambiguation pages of Wikipedia as a way to disambiguate terms used in ontologies</td>
+	<td>Seems useful for us, Java code</td>
+</tr> 
+
+<tr>
+	<td>MOMIS (Mediator Environment for Multiple Information Source)</td>
+	<td></td>
+	<td>uses WordNet, synonyms, broader terms, narrower terms, related terms</td>
+	<td></td>
+</tr>
+
+
+
+<tr>
+	<td>cromatche tool online?</td>
+	<td></td>
+	<td></td>
+	<td>to detect synonyms?</td>
+</tr>
+
+<tr>
+	<td>COMPASS (Concept Map Assessment tool)</td>
+	<td></td>
+	<td>WordNet</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>S-MATCH</td>
+	<td>deals with attributes, discards information about data types and uses only the attribute names. one of the first tool for semantic ontology matching. Wordnet, equivalencem subset (isA), overlap</td>
+	<td>Wornet</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>TaxoMap</td>
+	<td>develop for the geographic domain</td>
+	<td>equivalence, less/more-general (is-a / inverse is-a), is-close (related)</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>MOMIS</td>
+	<td></td>
+	<td>Wordnet</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>Prompt</td>
+	<td>linguistic similarity, iPrompt (syntactical, lexical, structural), AnchorPrompt (structural similarity). AnchorPrompt has difficulties to detect similar concepts if the analyzed ontologies are structurally very different.</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>SMART</td>
+	<td>linguistic similarity</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>AgrMaker</td>
+	<td>linguistic similarity</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>SAMBO (System for Aligning and Merging Biomedical Ontologies)</td>
+	<td></td>
+	<td>synonyms?</td>
+	<td></td>
+</tr>
+
+</table>
+
+<h3>Link Datasets</h3>
+<table border>
+<tr>
+	<td>Name & URL tool</td>
+	<td>Comments</td>
+	<td>Dictionnary</td>
+	<td>Tests</td>
+</tr>
+<tr>
+	<td><a href="http://wifo5-03.informatik.uni-mannheim.de/bizer/silk/" >Silk</a></td>
+	<td>Link datasets</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td><a href="http://sameas.org/" >SameAS <img src="images/semanticWeb/sameAs.png" width="120" height="120"/></a> </td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+
+
+<h3>Others</h3>
+
+
+<table border>
+<tr>
+	<td>Name & URL tool</td>
+	<td>Comments</td>
+	<td>Dictionnary</td>
+	<td>Tests</td>
+</tr>
+
+<tr>
+	<td> OntoMatcher</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td><a href="http://alignapi.gforge.inria.fr/" > Alignment API 4.0</a></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td><a href="http://www.isi.edu/integration/karma/" > Karma</a>, a data integration tool (2012-2013)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>Knofuss</td>
+	<td>use ontology alignment</td>
+	<td></td>
+	<td></td>
+</tr>
+
+
+<tr>
+	<td>Cider</td>
+	<td>Use artificial neural networks (Neuroph Studio Library), scema-based system, semantic similarity measure. Output (alignement format)</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>RiMoM</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>AML</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>ILIADS (Integrating Learning in Alignment of Data and Schema), logical inference</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>MAFRA (An ontology Mapping Framework for the Semantic Web, concept and property bridge</td>
+	<td>for distributed ontologies in the semantic web</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>COMA++</td>
+	<td>schema-level information</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>EcoMatch</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>Yam++</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>Chimaera</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>LSD (Learning Source Description)</td>
+	<td>learning-based + schema-based</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>LOM (Lexical-based Ontology Mapping)</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>GLUE</td>
+	<td>Machine learning to find mappings, probabilistic approach, instance level data</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>CODI</td>
+	<td>probabilistic method</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>CAIMAN</td>
+	<td>probabilistic method</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>OntoMapper</td>
+	<td>probabilistic method</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>OMEN</td>
+	<td>probabilistic method</td>
+	<td></td>
+	<td></td>
+</tr>
+
+
+<tr>
+	<td>Eff2Match</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>GeRMeSMB</td>
+	<td>does not work very well on real ontologies in specific domains</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>HCONE</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>MOA</td>
+	<td>The user can accept or reject the result by editing the file</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>iiMerge</td>
+	<td>Provides a method for the user to accept/reject a suggested mapping</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>SOBOM</td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>ONION</td>
+	<td>for resolving heterogeneity in ontologies</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>FCA-Merge</td>
+	<td>Ontology merging</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>MOA</td>
+	<td>merge and align OWL ontology which uses linguistic methods to disambiguate the meaning of elements based on their local names</td>
+	<td></td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>QOM</td>
+	<td>supports, RDF and OWL models, based on both schema and instance level information</td>
+	<td></td>
+	<td></td>
+</tr>
+
+</table>
+
+<br/>
+Java software packages for computing string distances:
+<ul>
+		<li> <a href="http://secondstring.sourceforge.net/">SecondString </a></li>
+		<li> <a href="http://ontosim.gforge.inria.fr/">OntoSim </a></li>
+		<li> <a href="https://files.ifi.uzh.ch/ddis/oldweb/ddis/research/simpack/index.html">SimPack </a> implements linguistic methods</li>
+				<li> SimMetrics</li>
+		</ul>
+
+</div>
+

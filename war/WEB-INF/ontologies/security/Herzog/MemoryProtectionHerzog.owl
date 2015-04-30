@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.ida.liu.se/~almhe/MemoryProtection.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:sec="http://www.ida.liu.se/~almhe/Security.owl#" xmlns:daml="http://www.daml.org/2001/03/daml+oil#" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="http://www.ida.liu.se/~almhe/MemoryProtection.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ida.liu.se/~almhe/Security.owl"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This ontology describes memory protection against buffer overflows using the security ontology.</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.ida.liu.se/~johwi/research_publications/licentiate_thesis.pdf</dc:source>
+    <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Almut Herzog, almhe@ida.liu.se</dc:creator>
+    <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Wilander, johwi@ida.liu.se</dc:contributor>
+  </owl:Ontology>
+  <owl:Class rdf:ID="LinuxKernelPatchOpenWallProject">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The first kernel patch to implement non-executable memory. (Wil05)
+By Solar Designer.</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.openwall.com/linux/README</dc:source>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Non-ExecutableMemory"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Non-ExecutableMemory">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">No code stored on the stack can be executed. This stops the execution of stack injected attack code. (Wil05)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BoundaryCheckingTool">
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tools that in general remedy the absence of boundary checking </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Cyclone">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtWriteTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Research project, a C dialect that prevents safety violations such as buffer overflows, dangling pointers, and format string attacks by replacing certain parts of ANSI C with safer versions. Pointer arithmetic is restricted. (Wil05)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CLanguageDialect"/>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.usenix.org/publications/library/proceedings/usenix02/full_papers/jim/jim_html/</dc:source>
+  </owl:Class>
+  <owl:Class rdf:ID="CCured">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Research project, an extension of the C programming language, prevents improper usage of pointers.</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://portal.acm.org/ft_gateway.cfm%3Fid%3D503286%26type%3Dpdf%26dl%3Dportal%26dl%3DACM%26CFID%3D11111111%26CFTOKEN%3D2222222</dc:source>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtWriteTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CLanguageDialect"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Heap"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Heap"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StackBasePointer">
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#DataOnVolatileMedia"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#residesOn"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#Stack"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CopyingAndCheckingTargetData">
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tools that store copies of return addresses on a separate stack. When a function returns, its stored return address is checked against the copy on the separate stack. (adapted from Wil05)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Libsafe">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="_StackReturnAddress"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LibraryWrapper"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#_StackReturnAddress"/>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Static prevention by patching standard C library functions that constitute potential buffer overflow vulnerabilities. Dynamic prevention through range check before the actual function call which ensures that the return address and the base pointer cannot be overwritten. 
+(Wil05)
+Used together with Libverify</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.research.avayalabs.com/project/libsafe/doc/libsafe.pdf</dc:source>
+  </owl:Class>
+  <owl:Class rdf:ID="DIRA">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smirnov and Chiueh have continued the work and implemented a more complex GCC patch called DIRA. Apart from the separate stack with copies of return addresses, DIRA keeps copies of function pointer values in a special buffer. Every time a function pointer is dereferenced it
+is compared with the stored value.
+DIRA also keeps track of memory updates at run-time and uses this information to perform a roll-back if an attack against a return address or function pointer is detected. Updates to files or local variables are not tracked and can thus not be rolled back. DIRA also does simple data-flow analysis to track external data connected to the attack. Performance overhead varies between 8 % and 60 %.
+(Wil05)</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.isoc.org/isoc/conferences/ndss/05/proceedings/papers/dira.pdf</dc:source>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CompilerPatch"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#CopyingAndCheckingTargetData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TIED">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LibraryWrapper"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used together with LibsafePlus</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.usenix.org/event/sec04/tech/full_papers/avijit/avijit_html/</dc:source>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Integrity"/>
+  <owl:Class rdf:ID="UsingProgramSpecificEncryptionKey">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtLoadTime"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RandomizedInstruction"/>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://portal.acm.org/ft_gateway.cfm%3Fid%3D1053286%26type%3Dpdf</dc:source>
+  </owl:Class>
+  <owl:Class rdf:about="#RandomizedInstruction">
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encrypted instruction sets thwart injected attack code. Binary files, libraries etc. are XORed with a random key and before execution the instructions are decrypted. (generalised from Wil05)</rdfs:comment>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Proof-of-concept, should be implemented in hardware</owl:versionInfo>
+  </owl:Class>
+  <owl:Class rdf:ID="PaX">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Non-ExecutableMemory"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Heap"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://pax.grsecurity.net</dc:source>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Heap"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ProPolice">
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://wiki.x.org/wiki/ProPolice</dc:source>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Prevention"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Integrity"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompilerPatch"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Canary-BasedTool"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A GCC patch. Protection of stack allocated variables by rearranging the local variables so that char buffers always are allocated at the bottom, next to the old base pointer, where they cannot overflow or harm any other local variables. (Wil05)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="StackGhost">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Canary-BasedTool"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#CopyingAndCheckingTargetData"/>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://projects.cerias.purdue.edu/stackghost/</dc:source>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Prevention"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Integrity"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompilerPatch"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A GCC patch, published in 2001.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#CLanguageDialect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dialects of the C language that remedy the absence of boundary checking.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#BoundaryCheckingTool"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StackShield">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompilerPatch"/>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.angelfire.com/sk/stackshield/</dc:source>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A compiler patch for GCC, protects against overwriting of the return address and overwriting of function pointers.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#CopyingAndCheckingTargetData"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="_StackBasePointer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:resource="#StackBasePointer"/>
+            <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#hasAsset"/>
+          </owl:Restriction>
+          <rdf:Description rdf:about="http://www.ida.liu.se/~almhe/Security.owl#HasAsset"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="CRED">
+    <rdfs:subClassOf rdf:resource="#BoundaryCheckingTool"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Patch to GCC that implements run-time bounds checking on string buffers.
+Relates to Patch Jones/Kelly</rdfs:comment>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.isoc.org/ndss04/proceedings/Papers/Ruwase.pdf</dc:source>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompilerPatch"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#LibraryWrapper">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A library is replaced/wrapped by a patched version that fixes certain vulnerabilities.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtLoadTime"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UsingSystemWideEncryptionKey">
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://portal.acm.org/ft_gateway.cfm%3Fid%3D948146%26type%3Dpdf%26dl%3DGUIDE%26dl%3DACM%26CFID%3D11111111%26CFTOKEN%3D2222222</dc:source>
+    <rdfs:subClassOf rdf:resource="#RandomizedInstruction"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">There is a single random key.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtLoadTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="_FunctionPointer">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="FunctionPointer"/>
+            </owl:allValuesFrom>
+            <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#hasAsset"/>
+          </owl:Restriction>
+          <rdf:Description rdf:about="http://www.ida.liu.se/~almhe/Security.owl#HasAsset"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="LibsafePlus">
+    <rdfs:subClassOf rdf:resource="#LibraryWrapper"/>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.usenix.org/event/sec04/tech/full_papers/avijit/avijit_html/</dc:source>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used together with TIED</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RAD">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#_StackReturnAddress"/>
+        </owl:allValuesFrom>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#CopyingAndCheckingTargetData"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Return Address Defender
+Much like Libverify but also protects the canary stack. (Wil05)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompilerPatch"/>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://doi.ieeecs.org/10.1109/ICDSC.2001.918971</dc:source>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#_StackReturnAddress"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FunctionPointer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#residesOn"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#DataOnVolatileMedia"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PointGuard">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A compiler technique to defend against buffer overflows by encrypting pointers when stored in memory, and decrypting them only when loaded into CPU registers. (Wil05)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#RandomizedInstruction"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtCompileTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.usenix.org/publications/library/proceedings/sec03/tech/full_papers/cowan/cowan_html/</dc:source>
+  </owl:Class>
+  <owl:Class rdf:ID="GCCPatchByJonesKelly">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CompilerPatch"/>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.doc.ic.ac.uk/~phjk/Publications/BoundsCheckingForC.ps.gz</dc:source>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In 1997, Jones and Kelly presented a GCC compiler patch in which they implemented run-time bounds checking of variables. For each declared storage pointer they keep an entry in a table where the base and limit of the storage is kept. Before any pointer arithmetc or pointer dereferencing is made, the base and limit is checked in the table.
+400% performance penalty, incompatibility with real-world programs. (Wil05)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#BoundaryCheckingTool"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Canary-BasedTool">
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://www.computer.org/portal/site/security/menuitem.6f7b2414551cb84651286b108bcd45f3/index.jsp?&amp;pName=security_level1_article&amp;TheCat=1015&amp;path=security/v2n4&amp;file=gei.xml&amp;;jsessionid=G6N8Rng7NZ8vN2P0S5McFzGycmvL0ThVdJQMXyPZXG3Ydw9pJlqQ!1460800952</dc:source>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Detects stack smashing by monitoring the return address just as canaries were used to protect coal miners against methane gas hundreds of years ago. (see source tag)
+Canaries protect specific data structures by the introduction of a canary. (conversation with John W.)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ExecShield">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Heap"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Non-ExecutableMemory"/>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://people.redhat.com/mingo/exec-shield/docs/WHP0006US_Execshield.pdf</dc:source>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RedHat Linux extension
+ExecShield (and similar technologies such as PaX approximate a separation of read and execute permissions by segment limits (an obscure feature from the Intel 80386 line of processors). The effect of applying segment limits is that the first N megabytes of the virtual memory of a process are executable
+while the remaining virtual memory is not. (from source)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Heap"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Libverify">
+    <rdfs:subClassOf rdf:resource="#CopyingAndCheckingTargetData"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtLoadTime"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Static prevention by patching library functions in C that constitute potential buffer overflow vulnerabilities. Dynamic prevention through range check before the actual function call which ensures that the return address and the base pointer cannot be overwritten. The first thing done in every function is to copy the return address onto a canary stack located on the heap, and the last thing done before returning is to verify the return address by comparing it with the address saved on the canary stack. The canary stack is not protected(Wil05)
+Used together with Libsafe</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.usenix.org/events/usenix2000/general/full_papers/baratloo/baratloo_html/</dc:source>
+  </owl:Class>
+  <owl:Class rdf:about="#_StackReturnAddress">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="StackReturnAddress"/>
+            </owl:allValuesFrom>
+            <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#hasAsset"/>
+          </owl:Restriction>
+          <rdf:Description rdf:about="http://www.ida.liu.se/~almhe/Security.owl#HasAsset"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#CompilerPatch">
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#MemoryProtection"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#employedAt"/>
+        <owl:hasValue rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#AtCompileTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ReturnAddressOverflow">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#_StackReturnAddress"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#threatens"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#_StackReturnAddress"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#threatens"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#StackOverflow"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The most common buffer overflow where a local buffer allocated on the stack is overflown with data so that eventually the return address is overwritten. This can redirect the program flow to attack code. (adapted from Wil05)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#StackReturnAddress">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#Stack"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#residesOn"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#DataOnVolatileMedia"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StackGuard">
+    <rdfs:subClassOf rdf:resource="#CompilerPatch"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#_StackReturnAddress"/>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Canary-BasedTool"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Designed for detecting and stopping stack-based buffer overflows targeting the return address. (Wil05)</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <rdf:Description rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Prevention"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Integrity"/>
+              <owl:Class rdf:about="http://www.ida.liu.se/~almhe/Security.owl#_Stack"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.ida.liu.se/~almhe/Security.owl#protects"/>
+        <owl:allValuesFrom rdf:resource="#_StackReturnAddress"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://www.usenix.org/publications/library/proceedings/sec98/full_papers/cowan/cowan.pdf</dc:source>
+  </owl:Class>
+</rdf:RDF>
+<!-- Created with Protege (with OWL Plugin 2.2, Build 307)  http://protege.stanford.edu -->

@@ -1,0 +1,25 @@
+#see paper Privacy Protection for Smartphones: An Ontology-Based Firewall vincent et al.2011
+
+#Forbid any action made by a service provider with an invalid
+certificate.
+[policy1: (?s rdf:type id:ServiceProvider) , (?a rdf:type id:Action),
+(?c rdf:type id:InvalidCertificate), (?s id:hasCertificate ?c)
+-> (id:policy1 id:forbids ?a)]
+
+#Rule 2: Forbid access to location data if the service provider is SP1.
+[policy2: (?a rdf:type id:Action), (?a id:hasActor id:SP1),
+(?d rdfs:domain id:LocationData), (?a id:hasTarget ?d)
+-> (id:policy2 id: forbids?a)]
+
+#Rule 3: Prevent a service provider form obtaining postal address if it has
+#already gathered the phone number.
+[policy3: (?a rdf:type id:Action), (?c rdf:type id:ServiceProvider),
+(?a id:hasActor ?c), (?d rdfs:domain id:Postal), (?a id:hasTarget ?d),
+(?c id:hasHistoricTarget id:phoneNumber1) -> (id:policy3 id: forbids ?a)]
+
+#Rule 4: ??
+
+#Rule 5: 
+[policy5: (?a rdf:type id:Action) (?a id:hasActor id:SP2)
+(?d rdfs:domain id:LocationData) (?a id:hasTarget ?d)
+-> (id:policy5 id:forbids ?a)

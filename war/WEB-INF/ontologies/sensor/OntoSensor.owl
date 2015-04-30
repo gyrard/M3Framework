@@ -1,0 +1,4655 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:sumo="http://reliant.teknowledge.com/DAML/SUMO.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns="http://www.owl-ontologies.com/unnamed.owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.owl-ontologies.com/unnamed.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://reliant.teknowledge.com/DAML/SUMO.owl"/>
+    <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/protege"/>
+    <owl:imports rdf:resource=""/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="AngularAccelerationParameter">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="QuantityParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ParameterTuple">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Parameter"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="PT_ValueComponents"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MissionID">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Identifier"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LongWaveIR">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PhotoConductive"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PhotonDetector">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Imaging"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS420_Relative_Humidity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Humidity_Measurand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="XBow_Humidity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Tri-Axial_Magnetometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Magnetic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DataProvider"/>
+  <owl:Class rdf:ID="Stimulus"/>
+  <owl:Class rdf:ID="Duration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#QuantityParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearVaryingDistance">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="stopDistance"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Parameter"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="startDistance"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Supply_Current">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasValue"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Current"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GenericProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UltraViolent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhotoConductive"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StopAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ProcessEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="XBow_Microphone">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Microphone"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SpatialDataQuantity"/>
+  <owl:Class rdf:ID="Dual-FoV">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Lens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Quantity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="quantityValue"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="quantityMax"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="quantityMin"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Parameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="XBow_Bi-Axial_Accelerometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Bi-Axial_Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Electromagnetic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sensor"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PlatformCapabilities">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CapabilitiesDescription"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="XBow">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="standalonePlatform"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS310_Temperature">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MTS310_Temperature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="XBow_Temperature"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LocationModelParameters"/>
+  <owl:Class rdf:ID="SAR">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Synthetic Aperture Radar.
+
+The SAR is an active microwave sensor that transmits in microwave
+
+and detects the wave that is reflected back by objects</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Microwave"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP410_Humidity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Humidity_Measurand"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >p2:_Individual_185</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasCapabilities"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#XBow_Humidity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="_Temperature">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MICA2">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Longitude">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LocationParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearVaryingAngle">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="stopAngle"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="startAngle"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Parameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Passive">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Radiant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TypedQuantity">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="codeSpace"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="type"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TypedCount">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#type"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CountParameter"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#codeSpace"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL25LP1Z_Platform">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Z_Axis_Accelerometer"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IRLS">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Imaging"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Span_Output">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasValue"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Voltage"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GenericProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LocationModelMethod"/>
+  <owl:Class rdf:ID="Y_Axis_Acceleration_Measureand">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="data"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Acceleration_Y_Axis"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Acceleration_Measurand"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL25LP1">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="XBow_X_Axis_Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Volume">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#QuantityParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AssetEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ComponentEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ObjectStateParameters">
+    <rdfs:subClassOf rdf:resource="#LocationModelParameters"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="OSP_Location"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Parameter">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="controllable"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="fixed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS420_Temperature">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Temperature_Measurand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#XBow_Temperature"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Humidity_Measurand">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="XBOW_Measurand"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Humidity_Tuple"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Constraints">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constriants decribe security and legal use constraints that take ISO 19115 constraint objects. Valid time describes the duration or instance when these constraints are valid</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="validTime"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Magnetometer_X_Axis">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Gauss"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="TimeInstance"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Magnetometer_DataGroup"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Electromechanical">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Physical_Properties"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Uni-Axial_Accelerometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TypedCategoryParameter">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#type"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CategoryParameter"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#codeSpace"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ObservableCharacteristics"/>
+  <owl:Class rdf:ID="Electrical">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MountingModel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LocationModel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Magnetometer_DataGroup">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Tuple"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS300_Light">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Xbow_Light"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Classifier">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#codeSpace"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Classifier object provides a means of providing several classification tags with the description </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RadiationResponse">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="polarizationAngle"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="bandwidth"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="spectralResponse"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="polarizationDirection"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="peakWavelength"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GeneralResponse"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="spectralRange"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Power_Source">
+    <rdfs:subClassOf rdf:resource="#Electromechanical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Microphone">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Acoustic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Barometric_Tuple">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="_Pressure"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TimeInstance"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Tuple"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#XBOW_Measurand">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Measurand"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS310_GPS">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#MTS310_GPS"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="XBow_GPS"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL25LP3">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="XBow_Z_Axis_Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OntologyEvent">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >To create a history of the ontology evolution</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://reliant.teknowledge.com/DAML/SUMO.owl#ContentDevelopment"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Event"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="XBow_Total_Radiation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Total_Radiation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MSP410CA_Platform">
+    <rdfs:subClassOf rdf:resource="#MICA2"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ObservationProvider">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Allows for applications to access observations of the Measurand value by the Sensor</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ActiveStandOff">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Chemical"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Connection">
+    <rdfs:subClassOf rdf:resource="#Electromechanical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Gauss">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Magnetic_Flux_Density"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Gauss</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Orientation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sensor"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Outlet">
+    <rdfs:subClassOf rdf:resource="#Power_Source"/>
+  </owl:Class>
+  <owl:Class rdf:ID="XBow_Photosynthetic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Photosynthetic_Radiation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="componentDescription"/>
+  <owl:Class rdf:ID="Acceleration_Tuple">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Tuple"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#QuantityParameter">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="platformGroup">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Platform"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PhotoConductive">
+    <rdfs:subClassOf rdf:resource="#PhotonDetector"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SensorGroup">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sensor"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="sensorGroupComponent"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Triple_FoV">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Lens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SecondGeneration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="FLIR"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DataGroup">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DataGroup provides a means for defining a collection of dataComponents.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IRST">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Infrared Search and Track </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Imaging"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS420_Platform">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MICAz"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MTS420_Photosynthetic_Radiation"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="GPS"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MTS420_Bi-Axial_Accelerometer"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MTS_420_Ambient"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MTS420_Relative_Humidity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_176</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MTS420_Temperature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS300_Platform">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_177</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#MTS300_Light"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#MICAz"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MTS300_Temperature"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TimePrimitive">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Hr</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="_unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#GPS">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sensor"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GeoPositionModel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LocationModel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL04LP1Z_Platform">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Z_Axis_Accelerometer"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_87</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GeneralResponse">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ResponseModelParameters"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CRS">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Each sensor has its own local Coordinate Reference System (CRS) that can be mapped to a reference CRS. </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Product"/>
+  <owl:Class rdf:ID="SupplyVoltage_R_Option">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SupplyVoltage"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OrientationParameter">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Dimen">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="_Humidity">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >%</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Distance">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Active">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Radiant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PhotoEmissive">
+    <rdfs:subClassOf rdf:resource="#PhotonDetector"/>
+  </owl:Class>
+  <owl:Class rdf:about="#XBow_Z_Axis_Accelerometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Z_Axis_Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Seismic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AccelerationParameter">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AC">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >V</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >memphis.edu/dictionary/units/ac_voltage.xml</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="uom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Voltage"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Radio_Frequency">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GenericProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FLIR">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MidWaveIR"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#LongWaveIR"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Foward Looking Infrared</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP510_Temperature">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Temperature_Measurand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#XBow_Temperature"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP410_Total_Radiation">
+    <rdfs:subClassOf rdf:resource="#XBow_Total_Radiation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Light_Measurand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Xbow_Light">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Light"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL04LP1">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#XBow_X_Axis_Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MTS420_Photosynthetic_Radiation">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Light_Measurand"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#XBow_Photosynthetic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Acoustic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sensor"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Bi-Axial_Magnetometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Magnetic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MICAz">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TypedQuantityParameter">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VaryParameter">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="VP_value"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="VP_duration"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProcessEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PointAir">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Chemical"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Temperature_Measurand">
+    <rdfs:subClassOf rdf:resource="#XBOW_Measurand"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Temperature_Tuple"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Asset">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="attachedTo"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#attachedTo"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="component"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SimplePositionParameters">
+    <rdfs:subClassOf rdf:resource="#LocationModelParameters"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="SPP_Location"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MTS420_Bi-Axial_Accelerometer">
+    <rdfs:subClassOf rdf:resource="#XBow_Bi-Axial_Accelerometer"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="X_Axis_Acceleration_Measureand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Y_Axis_Acceleration_Measureand"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS_310_Bi-Axial_Accelerometer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Y_Axis_Acceleration_Measureand"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#XBow_Bi-Axial_Accelerometer"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#X_Axis_Acceleration_Measureand"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GPS_Measurand">
+    <rdfs:subClassOf rdf:resource="#XBOW_Measurand"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS310_Bi_Axial_Magnetometer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="X_Axis_Magnetometer_Measurand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Y_Axis_Magnetometer_Measurand"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Xbow_Bi-Axial_Magnetometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Supply_Voltage">
+    <rdfs:subClassOf rdf:resource="#Physical_Properties"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Light">
+    <rdfs:subClassOf rdf:resource="#Passive"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Radiant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Photosynthetic_Radiation">
+    <rdfs:subClassOf rdf:resource="#Light"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Geometry"/>
+  <owl:Class rdf:ID="OrbitalModel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LocationModel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Latitude">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#LocationParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Altitude">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ft</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ResponseModel"/>
+  <owl:Class rdf:ID="CXL25LP1_Platform">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="X_Axis_Accelerometer"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#XBow_GPS">
+    <rdfs:subClassOf rdf:resource="#GPS"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SupplyVoltage">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GenericProperty"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasValue"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Voltage"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Magnetometer_Y_Axis">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TimeInstance"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Gauss"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Magnetometer_DataGroup"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL25LP1Z">
+    <rdfs:subClassOf rdf:resource="#XBow_Z_Axis_Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#XBow_X_Axis_Accelerometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#X_Axis_Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Acceleration">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LinearVaryingQuantity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="numberOfSteps"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS310_Platform">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_178</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MTS310_Light"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MTS310_Microphone"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#MICAz"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MTS310_Temperature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MTS310_Bi_Axial_Magnetometer"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Bi-Axial">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Tilt"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP410_Temperature">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#XBow_Temperature"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Temperature_Measurand"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL25LP3_Platform">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Tri-Axial_Accelerometer_"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ambient">
+    <rdfs:subClassOf rdf:resource="#Light"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Zero_g_Output">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Voltage"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GenericProperty"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL10LP1_Platform">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Tri-Axial_Accelerometer_"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Angle">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StartAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProcessEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Tri-Axial_Accelerometer_">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL10LP1">
+    <rdfs:subClassOf rdf:resource="#XBow_X_Axis_Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Light_Measurand">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurand"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Light_Tuple"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Humidity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sensor"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SetParameter">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="SP_value"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ProcessEvent"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RegularGridParameters">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Regular Grid Parameters allow for definition of locations of Sensors in a 2D or3D Grid Coordinate System</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#LocationModelParameters"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="RGP_Coordinates"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#RGP_Coordinates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="componentHistory">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="history"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ObservableObject"/>
+  <owl:Class rdf:ID="BooleanParameter">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="booleanValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TimeInstance">
+    <rdfs:subClassOf rdf:resource="#TimePrimitive"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Tilt">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Accelerometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TranslationAction">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="translationActionUses"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="action"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Temperature">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Non-Imaging"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#LocationModel">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="positionalAccuracy"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="sourceCRS"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="description"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="usesMethod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="referenceCRS"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Location Model describes the location of a local Coordinate Reference System (CRS) relative to an external reference CRS.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Platform">
+    <rdfs:subClassOf rdf:resource="http://reliant.teknowledge.com/DAML/SUMO.owl#TransportationDevice"/>
+    <rdfs:subClassOf rdf:resource="#Asset"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sensor"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Milli-MeterWaveRadar">
+    <rdfs:subClassOf rdf:resource="#Active"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Acceleration_Y_Axis">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Gravatational_Acceleration"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Acceleration_Tuple"/>
+  </owl:Class>
+  <owl:Class rdf:ID="sampleArray">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sample"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Barometric_Measurand">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Barometric_Tuple"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#XBOW_Measurand"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Gravatational_Acceleration">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >G</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Acceleration"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pyroelectric">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Thermal"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ProcessEvent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Event"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP410_Platform">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_173</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MEP410_Total_Radiation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="MEP410_Photosynthetic_Radiation"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#MEP410_Temperature"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#MICA2"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MEP410_Humidity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Measurand">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="observable"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="basedOn"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Measurand is a subclass of owl:Thing</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Total_Radiation">
+    <rdfs:subClassOf rdf:resource="#Light"/>
+  </owl:Class>
+  <owl:Class rdf:about="#XBow_Humidity">
+    <rdfs:subClassOf rdf:resource="#Humidity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Seismometers">
+    <rdfs:subClassOf rdf:resource="#Acoustic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MTS310_Microphone">
+    <rdfs:subClassOf rdf:resource="#XBow_Microphone"/>
+  </owl:Class>
+  <owl:Class rdf:about="#X_Axis_Magnetometer_Measurand">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Magnetometer_X_Axis"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Magnetometer_Measurand"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MEP410_Photosynthetic_Radiation">
+    <rdfs:subClassOf rdf:resource="#XBow_Photosynthetic"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Light_Measurand"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DC">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >VDC</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >memphis.edu/dictionary/units/dc_voltage.xml</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#uom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Voltage"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Tuple">
+    <rdfs:subClassOf rdf:resource="#DataGroup"/>
+  </owl:Class>
+  <owl:Class rdf:about="#X_Axis_Accelerometer">
+    <rdfs:subClassOf rdf:resource="#Uni-Axial_Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS300_Microphone">
+    <rdfs:subClassOf rdf:resource="#XBow_Microphone"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP510_Humidity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Humidity_Measurand"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#XBow_Humidity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AcquisitionAction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CompositeAction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeRange">
+    <rdfs:subClassOf rdf:resource="#TimePrimitive"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Celsius">
+    <rdfs:subClassOf rdf:resource="#_Temperature"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Celsius</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MTS300_Temperature">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#XBow_Temperature"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Regular_Grid_Model">
+    <rdfs:subClassOf rdf:resource="#LocationModel"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Acceleration_Measurand">
+    <rdfs:subClassOf rdf:resource="#XBOW_Measurand"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Tri-Axial">
+    <rdfs:subClassOf rdf:resource="#Tilt"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sensor">
+    <owl:disjointWith rdf:resource="#Platform"/>
+    <rdfs:subClassOf rdf:resource="#Asset"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://reliant.teknowledge.com/DAML/SUMO.owl#MeasuringDevice"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Same as Sensor System, subclass of IEEE SUMO Measuring device</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Bolometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Thermal"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="individualSample">
+    <rdfs:subClassOf rdf:resource="#Sample"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Device">
+    <rdfs:subClassOf rdf:resource="#Physical_Properties"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Magnetic">
+    <rdfs:subClassOf rdf:resource="#Electromagnetic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Current">
+    <rdfs:subClassOf rdf:resource="#Electrical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Z_Axis_Accelerometer">
+    <rdfs:subClassOf rdf:resource="#Uni-Axial_Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:ID="platformArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Subclass of Platform that comprises collections of identical platforms</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Platform"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MEP510_Platform">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_175</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#MEP510_Humidity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#MEP510_Temperature"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#MICA2"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GenericProperty">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor has generic property</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="VelocityParameter">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#X_Axis_Acceleration_Measureand">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Acceleration_X_Axis"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Acceleration_Measurand"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Gyroscope">
+    <rdfs:subClassOf rdf:resource="#Orientation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#action">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="do"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RotationAction">
+    <rdfs:subClassOf rdf:resource="#action"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="rotationActionUses"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#_Pressure">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >mBar</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ThirdGeneration">
+    <rdfs:subClassOf rdf:resource="#FLIR"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Imaging">
+    <rdfs:subClassOf rdf:resource="#Passive"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ScanAction">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:oneOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="scanActionUses"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#action"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Event">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Events can for instance, document the creation, inspection, calibration, deployment, or decommissioning of a sensor, or perhaps the creation, modification, or approval of the SensorML document itself.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="event_TimeStamp"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="event_Description"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="eventType"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://reliant.teknowledge.com/DAML/SUMO.owl#Process"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Chemical">
+    <rdfs:subClassOf rdf:resource="#Sensor"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Output">
+    <rdfs:subClassOf rdf:resource="#Connection"/>
+  </owl:Class>
+  <owl:Class rdf:ID="sampleGroup">
+    <rdfs:subClassOf rdf:resource="#Sample"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ring_Laser">
+    <rdfs:subClassOf rdf:resource="#Gyroscope"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fahrenheit">
+    <rdfs:subClassOf rdf:resource="#_Temperature"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >F</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Accelerometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Motion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PassiveStandOff">
+    <rdfs:subClassOf rdf:resource="#Chemical"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS300_Bi-Axial_Magnetometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Xbow_Bi-Axial_Magnetometer"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Battery_Pack">
+    <rdfs:subClassOf rdf:resource="#Power_Source"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SensorModel">
+    <rdfs:subClassOf rdf:resource="#LocationModel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL04LP1Z">
+    <rdfs:subClassOf rdf:resource="#XBow_Z_Axis_Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Interface">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="interface_IdentifiedAs"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Motion">
+    <rdfs:subClassOf rdf:resource="#Sensor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#component">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The fundamental concept in SensorML</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Bi-Axial_Accelerometer">
+    <rdfs:subClassOf rdf:resource="#Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL10LP1Z_Platform">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Z_Axis_Accelerometer"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ComponentEvent">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="event"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CalibrationAction">
+    <rdfs:subClassOf rdf:resource="#CompositeAction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AngularVelocityParameter">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Light_Tuple">
+    <rdfs:subClassOf rdf:resource="#Tuple"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TimeInstance"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Light_"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Phenomenon"/>
+  <owl:Class rdf:about="#Y_Axis_Magnetometer_Measurand">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Magnetometer_Measurand"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Magnetometer_Y_Axis"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#data"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Xbow_Bi-Axial_Magnetometer">
+    <rdfs:subClassOf rdf:resource="#Bi-Axial_Magnetometer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#standalonePlatform">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The subclass of Platform that includes all the standalone platforms</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Platform"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Radiant">
+    <rdfs:subClassOf rdf:resource="#Electromagnetic"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MMWRadiometer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Non-Imaging"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Non-Imaging">
+    <rdfs:subClassOf rdf:resource="#Passive"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Dimension">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LaserRadar">
+    <rdfs:subClassOf rdf:resource="#Active"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Thermal">
+    <rdfs:subClassOf rdf:resource="#Non-Imaging"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PointGround">
+    <rdfs:subClassOf rdf:resource="#Chemical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Magnetic_Flux_Density">
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Magnetometer_Measurand">
+    <rdfs:subClassOf rdf:resource="#XBOW_Measurand"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL10LP3_Platform">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_87</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Tri-Axial_Accelerometer_"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Temperature_Tuple">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TimeInstance"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Celsius"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Tuple"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PhotoVoltaic">
+    <rdfs:subClassOf rdf:resource="#PhotonDetector"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CategoryParameter">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="categoryValue"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Acceleration_X_Axis">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Gravatational_Acceleration"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Acceleration_Tuple"/>
+  </owl:Class>
+  <owl:Class rdf:ID="QuantityExtent">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Lens">
+    <rdfs:subClassOf rdf:resource="#GenericProperty"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MTS_300_Bi-Axial_Accelerometer">
+    <rdfs:subClassOf rdf:resource="#XBow_Bi-Axial_Accelerometer"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Mass">
+    <rdfs:subClassOf rdf:resource="#QuantityParameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Coefficient">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="coefficientValue"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SampleAction">
+    <rdfs:subClassOf rdf:resource="#action"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VisibleNearIR">
+    <rdfs:subClassOf rdf:resource="#PhotoConductive"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CountParameter">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="max"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="min"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MTS310_Light">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Light_Measurand"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Xbow_Light"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Light_">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Light</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#unit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Quantity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CXL04LP1_Platform">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#X_Axis_Accelerometer"/>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasCapabilities"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OntoSensor(orig)_Individual_87</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Microwave">
+    <rdfs:subClassOf rdf:resource="#Active"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GPS_Tuple">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Longitude"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Tuple"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Latitude"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#XBow_Temperature">
+    <rdfs:subClassOf rdf:resource="#Temperature"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Voltage">
+    <rdfs:subClassOf rdf:resource="#Electrical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Humidity_Tuple">
+    <rdfs:subClassOf rdf:resource="#Tuple"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#_Humidity"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#dataComponent"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#TimeInstance"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hydrophones">
+    <rdfs:subClassOf rdf:resource="#Acoustic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MTS_420_Ambient">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#measures"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Light_Measurand"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Ambient"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SensorArray">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="sensorArrayComponent"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Sensor"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Single_FoV">
+    <rdfs:subClassOf rdf:resource="#Lens"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SensorCapabilities">
+    <rdfs:subClassOf rdf:resource="#CapabilitiesDescription"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Bi-Directional">
+    <rdfs:subClassOf rdf:resource="#Connection"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MICA">
+    <rdfs:subClassOf rdf:resource="#XBow"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Input">
+    <rdfs:subClassOf rdf:resource="#Connection"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FirstGeneration">
+    <rdfs:subClassOf rdf:resource="#FLIR"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MidWaveIR">
+    <rdfs:subClassOf rdf:resource="#PhotoConductive"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LocationParameter">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="locatedUsing">
+    <rdfs:range rdf:resource="#LocationModel"/>
+    <rdfs:domain rdf:resource="#component"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="sensorType">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Passive"/>
+          <owl:Class rdf:about="#Active"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Sensor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasImageData"/>
+  <owl:ObjectProperty rdf:ID="start">
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#LinearVaryingQuantity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="platformGroupComponent">
+    <rdfs:range rdf:resource="#Platform"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="deployedBy">
+    <rdfs:domain rdf:resource="#componentDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="usesParameters">
+    <rdfs:domain rdf:resource="#LocationModel"/>
+    <rdfs:range rdf:resource="#DataGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="OntoSensor_Slot_3"/>
+  <owl:ObjectProperty rdf:ID="operatedBy">
+    <rdfs:domain rdf:resource="#componentDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="stop">
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#LinearVaryingQuantity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#positionalAccuracy">
+    <rdfs:range rdf:resource="#SpatialDataQuantity"/>
+    <rdfs:domain rdf:resource="#LocationModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasValue">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SupplyVoltage"/>
+          <owl:Class rdf:about="#Supply_Current"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Voltage"/>
+          <owl:Class rdf:about="#Current"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="classifiedAs">
+    <rdfs:domain rdf:resource="#component"/>
+    <rdfs:range rdf:resource="#Classifier"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#data">
+    <rdfs:domain rdf:resource="#Measurand"/>
+    <rdfs:range rdf:resource="#DataGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="uses">
+    <rdfs:domain rdf:resource="#action"/>
+    <rdfs:range rdf:resource="#Parameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#measures">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="#Measurand"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Meas_TimeStamp">
+    <rdfs:range rdf:resource="#TimePrimitive"/>
+    <rdfs:domain rdf:resource="#Measurand"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="resource">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#componentDescription"/>
+          <owl:Class rdf:about="#Event"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="responsibleParty">
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Samp_MemberOfGroup">
+    <rdfs:range rdf:resource="#sampleGroup"/>
+    <rdfs:domain rdf:resource="#Sample"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="performanceProperty">
+    <rdfs:range rdf:resource="#GenericProperty"/>
+    <rdfs:domain rdf:resource="#CapabilitiesDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="address"/>
+  <owl:ObjectProperty rdf:ID="has_E_W_location">
+    <rdfs:range rdf:resource="#LocationParameter"/>
+    <rdfs:domain rdf:resource="#CRS"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#event">
+    <rdfs:domain rdf:resource="#ComponentEvent"/>
+    <rdfs:range rdf:resource="#componentHistory"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#do">
+    <rdfs:domain rdf:resource="#action"/>
+    <rdfs:range rdf:resource="#CompositeAction"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="manufacturedBy">
+    <rdfs:domain rdf:resource="#componentDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCovertProperty"/>
+  <owl:ObjectProperty rdf:ID="carries">
+    <rdfs:range rdf:resource="#Asset"/>
+    <rdfs:domain rdf:resource="#Platform"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="OntoSensor_orig__ObjectProperty_85"/>
+  <owl:ObjectProperty rdf:ID="legalUse">
+    <rdfs:domain rdf:resource="#Constraints"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="has_N_S_location">
+    <rdfs:range rdf:resource="#LocationParameter"/>
+    <rdfs:domain rdf:resource="#CRS"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="has_Interface">
+    <rdfs:range rdf:resource="#Interface"/>
+    <rdfs:domain rdf:resource="#component"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#numberOfSteps">
+    <rdfs:range rdf:resource="#CountParameter"/>
+    <rdfs:domain rdf:resource="#LinearVaryingQuantity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInterface">
+    <rdfs:range rdf:resource="#Interface"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#basedOn">
+    <rdfs:domain rdf:resource="#Measurand"/>
+    <rdfs:range rdf:resource="#Sample"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#history">
+    <rdfs:domain rdf:resource="#componentHistory"/>
+    <rdfs:range rdf:resource="#componentDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasphysicalproperties">
+    <rdfs:domain rdf:resource="#component"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#usesMethod">
+    <rdfs:domain rdf:resource="#LocationModel"/>
+    <rdfs:range rdf:resource="#LocationModelMethod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="intendedFocus">
+    <rdfs:range rdf:resource="#ObservableObject"/>
+    <rdfs:domain rdf:resource="#ResponseModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#validTime">
+    <rdfs:domain rdf:resource="#Constraints"/>
+    <rdfs:range rdf:resource="#TimePrimitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#dataComponent">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Parameter"/>
+          <owl:Class rdf:about="#TimePrimitive"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#DataGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="OntoSensor_Slot_10007"/>
+  <owl:ObjectProperty rdf:about="#sensorGroupComponent">
+    <rdfs:domain rdf:resource="#SensorGroup"/>
+    <rdfs:range rdf:resource="#Sensor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="identifiedAS">
+    <rdfs:domain rdf:resource="#component"/>
+    <rdfs:range rdf:resource="#Identifier"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasGeometry">
+    <rdfs:domain rdf:resource="#Physical_Properties"/>
+    <rdfs:range rdf:resource="#Geometry"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasData">
+    <rdfs:range rdf:resource="#DataGroup"/>
+    <rdfs:domain rdf:resource="#Product"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dataGroupValue">
+    <rdfs:range rdf:resource="#DataProvider"/>
+    <rdfs:domain rdf:resource="#DataGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="low">
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#QuantityExtent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="supportedApplication">
+    <rdfs:range rdf:resource="#GenericProperty"/>
+    <rdfs:domain rdf:resource="#CapabilitiesDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#sensorArrayComponent">
+    <rdfs:domain rdf:resource="#SensorArray"/>
+    <rdfs:range rdf:resource="#Sensor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="member">
+    <rdfs:range rdf:resource="#Asset"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="identifiedAs">
+    <rdfs:domain rdf:resource="#LocationModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="high">
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#QuantityExtent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="stimulatedBy">
+    <rdfs:domain rdf:resource="#Measurand"/>
+    <rdfs:range rdf:resource="#Stimulus"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="property">
+    <rdfs:range rdf:resource="#GenericProperty"/>
+    <rdfs:domain rdf:resource="#componentDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="platformArrayComponent">
+    <rdfs:range rdf:resource="#Platform"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Location_Value"/>
+  <owl:ObjectProperty rdf:about="#interface_IdentifiedAs">
+    <rdfs:domain rdf:resource="#Interface"/>
+    <rdfs:range rdf:resource="#Identifier"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDimension">
+    <rdfs:range rdf:resource="#QuantityParameter"/>
+    <rdfs:domain rdf:resource="#Device"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="taskableProperty">
+    <rdfs:range rdf:resource="#GenericProperty"/>
+    <rdfs:domain rdf:resource="#CapabilitiesDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="geometry">
+    <rdfs:domain rdf:resource="#ObservableObject"/>
+    <rdfs:range rdf:resource="#Geometry"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="reference">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#componentDescription"/>
+          <owl:Class rdf:about="#Event"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="describedBy">
+    <rdfs:range rdf:resource="#componentDescription"/>
+    <rdfs:domain rdf:resource="#component"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#observable">
+    <rdfs:range rdf:resource="#Phenomenon"/>
+    <rdfs:domain rdf:resource="#Measurand"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="observations">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:range rdf:resource="#ObservationProvider"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="range">
+    <rdfs:domain rdf:resource="#Active"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="securityLevel">
+    <rdfs:domain rdf:resource="#Constraints"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="dataGroupMember">
+    <rdfs:range rdf:resource="#DataGroup"/>
+    <rdfs:domain rdf:resource="#DataGroup"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMass">
+    <rdfs:range rdf:resource="#QuantityParameter"/>
+    <rdfs:domain rdf:resource="#Device"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="RestrictionCodeList">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >intellectualPropertyRights</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >restricted</rdf:first>
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >otherRestrictions</rdf:first>
+                      </rdf:rest>
+                    </rdf:rest>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >license</rdf:first>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >trademark</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >patentPending</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >patent</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >copyright</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#fixed">
+    <rdfs:domain rdf:resource="#Parameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSearchArea">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >small</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >medium</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >large</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Type_">
+    <rdfs:domain rdf:resource="#Identifier"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CIRP_ID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="City">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Value">
+    <rdfs:domain rdf:resource="#Identifier"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OntoSensor_orig__DatatypeProperty_84">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Accuracy">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#uom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#QuantityExtent"/>
+          <owl:Class rdf:about="#Quantity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Geometry_Value">
+    <rdfs:domain rdf:resource="#Geometry"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#quantityValue">
+    <rdfs:domain rdf:resource="#Quantity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Spacing_Y">
+    <rdfs:domain rdf:resource="#Regular_Grid_Model"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasResolutionProperty">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >moderate</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >low</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >good</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="battery_Pack">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#max">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#CountParameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="StreetAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Spacing_X">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Regular_Grid_Model"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="MissioniD">
+    <rdfs:domain rdf:resource="#MissionID"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="userNote">
+    <rdfs:domain>
+      <owl:DeprecatedClass rdf:ID="MD_SecurityConstraints">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="classification"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+      </owl:DeprecatedClass>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Attr_Value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#GenericProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OntoSensor_Slot_6">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="metric_mass">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Mass"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OntoSensor_orig__DatatypeProperty_80">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="constructedFrom">
+    <rdfs:domain rdf:resource="#Physical_Properties"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="useLimitation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="URL">
+    <rdfs:domain rdf:resource="#GenericProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Range_Property">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Country">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="allWeather">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="South">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="_value">
+    <rdfs:domain rdf:resource="#TimePrimitive"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#eventType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="otherConstraints">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Resolution_Property">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="repeat">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#action"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDayNightOperation">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasVelocityData">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#controllable">
+    <rdfs:domain rdf:resource="#Parameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="organizationName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Geometry_Type">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Geometry"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="useConstraints">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >license</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >otherRestrictions</rdf:first>
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >copyright</rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:rest>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >restricted</rdf:first>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >intellectualPropertyRights</rdf:first>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >trademark</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >patentPending</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >patent</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#unit">
+    <rdfs:domain rdf:resource="#Quantity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="County">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="sensorMobility">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >static</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >dynamic</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This propertu helps to define whether a sensor is static or fixed at a single location or if it is dynamic and moving about.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Spacing_Z">
+    <rdfs:domain rdf:resource="#Regular_Grid_Model"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Type">
+    <rdfs:domain rdf:resource="#Connection"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#_unit">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#TimePrimitive"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="radio_frequency">
+    <rdfs:domain rdf:resource="#Radio_Frequency"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="metric_volume">
+    <rdfs:domain rdf:resource="#Volume"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OntoSensor_orig__DatatypeProperty_81">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#min">
+    <rdfs:domain rdf:resource="#CountParameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#quantityMin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="#Quantity"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Val">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Longitude"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Resolution">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="accessConstraints">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >copyright</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >patent</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >patentPending</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >trademark</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >license</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >intellectualPropertyRights</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >otherRestrictions</rdf:first>
+                      </rdf:rest>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >restricted</rdf:first>
+                    </rdf:rest>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Title">
+    <rdfs:domain rdf:resource="#GenericProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Zip">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Attr_Name">
+    <rdfs:domain rdf:resource="#GenericProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasHotSpotDetection">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="isCompact">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCounterMeasureImmunity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasFoliagePenetration">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >higher_frequency</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >moderate_frequency</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >lower_frequency</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="battery_Life">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#codeSpace">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Classifier"/>
+          <owl:Class rdf:about="#TypedCount"/>
+          <owl:Class rdf:about="#TypedCategoryParameter"/>
+          <owl:Class rdf:about="#TypedQuantity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="LocationValue">
+    <rdfs:domain rdf:resource="#LocationParameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Value_">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Accuracy_Property">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="number">
+    <rdfs:domain rdf:resource="#Coefficient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="connector">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="quantityExtentValue">
+    <rdfs:domain rdf:resource="#QuantityExtent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This should take the range od decimalList.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Range">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OntoSensor_orig__DatatypeProperty_86">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="L_W_H">
+    <rdfs:domain rdf:resource="#Dimension"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="volume">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ClassificationCodeList">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >unclassified</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >confidential</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >topSecret</rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >secret</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >restricted</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#description">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#LocationModel"/>
+          <owl:Class rdf:about="#componentDescription"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="East">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="platformID">
+    <rdfs:domain rdf:resource="#Platform"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Codespace">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Mission_ID">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="countValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#CountParameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#classification">
+    <rdfs:domain rdf:resource="#MD_SecurityConstraints"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >unclassified</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >secret</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >topSecret</rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >confidential</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >restricted</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#type">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Classifier"/>
+          <owl:Class rdf:about="#TypedCount"/>
+          <owl:Class rdf:about="#TypedCategoryParameter"/>
+          <owl:Class rdf:about="#TypedQuantity"/>
+          <owl:Class rdf:about="#Interface"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="individualName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="RF_Range">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Radio_Frequency"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#quantityMax">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="#Quantity"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="classificationSystem">
+    <rdfs:domain rdf:resource="#MD_SecurityConstraints"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="North">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="RF_Power">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Radio_Frequency"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#coefficientValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="#Coefficient"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#booleanValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#BooleanParameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="West">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#categoryValue">
+    <rdfs:domain rdf:resource="#CategoryParameter"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="State">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Spatial_Accuracy">
+    <rdfs:domain rdf:resource="#SpatialDataQuantity"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="handlingDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#MD_SecurityConstraints"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Value-">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Latitude"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="OntoSensor_Slot_10006">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#hasComponent">
+    <rdfs:domain rdf:resource="#component"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#component"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Component can be an aggregate of other subComponents </rdfs:comment>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:ID="operationalRange">
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="duration">
+    <rdfs:domain rdf:resource="#action"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Duration"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#SP_value">
+    <rdfs:range rdf:resource="#Parameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#SetParameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#RGP_Coordinates">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#RegularGridParameters"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#stopDistance">
+    <rdfs:domain rdf:resource="#LinearVaryingDistance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Distance"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#VP_duration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#VaryParameter"/>
+    <rdfs:range rdf:resource="#Duration"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="OSP_TimeStamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#TimePrimitive"/>
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="OSP_Acceleration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+    <rdfs:range rdf:resource="#AccelerationParameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#event_TimeStamp">
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="#TimePrimitive"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#polarizationAngle">
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#RadiationResponse"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Samp_MemberOfArray">
+    <rdfs:range rdf:resource="#sampleArray"/>
+    <rdfs:domain rdf:resource="#Sample"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#startDistance">
+    <rdfs:domain rdf:resource="#LinearVaryingDistance"/>
+    <rdfs:range rdf:resource="#Distance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="LVD_NumberOfSteps">
+    <rdfs:range rdf:resource="#CountParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#LinearVaryingDistance"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dynamicRange">
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="measurementMethod">
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#CategoryParameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="threshold">
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="usesEvents">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ProcessEvent"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >No longer supported</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#referenceCRS">
+    <rdfs:domain rdf:resource="#LocationModel"/>
+    <rdfs:range rdf:resource="#CRS"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="usesActions">
+    <rdfs:domain rdf:resource="#SensorModel"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#action"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#spectralResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ParameterTuple"/>
+    <rdfs:domain rdf:resource="#RadiationResponse"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCRS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#CRS"/>
+    <rdfs:domain rdf:resource="#component"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#SPP_Location">
+    <rdfs:domain rdf:resource="#SimplePositionParameters"/>
+    <rdfs:range rdf:resource="#LocationParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#polarizationDirection">
+    <rdfs:domain rdf:resource="#RadiationResponse"/>
+    <rdfs:range rdf:resource="#CategoryParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="derivedFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Measurand"/>
+    <rdfs:range rdf:resource="#ResponseModel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="usesRMEvents">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ProcessEvent"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="capacity">
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="relativeAccuracy">
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="OSP_Orientation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#OrientationParameter"/>
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#event_Description">
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#translationActionUses">
+    <rdfs:range rdf:resource="#Distance"/>
+    <rdfs:domain rdf:resource="#TranslationAction"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#bandwidth">
+    <rdfs:domain rdf:resource="#RadiationResponse"/>
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#attachedTo">
+    <rdfs:range rdf:resource="#Platform"/>
+    <rdfs:domain rdf:resource="#Asset"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="documentConstrainedBy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property describes the constraint on each document</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#component"/>
+    <rdfs:range rdf:resource="#Constraints"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="OSP_Velocity">
+    <rdfs:range rdf:resource="#VelocityParameter"/>
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#VP_value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#VaryParameter"/>
+    <rdfs:range rdf:resource="#Parameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#scanActionUses">
+    <rdfs:range rdf:resource="#Parameter"/>
+    <rdfs:domain rdf:resource="#ScanAction"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="OSP_AngularVelocity">
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+    <rdfs:range rdf:resource="#AngularVelocityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#stopAngle">
+    <rdfs:range rdf:resource="#Angle"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#LinearVaryingAngle"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Classifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="resolution">
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="startDelay">
+    <rdfs:range rdf:resource="#Duration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#action"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#rotationActionUses">
+    <rdfs:domain rdf:resource="#RotationAction"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Angle"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="LVA_NumberOfSteps">
+    <rdfs:domain rdf:resource="#LinearVaryingAngle"/>
+    <rdfs:range rdf:resource="#CountParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#peakWavelength">
+    <rdfs:domain rdf:resource="#RadiationResponse"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasCapabilities">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#CapabilitiesDescription"/>
+    <rdfs:domain rdf:resource="#component"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#sourceCRS">
+    <rdfs:domain rdf:resource="#LocationModel"/>
+    <rdfs:range rdf:resource="#CRS"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#PT_ValueComponents">
+    <rdfs:range rdf:resource="#Parameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ParameterTuple"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="observableProperties">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ObservableObject"/>
+    <rdfs:range rdf:resource="#ObservableCharacteristics"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="usesRMParameters">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#ResponseModel"/>
+    <rdfs:range rdf:resource="#ResponseModelParameters"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="arraySize">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SensorArray"/>
+          <owl:Class rdf:about="#sampleArray"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#spectralRange">
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#RadiationResponse"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="survivableRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#TypedQuantityParameter"/>
+    <rdfs:domain rdf:resource="#GeneralResponse"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="repeatTime">
+    <rdfs:domain rdf:resource="#action"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Duration"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#startAngle">
+    <rdfs:range rdf:resource="#Angle"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#LinearVaryingAngle"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#OSP_Location">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#LocationParameter"/>
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="SPP_Orientation">
+    <rdfs:domain rdf:resource="#SimplePositionParameters"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#OrientationParameter"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="OSP_AngularAcceleration">
+    <rdfs:domain rdf:resource="#ObjectStateParameters"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#AngularAccelerationParameter"/>
+  </owl:FunctionalProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_257">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mica2 RF</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio Frequency</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2400 Mhz</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_237">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Temperature Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >123 C</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS310 Max Temperature Range</Attr_Name>
+  </GenericProperty>
+  <ThirdGeneration rdf:ID="Bridge_Thermo_Cam_3">
+    <sensorMobility rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >static</sensorMobility>
+  </ThirdGeneration>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_272">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP Magnetic Field Measurement</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Magnetic Field Measurement</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Magnetic Field Measurement</Title>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_252">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Humidity Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >100% RH</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Max Humidty Range</Attr_Name>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_205">
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Day Operation</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Day Operation</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP Day Operation</Attr_Name>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_282">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accelerometer Nonlinearity</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Accelerometer NonLinerarilty</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.2%</Attr_Value>
+  </GenericProperty>
+  <Ambient rdf:ID="MTS420CA_Ambient_light"/>
+  <FirstGeneration rdf:ID="flir002"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_222">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Humidity Sensing Range</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP510 Max Humidty Sensing Range</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >100% RH</Attr_Value>
+  </GenericProperty>
+  <MEP410_Humidity rdf:ID="MEP410_Humidity_Instance_1"/>
+  <MEP510_Platform rdf:ID="MEP510_1"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_243">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS310 Magnetic Sensing Resolution</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Magnetic Sensing Resolution</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.16 milli-gauss</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_274">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Accelerometer Range</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accelerometer Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+/-2 g</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_277">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Reacquisition time</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.1 s</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GPS Reacquisition Time</Title>
+  </GenericProperty>
+  <OntologyEvent rdf:ID="event2">
+    <event_Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Update and extension of the ontology</event_Description>
+  </OntologyEvent>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_241">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GPS L1 Frequency</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 GPS</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1575 Mhz</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_271">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Video Surveilance</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Video Surveilance</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP Video Surveilance</Attr_Name>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_275">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GPS</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP GPS</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GPS</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_207">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Max Barometric Sensing Range</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1100 RH</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Barometric Pressure Sensing Range</Title>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_221">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Humidity Measurement</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP Humidity Measurement</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Humidity Measurement</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_217">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP510 Maximum Radio Range</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Radio Range </Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >500 ft</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_242">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Magnetic Sensing Sensitivity</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.8 gauss</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS310 Magnetic Sensing Sensitivity</Attr_Name>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_232">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS310 Accelerometer Range</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accelerometer Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+/-2 g</Attr_Value>
+  </GenericProperty>
+  <MTS310_Platform rdf:ID="MTS310_1"/>
+  <ThirdGeneration rdf:ID="Bridge_thermo_cam_1">
+    <sensorMobility rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >static</sensorMobility>
+  </ThirdGeneration>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_224">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Minimum Temperature Sensing Range</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Min Temperature</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >-40 C</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_244">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS310 Temperature Accuracy</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+/-5 C</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Temperature Sensing Accuracy</Title>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_259">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Barometric Sensing Resolution</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Barometric Pressure Sensing Resolution</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.1 mbar</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_211">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mica2 Battery Life</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1 yr</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Battery Life</Title>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_203">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Total Rad Peak Wave Length</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ambient Light Peak Wave Length</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >560 nm</Attr_Value>
+  </GenericProperty>
+  <Temperature rdf:ID="MTS400CA_Temperature_Sensor"/>
+  <MMWRadiometer rdf:ID="mmradiometer1"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_284">
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >100% RH</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Max Humidity Range</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Humidity Sensing Range</Title>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_245">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accelerometer Nonlinearity</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.2%</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS310 Accelerometer Nonlinearity</Attr_Name>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_212">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP510 Max Temperature Sensing Range</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Temperature Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >123 C</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_209">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP Night Operation</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Night Operation</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Night Operation</Title>
+  </GenericProperty>
+  <LaserRadar rdf:ID="laser1"/>
+  <Temperature rdf:ID="CRM500_Temperature_Sensor"/>
+  <Temperature rdf:ID="MTS420_Temperature_Sensor"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_254">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Photosynthetic Sensing Peak Wave Length</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 PHOTSY Peak Wave Length</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >960 nm</Attr_Value>
+  </GenericProperty>
+  <CapabilitiesDescription rdf:ID="OntoSensor_orig__Individual_178">
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_231">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Day/Night Operation</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Day/Night Operation</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Day/Night Operation</Attr_Name>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_232"/>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_269">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Sound Buzzer</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sound Buzzer</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sound Buzzer</Title>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_211"/>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_279">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Acoustic Measurement</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Acoustic Measurement</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Acoustic Measurement</Attr_Name>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_228">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Temperature Sensing Range</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >-40 C</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Minimum Temperature </Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_261">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >100 m</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mica2 Radio Range</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Radio Range</Title>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_260">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0 dBm</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mica2 RF Power</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Radio Frequency Power</Title>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_244"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_272"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_230">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Magnetic Field Sensing Range</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >-6 gauss</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Min Magnetic Field Sensing Range</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_205"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_246">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Photosynthetic Photo Sensitivity</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Photosynthetic Sensitivity</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.05 A/W</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_226">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2 mg</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Accelerometer Peak Wave Length</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Accelerometer Peak Wave Length</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_243"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_229">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Max Photosynthetic</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1100 nm</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Maximum Photosynthetic Sensing Range </Title>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_239">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >190 nm</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 MIN Photosynthetic</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Photosynthetic Sensing Range </Title>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_265">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Light Measurement</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Light Measurement</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Light Measurement</Attr_Value>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_242"/>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_202">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Alarm</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Temperature Alarm</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Alarm</Title>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_245"/>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_270">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Sound Recording</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sound Recording</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sound Recording</Title>
+      </GenericProperty>
+    </supportedApplication>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_233">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Temperature Measurement</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Measurement</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Measurement</Title>
+      </GenericProperty>
+    </supportedApplication>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_221"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_250">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Max Magnetic Field Sensing Range</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Maximum Magnetic Field Sensing Range</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >6 gauss</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_209"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_257"/>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_220">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ambient Light Measurement</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Ambient Light Measurement</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ambient Light Measurement</Attr_Value>
+      </GenericProperty>
+    </supportedApplication>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_208">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Wireless Communication</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Wireless Communication</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Wireless Communication</Title>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_237"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_249">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 Temperature Sensing Resolution</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Sensing Resolution</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.01 C</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_262">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS310 PHOTSY Peak Wave Length</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >960 nm</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Photosynthetic Sensing Peak Wave Length</Title>
+      </GenericProperty>
+    </performanceProperty>
+  </CapabilitiesDescription>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_234">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Humidity Sensing</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.03%</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Humidity Sensing Resolution</Title>
+  </GenericProperty>
+  <Total_Radiation rdf:ID="MEP410_total_radiation_sensor"/>
+  <CapabilitiesDescription rdf:ID="OntoSensor_orig__Individual_177">
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_239"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_265"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_205"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_202"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_246"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_233"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_245"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_220"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_237"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_249"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_231"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_209"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_260"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_257"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_208"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_228"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_262"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_232"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_211"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_261"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_226"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_244"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_229"/>
+  </CapabilitiesDescription>
+  <CapabilitiesDescription rdf:ID="OntoSensor_orig__Individual_173">
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_215">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Maximum Temperature Sensing Range</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Temperature Range Max</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >123 C</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_254"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_288">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Humidity Sensing Resolution</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+/-3.5% RH</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MTS420 Humidty Accuracy</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_208"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_224"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_235">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+/- 5 C</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Sensing Accuracy</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Tempreature Accuracy</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_278">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Humidity Sensing Accuracy</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+/-2% RH</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Humidity Accuracy</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_255">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Radio Frequency</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Radio Frequency</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >433 Mhz</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_247">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410Humidity Sensing Accuracy</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+/-2%</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Humidity Sensing Accuracy</Title>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_258">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Maximum Photosynthetic Sensing Range </Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Max Photosynthetic</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1100 nm</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_265"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_205"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_256">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 MIN Photosynthetic</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >190 nm</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Photosynthetic Sensing Range </Title>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_248">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Maximum Radio Range</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Maximum Radio Range</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >500 ft</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_225">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Sensing Accuracy</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+/-5 C</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP510 Temperature Sensing Accur</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_259"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_233"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_207"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_252"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_231"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_218">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ambient Light Photo Sensitivity</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEp410 Total Rad Photo Sens</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.03 A/W</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_263">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Min Baro Press Range</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Barometric Pressure Sensing Range</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >300</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_240">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Maximum Ambient Light Sensing Range</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >100%</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Ambient Light Sensing Range Max</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_204">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Barometric Pressure Measurement</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Barometric Pressure Measurement</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Barometric Pressure Measurement</Attr_Name>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_203"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_209"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_214">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Barometric Pressure Sensing Accuracy</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >1.5 C</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Barometric Pressure Accury</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_253">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.05 A/W</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Photosynthetic Photo Sensitivity</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Photo Sens </Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_264">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Ambient Light Sensing Range</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Min Ambient Light</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0%</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_220"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_223">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP510 Min Humidity Sensing Range</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0% RH</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Humidity Sensing Range</Title>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_213">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Photosynthetic Light Measurement</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Photosynth Light Measu</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Photosynthetic Light Measurement</Title>
+      </GenericProperty>
+    </supportedApplication>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_234"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_227">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Sensing Resolution</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP410 Temperature Resolution</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.01 C</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+  </CapabilitiesDescription>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_219">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 GPS Tracking channels</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GPS Tracking Channels</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >12</Attr_Value>
+  </GenericProperty>
+  <Photosynthetic_Radiation rdf:ID="MEP410_photosynthetic_Rad_sensor"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_206">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP510 Humidity Sensing Accuracy</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Humidity Sensing Accuracy</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+/-2% RH</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_287">
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.01 C</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Temperature Sensing Resolution</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Temperature Sensing Resolution</Attr_Name>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_273">
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10 m</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Position Accuracy</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GPS Position Accuracy</Title>
+  </GenericProperty>
+  <Temperature rdf:ID="MEP410CA_Temperature_Sensor"/>
+  <CapabilitiesDescription rdf:ID="OntoSensor_orig__Individual_175">
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_236">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Radio Frequency</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP510 Radio Frequency</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >433 MHz</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_231"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_205"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_222"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_210">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Minimum Temperature Sensing Range</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP510 Minimum Sensing Range</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >-40 C</Attr_Value>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_209"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_223"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_216">
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Temperature Sensing Resolution</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.01 C</Attr_Value>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP510 Temperature Sensing Resolution</Attr_Name>
+      </GenericProperty>
+    </performanceProperty>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_208"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_206"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_212"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_217"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_255"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_221"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_248"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_225"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_233"/>
+    <performanceProperty>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_251">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEP510 Humidity Sensing Resolution</Attr_Name>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >0.03%</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Humidity Sensing Resolution</Title>
+      </GenericProperty>
+    </performanceProperty>
+  </CapabilitiesDescription>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_281">
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sound Recording</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >APP Sound Recording</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sound Recording</Title>
+  </GenericProperty>
+  <MEP510_Platform rdf:ID="MEP510_2"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_276">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Min Temperature Range</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >-40 C</Attr_Value>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Minimum Temperature Sensing Range</Title>
+  </GenericProperty>
+  <ThirdGeneration rdf:ID="Bridge_Thereo_Cam_4">
+    <sensorMobility rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >static</sensorMobility>
+  </ThirdGeneration>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_266">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Temperature Sensing Range</Title>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Max Temperature Range</Attr_Name>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >123 C</Attr_Value>
+  </GenericProperty>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <MEP410_Humidity rdf:about="#MEP410_Humidity_Instance_1"/>
+      <MEP410_Humidity rdf:ID="MEP410_Humidity_Instance_2"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <Ambient rdf:ID="MTS400CA_Ambient_Light"/>
+  <CapabilitiesDescription rdf:ID="OntoSensor_orig__Individual_179">
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_267">
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Video Capture</Attr_Name>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Video Capture</Title>
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Video Capture</Attr_Value>
+      </GenericProperty>
+    </supportedApplication>
+    <supportedApplication>
+      <GenericProperty rdf:ID="OntoSensor_orig__Individual_280">
+        <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Image Capture</Attr_Value>
+        <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Image Capture</Title>
+        <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >APP Image Capture</Attr_Name>
+      </GenericProperty>
+    </supportedApplication>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_205"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_209"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_271"/>
+  </CapabilitiesDescription>
+  <Milli-MeterWaveRadar rdf:ID="MMWR_001">
+    <sensorMobility rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >static</sensorMobility>
+  </Milli-MeterWaveRadar>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_285">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Accelerometer Peak Wave Length</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2 mg</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Accelerometer Peak Wavelength</Attr_Name>
+  </GenericProperty>
+  <Temperature rdf:ID="MEP510_CA_Temperature_Sensor"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_268">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Humidty Sensing Resolution</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0.03% RH</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Humidty Resolution</Attr_Name>
+  </GenericProperty>
+  <MEP510_Platform rdf:ID="MEP510_3"/>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_286">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Temperature Sensing Accuracy</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Temperature Sensing Accuracy</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+/-0.5 C</Attr_Value>
+  </GenericProperty>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_283">
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Minimum Humidity Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0% RH</Attr_Value>
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MTS420 Min Humidity Range</Attr_Name>
+  </GenericProperty>
+  <CapabilitiesDescription rdf:ID="OntoSensor_orig__Individual_176">
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_282"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_241"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_240"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_239"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_283"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_254"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_275"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_285"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_273"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_213"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_219"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_207"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_284"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_268"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_277"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_286"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_208"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_274"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_229"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_261"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_214"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_257"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_287"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_209"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_211"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_203"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_246"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_264"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_260"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_205"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_233"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_288"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_276"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_204"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_259"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_266"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_265"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_253"/>
+    <performanceProperty rdf:resource="#OntoSensor_orig__Individual_263"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_231"/>
+    <supportedApplication rdf:resource="#OntoSensor_orig__Individual_218"/>
+  </CapabilitiesDescription>
+  <GenericProperty rdf:ID="OntoSensor_orig__Individual_238">
+    <Attr_Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEP410 Min Humidity range</Attr_Name>
+    <Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Minimum Humidity Sensing Range</Title>
+    <Attr_Value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >0% RH</Attr_Value>
+  </GenericProperty>
+  <FLIR rdf:ID="fLIR_001">
+    <sensorMobility rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >static</sensorMobility>
+  </FLIR>
+  <ThirdGeneration rdf:ID="Bridge_theremo_cam_2">
+    <sensorMobility rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >static</sensorMobility>
+  </ThirdGeneration>
+  <ThirdGeneration rdf:ID="ThermaCam_Merlin"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

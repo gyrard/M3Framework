@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://goodoldai.org/ns/upproton.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:protonkm="http://proton.semanticweb.org/2005/04/protonkm#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://goodoldai.org/ns/upproton.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://proton.semanticweb.org/2005/04/protonkm"/>
+    <owl:imports rdf:resource="http://proton.semanticweb.org/2005/04/protonu"/>
+    <rdfs:comment xml:lang="en">This is the Travel Guides User ontology created by Danica Damljanovic, contains 
+  knowledge about tourists, their interests and preferences, and extends PROTON ontology.</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Cosmopolit">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Likes geting to know more about cultures, customs, habits.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Places_to_eat">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="National_parks">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Nature"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Museums">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:ID="Sightseeing">
+        <rdfs:subClassOf>
+          <owl:Class rdf:ID="Activity"/>
+        </rdfs:subClassOf>
+      </rdf:Description>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Shopping">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Nature">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Conformist">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Safari">
+    <rdfs:subClassOf rdf:resource="#Sightseeing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Restaurants">
+    <rdfs:subClassOf rdf:resource="#Places_to_eat"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Historic">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Thinker">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Art">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Passivist">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sunbathing, relaxation.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Musican">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Artist"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enjoys visiting concerts, music festivals, etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Botanist">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="NatureLover"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Sport">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Romantic">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Usually traveling in couple.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Fast_food_restaurants">
+    <rdfs:subClassOf rdf:resource="#Places_to_eat"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Botanical_gardens">
+    <rdfs:subClassOf rdf:resource="#Nature"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Scientist">
+    <rdfs:subClassOf rdf:resource="#Thinker"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Artist">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enjoy places where is beautiful nature, and also enjoys visiting exebitions, galleries, etc.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Education">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Culture">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Reading">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Interest"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Interest">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protont#Topic"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Shopaholic">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >He/she enjoys shopping any time, why not on vacation...</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Sunbathing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Relaxation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Rafting">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:ID="Adventure">
+        <rdfs:subClassOf rdf:resource="#Sport"/>
+      </rdf:Description>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hooliggan">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Usually traveling on sport events, matches.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protont#Topic"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Learner">
+    <rdfs:subClassOf rdf:resource="#Thinker"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Architect">
+    <rdfs:subClassOf rdf:resource="#Artist"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FamilyType">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enjoy spending time with family, he is visiting places where are lots of activities available.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Yoga">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Relaxation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Relaxation">
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Waterskiing">
+    <rdfs:subClassOf rdf:resource="#Adventure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Zoo_parks">
+    <rdfs:subClassOf rdf:resource="#Nature"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AnimalFriend">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#NatureLover"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#NatureLover">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:ID="counter">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The number that shows the "importance" of this userprofile for the complete user profile.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <rdf:Description rdf:ID="ClassicTourist">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This type of tourist usually follow the instructions of type "this is not to be missed when you visit..."</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </rdf:Description>
+  <rdf:Description rdf:ID="Adventurer">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enjoy active vacations.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+  </rdf:Description>
+  <rdf:Description rdf:ID="Clubbing">
+    <rdfs:subClassOf rdf:resource="#Interest"/>
+  </rdf:Description>
+  <rdf:Description rdf:ID="Clubbing-type">
+    <rdfs:subClassOf rdf:resource="http://proton.semanticweb.org/2005/04/protonkm#UserProfile"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Enjoy nice places for night life during vacation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:ID="Bunjee_jumping">
+    <rdfs:subClassOf rdf:resource="#Adventure"/>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3, Build 411)  http://protege.stanford.edu -->

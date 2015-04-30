@@ -1,0 +1,2705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY lov4iot "http://sensormeasurement.appspot.com/ont/m3/lov4iot#"> 
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY lov4iot "http://sensormeasurement.appspot.com/dataset/lov4iot-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">  
+         <!ENTITY emoca "http://ns.inria.fr/emoca/">  
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY stac_data	"http://securitytoolbox.appspot.com/stac-dataset/">   
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#"> 
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns:lov4iot="&lov4iot;"
+        xmlns="&lov4iot;"
+        xml:base="&lov4iot;"
+        xmlns:foaf="&foaf;"
+        xmlns:m3="&m3;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:emoca="&emoca;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:obo="&obo;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:stac_data="&stac_data;"
+       	xmlns:stac="&stac;"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">   
+       	
+            <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+  
+  <!-- ################################## LINKED OPEN VOCABULARIES FOR INTERNET OF THINGS (LOV4IoT) ################################## --> 
+     
+     <!--  Last updated: January 29th 2015
+     All works are not referenced here
+     Updated version here: http://sensormeasurement.appspot.com/?p=ontologies
+     In this dataset, we integrate in priority projects which have rules or shared their ontology or rules implementations
+     Inspired by these works, we redesigned an M3 interoperable domain knowledge to assist developers in designing Semantic Web of Things applications to easily interpret Internet of Things data.
+     
+     This dataset could be used for other purpose:
+     - new dataset for ontology matching tools due to the different structure of ontologies compared to the OAEI benchmark (Ontology Alignment Evaluation Initiative)
+     
+     -->
+     
+     <!-- ################################################ WEATHER APPLICATIONS ############################################## -->
+     	 <m3:M2MApplication rdf:about="PaulStaroch">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Paul Staroch 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Master's Thesis: A weather ontology for predictive control in smart homes. 2013</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>	   
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;WindDirectionSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SunPositionDirectionSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:hasUrlOntology rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl"/>	
+	    <m3:hasUrlRule rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <dcterms:creator>
+  			<foaf:Person rdf:about="mailto:paul@staroch.name">
+   			<foaf:name>Paul Staroch</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Truong2011">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Truong et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Fuzzy ontology building and integration for fuzzy inference systems in weather foreceast domain. [Truong et al. 2011].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/weather/weatherTruong.owl"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Devaraju2012">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Devaraju et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Sensors tell more than they sense: modeling and reasoning about sensor observations for understanding weather events</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+   		 <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+   		 <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+		<m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="LefortAWS2011">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Lefort et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">AWS ontology [Lefort et al. 2011].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+   		<m3:hasUrlOntology rdf:resource="http://www.w3.org/2005/Incubator/ssn/ssnx/meteo/aws"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="ClimateAndForecastCSIRO">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Climate And Forecast CSIRO]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">[Climate And Forecast CSIRO]</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://www.w3.org/2005/Incubator/ssn/ssnx/cf/cf-property.html"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="AEMET">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Atemezing, AEMET 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Transforming Meteorological Data into Linked Data 2011</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:hasTechnology rdf:resource="&stac_data;Python"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Sheth">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Sheth, Henson et al., Knoesis, SemSOS, 2008-2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Papers: Semantic Sensor Web, SemSOS: Semantic sensor Observation</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;VisibilitySensor"/>
+	    <m3:hasUrlOntology rdf:resource="http://sonicbanana.cs.wright.edu/ssw/ont/weather.owl"/>
+	    <m3:hasUrlOntology rdf:resource="https://github.com/skomazec/Sparkweave/blob/master/spark-epsilon-optimizer/ontologies/sensor-observation.owl"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="SweetRasking2005">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Weather DAML]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Knowledge representation in the Semantic Web for earth and environmental terminology [Raskin 2005]</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://sweet.jpl.nasa.gov/"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="WeatherDAML">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Weather DAML]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">[Weather DAML]</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="daml.org/ontologies/241"/>
+    </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="WeatherOpengis">
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[WeatherOpengis]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">[WeatherOpengis].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://external.opengis.org/twiki_public/MetOceanDWG/MetOntologies"/>
+    </m3:M2MApplication>
+    
+    	 <!-- ################################################ TOURISM APPLICATION ############################################## -->  
+    <m3:M2MApplication rdf:about="GyrardTourism2014">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Gyrard et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Enrich machine-to-machine data with semantic web technologies for cross-domain applications. [Gyrard et al. 2014].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/m3/tourism"/>
+   		<m3:hasUrlDataset rdf:resource="http://sensormeasurement.appspot.com/dataset/tourism-dataset"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Bujan2013">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Bujan et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: >Paper: Context management platform for tourism applications. [Bujan et al. 2013], Paper: Covering the semantic space of tourism - an approach based on modularized ontologies, Paper: Context-based semantic matchmarking to enhance tourists' experiences.</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://tourexp.morelab.deusto.es/ont/tourexp"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+     
+ 	<m3:M2MApplication rdf:about="Chien">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Chien et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Design and implementation of zigbee-ontology-based exhibit guidance and recommendation system </rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;CloudCoverSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>	    
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/tourism/SunMoonLakeChien"/>	
+	    <m3:hasUrlRule rdf:resource="http://sensormeasurement.appspot.com/ont/tourism/SunMoonLakeChien"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Silva2013">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Silva et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A structured and flexible language for physical activity assessment and characterization [Silva et al. 2013] </rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Wang2012">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Wang et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A case study of question answering in automatic tourism sevice packaging. [Wang et al. 2012] </rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Moreno2012">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Moreno et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Sigtur/e-destination ontology-based personalized recommendation of tourism and leisure activities. [Moreno et al. 2012] </rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Figueiras2013">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Figueiras et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Knowledge base approach for developing a mobile personnalized traval companion.</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Park2013">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Park et al. 2009-2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Task model and task ontology based on mobile user's generic activities for task-oriented tourist information service. Paper: Ontology-based approach to intelligent ubiquitous tourist information system.</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Kuntarto2012">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Kuntarto et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Dwipa search engine: when e-tourism meets the Semantic Web</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Ziafati2011">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Ziafati et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Fast prototyping and deploment of context-aware smart outdoor environments</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Palaniammal2012">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Palaniammal et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An unfangled approach to semantic search for e-tourism domain</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Cao2011">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Cao et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Integrating open data and generating travel itinary in semantic-aware tourist information system</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="GarciaCrespo2011">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Garcia-Crespo et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Sem-Fit: A semantic-based expert system to provide recommendations in the tourism domain</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="BlancoFernandez2011">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Blanco-Fernandez et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Sabou2009">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Sabou et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: TourMISLOD: a Tourism Linked Data Set</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+	    <m3:hasUrlOntology rdf:resource="http://tourmislod.modul.ac.at/TourismOntology.owl"/>
+   		<m3:hasUrlDataset rdf:resource="http://tourmislod.modul.ac.at/"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Choi2009">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Choi et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Travel ontology for intelligent recommendation system</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Daramola2009">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Daramola et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Building an ontology-based framework for tourism recommendation services</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Damljanovic2009">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Damljanovic et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Applying Semantic Web to e-tourism</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="AroyoCHIP2009">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Aroyo et al., CHIP, 2007-2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Chip demonstrator: semantics-driven recommendations and museum tour generation</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Dema2008">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Dema et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: eTourPlan: a knowledge-based tourist route and activity planner</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008</dcterms:issued> 
+    </m3:M2MApplication>
+        
+    <m3:M2MApplication rdf:about="Wang2008">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Daramola et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An intelligent ontology and bayesian network based semantic mashup for tourism</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="QallMe">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Ou et al., QALL-ME 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Development and alignment of a domain-specific ontology for question answering.</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008</dcterms:issued> 
+	    <m3:hasUrlOntology rdf:resource="http://qallme.fbk.eu/qallme-tourism4.0.owl"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Tomai2006">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Tomai et al. 2006]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based web-portal for tourism.</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2006</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hepp2006">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Cardoso, Hepp et al. 2006]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: E-Tourism: creating dynamic packages using Semantic Web processes. Paper: Developing an owl ontology for e-tourism</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2006</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Knublauch2004">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Knublauch et al. 2004]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-driven software development in the context of the Semantic Web: an example scenario with protege/owl</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2004</dcterms:issued> 
+	    <m3:hasUrlOntology rdf:resource="http://protege.cim3.net/file/pub/ontologies/travel/travel.owl"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Proton">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Proton. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+	    <m3:hasUrlOntology rdf:resource="proton.semanticweb.org/2005/04/"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Prantner2005">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[Prantner et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: OnTour. The ontology.</rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="e-tourism.deri.at/ont/e-tourism.owl#"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Taga">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Taga. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://taga.sourceforge.net/owl/"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="George">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">[George et al.]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.thewebtrain.co.uk/portfolio/ontology.html"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="HarmoniseOntology">
+      	<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">HarmoniseOntology. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+   <!-- ################################################ ACTIVITY ############################################## -->  
+    
+ 	<m3:M2MApplication rdf:about="Konlakorn">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en"> [Wongpatikseree et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A context aware information in smart home for  recommendation service based on care architecture. 2013</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Broom"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Book"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Mop"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Bed"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;GyroscopeSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;UltrasonicSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WaterFlow"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Magnetometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Sofa"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CoffeeMachine"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Fridge"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Computer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Shower"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Sink"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;TV"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Lavatory"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/home/homeActivity"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Boshoven2014">
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Boshoven2014 et al., April 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Master's thesis: Personalized life reasoning</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Accelerometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Gyroscope"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;GPSSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="LimingChen">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Chen, Nugent et al., December 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based activity recognition framework and services. </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Cup"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CoffeeMachine"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Boiler"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_TeaBag"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Pan"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+            
+     <m3:M2MApplication rdf:about="Bae">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Bae et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based approach to ADL recognition in smart homes. 2013</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Curtain"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Window"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;AirConditioner"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Heating"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>    
+    
+     <m3:M2MApplication rdf:about="Bobek2012">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Bobek et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Context awareness in learning human habits</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>
+    </m3:M2MApplication>    
+        
+     <m3:M2MApplication rdf:about="DemaCare">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[DemaCare 2006-20014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Knowledge-driven activity recognition and segmentation using context connections [ISWC 2014] </rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/home/demcare/event.owl"/>
+   		<m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/home/demcare/home.owl"/>
+   		<m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/home/demcare/lab.owl"/>
+   		<m3:hasUrlDataset rdf:resource="architecture.mit.edu/house_n/data/PlaceLab/PlaceLab.htm"/>
+   		<m3:hasUrlRule rdf:resource="http://sensormeasurement.appspot.com/RULES/OTHER/MeditskosSpinRules.txt"/>
+    </m3:M2MApplication>
+    
+	
+	 <!-- ################################################ SMART HOME ############################################## -->
+
+    <m3:M2MApplication rdf:about="DogOnt">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Bonino et al., DogOnt 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: DogOnt - Ontology Modeling for Intelligent Domotic Environments 2008</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;GasDetector"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Window"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Door"/> 
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;OpenID"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;HtAccess"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;OAuth"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://elite.polito.it/ontologies/dogont.owl"/>	
+	    <dcterms:creator>
+  			<foaf:Person rdf:about="mailto:dario.bonino@gmail.com">
+   			<foaf:name>Dario Bonino</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+    </m3:M2MApplication>
+    	
+    <m3:M2MApplication rdf:about="Ryu2015">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Ryu et al. 2015]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Integrated semantics service plaform for the internet of things: a case study of a smart office. [Ryu et al. 2015].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="OneM2M2014">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[OneM2M, MAS, Smart Applicances 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">OneM2M, MAS, Smart Applicances ontology</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+   		<m3:hasUrlOntology rdf:resource="http://ontology.tno.nl/saref/"/>	
+    </m3:M2MApplication>       
+        
+    <m3:M2MApplication rdf:about="Rodriguez">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Rodriguez et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A fuzzy ontology for semantic modelling and recognition of human behavior 2014</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://users.abo.fi/ndiaz/public/FuzzyHumanBehaviourOntology/FuzzyHumanBehaviourV11.owl"/>	
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Alirezaie2014">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Alirezaie et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Reasoning for improved sensor data intepretation in a smart home</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;GasDetector"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication> 
+        
+     <m3:M2MApplication rdf:about="Bovet2014">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Bovet et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Distributed semantic discovery for Web-of-Things enambled smart buildings</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Heating"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Blind"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>    
+    
+     <m3:M2MApplication rdf:about="Fredrich2014">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Fredrich et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology for user profile modelling in the field of Ambient Assisted Living</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;GPSSensor"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>   
+    
+     <m3:M2MApplication rdf:about="DePaola2014">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[De Paola et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Book Chapter: An ontology-based autonomic system for ambient intelligence scenarios</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensors"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Door"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="WeiWang2013">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Wei Wang et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Knowledge representation in the Internet of Things: Semantic Modelling and its applications</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+
+   <m3:M2MApplication rdf:about="Jacquet">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Jacquet et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ambient assisted living framework with automatic self-diagnosis</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Nguyen2013">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Nguyen et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based office activity recognition with applications for energy savings. [Nguyen et al. 2013].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Grassi2013">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Grassi et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontologies for smart homes and energy management: an implementation-driven survey. [Grassi et al. 2013].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Xu2013">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Xu et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: CACOnt: an ontology-based model for context modeling and reasoning.</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+        
+      <m3:M2MApplication rdf:about="Riboni">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Riboni et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: OWL 2 modeling and reasoning with complex human activities</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>
+	   	<m3:hasUrlOntology rdf:resource="http://webmind.di.unimi.it/care/locont-2.0.owl"/>	
+	    <m3:hasUrlRule rdf:resource="http://webmind.di.unimi.it/care/locont-2.0.owl"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Sallinen2012">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Sallinen et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Service platform for context reasoning in home environment. [Sallinen et al. 2012].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+     	
+ 	<m3:M2MApplication rdf:about="Bonsai">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Stravopoulos et al., Bonsai 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Bonsai: a smart building ontology for ambient intelligence 2012</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>  
+	    <m3:hasUrlOntology rdf:resource="http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl"/>	
+	    <m3:hasTechnology rdf:resource="&stac;ZigbeeTechnology"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+        
+    <m3:M2MApplication rdf:about="Chahuara2012">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Chahuara et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Context aware decision system in a smart home: knowledge representation and decision making using uncertain contextual information</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Kofler">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Kofler et al., ThinkHome, 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters 2011, Paper: Thinkhome energy efficiency in future smart homes 2011, Paper: A semantic representation of energy-related information in future smart homes, Paper: A knowledge-base for Energy-Efficient Smart Homes  </rdfs:comment>
+	  	<m3:hasUrlOntology rdf:resource="https://www.auto.tuwien.ac.at/projectsites/thinkhome/ontologies.html"/>	
+	    <m3:hasUrlRule rdf:resource="https://www.auto.tuwien.ac.at/projectsites/thinkhome/ontologies.html"/>	
+	    <m3:hasUrlDataset rdf:resource="https://www.auto.tuwien.ac.at/projectsites/thinkhome/ontologies.html"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	   	<m3:hasM2MDevice rdf:resource="&m3;Heating"/>
+	   	<m3:hasM2MDevice rdf:resource="&m3;Window"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WashingMachine"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;DishWasher"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Ventilation"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:hasTechnology rdf:resource="&stac;ZigbeeTechnology"/>	  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>  
+	    <dcterms:creator>
+  			<foaf:Person rdf:about="mailto:mkofler@auto.tuwien.ac.at">
+   			<foaf:name>Mario Kofler</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="Barbero2011">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Barbero et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A flexible context aware reasoning approach for IoT applications. [Barbero et al. 2011].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Cheong2011Home">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Cheong et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based reasoning approach towards energy-aware smart homes</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/> 
+    </m3:M2MApplication>    
+    
+    <m3:M2MApplication rdf:about="HanJeongLee2011">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Han Jeong Lee et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Efficient building management system based on ontology, inference rules and simulation</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Boiler"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Ventilation"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Freezer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Cose">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Wemlinger et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The COSE ontology: bringing the semantic web to smart environments 2011</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;GyroscopeSensor"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;ShakeSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;FlowSensor"/>
+	    <m3:hasUrlOntology rdf:resource="http://casas.wsu.edu/owl/"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="ValienteRocha2010">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Valiente-Rocha et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based expert system for home automation controlling. Ontology and SWRL-based learning model for home automation controlling [Valiente-Rocha et al. 2010].</rdfs:comment>
+   		<lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+   		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010</dcterms:issued> 
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Abdulrazak2010">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Abdulrazak et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A standard ontology for smart spaces</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.sensormeasurement.appspot.com/ont/home/EnvironmentModelV4.owl"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="WangTurner2009">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Wang, Tuner et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An Ontology-based Actuator Discovery and Invocation Framework in Home Care Systems</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.cs.stir.ac.uk/schemas/"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;Door"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;TV"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Telephone"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Rybicki2008">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Rybicki et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic service discovery in pervasive computing environment</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Ejigu2007">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Ejigu et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based approach to context modeling and reasoning in pervasive computing</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Huq2007">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Huq et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Modeling an ontology for managing contexts in smart meeting space</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Ricquebourg2007">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Ricquebourg et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Context inferring in the Smart Home: An SWRL Approach</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="KimChoi2006">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Kim, Choi et al. 2006]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based context model in a smart home</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Fridge"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Microwave"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Lamp"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Telephone"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;TV"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Curtain"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="ChristopoulouGas2004">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Christopoulou et al. 2004-2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based conceptual model for composing context-aware applications, Paper: GAS ontology: an ontology for collaboration among ubiquitous computing devices</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Sommagura2005">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Sommagura et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: DomoML-env: an ontology for human home interaction </rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Codamos2004">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[CODAMOS 2004]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Towards an extensible context ontology for ambient intelligence</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="https://distrinet.cs.kuleuven.be/projects/CoDAMoS/ontology/"/>	
+    </m3:M2MApplication>    
+    
+     <m3:M2MApplication rdf:about="SocamConon">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[SOCAM - CONON 2004]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A service-oriented middleware for building context-aware services, Paper: Ontology based context modeling and resoning using owl, Paper: An ontology-based context model in intelligent environments, Paper: Enabling context-aware smart home with Semantic Web technologies, Paper: Context-aware infrastructure for personalized care, Paper: Semantic space: an infrastructure for smart spaces </rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="CobraSoupa2003">
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[COBRA - SOUPA 2003-2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The Soupa ontology for pervasive computing, Paper: An ontology for context-aware pervasive computing environments, Paper: An intelligent broker architecture for context-aware systems, Paper: Semantic Web in the context broker architecture, Paper: Soupa: standard ontology for ubiquitous and pervasive applications, Paper: Intelligent agents meet the Semantic Web in smart spaces </rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFIDTag"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://cobra.umbc.edu/ontologies-2004-05.html"/>	
+    </m3:M2MApplication>
+
+    <!-- ################################################ OTHERS ############################################## -->
+    
+    <m3:M2MApplication rdf:about="SuFishery">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+		<rdfs:label xml:lang="en">[Xiang Su et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Connecting IoT sensors to knowledge-based systems by transforming SenML to RDF</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;SaltMeter"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+    </m3:M2MApplication>    
+    <!-- ################################################  HEALTH APPLICATIONS ############################################## -->
+
+ 	 <m3:M2MApplication rdf:about="VanWoensel2014">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Van Woensel et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A cross-platform benchmarking framework for mobile semantic web reasoning engines</rdfs:comment>
+		<m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>          
+        
+    <m3:M2MApplication rdf:about="Aloulou2014">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Aloulou et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An adptable and flexible framework for assistive living of cognitively impaired people [Aloulou et al. 2012]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont//AloulouOnto.n3"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Manate2014">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Manate et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An intelligent context-aware decision-support system oriented towards care support [Manate et al. 2012]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont//cisisManate.owl"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hristoskova">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Hristoskova et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PulseOxymeter"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Park2014">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Park et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic Open IoT Service platform technology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Glucometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>  
+    
+    <m3:M2MApplication rdf:about="Guermah">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Guermah 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A semantic approach for service adaptation in context-aware environment</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Glucometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="Obaid">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Obaid et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology based system for social networking for  application support</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Glucometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="Roose2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Roose et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Toward a context-aware and automatic evaluation of elderly dependency in smart homes and cities. [Roose et al. 2013]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.iutbayonne.univ-pau.fr/~roose/ontologies/sad_Ontology.owl"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.iutbayonne.univ-pau.fr/~roose/ontologies/ASQOntology.owl"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>    
+        
+     <m3:M2MApplication rdf:about="Yao2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Yao et al. 2009-2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: conflexflow: integrating flexible clinical pathways into clinical decision support systems using context and rules  [Yao et al. 2013]</rdfs:comment>
+	   	<rdfs:comment xml:lang="en">Paper: Using ontology to support context awareness in care. [Yao et al. 2009]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont//hospital_ontology_2_yao"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont//ClinicalContext"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hennessy2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Hennessy et al. 2009-2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A framework and ontology for mobile sensor platforms in home  management.  [Hennessy et al. 2013]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="https://sites.google.com/a/steveray.com/ontologies/home/repository/"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Liu2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Liu, Brandt et al. 2009-2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic interoperability in sensor applications making sense of sensor data</rdfs:comment>
+	   	<rdfs:comment xml:lang="en">Master's thesis: Improving semantic interoperability in remote patient monitoring</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont//Measurement_Ontology_Brandt"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Dewebharta2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+      	<m3:hasContext rdf:resource="&m3;Activity"/>
+		<rdfs:label xml:lang="en">[Dewebharta et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An activity ontology for context-awared health promotion application.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+	   	<m3:hasM2MDevice rdf:resource="&m3;WeightSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Wang2013Health">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Wang et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Creating personalised clinical pathways by semantic interoperability with electronic health records.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Rishi2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Rishi, Saripalle et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology design and development framework part I: Enhancing modeling capabilities via owl extensions</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Lee2013Health">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Lee et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology model-based situation and socially-aware health care service in a smart home environment.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Pramita2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Pramita et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology based context aware for recovery management in ubiquitous healthcare.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Thirugnanam2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Thirugnanam et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology based system for predicting disease using SWRL rules, Paper: Ontology based disease information system</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Lousado2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Lousado et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Medical ontology for treatment of clinical data from children and youth</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Bouaicha2013">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Bouaicha et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Extending SWRL rules for rules/concepts integration in hybrid ontologies.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="Lasierra">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Lasierra et al. 2012-2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Designing an architecture for monitoring patients at home: ontologies and web services for clinical and technical management integration 2013</rdfs:comment>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;HTTPS"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;SHA"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;HMAC"/>	
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;X_509"/> 
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;PKI"/>  
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;SSL"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;WeightSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;PulseOxymeter"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Botia2012">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Botia, Blaya et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ambient Assisted Living System for in-home monitoring of health independent elders</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Benyahia2012">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Benyahia, E-care et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: e-Care: Ontological architecture for telemonitoring and alerts detection.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Chellouche2012">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Chellouche et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based pervasive M2M healthcare environment, Paper: Context-aware multimedia services provisioning in future Internet using ontology and rules</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Bravo">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Bravo, Valero, Hervas et al. 2009-2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Mobile monitoring and reasoning methods to prevent cardiovascular diseases 2013</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;CholesterolSensor"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;SSL"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;X_509"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Riano2012">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Riano et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based personalization of health-care knowledgge to support clinical decisions for chronocalli ill patients.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Zeshan2012">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Zeshan et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Medical ontology in the dynamic healthcare environment</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="CodeBlue">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[CodeBlue 2004]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ad-hoc sensor network infrastructure for emergency medical care. 2004</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;PulseOxymeter"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;ECG"/>
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;ECC"/>
+	    <m3:hasTechnology rdf:resource="&stac;WifiTechnology"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2004</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Paganelli">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Paganelli et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based system for context-aware and configurable services to support home-based continuous care. 2011</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;PulseOxymeter"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;GasDetector"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	   	<m3:hasUrlOntology rdf:resource="http://lrst.det.unifi.it/people/Paganelli/kamer_ontology/kamer_patientCM.owl"/>	
+	    <m3:hasUrlRule rdf:resource="http://lrst.det.unifi.it/people/Paganelli/kamer_ontology/kamer_alarmPolicy.owl"/>	
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Jovic2011">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Jovic et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Heart failure ontology</rdfs:comment>
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasUrlOntology rdf:resource="http://lis.irb.hr/heartfaid/ontology/"/>	
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Taboada2011">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Taboada  et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A Semantic Web approach to integrate phenotype descriptions and clinical data.</rdfs:comment>
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasUrlOntology rdf:resource="http://www.usc.es/keam/TempCTX/"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Bertaud2007">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Bertaud et al. 2007-2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology and medical diagnosis, Paper: Ontology-based approach for managing personal health and wellness information</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+        
+     <m3:M2MApplication rdf:about="Tanantong">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Tanantong et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Towards Continuous electrocardiogram monitoring based on rules and ontologies</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Kostopoulos2011">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Kostopoulos et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based framework aiming to support personalized exercice prescription: application in cardiac rehabilitation</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WeightSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	      <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+    </m3:M2MApplication>    
+    
+      <m3:M2MApplication rdf:about="Librelotto2011">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Librelotto et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: OntoHealth: A system to process ontologies applied to health pervasive environment</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>    
+    
+    <m3:M2MApplication rdf:about="Fujita2010">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Fujita et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Multiviews ontologies based reasoning for medical diagnosis in vds, Paper: Human interaction based reasoning using ontology alignment</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Zhao2010">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Zhao et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Publishing Chinese medicine knowledge as Linked Data on the Web</rdfs:comment>
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasUrlOntology rdf:resource="https://code.google.com/p/junsbriefcase/wiki/RDFTCMData"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Docksteader2010">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Docksteader et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: MORF: A Mobile health- Monitoring plaform</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Mazuel2009">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Mazuel et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Alignement entre des ontologies de domaines et la snomed: 3 etudes de cas</rdfs:comment>
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/health/OntoReaChir_20090611.owl"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Atemezing2009">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Atemezing et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology for African Traditional Medicine</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+   
+    <m3:M2MApplication rdf:about="Roy2008">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Roy et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-driven ambiguous contexts mediation framework for smart care applications</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>       
+          
+    <m3:M2MApplication rdf:about="LaftiHIT">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">[Lafti, HIT 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based management of the tele smart home, dedicated to elderly in loss of cognitive autonomy 2007</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;GasDetector"/>	  
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;Window"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Door"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Drawer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Cupboard"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;FallDetector"/> 
+	    <m3:hasUrlOntology rdf:resource="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/"/>	
+	    <m3:hasUrlRule rdf:resource="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/"/>	  
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2007</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>    
+    
+     <m3:M2MApplication rdf:about="Amies2006">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Amies et al. 2006]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Physicology ontology</rdfs:comment>
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/health/physiology"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="RegistryOntology">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[RegistryOntology]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">RegistryOntology</rdfs:comment>
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/health/registry"/>
+    </m3:M2MApplication>
+            
+    <m3:M2MApplication rdf:about="Jara">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Jara et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ambient assisted living system for telemedicine with detection of symtoms</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Glucometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+        
+     <m3:M2MApplication rdf:about="Hassanpour">
+      	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Hassanpour et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Visualizing logical dependencies in SWRL rule bases</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Glucometer"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010</dcterms:issued> 
+    </m3:M2MApplication>
+    
+    
+    <!-- ################################################ SMART ENERGY  ############################################## -->
+    
+     <m3:M2MApplication rdf:about="Dey2014Sensxpore">
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Dey et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: SensXplore: A tool for sensor discovery using semantics with focus on smart metering</rdfs:comment>
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="ShahDehems2011">
+      	<m3:hasContext rdf:resource="&m3;Energy"/>
+		<rdfs:label xml:lang="en">[Shah et al., DEHEMS project, 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology for home energy management domain</rdfs:comment>  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    
+    <!-- ################################################ FIRE APPLICATIONS  ############################################## -->
+    
+     <m3:M2MApplication rdf:about="Khan2015">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Khan et al. 2015]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A data annotation architecture for semantic applications in virtualized wireless sensor networks. [Khan et al. 2015]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Shamszaman2014">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Shamszaman et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Web-of-Objects (WoO)-based context aware emergency fire management systems for the internet of things [Shamszaman et al. 2014]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;GasDetector"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Park2013">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Park et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A feedback-based approach to validate SWRL rules for developing situation-aware software. [Park et al. 2013]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Yus2013">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Yus et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Sherlock: Semantic management of location-based services in wireless environments [Yus et al. 2013], Paper: Android goes semantic: DL reasoners on smartphones</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Fernandez2013">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Fernandez et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology Alignment architecture for semantic sensor web integration. [Fernandez et al. 2013]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;SmokeDetector"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;GasDetector"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Ruta2012Fire">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Ruta et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A logic-based CoAP extension for resource discovery in semantic sensor networks [Ruta et al. 2012]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;AirConditioner"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Desai2011">
+      	<m3:hasContext rdf:resource="&m3;Environment"/>
+      	<m3:hasContext rdf:resource="&m3;Fire"/>
+		<rdfs:label xml:lang="en">[Desai et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: SECURE: Semantics Empowered Rescue Environment  [Desai et al. 2011]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;CO_Sensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;Methane_Sensor"/> 
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/> 
+	    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011</dcterms:issued> 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <!-- ################################################ POLLUTION TEMPLATE ############################################## -->
+   
+    
+        <!-- ################################################ TRANSPORT TEMPLATE ############################################## -->
+
+	<m3:M2MApplication rdf:about="Bermejo2014">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Bermejo et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology based road traffic management</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com//ont/transport/traffic"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;GPSSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;DistanceSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>	 
+	    <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>	   
+    </m3:M2MApplication> 
+    
+    <m3:M2MApplication rdf:about="Morignot">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Morignot et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based Model to determine the automation level of an automated vehicle for co-driving 2013</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;GPSSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="http://philippe.morignot.free.fr/Articles"/>	
+	    <m3:hasUrlRule rdf:resource="http://philippe.morignot.free.fr/Articles"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>	
+	    <dcterms:creator>
+  			<foaf:Person rdf:about="mailto:philippe.morignot@inria.fr">
+   			<foaf:name>Philippe Morignot</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Ebers2013">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Ebers et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Short paper: collaboration between VANET applications based on open standards</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>  
+    
+      <m3:M2MApplication rdf:about="Barrachina">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Barrachina et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: VEACON: a vehicular accident ontology designed to improve safety on the roads  2012</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>  
+	    <m3:hasM2MDevice rdf:resource="&m3;SeatBeltTensionSensor"/>  	    
+	    <m3:hasSecurityMechanism rdf:resource="&stac_data;AES"/>
+	    <m3:hasTechnology rdf:resource="&stac;BluetoothTechnology"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>	 
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>    
+        
+    <m3:M2MApplication rdf:about="Mnasser">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Madkour et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Towards an intelligent information system of public transportation</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Ruta">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Ruta et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A mobile knowlege-based system for on-board diagnostics and car driving assistance. 2010</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;ESP"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;FogLamp"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;ABS"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SnowChains"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Oxygen_Sensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;FuelLevel"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;ThrottleSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;VisibilitySensor"/>
+	    <m3:hasUrlOntology rdf:resource="http://sisinflab.poliba.it/ruta/bag/iDriveSafe.txt"/>	
+	    <m3:hasUrlRule rdf:resource="http://sisinflab.poliba.it/ruta/bag/iDriveSafe.txt"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <dcterms:creator>
+  			<foaf:Person rdf:about="mailto:m.ruta@poliba.it">
+   			<foaf:name>Michele Ruta</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Madkour2013">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Madkour et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based context modeling for vehicle context-aware services.</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Wang2010Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Wang et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Thesis: A traffic accident risk mapping framework Paper: An ontology-based traffic accident risk mapping framework</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Hamilton2012 ">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Hamilton et al.]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic-based approach for route determination and ontology updating</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Stocker2012">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Stocker et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Making sensor of sensor data using ontology: a discussion for road vehicle classification</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Li2012Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Li et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Fuzzy ontology based knowledge reasoning framework design.</rdfs:comment>	    
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;AirConditioner"/>	
+	     <m3:hasM2MDevice rdf:resource="&m3;AlarmSystem"/>	    
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Feld">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Feld et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The Automotive ontology: Managing knowledge inside the vehicle and sharing it between cars.</rdfs:comment>	    
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>	
+	     <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>	
+	     <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;AlcoholLevelSensor"/>	     
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Hulsen2011">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Hulsen et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Traffic intersection situation description ontology for advanced driver assistance. Paper: Asynchronous real-time framework for knowledge-based intersection assistance.</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Berdier2011">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Berdier et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Chapter 14: An ontology for urban mobility, Chapter 17: Road system ontology: organisation and feedback</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Kannan">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Kannan et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An intelligent driver assistance system (I-DAS) for vehicle safety modelling using ontology approach.</rdfs:comment>	    
+	     <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;AirConditioner"/>	
+	     <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>		
+	     <m3:hasM2MDevice rdf:resource="&m3;GPSSensor"/>
+	     <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>	        
+    </m3:M2MApplication>    
+    
+    <m3:M2MApplication rdf:about="Baumgartner2010">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Baumgartner et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: BeAware! - Situation awareness, the ontology-driven way.</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Liu2010Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Liu et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based context representation and reasoning using owl and swrl (cross-road surveillance system)</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Niaraki2009">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Niaraki  et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology based personalized route planning system using a multi-criteria decision making approach </rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="MartinHeppVehicle">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Martin Hepp, Vehicle ontology]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">[Martin Hepp, Vehicle ontology].</rdfs:comment>	    
+	     <m3:hasUrlOntology rdf:resource="http://www.heppnetz.de/ontologies/vso/ns"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>  	      
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Mair">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Mair, Eigner et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An application for ontological context models. 2008 (Ontology in German)</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;DistanceSensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>	    
+	    <m3:hasUrlOntology rdf:resource="http://home.in.tum.de/~mair/DA/szenario1/"/>	
+	    <m3:hasUrlRule rdf:resource="http://home.in.tum.de/~mair/DA/szenario1/"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Yue2009Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Yue et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Traffic accidents knowledge management based on ontology</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Zhai2009Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Zhai et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Fuzzy semantic retrieval for traffic information based on fuzzy ontology and rdf on the Semantic Web</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Sun2009Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Sun et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Context-aware smart car: from model to prototype </rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>    
+    
+      <m3:M2MApplication rdf:about="Fuchs">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Fuchs, Grausberg et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A model for ontology-based scene description for context-aware driver assistance systems, Paper: Integration of ontological scene representation and logic-based reasoning for context-aware driver assistance systems.</rdfs:comment>	    
+	     <m3:hasUrlOntology rdf:resource="http://vi.uni-klu.ac.at/ontology/DrivingContext.owl"/>	
+	    <m3:hasUrlRule rdf:resource="http://vi.uni-klu.ac.at/ontology/DrivingContext.owl"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;DistanceSensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SpeedSensor"/>	 
+	    <m3:hasM2MDevice rdf:resource="&m3;AirThermometer"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;GPSSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;RoadSurfaceThermometer"/>	  	      
+    </m3:M2MApplication>
+
+    
+    <m3:M2MApplication rdf:about="Cheng2008Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Cheng et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The design and implementation of ontology and rules based knowledge base for transportation</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hu2007Transport">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Hu et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology driven adaptive data processing in wireless sensor networks</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Belhadef ">
+      	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[Belhadef  et al.]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Urban ontology-based geographical information system</rdfs:comment>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+   
+    <!-- ################################################ AGRICULTURE TEMPLATE ############################################## -->
+
+	<m3:M2MApplication rdf:about="Cabral2014">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Perera et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A use case in semantic modelling and ranking for the sensor web [Cabral et al. 2014]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;LeafWetnessSensor"/>    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="LefortTaylor2013">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Lefort, Taylor et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Farming the Web of Things, Paper: Demonstration: Semantic Web Enabled Smart Farm with GSN</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoilHumiditySensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	  
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/> 
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Agrovoc">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Agrovoc]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Agrovoc</rdfs:comment>    
+	    <m3:hasUrlOntology rdf:resource="http://smartfarm-ict.it.csiro.au/semantics.jsp"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Agrovoc">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Agrovoc]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Agrovoc</rdfs:comment>    
+	    <m3:hasUrlOntology rdf:resource="http://aims.fao.org/vest-registry/vocabularies/agrovoc-multilingual-agricultural-thesaurus"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Yuan2013Agriculture">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Yuan et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A semantic technology supported precision agriculture system</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;AirThermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoilHumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;PHSensor"/>	    
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/agriculture/citrusFertilizer.rdf"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+
+ 	<m3:M2MApplication rdf:about="Walisadeera">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Walisadeera et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontological approach to meet information needs of farmers in sri lanka</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>	    
+	    <m3:hasUrlOntology rdf:resource="http://webe2.scem.uws.edu.au/arc2/"/>	
+	    <m3:hasUrlRule rdf:resource="http://webe2.scem.uws.edu.au/arc2/"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Sivamani2013">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Sivamani, Bae et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A study of an agricultural ontology model for an intelligent service in a vertical farm</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Mawardi2013">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Mawardi et al.2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-driven decision support system for wheat production</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Liao2013Agriculture">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Liao et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An integrated, ontology-based agricultural information system</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Roussey2012">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Bendadouche, Roussey et al., IRSTEA 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Le premier module d'une ontologie agricole sur la protection des cultures: Agronomic Taxon</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Supnithi2011">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Supnithi et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology based orchid knowledge platform for knowledge services in orchid cluster [Supnithi  et al. 2011]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="CA4IoTPerera2013">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Perera et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: CA4IoT: Context Awareness for Internet of Things [Perera et al. 2013]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;AirThermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Viljamaa2011">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Viljamaa et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A smart control system solution based on sematc web and uID</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SoilHumiditySensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	    
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>	    
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Bansal2011">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+      	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Bansal et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A framework for agriculture ontology development in Semantic Web [Bansal et al. 2011]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Yue2010Agriculture">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Yue et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology based distributed agricultural knowledge management ontology based vegetable supply chain knowledge expressing [Yue et al. 2010]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Shoaib2010">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Shoaib et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic Web based integrated agriculture information framework [Shoaib et al. 2010]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Goumopoulos2009">
+      	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Goumopoulos et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-driven system architecture for precision agriculture applications [Goumopoulos et al. 2009]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;CO2_Sensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;SoilHumiditySensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>     
+    </m3:M2MApplication>
+
+    <!-- ################################################ FOOD RFID TAG ############################################## -->
+    
+    <m3:M2MApplication rdf:about="Naturopathy">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Gyrard et al. 2013-2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Gyrard et al. 2013-2014</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/naturopathy"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Pizzuti2014">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Agriculture"/>
+		<rdfs:label xml:lang="en">[Pizzuti et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Food Track and Trace ontology for helping the food traceability control</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="ChenFood2013">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Chen et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Constructing a diet recommendation system based on fuzzy rules and knapsack method</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	     <m3:hasUrlOntology rdf:resource="https://drive.google.com/file/d/0B42RteI-0pmGbXpRMVBnNm9PMkU/edit"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Tumnark2013">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Tumnark et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based personalized dietary recommendation for weightlifting</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Espin2013">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Espin et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic-based recommendation of nutrition diets for the elderly form agroalimentary thesauri</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="Curiel2013">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Curiel et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An infrastructure to enable lightweight context-awareness for mobile users</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Chun2013Food">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">[Chun et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based user preferences bayesian model for personalized recommendation</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Lisetti2013">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Lisetti et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based named entity recognizer for behavioral . </rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="SuFood2014">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Su et al. 2012-2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based personalized diet plan web service using HL7  screening data.</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="SmartProducts">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Motta et al., SmartProducts 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">SmartProducts project 2012</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://projects.kmi.open.ac.uk/smartproducts/ontology.html"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <dcterms:creator>
+  			<foaf:Person rdf:about="mailto:enrico.motta@open.ac.uk">
+   			<foaf:name>Enrico Motta</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="OpenFridge2012">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Fensel, OpenFridge 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">[Fensel, OpenFridge 2012]</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://owlrep.eu01.aws.af.cm/fridge"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Vadivu2010">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Vadivu et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic Linking and querying of natural food, chemicals and diseases</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Suksom2010">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Suksom et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A knowledge-based framework for development of personalized fodd recommeder system</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Fudholi2009">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Fudholi et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A Ontology-based daliy menu assistance system</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Gu2009">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Gu et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A content-aware fridge based on RFID in smart home for care</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Fridge"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Snae2008">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Snae et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: FOODS: A food-oriented ontology-driven system</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Pernici2008">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Pernici et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Retrieving substitute services using semantic annotations: a foodshop case study.</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://web.tiscali.it/lchkl/ontology/FoodOntology.owl#"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Sachinopoulou2007">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+     	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Sachinopoulou et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based approach for managing personal  and wellness information</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hsu2007">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Hsu et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: ColorCocktail: an ontology-based recommender system</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Ribeiro2006">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Ribeiro et al. 2006]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology construction: cooking domain, Paper: Cooking an Ontology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Cantais2005">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Cantais et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An example of food ontologies for diabetes controls</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="BerlangaKrono">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Berlanga Krono]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Berlanga Krono</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://krono.act.uji.es/Links/ontologies/"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Beverage">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Kim et al. 2013-2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">James G. Kim 2013-2014</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://rdfs.co/bevon/latest/html"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="RestaurantMooney">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Restaurant Mooney]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Restaurant Mooney</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="https://files.ifi.uzh.ch/ddis/oldweb/ddis/fileadmin/ont/nli/restaurant.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Gaia">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Gaia]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Gaia</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://wise.vub.ac.be/ontologies/restaurant.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="FruitsTropicaux">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Fruits Tropicaux]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Fruits Tropicaux</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/food/fruitsTropicaux"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="HeflinBeer2000">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Heflin 2000]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Beer ontology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.cs.umd.edu/projects/plus/SHOE/onts/"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Pizza">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Pizza]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Pizza ontology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://smi-protege.stanford.edu/repos/protege/protege4/incubator/org.obolibrary.hide/trunk/unit/pizza.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Wine">
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Wine]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Wine</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031215/wine"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+     <!-- ################################################ CITY ############################################## -->
+    
+     <m3:M2MApplication rdf:about="Park2014Airport">
+     	<m3:hasContext rdf:resource="&m3;City"/>
+		<rdfs:label xml:lang="en">[Park et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic reasoning with contextual ontologies on sensor cloud environment [Park et al. 2014]</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/city/XOntology.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="READY4SmartCities">
+     	<m3:hasContext rdf:resource="&m3;City"/>
+		<rdfs:label xml:lang="en">[READY4SmartCities project, 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: READY4SmartCities: ICT Roadmap and data interoperability for energy systems in smart cities</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://smartcity.linkeddata.es/"/>
+	    <m3:hasUrlDataset rdf:resource="http://smartcity.linkeddata.es/datasets/index.html"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="StarCity">
+     	<m3:hasContext rdf:resource="&m3;City"/>
+     	<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">[STAR-CITY, 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: STAR-CITY: Semantic Traffic Analytics and Reasoning for city.</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="https://www.dropbox.com/s/xkvlb7a1fnibo4w/STAR-CITY-Ontologies.zip"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    
+    <!-- ################################################ EMOTION ############################################## -->
+    
+    <m3:M2MApplication rdf:about="Berthelon2013">
+     	<m3:hasContext rdf:resource="&m3;Emotion"/>
+		<rdfs:label xml:lang="en">[Berthelon et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Emotion Ontology for Context Awareness.</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://ns.inria.fr/emoca/"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="SanchezRada2013">
+     	<m3:hasContext rdf:resource="&m3;Emotion"/>
+		<rdfs:label xml:lang="en">[Sanchez-Rada et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper:  Onyx: Describing emotions on the web of data.</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://www.gsi.dit.upm.es/ontologies/onyx/1.5/index.html"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hastings2011">
+     	<m3:hasContext rdf:resource="&m3;Emotion"/>
+		<rdfs:label xml:lang="en">[Hastings et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The Emotion Ontology: Enabling Interdisciplinary Research in the Affective Sciences</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="https://code.google.com/p/emotion-ontology/"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Fang2010">
+     	<m3:hasContext rdf:resource="&m3;Emotion"/>
+		<rdfs:label xml:lang="en">[Fang et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Exploring the relationships between colors and main meridians: an ontology-based perspective</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Lopez2008">
+     	<m3:hasContext rdf:resource="&m3;Emotion"/>
+		<rdfs:label xml:lang="en">[Lopez et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Towards an ontology for describing emotions</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="rhizomik.net/ontologies/2008/05/emotionsonto.owl#"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Hazdic2008">
+     	<m3:hasContext rdf:resource="&m3;Emotion"/>
+		<rdfs:label xml:lang="en">[Hazdic et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based Support for Human Disease Study</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+        <!-- ################################################ RFID CD ############################################## -->
+    
+     <m3:M2MApplication rdf:about="Raimond">
+     	<m3:hasContext rdf:resource="&m3;TrackingCD"/>
+		<rdfs:label xml:lang="en">[Raimond et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The Music Ontology. 2007</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_CD"/>
+	    <m3:hasUrlOntology rdf:resource="http://musicontology.com/specification/"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Kanzaki">
+     	<m3:hasContext rdf:resource="&m3;TrackingCD"/>
+		<rdfs:label xml:lang="en">[Kanzaki et al. 2003]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">2003</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_CD"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.kanzaki.com/ns/music#"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Marques2011">
+     	<m3:hasContext rdf:resource="&m3;TrackingCD"/>
+     	<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">[Marques et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: FTMOntology: An ontology to fill the semantic gap between music, mood, personnality, and human physiology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_CD"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;BloodPressureSensor"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Wang2010Music">
+     	<m3:hasContext rdf:resource="&m3;TrackingCD"/>
+		<rdfs:label xml:lang="en">[Wang et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Enriching music mood annotation by semantic association reasoning</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_CD"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Song2009Music">
+     	<m3:hasContext rdf:resource="&m3;TrackingCD"/>
+		<rdfs:label xml:lang="en">[Song et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Music Ontology for mood and situation reasoning to support music retrieval and recommendation, Paper: COMUS: Ontological and rule-based reasoning for music recommendation system.</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_CD"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>
+    
+        <!-- ################################################ FOOD RFID DVD ############################################## -->
+    
+     <m3:M2MApplication rdf:about="MovieOnto">
+     	<m3:hasContext rdf:resource="&m3;TrackingDVD"/>
+		<rdfs:label xml:lang="en">[Bouza et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Movie Ontology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_DVD"/>
+	    <m3:hasUrlOntology rdf:resource="https://babbage.inf.unibz.it/trac/obdapublic/attachment/wiki/Example_MovieOntology/movieontology.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    
+ 
+    
+      <!-- ################################################ Garments RFID DVD ############################################## -->
+    
+     <m3:M2MApplication rdf:about="GarmentOnto">
+     	<m3:hasContext rdf:resource="&m3;TrackingGood"/>
+		<rdfs:label xml:lang="en">Garment Ontology. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Garment Ontology</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Garment"/>
+	    <m3:hasUrlOntology rdf:resource="https://github.com/psychok7/clothes-semantic-web/blob/master/ClothesWS/clothes.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="GarmentOnto2">
+     	<m3:hasContext rdf:resource="&m3;TrackingGood"/>
+		<rdfs:label xml:lang="en">Garment Ontology 2. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Garment Ontology 2</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;RFID_Garment"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.inf.ed.ac.uk/teaching/courses/kmm/PDF/clothing.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    
+    <m3:M2MApplication rdf:about="Pitzek2005">
+     	<m3:hasContext rdf:resource="&m3;TrackingCD"/>
+		<rdfs:label xml:lang="en">[Pitzek et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology for the RFID domain</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <!-- ################################################ SENSOR NETWORKS ONTOLOGIES ############################################## -->
+    
+     <m3:M2MApplication rdf:about="Gyrard2014M3">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Gyrard et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">The M3 ontology, Paper: Enrich Machine-to-Machine Data with Semantic Web Technologies for Cross-Domain Applications, WF-IoT 2014</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/m3#"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="Moraru2011">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Moraru et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Master's thesis: Enrichment of sensor descriptions and measurements using semantic technologies [Moraru et al. June 2011]</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/sensor/PropertyMoraru.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="W3CSSN">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[W3C SSN et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The SSN ontology of the W3C semantic sensor network incubator group</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.w3.org/2005/Incubator/ssn/ssnx/ssn"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Cano2012">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Cano et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Sensing Presence (PreSense) Ontology - User modeling in the Semantic Sensor Web</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://people.kmi.open.ac.uk/cano/preSense/"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Spitfire">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Pfisterer et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: SPITFIRE: Towards a Semantic Web of Things</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://spitfire-project.eu/incontextsensing/ontology.php"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Patni2010">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Patni et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Provenance aware linked sensor data</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="CalderCESN2010">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Calder et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Maching reasoning about anomalous sensor data</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://www.cs.umb.edu/~mcalder/sensor/cesn.owl#"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="BarnaghiSensei2009">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Barnaghi et al., Sensei project 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Sense and sensability: Semantic data modelling for sensor networks, Paper: Semantic annotation and reasoning for sensor data, Paper: Publishing Linked Sensor Data</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://personal.ee.surrey.ac.uk/Personal/P.Barnaghi/ontology/sensordata.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="NeuhausCSIRO2009">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Neuhaus et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: The semantic sensor network ontology: a generic language to describe sensor assets, Paper: Reasoning about sensors and compositions</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://www.w3.org/2005/Incubator/ssn/wiki/images/4/42/SensorOntology20090320.owl.xml"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="HensonSemSOS2013">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Henson et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">PhD Thesis: A semantics-based approach to machine perception (2013), Paper: SemSOS: Semantic sensor observation service</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://archive.knoesis.org/research/semsci/application_domain/sem_sensor/ont/sensor-observation.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Swamo2008">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Mandl et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Autonomous mission operations for sensor webs</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="HerzogA3ME2008">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Herzog et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A3ME - An Agent-Based Middleware Approach for Mixed Mode Environments</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="https://www.dvs.tu-darmstadt.de/staff/aherzog/a3me/a3me.owl"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>    
+    
+    <m3:M2MApplication rdf:about="Bermudez2009">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Bermudez et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A Marine Platforms ontology: Experiences and lessons, Paper: Ocean observing systems demystified MMI device ontology</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="https://code.google.com/p/devont/source/browse/trunk/devont/device/device.owl?r=25"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Kim2008SensorNetworks">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Kim et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Building a service-oriented ontology for wireless sensor networks.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="Eid2007">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Eid et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: A universal ontology for sensor networks Paper: A novel ontology for sensor networks data</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>    
+    
+      <m3:M2MApplication rdf:about="Russomanno2005">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Russomanno et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Building a sensor ontology: a practical approach leveraging ISO and OGC models, Paper: An ontology-based sensor network prototype environment Sensor ontologies: from shallow to deep models</rdfs:comment>
+	    <m3:hasUrlOntology rdf:resource="http://mmisw.org/ont/univmemphis/sensor"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+    </m3:M2MApplication>
+    
+    
+    <!-- ################################################ SECURITY ONTOLOGIES ############################################## -->
+    
+     <m3:M2MApplication rdf:about="Gyrard2013">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Gyrard et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based approach for helping to secure the ETSI Machine-to-Machine Architecture.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://securitytoolbox.appspot.com/stac#"/>
+	    <m3:hasUrlDataset rdf:resource="http://securitytoolbox.appspot.com/stac-dataset"/>
+    </m3:M2MApplication>  
+    
+    <m3:M2MApplication rdf:about="Joshi2013Security">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Joshi et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Thesis: Linked Data for software security concepts and vulnerability descriptions</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://ebiquity.umbc.edu/ontologies/cybersecurity/ids/v2.2/IDSOntology.owl"/>
+    </m3:M2MApplication>    
+    
+    <m3:M2MApplication rdf:about="Evesti2013">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Evesti et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Architecture and knowledge-driven self-adaptive security in smart space</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://localhost:64066/ont/security/ISMO"/>
+    </m3:M2MApplication>   
+    
+    <m3:M2MApplication rdf:about="Costabello2013">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Costabello et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Thesis: Context-aware access control and preswntation of linked data</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;AlreadyLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://ns.inria.fr/prissma/v2/prissma_v2.html"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Salahi2013">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Salahi et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Predicting network attacks using ontology-driven inference.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="https://github.com/morteza/ontologies/blob/e31dc37c30a9061de79737b5d77a14db28247782/IncidentReport/IncidentReportOntology.owl"/>
+    </m3:M2MApplication>   
+    
+    <m3:M2MApplication rdf:about="Razzaq2013">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Razzaq et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Semantic security against web application attacks</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>   
+    
+     <m3:M2MApplication rdf:about="Khairkar2013">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Khairkar et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Thesis: Intrusion detection system based on ontology for web applications</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Frye2012">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Frye et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Thesis: Applications of ontology in heterogeneous multitier networks for network management</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://faculty.kutztown.edu/frye/res/index.html"/>
+    </m3:M2MApplication> 
+    
+     <m3:M2MApplication rdf:about="Hasni2012">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Hasni et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology based interoperability mobile cellular networks</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Souag2012">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Souag et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Paper: Ontologies for security requirements: A literature survey and classification</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Vincent2012">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Vincent et al. 2012]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Privacy Protection for smartphones: an ontology-based firewall 2012 .</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.ecole.ensicaen.fr/~vincentj/owl/id.owl"/>
+    </m3:M2MApplication> 
+    
+    <m3:M2MApplication rdf:about="Kenfack2011">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Kenfack et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Une ontologie pour la description des intrusions dans les RCSFs</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="https://github.com/ngankam/ontology/blob/master/instrusion_description_in_wsn"/>
+    </m3:M2MApplication> 
+    
+      <m3:M2MApplication rdf:about="AlamSecurity2011">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Alam et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Interoperability of security-enabled Internet of Things</rdfs:comment>
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;Accelerometer"/>
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="Huang2010">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Huang et al. 2010]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology-based intelligent system for malware behavioral analysis.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="Beji2008">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Beji et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Security ontology proposal for mobile applications </rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="Fenz2009">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Fenz et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Aurum: a framework for information security risk management.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://sec.sba-research.org/webprotege/"/>
+    </m3:M2MApplication> 
+    
+    <m3:M2MApplication rdf:about="Lekhchine2009">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Lekhchine et al. 2009]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Construction d une ontologie pour le domaine de la securite : Application aux agents mobiles.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://securitytoolbox.appspot.com/MASO"/>
+    </m3:M2MApplication> 
+    
+       <m3:M2MApplication rdf:about="Znaidi2008">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+		<rdfs:label xml:lang="en">[Znaidi et al. 2013]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology for Attacks in Wireless Sensor Networks</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OngoingProcessOnline"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Herzog2007">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Herzog et al. 2007]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology of information security</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.ida.liu.se/~iislab/projects/secont/"/>
+    </m3:M2MApplication> 
+    
+     <m3:M2MApplication rdf:about="Vorobiev2008">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Vorobiev et al. 2008]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">PhD thesis: An architectural approach to achiving higher-level security for component (service) based software systems.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Confidential"/>
+    </m3:M2MApplication>  
+    
+     <m3:M2MApplication rdf:about="Kim2005Security">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Kim et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Security Ontology for Annotating Resources.</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://securitytoolbox.appspot.com/securityMain"/>
+	    <m3:hasUrlOntology rdf:resource="http://securitytoolbox.appspot.com/securityAlgorithms"/>
+    </m3:M2MApplication> 
+    
+    <m3:M2MApplication rdf:about="Denker2005">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Denker et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Security for DAML Web Services: Annotation and Matchmarking </rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.daml.org/services/owl-s/security/"/>
+    </m3:M2MApplication> 
+    
+     <m3:M2MApplication rdf:about="Alazeib2005">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Alazeib et al. 2011]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology for generic wireless authentication data</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Chandra2005">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Chandra  et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Ontology for MANET security threats</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="Tsoumas2005">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Tsoumas et al. 2005]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: An ontology-based approach to information systems security management</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;WaitForAnswer"/>
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="SecurityMobile">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[Security mobile]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">This ontology covers the domain of security in the field of mobile applications, no paper referenced</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/security/OntologySecurity.owl"/>
+    </m3:M2MApplication> 
+    
+    <m3:M2MApplication rdf:about="BerlinSecurity">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[BerlinSecurity]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">BerlinSecurity, no paper referenced</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="preciosa.informatik.hu-berlin.de/ontology/security.owl"/>
+    </m3:M2MApplication> 
+    
+     <m3:M2MApplication rdf:about="ConnectivityType">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">[ConnectivityType]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">ConnectivityType, no paper referenced</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="http://www.tele.pw.edu.pl/~sims-onto/ConnectivityType.owl#"/>
+    </m3:M2MApplication> 
+    
+    
+     <m3:M2MApplication rdf:about="Celdran2014">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+     	<m3:hasContext rdf:resource="&m3;TrackingFood"/>
+		<rdfs:label xml:lang="en">[Celdran et al. 2014]. See LOV4IoT for more details.</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: SeCoMan: A semantic-aware policy framework for developing privacy-preserving and context aware applications</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://reclamo.inf.um.es/secoman/owl/LocationOntology.owl"/>
+	    <m3:hasUrlOntology rdf:resource="http://reclamo.inf.um.es/secoman/owl/SupermarketOntology.owl"/>
+    </m3:M2MApplication>   
+    
+    
+</rdf:RDF>

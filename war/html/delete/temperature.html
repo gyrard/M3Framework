@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>M3 (Machine-to-Machine Measurement)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/temperature.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/senml.js"></script>
+<script type="text/javascript" src="javascript/temperature.js"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor="#FAF1B8">   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/temperature.png" width="100" height="80" >How to get the meaning of the temperature?
+		
+		<img src="images/temperature.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+<article>
+
+<article>
+ <fieldset>
+   <legend>M2M Aggregation Gateway: Convert Temperature Measurements into Semantic Data</legend> 
+		
+		<a href="http://emulator-box-services.appspot.com/senmladmin/zones"> SenML sensor measurements </a>
+		<br/><br/>
+		
+		<input type="button" value="Convert temperature measurements" onclick='requestText(alert, "temp/convert", "res_convert");'/>
+		<div id="res_convert"></div>
+		
+		
+		<br/><input type="button" value="Temperature measurements" onclick='request(readSenml, "temp/measurements", "temp_value");'/>	
+		<ul id="temp_value"></ul>	
+ </fieldset>
+</article>
+
+
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Temperature => Season => Food => Recipe</legend> 
+	
+Input: temperature. 
+We deduce that the temperature corresponds to the temperature outside.  
+We propose all fruits/vegetables according to this season. 
+We search a recipe according to these fruits/vegetables. <br/>
+		
+		<div id="temp_food"></div>
+ </fieldset>
+</article>
+
+<script type="text/javascript">
+			request(temperatureSeasonFoodRecipe, "temp/seasonTemperatureFoodRecipe", "temp_food");
+		</script>
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Average Temperature</legend> 
+
+
+<table>
+	<tr>
+		<td>
+			<br/>Average Temperature:
+			<div id="avg_temp"></div>	
+		</td>
+<td ROWSPAN=5>
+</td>
+		<td ROWSPAN=5>
+			<img src="images/proto/temperatureAvg.jpg
+" width="600" height="400" >
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br/>Average Temperature Water:
+			<div id="avg_temp_water"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br/>Average Temperature Environment:
+			<div id="avg_temp_outside"></div>	
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br/>Average Temperature Home:
+			<div id="avg_temp_home"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br/>Average Temperature Health:
+			<div id="avg_temp_health"></div>		
+		</td>
+	</tr>
+</table>
+		<script type="text/javascript">
+			requestText(displayMessage, "temp/avgTemp", "avg_temp");
+			requestText(displayMessage, "temp/avgTempWater", "avg_temp_water");
+			requestText(displayMessage, "temp/avgTempOutside", "avg_temp_outside");
+			requestText(displayMessage, "temp/avgTempHome", "avg_temp_home");
+			requestText(displayMessage, "temp/avgTempHealth", "avg_temp_health");
+		</script>
+ </fieldset>
+</article>
+
+
+
+</body>
+</html>

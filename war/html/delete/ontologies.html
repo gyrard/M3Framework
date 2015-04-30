@@ -1,0 +1,51 @@
+<h1>Ontologies & Datasets </h1>
+<div class="hero-unit">
+<h3>Ontologies & Datasets</h3> 
+		
+		<p><a href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.sensormeasurement.appspot.com%2Fm3%23&mimetype=application%2Frdf%2Bxml&profile=technical&language=en&customizeCssUrl=">The M3 (Machine-to-Machine Measurement) ontology (XML/OWL)</a></p>
+		<p><a href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.sensormeasurement.appspot.com%2Fnaturopathy%23&mimetype=application%2Frdf%2Bxml&profile=technical&language=en&customizeCssUrl=">Naturopathy ontology (XML/OWL)</a></p>
+		<p><a href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.sensormeasurement.appspot.com%2Fnaturopathy-dataset&mimetype=application%2Frdf%2Bxml&profile=technical&language=en&customizeCssUrl=">Naturopathy dataset (XML/RDF)</a></p>
+		
+		<p>
+            <img src="images/m3.jpg" width="400" height="300" >
+            <img src="images/m3Hub.jpg" width="400" height="300" >
+        </p>
+</div>
+<div class="hero-unit">
+<h3>M3 concepts: Sensors & Feature of Interests</h3> 
+		
+
+		<p>All sensors
+		<select id="sensor">
+		</select></p>
+
+		<p>All M2M devices
+		<select id="m2mdevice">
+		</select></p>
+
+		<p>RFID tags embedded on:
+		<select id="rfid">
+		</select></p>
+
+		<p>All feature of interests/ Zone
+		<select id="foi">
+		</select></p>
+
+		<p>Environment features of interest
+		<select id="env">
+		</select></p>
+
+		<p>Measurements type:
+		<select id="measurementType">
+		</select></p>
+</div>
+		<script type="text/javascript">
+$.getScript('javascript/sensorFOI.js',function(){
+		request(readXml, "/m3/subclassOf/Sensor", "sensor");
+		request(readXml, "/m3/subclassOf/M2MDevice", "m2mdevice");
+		request(readXml, "/m3/subclassOf/RFIDMeasurementType", "rfid");
+		request(readXml, "/m3/subclassOf/FeatureOfInterest", "foi");
+		request(readXml, "/m3/subclassOf/Environment", "env");
+		request(readXml, "/m3/subclassOf/MeasurementType", "measurementType");
+});
+		</script>

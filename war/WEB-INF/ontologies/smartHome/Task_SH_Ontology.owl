@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns="http://www.Smart-Homes-owl-ontologies.com/Task_SH__Ontology.owl#"
+  xml:base="http://www.Smart-Homes-owl-ontologies.com/Task_SH__Ontology.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Advising_task">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Monitoring_task"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Assisting_task"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="System_task"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="fr">Tache de conseil</rdfs:label>
+    <rdfs:label xml:lang="en">Advising task</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Reading_book">
+    <rdfs:label xml:lang="en">Reading book</rdfs:label>
+    <rdfs:label xml:lang="fr">Lire un livre</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Reading"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Reading_newspaper"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Washing">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cooking"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Patient_task"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Reading"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Speaking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Standing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Sleeping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Walking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Crying"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Sitting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Eating"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Sleeping_on_the_sofa">
+    <rdfs:label xml:lang="en">Sleeping on the sofa</rdfs:label>
+    <rdfs:label xml:lang="fr">Se coucher sur le canape</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sleeping"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Brushing_teeth">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Brushing_hair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Brushing_clothes"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Brushing teeth</rdfs:label>
+    <rdfs:label xml:lang="fr">Se brosser les dents</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Brushing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Inspecting_the_habitat">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Visiting_the_patient"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Calling_the_patient"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="fr">Inspecter l'habitat</rdfs:label>
+    <rdfs:label xml:lang="en">Inspecting the habitat</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Actor_task"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Weekly_task">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Routine_task"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="fr">Classe decrivant les taches de routine hebdomadaires (executees a la semaine).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Annual_task"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Daily_task"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Monthly_task"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Weekly task</rdfs:label>
+    <rdfs:label xml:lang="fr">Tache hebdomadaire</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Crying">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sitting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Eating"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Reading"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Walking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sleeping"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="fr">Pleurer</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_task"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Standing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Crying</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Walking">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Reading"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sitting"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Eating"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="fr">Marcher</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sleeping"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_task"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Standing"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Walkking</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Sitting">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Reading"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Eating"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="fr">S'asseoir</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sleeping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <rdfs:label xml:lang="en">Sitting</rdfs:label>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Standing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_task"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Actor_task">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#System_task"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Patient_task"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Task"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="fr">Cette classe decrit toutes les taches reliees a l'acteur dans lecadre de l'Habitat.</rdfs:comment>
+    <rdfs:label xml:lang="fr">Taches de l'acteur</rdfs:label>
+    <rdfs:label xml:lang="en">Tasks of the actor</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Routine_task">
+    <rdfs:label xml:lang="fr">Tache de routine</rdfs:label>
+    <rdfs:label xml:lang="en">Routine task</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Casual_task"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Task_ValuePartition"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="fr">Cette classe permet de dire que la tache en question est une tache de routine, que l'on a l'habitude d'executer tous les jours ou toutes les semaines ou tous les mois, etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Washing_feet">
+    <rdfs:label xml:lang="en">Washing feet</rdfs:label>
+    <rdfs:label xml:lang="fr">Se laver les pieds</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Washing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Washing_face"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Washing_hands"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Washing_clothes"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Washing_dishes"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Washing_hands">
+    <rdfs:subClassOf rdf:resource="#Washing"/>
+    <rdfs:label xml:lang="en">Washing hands</rdfs:label>
+    <rdfs:label xml:lang="fr">Se laver les mains</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washing_face"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing_feet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washing_clothes"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washing_dishes"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Eating">
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Reading"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Standing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_task"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sleeping"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Walking"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sleeping">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_task"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Reading"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Standing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith rdf:resource="#Washing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Sleeping_in_bed">
+    <rdfs:label xml:lang="en">Sleeping in bed</rdfs:label>
+    <rdfs:label xml:lang="fr">Se coucher dans le lit</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sleeping"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Brushing_hair">
+    <rdfs:label xml:lang="en">Brushing hair</rdfs:label>
+    <rdfs:label xml:lang="fr">Se brosser les cheveux</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Brushing"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Brushing_teeth"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing_clothes"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient_task">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Task"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="fr">Cette classe décrit toutes les tâches que peut effectuer le patient à l'intérieur du logement. On y trouvera aussi des  tâches "spéciales", comme "Crying".</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#System_task"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Actor_task"/>
+    <rdfs:label xml:lang="en">Tasks of the patient</rdfs:label>
+    <rdfs:label xml:lang="fr">Tâches du patient</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Task">
+    <rdfs:label xml:lang="en">Task</rdfs:label>
+    <rdfs:label xml:lang="fr">Tâche</rdfs:label>
+    <rdfs:comment xml:lang="fr">Cette ontologie a pour objectif de détailler toutes les activités se trouvant au niveau de l'ontologie du comportement.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Task_ValuePartition"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Brushing_clothes">
+    <owl:disjointWith rdf:resource="#Brushing_teeth"/>
+    <owl:disjointWith rdf:resource="#Brushing_hair"/>
+    <rdfs:label xml:lang="en">Brushing clothes</rdfs:label>
+    <rdfs:label xml:lang="fr">Brosser les vetements</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Brushing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Reading">
+    <rdfs:label xml:lang="fr">Lire</rdfs:label>
+    <owl:disjointWith rdf:resource="#Sleeping"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Standing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <rdfs:subClassOf rdf:resource="#Patient_task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Reading</rdfs:label>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Visiting_the_patient">
+    <owl:disjointWith rdf:resource="#Inspecting_the_habitat"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Calling_the_patient"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="fr">Rendre visite au patient</rdfs:label>
+    <rdfs:label xml:lang="en">Visiting the patient</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Actor_task"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Calling_the_patient">
+    <rdfs:label xml:lang="en">Making call</rdfs:label>
+    <rdfs:label xml:lang="fr">Appeler</rdfs:label>
+    <owl:disjointWith rdf:resource="#Inspecting_the_habitat"/>
+    <owl:disjointWith rdf:resource="#Visiting_the_patient"/>
+    <rdfs:subClassOf rdf:resource="#Actor_task"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Standing">
+    <rdfs:subClassOf rdf:resource="#Patient_task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Reading"/>
+    <rdfs:label xml:lang="fr">Rester debout</rdfs:label>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <owl:disjointWith rdf:resource="#Sleeping"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Speaking"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <rdfs:label xml:lang="en">Standing</rdfs:label>
+    <owl:disjointWith rdf:resource="#Sitting"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Reading_newspaper">
+    <rdfs:label xml:lang="en">Reading newspaper</rdfs:label>
+    <rdfs:label xml:lang="fr">Lire le journal</rdfs:label>
+    <owl:disjointWith rdf:resource="#Reading_book"/>
+    <rdfs:subClassOf rdf:resource="#Reading"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Washing_dishes">
+    <rdfs:label xml:lang="en">Washing dishes</rdfs:label>
+    <rdfs:label xml:lang="fr">Laver la vaisselle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Washing"/>
+    <owl:disjointWith rdf:resource="#Washing_feet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washing_clothes"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washing_face"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing_hands"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Speaking">
+    <owl:disjointWith rdf:resource="#Standing"/>
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <rdfs:label xml:lang="en">Speaking</rdfs:label>
+    <owl:disjointWith rdf:resource="#Sleeping"/>
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <rdfs:label xml:lang="fr">Parler</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Brushing"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Patient_task"/>
+    <owl:disjointWith rdf:resource="#Reading"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crying"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Washing_face">
+    <rdfs:subClassOf rdf:resource="#Washing"/>
+    <owl:disjointWith rdf:resource="#Washing_feet"/>
+    <owl:disjointWith rdf:resource="#Washing_hands"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washing_clothes"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Washing_dishes"/>
+    <rdfs:label xml:lang="en">Washing face</rdfs:label>
+    <rdfs:label xml:lang="fr">Se laver le visage</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Daily_task">
+    <rdfs:subClassOf rdf:resource="#Routine_task"/>
+    <rdfs:label xml:lang="fr">Tache journaliere</rdfs:label>
+    <rdfs:label xml:lang="en">Daily task</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Annual_task"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Weekly_task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Monthly_task"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="fr">Classe permettant de dire s'il s'agit d'une tache de routine journaliere.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Washing_clothes">
+    <owl:disjointWith rdf:resource="#Washing_feet"/>
+    <owl:disjointWith rdf:resource="#Washing_face"/>
+    <owl:disjointWith rdf:resource="#Washing_hands"/>
+    <owl:disjointWith rdf:resource="#Washing_dishes"/>
+    <rdfs:label xml:lang="en">Washing clothes</rdfs:label>
+    <rdfs:label xml:lang="fr">Laver du linge</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Washing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#System_task">
+    <rdfs:comment xml:lang="fr">Cette classe decrit toutes les taches que peut effectuer le systeme a l'interieur du logement.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Task"/>
+    <owl:disjointWith rdf:resource="#Actor_task"/>
+    <owl:disjointWith rdf:resource="#Patient_task"/>
+    <rdfs:label xml:lang="en">Tasks of the system</rdfs:label>
+    <rdfs:label xml:lang="fr">Taches du systeme</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Annual_task">
+    <rdfs:subClassOf rdf:resource="#Routine_task"/>
+    <owl:disjointWith rdf:resource="#Weekly_task"/>
+    <owl:disjointWith rdf:resource="#Daily_task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Monthly_task"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="fr">Classe decrivant les taches de routine annuelles (executees a l'annee).</rdfs:comment>
+    <rdfs:label xml:lang="fr">Tache annuelle</rdfs:label>
+    <rdfs:label xml:lang="en">Annual task</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Monitoring_task">
+    <rdfs:subClassOf rdf:resource="#System_task"/>
+    <rdfs:label xml:lang="fr">Tache de vigilence</rdfs:label>
+    <rdfs:label xml:lang="en">Monitoring task</rdfs:label>
+    <owl:disjointWith rdf:resource="#Advising_task"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Assisting_task"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Monthly_task">
+    <rdfs:comment xml:lang="fr">Classe decrivant les taches de routine mensuelles (executees au mois).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Annual_task"/>
+    <owl:disjointWith rdf:resource="#Weekly_task"/>
+    <owl:disjointWith rdf:resource="#Daily_task"/>
+    <rdfs:label xml:lang="fr">Tache mensuelle</rdfs:label>
+    <rdfs:label xml:lang="en">Monthly task</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Routine_task"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Brushing">
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <rdfs:label xml:lang="en">Brushing</rdfs:label>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <rdfs:label xml:lang="fr">Se brosser</rdfs:label>
+    <owl:disjointWith rdf:resource="#Reading"/>
+    <rdfs:subClassOf rdf:resource="#Patient_task"/>
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <owl:disjointWith rdf:resource="#Speaking"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Watching_tv"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Standing"/>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <owl:disjointWith rdf:resource="#Sleeping"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Casual_task">
+    <owl:disjointWith rdf:resource="#Routine_task"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Task_ValuePartition"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="fr">Tache occasionnelle</rdfs:label>
+    <rdfs:label xml:lang="en">Casual task</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Task_ValuePartition">
+    <rdfs:comment xml:lang="fr">Cette classe permet de decrire les differentes classes ne pouvant pas faire partie directement de l'ontologie de la tache.</rdfs:comment>
+    <rdfs:label xml:lang="fr">Valeurs de partition</rdfs:label>
+    <rdfs:label xml:lang="en">Value Partition</rdfs:label>
+    <owl:disjointWith rdf:resource="#Task"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Watching_tv">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cooking"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <owl:disjointWith rdf:resource="#Standing"/>
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <owl:disjointWith rdf:resource="#Sleeping"/>
+    <owl:disjointWith rdf:resource="#Speaking"/>
+    <owl:disjointWith rdf:resource="#Reading"/>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <owl:disjointWith rdf:resource="#Brushing"/>
+    <rdfs:subClassOf rdf:resource="#Patient_task"/>
+    <owl:disjointWith rdf:resource="#Washing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Assisting_task">
+    <rdfs:label xml:lang="fr">Assistance a la tache</rdfs:label>
+    <rdfs:label xml:lang="en">Assisting task</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#System_task"/>
+    <owl:disjointWith rdf:resource="#Advising_task"/>
+    <owl:disjointWith rdf:resource="#Monitoring_task"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Cooking">
+    <owl:disjointWith rdf:resource="#Eating"/>
+    <owl:disjointWith rdf:resource="#Sleeping"/>
+    <owl:disjointWith rdf:resource="#Speaking"/>
+    <owl:disjointWith rdf:resource="#Sitting"/>
+    <owl:disjointWith rdf:resource="#Crying"/>
+    <rdfs:label xml:lang="en">Cooking</rdfs:label>
+    <owl:disjointWith rdf:resource="#Watching_tv"/>
+    <rdfs:label xml:lang="fr">Cuisiner</rdfs:label>
+    <owl:disjointWith rdf:resource="#Reading"/>
+    <owl:disjointWith rdf:resource="#Washing"/>
+    <rdfs:subClassOf rdf:resource="#Patient_task"/>
+    <owl:disjointWith rdf:resource="#Brushing"/>
+    <owl:disjointWith rdf:resource="#Walking"/>
+    <owl:disjointWith rdf:resource="#Standing"/>
+  </owl:Class>
+  <owl:FunctionalProperty rdf:ID="is_Casual_task">
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdfs:range rdf:resource="#Casual_task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="is_Routine_task">
+    <rdfs:range rdf:resource="#Routine_task"/>
+    <rdfs:domain rdf:resource="#Task"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

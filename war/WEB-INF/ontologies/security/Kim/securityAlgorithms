@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE uridef[
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY security "http://securitytoolbox.appspot.com/securityMain#">
+<!ENTITY algo "http://securitytoolbox.appspot.com/securityAlgorithms#">
+<!ENTITY dcterms "http://purl.org/dc/terms/">
+<!ENTITY assurance "http://securitytoolbox.appspot.com/securityAssurance.owl#">
+<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+<!ENTITY dc "http://purl.org/dc/elements/1.1/">
+<!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+
+]>
+<rdf:RDF
+xmlns ="&algo;"
+xmlns:algo ="&algo;"
+xml:base ="&algo;"
+xmlns:rdf ="&rdf;"
+xmlns:rdfs ="&rdfs;"
+xmlns:owl ="&owl;"
+xmlns:dc ="&dc;"
+xmlns:xsd ="&xsd;"
+xmlns:security ="&security;"
+xmlns:dcterms="&dcterms;"
+xmlns:skos="&skos;"
+xmlns:foaf="&foaf;"
+xmlns:assurance ="&assurance;"
+xmlns:vann="http://purl.org/vocab/vann/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+
+
+		<owl:Ontology rdf:about="&algo;">
+		<rdfs:comment> An ontology to describe various cryptographic algorithms</rdfs:comment>
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">Security Algorithms</dc:title>
+		<skos:historyNote xml:lang="en">Ontology extracted from the paper Security Ontology for Annotating Resources. [Kim et al. 2005] (See APPENDIX D. OWL Representations of the NRL Security Ontology) Security ontology to faciliate web service description and discovery.</skos:historyNote>
+		<dc:description xml:lang="en">An ontology to describe various cryptographic algorithms</dc:description>
+		<dcterms:source rdf:resource="http://www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA437938"/> 
+		<dcterms:creator>
+  			<foaf:Person rdf:about="mailto:kim@itd.nrl.navy.mil">
+   			<foaf:name>Anya Kim</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+		<dcterms:creator>
+  			<foaf:Person rdf:about="mailto:luo@itd.nrl.navy.mil">
+   			<foaf:name>Jim Luo</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+		<dcterms:creator>
+  			<foaf:Person rdf:about="mailto:mkang@itd.nrl.navy.mil">
+   			<foaf:name>Myong Kang</foaf:name>
+  			</foaf:Person>
+		</dcterms:creator>
+		<dc:contributor>
+  			<foaf:Person rdf:about="mailto:gyrard@eurecom.fr">
+   			<foaf:name>Amelie Gyrard</foaf:name>
+  			</foaf:Person>
+		</dc:contributor>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005-08-31</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-01-24</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
+		<vs:term_status>Finished</vs:term_status>
+     	<cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/> 
+		<vann:preferredNamespacePrefix>algo</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://securitytoolbox.appspot.com/securityAlgorithms#</vann:preferredNamespaceUri>
+	</owl:Ontology>
+<!--
+Top Class Definition: Algorithm-->
+<owl:Class rdf:ID="Algorithm">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="#isNISTStandard"/>
+<owl:maxCardinality
+rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<!-- Subclass definitions of Algorithm Class; KeyExchangeAlgorithm, Encryption
+Algorithms, SignatureAlgorithm, and ChecksumAlgorithm -->
+<owl:Class rdf:ID="KeyExchangeAlgorithm">
+<rdfs:subClassOf rdf:resource="#Algorithm"/>
+</owl:Class>
+<owl:Class rdf:ID="EncryptionAlgorithm">
+<rdfs:subClassOf rdf:resource="#Algorithm" />
+</owl:Class>
+<owl:Class rdf:ID="SignatureAlgorithm">
+<rdfs:subClassOf rdf:resource="#Algorithm"/></owl:Class>
+<owl:Class rdf:ID="ChecksumAlgorithm">
+<rdfs:subClassOf rdf:resource="#Algorithm"/>
+</owl:Class>
+<!-- Subclasses of Encryption Algorithm: SymmetricAlgorithm and AsymmetricAlgorithm -->
+<owl:Class rdf:ID="SymmetricAlgorithm">
+<rdfs:subClassOf rdf:resource="#EncryptionAlgorithm"/>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="hasNSALevel"/>
+<owl:maxCardinality
+rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="AsymmetricAlgorithm">
+<rdfs:subClassOf rdf:resource="#EncryptionAlgorithm"/>
+</owl:Class>
+<!-- Subclasses of SignatureAlgorithm class: HashAlgorithm and MACAlgorithm -->
+<owl:Class rdf:ID="HashAlgorithm">
+<rdfs:subClassOf rdf:resource="#SignatureAlgorithm"/>
+<rdfs:comment>
+Key dependent function; useful in providing user authentication without a
+secret key
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:ID="MACAlgorithm">
+<rdfs:subClassOf rdf:resource="#SignatureAlgorithm"/>
+</owl:Class>
+<!-- Property Definitions -->
+<!-- Property Definition for the Algorithm Class -->
+<owl:DatatypeProperty rdf:ID="isNISTStandard">
+<rdfs:domain rdf:resource="#Algorithm"/>
+<rdfs:range rdf:resource="&xsd;boolean"/>
+<rdfs:comment>NIST FIPS Standard</rdfs:comment>
+</owl:DatatypeProperty>
+<!-- Property Defintions for the SymmetricAlgorithm class -->
+<owl:DatatypeProperty rdf:ID="keyLength">
+<rdfs:domain rdf:resource="#SymmetricAlgorithm"/>
+<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="modeOfOperation">
+<rdfs:domain rdf:resource="#SymmetricAlgorithm"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:comment>Can be CBC, ECB, OFB, CFB, or Counter</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:ID="hasNSALevel">
+<rdfs:domain rdf:resource="#SynmmetricAlgorithm"/>
+<rdfs:range rdf:resource="&assurance;NSA"/>
+<rdfs:comment>These can be Typel, Type 2, Type3, or Type4</rdfs:comment>
+</owl:ObjectProperty>
+<!-- Instances -->
+<KeyExchangeAlgorithm rdf:ID="DiffieHellman"/>
+<KeyExchangeAlgorithm rdf:ID="KEA"/>
+<KeyExchangeAlgorithm rdf:ID="Oakley"/>
+<ChecksumAlgorithm rdf:ID="CRC-8"/>
+<ChecksumAlgorithm rdf:ID="CRC-16"/>
+<ChecksumAlgorithm rdf:ID="CRC-32"/>
+<SymmetricAlgorithm rdf:ID="AES">
+<hasNSALevel rdf:resource="&assurance;Type3"/>
+</SymmetricAlgorithm>
+<!-- Instances for the SymmetricAlgorithm class -->
+<SymmetricAlgorithm rdf:ID="RC4"/>
+<SymmetricAlgorithm rdf:ID="Skipjack">
+<hasNSALevel rdf:resource="&assurance;Type2"/>
+</SymmetricAlgorithm>
+<SymmetricAlgorithm rdf:ID="CRAYON">
+<hasNSALevel rdf:resource="&assurance;Typel"/>
+</SymmetricAlgorithm>
+<SymmetricAlgorithm rdf:ID="TripleDES"/>
+<hasNSALevel rdf:about="&assurance;Type3"/>
+<SymmetricAlgorithm rdf:ID="Blowfish"/>
+<SymmetricAlgorithm rdf:ID="DES">
+<keyLength rdf:datatype="&xsd;int">64</keyLength>
+<hasNSALevel rdf:resource="&assurance;Type3"/>
+<rdfs:comment>Refers only to single DES</rdfs:comment>
+</SymmetricAlgorithm>
+<SymmetricAlgorithm rdf:ID="CAST"/>
+<AsymmetricAlgorithm rdf:ID="RSA"/>
+<AsymmetricAlgorithm rdf:ID="ECC">
+<rdfs:comment>Elliptic Curve Crypto</rdfs:comment>
+</AsymmetricAlgorithm>
+<HashAlgorithm rdf:ID= "RIPE-MD"/>
+<HashAlgorithm rdf:ID="SHA-1"/>
+<HashAlgorithm rdf:ID="SHA-256">
+<rdfs:comment>usually used with AES</rdfs:comment>
+</HashAlgorithm>
+<HashAlgorithm rdf:ID="MD5"/>
+<HashAlgorithm rdf:ID="MD4"/>
+<MACAlgorithm rdf:ID="HMAC"/>
+<MACAlgorithm rdf:ID="CBC-MAC"/>
+</rdf:RDF>

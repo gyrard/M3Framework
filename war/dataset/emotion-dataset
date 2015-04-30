@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+		 <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY emotion "http://sensormeasurement.appspot.com/ont/m3/emotion#"> 
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+         <!ENTITY emotion-dataset "http://sensormeasurement.appspot.com/dataset/emotion-dataset/"> 
+         <!ENTITY transport-dataset "http://sensormeasurement.appspot.com/dataset/transport-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&emotion-dataset;"
+        xml:base="&emotion-dataset;"
+        xmlns:emotion-dataset="&emotion-dataset;"
+        xmlns:transport-dataset="&transport-dataset;"
+        xmlns:foaf="&foaf;"
+        xmlns:shw="&shw;"
+        xmlns:m3="&m3;"
+        xmlns:emotion="&emotion;"
+        xmlns:acco="&acco;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:naturopathy="&naturopathy;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">  
+
+
+       <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+	
+	<!-- ################################################ DRIVER STATE ############################################################################ -->
+
+	<emotion:State rdf:about="Tired">
+      	<rdfs:label xml:lang="en">Tired</rdfs:label>
+      	<rdfs:label xml:lang="fr">Fatigue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&transport-dataset;MakeABreak"/> 
+    </emotion:State>
+    
+    <emotion:State rdf:about="Stressed">
+      	<rdfs:label xml:lang="en">Stressed</rdfs:label>
+      	<rdfs:label xml:lang="fr">Stresse</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&transport-dataset;MakeABreak"/> 
+    </emotion:State>
+    
+    <emotion:State rdf:about="Ill">
+      	<rdfs:label xml:lang="en">Ill</rdfs:label>
+      	<rdfs:label xml:lang="fr">Malade</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </emotion:State>
+    
+    <emotion:State rdf:about="Anxious">
+      	<rdfs:label xml:lang="en">Anxious</rdfs:label>
+      	<rdfs:label xml:lang="fr">Anxieux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </emotion:State>
+    
+    <emotion:State rdf:about="Annoyed">
+      	<rdfs:label xml:lang="en">Annoyed</rdfs:label>
+      	<rdfs:label xml:lang="fr">Ennuye</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </emotion:State>
+    
+     <emotion:State rdf:about="Fear">
+      	<rdfs:label xml:lang="en">Fear</rdfs:label>
+      	<rdfs:label xml:lang="fr">Peur</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </emotion:State>
+
+  
+
+
+</rdf:RDF>

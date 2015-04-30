@@ -1,0 +1,4287 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:lw="http://ontosphere3d.sourceforge.net/LogicViews.owl#"
+    xmlns="http://elite.polito.it/ontologies/DOGHouseModel.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://elite.polito.it/ontologies/DOGHouseModel.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="SingleBed">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Bed"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Interphone">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A telephonic intercommunication system linking different rooms in a building</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Communication"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Interphone</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AnsweringMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Fax"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Phone"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Tv">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Entertainment"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasFunctionality"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <OnOffFunctionality rdf:ID="OnOffFunctionalityInstance">
+            <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >On</commands>
+            <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Off</commands>
+          </OnOffFunctionality>
+        </owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tv</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Dvd"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HiFi"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Radio"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A receiver that displays television images</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SimpleLamp">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="Lamp"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="hasState"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="OnOffState"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Simple lamp that can be just turn on or turn off</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SimpleLamp</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="FireSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System that detects the presence of fire</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AccessControlSystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FloodSystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GasSystem"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FireSystem</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SecuritySystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Plug">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:ID="PowerDelivery"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#OnOffState"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasControl"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SurveillanceCamera">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AntiIntrusionSystem"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="InfraredSensor"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Camera of video surveillance</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SurveillanceCamera</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Lamp">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:ID="Lighting"/>
+          <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasControl"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lamp</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An artificial source of visible illumination</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ControlFunctionality">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BuildingEnvironment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BuildingThing"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NotificationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="QueryFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ControlFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Capability of a controllable building thing that can receive commands</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Functionality"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#InfraredSensor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >InfraredSensor</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that detects the presence of something living in the sensor's range</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AntiIntrusionSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue>
+          <OnOffNotification rdf:ID="OnOffNotificationInstance"/>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#OnOffState"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#SurveillanceCamera"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleValuedNotification">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete notification with exactly two values</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleValuedNotification</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</owl:cardinality>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:ID="notification"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:ID="DiscreteNotificationFunctionality"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Cupboard">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cupboard</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SanitaryFixtures"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Wardrobe"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Desk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Armchair"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Awning"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Table"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Sofa"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Drawer"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A small room (or recess) or cabinet used for storage space</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Closet"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="TimedOnFunctionality">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TimedOnFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality to switch on an object for a given period of time</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="timeToOff"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MonoValuedFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >timedOn</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Fridge">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DeepFreezer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+        <owl:hasValue>
+          <TemperatureRegulationFunctionality rdf:ID="TemperatureRegulationFunctionalityInstance"/>
+        </owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Dishwasher"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cooker"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="WashingMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Stove"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Oven"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fridge</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A refrigerator in which the coolant is pumped around by an electric motor</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Boiler"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="WhiteGoods"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Table">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Desk"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Awning"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sofa"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Drawer"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Table</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Armchair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A piece of furniture having a smooth flat top that is usually supported by one or more vertical legs</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="WindowSensor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that controls if a window is closed</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="OpenCloseState"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="Window"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="isSensorOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isSensorOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#AntiIntrusionSystem"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:hasValue>
+              <OpenCloseNotification rdf:ID="OpenCloseNotificationInstance"/>
+            </owl:hasValue>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WindowSensor</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Fence">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FenceOpening"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Wall"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="WallOpening"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fence</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Vertical"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A barrier that serves to enclose an area</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Acoustic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ElectricalSystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GasCooker">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gas Cooker</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Cooker"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GasCooker</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ElectricalCooker"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hotplate"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Awning">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Armchair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sofa"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasActuator"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="AwningActuator"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A canopy made of canvas to shelter people or things from rain or sun.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Awning</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Desk"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Drawer"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="MonoValuedNotification">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MonoValuedNotification</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete notification with exactly one values</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#notification"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#DiscreteNotificationFunctionality"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="UpDownState">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UpDownState</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DoubleValuedState"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Up</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="possibleStates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Down</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State: up - down</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="HousePlants">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Appliances"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Controllable"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HousePlants</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All plants of the house, e.g. Electrical system, Hydraulic system</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MicrowaveOven">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ElectricalOven"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Microwave oven</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Oven"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MicrowaveOven</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="VolumeLevel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VolumeLevel</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ContinuousState"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Models the volume value</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LightIntensityState"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ShutterState"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TemperatureValue"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Floor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Floor</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Horizontal"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Balcony"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Ceiling"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Terrace"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The inside lower horizontal surface of a room</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="WaterCloset">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bathtub"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bidet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Shower"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Washbasin"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A plumbing fixture for defecation and urination</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WaterCloset</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Nightstand">
+    <rdfs:comment xml:lang="en">A small table or stand placed at a bedside.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nightstand</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Kitchen">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LivingRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Lobby"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kitchen</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DiningRoom"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Room"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room equipped for preparing meals</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bedroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bathroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StorageRoom"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Cooker">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Oven"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DeepFreezer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Stove"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Boiler"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WhiteGoods"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cooker</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#WashingMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Dishwasher"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A utensil for cooking</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#WallOpening">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isInWall"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vertical"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WallOpening</rdfs:label>
+    <owl:disjointWith rdf:resource="#Fence"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FenceOpening"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wall"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An opening in a Wall</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="OnOffNotification">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Notification: on - off</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OpenCloseNotification"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#DoubleValuedNotification"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#notification"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >On</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#notification"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Off</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OnOffNotification</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="OnOffFlashingFunctionality">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="flashingTime"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DoubleValuedFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OffFlashing</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OnFlashing</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OnOffFlashingFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality to switch on and off an object with a given switching period</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeRegulationFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities for the regulation of timer</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TimeRegulationFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ContinuousControlFunctionality"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="LightRegulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ShutterRegulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TemperatureRegulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="VolumeRegulationFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#WhiteGoods">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appliances"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WhiteGoods</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Major household appliances</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BrownGoods"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Control">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Control</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that controls the interaction with the electrical system</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElectricalSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isIn"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="controlledObject"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Actuator"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lighting"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="TripleValuedState">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete states with exactly three values</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TripleValuedState</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:DatatypeProperty rdf:about="#possibleStates"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</owl:cardinality>
+          </owl:Restriction>
+          <owl:Class rdf:ID="DiscreteState"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Architectural">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Architectural</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All the architectural elements that compose the environment</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Furniture"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="UnControllable"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BTicinoGateway">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="sleepTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="connectionTimeOut"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="connectionTrials"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="port"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="IPAddress"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BTicinoComponent"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BTicinoGateway</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A BTIcino Gateway</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Bathtub">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A relatively large open container that you fill with water and use to wash the body</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bidet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Shower"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washbasin"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WaterCloset"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bathtub</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AccessControlSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System that provides security about access</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AccessControlSystem</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SecuritySystem"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#FireSystem"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FloodSystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GasSystem"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ElectricalSystem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ElectricalSystem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#HousePlants"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Utility that provides electricity</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HVACSystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HydraulicSystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SecuritySystem"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Boiler">
+    <rdfs:subClassOf rdf:resource="#WhiteGoods"/>
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <owl:disjointWith rdf:resource="#Cooker"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Stove"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sealed vessel where water is warm up</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Boiler</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DeepFreezer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Dishwasher"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#WashingMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Oven"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#LivingRoom">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LivingRoom</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lobby"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bathroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bedroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StorageRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DiningRoom"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room where people can sit and talk and relax</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Kitchen"/>
+  </owl:Class>
+  <owl:Class rdf:ID="KonnexGateway">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#IPAddress"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="multicastIP"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#sleepTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Konnex Gateway</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="KonnexComponent"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="pollingInterval"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#port"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="udpPort"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#connectionTrials"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >KonnexGateway</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#connectionTimeOut"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Fan">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Computer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AlarmClock"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Communication"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fan</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A device for creating a current of air</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CoffeeMaker"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Entertainment"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Printer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BrownGoods"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Gate">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#FenceOpening"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="GateActuator"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gate</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A door-like movable barrier in a fence</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Drawer">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Drawer</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A boxlike container in a piece of furniture; made so as to slide in and out</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Desk"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sofa"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Armchair"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#HVACSystem">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SecuritySystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HydraulicSystem"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ElectricalSystem"/>
+    <rdfs:subClassOf rdf:resource="#HousePlants"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heating Ventilating and Air Conditioning system</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HVACSystem</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TemperatureValue">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ContinuousState"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TemperatureValue</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Models the temperature value</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LightIntensityState"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShutterState"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#VolumeLevel"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Appliances">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appliances</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Durable goods for home or office use</rdfs:comment>
+    <owl:disjointWith rdf:resource="#HousePlants"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Controllable"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Hotplate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A portable electric appliance for heating or cooking or keeping food warm</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Cooker"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotplate</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElectricalCooker"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#GasCooker"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BuildingThing">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="State"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Functionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ControlFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BuildingEnvironment"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BuildingThing</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All things that creates a Building, it is intended as root of all building components</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Dishwasher">
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <owl:disjointWith rdf:resource="#Cooker"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A machine for washing dishes</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Stove"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#WashingMachine"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#WhiteGoods"/>
+    <owl:disjointWith rdf:resource="#Boiler"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Oven"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dishwasher</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DeepFreezer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="DiscreteControlFunctionality"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DimmerLamp">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Lamp"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:hasValue>
+              <LightRegulationFunctionality rdf:ID="LightRegulationFunctionalityInstance"/>
+            </owl:hasValue>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#LightIntensityState"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DimmerLamp</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lamp that varies the level of illumination</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Wall">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An architectural partition used to divide or enclose an area or to support another structure.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wall</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Vertical"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Fence"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#FenceOpening"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WallOpening"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleBed">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bed"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Heater">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heater</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device that heats water or supplies warmth</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HeatingSystem"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TemperatureSensor"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="FlashingLamp">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Lamp"/>
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#OnOffState"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <OnOffFlashingFunctionality rdf:ID="OnOffFlashingFunctionalityInstance">
+                <flashingTime rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >1.0</flashingTime>
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >OffFlashing</commands>
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >OnFlashing</commands>
+              </OnOffFlashingFunctionality>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FlashingLamp</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lamp that emits light in sudden short or intermittent bursts</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AntiIntrusionSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System that provides security about intrusion</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#AccessControlSystem"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AntiIntrusionSystem</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Desk">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sofa"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A piece of furniture with a writing surface and usually drawers or other compartments</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Armchair"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desk</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#QueryFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Capability of a controllable building thing that must reply to an interrogation about its state</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QueryFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Functionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Get</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#ControlFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NotificationFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Sofa">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SanitaryFixtures"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An upholstered seat for more than one person</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Armchair"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sofa</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Communication">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CoffeeMaker"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Communication</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Printer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlarmClock"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Fan"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BrownGoods"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Entertainment"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appliances for communicate</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#LightRegulationFunctionality">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="maxValue"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >100.0</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LightRegulationFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >stepUp</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TemperatureRegulationFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >stepDown</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities for the regulation of ligth</rdfs:comment>
+    <owl:disjointWith rdf:resource="#TimeRegulationFunctionality"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ContinuousControlFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="minValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VolumeRegulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShutterRegulationFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="DomoticNetworkComponent">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#State"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Functionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BuildingEnvironment"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DomoticNetworkComponent</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The manufacturers of the domotic component</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Fax">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnsweringMachine"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Interphone"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Phone"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Communication"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fax</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appliance that send text and document</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#WashingMachine">
+    <owl:disjointWith rdf:resource="#Boiler"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A home appliance for washing clothes and linens automatically</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Cooker"/>
+    <rdfs:subClassOf rdf:resource="#WhiteGoods"/>
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DeepFreezer"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Dishwasher"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Oven"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WashingMachine</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Stove"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#DoubleValuedState">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DiscreteState"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleValuedState</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete states with exactly two values</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#PowerDelivery">
+    <rdfs:subClassOf rdf:resource="#ElectricalSystem"/>
+  </owl:Class>
+  <owl:Class rdf:about="#OpenCloseState">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OpenCloseState</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State: open - close</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#DoubleValuedState"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Open</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Close</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ShutterState">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ContinuousState"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Models the state of the shutter</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ShutterState</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#LightIntensityState"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TemperatureValue"/>
+    <owl:disjointWith rdf:resource="#VolumeLevel"/>
+  </owl:Class>
+  <owl:Class rdf:about="#UnControllable">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Controllable"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:complementOf>
+              <owl:Class rdf:about="#Controllable"/>
+            </owl:complementOf>
+          </owl:Class>
+          <owl:Class rdf:about="#BuildingThing"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UnControllable</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All building things that can't be controlled by domotic system</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="WindowActuator">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WindowActuator</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="actuatorOf"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Window"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Restriction>
+            <owl:hasValue>
+              <OpenCloseFunctionality rdf:ID="OpenCloseFunctionalityInstance">
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Close</commands>
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Open</commands>
+              </OpenCloseFunctionality>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:resource="#OpenCloseState"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that allow automatic opening and closing about window</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="WirelessPhone">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Phone with no wire</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WirelessPhone</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Phone"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Button">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Knob"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Switch"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Control"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Button</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A monostable electrical switch operated by pressing a button</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SanitaryFixtures">
+    <owl:disjointWith rdf:resource="#Sofa"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All the fixtures of a bathroom</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SanitaryFixtures</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Armchair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#FloodSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System that detects the presence of flood</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FloodSystem</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SecuritySystem"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#AccessControlSystem"/>
+    <owl:disjointWith rdf:resource="#FireSystem"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GasSystem"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ContinuousNotificationFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Notification of continuous values</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#notification"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#NotificationFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ContinuousNotificationFunctionality</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DiscreteNotificationFunctionality"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Actuator">
+    <owl:disjointWith rdf:resource="#Control"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lighting"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#ElectricalSystem"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Actuator</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that puts something into automatic action</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Armchair">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Armchair</rdfs:label>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Closet"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <owl:disjointWith rdf:resource="#SanitaryFixtures"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chair with a support on each side for arms</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith rdf:resource="#Sofa"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="UpDownFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DoubleValuedFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Up</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Down</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UpDownFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality: up - down</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Dvd">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dvd</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appliance thar read dvd</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HiFi"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Radio"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Tv"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Entertainment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ventilator">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ventilator</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="VentilatingSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A device that circulates fresh air and expels stale or foul air.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#DeepFreezer">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeepFreezer</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Electric refrigerator in which food is frozen and stored for long periods of time</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <rdfs:subClassOf rdf:resource="#WhiteGoods"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Stove"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Oven"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WashingMachine"/>
+    <owl:disjointWith rdf:resource="#Cooker"/>
+    <owl:disjointWith rdf:resource="#Boiler"/>
+    <owl:disjointWith rdf:resource="#Dishwasher"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Jacuzzi">
+    <rdfs:subClassOf rdf:resource="#Bathtub"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A large whirlpool bathtub with underwater jets that massage the body</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Jacuzzi</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="GasHeater">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GasoilHeater"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PelletHeater"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Heater"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GasHeater</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heater that combusts gas</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Lobby">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bathroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#LivingRoom"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StorageRoom"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lobby</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Kitchen"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A large entrance</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bedroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DiningRoom"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Printer">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CoffeeMaker"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#BrownGoods"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Printer</rdfs:label>
+    <owl:disjointWith rdf:resource="#Communication"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Entertainment"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Output device that prints</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Fan"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AlarmClock"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#BuildingEnvironment">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#State"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Functionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DomoticNetworkComponent"/>
+    <owl:disjointWith rdf:resource="#BuildingThing"/>
+    <owl:disjointWith rdf:resource="#ControlFunctionality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BuildingEnvironment</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A physical environment in which people lives, e.g. kitchen, bathroom</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Room">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Garage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Garden"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room of the building</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#BuildingEnvironment"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasCeiling"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasFloor"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Room</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Oven">
+    <owl:disjointWith rdf:resource="#Dishwasher"/>
+    <owl:disjointWith rdf:resource="#DeepFreezer"/>
+    <rdfs:subClassOf rdf:resource="#WhiteGoods"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kitchen appliance used for baking or roasting</rdfs:comment>
+    <owl:disjointWith rdf:resource="#WashingMachine"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <owl:disjointWith rdf:resource="#Boiler"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Oven</rdfs:label>
+    <owl:disjointWith rdf:resource="#Cooker"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Stove"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#GasSystem">
+    <owl:disjointWith rdf:resource="#AccessControlSystem"/>
+    <owl:disjointWith rdf:resource="#FireSystem"/>
+    <owl:disjointWith rdf:resource="#FloodSystem"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SecuritySystem"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GasSystem</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System that detects the presence of gas</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TemperatureRegulationFunctionality">
+    <owl:disjointWith rdf:resource="#LightRegulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShutterRegulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TimeRegulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#VolumeRegulationFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TemperatureRegulationFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ContinuousControlFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities for the regulation of temperature</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#BrownGoods">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BrownGoods</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Appliances"/>
+    <owl:disjointWith rdf:resource="#WhiteGoods"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Small household electrical entertainment appliances</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Closet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Confine to a small space.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <owl:disjointWith rdf:resource="#Sofa"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Closet</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Wardrobe"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#SanitaryFixtures"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Furniture"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith rdf:resource="#Armchair"/>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Knob">
+    <owl:disjointWith rdf:resource="#Button"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Switch"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Control"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Knob</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A round handle used to adjust continuous amplitude, e.g. volume</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ElectricalOven">
+    <rdfs:subClassOf rdf:resource="#Oven"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ElectricalOven</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Electrical oven</rdfs:comment>
+    <owl:disjointWith rdf:resource="#MicrowaveOven"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DoubleValuedFunctionality">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleValuedFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DiscreteControlFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete functionalities with exactly two values</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Furniture">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Furnishings that make a room or other area ready for occupancy</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#UnControllable"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Furniture</rdfs:label>
+    <owl:disjointWith rdf:resource="#Architectural"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Shower">
+    <rdfs:subClassOf rdf:resource="#SanitaryFixtures"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Shower</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A plumbing fixture that sprays water over you</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Bathtub"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bidet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Washbasin"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WaterCloset"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Functionality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#State"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DomoticNetworkComponent"/>
+    <owl:disjointWith rdf:resource="#BuildingThing"/>
+    <owl:disjointWith rdf:resource="#BuildingEnvironment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Capability of a controllable building thing</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AlarmClock">
+    <rdfs:subClassOf rdf:resource="#BrownGoods"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AlarmClock</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Entertainment"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A clock that wakes sleeper at preset time</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Printer"/>
+    <owl:disjointWith rdf:resource="#Fan"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CoffeeMaker"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Communication"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ContinuousControlFunctionality">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#minValue"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#maxValue"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ControlFunctionality"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Set</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ContinuousFunctionality</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DiscreteControlFunctionality"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities continuous in time or space</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Vertical">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Horizontal"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Vertical</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Architectural"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The vertical architectural component of a building</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Horizontal">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The horizontal architectural component of a building</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Horizontal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Architectural"/>
+    <owl:disjointWith rdf:resource="#Vertical"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AwningActuator">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#actuatorOf"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#Awning"/>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:resource="#OpenCloseFunctionalityInstance"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#OpenCloseState"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AwningActuator</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that allow automatic control about awning</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Controllable">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Controllable</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All building things that can be controlled by domotic system</rdfs:comment>
+    <owl:disjointWith rdf:resource="#UnControllable"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class>
+            <owl:complementOf rdf:resource="#UnControllable"/>
+          </owl:Class>
+          <owl:Class rdf:about="#BuildingThing"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue>
+          <QueryFunctionality rdf:ID="getFunctionalityInstance"/>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TemperatureSensor">
+    <owl:disjointWith rdf:resource="#Heater"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TemperatureSensor</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HeatingSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that detects the temperature of the atmosphere</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="FloodSensor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that detects the presence of flood</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FloodSensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#FloodSystem"/>
+  </owl:Class>
+  <owl:Class rdf:about="#State">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State</rdfs:label>
+    <owl:disjointWith rdf:resource="#Functionality"/>
+    <owl:disjointWith rdf:resource="#DomoticNetworkComponent"/>
+    <owl:disjointWith rdf:resource="#BuildingThing"/>
+    <owl:disjointWith rdf:resource="#BuildingEnvironment"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Models the states of the controllable objects</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DoorSensor">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isSensorOf"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="Door"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#isSensorOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#AntiIntrusionSystem"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:hasValue rdf:resource="#OpenCloseNotificationInstance"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#OpenCloseState"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoorSensor</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that controls if a door is closed</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="GasSensor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that detects the presence of gas</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GasSensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#GasSystem"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OpenCloseFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality: open - close</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OpenCloseFunctionality</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#DoubleValuedFunctionality"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Open</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Close</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OnOffFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality: turn on - turn off</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OnOffFunctionality</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#DoubleValuedFunctionality"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >On</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Off</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Wardrobe">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chair"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#SanitaryFixtures"/>
+    <owl:disjointWith rdf:resource="#Armchair"/>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <owl:disjointWith rdf:resource="#Closet"/>
+    <owl:disjointWith rdf:resource="#Sofa"/>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wardrobe</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <rdfs:subClassOf rdf:resource="#Furniture"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A tall piece of furniture that provides storage space for clothes</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#MonoValuedFunctionality">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MonoValuedFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DiscreteControlFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete functionalities with exactly one value</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#GateActuator">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#OpenCloseState"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that allow automatic opening and closing about gate</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:resource="#Gate"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#actuatorOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Restriction>
+            <owl:hasValue rdf:resource="#OpenCloseFunctionalityInstance"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GateActuator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ElectricalCooker">
+    <owl:disjointWith rdf:resource="#GasCooker"/>
+    <owl:disjointWith rdf:resource="#Hotplate"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Electrical Cooker</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ElectricalCooker</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Cooker"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Buzzer">
+    <rdfs:subClassOf rdf:resource="#Acoustic"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#OnOffState"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Garden">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Garage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Room"/>
+    <rdfs:subClassOf rdf:resource="#BuildingEnvironment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Garden</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The garden of the building</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ContinuousState">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >States continuous in time or space</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ContinuousState</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#State"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="valueContinuous"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DiscreteState"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ShutterActuator">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that allow automatic control about shutter</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#actuatorOf"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="Shutter"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+            <owl:hasValue>
+              <UpDownRestFunctionality rdf:ID="UpDownRestInstance">
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >RestTriple</commands>
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >UpTriple</commands>
+                <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >DownTriple</commands>
+              </UpDownRestFunctionality>
+            </owl:hasValue>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="UpDownRestState"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ShutterActuator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Ceiling">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Balcony"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Floor"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Terrace"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Horizontal"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ceiling</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The overhead upper surface of a room</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Chair">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bed"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <owl:disjointWith rdf:resource="#SanitaryFixtures"/>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chair</rdfs:label>
+    <owl:disjointWith rdf:resource="#Closet"/>
+    <owl:disjointWith rdf:resource="#Armchair"/>
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith rdf:resource="#Sofa"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <rdfs:subClassOf rdf:resource="#Furniture"/>
+    <owl:disjointWith rdf:resource="#Wardrobe"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A seat for one person, with a support for the back.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#DiningRoom">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bathroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Lobby"/>
+    <rdfs:subClassOf rdf:resource="#Room"/>
+    <owl:disjointWith rdf:resource="#Kitchen"/>
+    <owl:disjointWith rdf:resource="#LivingRoom"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bedroom"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room used for dining</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DiningRoom</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StorageRoom"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#AnsweringMachine">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Electronic device that answers the telephone and records messages</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AnsweringMachine</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Communication"/>
+    <owl:disjointWith rdf:resource="#Fax"/>
+    <owl:disjointWith rdf:resource="#Interphone"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Phone"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="DoorActuator">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Door"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#actuatorOf"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Restriction>
+            <owl:hasValue rdf:resource="#OpenCloseFunctionalityInstance"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#hasState"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#OpenCloseState"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoorActuator</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A mechanism that allow automatic opening and closing about door</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#UpDownRestState">
+    <rdfs:subClassOf rdf:resource="#TripleValuedState"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Up</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Down</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Rest</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State: up - down - rest</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UpDownRestState</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CoffeeMaker">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CoffeeMaker</rdfs:label>
+    <owl:disjointWith rdf:resource="#Fan"/>
+    <rdfs:subClassOf rdf:resource="#BrownGoods"/>
+    <owl:disjointWith rdf:resource="#AlarmClock"/>
+    <owl:disjointWith rdf:resource="#Communication"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Printer"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A kitchen appliance for brewing coffee automatically</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Entertainment"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Window">
+    <rdfs:subClassOf rdf:resource="#WallOpening"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#WindowActuator"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasSensor"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#WindowSensor"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Door"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A framework that contains a glass windowpane and is built into a wall or roof to admit light or air</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Window</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#DiscreteControlFunctionality">
+    <rdfs:subClassOf rdf:resource="#ControlFunctionality"/>
+    <owl:disjointWith rdf:resource="#ContinuousControlFunctionality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DiscreteFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities not continuous, with fixed values</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Entrance">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Door"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#HydraulicSystem">
+    <rdfs:subClassOf rdf:resource="#HousePlants"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HydraulicSystem</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mechanism that provides water in the house</rdfs:comment>
+    <owl:disjointWith rdf:resource="#HVACSystem"/>
+    <owl:disjointWith rdf:resource="#ElectricalSystem"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SecuritySystem"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#VolumeRegulationFunctionality">
+    <owl:disjointWith rdf:resource="#LightRegulationFunctionality"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShutterRegulationFunctionality"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TemperatureRegulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#TimeRegulationFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#ContinuousControlFunctionality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VolumeRegularionFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities for the regulation of volume</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#HeatingSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Utility to warm a building</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HeatingSystem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#HVACSystem"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AirConditioningSystem"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#KonnexComponent">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EliteComponent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BTicinoComponent"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#DomoticNetworkComponent"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="groupAddress"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="individualAddress"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >KonnexComponent</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Components manufactured by Konnex</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#OnOffState">
+    <rdfs:subClassOf rdf:resource="#DoubleValuedState"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >On</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#possibleStates"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Off</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OnOffState</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >State: on - off</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Bedroom">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bathroom"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Lobby"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room used primarily for sleeping</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StorageRoom"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Room"/>
+    <owl:disjointWith rdf:resource="#LivingRoom"/>
+    <owl:disjointWith rdf:resource="#Kitchen"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bedroom</rdfs:label>
+    <owl:disjointWith rdf:resource="#DiningRoom"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EliteComponent">
+    <owl:disjointWith rdf:resource="#KonnexComponent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BTicinoComponent"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#DomoticNetworkComponent"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >EliteComponent</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Emulated component</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SecuritySystem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SecuritySystem</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Security system for detecting dangerous situation and intrusion</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#HousePlants"/>
+    <owl:disjointWith rdf:resource="#HVACSystem"/>
+    <owl:disjointWith rdf:resource="#ElectricalSystem"/>
+    <owl:disjointWith rdf:resource="#HydraulicSystem"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GasoilHeater">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heater that combusts gasoil</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Heater"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >GasoilHeater</rdfs:label>
+    <owl:disjointWith rdf:resource="#GasHeater"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PelletHeater"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#BTicinoComponent">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BTicinoComponent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#DomoticNetworkComponent"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="physicalAddress"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="physicalType"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Components manufactured by Bticino</rdfs:comment>
+    <owl:disjointWith rdf:resource="#EliteComponent"/>
+    <owl:disjointWith rdf:resource="#KonnexComponent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AirConditioningSystem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >AirConditioningSystem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#HVACSystem"/>
+    <owl:disjointWith rdf:resource="#HeatingSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A system that keeps air cool and dry</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Lighting">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >System that provides artificial light</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lighting</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ElectricalSystem"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isIn"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Actuator"/>
+    <owl:disjointWith rdf:resource="#Control"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PelletHeater">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heater that combusts wood-pellet</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Heater"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PelletHeater</rdfs:label>
+    <owl:disjointWith rdf:resource="#GasHeater"/>
+    <owl:disjointWith rdf:resource="#GasoilHeater"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Computer">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A machine for performing calculations automatically, work and play</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Printer"/>
+    <rdfs:subClassOf rdf:resource="#BrownGoods"/>
+    <owl:disjointWith rdf:resource="#AlarmClock"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Entertainment"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CoffeeMaker"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Computer</rdfs:label>
+    <owl:disjointWith rdf:resource="#Fan"/>
+    <owl:disjointWith rdf:resource="#Communication"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SmokeSensor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sensor that detects the presence of smoke</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#FireSystem"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#OnOffNotificationInstance"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasState"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#OnOffState"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SmokeSensor</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Phone">
+    <rdfs:subClassOf rdf:resource="#Communication"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appliance to comunicate with other person</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Phone</rdfs:label>
+    <owl:disjointWith rdf:resource="#AnsweringMachine"/>
+    <owl:disjointWith rdf:resource="#Fax"/>
+    <owl:disjointWith rdf:resource="#Interphone"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DiscreteNotificationFunctionality">
+    <owl:disjointWith rdf:resource="#ContinuousNotificationFunctionality"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Notification of fixed values</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#NotificationFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DiscreteNotificationFunctionality</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#StorageRoom">
+    <owl:disjointWith rdf:resource="#LivingRoom"/>
+    <owl:disjointWith rdf:resource="#Lobby"/>
+    <rdfs:subClassOf rdf:resource="#Room"/>
+    <owl:disjointWith rdf:resource="#Kitchen"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >StorageRoom</rdfs:label>
+    <owl:disjointWith rdf:resource="#DiningRoom"/>
+    <owl:disjointWith rdf:resource="#Bedroom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Little Room for storage of things in the house</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bathroom"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="UpDownRestFunctionality">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TripleValuedFunctionality"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DownTriple</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RestTriple</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >UpTriple</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >UpDownRestFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionality: up - down - rest</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Bed">
+    <owl:disjointWith rdf:resource="#Cupboard"/>
+    <owl:disjointWith rdf:resource="#Closet"/>
+    <owl:disjointWith rdf:resource="#Drawer"/>
+    <owl:disjointWith rdf:resource="#Chair"/>
+    <owl:disjointWith rdf:resource="#SanitaryFixtures"/>
+    <owl:disjointWith rdf:resource="#Sofa"/>
+    <owl:disjointWith rdf:resource="#Desk"/>
+    <owl:disjointWith rdf:resource="#Wardrobe"/>
+    <owl:disjointWith rdf:resource="#Armchair"/>
+    <owl:disjointWith rdf:resource="#Awning"/>
+    <owl:disjointWith rdf:resource="#Table"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Piece of furniture that provides a place to sleep.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Furniture"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bed</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Terrace">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Outdoor area adjoining a residence</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Terrace</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Balcony"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Ceiling"/>
+    <owl:disjointWith rdf:resource="#Floor"/>
+    <rdfs:subClassOf rdf:resource="#Horizontal"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DiscreteState">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >States not continuous, with fixed values</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ContinuousState"/>
+    <rdfs:subClassOf rdf:resource="#State"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="valueDiscrete"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DiscreteState</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#FenceOpening">
+    <rdfs:subClassOf rdf:resource="#Vertical"/>
+    <owl:disjointWith rdf:resource="#Fence"/>
+    <owl:disjointWith rdf:resource="#Wall"/>
+    <owl:disjointWith rdf:resource="#WallOpening"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An opening in a Fence</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FenceOpening</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Bathroom">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bathroom</rdfs:label>
+    <owl:disjointWith rdf:resource="#Bedroom"/>
+    <owl:disjointWith rdf:resource="#DiningRoom"/>
+    <owl:disjointWith rdf:resource="#Lobby"/>
+    <owl:disjointWith rdf:resource="#LivingRoom"/>
+    <owl:disjointWith rdf:resource="#StorageRoom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room containing a bath or shower and usually a washbasin and toilet</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Kitchen"/>
+    <rdfs:subClassOf rdf:resource="#Room"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TripleValuedFunctionality">
+    <rdfs:subClassOf rdf:resource="#DiscreteControlFunctionality"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#commands"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TripleValuedFunctionality</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discrete functionalities with exactly three values</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Door">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A swinging or sliding barrier that will close the entrance to a room or building.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Door</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#WallOpening"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#DoorActuator"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#DoorSensor"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasSensor"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Window"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Entertainment">
+    <owl:disjointWith rdf:resource="#Computer"/>
+    <owl:disjointWith rdf:resource="#Printer"/>
+    <owl:disjointWith rdf:resource="#Communication"/>
+    <owl:disjointWith rdf:resource="#AlarmClock"/>
+    <owl:disjointWith rdf:resource="#CoffeeMaker"/>
+    <rdfs:subClassOf rdf:resource="#BrownGoods"/>
+    <owl:disjointWith rdf:resource="#Fan"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Entertainment</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A diversion that holds the attention</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#OpenCloseNotification">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OpenCloseNotification</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#DoubleValuedNotification"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#notification"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Open</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Close</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#notification"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Notification: open - close</rdfs:comment>
+    <owl:disjointWith rdf:resource="#OnOffNotification"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ShutterRegulationFunctionality">
+    <owl:disjointWith rdf:resource="#TemperatureRegulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#VolumeRegulationFunctionality"/>
+    <owl:disjointWith rdf:resource="#TimeRegulationFunctionality"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >100.0</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#maxValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Functionalities for the regulation of shutter</rdfs:comment>
+    <owl:disjointWith rdf:resource="#LightRegulationFunctionality"/>
+    <rdfs:subClassOf rdf:resource="#ContinuousControlFunctionality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ShutterRegulationFunctionality</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#minValue"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Garage">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The garage of the buinding</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Garden"/>
+    <owl:disjointWith rdf:resource="#Room"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Garage</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#BuildingEnvironment"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFloor"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasCeiling"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Radio">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Radio</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Entertainment"/>
+    <owl:disjointWith rdf:resource="#Dvd"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HiFi"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Tv"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A communication system based on broadcasting electromagnetic waves</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Washbasin">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A basin for washing the hands</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SanitaryFixtures"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Washbasin</rdfs:label>
+    <owl:disjointWith rdf:resource="#Bathtub"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bidet"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Shower"/>
+    <owl:disjointWith rdf:resource="#WaterCloset"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Shutter">
+    <rdfs:comment xml:lang="en">A hinged cover or screen for a window, usually fitted with louvers.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#ShutterActuator"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Furniture"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasActuator"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Shutter</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#VentilatingSystem">
+    <rdfs:subClassOf rdf:resource="#HVACSystem"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Bidet">
+    <rdfs:subClassOf rdf:resource="#SanitaryFixtures"/>
+    <owl:disjointWith rdf:resource="#Bathtub"/>
+    <owl:disjointWith rdf:resource="#Shower"/>
+    <owl:disjointWith rdf:resource="#Washbasin"/>
+    <owl:disjointWith rdf:resource="#WaterCloset"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A basin for washing genitals and anal area</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bidet</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Switch">
+    <owl:disjointWith rdf:resource="#Button"/>
+    <owl:disjointWith rdf:resource="#Knob"/>
+    <rdfs:subClassOf rdf:resource="#Control"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bi-stable control consisting of a mechanical or electrical or electronic device for making or breaking or changing the connections in a circuit</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Switch</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#NotificationFunctionality">
+    <owl:disjointWith rdf:resource="#ControlFunctionality"/>
+    <owl:disjointWith rdf:resource="#QueryFunctionality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NotificationFunctionality</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Functionality"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Capability of a controllable building thing that notifies information,e.g.door sensor notifies "open"-"close"</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Balcony">
+    <owl:disjointWith rdf:resource="#Ceiling"/>
+    <owl:disjointWith rdf:resource="#Floor"/>
+    <owl:disjointWith rdf:resource="#Terrace"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A platform projecting from the wall of a building and surrounded by a balustrade or railing or parapet</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Balcony</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Horizontal"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Stove">
+    <owl:disjointWith rdf:resource="#Oven"/>
+    <owl:disjointWith rdf:resource="#Dishwasher"/>
+    <owl:disjointWith rdf:resource="#Cooker"/>
+    <owl:disjointWith rdf:resource="#Boiler"/>
+    <rdfs:subClassOf rdf:resource="#WhiteGoods"/>
+    <owl:disjointWith rdf:resource="#Fridge"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stove</rdfs:label>
+    <owl:disjointWith rdf:resource="#DeepFreezer"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heating apparatus</rdfs:comment>
+    <owl:disjointWith rdf:resource="#WashingMachine"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HiFi">
+    <owl:disjointWith rdf:resource="#Dvd"/>
+    <owl:disjointWith rdf:resource="#Radio"/>
+    <owl:disjointWith rdf:resource="#Tv"/>
+    <rdfs:subClassOf rdf:resource="#Entertainment"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#OnOffFunctionalityInstance"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasFunctionality"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Equipment for the reproduction of sound with high fidelity</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HiFi</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="EliteGateway">
+    <rdfs:comment xml:lang="en">A software emulator of a network level to be used for simulating devices not available in the real world</rdfs:comment>
+    <rdfs:label xml:lang="en">EliteGateway</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#EliteComponent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#LightIntensityState">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Models the state of the object that illuminates</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ShutterState"/>
+    <owl:disjointWith rdf:resource="#TemperatureValue"/>
+    <owl:disjointWith rdf:resource="#VolumeLevel"/>
+    <rdfs:subClassOf rdf:resource="#ContinuousState"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LightIntensityState</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Partition">
+    <rdfs:subClassOf rdf:resource="#Wall"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Partition</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A vertical structure that divides or separates</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="floorOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasFloor"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Floor"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Garage"/>
+          <owl:Class rdf:about="#Room"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#actuatorOf">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasActuator"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Actuator"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Awning"/>
+          <owl:Class rdf:about="#Window"/>
+          <owl:Class rdf:about="#Shutter"/>
+          <owl:Class rdf:about="#Door"/>
+          <owl:Class rdf:about="#Gate"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasCeiling">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="ceilingOf"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Ceiling"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Garage"/>
+          <owl:Class rdf:about="#Room"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasControl">
+    <rdfs:range rdf:resource="#Control"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Lighting"/>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Class rdf:about="#PowerDelivery"/>
+          <owl:Class rdf:about="#Acoustic"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between an object and its controller,e.g.switch,button,knob</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasControl</rdfs:label>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#controlledObject"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="contains">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isIn"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#BuildingEnvironment"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Furniture"/>
+          <owl:Class rdf:about="#Appliances"/>
+          <owl:Class rdf:about="#HousePlants"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates which object are contained in a building environment, e.g. the kitchen contains Lamp1,Lamp2...</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >contains</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasWall">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasWall</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between a room and its walls</rdfs:comment>
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:range rdf:resource="#Wall"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasWallOpening">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isInWall"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#WallOpening"/>
+    <rdfs:domain rdf:resource="#Wall"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasWallOpening</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between a wall and its opening like door,window</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasActuator">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasActuator</rdfs:label>
+    <owl:inverseOf rdf:resource="#actuatorOf"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between a mobile uncontrollable object and its actuator</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Door"/>
+          <owl:Class rdf:about="#Gate"/>
+          <owl:Class rdf:about="#Window"/>
+          <owl:Class rdf:about="#Awning"/>
+          <owl:Class rdf:about="#Shutter"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Actuator"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasFunctionality">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Provide functionalities to controllable things</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasFunctionality</rdfs:label>
+    <rdfs:domain rdf:resource="#Controllable"/>
+    <rdfs:range rdf:resource="#Functionality"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasGateway">
+    <rdfs:domain rdf:resource="#Controllable"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BTicinoGateway"/>
+          <owl:Class rdf:about="#EliteGateway"/>
+          <owl:Class rdf:about="#KonnexGateway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:comment xml:lang="en">Relates a given domotic component with the network level gateway used to control it</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasSensor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasSensor</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between an object and its sensor</rdfs:comment>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isSensorOf"/>
+    </owl:inverseOf>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DoorSensor"/>
+          <owl:Class rdf:about="#WindowSensor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#WallOpening"/>
+          <owl:Class rdf:about="#FenceOpening"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasState">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Provide the actual state to controllable things</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasState</rdfs:label>
+    <rdfs:domain rdf:resource="#Controllable"/>
+    <rdfs:range rdf:resource="#State"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasFloor">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Room"/>
+          <owl:Class rdf:about="#Garage"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Floor"/>
+    <owl:inverseOf rdf:resource="#floorOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isInWall">
+    <rdfs:range rdf:resource="#Wall"/>
+    <rdfs:domain rdf:resource="#WallOpening"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between a wallopening(door or window) and the wall opening where it is</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isInWall</rdfs:label>
+    <owl:inverseOf rdf:resource="#hasWallOpening"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#ceilingOf">
+    <owl:inverseOf rdf:resource="#hasCeiling"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Room"/>
+          <owl:Class rdf:about="#Garage"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Ceiling"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isSensorOf">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#WallOpening"/>
+          <owl:Class rdf:about="#FenceOpening"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DoorSensor"/>
+          <owl:Class rdf:about="#WindowSensor"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <owl:inverseOf rdf:resource="#hasSensor"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isSensorOf</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between a sensor and its sensed object</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isIn">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Furniture"/>
+          <owl:Class rdf:about="#Appliances"/>
+          <owl:Class rdf:about="#HousePlants"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <owl:inverseOf rdf:resource="#contains"/>
+    <rdfs:range rdf:resource="#BuildingEnvironment"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isIn</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates in which building environment is contained an object, e.g. the lamp5 isIn Kitchen</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#controlledObject">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >controlledObject</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Association between a controller and the controlled object</rdfs:comment>
+    <owl:inverseOf rdf:resource="#hasControl"/>
+    <rdfs:domain rdf:resource="#Control"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Lighting"/>
+          <owl:Class rdf:about="#Acoustic"/>
+          <owl:Class rdf:about="#Actuator"/>
+          <owl:Class rdf:about="#PowerDelivery"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#possibleStates">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#DiscreteState"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >possibleStates</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Set of the possible state which the object can assume</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#pollingInterval">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#KonnexGateway"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The interval between subsequent polls</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pollingInterval</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#maxValue">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >maxValue</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The maximum value of a continuous range</rdfs:comment>
+    <rdfs:domain rdf:resource="#ContinuousControlFunctionality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#commands">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The commands that can be applied to control functionality</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >commands</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ControlFunctionality"/>
+          <owl:Class rdf:about="#QueryFunctionality"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#sleepTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BTicinoGateway"/>
+          <owl:Class rdf:about="#KonnexGateway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The time between connection trials</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sleepTime</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#minValue">
+    <rdfs:domain rdf:resource="#ContinuousControlFunctionality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The minimum value of a continuous range</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >minValue</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#timeToOff">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >timeToOff</rdfs:label>
+    <rdfs:domain rdf:resource="#TimedOnFunctionality"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                  >180.0</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >240.0</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >900.0</rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:rest>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                      >300.0</rdf:first>
+                    </rdf:rest>
+                  </rdf:rest>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >120.0</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+              >60.0</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >30.0</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+          >0.5</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The time in seconds during which the object is turned on</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#physicalAddress">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >physicalAddress</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The address of the component</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#BTicinoComponent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#physicalType">
+    <rdfs:domain rdf:resource="#BTicinoComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The category of the component</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >physicalType</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#multicastIP">
+    <rdfs:domain rdf:resource="#KonnexGateway"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The multicast address of the gateway</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >multicastIP</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#port">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The port of the gateway</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >port</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BTicinoGateway"/>
+          <owl:Class rdf:about="#KonnexGateway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#flashingTime">
+    <rdfs:domain rdf:resource="#OnOffFlashingFunctionality"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >1.0</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >2.0</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                  >2.5</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >3.0</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                      >3.5</rdf:first>
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:rest rdf:parseType="Resource">
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                          >4.5</rdf:first>
+                          <rdf:rest rdf:parseType="Resource">
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >5.0</rdf:first>
+                          </rdf:rest>
+                        </rdf:rest>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >4.0</rdf:first>
+                      </rdf:rest>
+                    </rdf:rest>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+              >1.5</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+          >0.5</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The flashing period duration in seconds</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >flashingTime</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#notification">
+    <rdfs:domain rdf:resource="#NotificationFunctionality"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Provide the type of the notification</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >notification</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#connectionTimeOut">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The time before the connection expires</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >connectionTimeOut</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BTicinoGateway"/>
+          <owl:Class rdf:about="#KonnexGateway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#individualAddress">
+    <rdfs:domain rdf:resource="#KonnexComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >individualAddress</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The individual address of the component</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#connectionTrials">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BTicinoGateway"/>
+          <owl:Class rdf:about="#KonnexGateway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of connection trials before failure</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >connectionTrials</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#IPAddress">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#BTicinoGateway"/>
+          <owl:Class rdf:about="#KonnexGateway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The IP address of the gateway</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IPAddress</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#groupAddress">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The address of the group of the component</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >groupAddress</rdfs:label>
+    <rdfs:domain rdf:resource="#KonnexComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#udpPort">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#KonnexGateway"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >udpPort</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The port for UDP connections</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:about="#valueDiscrete">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#DiscreteState"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The discrete state of an object</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >valueDiscrete</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#valueContinuous">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The value of the state of an object</rdfs:comment>
+    <rdfs:domain rdf:resource="#ContinuousState"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >valueContinuous</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <VolumeRegulationFunctionality rdf:ID="VolumeRegulationFunctionalityInstance"/>
+  <TimedOnFunctionality rdf:ID="TimedOnInstance">
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >timedOn</commands>
+    <timeToOff rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >30.0</timeToOff>
+  </TimedOnFunctionality>
+  <ShutterRegulationFunctionality rdf:ID="ShutterRegulationFunctionalityInstance"/>
+  <DiscreteControlFunctionality rdf:ID="HiFiFunctionalityInstance">
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pause</commands>
+    <rdfs:comment xml:lang="en">Generic Hifi Functions</rdfs:comment>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >stop</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rew</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >play</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >phono</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tape2</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >channel</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fwd</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tape1</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tuner</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cd</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >aux</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >track</commands>
+  </DiscreteControlFunctionality>
+  <TimeRegulationFunctionality rdf:ID="TimeRegulationFunctionalityInstance"/>
+  <DiscreteControlFunctionality rdf:ID="DishwasherFunctionalityInstance">
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LightWash</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >StrongWash</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Standby</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >On</commands>
+    <rdfs:comment xml:lang="en">Generic dishwasher functions</rdfs:comment>
+  </DiscreteControlFunctionality>
+  <UpDownFunctionality rdf:ID="UpDownFunctionalityInstance">
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Down</commands>
+    <commands rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Up</commands>
+  </UpDownFunctionality>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 130)  http://protege.stanford.edu -->

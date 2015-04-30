@@ -1,0 +1,84 @@
+<h1>
+<img src="images/security/wirelessSecurity.png" width="100" height="80" >
+Security for wireless networks
+<img src="images/security/wirelessSecurity.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+
+<div class="hero-unit">
+<h3>Wi-Fi</h3>
+<ul><li>
+Protocol:
+<select id="wifi_protocol" onclick="searchCountermeasureInformation('stac', document.getElementById('wifi_protocol').value, 'wifi_protocol_feature', 'wifi_security_property', 'option');" >
+</select>
+(e.g., choose WPA2)<br/>
+         Security Property:
+        <select id="wifi_security_property"></select>
+         Feature:		
+        <select id="wifi_protocol_feature"></select>
+</li><li>Attack:<select id="wifi_attack"> </select>
+</li><li>Architecture:<select id="wifi_archi" > </select>
+</li></ul>
+</div>
+
+
+<div class="hero-unit">
+<h3>Wimax</h3>
+<ul><li>
+Protocol:<br/>
+
+		<select id="wimax_protocol" onclick="searchCountermeasureInformation('stac', document.getElementById('wimax_protocol').value, 'wimax_protocol_feature', 'wimax_security_property', 'option');" >
+		</select>(e.g., choose EAP-TTLS)<br/>
+         Security Property:
+        <select id="wimax_security_property"> </select>
+         Feature:		
+        <select id="wimax_protocol_feature"> </select>
+
+</li><li>Attack:<select id="wimax_attack"> </select>
+		
+</li><li>Key Management:<select id="wimax_key_mgt"> </select>
+		
+</li><li>Architecture:<select id="wimax_archi" > </select>
+</li></ul>
+</div>
+
+<div class="hero-unit">
+<h3>Zigbee</h3>
+<ul><li>Attack:<select id="ZigbeeAttack"> </select></li></ul>
+</div>
+
+
+<div class="hero-unit">
+<h3>Bluetooth</h3>
+<ul><li>Algorithm:<select id="bluetooth_algo"> </select></li>
+<li>Attack:<select id="bluetooth_attack"> </select></li>
+<li>Security Mechanism:<select id="bluetooth_security_mechanism"> </select>
+</ul>
+		
+</li>
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+    request(displayResultBindingSelect, "stac/type/WifiSecurityProtocol", "wifi_protocol","option");
+	request(displayResultBindingSelect, "stac/type/WifiAttack", "wifi_attack", "option");
+	request(displayResultBindingSelect, "stac/type/WifiArchitectureComponent", "wifi_archi", "option");	
+
+	request(displayResultBindingSelect, "stac/type/WimaxSecurityProtocol", "wimax_protocol","option");	
+    request(displayResultBindingSelect, "stac/type/WimaxAttack", "wimax_attack","option");	
+	request(displayResultBindingSelect, "stac/type/WimaxKeyManagement", "wimax_key_mgt","option");
+	request(displayResultBindingSelect, "stac/type/WimaxArchitectureComponent", "wimax_archi","option");
+
+    request(displayResultBindingSelect, "stac/type/ZigbeeAttack", "ZigbeeAttack","option");
+
+	request(displayResultBindingSelect, "stac/type/BluetoothSecurityAlgorithm", "bluetooth_algo","option");	
+	request(displayResultBindingSelect, "stac/type/BluetoothAttack", "bluetooth_attack","option");	
+	request(displayResultBindingSelect, "stac/type/BluetoothSecurityMechanism", "bluetooth_security_mechanism","option");	
+});

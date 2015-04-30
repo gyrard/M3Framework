@@ -1,0 +1,40 @@
+PER1: Patient(?p) ^ hasSymptoms(?p, Dyspnea) ^ hasSymptoms(?p, Fatigue)
+^ hasSymptoms(?p, Peripheral_edema) ^ hasSymptoms(?p, Palpitations)
+^ hasSymptoms(?p, Coughing) ^ hasSymptoms(?p, Nausea)
+^ hasSymptoms(?p, Neurologic_deficit)
+^ hypotheticalDiagnosis(?p, Chronic_heart_failure)
+
+PER2:Patient(?p) ^ hypotheticalDiagnosis(?p, Chronic_heart_failure)
+^ suggestedTest(?p, Physical_examination) ^ suggestedTest(?p, Blood_test)
+^ suggestedTest(?p, Echocardiography_tests) ^ suggestedTest(?p, Chest_X-ray)
+^ suggestedTest(?p, Electrocardiography_tests)
+
+PDR1: Patient(?p) ^ hypotheticalDiagnosis(?p, Chronic_heart_failure)
+^ hasTestResults(?p, Chest_X-ray_abnormal)
+^ hasTestResults(?p, ECG_abnormal)
+^ hasTestResults(?p, BNP_value_higher_than_100_pg_per_ml)
+^ hasTestResults(?p, LVEF_lower_than_40_percent)
+^ suggestedDiagnosis(?p, Systolic_heart_failure)
+
+PDR2: Patient(?p) ^ hypotheticalDiagnosis(?p, Chronic_heart_failure)
+^ hasSigns (?p, High_blood_pressure_disorder)
+^ hasSigns (?p, Abnormal_heart_sounds) ^ hasTestResults(?p, ECG_abnormal)
+^ hasTestResults(?p, Pulmonary_venous_congestion)
+^ suggestedDiagnosis(?p, Hypertensive_heart_failure)
+
+PTR1: Patient(?p) ^ suggestedDiagnosis(?p, Systolic_heart_failure)
+^ suggestedTreatment(?p, ACE_inhibitor) ^ suggestedTreatment(?p, Beta_blocker
+
+PTR2: Patient(?p) ^ suggestedDiagnosis(?p, Systolic_heart_failure)
+?hasSymptoms(?p, edema) ^ hasSymptoms(?p, congestion)
+^ suggestedTreatment(?p, ACE_inhibitor)
+^ suggestedTreatment(?p, Beta_blocker)
+^ suggestedTreatment(?p, Diuretic)
+
+PCR1: Patient (?p) ^ allergicTo (?p, Aspirin) ^ Prescription (?Rx)
+^ hasPrescription (?p, ?Rx) swrlb:contains (?Rx, Aspirin)
+^ hasAlert (?p, This patient is allergic to Aspirin)
+
+PCR2: Patient (?p) ^ hasPrescription (?p, ?Rx1) ^ Prescription (?Rx1)
+^ Prescription (?Rx2) ^ interactWith (?Rx1, ?Rx2)
+^ forbidRx (?p, ?Rx2)

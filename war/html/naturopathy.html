@@ -1,0 +1,174 @@
+<h1>Scenario Naturopathy: Suggest ingredients or recipes according to the weather, diseases, diets and emotions</h1>
+
+
+
+<div class="hero-unit">
+Please do not forget to cite our work: 
+<br/><a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6803229&queryText%3DEnrich+Machine-to-Machine+Data+with+Semantic+Web+Technologies+for+Cross-Domain+Applications">
+Enrich machine-to-machine data with semantic web technologies for cross-domain applications [Gyrard et al., WF-IOT 2014]</a>
+<h3>Suggesting home remedies according to body temperature</h3>
+	<p> <ol>
+			<li>This scenario is based on: <a href="./dataset/sensor_data/senml_m3_health_data.rdf">M3 RDF health data</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert Health Measurements into Semantic Data):
+				
+				<input type="button" class="btn" value="Convert health measurements" onclick='requestText(alert, "/naturopathy/convert_health", "res_convert");'/>
+				<div id="res_convert"></div>
+			</li>
+				<li>We deduce that the temperature corresponds to the body temperature.  </li>
+				<li>We deduce that the person is sick.</li>
+				<li>We propose all fruits/vegetables according to this disease. </li>
+				<li> M2M Application: Temperature => Cold => Food: (Wait 10 seconds!)
+				<input type="button" class="btn" value="Food if you are sick" onclick='request(displayGenericSparqlResult, "naturopathy/sick", "temp_health");'/>
+				
+			</li>
+		</ol> 
+	</p> 
+<div id="temp_health"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Suggesting food according to the outside temperature</h3>
+	<p> <ol>
+		<!--  	<li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate Temperature measurements</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert Temperature Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert weather measurements" onclick='requestText(alert, "/naturopathy/convert_weather", "res_convert");'/>
+				<div id="res_convert"></div>
+		
+			</li>
+			-->
+				<li> This scenario is based on: <a href="../dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf">M3 RDF sensor data</a></li>
+				<li>We deduce that the temperature corresponds to the temperature outside.</li>
+				<li>We propose all fruits/vegetables according to this season. </li>
+				<li>M2M Application (Temperature => Season => Food): (Wait 10 seconds!)
+				<input type="button" class="btn" value="Food according to the temperature" onclick='request(displayGenericSparqlResult, "naturopathy/seasonTemperatureFoodRecipe", "temp_food");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="temp_food"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Deducing mood according to the external luminosity</h3>
+	<p> <ol>
+			<!-- <li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate Weather measurements (5000 lux and 50 000 lux)</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert weather Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert weather measurements" onclick='requestText(alert, "/naturopathy/convert_weather", "res_convert");'/>
+				<div id="res_convert"></div>
+		
+			</li>
+			-->
+
+				<li> This scenario is based on: <a href="../dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf">M3 RDF sensor data</a></li>
+				<li>We deduce the luminosity color.</li>
+				<li>We deduce the emotion according to the luminosity color. </li>
+				<li>Test 1: 5000 lux => luminosity grey since it is cloudy => sadness emotion  </li>
+				<li>Test 2: 50 000 lux => luminosity yellow since it is sunny => happiness emotion  </li>
+				<li>We deduce the emotion according to the luminosity color. </li>
+				<li>M2M Application (Luminosity => weather => emotion):
+					<input type="button" class="btn" value="Emotion & Luminosity" onclick='request(displayGenericSparqlResult, "naturopathy/emotion_luminosity", "weatherEmotion");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="weatherEmotion"></div>
+</div>
+<div class="hero-unit">
+<h3>Deducing mood or diseases from heart beat, skin conductance and blood pressure</h3>
+	<p> <ol>
+			<li>This scenario is based on: <a href="./dataset/sensor_data/senml_m3_health_data.rdf">M3 RDF health data</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert Health Measurements into Semantic Data):
+				
+				<input type="button" class="btn" value="Convert health measurements" onclick='requestText(alert, "/naturopathy/convert_health", "res_convert");'/>
+				<div id="res_convert"></div>
+			</li>
+				<li>We deduce the emotion or the disease</li>
+				<li> M2M Application: Heart beat  => Emotion: (Wait 10 seconds!)
+				<input type="button" class="btn" value="Hear beat & Emotion" onclick='sendData(displayGenericSparqlResult, "naturopathy/emotion_disease", "HeartBeat", "emotion_disease", "li");'/>
+				</li>
+				<li> M2M Application: Skin conductance  => Emotion: (Wait 10 seconds!)
+				<input type="button" class="btn" value="Skin conductance & Emotion" onclick='sendData(displayGenericSparqlResult, "naturopathy/emotion_disease", "SkinConductance", "emotion_disease", "li");'/>
+				</li>
+				<li> M2M Application: Blood pressure  => Emotion: (Wait 10 seconds!)
+				<input type="button" class="btn" value="Blood pressure & Emotion" onclick='sendData(displayGenericSparqlResult, "naturopathy/emotion_disease", "BloodPressure", "emotion_disease", "li");'/>
+				</li>
+		</ol> 
+	</p> 
+<div id="emotion_disease"></div>
+</div>
+
+
+
+
+
+<div class="hero-unit">
+	<h3> Suggesting a recipe according to food available in your kitchen</h3> 
+	<p> <img src="images/scenario/recipeScenario.jpg" alt="" width="600" height="400"/></p>
+    <p>
+		<ol>
+			<li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate food measurements available in your kitchen</a>
+			</li>
+
+			<li>M2M Aggregation Gateway (Convert Food Measurements into Semantic Data):
+				<input type="button" value="Convert into semantic food measurements" onclick='requestText(alert, "naturopathy/convert_food", "res_convert_food");'/>
+				<div id="res_convert _food"></div>
+			</li>
+
+			<li>Link my semantic food measurements to the Smart Products project</li>
+
+ 			<li>M2M application (Suggest a recipe according to food  available in my kitchen) (F5 to reload the page):
+				<select id="get_ingt"></select>	
+				</br>
+				<input type="button" class="btn" value="Search recipe with this ingredient" 
+				onclick="sendData(displayRecipe,'/naturopathy/searchRecipe', document.getElementById('get_ingt').value, 'search_recipe', 'option');"/>	
+				<select id="search_recipe"></select>	
+
+				<input type="button" class="btn" value="Search recipe ingredients" 
+				onclick="sendData(displayRecipeIngredient, '/naturopathy/recipeDetail', document.getElementById('search_recipe').value, 'detail_recipe', 'li');"/>		
+				<ul id="detail_recipe"></ul>
+			</li>
+
+			<li>  M2M application (Food in the kitchen & Season):
+				
+				<input type="button" class="btn" value="Display ingredients and the season" onclick='request(readFoodSeason, "/naturopathy/foodKitchenSeason", "food_season", "li");'/>	
+				<ul id="food_season"></ul>
+			</li>
+		</ol> 
+	</p> 
+   
+</div>
+
+<script type="text/javascript">
+	$.getScript('javascript/naturopathy.js',function(){
+				request(getIngtInKitchen, "/naturopathy/matchingFood", "get_ingt", "option");
+	});		
+	$.getScript('javascript/swot.js',function(){
+		request(displayGenericSparqlResult, "naturopathy/emotion_luminosity", "weatherEmotion");
+});	
+</script>
+
+			</li>
+		</ol> 
+	</p> 
+
+
+</div>
+
+<script type="text/javascript">
+	$.getScript('javascript/naturopathy.js',function(){
+		request(displayDisease, "naturopathy/disease", "disease");
+	});
+
+</script>
+
+
+

@@ -1,0 +1,2371 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:j.0="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/unnamed.owl#"
+  xml:base="http://www.owl-ontologies.com/unnamed.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Light_meat_fowl">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Fowl"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Light meat fowl</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="St_Emillion_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >St Emillion region</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Bordeaux_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Meursault_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Bourgogne_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Meursault region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Sweet_dessert">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sweet dessert</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Dessert"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Wine_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wine region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Tomato-based_food">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tomato-based food</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Food"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="New_Zealand_region">
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >New Zealand region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Chianti_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chianti region</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Italian_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Central_coast_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="United_States_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Central coast region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Seafood">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="French_region">
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >French region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="White_wine">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Wine"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="color"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >White wine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Portuguese_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Portuguese region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+  </owl:Class>
+  <owl:Class rdf:ID="White_Bordeaux">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#color"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >White Bordeaux</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Sauterne_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bordeaux_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sauterne region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Fish">
+    <rdfs:subClassOf rdf:resource="#Seafood"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Non-sweet_fruit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Fruit"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Non-sweet fruit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Non-bland_fish">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Non-bland fish</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Fish"/>
+  </owl:Class>
+  <owl:Class rdf:ID="White_Merlot">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >White Merlot</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ROSï¿½</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#color"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Rose_wine"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Beaujolais_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Beaujolais region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#French_region"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Red_wine">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#color"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Wine"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Red wine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Edna_Valley_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Edna Valley region</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#United_States_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Drink">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Consumable_thing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="mosel_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="German_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Dessert_wine">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Wine"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWEET</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="sugar"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dessert wine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Arroyo_Grande_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#United_States_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Arroyo Grande region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Pasta_with_spicy_red_sauce">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Pasta_with_red_sauce"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with spicy red sauce</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Bordeaux_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bordeaux region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#French_region"/>
+  </owl:Class>
+  <owl:Class rdf:about="#German_region">
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >German region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Alsace_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alsace region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#French_region"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Consumable_thing">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Consumable thing</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Soft_drink">
+    <rdfs:subClassOf rdf:resource="#Drink"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Soft drink</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Meat">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Paulliac_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Paulliac region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Bordeaux_region"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Cotes_d_Or_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cotes d'Or region</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Bourgogne_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Sancerre_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sancerre region</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Loire_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Pasta_with_heavy_cream_sauce">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with heavy cream sauce</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Pasta_with_white_sauce"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Australian_region">
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Australian region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Tours_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loire_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tours region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Santa_Cruz_Mountains_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#United_States_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Santa Cruz Mountains region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Wine">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A wine class represents all possible wines</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Drink"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Non-spicy_red_meat">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Red_meat"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Non-spicy red meat</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Bland_fish">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bland fish</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Fish"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pays_Nantes_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pays Nantes region</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Loire_region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Food">
+    <rdfs:subClassOf rdf:resource="#Consumable_thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Napa_Valley_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#United_States_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Napa Valley region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Mendocino_region">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#United_States_region"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mendocino region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Sweet_fruit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fruit"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sweet fruit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Rose_wine">
+    <rdfs:subClassOf rdf:resource="#Wine"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ROSï¿½</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#color"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rose wine</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Pasta_with_light_cream_sauce">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with light cream sauce</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pasta_with_white_sauce"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="South_Australian_region">
+    <rdfs:subClassOf rdf:resource="#Australian_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >South Australian region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Dark_meat_fowl">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dark meat fowl</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Fowl"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Winery"/>
+  <owl:Class rdf:about="#Pasta_with_white_sauce">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Pasta"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with white sauce</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Red_meat">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Red meat</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Meat"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Wine_template">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wine template</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#United_States_region">
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >United States region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="White_meat">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >White meat</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Meat"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Shellfish">
+    <rdfs:subClassOf rdf:resource="#Seafood"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Cheese_Nuts_dessert">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cheese/Nuts dessert</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Dessert"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Bourgogne_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bourgogne region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#French_region"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Margaux_region">
+    <rdfs:subClassOf rdf:resource="#Bordeaux_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Margaux region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Pasta">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Fruit">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pasta_with_green_sauce">
+    <rdfs:subClassOf rdf:resource="#Pasta"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Wine_grape">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Wine grape</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Spicy_red_meat">
+    <rdfs:subClassOf rdf:resource="#Red_meat"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Spicy red meat</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Cotes_Chalonnaise_region">
+    <rdfs:subClassOf rdf:resource="#Bourgogne_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cotes Chalonnaise region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Pasta_with_non-spicy_red_sauce">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with non-spicy red sauce</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pasta_with_red_sauce"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Loire_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Loire region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#French_region"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Italian_region">
+    <rdfs:subClassOf rdf:resource="#Wine_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Italian region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Meal_course">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Meal course</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Dessert">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+  </owl:Class>
+  <owl:Class rdf:ID="wine_region">
+    <rdfs:subClassOf rdf:resource="#German_region"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Fowl">
+    <rdfs:subClassOf rdf:resource="#Food"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Pasta_with_red_sauce">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with red sauce</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Pasta"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Santa_Barbara_region">
+    <rdfs:subClassOf rdf:resource="#United_States_region"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Santa Barbara region</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Sonoma_region">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sonoma region</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#United_States_region"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="grape">
+    <rdfs:domain rdf:resource="#Wine"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="area">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A specific area (such as Napa) where a wine comes from</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="region"/>
+  <owl:ObjectProperty rdf:ID="drink">
+    <rdfs:domain rdf:resource="#Meal_course"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="location">
+    <rdfs:domain rdf:resource="#Winery"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="produces">
+    <rdfs:domain rdf:resource="#Winery"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This slot contains the wines produced by a particular winery. The maker of a Wine is its inverse slot.</rdfs:comment>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="maker"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="best_wineries">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >best wineries</rdfs:label>
+    <rdfs:domain rdf:resource="#Wine_template"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="food">
+    <rdfs:domain rdf:resource="#Meal_course"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#maker">
+    <rdfs:domain rdf:resource="#Wine"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The maker of a wine (a Winery). This slot has an iinverse - the slot produces at the Winery class</rdfs:comment>
+    <owl:inverseOf rdf:resource="#produces"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#sugar">
+    <rdfs:domain rdf:resource="#Wine"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="flavor">
+    <rdfs:domain rdf:resource="#Wine"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Course">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="body">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Wine"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#color">
+    <rdfs:domain rdf:resource="#Wine"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Winery"/>
+          <owl:Class rdf:about="#Consumable_thing"/>
+          <owl:Class rdf:about="#Wine_grape"/>
+          <owl:Class rdf:about="#Meal_course"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="tannin_level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Red_wine"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tannin level</rdfs:label>
+  </owl:DatatypeProperty>
+  <Pasta_with_spicy_red_sauce rdf:ID="Fra_Diavolo">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fra Diavolo</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fra Diavolo</rdfs:label>
+  </Pasta_with_spicy_red_sauce>
+  <Bland_fish rdf:ID="Scrod">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Scrod</name>
+  </Bland_fish>
+  <Wine_grape rdf:ID="Pinot_Blanc_grape">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pinot Blanc grape</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pinot Blanc grape</rdfs:label>
+  </Wine_grape>
+  <Light_meat_fowl rdf:ID="Turkey">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Turkey</name>
+  </Light_meat_fowl>
+  <Wine_grape rdf:ID="Petite_Syrah_grape">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Petite Syrah grape</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Petite Syrah grape</rdfs:label>
+  </Wine_grape>
+  <Sweet_dessert rdf:ID="Pie">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pie</name>
+  </Sweet_dessert>
+  <Pasta_with_green_sauce rdf:ID="Fusilli_with_spicy_pesto"/>
+  <Winery rdf:ID="D_Anjou">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >D Anjou</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >D Anjou</name>
+  </Winery>
+  <Non-bland_fish rdf:ID="Swordfish">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Swordfish</name>
+  </Non-bland_fish>
+  <Wine_grape rdf:ID="Chenin_Blanc_grape">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chenin Blanc grape</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chenin Blanc grape</rdfs:label>
+  </Wine_grape>
+  <Sweet_fruit rdf:ID="Grape">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Grape</name>
+  </Sweet_fruit>
+  <Non-spicy_red_meat rdf:ID="Steak">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Steak</name>
+  </Non-spicy_red_meat>
+  <Bland_fish rdf:ID="Halibut">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Halibut</name>
+  </Bland_fish>
+  <Meal_course rdf:ID="wines-current_00032">
+    <drink>
+      <Wine_template rdf:ID="Port">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="#sugar"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >SWEET</owl:hasValue>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >RED</owl:hasValue>
+            <owl:onProperty rdf:resource="#color"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Dessert_wine"/>
+        <rdfs:subClassOf rdf:resource="#Red_wine"/>
+      </Wine_template>
+    </drink>
+    <food>
+      <Cheese_Nuts_dessert rdf:ID="Nuts">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Nuts</name>
+      </Cheese_Nuts_dessert>
+    </food>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nuts</name>
+  </Meal_course>
+  <Spicy_red_meat rdf:ID="Garlicky_roast">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Garlicky roast</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Garlicky roast</rdfs:label>
+  </Spicy_red_meat>
+  <Spicy_red_meat rdf:ID="Beef_curry">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Beef curry</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Beef curry</rdfs:label>
+  </Spicy_red_meat>
+  <Sweet_fruit rdf:ID="Mixed_fruit">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mixed fruit</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mixed fruit</name>
+  </Sweet_fruit>
+  <Winery rdf:ID="Handley">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Handley</name>
+  </Winery>
+  <St._Emillion rdf:ID="Chateau_Cheval_Blanc_St_Emilion">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau Cheval Blanc St Emilion</rdfs:label>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau Cheval Blanc St Emilion</name>
+  </St._Emillion>
+  <Cheese_Nuts_dessert rdf:ID="Cheese">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cheese</name>
+  </Cheese_Nuts_dessert>
+  <Ice_Wine rdf:ID="Ice_Wine_6"/>
+  <Meal_course rdf:ID="wines-current_00035">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Grilled Chicken</name>
+    <drink>
+      <Wine_template rdf:ID="Beaujolais">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >RED</owl:hasValue>
+            <owl:onProperty rdf:resource="#color"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Red_wine"/>
+      </Wine_template>
+    </drink>
+    <food>
+      <Light_meat_fowl rdf:ID="Grilled_chicken">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Grilled chicken</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Grilled chicken</name>
+      </Light_meat_fowl>
+    </food>
+  </Meal_course>
+  <Winery rdf:ID="Kathryn_Kennedy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kathryn Kennedy</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kathryn Kennedy</name>
+  </Winery>
+  <Wine_template rdf:ID="Pouilly-Fuisse">
+    <rdfs:subClassOf>
+      <Wine_template rdf:ID="White_Burgundy">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >White Burgundy</rdfs:label>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="#color"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >WHITE</owl:hasValue>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#White_wine"/>
+      </Wine_template>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </Wine_template>
+  <Ice_Wine rdf:ID="Ice_Wine_5"/>
+  <Shellfish rdf:ID="Clams">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clams</name>
+  </Shellfish>
+  <Meal_course rdf:ID="wines-current_00029">
+    <food>
+      <Red_meat rdf:ID="Lamb">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Lamb</name>
+      </Red_meat>
+    </food>
+    <drink>
+      <Wine_template rdf:ID="Red_Bordeaux">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Red Bordeaux</rdfs:label>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >RED</owl:hasValue>
+            <owl:onProperty rdf:resource="#color"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Red_wine"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >The class of all Bordeaux wines</rdfs:comment>
+        <best_wineries>
+          <Winery rdf:ID="Chateau_Lafite_Rothschild">
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chateau Lafite Rothschild</name>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chateau Lafite Rothschild</rdfs:label>
+            <produces>
+              <Pauillac rdf:ID="Chateau_Lafite_Rothschild_Pauillac">
+                <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >STRONG</flavor>
+                <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >RED</color>
+                <tannin_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >MODERATE</tannin_level>
+                <maker rdf:resource="#Chateau_Lafite_Rothschild"/>
+                <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >DRY</sugar>
+                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Chateau Lafite Rothschild Pauillac</name>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Chateau Lafite Rothschild Pauillac</rdfs:label>
+                <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >FULL</body>
+                <grape>
+                  <Wine_grape rdf:ID="Cabernet_Sauvignon_grape">
+                    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Cabernet Sauvignon grape</name>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Cabernet Sauvignon grape</rdfs:label>
+                  </Wine_grape>
+                </grape>
+              </Pauillac>
+            </produces>
+          </Winery>
+        </best_wineries>
+        <best_wineries>
+          <Winery rdf:ID="Chateau_Margaux_Winery">
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chateau Margaux</name>
+            <produces>
+              <Margaux rdf:ID="Chateau_Margaux">
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Chateau Margaux</rdfs:label>
+                <maker rdf:resource="#Chateau_Margaux_Winery"/>
+                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Chateau Margaux</name>
+                <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >RED</color>
+              </Margaux>
+            </produces>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chateau Margaux Winery</rdfs:label>
+          </Winery>
+        </best_wineries>
+      </Wine_template>
+    </drink>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lamb</name>
+  </Meal_course>
+  <Non-sweet_fruit rdf:ID="Apple">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Apple</name>
+  </Non-sweet_fruit>
+  <Pasta_with_light_cream_sauce rdf:ID="Pasta_with_white_clam_sauce">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with white clam sauce</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pasta with white clam sauce</name>
+  </Pasta_with_light_cream_sauce>
+  <Sweet_dessert rdf:ID="Cake">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cake</name>
+  </Sweet_dessert>
+  <Pasta_with_heavy_cream_sauce rdf:ID="Fettucine_Alfredo">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fettucine Alfredo</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fettucine Alfredo</name>
+  </Pasta_with_heavy_cream_sauce>
+  <Shellfish rdf:ID="Mussels">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mussels</name>
+  </Shellfish>
+  <Wine_grape rdf:ID="Pinot_Noir_grape">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pinot Noir grape</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pinot Noir grape</name>
+  </Wine_grape>
+  <Wine_grape rdf:ID="Cabernet_Franc_grape">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cabernet Franc grape</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cabernet Franc grape</name>
+  </Wine_grape>
+  <Cheese_Nuts_dessert rdf:ID="Cheese_Nuts_dessert_4"/>
+  <Sweet_fruit rdf:ID="Peach">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Peach</name>
+  </Sweet_fruit>
+  <Dark_meat_fowl rdf:ID="Goose">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Goose</name>
+  </Dark_meat_fowl>
+  <Wine_template rdf:ID="Pinot_Blanc">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pinot Blanc</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <Dark_meat_fowl rdf:ID="Duck">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Duck</name>
+  </Dark_meat_fowl>
+  <Wine_template rdf:ID="White_Zinfandel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >White Zinfandel</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ROSï¿½</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Rose_wine"/>
+  </Wine_template>
+  <j.0:PAL-CONSTRAINT rdf:ID="wines-current_00036">
+    <j.0:PAL-DESCRIPTION rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >area of wine and maker are the same</j.0:PAL-DESCRIPTION>
+    <j.0:PAL-NAME rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >area of wine and maker are the same</j.0:PAL-NAME>
+    <j.0:PAL-STATEMENT rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >(forall ?wine
+  (=&gt; (and 
+               (own-slot-not-null maker ?wine)
+               (own-slot-not-null area ?wine))
+         (= (area (maker ?wine))
+              (area ?wine))
+    )
+)              </j.0:PAL-STATEMENT>
+  </j.0:PAL-CONSTRAINT>
+  <Chianti rdf:ID="Chianti_Classico">
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chianti Classico</name>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEDIUM</body>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chianti Classico</rdfs:label>
+  </Chianti>
+  <Meal_course rdf:ID="wines-current_00033">
+    <food>
+      <Non-bland_fish rdf:ID="Salmon">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Salmon</name>
+      </Non-bland_fish>
+    </food>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Salmon</name>
+    <drink>
+      <Wine_template rdf:ID="Pinot_Noir">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Pinot Noir</rdfs:label>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >RED</owl:hasValue>
+            <owl:onProperty rdf:resource="#color"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Red_wine"/>
+      </Wine_template>
+    </drink>
+  </Meal_course>
+  <Wine_template rdf:ID="Cotes_Chalonnaise">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cotes Chalonnaise</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <Wine_template rdf:ID="Red_Burgundy">
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >RED</owl:hasValue>
+            <owl:onProperty rdf:resource="#color"/>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#Red_wine"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Red Burgundy</rdfs:label>
+      </Wine_template>
+    </rdfs:subClassOf>
+  </Wine_template>
+  <Wine_template rdf:ID="Cotes_d_Or">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_Burgundy"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cotes d'Or</rdfs:label>
+  </Wine_template>
+  <Non-bland_fish rdf:ID="Tuna">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tuna</name>
+  </Non-bland_fish>
+  <Bland_fish rdf:ID="Flounder">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Flounder</name>
+  </Bland_fish>
+  <White_Burgundy rdf:ID="Chateau_De_Meursault_Meursault">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau De Meursault Meursault</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau De Meursault Meursault</rdfs:label>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MODERATE</flavor>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+  </White_Burgundy>
+  <Wine_grape rdf:ID="Sauvignon_Blanc_grape">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sauvignon Blanc grape</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sauvignon Blanc grape</name>
+  </Wine_grape>
+  <Pasta_with_white_sauce rdf:about="http://www.owl-ontologies.com"/>
+  <Wine_grape rdf:ID="Petite_Verdot_grape">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Petite Verdot grape</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Petite Verdot grape</rdfs:label>
+  </Wine_grape>
+  <Tomato-based_food rdf:ID="Pizza">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pizza</name>
+  </Tomato-based_food>
+  <Wine_template rdf:ID="Graves">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_Bordeaux"/>
+  </Wine_template>
+  <Wine_grape rdf:ID="Zinfandel_grape">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Zinfandel grape</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Zinfandel grape</name>
+  </Wine_grape>
+  <Shellfish rdf:ID="Lobster">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lobster</name>
+  </Shellfish>
+  <Non-spicy_red_meat rdf:ID="Veal">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Veal</name>
+  </Non-spicy_red_meat>
+  <Meal_course rdf:ID="wines-current_00031">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Oysters</name>
+    <drink>
+      <Wine_template rdf:ID="Chablis">
+        <rdfs:subClassOf rdf:resource="#White_Burgundy"/>
+        <rdfs:subClassOf>
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="#color"/>
+            <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >WHITE</owl:hasValue>
+          </owl:Restriction>
+        </rdfs:subClassOf>
+      </Wine_template>
+    </drink>
+    <food>
+      <Shellfish rdf:ID="Oysters">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Oysters</name>
+      </Shellfish>
+    </food>
+  </Meal_course>
+  <Wine_grape rdf:ID="Malbec_grape">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Malbec grape</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Malbec grape</rdfs:label>
+  </Wine_grape>
+  <Shellfish rdf:ID="Crabs">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Crabs</name>
+  </Shellfish>
+  <Pasta_with_non-spicy_red_sauce rdf:ID="Spaghetti_with_tomato_sauce">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Spaghetti with tomato sauce</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Spaghetti with tomato sauce</rdfs:label>
+  </Pasta_with_non-spicy_red_sauce>
+  <White_meat rdf:ID="Pork">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pork</name>
+  </White_meat>
+  <Non-spicy_red_meat rdf:ID="Roast_beef">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Roast beef</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Roast beef</name>
+  </Non-spicy_red_meat>
+  <Meal_course rdf:ID="Meal_course_7">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Exotic</name>
+    <drink>
+      <Ice_Wine rdf:ID="Selaks_Ice_Wine">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Selaks Ice Wine</name>
+        <maker>
+          <Winery rdf:ID="Selaks">
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Selaks</name>
+            <produces rdf:resource="#Selaks_Ice_Wine"/>
+            <produces>
+              <Sauvignon_Blanc rdf:ID="Selaks_Sauvignon_Blanc">
+                <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Selaks Sauvignon Blanc</name>
+                <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >WHITE</color>
+                <maker rdf:resource="#Selaks"/>
+                <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >MEDIUM</body>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Selaks Sauvignon Blanc</rdfs:label>
+                <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >DRY</sugar>
+                <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >MODERATE</flavor>
+              </Sauvignon_Blanc>
+            </produces>
+          </Winery>
+        </maker>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Selaks Ice Wine</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWEET</sugar>
+      </Ice_Wine>
+    </drink>
+    <food>
+      <Sweet_fruit rdf:ID="Banana">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Banana</name>
+      </Sweet_fruit>
+    </food>
+  </Meal_course>
+  <Winery rdf:ID="Corbans">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Corbans</name>
+    <produces>
+      <Sauvignon_Blanc rdf:ID="Corbans_Sauvignon_Blanc">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corbans Sauvignon Blanc</rdfs:label>
+        <maker rdf:resource="#Corbans"/>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corbans Sauvignon Blanc</name>
+      </Sauvignon_Blanc>
+    </produces>
+    <produces>
+      <Sauvignon_Blanc rdf:ID="Corbans_Private_Bin_Sauvignon_Blanc">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corbans Private Bin Sauvignon Blanc</rdfs:label>
+        <maker rdf:resource="#Corbans"/>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corbans Private Bin Sauvignon Blanc</name>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+      </Sauvignon_Blanc>
+    </produces>
+    <produces>
+      <Dry_Riesling rdf:ID="Corbans_Dry_White_Riesling">
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OFF-DRY</sugar>
+        <maker rdf:resource="#Corbans"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corbans Dry White Riesling</rdfs:label>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corbans Dry White Riesling</name>
+      </Dry_Riesling>
+    </produces>
+  </Winery>
+  <Winery rdf:ID="Sterling_Vineyards">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sterling Vineyards</name>
+    <produces>
+      <Red_Merlot rdf:ID="wines-current_00049">
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sterling Merlot</name>
+        <grape>
+          <Wine_grape rdf:ID="Merlot_grape">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Merlot grape</rdfs:label>
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Merlot grape</name>
+          </Wine_grape>
+        </grape>
+        <maker rdf:resource="#Sterling_Vineyards"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+      </Red_Merlot>
+    </produces>
+    <produces>
+      <Cabernet_Sauvignon rdf:ID="wines-current_00051">
+        <maker rdf:resource="#Sterling_Vineyards"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sterling Cabernet Sauvignon</name>
+        <grape rdf:resource="#Cabernet_Sauvignon_grape"/>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+      </Cabernet_Sauvignon>
+    </produces>
+    <produces>
+      <Chardonnay rdf:ID="wines-current_00050">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sterling Chardonnay</name>
+        <grape>
+          <Wine_grape rdf:ID="Chardonnay_grape">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chardonnay grape</rdfs:label>
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chardonnay grape</name>
+          </Wine_grape>
+        </grape>
+        <maker rdf:resource="#Sterling_Vineyards"/>
+      </Chardonnay>
+    </produces>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sterling Vineyards</rdfs:label>
+    <location rdf:resource="#Napa_Valley_region"/>
+  </Winery>
+  <Winery rdf:ID="Mount_Eden_Vineyard">
+    <produces>
+      <Chardonnay rdf:ID="Mount_Eden_Vineyard_Edna_Valley_Chardonnay">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <maker rdf:resource="#Mount_Eden_Vineyard"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mount Eden Vineyard Edna Valley Chardonnay</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mount Eden Vineyard Edna Valley Chardonnay</rdfs:label>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+      </Chardonnay>
+    </produces>
+    <produces>
+      <Pinot_Noir rdf:ID="Mount_Eden_Vineyard_Estate_Pinot_Noir">
+        <maker rdf:resource="#Mount_Eden_Vineyard"/>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mount Eden Vineyard Estate Pinot Noir</name>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mount Eden Vineyard Estate Pinot Noir</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+      </Pinot_Noir>
+    </produces>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mount Eden Vineyard</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mount Eden Vineyard</name>
+  </Winery>
+  <Winery rdf:ID="Mountadam">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountadam</name>
+    <produces>
+      <Dry_Riesling rdf:ID="Mountadam_Riesling">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountadam Riesling</name>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountadam Riesling</rdfs:label>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <maker rdf:resource="#Mountadam"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DELICATE</flavor>
+      </Dry_Riesling>
+    </produces>
+    <produces>
+      <Chardonnay rdf:ID="Mountadam_Chardonnay">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountadam Chardonnay</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <maker rdf:resource="#Mountadam"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountadam Chardonnay</name>
+      </Chardonnay>
+    </produces>
+    <produces>
+      <Pinot_Noir rdf:ID="Mountadam_Pinot_Noir">
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <maker rdf:resource="#Mountadam"/>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountadam Pinot Noir</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountadam Pinot Noir</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+      </Pinot_Noir>
+    </produces>
+  </Winery>
+  <Winery rdf:ID="Forman">
+    <produces>
+      <Cabernet_Sauvignon rdf:ID="Forman_Cabernet_Sauvignon">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <maker rdf:resource="#Forman"/>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Forman Cabernet Sauvignon</rdfs:label>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Forman Cabernet Sauvignon</name>
+      </Cabernet_Sauvignon>
+    </produces>
+    <produces>
+      <Chardonnay rdf:ID="Forman_Chardonnay">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Forman Chardonnay</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Forman Chardonnay</name>
+        <maker rdf:resource="#Forman"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+      </Chardonnay>
+    </produces>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Forman</name>
+  </Winery>
+  <Winery rdf:ID="Whitehall_Lane">
+    <produces>
+      <Cabernet_Franc rdf:ID="Whitehall_Lane_Cabernet_Franc">
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <maker rdf:resource="#Whitehall_Lane"/>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Whitehall Lane Cabernet Franc</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Whitehall Lane Cabernet Franc</name>
+      </Cabernet_Franc>
+    </produces>
+    <produces>
+      <Dessert_wine rdf:ID="Whitehall_Lane_Primavera">
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWEET</sugar>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Whitehall Lane Primavera</name>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LIGHT</body>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Whitehall Lane Primavera</rdfs:label>
+        <maker rdf:resource="#Whitehall_Lane"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DELICATE</flavor>
+      </Dessert_wine>
+    </produces>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Whitehall Lane</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Whitehall Lane</name>
+  </Winery>
+  <Winery rdf:ID="Marietta">
+    <produces>
+      <Cabernet_Sauvignon rdf:ID="Marietta_Cabernet_Sauvignon">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Marietta Cabernet Sauvignon</rdfs:label>
+        <maker rdf:resource="#Marietta"/>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Marietta Cabernet Sauvignon</name>
+      </Cabernet_Sauvignon>
+    </produces>
+    <produces>
+      <Red_Zinfandel rdf:ID="Marietta_Zinfandel">
+        <maker rdf:resource="#Marietta"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Marietta Zinfandel</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Marietta Zinfandel</rdfs:label>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+      </Red_Zinfandel>
+    </produces>
+    <produces>
+      <Petite_Syrah rdf:ID="Marietta_Petite_Syrah">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Marietta Petite Syrah</name>
+        <maker rdf:resource="#Marietta"/>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Marietta Petite Syrah</rdfs:label>
+      </Petite_Syrah>
+    </produces>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Marietta</name>
+  </Winery>
+  <Winery rdf:ID="Elyse">
+    <produces>
+      <Red_Zinfandel rdf:ID="Elyse_Zinfandel">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Elyse Zinfandel</rdfs:label>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <maker rdf:resource="#Elyse"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Elyse Zinfandel</name>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+      </Red_Zinfandel>
+    </produces>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Elyse</name>
+  </Winery>
+  <Winery rdf:ID="Schloss_Rothermel">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Schloss Rothermel</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Schloss Rothermel</rdfs:label>
+    <location rdf:resource="#German_region"/>
+    <produces>
+      <Sweet_Reisling rdf:ID="Schloss_Rothermel_Trochenbierenauslese_Riesling">
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Schloss Rothermel Trochenbierenauslese Riesling</name>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <grape>
+          <Wine_grape rdf:ID="Riesling_grape">
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Riesling grape</name>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Riesling grape</rdfs:label>
+          </Wine_grape>
+        </grape>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWEET</sugar>
+        <maker rdf:resource="#Schloss_Rothermel"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Schloss Rothermel Trochenbierenauslese Riesling</rdfs:label>
+      </Sweet_Reisling>
+    </produces>
+  </Winery>
+  <Cabernet_Sauvignon rdf:ID="Santa_Cruz_Mountain_Vineyard_Cabernet_Sauvignon">
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Santa Cruz Mountain Vineyard Cabernet Sauvignon</name>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >STRONG</flavor>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Santa Cruz Mountain Vineyard Cabernet Sauvignon</rdfs:label>
+    <maker>
+      <Winery rdf:ID="Santa_Cruz_Mountain_Vineyard">
+        <location rdf:resource="#Santa_Cruz_Mountains_region"/>
+        <produces rdf:resource="#Santa_Cruz_Mountain_Vineyard_Cabernet_Sauvignon"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Santa Cruz Mountain Vineyard</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Santa Cruz Mountain Vineyard</name>
+      </Winery>
+    </maker>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FULL</body>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+  </Cabernet_Sauvignon>
+  <Red_Merlot rdf:ID="Longridge_Merlot">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Longridge Merlot</rdfs:label>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LIGHT</body>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MODERATE</flavor>
+    <maker>
+      <Winery rdf:ID="Longridge">
+        <produces rdf:resource="#Longridge_Merlot"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Longridge</name>
+      </Winery>
+    </maker>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Longridge Merlot</name>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+  </Red_Merlot>
+  <Winery rdf:ID="Schloss_Volrad">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Schloss Volrad</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Schloss Volrad</rdfs:label>
+    <produces>
+      <Sweet_Reisling rdf:ID="Schloss_Volrad_Trochenbierenauslese_Riesling">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Schloss Volrad Trochenbierenauslese Riesling</name>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <grape rdf:resource="#Riesling_grape"/>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Schloss Volrad Trochenbierenauslese Riesling</rdfs:label>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWEET</sugar>
+        <maker rdf:resource="#Schloss_Volrad"/>
+      </Sweet_Reisling>
+    </produces>
+    <location rdf:resource="#German_region"/>
+  </Winery>
+  <Sauvignon_Blanc rdf:ID="Stonleigh_Sauvignon_Blanc">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stonleigh Sauvignon Blanc</rdfs:label>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEDIUM</body>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stonleigh Sauvignon Blanc</name>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+    <maker>
+      <Winery rdf:ID="Stonleigh">
+        <produces rdf:resource="#Stonleigh_Sauvignon_Blanc"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Stonleigh</name>
+      </Winery>
+    </maker>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DELICATE</flavor>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+  </Sauvignon_Blanc>
+  <Muscadet rdf:ID="Sevre_Et_Maine_Muscadet">
+    <maker>
+      <Winery rdf:ID="Sevre_Et_Maine">
+        <produces rdf:resource="#Sevre_Et_Maine_Muscadet"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sevre Et Maine</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sevre Et Maine</rdfs:label>
+      </Winery>
+    </maker>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sevre Et Maine Muscadet</name>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sevre Et Maine Muscadet</rdfs:label>
+  </Muscadet>
+  <Winery rdf:ID="Sean_Thackrey">
+    <produces>
+      <Petite_Syrah rdf:ID="Sean_Thackrey_Sirius_Petite_Syrah">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sean Thackrey Sirius Petite Syrah</rdfs:label>
+        <maker rdf:resource="#Sean_Thackrey"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sean Thackrey Sirius Petite Syrah</name>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >STRONG</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+      </Petite_Syrah>
+    </produces>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sean Thackrey</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sean Thackrey</rdfs:label>
+  </Winery>
+  <Winery rdf:ID="Bancroft">
+    <produces>
+      <Chardonnay rdf:ID="Bancroft_Chardonnay">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <maker rdf:resource="#Bancroft"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Bancroft Chardonnay</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Bancroft Chardonnay</name>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+      </Chardonnay>
+    </produces>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bancroft</name>
+  </Winery>
+  <Winery rdf:ID="Clos_De_Vougeot">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clos De Vougeot</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clos De Vougeot</rdfs:label>
+    <produces>
+      <Red_Burgundy rdf:ID="Clos_De_Vougeot_Cotes_D_Or">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Clos De Vougeot Cotes D Or</name>
+        <maker rdf:resource="#Clos_De_Vougeot"/>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Clos De Vougeot Cotes D Or</rdfs:label>
+      </Red_Burgundy>
+    </produces>
+  </Winery>
+  <Sauterne rdf:ID="Chateau_D_Ychem_Sauterne">
+    <maker>
+      <Winery rdf:ID="Chateau_D_Ychem">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Chateau D Ychem</rdfs:label>
+        <produces rdf:resource="#Chateau_D_Ychem_Sauterne"/>
+        <location rdf:resource="#Bordeaux_region"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Chateau D Ychem</name>
+      </Winery>
+    </maker>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >STRONG</flavor>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau D Ychem Sauterne</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau D Ychem Sauterne</name>
+    <grape>
+      <Wine_grape rdf:ID="Semillon_grape">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Semillon grape</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Semillon grape</name>
+      </Wine_grape>
+    </grape>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+  </Sauterne>
+  <Winery rdf:ID="Lane_Tanner">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lane Tanner</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lane Tanner</name>
+    <produces>
+      <Pinot_Noir rdf:ID="Lane_Tanner_Pinot_Noir">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LIGHT</body>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Lane Tanner Pinot Noir</name>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Lane Tanner Pinot Noir</rdfs:label>
+        <maker rdf:resource="#Lane_Tanner"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DELICATE</flavor>
+      </Pinot_Noir>
+    </produces>
+  </Winery>
+  <Winery rdf:ID="Gary_Farrell">
+    <produces>
+      <Red_Merlot rdf:ID="Gary_Farrell_Merlot">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Gary Farrell Merlot</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <maker rdf:resource="#Gary_Farrell"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Gary Farrell Merlot</name>
+      </Red_Merlot>
+    </produces>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gary Farrell</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gary Farrell</name>
+  </Winery>
+  <Winery rdf:ID="Ventana">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ventana</name>
+    <produces>
+      <Chenin_Blanc rdf:ID="Ventana_Chenin_Blanc">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ventana Chenin Blanc</name>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <maker rdf:resource="#Ventana"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ventana Chenin Blanc</rdfs:label>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OFF-DRY</sugar>
+      </Chenin_Blanc>
+    </produces>
+  </Winery>
+  <Cabernet_Sauvignon rdf:ID="Page_Mill_Winery_Cabernet_Sauvignon">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Page Mill Winery Cabernet Sauvignon</name>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEDIUM</body>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Page Mill Winery Cabernet Sauvignon</rdfs:label>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <maker>
+      <Winery rdf:ID="Page_Mill_Winery">
+        <produces rdf:resource="#Page_Mill_Winery_Cabernet_Sauvignon"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Page Mill Winery</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Page Mill Winery</rdfs:label>
+      </Winery>
+    </maker>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MODERATE</flavor>
+  </Cabernet_Sauvignon>
+  <White_Burgundy rdf:ID="Corton_Montrachet_White_Burgundy">
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >STRONG</flavor>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FULL</body>
+    <maker>
+      <Winery rdf:ID="Corton_Montrachet">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corton Montrachet</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Corton Montrachet</rdfs:label>
+        <produces rdf:resource="#Corton_Montrachet_White_Burgundy"/>
+      </Winery>
+    </maker>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Corton Montrachet White Burgundy</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Corton Montrachet White Burgundy</rdfs:label>
+  </White_Burgundy>
+  <Winery rdf:ID="Saucelito_Canyon">
+    <produces>
+      <Red_Zinfandel rdf:ID="Saucelito_Canyon_Zinfandel">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Saucelito Canyon Zinfandel</rdfs:label>
+        <maker rdf:resource="#Saucelito_Canyon"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Saucelito Canyon Zinfandel</name>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+      </Red_Zinfandel>
+    </produces>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Saucelito Canyon</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Saucelito Canyon</name>
+  </Winery>
+  <Red_Zinfandel rdf:ID="Cotturi_Zinfandel">
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FULL</body>
+    <maker>
+      <Winery rdf:ID="Cotturi">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Cotturi</name>
+        <produces rdf:resource="#Cotturi_Zinfandel"/>
+      </Winery>
+    </maker>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cotturi Zinfandel</name>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >STRONG</flavor>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cotturi Zinfandel</rdfs:label>
+  </Red_Zinfandel>
+  <Winery rdf:ID="Foxen">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Foxen</name>
+    <produces>
+      <Chenin_Blanc rdf:ID="Foxen_Chenin_Blanc">
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Foxen Chenin Blanc</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Foxen Chenin Blanc</name>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <maker rdf:resource="#Foxen"/>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</body>
+      </Chenin_Blanc>
+    </produces>
+  </Winery>
+  <Port rdf:ID="Taylor_Port">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Taylor Port</name>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</color>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SWEET</sugar>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Taylor Port</rdfs:label>
+    <maker>
+      <Winery rdf:ID="Taylor">
+        <produces rdf:resource="#Taylor_Port"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Taylor</name>
+      </Winery>
+    </maker>
+  </Port>
+  <Winery rdf:ID="Puligny_Montrachet">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Puligny Montrachet</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Puligny Montrachet</name>
+    <produces>
+      <White_Burgundy rdf:ID="Puligny_Montrachet_White_Burgundy">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Puligny Montrachet White Burgundy</rdfs:label>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Puligny Montrachet White Burgundy</name>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <maker rdf:resource="#Puligny_Montrachet"/>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+      </White_Burgundy>
+    </produces>
+  </Winery>
+  <Winery rdf:ID="Peter_Mccoy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Peter Mccoy</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Peter Mccoy</name>
+    <produces>
+      <Chardonnay rdf:ID="Peter_Mccoy_Chardonnay">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Peter Mccoy Chardonnay</name>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MODERATE</flavor>
+        <maker rdf:resource="#Peter_Mccoy"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Peter Mccoy Chardonnay</rdfs:label>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MEDIUM</body>
+      </Chardonnay>
+    </produces>
+  </Winery>
+  <Winery rdf:ID="Chateau_Beychevelle">
+    <location>
+      <Bordeaux_region rdf:ID="Bordeaux_region_7"/>
+    </location>
+    <produces>
+      <Red_Bordeaux rdf:ID="Admiral_de_Beychevelle">
+        <maker rdf:resource="#Chateau_Beychevelle"/>
+      </Red_Bordeaux>
+    </produces>
+  </Winery>
+  <Winery rdf:ID="Chateau_Morgon">
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau Morgon</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chateau Morgon</rdfs:label>
+    <produces>
+      <Beaujolais rdf:ID="Chateau_Morgon_Beaujolais">
+        <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LIGHT</body>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <grape>
+          <Wine_grape rdf:ID="Gamay_grape">
+            <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Gamay grape</name>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Gamay grape</rdfs:label>
+          </Wine_grape>
+        </grape>
+        <maker rdf:resource="#Chateau_Morgon"/>
+        <tannin_level rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LOW</tannin_level>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Chateau Morgon Beaujolais</rdfs:label>
+        <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DRY</sugar>
+        <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DELICATE</flavor>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Chateau Morgon Beaujolais</name>
+      </Beaujolais>
+    </produces>
+  </Winery>
+  <Semillon rdf:ID="Congress_Springs_Semillon">
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MEDIUM</body>
+    <maker>
+      <Winery rdf:ID="Congress_Springs">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Congress Springs</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Congress Springs</rdfs:label>
+        <produces rdf:resource="#Congress_Springs_Semillon"/>
+      </Winery>
+    </maker>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MODERATE</flavor>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Congress Springs Semillon</name>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Congress Springs Semillon</rdfs:label>
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+  </Semillon>
+  <Semillon rdf:ID="Kalin_Cellars_Semillon">
+    <sugar rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DRY</sugar>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kalin Cellars Semillon</rdfs:label>
+    <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</color>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kalin Cellars Semillon</name>
+    <maker>
+      <Winery rdf:ID="Kalin_Cellars">
+        <produces rdf:resource="#Kalin_Cellars_Semillon"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Kalin Cellars</name>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Kalin Cellars</rdfs:label>
+      </Winery>
+    </maker>
+    <flavor rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >STRONG</flavor>
+    <body rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FULL</body>
+  </Semillon>
+  <Winery rdf:ID="Clos_De_La_Poussie">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clos De La Poussie</rdfs:label>
+    <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clos De La Poussie</name>
+    <produces>
+      <Sancerre rdf:ID="Clos_De_La_Poussie_Sancerre">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Clos De La Poussie Sancerre</rdfs:label>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</color>
+        <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</color>
+        <maker rdf:resource="#Clos_De_La_Poussie"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Clos De La Poussie Sancerre</name>
+      </Sancerre>
+    </produces>
+  </Winery>
+  <owl:Restriction rdf:nodeID="A0">
+    <owl:onProperty rdf:resource="#color"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</owl:hasValue>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Chardonnay">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Petite_Syrah">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_wine"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Petite Syrah</rdfs:label>
+  </Wine_template>
+  <Wine_template rdf:ID="Riesling">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <owl:Restriction rdf:nodeID="A1">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</owl:hasValue>
+    <owl:onProperty rdf:resource="#color"/>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Sauterne">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <owl:Restriction rdf:nodeID="A2">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</owl:hasValue>
+    <owl:onProperty rdf:resource="#color"/>
+  </owl:Restriction>
+  <owl:Restriction rdf:nodeID="A3">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</owl:hasValue>
+    <owl:onProperty rdf:resource="#color"/>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Cabernet_Franc">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cabernet Franc</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_wine"/>
+  </Wine_template>
+  <owl:Restriction rdf:nodeID="A4">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >RED</owl:hasValue>
+    <owl:onProperty rdf:resource="#color"/>
+  </owl:Restriction>
+  <owl:Restriction rdf:nodeID="A5">
+    <owl:onProperty rdf:resource="#color"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</owl:hasValue>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Sweet_Reisling">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SWEET</owl:hasValue>
+        <owl:onProperty rdf:resource="#sugar"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:resource="#Riesling_grape"/>
+        <owl:onProperty rdf:resource="#grape"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FULL</owl:hasValue>
+        <owl:onProperty rdf:resource="#body"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Dessert_wine"/>
+    <rdfs:subClassOf rdf:resource="#Riesling"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sweet Reisling</rdfs:label>
+  </Wine_template>
+  <owl:Restriction rdf:nodeID="A6">
+    <owl:onProperty rdf:resource="#color"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</owl:hasValue>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Dry_Riesling">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dry Riesling</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Riesling"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Muscadet">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WHITE</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Red_Zinfandel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Red Zinfandel</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Pauillac">
+    <rdfs:subClassOf>
+      <Wine_template rdf:ID="Medoc">
+        <rdfs:subClassOf rdf:nodeID="A0"/>
+        <rdfs:subClassOf rdf:resource="#Red_Bordeaux"/>
+      </Wine_template>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </Wine_template>
+  <Wine_template rdf:ID="St._Emillion">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_Bordeaux"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >St. Emillion</rdfs:label>
+  </Wine_template>
+  <Wine_template rdf:ID="Chenin_Blanc">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chenin Blanc</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="A5"/>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <owl:Restriction rdf:nodeID="A7">
+    <owl:onProperty rdf:resource="#color"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</owl:hasValue>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Chianti">
+    <rdfs:subClassOf rdf:nodeID="A1"/>
+    <rdfs:subClassOf rdf:resource="#Red_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Sauvignon_Blanc">
+    <rdfs:subClassOf rdf:nodeID="A2"/>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sauvignon Blanc</rdfs:label>
+  </Wine_template>
+  <Wine_template rdf:ID="Cabernet_Sauvignon">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cabernet Sauvignon</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="A3"/>
+    <rdfs:subClassOf rdf:resource="#Red_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Margaux">
+    <rdfs:subClassOf rdf:resource="#Medoc"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+        <owl:onProperty rdf:resource="#color"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </Wine_template>
+  <owl:Restriction rdf:nodeID="A8">
+    <owl:onProperty rdf:resource="#sugar"/>
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SWEET</owl:hasValue>
+  </owl:Restriction>
+  <owl:Restriction rdf:nodeID="A9">
+    <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WHITE</owl:hasValue>
+    <owl:onProperty rdf:resource="#color"/>
+  </owl:Restriction>
+  <Wine_template rdf:ID="Semillon">
+    <rdfs:subClassOf rdf:nodeID="A6"/>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Red_Merlot">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Red Merlot</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#color"/>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RED</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Red_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Sancerre">
+    <rdfs:subClassOf rdf:nodeID="A4"/>
+    <rdfs:subClassOf rdf:nodeID="A9"/>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+  </Wine_template>
+  <Wine_template rdf:ID="Ice_Wine">
+    <rdfs:subClassOf rdf:nodeID="A7"/>
+    <rdfs:subClassOf rdf:nodeID="A8"/>
+    <rdfs:subClassOf rdf:resource="#White_wine"/>
+    <rdfs:subClassOf rdf:resource="#Dessert_wine"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ice Wine</rdfs:label>
+  </Wine_template>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

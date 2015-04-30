@@ -1,0 +1,4923 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY OntologySecurity "http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#" >
+    <!ENTITY OntologyServices "http://www.semanticweb.org/ontologies/2008/11/OntologyServices.owl#" >
+    <!ENTITY OntologySecurity2 "http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#3" >
+    <!ENTITY VulnThreatAttack "http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#" >
+    <!ENTITY OntologySecurity3 "http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#2" >
+    <!ENTITY OntologySecurity4 "http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#2.5" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:OntologySecurity="http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:OntologySecurity4="&OntologySecurity;2.5"
+     xmlns:OntologySecurity3="&OntologySecurity;2"
+     xmlns:OntologySecurity2="&OntologySecurity;3"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:VulnThreatAttack="http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OntologyServices="http://www.semanticweb.org/ontologies/2008/11/OntologyServices.owl#">
+    <owl:Ontology rdf:about="">
+        <dc:relation rdf:datatype="&xsd;string"
+            >This ontology covers the domain of security in the field of mobile applications.</dc:relation>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;relation"/>
+    <owl:AnnotationProperty rdf:about="&dc;format"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AppliedTo -->
+
+    <owl:ObjectProperty rdf:about="#AppliedTo">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Break -->
+
+    <owl:ObjectProperty rdf:about="#Break">
+        <rdfs:subPropertyOf rdf:resource="#QualitySatisfaction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Help -->
+
+    <owl:ObjectProperty rdf:about="#Help">
+        <rdfs:subPropertyOf rdf:resource="#QualitySatisfaction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Hurt -->
+
+    <owl:ObjectProperty rdf:about="#Hurt">
+        <rdfs:subPropertyOf rdf:resource="#QualitySatisfaction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ImplementAPI -->
+
+    <owl:ObjectProperty rdf:about="#ImplementAPI">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ImplementMechanism -->
+
+    <owl:ObjectProperty rdf:about="#ImplementMechanism"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Issue -->
+
+    <owl:ObjectProperty rdf:about="#Issue">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Make -->
+
+    <owl:ObjectProperty rdf:about="#Make">
+        <rdfs:subPropertyOf rdf:resource="#QualitySatisfaction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Provide -->
+
+    <owl:ObjectProperty rdf:about="#Provide">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#QualitySatisfaction -->
+
+    <owl:ObjectProperty rdf:about="#QualitySatisfaction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Relationship -->
+
+    <owl:ObjectProperty rdf:about="#Relationship"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Satisfice -->
+
+    <owl:ObjectProperty rdf:about="#Satisfice">
+        <rdfs:domain rdf:resource="#Mechanism"/>
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+        <rdfs:range rdf:resource="&OntologyServices;Services"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Store -->
+
+    <owl:ObjectProperty rdf:about="#Store">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Use -->
+
+    <owl:ObjectProperty rdf:about="#Use">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasAuthenticationProtocolType -->
+
+    <owl:ObjectProperty rdf:about="#hasAuthenticationProtocolType">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasChainingMode -->
+
+    <owl:ObjectProperty rdf:about="#hasChainingMode">
+        <rdfs:domain rdf:resource="#BlockCipherAlgorithm"/>
+        <rdfs:range rdf:resource="#ChainingMode"/>
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasDataStructure -->
+
+    <owl:ObjectProperty rdf:about="#hasDataStructure">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasDuration -->
+
+    <owl:ObjectProperty rdf:about="#hasDuration">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasFormat -->
+
+    <owl:ObjectProperty rdf:about="#hasFormat"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasInput -->
+
+    <owl:ObjectProperty rdf:about="#hasInput">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasIssuer -->
+
+    <owl:ObjectProperty rdf:about="#hasIssuer">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasKey -->
+
+    <owl:ObjectProperty rdf:about="#hasKey">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasKeyLifeTime -->
+
+    <owl:ObjectProperty rdf:about="#hasKeyLifeTime">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasLevel -->
+
+    <owl:ObjectProperty rdf:about="#hasLevel">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasMemory -->
+
+    <owl:ObjectProperty rdf:about="#hasMemory">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasNetwork -->
+
+    <owl:ObjectProperty rdf:about="#hasNetwork">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="#hasOutput">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasProcessing -->
+
+    <owl:ObjectProperty rdf:about="#hasProcessing">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasRNGEfficiency -->
+
+    <owl:ObjectProperty rdf:about="#hasRNGEfficiency">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasSignatureAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="#hasSignatureAlgorithm">
+        <rdfs:domain rdf:resource="#Certificate"/>
+        <rdfs:range rdf:resource="#DigitalSignatureAlgorithm"/>
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasTrustIn -->
+
+    <owl:ObjectProperty rdf:about="#hasTrustIn">
+        <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasType -->
+
+    <owl:ObjectProperty rdf:about="#hasType">
+        <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#isUsedAt -->
+
+    <owl:ObjectProperty rdf:about="#isUsedAt"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#storedOn -->
+
+    <owl:ObjectProperty rdf:about="#storedOn">
+        <rdfs:subPropertyOf rdf:resource="#Relationship"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Threatens -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;Threatens">
+        <rdfs:domain rdf:resource="&VulnThreatAttack;Threat"/>
+        <owl:inverseOf rdf:resource="&VulnThreatAttack;victimOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#enabledBy -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;enabledBy">
+        <rdfs:domain rdf:resource="&VulnThreatAttack;Threat"/>
+        <rdfs:range rdf:resource="&VulnThreatAttack;Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#existsOn -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;existsOn">
+        <rdfs:domain rdf:resource="&VulnThreatAttack;Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#hasVulnerability -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;hasVulnerability">
+        <rdfs:range rdf:resource="&VulnThreatAttack;Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#isCorrectedBy -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;isCorrectedBy">
+        <rdfs:range rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+        <rdfs:domain rdf:resource="&VulnThreatAttack;Vulnerability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#isExploitedBy -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;isExploitedBy">
+        <rdfs:range rdf:resource="&VulnThreatAttack;Threat"/>
+        <rdfs:domain rdf:resource="&VulnThreatAttack;Vulnerability"/>
+        <owl:inverseOf rdf:resource="&VulnThreatAttack;enabledBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#victimOf -->
+
+    <owl:ObjectProperty rdf:about="&VulnThreatAttack;victimOf">
+        <rdfs:range rdf:resource="&VulnThreatAttack;Threat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HasBandwidth -->
+
+    <owl:DatatypeProperty rdf:about="#HasBandwidth">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HasBlockSize -->
+
+    <owl:DatatypeProperty rdf:about="#HasBlockSize"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HasIterationNumber -->
+
+    <owl:DatatypeProperty rdf:about="#HasIterationNumber"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HasKeySize -->
+
+    <owl:DatatypeProperty rdf:about="#HasKeySize">
+        <rdfs:domain rdf:resource="#Keys"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HasOutputLength -->
+
+    <owl:DatatypeProperty rdf:about="#HasOutputLength">
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasCardType -->
+
+    <owl:DatatypeProperty rdf:about="#hasCardType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasDigitalSignatureData -->
+
+    <owl:DatatypeProperty rdf:about="#hasDigitalSignatureData">
+        <rdfs:domain rdf:resource="#Certificate"/>
+        <rdfs:range rdf:resource="&xsd;hexBinary"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasIMEI -->
+
+    <owl:DatatypeProperty rdf:about="#hasIMEI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Device"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasIMSI -->
+
+    <owl:DatatypeProperty rdf:about="#hasIMSI">
+        <rdfs:domain rdf:resource="#SmartCard"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasInitialisationVector -->
+
+    <owl:DatatypeProperty rdf:about="#hasInitialisationVector">
+        <rdfs:domain rdf:resource="#BlockCipherAlgorithm"/>
+        <rdfs:range rdf:resource="&xsd;hexBinary"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasNetworkBandwidth -->
+
+    <owl:DatatypeProperty rdf:about="#hasNetworkBandwidth">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasNetworkLatency -->
+
+    <owl:DatatypeProperty rdf:about="#hasNetworkLatency">
+        <rdfs:domain rdf:resource="#Network"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasPadding -->
+
+    <owl:DatatypeProperty rdf:about="#hasPadding">
+        <rdfs:domain rdf:resource="#BlockCipherAlgorithm"/>
+        <rdfs:range rdf:resource="&xsd;hexBinary"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasRNGDeterminism -->
+
+    <owl:DatatypeProperty rdf:about="#hasRNGDeterminism">
+        <rdfs:domain rdf:resource="#KeyGeneration"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasScreenSize -->
+
+    <owl:DatatypeProperty rdf:about="#hasScreenSize">
+        <rdfs:domain rdf:resource="#DisplayScreen"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasSubjectName -->
+
+    <owl:DatatypeProperty rdf:about="#hasSubjectName">
+        <rdfs:domain rdf:resource="#Certificate"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasThreatType -->
+
+    <owl:DatatypeProperty rdf:about="#hasThreatType">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A Threat type may be a passive or an active threat.</rdfs:comment>
+        <rdfs:domain rdf:resource="&VulnThreatAttack;Threat"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#hasValidity -->
+
+    <owl:DatatypeProperty rdf:about="#hasValidity">
+        <rdfs:domain rdf:resource="#Certificate"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#2.5G -->
+
+    <owl:Class rdf:about="#2.5G">
+        <rdfs:subClassOf rdf:resource="#WANetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#2G -->
+
+    <owl:Class rdf:about="#2G">
+        <rdfs:subClassOf rdf:resource="#WANetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#3DES -->
+
+    <owl:Class rdf:about="#3DES">
+        <rdfs:subClassOf rdf:resource="#BlockCipherAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#3G -->
+
+    <owl:Class rdf:about="#3G">
+        <rdfs:subClassOf rdf:resource="#WANetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AES -->
+
+    <owl:Class rdf:about="#AES">
+        <rdfs:subClassOf rdf:resource="#BlockCipherAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AccessControl -->
+
+    <owl:Class rdf:about="#AccessControl">
+        <rdfs:subClassOf rdf:resource="&OntologyServices;Services"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AccessControlList -->
+
+    <owl:Class rdf:about="#AccessControlList">
+        <rdfs:subClassOf rdf:resource="#AccessControlMethods"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >List of permissions attached to an object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AccessControlMethods -->
+
+    <owl:Class rdf:about="#AccessControlMethods">
+        <rdfs:subClassOf rdf:resource="#CoreCounterMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Actor -->
+
+    <owl:Class rdf:about="#Actor">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Actors participating in the realisation and implementation of security services</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Add-OnMemory -->
+
+    <owl:Class rdf:about="#Add-OnMemory">
+        <rdfs:subClassOf rdf:resource="#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AdditionalTools -->
+
+    <owl:Class rdf:about="#AdditionalTools">
+        <rdfs:subClassOf rdf:resource="#Cost"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >New tools that should be used for the projection or the application.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AdministrativeProcedure -->
+
+    <owl:Class rdf:about="#AdministrativeProcedure">
+        <rdfs:subClassOf rdf:resource="#Cost"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Tasks to be performed and which are out of the scope of the technical field.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Algorithm -->
+
+    <owl:Class rdf:about="#Algorithm">
+        <rdfs:subClassOf rdf:resource="#Mechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AnalysisPhase -->
+
+    <owl:Class rdf:about="#AnalysisPhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Application -->
+
+    <owl:Class rdf:about="#Application">
+        <rdfs:subClassOf rdf:resource="#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ApplicationData -->
+
+    <owl:Class rdf:about="#ApplicationData">
+        <rdfs:subClassOf rdf:resource="#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ApplicationLifeCyclePhase -->
+
+    <owl:Class rdf:about="#ApplicationLifeCyclePhase">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ApplicationServerSide -->
+
+    <owl:Class rdf:about="#ApplicationServerSide">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#Journaling"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#Backup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The application server side may be a web server or a data base back end that the device connects to.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Asset -->
+
+    <owl:Class rdf:about="#Asset">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&VulnThreatAttack;victimOf"/>
+                <owl:someValuesFrom rdf:resource="&VulnThreatAttack;Threat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The set of assets that should be protected</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AsymmetricAlgorithm -->
+
+    <owl:Class rdf:about="#AsymmetricAlgorithm">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Hurt"/>
+                <owl:someValuesFrom rdf:resource="#Efficiency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#PrivateKey"/>
+                            <rdf:Description rdf:about="#PublicKey"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AsymmetricEncryption -->
+
+    <owl:Class rdf:about="#AsymmetricEncryption">
+        <rdfs:subClassOf rdf:resource="#Encryption"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#AsymmetricAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#KeyExchangeProtocol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Type of encryption in which an encryption key (the public key) is used to encrypt a message, and another encryption key (the private key) is used to decrypt the message.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Authentication -->
+
+    <owl:Class rdf:about="#Authentication">
+        <rdfs:subClassOf rdf:resource="&OntologyServices;Services"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLevel"/>
+                <owl:onClass rdf:resource="#AuthenticationLevel"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#AppliedTo"/>
+                <owl:someValuesFrom rdf:resource="#DomainEntities"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AuthenticationLevel -->
+
+    <owl:Class rdf:about="#AuthenticationLevel">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AuthenticationProtocol -->
+
+    <owl:Class rdf:about="#AuthenticationProtocol">
+        <rdfs:subClassOf rdf:resource="#IndustrialProtocol"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasAuthenticationProtocolType"/>
+                <owl:someValuesFrom rdf:resource="#AuthenticationProtocolType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AuthenticationProtocolType -->
+
+    <owl:Class rdf:about="#AuthenticationProtocolType">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AuthenticationToken -->
+
+    <owl:Class rdf:about="#AuthenticationToken">
+        <rdfs:subClassOf rdf:resource="#CoreCounterMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AuthenticationWay -->
+
+    <owl:Class rdf:about="#AuthenticationWay">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Availability -->
+
+    <owl:Class rdf:about="#Availability">
+        <rdfs:subClassOf rdf:resource="&OntologyServices;Services"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasDuration"/>
+                <owl:onClass rdf:resource="#Duration"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Backup -->
+
+    <owl:Class rdf:about="#Backup">
+        <rdfs:subClassOf rdf:resource="#Techniques"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Journaling"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#BatteryMonitor -->
+
+    <owl:Class rdf:about="#BatteryMonitor">
+        <rdfs:subClassOf rdf:resource="#ResourceMonitoring"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#BestPractises -->
+
+    <owl:Class rdf:about="#BestPractises">
+        <rdfs:subClassOf rdf:resource="#Standards"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#BiometricIdentifier -->
+
+    <owl:Class rdf:about="#BiometricIdentifier">
+        <rdfs:subClassOf rdf:resource="#AuthenticationToken"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Hurt"/>
+                <owl:someValuesFrom rdf:resource="#Portability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Biometric identifier is one of the most secure and more reliable ways to authenticate a person&#8217;s identity is to verify that person&#8217;s innate biological characteristics, which are referred to as biometrics. Each person&#8217;s fingerprints, DNA, iris and retinal cell patterns, facial geometry, and heat signature are near unique to that person. These biometric measures, if properly recorded, validated, and embedded in identity credentials that are logically bound to a single person&#8217;s identity, can provide the highest degree of identity authentication (From NIST information security Report)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#BlockCipherAlgorithm -->
+
+    <owl:Class rdf:about="#BlockCipherAlgorithm">
+        <rdfs:subClassOf rdf:resource="#SymmetricAlgorithm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasInitialisationVector"/>
+                <owl:allValuesFrom rdf:resource="&xsd;hexBinary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasChainingMode"/>
+                <owl:onClass rdf:resource="#ChainingMode"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#HasBlockSize"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasPadding"/>
+                <owl:someValuesFrom rdf:resource="&xsd;hexBinary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Blowfish -->
+
+    <owl:Class rdf:about="#Blowfish">
+        <rdfs:subClassOf rdf:resource="#BlockCipherAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Bluetooth -->
+
+    <owl:Class rdf:about="#Bluetooth">
+        <rdfs:subClassOf rdf:resource="#PANetwork"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Bluetooth is a Personal Area Network (PAN) standard that enables wireless connections between electronic devices in the 2.4 GHz range over short distances, as an alternative to cables. Designed to be power efficient, Bluetooth has become a common feature in cell phones. Since wireless communications are inherently insecure, a number of basic security provisions have been defined for this standard to mitigate the risks involved. NIST</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ByPassingTrialCounter -->
+
+    <owl:Class rdf:about="#ByPassingTrialCounter">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;ByPassingAuthentication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CBC -->
+
+    <owl:Class rdf:about="#CBC">
+        <rdfs:subClassOf rdf:resource="#ChainingMode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CBC-MAC -->
+
+    <owl:Class rdf:about="#CBC-MAC">
+        <rdfs:subClassOf rdf:resource="#MACAlgorithm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The simplest way to make a key-dependent one-way hash function is to encrypt a message with a block algorithm in CBC or CFB modes . The hash is the last encrypted block, encrypted once more in CBC or CFB modes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CFB -->
+
+    <owl:Class rdf:about="#CFB">
+        <rdfs:subClassOf rdf:resource="#ChainingMode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#COMSET -->
+
+    <owl:Class rdf:about="#COMSET">
+        <rdfs:subClassOf rdf:resource="#KeyExchangeProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CardMemory -->
+
+    <owl:Class rdf:about="#CardMemory">
+        <rdfs:subClassOf rdf:resource="#Add-OnMemory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CardType -->
+
+    <owl:Class rdf:about="#CardType">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Certificate -->
+
+    <owl:Class rdf:about="#Certificate">
+        <rdfs:subClassOf rdf:resource="#AuthenticationToken"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasDigitalSignatureData"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSignatureAlgorithm"/>
+                <owl:someValuesFrom rdf:resource="#DigitalSignatureAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasValidity"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSubjectName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFormat"/>
+                <owl:someValuesFrom rdf:resource="#CertificateFormat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasIssuer"/>
+                <owl:someValuesFrom rdf:resource="#CertificationAuthority"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:format rdf:datatype="&xsd;string"
+            >A digital certificate is a text document that contains general information about its holder with the associated public key and general informations about the validity of the certificate. The digital certificate is signed by the certification authority that has issued it and can be verified a digital signature.
+The digital certificates, together with the identity data and public key, are stored on a USB-compatible token or a conventional smart card for use as part of strong authentication. When users try to log on to the corporate network, they connect their token with the USB slot or their smart card with the card reader.The digital certificate and public key are sent to the authentication authority via internet. To ensure that the public key sent actually belongs to the person attempting to log on to the corporate networks, the independent certification authority confirms that the public key matches the secret key it has stored</dc:format>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CertificateFormat -->
+
+    <owl:Class rdf:about="#CertificateFormat">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CertificateInstallation -->
+
+    <owl:Class rdf:about="#CertificateInstallation">
+        <rdfs:subClassOf rdf:resource="#DeviceCapabilities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CertificationAuthority -->
+
+    <owl:Class rdf:about="#CertificationAuthority">
+        <rdfs:subClassOf rdf:resource="#TrustedThirdParty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The certification authority provides certificates to bind a set of informations (name, serial number, ...) to a public key.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ChainingMode -->
+
+    <owl:Class rdf:about="#ChainingMode">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ChallengeReplyPassword -->
+
+    <owl:Class rdf:about="#ChallengeReplyPassword">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocolType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Checksum -->
+
+    <owl:Class rdf:about="#Checksum">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CodeSeparation -->
+
+    <owl:Class rdf:about="#CodeSeparation">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+        <rdfs:comment
+            >Locate and isolate critical code from from general code.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CodingStandards -->
+
+    <owl:Class rdf:about="#CodingStandards">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+        <rdfs:comment
+            >Deploy development regimes such as coding standards and documentation methodologies to lead to best practises</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CombinedDelivery-DRM -->
+
+    <owl:Class rdf:about="#CombinedDelivery-DRM">
+        <rdfs:subClassOf rdf:resource="#DigitalRightsManagement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CommChannel -->
+
+    <owl:Class rdf:about="#CommChannel">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Confidentiality -->
+
+    <owl:Class rdf:about="#Confidentiality">
+        <rdfs:subClassOf rdf:resource="&OntologyServices;Services"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#AppliedTo"/>
+                <owl:someValuesFrom rdf:resource="#DomainEntities"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLevel"/>
+                <owl:someValuesFrom rdf:resource="#ConfidentialityLevel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >The confidentiality service</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ConfidentialityLevel -->
+
+    <owl:Class rdf:about="#ConfidentialityLevel">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ConfigurationData -->
+
+    <owl:Class rdf:about="#ConfigurationData">
+        <rdfs:subClassOf rdf:resource="#Data"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Several configuration data are stored in the device or sent by the mobile operator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Constraints -->
+
+    <owl:Class rdf:about="#Constraints">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Technical, quality constraints and others</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ContentProvider -->
+
+    <owl:Class rdf:about="#ContentProvider">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#DigitalRightsManagement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#Software"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The entity who is responsable of providing content like ringing tones or multimedia files or any other software.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CoreCounterMeasure -->
+
+    <owl:Class rdf:about="#CoreCounterMeasure">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Cost -->
+
+    <owl:Class rdf:about="#Cost">
+        <rdfs:subClassOf rdf:resource="#Constraints"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Time, skills, additional equipments are considered as cost constraints</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CryptographicHashFunction -->
+
+    <owl:Class rdf:about="#CryptographicHashFunction">
+        <owl:equivalentClass rdf:resource="#MessageDigest"/>
+        <rdfs:subClassOf rdf:resource="#Checksum"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#HasOutputLength"/>
+                <owl:someValuesFrom rdf:resource="&xsd;positiveInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DDos -->
+
+    <owl:Class rdf:about="#DDos">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Threat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Distributed denial of service.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DES -->
+
+    <owl:Class rdf:about="#DES">
+        <rdfs:subClassOf rdf:resource="#BlockCipherAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DIFFIE-HELLMAN -->
+
+    <owl:Class rdf:about="#DIFFIE-HELLMAN">
+        <rdfs:subClassOf rdf:resource="#KeyExchangeProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DSA -->
+
+    <owl:Class rdf:about="#DSA">
+        <rdfs:subClassOf rdf:resource="#DigitalSignatureAlgorithm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Digital Signature Algorithm specified by FIPS 186-2</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Data -->
+
+    <owl:Class rdf:about="#Data">
+        <rdfs:subClassOf rdf:resource="#Software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DataRecords -->
+
+    <owl:Class rdf:about="#DataRecords">
+        <rdfs:subClassOf rdf:resource="#LocalFiles"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Some applications use records files to store data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DeploymentPhase -->
+
+    <owl:Class rdf:about="#DeploymentPhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DesignPhase -->
+
+    <owl:Class rdf:about="#DesignPhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DevelopmentTime -->
+
+    <owl:Class rdf:about="#DevelopmentTime">
+        <rdfs:subClassOf rdf:resource="#Cost"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Addiotional development time required for the application or the project.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Device -->
+
+    <owl:Class rdf:about="#Device">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="#Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasInput"/>
+                <owl:someValuesFrom rdf:resource="#Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasNetwork"/>
+                <owl:someValuesFrom rdf:resource="#Network"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasMemory"/>
+                <owl:someValuesFrom rdf:resource="#Memory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#DigitalRightsManagement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#LogInSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#DeviceLock"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasProcessing"/>
+                <owl:someValuesFrom rdf:resource="#Processing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasIMEI"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Mobile terminal equiped with processing capabilities offering  connection to wireless networks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DeviceCapabilities -->
+
+    <owl:Class rdf:about="#DeviceCapabilities">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DeviceCloning -->
+
+    <owl:Class rdf:about="#DeviceCloning">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;HardwareCloning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DeviceDriverUpgrade -->
+
+    <owl:Class rdf:about="#DeviceDriverUpgrade">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInUse"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >One problem in this area is that drivers are typically written by third parties and drivers are upgraded at different times to the main OS. This causes problems when implementing any validation scheme, or even isolated checking of specific software updates</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DeviceLock -->
+
+    <owl:Class rdf:about="#DeviceLock">
+        <rdfs:subClassOf rdf:resource="#LockingMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DigitalRightsManagement -->
+
+    <owl:Class rdf:about="#DigitalRightsManagement">
+        <rdfs:subClassOf rdf:resource="#Techniques"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A general framework for downloading Rights to Devices and sharing Rights in a domain. DRM is invented by the Open Mobile Alliance whose members are mobile phone manufacturers, mobile system manufacturers, operators , and sofware editors.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DigitalSignature -->
+
+    <owl:Class rdf:about="#DigitalSignature">
+        <rdfs:subClassOf rdf:resource="#CoreCounterMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#Use"/>
+                        <owl:someValuesFrom rdf:resource="#MACAlgorithm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#Use"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#CryptographicHashFunction"/>
+                                    <rdf:Description rdf:about="#DigitalSignatureAlgorithm"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#NonRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A digital signature is represented in a computer as a string of binary
+digits. A digital signature is computed using a set of rules and a set of parameters such that the identity of the signatory and integrity of the data can be verified. An algorithm provides the capability to generate and verify signatures. Signature generation makes use of a private key to generate a digital signature. Signature verification makes use of a public key which corresponds to, but is not the same as, the private key. (http://csrc.nist.gov/publications/fips/fips186-2/fips186-2-change1.pdf)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DigitalSignatureAlgorithm -->
+
+    <owl:Class rdf:about="#DigitalSignatureAlgorithm">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:onClass rdf:resource="#PrivateKey"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DisplayScreen -->
+
+    <owl:Class rdf:about="#DisplayScreen">
+        <rdfs:subClassOf rdf:resource="#Output"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasScreenSize"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DomainEntities -->
+
+    <owl:Class rdf:about="#DomainEntities">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Duration -->
+
+    <owl:Class rdf:about="#Duration">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ECB -->
+
+    <owl:Class rdf:about="#ECB">
+        <rdfs:subClassOf rdf:resource="#ChainingMode"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Electronic code book</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ECDSA -->
+
+    <owl:Class rdf:about="#ECDSA">
+        <rdfs:subClassOf rdf:resource="#DigitalSignatureAlgorithm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Elliptic Curve Digital Signature Algorithm (ECDSA) (ANSI X9-62)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#EDGE -->
+
+    <owl:Class rdf:about="#EDGE">
+        <rdfs:subClassOf rdf:resource="#2.5G"/>
+        <rdfs:comment
+            >Enhanced Data rates for GSM Evolution</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#EMS -->
+
+    <owl:Class rdf:about="#EMS">
+        <rdfs:subClassOf rdf:resource="#Messaging"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Enhanced Messaging Service - An improved message system for GSM mobile phones allowing picture, sound, animation and text elements to be conveyed through one or more concatenated SMS messages. NIST</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Efficiency -->
+
+    <owl:Class rdf:about="#Efficiency">
+        <rdfs:subClassOf rdf:resource="#Usability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Best use of the available resources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ElGammelAlgorithm -->
+
+    <owl:Class rdf:about="#ElGammelAlgorithm">
+        <rdfs:subClassOf rdf:resource="#AsymmetricAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Email -->
+
+    <owl:Class rdf:about="#Email">
+        <rdfs:subClassOf rdf:resource="#Internet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Encryption -->
+
+    <owl:Class rdf:about="#Encryption">
+        <rdfs:subClassOf rdf:resource="#CoreCounterMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#PRNGAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Discipline which embodies principles, means, and methods for the transformation of data in order to hide its information content, prevent its undetected modification and/or prevent its unauthorised use. (CCITT)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#EncryptionKeys -->
+
+    <owl:Class rdf:about="#EncryptionKeys">
+        <owl:equivalentClass rdf:resource="#Keys"/>
+        <rdfs:subClassOf rdf:resource="#AuthenticationToken"/>
+        <rdfs:comment
+            >The encryption keys are digital bitstrings that are stored in non-volatile memory, and verification of the identity proceeds by a challenge-response protocol.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#FTP -->
+
+    <owl:Class rdf:about="#FTP">
+        <rdfs:subClassOf rdf:resource="#Internet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#FixedMemory -->
+
+    <owl:Class rdf:about="#FixedMemory">
+        <rdfs:subClassOf rdf:resource="#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ForwardLock-DRM -->
+
+    <owl:Class rdf:about="#ForwardLock-DRM">
+        <rdfs:subClassOf rdf:resource="#DigitalRightsManagement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#FunctionGroups -->
+
+    <owl:Class rdf:about="#FunctionGroups">
+        <rdfs:subClassOf rdf:resource="#AccessControlMethods"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A set of sensitive functions under a named group that can get authorization.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GPRS -->
+
+    <owl:Class rdf:about="#GPRS">
+        <rdfs:subClassOf rdf:resource="#2G"/>
+        <rdfs:comment
+            >General Packet Radio Service</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GPSNetwork -->
+
+    <owl:Class rdf:about="#GPSNetwork">
+        <rdfs:subClassOf rdf:resource="#Network"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A system for determining position by comparing radio signals from several satellites. NIST</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GPSvalues -->
+
+    <owl:Class rdf:about="#GPSvalues">
+        <rdfs:subClassOf rdf:resource="#LocalisationData"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Global positioning system coordinates used by some applications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GSM -->
+
+    <owl:Class rdf:about="#GSM">
+        <rdfs:subClassOf rdf:resource="#2G"/>
+        <rdfs:comment
+            >Global System for Mobile communications</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GuessingAttack -->
+
+    <owl:Class rdf:about="#GuessingAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;ByPassingAuthentication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HMAC -->
+
+    <owl:Class rdf:about="#HMAC">
+        <rdfs:subClassOf rdf:resource="#MACAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HTTP -->
+
+    <owl:Class rdf:about="#HTTP">
+        <rdfs:subClassOf rdf:resource="#Internet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HTTPS -->
+
+    <owl:Class rdf:about="#HTTPS">
+        <rdfs:subClassOf rdf:resource="#SecureNetworkCommunication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Hardware -->
+
+    <owl:Class rdf:about="#Hardware">
+        <owl:equivalentClass rdf:resource="#Resource"/>
+        <rdfs:subClassOf rdf:resource="#Asset"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Mainly the physical device with the embedded memory and processing units.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HashBasedOTP -->
+
+    <owl:Class rdf:about="#HashBasedOTP">
+        <rdfs:subClassOf rdf:resource="#O.T.P"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A server side list of hashed tokens is stored and each consumed token is removed from the list.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IM -->
+
+    <owl:Class rdf:about="#IM">
+        <rdfs:subClassOf rdf:resource="#Messaging"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IPSec -->
+
+    <owl:Class rdf:about="#IPSec">
+        <rdfs:subClassOf rdf:resource="#SecureNetworkCommunication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Images -->
+
+    <owl:Class rdf:about="#Images">
+        <rdfs:subClassOf rdf:resource="#LocalFiles"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >All supported image files for mobile devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ImplementationPhase -->
+
+    <owl:Class rdf:about="#ImplementationPhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IndustrialProtocol -->
+
+    <owl:Class rdf:about="#IndustrialProtocol">
+        <rdfs:subClassOf rdf:resource="#Standards"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Input -->
+
+    <owl:Class rdf:about="#Input">
+        <rdfs:subClassOf rdf:resource="#Resource"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Keypad or any input tool</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Integrity -->
+
+    <owl:Class rdf:about="#Integrity">
+        <rdfs:subClassOf rdf:resource="&OntologyServices;Services"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IntegrityType -->
+
+    <owl:Class rdf:about="#IntegrityType">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IntensifyCriticalCodeReview -->
+
+    <owl:Class rdf:about="#IntensifyCriticalCodeReview">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#InteractionModes -->
+
+    <owl:Class rdf:about="#InteractionModes">
+        <rdfs:subClassOf rdf:resource="#AccessControlMethods"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >User interaction to confirm the execution of some senstive actions like sending a sms or opening a network connection/</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Internet -->
+
+    <owl:Class rdf:about="#Internet">
+        <rdfs:subClassOf rdf:resource="#CommChannel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IrDA -->
+
+    <owl:Class rdf:about="#IrDA">
+        <rdfs:subClassOf rdf:resource="#PANetwork"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A standard for line-of-sight infrared communication between devices over short distances. NIST</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Journaling -->
+
+    <owl:Class rdf:about="#Journaling">
+        <rdfs:subClassOf rdf:resource="#Techniques"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Kerberos -->
+
+    <owl:Class rdf:about="#Kerberos">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocol"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Kerberos is an authentication process that proceeds as follows: A client sends a request to the authentication server (AS) requesting &quot;credentials&quot; for a given server.  The AS responds with these credentials,  encrypted in the client&#39;s key.  The credentials consist of 1) a &quot;ticket&quot; for the server and 2) a temporary encryption key ( a &quot;session key&quot;).  The client transmits the ticket (which contains the client&#39;s identity and a copy of the session key, all encrypted in the server&#39;s key) to the server.  The session key (now shared by the client and server) is used to authenticate the client, and may optionally be used to authenticate the server.  It may also be used to encrypt further communication between the two parties or to exchange a separate sub-session key to be used to encrypt further communication. RFC 1510</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#KeyExchange -->
+
+    <owl:Class rdf:about="#KeyExchange">
+        <rdfs:subClassOf rdf:resource="#KeyManagement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#KeyExchangeProtocol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#CommChannel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#KeyExchangeProtocol -->
+
+    <owl:Class rdf:about="#KeyExchangeProtocol">
+        <rdfs:subClassOf rdf:resource="#IndustrialProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#KeyGeneration -->
+
+    <owl:Class rdf:about="#KeyGeneration">
+        <rdfs:subClassOf rdf:resource="#KeyManagement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasRNGDeterminism"/>
+                <owl:someValuesFrom rdf:resource="&xsd;boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasRNGEfficiency"/>
+                <owl:someValuesFrom rdf:resource="#RNGEfficiency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#KeyManagement -->
+
+    <owl:Class rdf:about="#KeyManagement">
+        <rdfs:subClassOf rdf:resource="#Mechanism"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The process and procedure for safely storing and distributing accurate cryptographic keys; the overall process of generating and distributing cryptographic key to authorized recipients in a secure manner.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#KeyPad -->
+
+    <owl:Class rdf:about="#KeyPad">
+        <rdfs:subClassOf rdf:resource="#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#KeyStore -->
+
+    <owl:Class rdf:about="#KeyStore">
+        <rdfs:subClassOf rdf:resource="#KeyManagement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Store"/>
+                <owl:someValuesFrom rdf:resource="#Keys"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Keys -->
+
+    <owl:Class rdf:about="#Keys">
+        <rdfs:subClassOf rdf:resource="#Mechanism"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#HasKeySize"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasKeyLifeTime"/>
+                <owl:someValuesFrom rdf:resource="#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LANetwork -->
+
+    <owl:Class rdf:about="#LANetwork">
+        <rdfs:subClassOf rdf:resource="#Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Learnability -->
+
+    <owl:Class rdf:about="#Learnability">
+        <rdfs:subClassOf rdf:resource="#Usability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Easy to learn how to use the application.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LocalDataBase -->
+
+    <owl:Class rdf:about="#LocalDataBase">
+        <rdfs:subClassOf rdf:resource="#ApplicationData"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Special database management systems for embedded applications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LocalDeviceLock -->
+
+    <owl:Class rdf:about="#LocalDeviceLock">
+        <rdfs:subClassOf rdf:resource="#DeviceLock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LocalFiles -->
+
+    <owl:Class rdf:about="#LocalFiles">
+        <rdfs:subClassOf rdf:resource="#ApplicationData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LocalisationData -->
+
+    <owl:Class rdf:about="#LocalisationData">
+        <rdfs:subClassOf rdf:resource="#ApplicationData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LockingMechanism -->
+
+    <owl:Class rdf:about="#LockingMechanism">
+        <rdfs:subClassOf rdf:resource="#Techniques"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LockingScreen -->
+
+    <owl:Class rdf:about="#LockingScreen">
+        <rdfs:subClassOf rdf:resource="#LockingMechanism"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >In some situations it is useful to lock the screen display until a task is terminated. This is technique is used to avoid the screen modification until a answer is received.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#LogInSystem -->
+
+    <owl:Class rdf:about="#LogInSystem">
+        <rdfs:subClassOf rdf:resource="#Techniques"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#AuthenticationToken"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MACAlgorithm -->
+
+    <owl:Class rdf:about="#MACAlgorithm">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:onClass rdf:resource="#SecretKey"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#CryptographicHashFunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Message authentication code that include a key for authentication</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MD2 -->
+
+    <owl:Class rdf:about="#MD2">
+        <rdfs:subClassOf rdf:resource="#CryptographicHashFunction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MD4 -->
+
+    <owl:Class rdf:about="#MD4">
+        <rdfs:subClassOf rdf:resource="#CryptographicHashFunction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MD5 -->
+
+    <owl:Class rdf:about="#MD5">
+        <rdfs:subClassOf rdf:resource="#CryptographicHashFunction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MMS -->
+
+    <owl:Class rdf:about="#MMS">
+        <rdfs:subClassOf rdf:resource="#Messaging"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Mail -->
+
+    <owl:Class rdf:about="#Mail">
+        <rdfs:subClassOf rdf:resource="#Manual"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MaintenancePhase -->
+
+    <owl:Class rdf:about="#MaintenancePhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Manual -->
+
+    <owl:Class rdf:about="#Manual">
+        <rdfs:subClassOf rdf:resource="#CommChannel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Manufacturer -->
+
+    <owl:Class rdf:about="#Manufacturer">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Issue"/>
+                <owl:allValuesFrom rdf:resource="#ManufacturerCertificate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#Device"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Issue"/>
+                <owl:someValuesFrom rdf:resource="#ManufacturerCertificate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasTrustIn"/>
+                <owl:someValuesFrom rdf:resource="#TrustedThirdParty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#SourceCodeVerification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Mobile device manufacturer which may implement some security features in the device</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ManufacturerCertificate -->
+
+    <owl:Class rdf:about="#ManufacturerCertificate">
+        <rdfs:subClassOf rdf:resource="#Certificate"/>
+        <dc:format rdf:datatype="&xsd;string"
+            >A certificate which is issued by the device manufacturer like Nokia or Samsung for example.</dc:format>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Mechanism -->
+
+    <owl:Class rdf:about="#Mechanism">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Security mechanisms used for security services</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MechanismType -->
+
+    <owl:Class rdf:about="#MechanismType">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Memorability -->
+
+    <owl:Class rdf:about="#Memorability">
+        <rdfs:subClassOf rdf:resource="#Usability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A limited period of time during which the use of the application will be memorised.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Memory -->
+
+    <owl:Class rdf:about="#Memory">
+        <rdfs:subClassOf rdf:resource="#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MemoryCardLock -->
+
+    <owl:Class rdf:about="#MemoryCardLock">
+        <rdfs:subClassOf rdf:resource="#LockingMechanism"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Memory card can be protected with a password each time someone tries to access the card</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MessageDigest -->
+
+    <owl:Class rdf:about="#MessageDigest">
+        <rdfs:subClassOf rdf:resource="#CoreCounterMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#HasOutputLength"/>
+                <owl:someValuesFrom rdf:resource="&xsd;positiveInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A function that takes a string (or message) of any length as input and produces a fixed-length string as output,it is used for authentication and message integrity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Messaging -->
+
+    <owl:Class rdf:about="#Messaging">
+        <rdfs:subClassOf rdf:resource="#CommChannel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MisUseAttack -->
+
+    <owl:Class rdf:about="#MisUseAttack">
+        <rdfs:subClassOf rdf:resource="#UnTrustedAPIAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MobileNetworkProvidervalues -->
+
+    <owl:Class rdf:about="#MobileNetworkProvidervalues">
+        <rdfs:subClassOf rdf:resource="#LocalisationData"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Mobile network Cell ID to which the device is attached.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MobileVPN -->
+
+    <owl:Class rdf:about="#MobileVPN">
+        <rdfs:subClassOf rdf:resource="#VPN"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NFC -->
+
+    <owl:Class rdf:about="#NFC">
+        <rdfs:subClassOf rdf:resource="#PANetwork"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A short-range point-to-point wireless communication technology. The technology is a simple extension of the ISO/IEC 14443 proximity-card standard (contactless card, RFID) that combines the interface of a smartcard and a reader into a single device. An NFC device can communicate with both existing ISO/IEC 14443 smartcards and readers, as well as with other NFC devices, and is thereby compatible with existing contactless infrastructure already in use for public transportation and payment.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NFCEnabled -->
+
+    <owl:Class rdf:about="#NFCEnabled">
+        <rdfs:subClassOf rdf:resource="#DeviceCapabilities"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The device may be or not equiped with Near Field Communication Ship (NFC).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NeedhamShroeder -->
+
+    <owl:Class rdf:about="#NeedhamShroeder">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Network -->
+
+    <owl:Class rdf:about="#Network">
+        <rdfs:subClassOf rdf:resource="#Resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasNetworkLatency"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#HasBandwidth"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NetworkLayer -->
+
+    <owl:Class rdf:about="#NetworkLayer">
+        <rdfs:subClassOf rdf:resource="#SecurityLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NoSensitiveInfoOnExternalMemory -->
+
+    <owl:Class rdf:about="#NoSensitiveInfoOnExternalMemory">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NonRepudiation -->
+
+    <owl:Class rdf:about="#NonRepudiation">
+        <rdfs:subClassOf rdf:resource="&OntologyServices;Services"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasType"/>
+                <owl:onClass rdf:resource="#NonRepudiationType"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NonRepudiationType -->
+
+    <owl:Class rdf:about="#NonRepudiationType">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NonVolatile -->
+
+    <owl:Class rdf:about="#NonVolatile">
+        <rdfs:subClassOf rdf:resource="#FixedMemory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#O.T.P -->
+
+    <owl:Class rdf:about="#O.T.P">
+        <rdfs:subClassOf rdf:resource="#Password"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Password used for once and generated from time, counter and/or key. May be a displayed from a hardware device.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#OperationMode -->
+
+    <owl:Class rdf:about="#OperationMode">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Operator -->
+
+    <owl:Class rdf:about="#Operator">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasTrustIn"/>
+                <owl:someValuesFrom rdf:resource="#TrustedThirdParty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#SourceCodeVerification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Issue"/>
+                <owl:someValuesFrom rdf:resource="#OperatorCertificate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#BestPractises"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Issue"/>
+                <owl:allValuesFrom rdf:resource="#OperatorCertificate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;language"
+            >Telecom Network Operator knowing as MNO</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#OperatorCertificate -->
+
+    <owl:Class rdf:about="#OperatorCertificate">
+        <rdfs:subClassOf rdf:resource="#Certificate"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#SmartCard"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#storedOn"/>
+                        <owl:someValuesFrom rdf:resource="#Device"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <dc:format rdf:datatype="&xsd;string"
+            >A certificate which is issued by the mobile network operator.</dc:format>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#OrganizationsAndStandards -->
+
+    <owl:Class rdf:about="#OrganizationsAndStandards">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+        <rdfs:comment
+            >Organizations and associations providing standards in the mobile field arena.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Output -->
+
+    <owl:Class rdf:about="#Output">
+        <rdfs:subClassOf rdf:resource="#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PANetwork -->
+
+    <owl:Class rdf:about="#PANetwork">
+        <rdfs:subClassOf rdf:resource="#Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PGPCertificate -->
+
+    <owl:Class rdf:about="#PGPCertificate">
+        <rdfs:subClassOf rdf:resource="#CertificateFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PKI -->
+
+    <owl:Class rdf:about="#PKI">
+        <rdfs:subClassOf rdf:resource="#SecurityInfrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#AsymmetricEncryption"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#NonRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#Certificate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#CertificationAuthority"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Public-key infrastructure (PKI) consists of protocols, services, and standards supporting applications of public-key cryptography. PKI sometimes refers simply to a trust hierarchy based on public-key certificates, and in other contexts embraces encryption and digital signature services provided to end-user applications as well. RSA (http://www.rsa.com/rsalabs/node.asp?id=2268)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PRNG -->
+
+    <owl:Class rdf:about="#PRNG">
+        <rdfs:subClassOf rdf:resource="#KeyGeneration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#PRNGAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Pseudo Random Number Generation</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PRNGAlgorithm -->
+
+    <owl:Class rdf:about="#PRNGAlgorithm">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+        <rdfs:comment
+            >Pseudo Random Number Generation algorithm</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Password -->
+
+    <owl:Class rdf:about="#Password">
+        <rdfs:subClassOf rdf:resource="#AuthenticationToken"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Performance -->
+
+    <owl:Class rdf:about="#Performance">
+        <rdfs:subClassOf rdf:resource="#Availability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Phishing -->
+
+    <owl:Class rdf:about="#Phishing">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;ByPassingAuthentication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PhysicalLayer -->
+
+    <owl:Class rdf:about="#PhysicalLayer">
+        <rdfs:subClassOf rdf:resource="#SecurityLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Platform -->
+
+    <owl:Class rdf:about="#Platform">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#KeyManagement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#ResourceMonitoring"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#Algorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#MessageDigest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#LogInSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#AccessControlMethods"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The software device platform layer</rdfs:comment>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Platform"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Portability -->
+
+    <owl:Class rdf:about="#Portability">
+        <rdfs:subClassOf rdf:resource="#Quality"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >ability of Application running on several devices or/and platforms.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PrivateKey -->
+
+    <owl:Class rdf:about="#PrivateKey">
+        <rdfs:subClassOf rdf:resource="#Keys"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PrivateKeyPoP -->
+
+    <owl:Class rdf:about="#PrivateKeyPoP">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocolType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Processing -->
+
+    <owl:Class rdf:about="#Processing">
+        <rdfs:subClassOf rdf:resource="#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PublicKey -->
+
+    <owl:Class rdf:about="#PublicKey">
+        <rdfs:subClassOf rdf:resource="#Keys"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Quality -->
+
+    <owl:Class rdf:about="#Quality">
+        <rdfs:subClassOf rdf:resource="#Constraints"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RAM -->
+
+    <owl:Class rdf:about="#RAM">
+        <rdfs:subClassOf rdf:resource="#FixedMemory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RC4 -->
+
+    <owl:Class rdf:about="#RC4">
+        <rdfs:subClassOf rdf:resource="#StreamCipherAlgorithm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A free algorithm provided by  RSA security, implemented since 1970.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RF -->
+
+    <owl:Class rdf:about="#RF">
+        <rdfs:subClassOf rdf:resource="#PANetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RIPE-MAC -->
+
+    <owl:Class rdf:about="#RIPE-MAC">
+        <rdfs:subClassOf rdf:resource="#MACAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RIPE-MD -->
+
+    <owl:Class rdf:about="#RIPE-MD">
+        <rdfs:subClassOf rdf:resource="#CryptographicHashFunction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RNGEfficiency -->
+
+    <owl:Class rdf:about="#RNGEfficiency">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ROM -->
+
+    <owl:Class rdf:about="#ROM">
+        <rdfs:subClassOf rdf:resource="#FixedMemory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RSA -->
+
+    <owl:Class rdf:about="#RSA">
+        <rdfs:subClassOf rdf:resource="#DigitalSignatureAlgorithm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#RSAAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >RSA signature algorithm (American National Standard ANSI X9-31)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RSAAlgorithm -->
+
+    <owl:Class rdf:about="#RSAAlgorithm">
+        <rdfs:subClassOf rdf:resource="#AsymmetricAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ReduceCodeSize -->
+
+    <owl:Class rdf:about="#ReduceCodeSize">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RegistrationAuthority -->
+
+    <owl:Class rdf:about="#RegistrationAuthority">
+        <rdfs:subClassOf rdf:resource="#TrustedThirdParty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Registration authority is an administrative entity which is responsable of verifying the identity of the claimer of a certificate</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Reliability -->
+
+    <owl:Class rdf:about="#Reliability">
+        <rdfs:subClassOf rdf:resource="#Availability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RemoteDeviceLock -->
+
+    <owl:Class rdf:about="#RemoteDeviceLock">
+        <rdfs:subClassOf rdf:resource="#DeviceLock"/>
+        <rdfs:comment xml:lang="en"
+            >Sending a Short message to lock the device</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Resource -->
+
+    <owl:Class rdf:about="#Resource">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ResourceMonitoring -->
+
+    <owl:Class rdf:about="#ResourceMonitoring">
+        <rdfs:subClassOf rdf:resource="#Techniques"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RingTones -->
+
+    <owl:Class rdf:about="#RingTones">
+        <rdfs:subClassOf rdf:resource="#StandardFiles"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Audio files used as rings in mobile devices.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SET -->
+
+    <owl:Class rdf:about="#SET">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Secure Electronic Transaction</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SHA1 -->
+
+    <owl:Class rdf:about="#SHA1">
+        <rdfs:subClassOf rdf:resource="#CryptographicHashFunction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SHAMIR3Pass -->
+
+    <owl:Class rdf:about="#SHAMIR3Pass">
+        <rdfs:subClassOf rdf:resource="#KeyExchangeProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SIM -->
+
+    <owl:Class rdf:about="#SIM">
+        <rdfs:subClassOf rdf:resource="#SmartCard"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#CryptographicHashFunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:allValuesFrom rdf:resource="#BlockCipherAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#AsymmetricAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#DigitalSignatureAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Subscriber Identity Module; A smart card for GSM networks access.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SKID -->
+
+    <owl:Class rdf:about="#SKID">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SMS -->
+
+    <owl:Class rdf:about="#SMS">
+        <rdfs:subClassOf rdf:resource="#Messaging"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SNOW -->
+
+    <owl:Class rdf:about="#SNOW">
+        <rdfs:subClassOf rdf:resource="#RC4"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SSL -->
+
+    <owl:Class rdf:about="#SSL">
+        <rdfs:subClassOf rdf:resource="#SecureNetworkCommunication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#STRANDOM -->
+
+    <owl:Class rdf:about="#STRANDOM">
+        <rdfs:subClassOf rdf:resource="#PRNGAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SecretKey -->
+
+    <owl:Class rdf:about="#SecretKey">
+        <rdfs:subClassOf rdf:resource="#Keys"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SecureNetworkCommunication -->
+
+    <owl:Class rdf:about="#SecureNetworkCommunication">
+        <rdfs:subClassOf rdf:resource="#SecurityTools"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SecurityInfrastructure -->
+
+    <owl:Class rdf:about="#SecurityInfrastructure">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SecurityLayer -->
+
+    <owl:Class rdf:about="#SecurityLayer">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SecurityTools -->
+
+    <owl:Class rdf:about="#SecurityTools">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SeparateDelivery-DRM -->
+
+    <owl:Class rdf:about="#SeparateDelivery-DRM">
+        <rdfs:subClassOf rdf:resource="#DigitalRightsManagement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Session -->
+
+    <owl:Class rdf:about="#Session">
+        <rdfs:subClassOf rdf:resource="#Duration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Skills -->
+
+    <owl:Class rdf:about="#Skills">
+        <rdfs:subClassOf rdf:resource="#Cost"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Additional skills that should be acquired to achieve some tasks or goals.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SmartCard -->
+
+    <owl:Class rdf:about="#SmartCard">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasIMSI"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#AsymmetricEncryption"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#SmartCardLock"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#MessageDigest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#SymmetricEncryption"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasMemory"/>
+                <owl:allValuesFrom rdf:resource="#SmartCardMemory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#DigitalSignature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ImplementMechanism"/>
+                <owl:someValuesFrom rdf:resource="#KeyStore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A smart card is any limited-sized card with embedded integrated circuits. The smart card may integrate or not processing capabilities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SmartCardCloning -->
+
+    <owl:Class rdf:about="#SmartCardCloning">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;HardwareCloning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SmartCardLock -->
+
+    <owl:Class rdf:about="#SmartCardLock">
+        <rdfs:subClassOf rdf:resource="#LockingMechanism"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Satisfice"/>
+                <owl:someValuesFrom rdf:resource="#AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SmartCardMemory -->
+
+    <owl:Class rdf:about="#SmartCardMemory">
+        <rdfs:subClassOf rdf:resource="#Add-OnMemory"/>
+        <rdfs:comment
+            >Memory available on smart card like SIM, USIM or others;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Socket -->
+
+    <owl:Class rdf:about="#Socket">
+        <rdfs:subClassOf rdf:resource="#Internet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Software -->
+
+    <owl:Class rdf:about="#Software">
+        <rdfs:subClassOf rdf:resource="#Asset"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >All the applications and data provided with or installed on the device.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SoftwareLayer -->
+
+    <owl:Class rdf:about="#SoftwareLayer">
+        <rdfs:subClassOf rdf:resource="#SecurityLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SourceCodeVerification -->
+
+    <owl:Class rdf:about="#SourceCodeVerification">
+        <rdfs:subClassOf rdf:resource="#SecurityTools"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Speaker -->
+
+    <owl:Class rdf:about="#Speaker">
+        <rdfs:subClassOf rdf:resource="#Output"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#StandardFiles -->
+
+    <owl:Class rdf:about="#StandardFiles">
+        <rdfs:subClassOf rdf:resource="#LocalFiles"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Standards -->
+
+    <owl:Class rdf:about="#Standards">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Static_password -->
+
+    <owl:Class rdf:about="#Static_password">
+        <rdfs:subClassOf rdf:resource="#Password"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The standard couple of login and password authentication</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Steganography -->
+
+    <owl:Class rdf:about="#Steganography">
+        <rdfs:subClassOf rdf:resource="#Encryption"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Steganography is the art and science of writing hidden messages in such a way that no-one, apart from the sender and intended recipient, suspects the existence of the message, a form of security through obscurity. Wikipedia</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SteganographyAlgorithm -->
+
+    <owl:Class rdf:about="#SteganographyAlgorithm">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#StoredData -->
+
+    <owl:Class rdf:about="#StoredData">
+        <rdfs:subClassOf rdf:resource="#Data"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#ApplicationData"/>
+                            <rdf:Description rdf:about="#ConfigurationData"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasDataStructure"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#LocalDataBase"/>
+                                    <rdf:Description rdf:about="#LocalFiles"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Data stored either in the device or on the memory card.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#StreamCipherAlgorithm -->
+
+    <owl:Class rdf:about="#StreamCipherAlgorithm">
+        <rdfs:subClassOf rdf:resource="#SymmetricAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SymmetricAlgorithm -->
+
+    <owl:Class rdf:about="#SymmetricAlgorithm">
+        <rdfs:subClassOf rdf:resource="#Algorithm"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Help"/>
+                <owl:someValuesFrom rdf:resource="#Efficiency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasKey"/>
+                <owl:onClass rdf:resource="#SecretKey"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SymmetricEncryption -->
+
+    <owl:Class rdf:about="#SymmetricEncryption">
+        <rdfs:subClassOf rdf:resource="#Encryption"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#SymmetricAlgorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Also known as conventional, secret-key, and single-key algorithms; the encryption and decryption key are either the same or can be calculated from one another. Block ciphers and stream ciphers are both used for symmetric encryption.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SymmetricKeyPoP -->
+
+    <owl:Class rdf:about="#SymmetricKeyPoP">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocolType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TLS -->
+
+    <owl:Class rdf:about="#TLS">
+        <rdfs:subClassOf rdf:resource="#SecureNetworkCommunication"/>
+        <rdfs:comment
+            >Transport Layer Security is an IETF standard that is intended to replace the SSL protocol. (IETF Working Group)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TRNG -->
+
+    <owl:Class rdf:about="#TRNG">
+        <rdfs:subClassOf rdf:resource="#KeyGeneration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom rdf:resource="#Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >True Random Number Generation : extract randomness from physical phenomena and introduce it into computing device.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Technical -->
+
+    <owl:Class rdf:about="#Technical">
+        <rdfs:subClassOf rdf:resource="#Constraints"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >All limitations related to technologies like the network bandwidth or processor capabilities.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Techniques -->
+
+    <owl:Class rdf:about="#Techniques">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TestOnRealDevices -->
+
+    <owl:Class rdf:about="#TestOnRealDevices">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TestPhase -->
+
+    <owl:Class rdf:about="#TestPhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ThreatType -->
+
+    <owl:Class rdf:about="#ThreatType">
+        <rdfs:subClassOf rdf:resource="#ValueTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Time -->
+
+    <owl:Class rdf:about="#Time">
+        <rdfs:subClassOf rdf:resource="#Duration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TimeAnalysis -->
+
+    <owl:Class rdf:about="#TimeAnalysis">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SideChannelAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TimeBasedOTP -->
+
+    <owl:Class rdf:about="#TimeBasedOTP">
+        <rdfs:subClassOf rdf:resource="#O.T.P"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A client and server time synchronization is required for the authentication token verification.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TimeStampToken -->
+
+    <owl:Class rdf:about="#TimeStampToken">
+        <rdfs:subClassOf rdf:resource="#AuthenticationToken"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A digital signature that makes possible the verification of the sending time of a message.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Timeliness -->
+
+    <owl:Class rdf:about="#Timeliness">
+        <rdfs:subClassOf rdf:resource="#Usability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TouchScreen -->
+
+    <owl:Class rdf:about="#TouchScreen">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DisplayScreen"/>
+                    <rdf:Description rdf:about="#KeyPad"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Training -->
+
+    <owl:Class rdf:about="#Training">
+        <rdfs:subClassOf rdf:resource="#Cost"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Requirement for additional training to use some tools or to do some technalical or management tasks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Transaction -->
+
+    <owl:Class rdf:about="#Transaction">
+        <rdfs:subClassOf rdf:resource="#Duration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TransmittedData -->
+
+    <owl:Class rdf:about="#TransmittedData">
+        <rdfs:subClassOf rdf:resource="#Data"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Messaging data or data transferred through Internet connection</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TrustedAPIAttack -->
+
+    <owl:Class rdf:about="#TrustedAPIAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;ApplicationAPIAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TrustedThirdParty -->
+
+    <owl:Class rdf:about="#TrustedThirdParty">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Provide"/>
+                <owl:someValuesFrom rdf:resource="#SourceCodeVerification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Issue"/>
+                <owl:someValuesFrom rdf:resource="#Certificate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasTrustIn"/>
+                <owl:someValuesFrom rdf:resource="#TrustedThirdParty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >security authority or its agent, trusted by other entities with respect to security-related activities. In the context of ISO/IEC 9798, a trusted third party is trusted by a claimant and/or a verifier for the purposes of authentication.  ISO/IEC 9798</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TrustedThirdPartyCertificate -->
+
+    <owl:Class rdf:about="#TrustedThirdPartyCertificate">
+        <rdfs:subClassOf rdf:resource="#Certificate"/>
+        <dc:format rdf:datatype="&xsd;string"
+            >A certificate which is issued by a trusted third party.</dc:format>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TunneledPassword -->
+
+    <owl:Class rdf:about="#TunneledPassword">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocolType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TypeSafeAPIUse -->
+
+    <owl:Class rdf:about="#TypeSafeAPIUse">
+        <rdfs:subClassOf rdf:resource="#BestPractises"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#UICC -->
+
+    <owl:Class rdf:about="#UICC">
+        <rdfs:subClassOf rdf:resource="#SmartCard"/>
+        <rdfs:comment
+            >The UICC is a generic platform for smart card applications. It has been standardised by ETSI EP SCP (ETSI Project Smart Card Platform) with the aim of defining a physical and logical platform for all smart card applications and to develop advanced security methods for financial transactions, to take an example. Mobey forum</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#UMTS -->
+
+    <owl:Class rdf:about="#UMTS">
+        <rdfs:subClassOf rdf:resource="#3G"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#USIM -->
+
+    <owl:Class rdf:about="#USIM">
+        <rdfs:subClassOf rdf:resource="#SmartCard"/>
+        <rdfs:comment
+            >A (U)SIM is a special type of smart card that typically contains a processor and between 16 to 128 KB of persistent Electronically Erasable, Programmable ROM (EEPROM). It also includes RAM for program execution and ROM for the operating system, user authentication and data encryption algorithms, and other applications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#UnTrustedAPIAttack -->
+
+    <owl:Class rdf:about="#UnTrustedAPIAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;ApplicationAPIAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#UnifiedTestingInitiativeRootCertificate -->
+
+    <owl:Class rdf:about="#UnifiedTestingInitiativeRootCertificate">
+        <rdfs:subClassOf rdf:resource="#DeviceCapabilities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#UnsafeDataTypeAttack -->
+
+    <owl:Class rdf:about="#UnsafeDataTypeAttack">
+        <rdfs:subClassOf rdf:resource="#TrustedAPIAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Usability -->
+
+    <owl:Class rdf:about="#Usability">
+        <rdfs:subClassOf rdf:resource="#Quality"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A good response time of the application.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#UsePhase -->
+
+    <owl:Class rdf:about="#UsePhase">
+        <rdfs:subClassOf rdf:resource="#ApplicationLifeCyclePhase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#VPN -->
+
+    <owl:Class rdf:about="#VPN">
+        <rdfs:subClassOf rdf:resource="#SecurityInfrastructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Use"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#IPSec"/>
+                            <rdf:Description rdf:about="#SSL"/>
+                            <rdf:Description rdf:about="#TLS"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Virtula private network. FIPS 140-2</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ValueTypes -->
+
+    <owl:Class rdf:about="#ValueTypes">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Additional and required types for the ontology</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#VibrationKit -->
+
+    <owl:Class rdf:about="#VibrationKit">
+        <rdfs:subClassOf rdf:resource="#Output"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#VideoInput -->
+
+    <owl:Class rdf:about="#VideoInput">
+        <rdfs:subClassOf rdf:resource="#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Videos -->
+
+    <owl:Class rdf:about="#Videos">
+        <rdfs:subClassOf rdf:resource="#StandardFiles"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Voice -->
+
+    <owl:Class rdf:about="#Voice">
+        <rdfs:subClassOf rdf:resource="#Manual"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#WANetwork -->
+
+    <owl:Class rdf:about="#WANetwork">
+        <rdfs:subClassOf rdf:resource="#Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#WPKI -->
+
+    <owl:Class rdf:about="#WPKI">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PKI"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#Use"/>
+                        <owl:someValuesFrom rdf:resource="#CommChannel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#PKI"/>
+        <rdfs:comment
+            >Wireless Public Key Infrastructure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#WiFi -->
+
+    <owl:Class rdf:about="#WiFi">
+        <rdfs:subClassOf rdf:resource="#LANetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#X509Certificate -->
+
+    <owl:Class rdf:about="#X509Certificate">
+        <rdfs:subClassOf rdf:resource="#CertificateFormat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Yahalom -->
+
+    <owl:Class rdf:about="#Yahalom">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Yarrow -->
+
+    <owl:Class rdf:about="#Yarrow">
+        <rdfs:subClassOf rdf:resource="#PRNGAlgorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ZeroKnowledgePassword -->
+
+    <owl:Class rdf:about="#ZeroKnowledgePassword">
+        <rdfs:subClassOf rdf:resource="#AuthenticationProtocolType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#vCard -->
+
+    <owl:Class rdf:about="#vCard">
+        <rdfs:subClassOf rdf:resource="#StandardFiles"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >vCard is a virtual electronic business card format.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologyServices.owl#Services -->
+
+    <owl:Class rdf:about="&OntologyServices;Services">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en"
+            >Security services ontology</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#AccessToUntrustedWebSite -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;AccessToUntrustedWebSite">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInUse"/>
+        <rdfs:comment
+            >Several attacks may be achieved after access to hacked web sites like cross site scripting (XSS) for example.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#ApplicationAPIAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;ApplicationAPIAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#BatteryLimitation -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;BatteryLimitation">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;PhysicalVulnerability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#BruteForce -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;BruteForce">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;ByPassingAuthentication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#BufferOverFlow -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;BufferOverFlow">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;MalformedInput"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >By passing data through an API where it is known that the API is designed to receive X bytes and we are passing X+N bytes, it can be arranged that the N bytes overflow into an area that was used by other storage (if it is a heap overflow) or will cause the return address to be corrupted (if it is a stack overflow). OMTP</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#ByPassingAuthentication -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;ByPassingAuthentication">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#CodeInjection -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;CodeInjection">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;MalformedInput"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#CommunicationVulnerability -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;CommunicationVulnerability">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Vulnerability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#CounterMeasure -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;CounterMeasure">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#CryptographicAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;CryptographicAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#DefaultPIN -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;DefaultPIN">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;InsecureDefaultSettings"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Always set to manufacturer default values</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#DefaultPassword -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;DefaultPassword">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;InsecureDefaultSettings"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Always set to manufacturer default values</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#DevicePortability -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;DevicePortability">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;PhysicalVulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The easy portability of the device make it vulnerable to rabbers and theft.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#DoS -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;DoS">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Threat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Most common type involves flooding a host until it cannot respond to legitimate traffic.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Eavesdropping -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Eavesdropping">
+        <owl:equivalentClass rdf:resource="&VulnThreatAttack;Interception"/>
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;NetworkInfrastructureAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Emanation -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Emanation">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;PhysicalVulnerability"/>
+        <rdfs:comment
+            >The fact of making internal data available to third parties by radio.. In that case,the issuer is the passive victim of the attack.
+Almost all electrical devices emit radiation to the exterior that can be intercepted by other equipment (radio receivers) causing a leak of information. This threat is frequently but inaccurately called, a TEMPEST attack (&#8220;Transient Electromagnetic Pulse Standard&#8221;).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#EquipmentDos -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;EquipmentDos">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;NetworkInfrastructureAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The attacker causes an overload or a disruption in the system such that network functions  in an abnormal manner. The abnormal behavior could be legitimate subscribers not receiving service, illegitimate subscribers receiving service or the entire network may disabled as a result of the attack.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#ExternalBatteryRemovel -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;ExternalBatteryRemovel">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;HardwareAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Bypassing security barries may be performed through a battery removal. For example in a DRM situation, a song may have been played, but if the rights count is not decremented until the end of the song, then removing the power source could result in the user playing the song indefinitely(OMPT).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#ExternalMemoryCardRemoval -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;ExternalMemoryCardRemoval">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;HardwareAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Bypassing security barries may be performed through a battery removal. For example in a DRM situation, a song may have been played, but if the rights count is not decremented until the end of the song, then removing the memory card could result in the user playing the song indefinitely(OMPT).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#FOTAUnAuthorizedReFlash -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;FOTAUnAuthorizedReFlash">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >UnAuthorized reflash via Firmware Over The Air. FOTA consists in replacing one version of the general OS(s) with another over the Air.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Fabrication -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Fabrication">
+        <owl:equivalentClass rdf:resource="&VulnThreatAttack;Replay"/>
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;NetworkInfrastructureAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#FormatStringAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;FormatStringAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;MalformedInput"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#HardwareAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;HardwareAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#HardwareCloning -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;HardwareCloning">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;HardwareAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#InputOutputLimitation -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;InputOutputLimitation">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;PhysicalVulnerability"/>
+        <rdfs:comment
+            >Limited screen display and small keypad ad some aggravation to attacks like phishing for example.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#InsecureDefaultSettings -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;InsecureDefaultSettings">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Interception -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Interception">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;NetworkInfrastructureAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The attacker intercepts information without modifing or deleting them. This is a passive attack. This affects the privacy of the subscriber and the network operator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Interruption -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Interruption">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;NetworkInfrastructureAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The attacker caused an Interruption by destroying resources. The attacker may delete a subscriber data in the entity such as an HLR.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#MalformedInput -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;MalformedInput">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#MissingErrorHandling -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;MissingErrorHandling">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInDevelopment"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Missing error handling may reveal hidden coding details.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#MissingInputValidation -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;MissingInputValidation">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInDevelopment"/>
+        <rdfs:comment
+            >Leaving inputs to a lightweight validation i&#39;s one of the most relevant applicationn vulnerability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#MultipleServicesIntegration -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;MultipleServicesIntegration">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CommunicationVulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The integration of several networkign services like access to PAN, LAN and WAN in the same divice makes hard the set up of access control policies. This integration  agravates also the multi-session attacks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#NAKAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;NAKAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Concurrent processes may cause logical breaks. These breaks could be exploited by malicious code to get access to protected resources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#NetworkInfrastructureAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;NetworkInfrastructureAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Threat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >These attacks belong to the mobile network operator. Most of them require physical air interface equipments like fake base station or modified antenna.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#NotAuthenticatedSoftInstallation -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;NotAuthenticatedSoftInstallation">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInUse"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Several untrusted softwares are available for free download or through the trasnfer from an other device. These softwares may be infected with viruses or have trojans. They may also come up with bad code that leads to denial of service.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#OTASoftwareUpdate -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;OTASoftwareUpdate">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInUse"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Software Update can be performed Over The Air without user konwledge or confirmation. These softwares may be infected or trojanized.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#PhysicalVulnerability -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;PhysicalVulnerability">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Vulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Features related to the physical aspect of the device and its properties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#PowerAnalysis -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;PowerAnalysis">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SideChannelAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#ProcessingPowerLimitation -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;ProcessingPowerLimitation">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;PhysicalVulnerability"/>
+        <rdfs:comment
+            >Limited Processing power is boundary for cryptographic enhanced tasks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Replay -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Replay">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;NetworkInfrastructureAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >In this case the attacker may insert spurious objects into the system. The attacker may insert fake signaling messages, the effects could result in the attacker masquerading as an authority.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#RoamingConfigChallenges -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;RoamingConfigChallenges">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CommunicationVulnerability"/>
+        <rdfs:comment
+            >Switching from one network to an other should respect security policies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#SideChannelAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;SideChannelAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;HardwareAttack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#SmartCardUpdate -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;SmartCardUpdate">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CommunicationVulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The procedure of updating the SIM card is a heavy task for the operator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#SoftwareAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;SoftwareAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#SoftwareVulnerability -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;SoftwareVulnerability">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;Vulnerability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#StatisticalAttack -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;StatisticalAttack">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CryptographicAttack"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A cryptanalysis that exploits the predictibility of a particular data segment or a prdicatable relationships among different data segments in a cipher codestream to deduce the plaintext without the knowledge of the decryption key or to substantially reduce the search space such that a brute force attack is feasable.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#TestWithEmulatorOnly -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;TestWithEmulatorOnly">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInDevelopment"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >After developement, applications should be tested with real and different devices and not only with emulators.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Threat -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Threat">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&VulnThreatAttack;Threatens"/>
+                <owl:someValuesFrom rdf:resource="#Asset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&VulnThreatAttack;enabledBy"/>
+                <owl:someValuesFrom rdf:resource="&VulnThreatAttack;Vulnerability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasThreatType"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#UnsafeMessageAcceptance -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;UnsafeMessageAcceptance">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInUse"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Non authenticated SMS or MMS may deal to denial fo service or virus infection.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#UnsafeStorageDevicePlugging -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;UnsafeStorageDevicePlugging">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInUse"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Exchanging Memory card may lead to virus infection.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#UseofUntrustedAPI -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;UseofUntrustedAPI">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInDevelopment"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Some API, components may be downloaded and used by developers without any security garantee.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#UseofVulnerableProgLanguage -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;UseofVulnerableProgLanguage">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;VulnerabilityInDevelopment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Vulnerability -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;Vulnerability">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&VulnThreatAttack;existsOn"/>
+                <owl:someValuesFrom rdf:resource="#Asset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&VulnThreatAttack;isCorrectedBy"/>
+                <owl:someValuesFrom rdf:resource="&VulnThreatAttack;CounterMeasure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&VulnThreatAttack;isExploitedBy"/>
+                <owl:someValuesFrom rdf:resource="&VulnThreatAttack;Threat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#VulnerabilityInConfig -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;VulnerabilityInConfig">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareVulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Some default configurations of services may be exploited by hackers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#VulnerabilityInDevelopment -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;VulnerabilityInDevelopment">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareVulnerability"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#VulnerabilityInUse -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;VulnerabilityInUse">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;SoftwareVulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Vulnerabilities during the use of the application or service.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#VulnerableServiceAutoStart -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;VulnerableServiceAutoStart">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;InsecureDefaultSettings"/>
+        <rdfs:comment
+            >Some services like Bluetooth for example starts automatically which may lead to intrusion and access controls attacks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#WirelessTransmission -->
+
+    <owl:Class rdf:about="&VulnThreatAttack;WirelessTransmission">
+        <rdfs:subClassOf rdf:resource="&VulnThreatAttack;CommunicationVulnerability"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Wireless transmission could be exploited by hacker to eavesdrop traffic, analyse authentication tokens and sensitive information in general.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing">
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#3GPP -->
+
+    <OrganizationsAndStandards rdf:about="#3GPP"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AES_FIPS197 -->
+
+    <AES rdf:about="#AES_FIPS197"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ActiveThreat -->
+
+    <ThreatType rdf:about="#ActiveThreat"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Android -->
+
+    <Platform rdf:about="#Android"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AssociatedOriented -->
+
+    <NonRepudiationType rdf:about="#AssociatedOriented"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#AutoInvocationFunctionGroup -->
+
+    <FunctionGroups rdf:about="#AutoInvocationFunctionGroup">
+        <rdfs:comment
+            >Permissions related to automatically starting a MIDlet, for example by Push Registration.</rdfs:comment>
+    </FunctionGroups>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CertificateInstallationApplication -->
+
+    <rdf:Description rdf:about="#CertificateInstallationApplication"/>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;Axiom"/>
+        <rdf:subject rdf:resource="#CertificateInstallationApplication"/>
+        <rdf:predicate rdf:resource="&rdf;type"/>
+        <rdf:object rdf:resource="#CertificateInstallation"/>
+        <rdfs:comment
+            >A Symbian and Nokia application that provides capabilities to install symbian certificates on some Nokia devices</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#CompactFlash -->
+
+    <CardMemory rdf:about="#CompactFlash"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Correction -->
+
+    <MechanismType rdf:about="#Correction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Critical -->
+
+    <ConfidentialityLevel rdf:about="#Critical"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DES_FIPS46-1-2 -->
+
+    <DES rdf:about="#DES_FIPS46-1-2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Detection -->
+
+    <MechanismType rdf:about="#Detection"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#DotNet -->
+
+    <Platform rdf:about="#DotNet"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#EndToEnd -->
+
+    <NonRepudiationType rdf:about="#EndToEnd"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Excellent -->
+
+    <RNGEfficiency rdf:about="#Excellent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#FullIntegrity -->
+
+    <IntegrityType rdf:about="#FullIntegrity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GSMA -->
+
+    <OrganizationsAndStandards rdf:about="#GSMA"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#GSMWorld -->
+
+    <OrganizationsAndStandards rdf:about="#GSMWorld"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#HardwareLocking -->
+
+    <AccessControlMethods rdf:about="#HardwareLocking"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IEEE -->
+
+    <OrganizationsAndStandards rdf:about="#IEEE"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#IETF -->
+
+    <OrganizationsAndStandards rdf:about="#IETF"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ITU -->
+
+    <OrganizationsAndStandards rdf:about="#ITU"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#J2ME -->
+
+    <rdf:Description rdf:about="#J2ME">
+        <owl:sameAs rdf:resource="#JME"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#JME -->
+
+    <Platform rdf:about="#JME"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#JMEPermissionDomains -->
+
+    <AccessControlList rdf:about="#JMEPermissionDomains"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#JavaCard -->
+
+    <CardType rdf:about="#JavaCard">
+        <rdf:type rdf:resource="#SIM"/>
+        <ImplementAPI rdf:resource="#AES_FIPS197"/>
+        <ImplementAPI rdf:resource="#DES_FIPS46-1-2"/>
+    </CardType>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#JavaVerifiedSigningProcess -->
+
+    <SourceCodeVerification rdf:about="#JavaVerifiedSigningProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MMC -->
+
+    <CardMemory rdf:about="#MMC"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MMS -->
+
+    <CommChannel rdf:about="#MMS"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MULTOS -->
+
+    <CardType rdf:about="#MULTOS"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MessagingFunctionsGroup -->
+
+    <FunctionGroups rdf:about="#MessagingFunctionsGroup">
+        <rdfs:comment
+            >Set of permissions related to sending or receiving messages like SMS</rdfs:comment>
+    </FunctionGroups>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MobeyForum -->
+
+    <OrganizationsAndStandards rdf:about="#MobeyForum"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Mobile2Market -->
+
+    <CertificationAuthority rdf:about="#Mobile2Market"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MotorollaMobileVPN -->
+
+    <MobileVPN rdf:about="#MotorollaMobileVPN"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Mutual -->
+
+    <AuthenticationWay rdf:about="#Mutual"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#MutualReliableChannel -->
+
+    <AuthenticationLevel rdf:about="#MutualReliableChannel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NIST -->
+
+    <OrganizationsAndStandards rdf:about="#NIST"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NetAccessFunctionGroup -->
+
+    <rdf:Description rdf:about="#NetAccessFunctionGroup">
+        <rdfs:comment
+            >Contains permissions related to network data connections.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;Axiom"/>
+        <rdf:subject rdf:resource="#NetAccessFunctionGroup"/>
+        <rdf:predicate rdf:resource="&rdf;type"/>
+        <rdf:object rdf:resource="#FunctionGroups"/>
+        <rdfs:comment></rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#NoAuthentication -->
+
+    <AuthenticationLevel rdf:about="#NoAuthentication"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Nokia_Mobile_VPN -->
+
+    <VPN rdf:about="#Nokia_Mobile_VPN"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Offline -->
+
+    <OperationMode rdf:about="#Offline"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#OneSideVerification -->
+
+    <AuthenticationLevel rdf:about="#OneSideVerification">
+        <rdf:type rdf:resource="#AuthenticationWay"/>
+    </AuthenticationLevel>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PIN -->
+
+    <SmartCardLock rdf:about="#PIN">
+        <rdfs:comment
+            >Personal Identification Number</rdfs:comment>
+    </SmartCardLock>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PUK -->
+
+    <SmartCardLock rdf:about="#PUK">
+        <rdfs:comment
+            >Personal Unblocking Keys</rdfs:comment>
+    </SmartCardLock>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Parallel -->
+
+    <OperationMode rdf:about="#Parallel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PassiveThreat -->
+
+    <ThreatType rdf:about="#PassiveThreat"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Poor -->
+
+    <RNGEfficiency rdf:about="#Poor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#PreemptDisplay -->
+
+    <LockingScreen rdf:about="#PreemptDisplay"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Prevention -->
+
+    <MechanismType rdf:about="#Prevention"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Public -->
+
+    <ConfidentialityLevel rdf:about="#Public"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#RMS -->
+
+    <DataRecords rdf:about="#RMS">
+        <rdfs:comment
+            >Record Management Store are data structure used to store JME data</rdfs:comment>
+    </DataRecords>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#ReadUserDataFunctionGroup -->
+
+    <FunctionGroups rdf:about="#ReadUserDataFunctionGroup">
+        <rdfs:comment
+            >Read User Data: Set of permissions to read user&#8217;s data like phone book or calendar entries</rdfs:comment>
+    </FunctionGroups>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Recovery -->
+
+    <MechanismType rdf:about="#Recovery"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SANS_Institute -->
+
+    <OrganizationsAndStandards rdf:about="#SANS_Institute"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SD -->
+
+    <rdf:Description rdf:about="#SD">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Multi Media Card</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;Axiom"/>
+        <rdf:subject rdf:resource="#SD"/>
+        <rdf:predicate rdf:resource="&rdf;type"/>
+        <rdf:object rdf:resource="#CardMemory"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Secure Digital Memory Card</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Secret -->
+
+    <ConfidentialityLevel rdf:about="#Secret"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SemanticIntegrity -->
+
+    <IntegrityType rdf:about="#SemanticIntegrity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#SymbianSigned -->
+
+    <CertificationAuthority rdf:about="#SymbianSigned"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TopSecret -->
+
+    <ConfidentialityLevel rdf:about="#TopSecret"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#TypeSafe-Unsafe -->
+
+    <CodingStandards rdf:about="#TypeSafe-Unsafe">
+        <rdfs:comment
+            >Don&#39;t mix type safe and type-unsafe API</rdfs:comment>
+    </CodingStandards>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#VeriSignTesting-BasedACSRootSymbian -->
+
+    <X509Certificate rdf:about="#VeriSignTesting-BasedACSRootSymbian"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#Verisign -->
+
+    <CertificationAuthority rdf:about="#Verisign"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/11/OntologySecurity.owl#WithoutVerification -->
+
+    <AuthenticationLevel rdf:about="#WithoutVerification"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#AccessControl -->
+
+    <VulnThreatAttack:CounterMeasure rdf:about="&VulnThreatAttack;AccessControl"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2009/1/3/VulnThreatAttack.owl#Bluetooth -->
+
+    <VulnThreatAttack:VulnerableServiceAutoStart rdf:about="&VulnThreatAttack;Bluetooth"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Offline"/>
+            <rdf:Description rdf:about="#Parallel"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.962) http://owlapi.sourceforge.net -->
+

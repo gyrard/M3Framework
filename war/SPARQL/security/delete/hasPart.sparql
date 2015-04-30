@@ -1,0 +1,11 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX stac: <http://securitytoolbox.appspot.com/stac#>  
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+
+select distinct ?uri ?label ?comment where{
+	?replace dcterms:hasPart ?uri.
+	?uri rdfs:label ?label.
+ 	?uri rdfs:comment ?comment.
+ }

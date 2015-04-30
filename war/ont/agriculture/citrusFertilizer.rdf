@@ -1,0 +1,3531 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:t="http://franz.com/ns/allegrograph/3.0/temporal/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.cric.cn/2012/simple.rdf/"
+    xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+  xml:base="http://www.cric.cn/2012/simple.rdf/">
+  <owl:Ontology rdf:about="">
+    <spin:imports rdf:resource="http://topbraid.org/spin/rdfsplus"/>
+    <owl:imports rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Class_1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class 1</rdfs:label>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Class_2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class 2</rdfs:label>
+  </rdfs:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Fruit">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >果实</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Condition">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Condition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Symptom">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Symptom</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/BloodOrange">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/SweetOrange"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >血橙</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Method">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fertilization methods</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/CitrusReticulateBlanco">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/CitrusClass"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >宽皮柑橘</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/PlantNutrient">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Plant nutrient</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrange">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/SweetOrange"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/FruitPeel">
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Fruit peel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/NormalSweetOrange">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/SweetOrange"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >普通甜橙</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/LifeCycle">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Life cycle</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Measurement">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Measurement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/LeafVein">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >叶脉</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/AnnualOffyearClass">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/CitrusClass"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Annual offyear class</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/LeafBlade">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >叶片</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeMoisture">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙水分</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Moisture"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Navel orange</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Root">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >根</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Moisture">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeLifeCycle">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙生长期</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/LifeCycle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Trunk">
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >树干</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Others">
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Others</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/IrrigationMethod">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >灌溉方法</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Method"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Purpose">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Purpose</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/BranchTips">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >枝条</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/SoilTypes">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Soil types</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/GrowthCharacteristics">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Fertilization">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >施肥</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Citrus tree</rdfs:label>
+    <soilPHValue>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >柑橘适宜PH值</rdfs:label>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >5.5</quantityMin>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >6.5</quantityMax>
+      </rdfs:Resource>
+    </soilPHValue>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙施肥</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/Fertilization"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/CitrusClass">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Citrus class</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/SweetOrange">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >甜橙</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cric.cn/2012/simple.rdf/CitrusClass"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cric.cn/2012/simple.rdf/Topography">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Topography</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/purpose">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >用途</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fertilization">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fertilization</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fertilizationMethod"/>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/irrigationCoefficient">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >灌溉系数</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/soilType">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >土壤类型</rdfs:label>
+    <rdfs:range rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fertilizationApplied">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >施肥应用于</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/seedNumber">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >种子数</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/sugarContent">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >含糖量</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fruitWeight">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >果重</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/terrain">
+    <rdfs:range rdf:resource="http://www.cric.cn/2012/simple.rdf/Topography"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >地形</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/area"/>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/solubleSolid">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >可溶性固形物</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/period">
+    <rdfs:range rdf:resource="http://www.cric.cn/2012/simple.rdf/LifeCycle"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >period</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/drainageCoefficient">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >排水系数</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/symptom">
+    <rdfs:range rdf:resource="http://www.cric.cn/2012/simple.rdf/Symptom"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >病症</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/yield">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="http://www.cric.cn/2012/simple.rdf/Orchard"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.cric.cn/2012/simple.rdf/acidContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:ObjectProperty>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/yearlyFertilization">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >yearly fertilization</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/growthCharacteristic">
+    <rdfs:range rdf:resource="http://www.cric.cn/2012/simple.rdf/GrowthCharacteristics"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/condition">
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >condition</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/mature">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >成熟</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/numberofApplication">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >numberof application</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/harvest">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >harvest</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/unit">
+    <rdfs:range rdf:resource="http://www.cric.cn/2012/simple.rdf/Measurement"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >unit</rdfs:label>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://www.cric.cn/2012/simple.rdf/solution"/>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/ratioMin">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ratio min</rdfs:label>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/ratio"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/year">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fertilizationCoefficient">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fertilization coefficient</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/ratio">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >比率</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/quantityMin">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/quantity"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >quantity min</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://franz.com/ns/allegrograph/3.0/temporal/starttime">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >starttime</rdfs:label>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://franz.com/ns/allegrograph/3.0/temporal/time"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/age">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >age</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/seedNumberMin">
+    <rdfs:subPropertyOf rdf:resource="http://www.cric.cn/2012/simple.rdf/seedNumber"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >seed number min</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fertilizationCoefficientB">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fertilization coefficient b</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://www.cric.cn/2012/simple.rdf/fertilizationCoefficient"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/quantityMax">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/quantity"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >quantity max</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/fertilizationCoefficientA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cric.cn/2012/simple.rdf/fertilizationCoefficient"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fertilization coefficient a</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://franz.com/ns/allegrograph/3.0/temporal/endtime">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >endtime</rdfs:label>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://franz.com/ns/allegrograph/3.0/temporal/time"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/seedNumberMax">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >seed number max</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://www.cric.cn/2012/simple.rdf/seedNumber"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://franz.com/ns/allegrograph/3.0/temporal/time">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >time</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/birthyear">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >birthyear</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/quantity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >产量</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.cric.cn/2012/simple.rdf/ratioMax">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ratio max</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://www.cric.cn/2012/simple.rdf/ratio"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/AnliuSweetOrange">
+    <rdfs:label>暗柳甜橙</rdfs:label>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/GuangDong">
+        <rdfs:label>广东</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <mature>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >暗柳甜橙成熟期</rdfs:label>
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-11-20</t:starttime>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-12-05</t:endtime>
+      </rdfs:Resource>
+    </mature>
+  </NormalSweetOrange>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_6">
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_6</rdfs:label>
+    <soilType>
+      <SoilTypes rdf:about="http://www.cric.cn/2012/simple.rdf/SandySoil">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >沙质土</rdfs:label>
+      </SoilTypes>
+    </soilType>
+    <terrain>
+      <Topography rdf:about="http://www.cric.cn/2012/simple.rdf/Peak">
+        <fertilizationCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.2</fertilizationCoefficient>
+        <rdfs:label>山顶</rdfs:label>
+      </Topography>
+    </terrain>
+    <harvest>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <unit>
+          <Measurement rdf:about="http://www.cric.cn/2012/simple.rdf/KGMu">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >每亩千克</rdfs:label>
+          </Measurement>
+        </unit>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1630</yield>
+      </rdfs:Resource>
+    </harvest>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2006</birthyear>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_6面积</rdfs:label>
+        <unit>
+          <Measurement rdf:about="http://www.cric.cn/2012/simple.rdf/Mu">
+            <rdfs:label>亩</rdfs:label>
+          </Measurement>
+        </unit>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >50</quantity>
+      </owl:Thing>
+    </area>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+  </Orchard>
+  <rdfs:Resource rdf:about="http://www.cric.cn/2012/simple.rdf/Resource_1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Resource 1</rdfs:label>
+  </rdfs:Resource>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_6">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙萌芽攘质土</rdfs:label>
+    <period>
+      <NavelOrangeLifeCycle rdf:about="http://www.cric.cn/2012/simple.rdf/MengYa">
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-02-20</t:starttime>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >萌芽</rdfs:label>
+        <yearlyFertilization>
+          <rdfs:Resource>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >萌芽期年施肥量</rdfs:label>
+            <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.15</ratioMax>
+            <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.1</ratioMin>
+          </rdfs:Resource>
+        </yearlyFertilization>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-03-10</t:endtime>
+      </NavelOrangeLifeCycle>
+    </period>
+    <soilType>
+      <SoilTypes rdf:about="http://www.cric.cn/2012/simple.rdf/LoamySoil">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >壤质土</rdfs:label>
+      </SoilTypes>
+    </soilType>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</numberofApplication>
+  </NavelOrangeFertilization>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Boron">
+    <rdfs:label>硼</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <symptom>
+          <LeafVein rdf:about="http://www.cric.cn/2012/simple.rdf/MaiJianZhongDaPoLie">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >脉间肿大破裂</rdfs:label>
+          </LeafVein>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/HaiMianCengChanShengJiaoNang">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >海绵层产生胶襄</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/PengLacking1.bmp"/>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiJiXing">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果实畸形</rdfs:label>
+          </Fruit>
+        </symptom>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >初花期叶面喷布0.1%-0.2%硼酸或硼砂</farmerInstruction>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/PengLacking2.bmp"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/HaiMianCengPoLieLiuJiao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >海绵层破裂流胶</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/PengLacking4.bmp"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼素缺乏</rdfs:label>
+        <symptom>
+          <LeafVein rdf:about="http://www.cric.cn/2012/simple.rdf/MaiJianHuangHua">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >脉间黄化</rdfs:label>
+          </LeafVein>
+        </symptom>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiZhongXinZhuChanShengJiaoNang">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果实中心柱产生胶囊</rdfs:label>
+          </Fruit>
+        </symptom>
+        <condition>
+          <Condition rdf:about="http://www.cric.cn/2012/simple.rdf/Lacking">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺乏</rdfs:label>
+          </Condition>
+        </condition>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/PengLacking3.bmp"/>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >适量增施有机肥</farmerInstruction>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00002</ratioMax>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶主脉、侧脉变黄肿大破裂，木栓化；幼叶现透明水浸状斑点；小枝顶枯；老叶变厚、革质。果实畸形，坚硬，皮厚，海绵层产生胶襄，果汁少，果实中心柱有时产生胶囊，海绵层有时破裂流胶</rdfs:comment>
+        <symptom>
+          <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/XiaoZhiKuSi">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >小枝枯死</rdfs:label>
+          </BranchTips>
+        </symptom>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiJianYing">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果实坚硬</rdfs:label>
+          </Fruit>
+        </symptom>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YouYeXianTouMingShuiQinZhuangBanDian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >幼叶现透明水浸状斑点</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/LaoYeBianHouGeZhi">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >老叶变厚革质</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoZhiShao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果汁少</rdfs:label>
+          </Fruit>
+        </symptom>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >土壤施硼，在轻度缺乏时，每亩可施用0.3-0.6kg硼砂；严重缺乏时，亩施1.3kg硼砂</farmerInstruction>
+        <symptom>
+          <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/PiHou">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >皮厚</rdfs:label>
+          </FruitPeel>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼素低量</rdfs:label>
+        <condition>
+          <Condition rdf:about="http://www.cric.cn/2012/simple.rdf/Low">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >低</rdfs:label>
+          </Condition>
+        </condition>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000035</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000021</ratioMin>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼素适中</rdfs:label>
+        <condition>
+          <Condition rdf:about="http://www.cric.cn/2012/simple.rdf/Optimal">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >最适</rdfs:label>
+          </Condition>
+        </condition>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000036</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0001</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼素高</rdfs:label>
+        <condition>
+          <Condition rdf:about="http://www.cric.cn/2012/simple.rdf/High">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >高</rdfs:label>
+          </Condition>
+        </condition>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000101</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0002</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00026</ratioMin>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeXianDuanHuangHua">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶先端黄化</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeJianBanBo">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶间斑驳</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <condition>
+          <Condition rdf:about="http://www.cric.cn/2012/simple.rdf/Excess">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >过量</rdfs:label>
+          </Condition>
+        </condition>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.001</ratioMax>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeBeiXianHeSeShuZhiBanDian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶背显褐色树脂斑点或水泡状突起</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼素过量</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >先叶尖端变黄，继而叶间斑驳；落叶早；叶背显褐色树脂斑点或水泡状突起。严重过量时果汁中总固形物、酸、维生素C</rdfs:comment>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/LuoYe">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >落叶</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/PengExcess.bmp"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <IrrigationMethod rdf:about="http://www.cric.cn/2012/simple.rdf/FurrowIrrigation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >在水源充足的果园，可以利用自然水源或机械抽水、开沟引水灌溉，改方法适用于平地或丘陵梯地果园。沟灌开沟方式有两种，一是树冠滴水线下开环状沟，在行间开大沟，水从大沟流入环沟后逐株浸灌；二是在株行间开沟，并在果园四周开大沟输水。</rdfs:comment>
+    <rdfs:label>沟灌</rdfs:label>
+  </IrrigationMethod>
+  <owl:AnnotationProperty rdf:about="http://www.cric.cn/2012/simple.rdf/soilPHValue">
+    <rdfs:range>
+      <rdfs:Class/>
+    </rdfs:range>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >soil PHValue</rdfs:label>
+  </owl:AnnotationProperty>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Molybdenum">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼素过量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0001</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0004</ratioMax>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >田间条件下，不会发生过量。柑桔植株体内含钼量超过5ppm时，往往会发生钼中毒现象，其症状是叶片上出现灰白色的不规则斑点，并凋萎脱落</rdfs:comment>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianChuXianHuiBaiSeBuGuiZeDian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片上出现灰白色的不规则斑点</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼素高</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000002</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00005</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼素适量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000001</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000001</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼素低量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00000006</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00000009</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺钼作用于土壤</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >适量增施有机肥，土壤每亩施钼酸铵20-35g，最好与过磷酸钙混合施用，或溶解66kg水中灌施于根部</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺钼作用于叶片</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶面喷布0.05%-0.1%钼酸铵</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <symptom>
+          <LeafVein rdf:about="http://www.cric.cn/2012/simple.rdf/MaiJianHuangBan">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >脉间黄斑</rdfs:label>
+          </LeafVein>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianShuiJinZhuang">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片水浸状</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeBeiMianLiuJiao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶背面流胶</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼素缺乏</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00000005</ratioMax>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶片出现黄斑，早春叶片出现水浸状，到夏末发展成较大的脉间黄斑，叶背面流胶</rdfs:comment>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianChuXianHuangBan">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片出现黄斑</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MuLacking.bmp"/>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >钼</rdfs:label>
+  </PlantNutrient>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_5">
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_5</rdfs:label>
+    <soilType>
+      <SoilTypes rdf:about="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >粘质土</rdfs:label>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >粘性土壤可适当减少施肥次数，增加每次的施肥量；</farmerInstruction>
+      </SoilTypes>
+    </soilType>
+    <terrain>
+      <Topography rdf:about="http://www.cric.cn/2012/simple.rdf/Hillside">
+        <fertilizationCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.0</fertilizationCoefficient>
+        <rdfs:label>山腰</rdfs:label>
+      </Topography>
+    </terrain>
+    <harvest>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1150</yield>
+      </rdfs:Resource>
+    </harvest>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2005</birthyear>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_5面积</rdfs:label>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >60</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+      </owl:Thing>
+    </area>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+  </Orchard>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_7">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙稳果攘质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/LoamySoil"/>
+    <period>
+      <NavelOrangeLifeCycle rdf:about="http://www.cric.cn/2012/simple.rdf/WenGuo">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >稳果</rdfs:label>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-05-20</t:endtime>
+        <yearlyFertilization>
+          <rdfs:Resource>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >稳果期年施肥量</rdfs:label>
+            <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.15</ratioMax>
+            <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.1</ratioMin>
+          </rdfs:Resource>
+        </yearlyFertilization>
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-05-10</t:starttime>
+      </NavelOrangeLifeCycle>
+    </period>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberofApplication>
+  </NavelOrangeFertilization>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_8">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙壮果攘质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/LoamySoil"/>
+    <period>
+      <NavelOrangeLifeCycle rdf:about="http://www.cric.cn/2012/simple.rdf/ZhuangGuo">
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-07-20</t:starttime>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >壮果</rdfs:label>
+        <yearlyFertilization>
+          <rdfs:Resource>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >壮果期年施肥量</rdfs:label>
+            <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.7</ratioMax>
+            <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.6</ratioMin>
+          </rdfs:Resource>
+        </yearlyFertilization>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-08-10</t:endtime>
+      </NavelOrangeLifeCycle>
+    </period>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberofApplication>
+  </NavelOrangeFertilization>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_8">
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_8</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <terrain rdf:resource="http://www.cric.cn/2012/simple.rdf/Hillside"/>
+    <harvest>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1470</yield>
+      </rdfs:Resource>
+    </harvest>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2008</birthyear>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_8面积</rdfs:label>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >20</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+      </owl:Thing>
+    </area>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+  </Orchard>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Zinc_sulfate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硫酸锌</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫酸锌根外追肥</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratio>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <fertilizationMethod>
+          <Method rdf:about="http://www.cric.cn/2012/simple.rdf/FoliarFertilization">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶面施肥</rdfs:label>
+          </Method>
+        </fertilizationMethod>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Monopotassium_phosphate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >磷酸二氢钾</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >磷酸二氢钾根外追肥缺素高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0005</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >磷酸二氢钾根外追肥缺素低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0003</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_9">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙采果沙质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <period>
+      <NavelOrangeLifeCycle rdf:about="http://www.cric.cn/2012/simple.rdf/CaiGuo">
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-10-20</t:starttime>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >采果</rdfs:label>
+        <yearlyFertilization>
+          <rdfs:Resource>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >采果期年施肥量</rdfs:label>
+            <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.1</ratioMax>
+            <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.1</ratioMin>
+          </rdfs:Resource>
+        </yearlyFertilization>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-12-15</t:endtime>
+      </NavelOrangeLifeCycle>
+    </period>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberofApplication>
+  </NavelOrangeFertilization>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_7">
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_7</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <terrain>
+      <Topography rdf:about="http://www.cric.cn/2012/simple.rdf/FootoftheMountain">
+        <fertilizationCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.8</fertilizationCoefficient>
+        <rdfs:label>山脚</rdfs:label>
+      </Topography>
+    </terrain>
+    <harvest>
+      <rdfs:Resource>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >580</yield>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+      </rdfs:Resource>
+    </harvest>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2007</birthyear>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_7面积</rdfs:label>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >40</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+      </owl:Thing>
+    </area>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+  </Orchard>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/XinhuiSweetOrange">
+    <solubleSolid>
+      <owl:Thing>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.16</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.13</ratioMin>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >新会甜橙可溶性固形物</rdfs:label>
+      </owl:Thing>
+    </solubleSolid>
+    <purpose>
+      <Purpose rdf:about="http://www.cric.cn/2012/simple.rdf/XianShi">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >鲜食</rdfs:label>
+      </Purpose>
+    </purpose>
+    <seedNumber>
+      <owl:Thing>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >8</quantityMax>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >6</quantityMin>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >新会甜橙单果出种数</rdfs:label>
+      </owl:Thing>
+    </seedNumber>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/ShuGuanBanYuanXing">
+        <rdfs:label>树冠半圆形</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <rdfs:label>新会甜橙</rdfs:label>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/GuangDong"/>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/ZhangShiZhongDeng">
+        <rdfs:label>长势中等</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <mature>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >新会甜橙成熟期</rdfs:label>
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-11-20</t:starttime>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-12-05</t:endtime>
+      </rdfs:Resource>
+    </mature>
+    <acidContent>
+      <owl:Thing>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.7</quantityMax>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.1</quantityMin>
+        <unit>
+          <Measurement rdf:about="http://www.cric.cn/2012/simple.rdf/G100ml">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >克每百毫升</rdfs:label>
+          </Measurement>
+        </unit>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >新会甜橙含酸量</rdfs:label>
+      </owl:Thing>
+    </acidContent>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiYuanXing">
+        <rdfs:label>果实圆形</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <sugarContent>
+      <owl:Thing>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >15</quantityMax>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >11</quantityMin>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/G100ml"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >新会甜橙含糖量</rdfs:label>
+      </owl:Thing>
+    </sugarContent>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiChengHuangSe">
+        <rdfs:label>果皮橙黄色</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+  </NormalSweetOrange>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_2">
+    <terrain rdf:resource="http://www.cric.cn/2012/simple.rdf/Hillside"/>
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_2</rdfs:label>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_2面积</rdfs:label>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >90</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+      </owl:Thing>
+    </area>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2010</birthyear>
+    <geo:location>
+      <geo:Point rdf:about="http://www.cric.cn/2012/simple.rdf/Plantation_1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >种植位置</rdfs:label>
+        <geo:location>
+          <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/忠县">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >忠县</rdfs:label>
+          </geo:SpatialThing>
+        </geo:location>
+      </geo:Point>
+    </geo:location>
+    <harvest>
+      <rdfs:Resource>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >1000</yield>
+      </rdfs:Resource>
+    </harvest>
+  </Orchard>
+  <NavelOrangeMoisture rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeMoisture_1">
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <drainageCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >粘质土排水系数</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.45</ratioMin>
+      </owl:Thing>
+    </drainageCoefficient>
+    <irrigationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >粘质土灌溉系数</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.25</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+      </owl:Thing>
+    </irrigationCoefficient>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >粘质土水分需求</rdfs:label>
+  </NavelOrangeMoisture>
+  <NavelOrangeOrchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_1">
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_1面积</rdfs:label>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >100</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+      </owl:Thing>
+    </area>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <terrain rdf:resource="http://www.cric.cn/2012/simple.rdf/FootoftheMountain"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_1</rdfs:label>
+    <harvest>
+      <rdfs:Resource>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >600</yield>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >柑橘2012年产量</rdfs:label>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+      </rdfs:Resource>
+    </harvest>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/Plantation_1"/>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2012</birthyear>
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/Orchard"/>
+  </NavelOrangeOrchard>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Manganese">
+    <condition>
+      <rdfs:Resource>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratioMax>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MengExcess.bmp"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.001</ratioMin>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeMianChuXianHuaiSiBanDian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶面出现坏死斑点</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锰素过量</rdfs:label>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeYuanFaHuang">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶缘发黄</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiChuXianZiXueJiaoBing">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果皮出现紫血焦病</rdfs:label>
+          </FruitPeel>
+        </symptom>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶缘发黄，中部保持绿色。叶面出现坏死斑点。有时果皮出现紫血焦病</rdfs:comment>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锰素高</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00005</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0005</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锰素适量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000025</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000049</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锰素低量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000181</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000024</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <symptom>
+          <LeafVein rdf:about="http://www.cric.cn/2012/simple.rdf/YeMaiJianChuXianDanHuangSeHuoBaiSeXiaoBanDian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶脉间出现淡绿色淡黄色或白色小斑点或病斑</rdfs:label>
+          </LeafVein>
+        </symptom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锰素缺乏</rdfs:label>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MengLacking3.bmp"/>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺锰作用于叶片</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >在生长旺盛季节（5-6月），每隔7-10天喷叶面喷布0.05%-0.1%硫酸锰，连续喷布2-3次。</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MengLacking2.bmp"/>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoXiao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果小</rdfs:label>
+          </Fruit>
+        </symptom>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺锰作用于土壤</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >对于石灰性土壤缺锰，可增施有机肥料，同时每掺施75-100kg硫磺粉，以降低土壤PH值</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiBianRuan">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果实变软</rdfs:label>
+          </Fruit>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MengLacking1.bmp"/>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000018</ratioMax>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶脉间出现参差不齐的淡绿色、淡黄色或白色小斑点或病斑；叶片症状在树阴面更为常见。果实变小变软</rdfs:comment>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianZhengZhuangZaiShuYinMian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片症状在树阴面</rdfs:label>
+          </LeafBlade>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >锰</rdfs:label>
+  </PlantNutrient>
+  <NavelOrangeMoisture rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeMoisture_2">
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/LoamySoil"/>
+    <rdfs:label>壤质土水分需求</rdfs:label>
+    <irrigationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >壤质土灌溉系数</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.15</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+      </owl:Thing>
+    </irrigationCoefficient>
+    <drainageCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >壤质土排水系数</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.42</ratioMin>
+      </owl:Thing>
+    </drainageCoefficient>
+  </NavelOrangeMoisture>
+  <owl:AnnotationProperty rdf:about="http://www.cric.cn/2012/simple.rdf/farmerInstruction">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >farmer instruction</rdfs:label>
+  </owl:AnnotationProperty>
+  <NavelOrangeMoisture rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeMoisture_3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >砂质土水分需求</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <irrigationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >砂质土灌溉系数</rdfs:label>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.05</ratioMax>
+      </owl:Thing>
+    </irrigationCoefficient>
+    <drainageCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >砂质土排水系数</rdfs:label>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.4</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1</ratioMax>
+      </owl:Thing>
+    </drainageCoefficient>
+  </NavelOrangeMoisture>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/HamlinSweetOrange">
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/ZhiTiaoMiSheng">
+        <rdfs:label>枝条密生</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/HuNan">
+        <rdfs:label>湖南</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <rdfs:label>哈姆林甜橙</rdfs:label>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/GuangDong"/>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiShenChengSe">
+        <rdfs:label>果皮深橙色</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <growthCharacteristic rdf:resource="http://www.cric.cn/2012/simple.rdf/ShuGuanBanYuanXing"/>
+    <seedNumber>
+      <owl:Thing>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >4</quantityMax>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3</quantityMin>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >哈姆林甜橙单果出种数</rdfs:label>
+      </owl:Thing>
+    </seedNumber>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/XiaoZhiCuZhuang">
+        <rdfs:label>小枝粗壮</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <solubleSolid>
+      <owl:Thing>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.11</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.12</ratioMax>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >哈姆林甜橙含可溶性固形物</rdfs:label>
+      </owl:Thing>
+    </solubleSolid>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/RouZhiHuaZha">
+        <rdfs:label>肉质化渣</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <purpose>
+      <Purpose rdf:about="http://www.cric.cn/2012/simple.rdf/JiaGongZhiZhi">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >加工制汁</rdfs:label>
+      </Purpose>
+    </purpose>
+    <growthCharacteristic rdf:resource="http://www.cric.cn/2012/simple.rdf/ZhangShiZhongDeng"/>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/America">
+        <rdfs:label>美国</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/GuangXi">
+        <rdfs:label>广西</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/YeDuanCi">
+        <rdfs:label>叶短刺</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <growthCharacteristic rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiYuanXing"/>
+    <fruitWeight>
+      <owl:Thing>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.14</quantityMax>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.09</quantityMin>
+        <unit>
+          <Measurement rdf:about="http://www.cric.cn/2012/simple.rdf/KG">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >KG</rdfs:label>
+          </Measurement>
+        </unit>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >哈姆林甜橙果重</rdfs:label>
+      </owl:Thing>
+    </fruitWeight>
+    <purpose rdf:resource="http://www.cric.cn/2012/simple.rdf/XianShi"/>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/SiChuan">
+        <rdfs:label>四川</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <mature>
+      <rdfs:Resource>
+        <t:time rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-10-20</t:time>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >哈姆林甜橙的成熟期</rdfs:label>
+      </rdfs:Resource>
+    </mature>
+  </NormalSweetOrange>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_4">
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_4</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <terrain rdf:resource="http://www.cric.cn/2012/simple.rdf/FootoftheMountain"/>
+    <harvest>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >900</yield>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+      </rdfs:Resource>
+    </harvest>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2005</birthyear>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_4面积</rdfs:label>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >70</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+      </owl:Thing>
+    </area>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+  </Orchard>
+  <NavelOrangeOrchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_3">
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_3面积</rdfs:label>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >80</quantity>
+      </owl:Thing>
+    </area>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <harvest>
+      <rdfs:Resource>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KGMu"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >2012年产量</rdfs:label>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2012</year>
+        <yield rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >2000</yield>
+      </rdfs:Resource>
+    </harvest>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/Plantation_1"/>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2005</birthyear>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_3</rdfs:label>
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/Orchard"/>
+    <terrain rdf:resource="http://www.cric.cn/2012/simple.rdf/Peak"/>
+  </NavelOrangeOrchard>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Magnesium_sulfate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硫酸镁</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫酸镁根外追肥</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Ammonium_molybdate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >钼酸铵</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼酸铵根外追肥缺素低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0005</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钼酸铵根外追肥缺素高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.001</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Borax">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼砂根外追肥缺素程度低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.001</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼砂根外追肥缺素程度高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+    <yearlyFertilization>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >施用花前萌芽肥之硼砂</rdfs:label>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >0.1</quantity>
+      </rdfs:Resource>
+    </yearlyFertilization>
+    <rdfs:label>硼砂</rdfs:label>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Copper">
+    <condition>
+      <rdfs:Resource>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/CeGenZengCuChengHeSe">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >侧根增粗呈褐色</rdfs:label>
+          </Others>
+        </symptom>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >柑桔发生铜过剩症，多由于反复使用波尔多液所致。发生铜时过剩时，表现大量落叶，小枝枯死，在叶片上未见有病斑或灼伤症状，但有时会呈缺铁失绿症，侧根增粗呈褐色，会导致减产和红蜘蛛的猖獗为害。</rdfs:comment>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/HongZhiZhuChangJue">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >红蜘蛛猖獗</rdfs:label>
+          </Others>
+        </symptom>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/XiaoZhiKuSi"/>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/ChengQueTieShiLvZheng">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >呈缺铁失绿症</rdfs:label>
+          </Others>
+        </symptom>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铜素过量</rdfs:label>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/JianChan">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >减产</rdfs:label>
+          </Others>
+        </symptom>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.1</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >铜</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铜素高</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000013</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000019</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铜素适量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000005</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000012</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铜素低</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000037</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000049</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <symptom>
+          <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/XinShaoJianDuanKuSi">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >新梢尖端枯死</rdfs:label>
+          </BranchTips>
+        </symptom>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/XiaQiuShaoPiBuChanShengPaoZhuangHeSeJiaoZhuangWu">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >夏秋梢皮部产生泡状褐色胶状物</rdfs:label>
+          </Others>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/TongLacking2.bmp"/>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >当土壤代换性铜在0.5ppm以下时，每亩可用2.5kg的硫酸铜水溶液全面喷施。通常喷布硫酸铜比土壤施硫酸铜效果更好</farmerInstruction>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺铜作用于叶片</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >用0.2%-0.4%硫酸铜液或结合防治病害喷布波尔多液</suggestion>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >当土壤代换性铜在0.5ppm以下时，每亩可用2.5kg的硫酸铜水溶液全面喷施。通常喷布硫酸铜比土壤施硫酸铜效果更好。</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铜素缺乏</rdfs:label>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/XiaoZhiKuSi"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >枝叶曲折畸形生长，呈“S”形，新梢尖端枯死，新抽生的夏秋梢皮部产生泡状，泡内积满褐色胶状物质，严重时枝梢枯死</rdfs:comment>
+        <symptom>
+          <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/ZhiYeQuZheJiXingShengZhangChengSXing">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >枝叶曲折畸形生长呈S形</rdfs:label>
+          </BranchTips>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/TongLacking1.bmp"/>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >用0.2%-0.4%硫酸铜液或结合防治病害喷布波尔多液</farmerInstruction>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000036</ratioMax>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Ammonium_sulfate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硫酸铵</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫酸铵根外追肥</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0003</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Organicfertilizer">
+    <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+    <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >2.5</quantityMin>
+    <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >3.5</quantityMax>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >有机肥</rdfs:label>
+  </PlantNutrient>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙采果粘质土</rdfs:label>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/CaiGuo"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</numberofApplication>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+  </NavelOrangeFertilization>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Sulfur">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫素过量</rdfs:label>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianTuoLuoZao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片脱落早</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0061</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianChuXianBanBoBianHuangHuoChengHeSe">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片出现斑驳变黄或变成褐色</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.019</ratioMax>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianShengZhangLiangJianShao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片生长量减少</rdfs:label>
+          </LeafBlade>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫素高</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.006</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.004</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫素适量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0039</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫素低量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0019</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00141</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫素缺乏</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0014</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/LiuLacking.bmp"/>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label>硫</rdfs:label>
+  </PlantNutrient>
+  <Method rdf:about="http://www.cric.cn/2012/simple.rdf/ShenWa">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >深挖</rdfs:label>
+  </Method>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙萌芽粘质土</rdfs:label>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/MengYa"/>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</numberofApplication>
+  </NavelOrangeFertilization>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙稳果粘质土</rdfs:label>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/WenGuo"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</numberofApplication>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+  </NavelOrangeFertilization>
+  <IrrigationMethod rdf:about="http://www.cric.cn/2012/simple.rdf/WaterIrrigation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >当水源不足、梯面不平时采用人力或浇灌灌溉。在树冠滴水线下开圈形、弧形或长方形浅沟，也可与施肥结合，滴水后及时盖上。该法简单易行，但费工、费事，适合小规模橘园</rdfs:comment>
+    <rdfs:label>浇灌</rdfs:label>
+  </IrrigationMethod>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Zinc">
+    <condition>
+      <rdfs:Resource>
+        <symptom>
+          <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/ZhiRuoChengCongShengZhuang">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >枝弱呈丛生状</rdfs:label>
+          </BranchTips>
+        </symptom>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶面喷布0.1%-0.2%硫酸锌，一般喷施1-3次，每次可间隔10-15天</farmerInstruction>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoXiao"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/PiHou"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/XinLacking2.bmp"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/XinLacking3.bmp"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeRouTuiLv">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶肉退绿</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeXiao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶小</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000018</ratioMax>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >石灰性土壤适量施用生理酸性肥料，如硫酸铵，硫酸钾等</farmerInstruction>
+        <symptom>
+          <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiSeQian">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果皮色浅</rdfs:label>
+          </FruitPeel>
+        </symptom>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiJiXing"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/XinLacking1.bmp"/>
+        <farmerInstruction rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >适量增施有机肥</farmerInstruction>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >枝条顶端叶片叶肉退绿，叶小枝弱，呈丛生状；果实小而扁平，严重时畸形，果皮色浅，维生素C减少。甜橙有时皮厚，果肉木质化。</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锌素缺乏</rdfs:label>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoRouMuZhiHua">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果肉木质化</rdfs:label>
+          </Fruit>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锌素过量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00021</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0004</ratioMax>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >一般栽培管理条件下不会发生。当锌肥施用过多时，柑桔会出现叶片灼伤，落叶，枯梢等症状。当叶片中锌含量达到200ppm或100ppm以上时，特别是伴有缺铁失绿黄化病并发时，有可能是锌过剩。</rdfs:comment>
+        <symptom>
+          <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/KuShao">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >枯梢</rdfs:label>
+          </BranchTips>
+        </symptom>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianChuXianZhuoShaoZhengZhuang">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片出现灼伤症状</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锌素高</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00005</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0002</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锌素适量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000025</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000049</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锌素低量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000181</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000024</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >锌</rdfs:label>
+  </PlantNutrient>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_4">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙壮果粘质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/ZhuangGuo"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</numberofApplication>
+  </NavelOrangeFertilization>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Potassium_chloride">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >氯化钾</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >氯化钾根外追肥缺素高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.005</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >氯化钾根外追肥缺素低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.003</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <AnnualOffyearClass rdf:about="http://www.cric.cn/2012/simple.rdf/NormalYearTree">
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >正常树氮施肥系数</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0075</ratio>
+        <fertilization>
+          <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Nitrogen">
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >氮素适量</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.025</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.027</ratioMax>
+              </rdfs:Resource>
+            </condition>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >3年树施氮量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >3</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.21</quantity>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoXiao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/XiaoZhiKuSi"/>
+                <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/DanLacking.bmp"/>
+                <farmerInstruction>
+                  <rdfs:Resource>
+                    <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >缺氮作用于叶片</rdfs:label>
+                    <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >叶面喷布尿素（03%-0.5%）、硝酸钾（0.5%）等，少量多次</suggestion>
+                  </rdfs:Resource>
+                </farmerInstruction>
+                <solution>
+                  <rdfs:Resource>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >氮素缺乏防治方法1</rdfs:label>
+                    <fertilizationApplied>
+                      <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Potassium_nitrate">
+                        <condition>
+                          <rdfs:Resource>
+                            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >硝酸钾根外追肥缺素程度低</rdfs:label>
+                            <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.005</ratio>
+                            <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+                            <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+                          </rdfs:Resource>
+                        </condition>
+                        <condition>
+                          <rdfs:Resource>
+                            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >硝酸钾根外追肥缺素程度高</rdfs:label>
+                            <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.01</ratio>
+                            <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+                            <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+                          </rdfs:Resource>
+                        </condition>
+                        <rdfs:label>硝酸钾</rdfs:label>
+                      </PlantNutrient>
+                    </fertilizationApplied>
+                    <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+                    <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >0.005</ratio>
+                  </rdfs:Resource>
+                </solution>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >叶小黄化，枝条纤细，小枝枯死。座果率低，果实光滑，果小皮薄，着色提早，含酸量稍低；轻度缺乏品质改善。</rdfs:comment>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >氮素缺乏</rdfs:label>
+                <symptom>
+                  <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/ZhiTiaoXianXi">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >枝条纤细</rdfs:label>
+                  </BranchTips>
+                </symptom>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeXiao"/>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiZhuoSeTiZao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果实着色提早</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.022</ratioMax>
+                <farmerInstruction>
+                  <rdfs:Resource>
+                    <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >缺氮作用于土壤</rdfs:label>
+                    <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >适量施用氮肥，同时增加农家肥料用量</suggestion>
+                  </rdfs:Resource>
+                </farmerInstruction>
+                <solution>
+                  <rdfs:Resource>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >氮素缺乏防治方法2</rdfs:label>
+                    <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >0.005</ratioMax>
+                    <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >0.003</ratioMin>
+                    <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+                    <fertilizationApplied>
+                      <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Urea">
+                        <condition>
+                          <rdfs:Resource>
+                            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >尿素根外追肥缺素低</rdfs:label>
+                            <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.0003</ratio>
+                            <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+                            <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+                          </rdfs:Resource>
+                        </condition>
+                        <condition>
+                          <rdfs:Resource>
+                            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >尿素根外追肥缺素高</rdfs:label>
+                            <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.0005</ratio>
+                            <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+                            <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+                          </rdfs:Resource>
+                        </condition>
+                        <yearlyFertilization>
+                          <rdfs:Resource>
+                            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >施花前萌芽肥之尿素</rdfs:label>
+                            <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.5</quantityMax>
+                            <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                            <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >0.35</quantityMin>
+                            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/MengYa"/>
+                          </rdfs:Resource>
+                        </yearlyFertilization>
+                        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >尿素</rdfs:label>
+                      </PlantNutrient>
+                    </fertilizationApplied>
+                  </rdfs:Resource>
+                </solution>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiBiaoPiGuangHua">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果实表皮光滑</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <symptom>
+                  <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/ZuoGuoLvDi">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >座果率低</rdfs:label>
+                  </Fruit>
+                </symptom>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0</ratioMin>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/PiBao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >皮薄</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <symptom>
+                  <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeHuangHua">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >叶黄化</rdfs:label>
+                  </LeafBlade>
+                </symptom>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+                <symptom>
+                  <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiHanSuanLiangDi">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果实含酸量低</rdfs:label>
+                  </Fruit>
+                </symptom>
+              </rdfs:Resource>
+            </condition>
+            <condition>
+              <rdfs:Resource>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.1</ratioMax>
+                <symptom>
+                  <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/ZhiCu">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >枝粗</rdfs:label>
+                  </BranchTips>
+                </symptom>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >枝繁叶茂，容易徒长；叶大枝粗，叶色浓绿；花量减少，座果率低；果皮粗厚，果型增大，着色推迟，可溶性固形物和维生素C减少，果实酸度增高</rdfs:comment>
+                <symptom>
+                  <Symptom rdf:about="http://www.cric.cn/2012/simple.rdf/YeDa">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >叶大</rdfs:label>
+                  </Symptom>
+                </symptom>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiZhuoSeTuiChi">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果实着色推迟</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <symptom>
+                  <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiSuanDuZengGao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果实酸度增高</rdfs:label>
+                  </Fruit>
+                </symptom>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.03</ratioMin>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >氮素过量</rdfs:label>
+                <symptom>
+                  <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YeSeNongLv">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >叶色浓绿</rdfs:label>
+                  </LeafBlade>
+                </symptom>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+                <symptom>
+                  <Others rdf:about="http://www.cric.cn/2012/simple.rdf/HuaShao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >花少</rdfs:label>
+                  </Others>
+                </symptom>
+                <symptom>
+                  <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoXingZengDa">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果型增大</rdfs:label>
+                  </Fruit>
+                </symptom>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/ZuoGuoLvDi"/>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiCuCao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果皮粗糙</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/PiHou"/>
+                <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/DanExcess.bmp"/>
+                <symptom>
+                  <Others rdf:about="http://www.cric.cn/2012/simple.rdf/TuZhang">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >徒长</rdfs:label>
+                  </Others>
+                </symptom>
+              </rdfs:Resource>
+            </condition>
+            <fertilizationCoefficientB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.00286</fertilizationCoefficientB>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >4年树施氮量</rdfs:label>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >4</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.28</quantity>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >氮素高</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.03</ratioMax>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.028</ratioMin>
+              </rdfs:Resource>
+            </condition>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >1年树施氮量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.07</quantity>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</age>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >氮</rdfs:label>
+            <fertilizationCoefficientA rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.00000357</fertilizationCoefficientA>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >2年树施氮量</rdfs:label>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >2</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.14</quantity>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >成年树施氮量</rdfs:label>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.007</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.01</ratioMax>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >5</age>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >氮素低量</rdfs:label>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.022</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0245</ratioMax>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+              </rdfs:Resource>
+            </condition>
+          </PlantNutrient>
+        </fertilization>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >正常树钾施肥系数</rdfs:label>
+        <fertilization>
+          <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Potassium">
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >钾素低量</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0071</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.011</ratioMax>
+              </rdfs:Resource>
+            </condition>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >成年树施钾量</rdfs:label>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.35</ratioMax>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.25</ratioMin>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >钾素高</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.023</ratioMax>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.018</ratioMin>
+              </rdfs:Resource>
+            </condition>
+            <fertilizationCoefficientB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.00143</fertilizationCoefficientB>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >1年树施钾量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.05</quantity>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >钾素适量</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.017</ratioMax>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.012</ratioMin>
+              </rdfs:Resource>
+            </condition>
+            <condition>
+              <rdfs:Resource>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.024</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.1</ratioMax>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoZhiShao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/PiHou"/>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >叶片出现灼伤症状，并影响镁锌的吸收。果大皮厚粗糙，着色推迟，皱皮果减少，维生素C和酸含量增加，固形物和果汁减少。</rdfs:comment>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >钾素过量</rdfs:label>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiSuanDuZengGao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoPiCuCao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoXingZengDa"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiZhuoSeTuiChi"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YePianChuXianZhuoShaoZhengZhuang"/>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/ZhouPiGuoJianShao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >皱皮果减少</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+              </rdfs:Resource>
+            </condition>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >4年树施钾量</rdfs:label>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >4</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.125</quantity>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoXiao"/>
+                <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/JiaLacking3.bmp"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeHuangHua"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiBiaoPiGuangHua"/>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >叶小，花后大量落叶，叶片绿色浅或变黄，小枝枯死。果小而光滑，皮薄，着色快，酸稍少，果汁含量提高，裂果和皱皮果增多</rdfs:comment>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/LieGuoHeZhouPiGuoZengDuo">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >裂果和皱皮果增多</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+                <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/JiaLacking2.bmp"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeXiao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/PiBao"/>
+                <symptom>
+                  <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoZhiHanLiangTiGao">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果汁含量提高</rdfs:label>
+                  </Fruit>
+                </symptom>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0</ratioMin>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiZhuoSeKuai">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果实着色快</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <farmerInstruction>
+                  <rdfs:Resource>
+                    <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >缺钾作用于叶片</rdfs:label>
+                    <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >叶面喷布用1%-3%草木灰浸出液或0.3%-0.5%磷酸二氢钾或0.4%硝酸钾或0.4%硫酸钾，少量多次</suggestion>
+                  </rdfs:Resource>
+                </farmerInstruction>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+                <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/JiaLacking1.bmp"/>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.002</ratioMax>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiHanSuanLiangDi"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/XiaoZhiKuSi"/>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >钾素缺乏</rdfs:label>
+                <farmerInstruction>
+                  <rdfs:Resource>
+                    <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >缺钾作用于土壤</rdfs:label>
+                    <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >适量施用钾肥（硫酸钾和氯化钾，注：因柑桔属忌氯作物，使用氯化钾时，需要灌水以淋失氯离子）和农家肥料</suggestion>
+                  </rdfs:Resource>
+                </farmerInstruction>
+              </rdfs:Resource>
+            </condition>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >钾</rdfs:label>
+            <fertilizationCoefficientA rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.00000429</fertilizationCoefficientA>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >3年树施钾量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >3</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.1</quantity>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >2年树施钾量</rdfs:label>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >2</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.075</quantity>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+              </rdfs:Resource>
+            </yearlyFertilization>
+          </PlantNutrient>
+        </fertilization>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00675</ratio>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >正常树</rdfs:label>
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >正常树磷施肥系数</rdfs:label>
+        <fertilization>
+          <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Phosphorus">
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >2年树施磷量</rdfs:label>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >2</age>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.026</quantity>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <fertilizationCoefficientB rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.00014</fertilizationCoefficientB>
+            <condition>
+              <rdfs:Resource>
+                <symptom>
+                  <BranchTips rdf:about="http://www.cric.cn/2012/simple.rdf/XinShaoXianRuo">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >新梢纤弱</rdfs:label>
+                  </BranchTips>
+                </symptom>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0</ratioMin>
+                <symptom>
+                  <FruitPeel rdf:about="http://www.cric.cn/2012/simple.rdf/ZhuoSeJiaoShen">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >着色较深</rdfs:label>
+                  </FruitPeel>
+                </symptom>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.009</ratioMax>
+                <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/LinLacking.bmp"/>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >磷素缺乏</rdfs:label>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/HuaShao"/>
+                <farmerInstruction>
+                  <rdfs:Resource>
+                    <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >缺磷作用于叶片</rdfs:label>
+                    <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >叶面喷布1%过磷酸钙或磷酸铵或0.3%-0.5%磷酸二氢钾，少量多次</suggestion>
+                  </rdfs:Resource>
+                </farmerInstruction>
+                <symptom>
+                  <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoRouDuo">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >果肉多</rdfs:label>
+                  </Fruit>
+                </symptom>
+                <symptom>
+                  <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/LaoYeChengXianGuTongSe">
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >老叶呈现古铜色</rdfs:label>
+                  </LeafBlade>
+                </symptom>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiSuanDuZengGao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoZhiShao"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiJiXing"/>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+                <farmerInstruction>
+                  <rdfs:Resource>
+                    <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+                    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >缺磷作用于土壤</rdfs:label>
+                    <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >适量土壤施用磷肥（放射磷或磷矿粉）和农家肥料</suggestion>
+                  </rdfs:Resource>
+                </farmerInstruction>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >　　花期老叶大量脱落，老叶古铜色；花少；新梢纤弱。果皮稍粗厚，着色较深，浮皮有时皱缩；汁少肉多，酸和维生素C增加。脐橙缺磷果实稍畸形。</rdfs:comment>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/PiHou"/>
+                <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiZhuoSeTuiChi"/>
+              </rdfs:Resource>
+            </condition>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >3年树施磷量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >3</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.026</quantity>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >4年树施磷量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.026</quantity>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >4</age>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >磷</rdfs:label>
+            <fertilizationCoefficientA rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >0.00000393</fertilizationCoefficientA>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >1年树施磷量</rdfs:label>
+                <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+                <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >1</age>
+                <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+                >0.026</quantity>
+              </rdfs:Resource>
+            </yearlyFertilization>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >磷素高</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0017</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0029</ratioMax>
+              </rdfs:Resource>
+            </condition>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >磷素低量</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0091</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.001</ratioMax>
+              </rdfs:Resource>
+            </condition>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >磷素适量</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0016</ratioMax>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.0012</ratioMin>
+              </rdfs:Resource>
+            </condition>
+            <condition>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >磷素过量</rdfs:label>
+                <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+                <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.003</ratioMin>
+                <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >0.006</ratioMax>
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >一般不会对磷吸收过量而直接产生危害，但会影响其它一些营养元素的吸收。</rdfs:comment>
+              </rdfs:Resource>
+            </condition>
+            <yearlyFertilization>
+              <rdfs:Resource>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >成年树施磷量</rdfs:label>
+              </rdfs:Resource>
+            </yearlyFertilization>
+          </PlantNutrient>
+        </fertilization>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.004875</ratio>
+      </owl:Thing>
+    </fertilizationCoefficient>
+  </AnnualOffyearClass>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Ammonium_nitrate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硝酸铵</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硝酸铵根外追肥缺素低</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratio>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硝酸铵根外追肥缺素高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.003</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_5">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙采果攘质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/LoamySoil"/>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/CaiGuo"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</numberofApplication>
+  </NavelOrangeFertilization>
+  <AnnualOffyearClass rdf:about="http://www.cric.cn/2012/simple.rdf/BumperYearTree">
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <fertilization rdf:resource="http://www.cric.cn/2012/simple.rdf/Nitrogen"/>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.01</ratio>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >大年树氮施肥系数</rdfs:label>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <fertilization rdf:resource="http://www.cric.cn/2012/simple.rdf/Phosphorus"/>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.008</ratio>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >大年树磷施肥系数</rdfs:label>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >大年树钾施肥系数</rdfs:label>
+        <fertilization rdf:resource="http://www.cric.cn/2012/simple.rdf/Potassium"/>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.01</ratio>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >大年树</rdfs:label>
+  </AnnualOffyearClass>
+  <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiGuangHua">
+    <rdfs:label>果皮光滑</rdfs:label>
+  </GrowthCharacteristics>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Magnesium">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >镁素过量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.02</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.008</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >田间条件下还没有发现镁过量现象，一旦镁过多，会严重减弱根系生长，并使地上部叶片黄化，叶片边缘呈灼烧状。</rdfs:comment>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YePianChuXianZhuoShaoZhengZhuang"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeHuangHua"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >镁素高</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.007</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.005</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >镁素适量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0049</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.003</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >镁素低量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0029</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0021</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MeiLacking1.bmp"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MeiLacking2.bmp"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianYeYuanXiangNeiTuiSeChengDaoVZi">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片的叶缘向内褪色呈倒V字</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MeiLacking3.bmp"/>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratioMax>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/MaiJianHuangBan"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺镁作用于土壤</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >酸性土每亩施含镁石灰50-60公斤，或施钙镁磷50-60公斤</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoXiao"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/MeiLacking4.bmp"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/JianChan"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶脉或主脉两侧出现黄色斑块，或由叶缘向内褪色，最后在叶基部残留界限分明的倒V字型绿色。果小产量低。</rdfs:comment>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺镁作用于叶片</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶面喷布0.5%-1.0%硫酸镁或1%硝酸镁</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >镁素缺乏</rdfs:label>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label>镁</rdfs:label>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/ChemicalFertilizer">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >化肥</rdfs:label>
+  </PlantNutrient>
+  <IrrigationMethod rdf:about="http://www.cric.cn/2012/simple.rdf/SprinklingIrrigation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >利用水泵、管道系统及喷头等设备，在一定压力下将水喷到空中分散成小水滴来灌溉果园。喷灌分移动式和固定式两种，将管道系统埋于地下，按一定距离设置喷头进行空中喷灌，也可在每一行铺设胶管，每隔一定距离打孔进行低喷，效果良好</rdfs:comment>
+    <rdfs:label>喷灌</rdfs:label>
+  </IrrigationMethod>
+  <AnnualOffyearClass rdf:about="http://www.cric.cn/2012/simple.rdf/OffYearTree">
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <fertilization rdf:resource="http://www.cric.cn/2012/simple.rdf/Potassium"/>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.004</ratio>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >小年树钾施肥系数</rdfs:label>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >小年树</rdfs:label>
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <fertilization rdf:resource="http://www.cric.cn/2012/simple.rdf/Phosphorus"/>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0025</ratio>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >小年树磷施肥系数</rdfs:label>
+      </owl:Thing>
+    </fertilizationCoefficient>
+    <fertilizationCoefficient>
+      <owl:Thing>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.005</ratio>
+        <fertilization rdf:resource="http://www.cric.cn/2012/simple.rdf/Nitrogen"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >小年树氮施肥系数</rdfs:label>
+      </owl:Thing>
+    </fertilizationCoefficient>
+  </AnnualOffyearClass>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/JinchengOrange">
+    <growthCharacteristic rdf:resource="http://www.cric.cn/2012/simple.rdf/RouZhiHuaZha"/>
+    <mature>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锦橙成熟期</rdfs:label>
+        <t:starttime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-11-20</t:starttime>
+        <t:endtime rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-12-10</t:endtime>
+      </rdfs:Resource>
+    </mature>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/SiChuan"/>
+    <solubleSolid>
+      <owl:Thing>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.99999</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.11</ratioMin>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锦橙可溶性固形物</rdfs:label>
+      </owl:Thing>
+    </solubleSolid>
+    <seedNumber>
+      <owl:Thing>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >6.5</quantity>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锦橙单果出种数</rdfs:label>
+      </owl:Thing>
+    </seedNumber>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/GuoPiChengHong">
+        <rdfs:label>果皮橙红</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/ChongQing">
+        <rdfs:label>重庆</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/ZhangShiQiangZhuang">
+        <rdfs:label>长势强壮</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <sugarContent>
+      <owl:Thing>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >10</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/G100ml"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锦橙含糖量</rdfs:label>
+      </owl:Thing>
+    </sugarContent>
+    <rdfs:label>锦橙</rdfs:label>
+    <acidContent>
+      <owl:Thing>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >0.9</quantity>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/G100ml"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >锦橙含酸量</rdfs:label>
+      </owl:Thing>
+    </acidContent>
+    <purpose rdf:resource="http://www.cric.cn/2012/simple.rdf/JiaGongZhiZhi"/>
+    <growthCharacteristic>
+      <GrowthCharacteristics rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiTuoXing">
+        <rdfs:label>果实椭形</rdfs:label>
+      </GrowthCharacteristics>
+    </growthCharacteristic>
+    <fruitWeight>
+      <owl:Thing>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.137</quantityMax>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.09</quantityMin>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >新会甜橙果重</rdfs:label>
+      </owl:Thing>
+    </fruitWeight>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/HuBei">
+        <rdfs:label>湖北</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <purpose rdf:resource="http://www.cric.cn/2012/simple.rdf/XianShi"/>
+  </NormalSweetOrange>
+  <IrrigationMethod rdf:about="http://www.cric.cn/2012/simple.rdf/TrickleIrrigation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >将水通过一定压力的管道和滴头，缓慢渗入果树根系土层中，使土壤保持柑橘生长最适状态。使用地狱广。各种立地条件均可采用</rdfs:comment>
+    <rdfs:label>滴灌</rdfs:label>
+  </IrrigationMethod>
+  <owl:AnnotationProperty rdf:about="http://www.cric.cn/2012/simple.rdf/orchardName">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >由用户自己输入的果园名，便于用户在界面输入时，系统能够快速自动填入果园名</rdfs:comment>
+  </owl:AnnotationProperty>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_12">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙壮果攘质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/ZhuangGuo"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberofApplication>
+  </NavelOrangeFertilization>
+  <Method rdf:about="http://www.cric.cn/2012/simple.rdf/Fertigation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >滴灌施肥</rdfs:label>
+  </Method>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_11">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙稳果攘质土</rdfs:label>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/WenGuo"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberofApplication>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+  </NavelOrangeFertilization>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Boric_acid">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硼酸</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼酸根外追肥缺素高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硼酸根外追肥缺素低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.001</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Manganese_sulfate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硫酸锰</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫酸锰根外追肥</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0002</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/Tangor">
+    <rdfs:label>广柑 雪柑</rdfs:label>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/GuangDong"/>
+    <geo:location>
+      <geo:SpatialThing rdf:about="http://www.cric.cn/2012/simple.rdf/FuJian">
+        <rdfs:label>福建</rdfs:label>
+      </geo:SpatialThing>
+    </geo:location>
+    <mature>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >广柑成熟期</rdfs:label>
+        <t:time rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-11-20</t:time>
+      </rdfs:Resource>
+    </mature>
+  </NormalSweetOrange>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/TaoyeOrange">
+    <rdfs:label>桃叶橙</rdfs:label>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/HuBei"/>
+    <mature>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >桃叶橙成熟期</rdfs:label>
+        <t:time rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-11-17</t:time>
+      </rdfs:Resource>
+    </mature>
+  </NormalSweetOrange>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Superphosphate">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >过磷酸钙根外追肥缺素程度高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.02</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >过磷酸钙根外追肥缺素程度低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.01</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+    <yearlyFertilization>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >施用花前萌芽肥之过磷酸钙</rdfs:label>
+        <quantityMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.5</quantityMin>
+        <quantityMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1</quantityMax>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/KG"/>
+      </rdfs:Resource>
+    </yearlyFertilization>
+    <rdfs:label>过磷酸钙</rdfs:label>
+  </PlantNutrient>
+  <NormalSweetOrange rdf:about="http://www.cric.cn/2012/simple.rdf/BingtangOrange">
+    <rdfs:label>冰糖橙</rdfs:label>
+    <geo:location rdf:resource="http://www.cric.cn/2012/simple.rdf/HuNan"/>
+    <mature>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >冰糖橙成熟期</rdfs:label>
+        <t:time rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+        >2013-11-20</t:time>
+      </rdfs:Resource>
+    </mature>
+  </NormalSweetOrange>
+  <NavelOrangeFertilization rdf:about="http://www.cric.cn/2012/simple.rdf/NavelOrangeFertilization_10">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >脐橙萌芽攘质土</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/SandySoil"/>
+    <period rdf:resource="http://www.cric.cn/2012/simple.rdf/MengYa"/>
+    <numberofApplication rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</numberofApplication>
+  </NavelOrangeFertilization>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Calcium">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钙素过量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.1</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.07</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >田间条件下，很少有钙过量现象发生，一旦钙过量时常使土壤变成碱性，造成锰、锌、铁、硼等缺乏。</rdfs:comment>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/MengXinTiePengDengQueFa">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >锰锌铁硼等缺乏</rdfs:label>
+          </Others>
+        </symptom>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/TuDiJianXing">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >土壤碱性</rdfs:label>
+          </Others>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钙素高</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.06</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.046</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钙素适量</rdfs:label>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.03</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.045</ratioMax>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钙素低量</rdfs:label>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.029</ratioMax>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0151</ratioMin>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.015</ratioMax>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/GaiLacking2.bmp"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/GaiLacking3.bmp"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeHuangHua"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianBianXia">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片变狭</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeXianDuanHuangHua"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/GaiLacking1.bmp"/>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺钙作用于土壤</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >土壤施石灰100-200公斤/亩，调节土壤pH值5.5-6.5为宜</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/MaiJianHuangHua"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeYuanFaHuang"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/LeafBlade"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺钙作用于叶片</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >花期叶面喷布1%-2%过磷酸钙或0.3%-0.5%硝酸钙</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >钙素缺乏</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <symptom>
+          <Others rdf:about="http://www.cric.cn/2012/simple.rdf/GenFu">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >根腐</rdfs:label>
+          </Others>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >钙</rdfs:label>
+  </PlantNutrient>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Ferrum">
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铁素过量</rdfs:label>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/LuoYe"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00025</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0004</ratioMax>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >一般栽培管理条件下不会发生。当喷施硫酸亚铁或Fe-EDTA过多或使用浓度过高时，柑桔叶片和果实因铁过剩而受害，叶片上出现红褐色锈斑，严重时叶片上出现小孔，果实脱落，落叶严重</rdfs:comment>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Excess"/>
+        <symptom>
+          <LeafBlade rdf:about="http://www.cric.cn/2012/simple.rdf/YePianChuXianHongHeSeXiuBanXiaoKong">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >叶片上出现红褐色锈斑甚至小孔</rdfs:label>
+          </LeafBlade>
+        </symptom>
+        <symptom>
+          <Fruit rdf:about="http://www.cric.cn/2012/simple.rdf/GuoShiTuoLuo">
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >果实脱落</rdfs:label>
+          </Fruit>
+        </symptom>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铁素高</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/High"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00013</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0002</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铁素适量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Optimal"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00005</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.00012</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铁素低量</rdfs:label>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0000351</ratioMin>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.000049</ratioMax>
+      </rdfs:Resource>
+    </condition>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >铁</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiBiaoPiGuangHua"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/ZuoGuoLvDi"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoShiSuanDuZengGao"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/GuoXiao"/>
+        <ratioMin rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0</ratioMin>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/TieLacking2.bmp"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >铁素缺乏</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >叶肉退绿，叶脉保持绿色，严重时仅主脉保持绿色；叶片提早脱落。果实小而光滑，座果率低，固形物减少，酸含量提高</rdfs:comment>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/Trunk"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺铁作用于树干</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >主干注入：将柠檬酸铁和硫酸亚铁溶液注入主干</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <ratioMax rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.035</ratioMax>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YeRouTuiLv"/>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/Root"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺铁作用于树根</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >根部埋瓶吸入，将细根折断后，浸入盛有4%柠檬酸和6%硫酸亚铁的混合液中，使铁通过折断的伤口，随着水分蒸腾作用进入体内运输到各部位。（5）靠接换根 对患缺铁症的桔树，在主干部位靠接对铁吸收利用率市制砧本品种，如构头橙，本地早、朱栾等。在树冠下主干附近靠接2-3株枸头橙等2年生砧木，春季在主干上，具有良好的矫正效果</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/TieLacking3.bmp"/>
+        <rdfs:seeAlso rdf:resource="file:///C:/tmp/pictures/TieLacking1.bmp"/>
+        <symptom rdf:resource="http://www.cric.cn/2012/simple.rdf/YePianTuoLuoZao"/>
+        <farmerInstruction>
+          <rdfs:Resource>
+            <fertilizationApplied rdf:resource="http://www.cric.cn/2012/simple.rdf/SoilTypes"/>
+            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >缺铁作用于土壤</rdfs:label>
+            <suggestion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >每亩平均施硫磺粉15-20kg，另施硫酸铵，硫酸钾等酸性肥料酸化土壤。每株柑桔施用15-20g铁的螯合物（酸性土壤用Fe－EDTA，钙质土用Fe-EDDHA）。此外，每亩还可以施用腐殖酸一类的土壤改良剂25-35kg和硫酸亚铁或柠檬酸铁3.5-4kg，施入根际层土壤中。</suggestion>
+          </rdfs:Resource>
+        </farmerInstruction>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <Orchard rdf:about="http://www.cric.cn/2012/simple.rdf/Orchard_9">
+    <orchardName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >orchardname</orchardName>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Orchard_9</rdfs:label>
+    <soilType rdf:resource="http://www.cric.cn/2012/simple.rdf/ArgillaceousSoil"/>
+    <terrain rdf:resource="http://www.cric.cn/2012/simple.rdf/Peak"/>
+    <birthyear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2009</birthyear>
+    <area>
+      <owl:Thing>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Orchard_9面积</rdfs:label>
+        <unit rdf:resource="http://www.cric.cn/2012/simple.rdf/Mu"/>
+        <quantity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+        >30</quantity>
+      </owl:Thing>
+    </area>
+    <rdf:type rdf:resource="http://www.cric.cn/2012/simple.rdf/NavelOrangeOrchard"/>
+  </Orchard>
+  <Method rdf:about="http://www.cric.cn/2012/simple.rdf/SoilFertilization">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >土壤施肥</rdfs:label>
+  </Method>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Magnesium_nitrate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硝酸镁</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硝酸镁根外追肥</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.002</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <Measurement rdf:about="http://www.cric.cn/2012/simple.rdf/L">
+    <rdfs:label>升</rdfs:label>
+  </Measurement>
+  <Method rdf:about="http://www.cric.cn/2012/simple.rdf/YinGenShenRu">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >引根深入</rdfs:label>
+  </Method>
+  <PlantNutrient rdf:about="http://www.cric.cn/2012/simple.rdf/Copper_sulfate">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >硫酸铜</rdfs:label>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫酸铜根外追肥缺素高</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0002</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Lacking"/>
+      </rdfs:Resource>
+    </condition>
+    <condition>
+      <rdfs:Resource>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >硫酸铜根外追肥缺素低</rdfs:label>
+        <ratio rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.0001</ratio>
+        <fertilizationMethod rdf:resource="http://www.cric.cn/2012/simple.rdf/FoliarFertilization"/>
+        <condition rdf:resource="http://www.cric.cn/2012/simple.rdf/Low"/>
+      </rdfs:Resource>
+    </condition>
+  </PlantNutrient>
+  <owl:AnnotationProperty rdf:about="http://www.cric.cn/2012/simple.rdf/suggestion">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >suggestion</rdfs:label>
+  </owl:AnnotationProperty>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

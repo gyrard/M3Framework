@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY home "http://sensormeasurement.appspot.com/ont/m3/home#"> 
+         <!ENTITY home-dataset "http://sensormeasurement.appspot.com/dataset/home-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY Habitat_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#">
+      	 <!ENTITY m3	"http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         <!ENTITY dogont "http://elite.polito.it/ontologies/dogont.owl#">
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&home-dataset;"
+        xml:base="&home-dataset;"
+        xmlns:home-dataset="&home-dataset;"
+        xmlns:home="&home;"
+        xmlns:foaf="&foaf;"
+        xmlns:acco="&acco;"
+        xmlns:m3="&m3;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:Habitat_SH_Ontology="&Habitat_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:dogont="&dogont;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+ 
+        <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+ 
+ 	<!-- ################################################ LUMISOSITY ############################################################################ -->
+	
+	<home:Status rdf:about="HighLighting">		
+		<rdfs:label xml:lang="en">HighLighting</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:Luminosity greaterThan 750 and LowerThan 2000 m3:Lux THEN HighLighting [Rodriguez 2014]</dc:description>				
+	</home:Status>
+	
+	<home:Status rdf:about="MediumLighting">		
+		<rdfs:label xml:lang="en">MediumLighting</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Luminosity greaterThan 150 and LowerThan 750 m3:Lux THEN MediumLighting [Rodriguez 2014]</dc:description>				
+	</home:Status>
+	
+	<home:Status rdf:about="LowLighting">		
+		<rdfs:label xml:lang="en">LowLighting</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:Luminosity greaterThan 20 and LowerThan 150 m3:Lux THEN LowLighting [Rodriguez 2014]</dc:description>				
+	</home:Status>
+	
+	 	<!-- ################################################ SOUND ############################################################################ -->
+	
+	<home:Status rdf:about="HighSound">		
+		<rdfs:label xml:lang="en">HighSound</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:Sound greaterThan 90 and LowerThan 110 m3:Decibel THEN HighSound [Rodriguez 2014]</dc:description>				
+	</home:Status>
+	
+	<home:Status rdf:about="MediumSound">		
+		<rdfs:label xml:lang="en">MediumSound</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Sound greaterThan 40 and LowerThan 90 m3:Decibel THEN MediumSound [Rodriguez 2014]</dc:description>				
+	</home:Status>
+	
+	<home:Status rdf:about="LowSound">		
+		<rdfs:label xml:lang="en">LowSound</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:Sound greaterThan 30 and LowerThan 40 m3:Decibel THEN LowSound [Rodriguez 2014]</dc:description>				
+	</home:Status>
+	
+	<!-- ################################################ SEASON ############################################################################ -->
+
+	<home:Room rdf:about="Bedroom">		
+		<rdfs:label xml:lang="en">Bedroom</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&Habitat_SH_Ontology;Bedroom"/>
+	</home:Room>
+			
+	<home:Room rdf:about="Garden">		
+		<rdfs:label xml:lang="en">Garden</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&dogont;Garden"/>
+	</home:Room>
+	
+	<home:Room rdf:about="Garage">		
+		<rdfs:label xml:lang="en">Garage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&dogont;Garage"/>
+	</home:Room>
+	
+	<home:Room rdf:about="Bathroom">		
+		<rdfs:label xml:lang="en">Bathroom</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&Habitat_SH_Ontology;Bathroom"/>
+	</home:Room>
+	
+	<home:Room rdf:about="Dining_room">		
+		<rdfs:label xml:lang="en">Dining_room</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&Habitat_SH_Ontology;Dining_room"/>
+	</home:Room>
+	
+	<home:Room rdf:about="Kitchen">		
+		<rdfs:label xml:lang="en">Kitchen </rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See LOV4IoT [Liming Chen et al., 2013] [Wongpatikseree et al. 2013]</dc:description>	
+		<rdf:type rdf:resource="&Habitat_SH_Ontology;Kitchen"/>
+	</home:Room>
+	
+	<home:Room rdf:about="Living_room">		
+		<rdfs:label xml:lang="en">Living_room</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&Habitat_SH_Ontology;Living_room"/>
+	</home:Room>
+	
+	<!-- ################################################ FURNITURE ############################################################################ -->
+	
+	<home:Status rdf:about="SwitchOffLight">		
+		<rdfs:label xml:lang="en">SwitchOffLight</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&home-dataset;NobodyInTheRoom"/> 	
+	</home:Status>
+	
+	<home:Status rdf:about="SwitchOnLight">		
+		<rdfs:label xml:lang="en">SwitchOnLight</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&home-dataset;SomeoneInTheRoom"/> 	
+	</home:Status>
+	
+	<home:Status rdf:about="SwitchOnAirConditioning">		
+		<rdfs:label xml:lang="en">Switch On Air Conditioning</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</home:Status>
+	
+	<home:Status rdf:about="SwitchOffAirConditioning">		
+		<rdfs:label xml:lang="en">Switch Off Air Conditioning</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</home:Status>
+	
+	<home:Status rdf:about="SwitchOffHeating">		
+		<rdfs:label xml:lang="en">Switch Off Heating</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</home:Status>
+	
+	<home:Status rdf:about="SwitchOnHeating">		
+		<rdfs:label xml:lang="en">Switch On Heating</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</home:Status>
+	
+	<home:Status rdf:about="NobodyInTheRoom">		
+		<rdfs:label xml:lang="en">NobodyInTheRoom</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>				
+	</home:Status>
+	
+	<home:Status rdf:about="SomeoneInTheRoom">		
+		<rdfs:label xml:lang="en">SomeoneInTheRoom</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>		
+	</home:Status>
+	
+	<!-- ################################################ TEMPERATURE ############################################################################ -->
+	
+	<home:Status rdf:about="BelowOrZeroTemperature">		
+		<rdfs:label xml:lang="en">BelowOrZeroTemperature</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 				
+	</home:Status>
+	
+	<home:Status rdf:about="Frost">		
+		<rdfs:label xml:lang="en">Frost</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan -25 m3:DegreeCelsius AND lessThan 0 m3:DegreeCelsius THEN Frost [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 				
+	</home:Status>
+	
+	<home:Status rdf:about="ExtremeFrost">		
+		<rdfs:label xml:lang="en">ExtremeFrost</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature lessThan -25 m3:DegreeCelsius THEN ExtremeFrost [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 				
+	</home:Status>
+	
+	<home:Status rdf:about="ExtremeHeat">		
+		<rdfs:label xml:lang="en">ExtremeHeat</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan 37 m3:DegreeCelsius THEN ExtremeHeat [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 			
+	</home:Status>
+	
+	<home:Status rdf:about="AboveRoomTemperature">		
+		<rdfs:label xml:lang="en">AboveRoomTemperature</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan 25 AND lessThan 30  m3:DegreeCelsius THEN AboveRoomTemperature [Kofler 2011]</dc:description>					
+		<m3:hasRecommendation rdf:resource="&home-dataset;SwitchOffHeating"/> 
+		<m3:hasRecommendation rdf:resource="&home-dataset;SwitchOnAirConditioning"/> 
+	</home:Status>
+	
+	<home:Status rdf:about="BelowRoomTemperature">		
+		<rdfs:label xml:lang="en">BelowRoomTemperature</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan 10 AND lessThan 20 m3:DegreeCelsius THEN BelowRoomTemperature [Kofler 2011]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&home-dataset;SwitchOnHeating"/> 
+		<m3:hasRecommendation rdf:resource="&home-dataset;SwitchOffAirConditioning"/> 		
+	</home:Status>
+	
+	<home:Status rdf:about="RoomTemperature">		
+		<rdfs:label xml:lang="en">RoomTemperature</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan 20 m3:DegreeCelsius AND lessThan 25 m3:DegreeCelsius THEN RoomTemperature [Kofler 2011]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&m3;NothingAnormal"/> 			
+	</home:Status>
+	
+	<home:Status rdf:about="AboveZeroTemperature">		
+		<rdfs:label xml:lang="en">AboveZeroTemperature</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan 0 m3:DegreeCelsius THEN AboveZeroTemperature [Kofler 2011]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&m3;Alert"/> 			
+	</home:Status>
+	
+	<home:Status rdf:about="Heat">		
+		<rdfs:label xml:lang="en">Heat</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">IF m3:Temperature greaterThan 30 m3:DegreeCelsius THEN Heat [Kofler 2011]</dc:description>	
+		<m3:hasRecommendation rdf:resource="&home-dataset;SwitchOnAirConditioning"/> 		
+	</home:Status>
+	
+	<!-- ################################################ ACTIVITY LIMING CHEN ############################################################################ -->
+	
+	<home:Activity rdf:about="MakeCoffee">		
+		<rdfs:label xml:lang="en">MakeCoffee</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See LOV4IoT[Liming Chen et al., December 2013], [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="HaveBath">		
+		<rdfs:label xml:lang="en">HaveBath</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See LOV4IoT[Liming Chen et al., December 2013], [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="WatchTV">		
+		<rdfs:label xml:lang="en">WatchTV</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See LOV4IoT[Liming Chen et al., December 2013], [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="MakeChocolate">		
+		<rdfs:label xml:lang="en">MakeChocolate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: Ontology-based activity recognition framework and services. [Liming Chen et al., December 2013]</dc:description>			
+	</home:Activity>
+	
+		<home:Activity rdf:about="BrushTeeth">		
+		<rdfs:label xml:lang="en">BrushTeeth</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: Ontology-based activity recognition framework and services. [Liming Chen et al., December 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="MakeTea">		
+		<rdfs:label xml:lang="en">MakeTea</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: Ontology-based activity recognition framework and services. [Liming Chen et al., December 2013]</dc:description>			
+	</home:Activity>
+	
+		<home:Activity rdf:about="MakePasta">		
+		<rdfs:label xml:lang="en">MakePasta</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: Ontology-based activity recognition framework and services. [Liming Chen et al., December 2013]</dc:description>			
+	</home:Activity>
+	
+	<!-- ################################################ ACTIVITY KONLAKORN ############################################################################ -->
+	
+	<home:Activity rdf:about="SweepingFloor">		
+		<rdfs:label xml:lang="en">SweepingFloor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>	
+	
+	<home:Activity rdf:about="WorkingComputer">		
+		<rdfs:label xml:lang="en">WorkingComputer</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="SittingToilet">		
+		<rdfs:label xml:lang="en">SittingToilet</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="WashDishes">		
+		<rdfs:label xml:lang="en">WashDishes</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="ScrubbingFloor">		
+		<rdfs:label xml:lang="en">ScrubbingFloor</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="ReadingBook">		
+		<rdfs:label xml:lang="en">ReadingBook</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="LyingDownRelaxing">		
+		<rdfs:label xml:lang="en">LyingDownRelaxing</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="Cooking">		
+		<rdfs:label xml:lang="en">Cooking</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="Eating">		
+		<rdfs:label xml:lang="en">Eating</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="Drinking">		
+		<rdfs:label xml:lang="en">Drinking</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+	<home:Activity rdf:about="Sleeping">		
+		<rdfs:label xml:lang="en">Sleeping</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Paper: A context aware information in smart home for health recommendation service based on care architecture. [Konlakorn Wongpatikseree et al. 2013]</dc:description>			
+	</home:Activity>
+	
+</rdf:RDF>

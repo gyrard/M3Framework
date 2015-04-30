@@ -1,0 +1,2487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY nat "http://sensormeasurement.appspot.com/naturopathy-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">  
+         <!ENTITY emoca "http://ns.inria.fr/emoca/">  
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY health "http://sensormeasurement.appspot.com/ont/m3/health#"> 
+         <!ENTITY health-dataset "http://sensormeasurement.appspot.com/dataset/health-dataset/"> 
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&nat;"
+        xml:base="&nat;"
+        xmlns:nat="&nat;"
+        xmlns:foaf="&foaf;"
+        xmlns:m3="&m3;"
+        xmlns:naturopathy="&naturopathy;"
+        xmlns:health-dataset="&health-dataset;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:emoca="&emoca;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:obo="&obo;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+	           
+       <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+  	           
+	<!-- Mapping Emotion to color Nijdam et al. 2009-->      
+	
+	     
+    <naturopathy:Fruit rdf:about="Peach">
+    	<rdfs:label xml:lang="fr">Peche</rdfs:label>
+    	<rdfs:label xml:lang="en">Peach</rdfs:label>
+        <rdf:type rdf:resource="&food;Peach"/>
+        <rdf:type rdf:resource="&naturopathy;Food"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+            
+    <naturopathy:Food rdf:about="Walnut">
+		<rdfs:label xml:lang="en">Walnut</rdfs:label>
+		<rdfs:label xml:lang="fr">Noix</rdfs:label>
+		<rdf:type rdf:resource="&food;Walnut"/>
+	    <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+    </naturopathy:Food>
+	
+	<!-- ################################################ SEASON ############################################################################ -->
+
+	<naturopathy:Season rdf:about="Winter">		
+		<rdfs:label xml:lang="en">Winter</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_season;Winter"/>
+	</naturopathy:Season>
+	
+	<naturopathy:Season rdf:about="Spring">		
+		<rdfs:label xml:lang="en">Spring</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_season;Spring"/>
+	</naturopathy:Season>
+	
+	<naturopathy:Season rdf:about="Summer">		
+		<rdfs:label xml:lang="en">Summer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_season;Summer"/>
+	</naturopathy:Season>
+
+	<naturopathy:Season rdf:about="Autumn">		
+		<rdfs:label xml:lang="en">Autumn</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_season;Autumn"/>
+	</naturopathy:Season>
+	
+		<!-- ################################################ COLOR and EMOTION ############################################################################ -->
+		<!-- ########################## A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. ################################ -->
+		
+	<naturopathy:Color rdf:about="Yellow">		
+		<rdfs:label xml:lang="en">Yellow</rdfs:label>
+		<rdfs:label xml:lang="fr">Jaune</rdfs:label>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes, Shirley Willet and Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Fear"/>
+		<m3:hasRecommendation rdf:resource="Happiness"/>
+		<m3:hasRecommendation rdf:resource="Joy"/>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Orange_Color">		
+		<rdfs:label xml:lang="en">Orange color</rdfs:label>
+		<rdfs:label xml:lang="fr">Orange color</rdfs:label>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Happiness"/>
+		<m3:hasRecommendation rdf:resource="Joy"/>
+		<m3:hasRecommendation rdf:resource="Shame"/>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Green">		
+		<rdfs:label xml:lang="en">Green</rdfs:label>
+		<rdfs:label xml:lang="fr">Vert</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Von Goethe, Claudia Cortes, Shirley Willet, Wheel Pro and Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Calm"/>
+		<m3:hasRecommendation rdf:resource="Hope"/>
+		<m3:hasRecommendation rdf:resource="Comfortable"/>	
+		<m3:hasRecommendation rdf:resource="Greed"/>	
+	</naturopathy:Color>
+
+	<naturopathy:Color rdf:about="Blue">		
+		<rdfs:label xml:lang="en">Blue</rdfs:label>
+		<rdfs:label xml:lang="fr">Bleu</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes, Shirley Willet and Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Calm"/>
+		<m3:hasRecommendation rdf:resource="Sadness"/>
+		<m3:hasRecommendation rdf:resource="Confident"/>
+		<m3:hasRecommendation rdf:resource="Confusion"/>
+		<m3:hasRecommendation rdf:resource="Trust"/>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Gray">		
+		<rdfs:label xml:lang="en">Gray</rdfs:label>
+		<rdfs:label xml:lang="fr">Gris</rdfs:label>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Depressed"/>
+		<m3:hasRecommendation rdf:resource="Boredom"/>
+		<m3:hasRecommendation rdf:resource="Confusion"/>
+		<m3:hasRecommendation rdf:resource="Sadness"/>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Black">		
+		<rdfs:label xml:lang="en">Black</rdfs:label>
+		<rdfs:label xml:lang="fr">Noir</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro and Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Depressed"/>
+		<m3:hasRecommendation rdf:resource="Fear"/>
+		<m3:hasRecommendation rdf:resource="Power"/>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="White">		
+		<rdfs:label xml:lang="en">White</rdfs:label>
+		<rdfs:label xml:lang="fr">Blanc</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Calm"/>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Purple">		
+		<rdfs:label xml:lang="en">Purple</rdfs:label>
+		<rdfs:label xml:lang="fr">Violet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Shirley Willet, Naz Kaya color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Tired"/>
+		<m3:hasRecommendation rdf:resource="Power"/>
+		<m3:hasRecommendation rdf:resource="Sadness"/>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Red">		
+		<rdfs:label xml:lang="en">Red</rdfs:label>
+		<rdfs:label xml:lang="fr">Rouge</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Claudia Cortes, Naz Kaya, Shirley Willet color summary.</dc:description>
+		<m3:hasRecommendation rdf:resource="Anger"/>
+		<m3:hasRecommendation rdf:resource="Love"/>		
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Pink">		
+		<rdfs:label xml:lang="en">Pink</rdfs:label>
+		<rdfs:label xml:lang="fr">Rose</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Color>
+	
+	<naturopathy:Color rdf:about="Brown">		
+		<rdfs:label xml:lang="en">Brown</rdfs:label>
+		<rdfs:label xml:lang="fr">Marron</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Color>
+	
+	<!-- ################################################ naturopathy:Disease ############################################################################ -->
+
+	<naturopathy:Disease rdf:about="Headache">		
+		<rdfs:label xml:lang="en">Headache</rdfs:label>
+		<rdfs:label xml:lang="fr">Mal de tete</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Cough">		
+		<rdfs:label xml:lang="en">Cough</rdfs:label>
+		<rdfs:label xml:lang="fr">Toux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Appendictis">		
+		<rdfs:label xml:lang="en">Appendictis</rdfs:label>
+		<rdfs:label xml:lang="fr">Appendicite</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Emphysema">		
+		<rdfs:label xml:lang="en">Emphysema</rdfs:label>
+		<rdfs:label xml:lang="fr">Emphyseme</rdfs:label>
+		<rdfs:comment xml:lang="en">Emphysema is a lung disease</rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Glaucoma">		
+		<rdfs:label xml:lang="en">Glaucoma</rdfs:label>
+		<rdfs:label xml:lang="fr">Glaucome</rdfs:label>
+		<rdfs:comment xml:lang="en">Glaucoma is an eye disease</rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Psychic_disease">		
+		<rdfs:label xml:lang="en">Psychic disease</rdfs:label>
+		<rdfs:label xml:lang="fr">Maladie mentale</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Ulcer">		
+		<rdfs:label xml:lang="en">Ulcer</rdfs:label>
+		<rdfs:label xml:lang="fr">Ulcere</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Urinary_incontinence">		
+		<rdfs:label xml:lang="en">Urinary incontinence</rdfs:label>
+		<rdfs:label xml:lang="fr">Incontinence urinaire</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Stroke">		
+		<rdfs:label xml:lang="en">Stroke</rdfs:label>
+		<rdfs:label xml:lang="fr">Accident vasculaire cerebral ou AVC</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Acne">		
+		<rdfs:label xml:lang="en">Acne</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Pimple">		
+		<rdfs:label xml:lang="en">Pimple</rdfs:label>
+		<rdfs:label xml:lang="fr">Bouton</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Infertility">		
+		<rdfs:label xml:lang="en">Infertility</rdfs:label>
+		<rdfs:label xml:lang="fr">Infertilite</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Toothache">		
+		<rdfs:label xml:lang="en">Toothache</rdfs:label>
+		<rdfs:label xml:lang="fr">Mal aux dents</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="WeightLoss">		
+		<rdfs:label xml:lang="en">Weight loss</rdfs:label>
+		<rdfs:label xml:lang="fr">Perte de poids</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="BadBreath">		
+		<rdfs:label xml:lang="en">Bad breath</rdfs:label>
+		<rdfs:label xml:lang="fr">Mauvaise respiration</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Digestion">		
+		<rdfs:label xml:lang="en">Digestion, ingestion or stomach pain</rdfs:label>
+		<rdfs:label xml:lang="fr">Probleme de digestion ou douleur a l estomac</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Hypoglycemie">		
+		<rdfs:label xml:lang="en">Hypoglycemie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&OntoReaChir;Hypoglycemie"/>
+	</naturopathy:Disease>
+	
+		 
+	 <!-- Mineral -->
+	 
+	 <naturopathy:Mineral rdf:about="Magnesium">		
+		<rdfs:label xml:lang="en">Magnesium</rdfs:label>
+		<rdfs:comment xml:lang="en">Magnesium is recommended for depression, anxiety, hyperexcability, convulsions, memory loss and happiness. See paper Magnesium for treatment-resistant depression: A review and hyptothesis [Eby et al 2009]</rdfs:comment>
+		<dc:description xml:lang="en">Magnesium is recommended for depression, anxiety, hyperexcability, convulsions, memory loss and happiness. See paper Magnesium for treatment-resistant depression: A review and hyptothesis [Eby et al 2009]</dc:description>
+		<m3:hasRecommendation rdf:resource="Depression"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+		<m3:hasRecommendation rdf:resource="Sadness"/>
+		<m3:hasRecommendation rdf:resource="Happiness"/>
+		<m3:hasRecommendation rdf:resource="Depressed"/>
+	</naturopathy:Mineral> 
+	
+	<naturopathy:Mineral rdf:about="Potassium">		
+		<rdfs:label xml:lang="en">Potassium</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Mineral> 
+	
+	<naturopathy:Mineral rdf:about="Sodium">		
+		<rdfs:label xml:lang="en">Sodium</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Mineral> 
+	
+	<naturopathy:Mineral rdf:about="Calcium">		
+		<rdfs:label xml:lang="en">Calcium</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<naturopathy:isGoodFor rdf:resource="Bone"/>
+		<naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+	</naturopathy:Mineral> 
+	
+	<!-- OligoElement -->
+	
+	<naturopathy:OligoElement rdf:about="Zinc">		
+		<rdfs:label xml:lang="en">Zinc</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <m3:hasRecommendation rdf:resource="Skin"/>
+	</naturopathy:OligoElement> 
+	
+	<naturopathy:OligoElement rdf:about="Iron">		
+		<rdfs:label xml:lang="en">Iron</rdfs:label>
+		<rdfs:label xml:lang="en">Fer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:OligoElement>
+	
+	<naturopathy:OligoElement rdf:about="Copper">		
+		<rdfs:label xml:lang="en">Copper</rdfs:label>
+		<rdfs:label xml:lang="en">Cuivre</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:OligoElement>
+	
+	<!-- Vitamin -->
+
+	<naturopathy:Vitamin rdf:about="VitaminA">		
+		<rdfs:label xml:lang="en">Vitamin A</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Vitamin>
+	
+	<naturopathy:Vitamin rdf:about="VitaminB">		
+		<rdfs:label xml:lang="en">Vitamin B</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="Stress"/>
+		<m3:hasRecommendation rdf:resource="Sadness"/>
+	</naturopathy:Vitamin>
+		    
+    <naturopathy:Vitamin rdf:about="VitaminC">		
+		<rdfs:label xml:lang="en">Vitamin C</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="Cold"/>
+		<m3:hasRecommendation rdf:resource="Flu"/>
+	</naturopathy:Vitamin>
+	
+	<naturopathy:Vitamin rdf:about="VitaminD">		
+		<rdfs:label xml:lang="en">Vitamin D</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Vitamin>
+	
+	<naturopathy:Vitamin rdf:about="VitaminE">		
+		<rdfs:label xml:lang="en">Vitamin E</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Vitamin>	
+	
+	<naturopathy:Vitamin rdf:about="VitaminK">		
+		<rdfs:label xml:lang="en">Vitamin K</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Vitamin>
+	
+	 <naturopathy:Vitamin rdf:about="VitaminP">		
+		<rdfs:label xml:lang="en">Vitamin P</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Vitamin>
+	
+	<!-- Omega -->
+	
+	<naturopathy:Omega rdf:about="Omega3">		
+		<rdfs:label xml:lang="en">Omega 3</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="Depression"/>
+		<m3:hasRecommendation rdf:resource="Cold"/>
+		<m3:hasRecommendation rdf:resource="Flu"/>
+		<m3:hasRecommendation rdf:resource="Headache"/>
+	</naturopathy:Omega>
+	
+	<naturopathy:Omega rdf:about="Omega6">		
+		<rdfs:label xml:lang="en">Omega 6</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="Cold"/>
+		<m3:hasRecommendation rdf:resource="Flu"/>
+	</naturopathy:Omega>
+	
+	<naturopathy:Nutrient rdf:about="Protein">		
+		<rdfs:label xml:lang="en">Protein</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="Muscle"/>
+		<m3:hasRecommendation rdf:resource="Ligament"/>
+		<m3:hasRecommendation rdf:resource="Sport"/>
+	</naturopathy:Nutrient>
+		
+	<naturopathy:Nutrient rdf:about="FattyAcid">		
+		<rdfs:label xml:lang="en">Fatty Acid</rdfs:label>
+		<rdfs:label xml:lang="fr">AcideGras</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Nutrient>
+		
+	 <naturopathy:Nutrient rdf:about="Fiber">		
+		<rdfs:label xml:lang="en">Fiber</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Nutrient>
+	
+	 <naturopathy:Nutrient rdf:about="Fat">		
+		<rdfs:label xml:lang="en">Fat</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Nutrient>
+	
+	<naturopathy:Nutrient rdf:about="Carbohydrate">		
+		<rdfs:label xml:lang="en">Carbohydrate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Nutrient>
+	
+	<naturopathy:Nutrient rdf:about="Lactose">		
+		<rdfs:label xml:lang="en">Lactose</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+	</naturopathy:Nutrient>
+	
+	<!-- Emotion -->
+			
+	<naturopathy:Emotion rdf:about="Sadness">		
+		<rdfs:label xml:lang="en">Sadness</rdfs:label>
+		<rdfs:label xml:lang="fr">Tristesse</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000056"/>
+		<rdf:type rdf:resource="&emoca;Sadness"/>	
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Hope">		
+		<rdfs:label xml:lang="en">Hope, hopeful</rdfs:label>
+		<rdfs:label xml:lang="fr">Espoir, plein d'espoir, optimiste</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000177"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Tired">		
+		<rdfs:label xml:lang="en">Tired, Fatigue</rdfs:label>
+		<rdfs:label xml:lang="fr">Fatigue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000080"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Comfortable">		
+		<rdfs:label xml:lang="en">Comfortable, feeling at ease</rdfs:label>
+		<rdfs:label xml:lang="fr">Se sentir a l'aise</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000107"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Calm">		
+		<rdfs:label xml:lang="en">Calme</rdfs:label>
+		<rdfs:label xml:lang="fr">Calme</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000114"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Inspiration">		
+		<rdfs:label xml:lang="en">Inspiration</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000178"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Anger">		
+		<rdfs:label xml:lang="en">Anger, Agressive</rdfs:label>
+		<rdfs:label xml:lang="fr">Colere</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000009"/>
+		<rdf:type rdf:resource="&emoca;Anger"/>	
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Irritation">		
+		<rdfs:label xml:lang="en">Irritation</rdfs:label>
+		<rdfs:label xml:lang="fr">Irritation, agacement, vexation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000011"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Grief">		
+		<rdfs:label xml:lang="en">Grief</rdfs:label>
+		<rdfs:label xml:lang="fr">Douleur, malheur, chagrin, peine, amertume</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_MFOEM_000016"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Contempt">		
+		<rdfs:label xml:lang="en">Contempt</rdfs:label>
+		<rdfs:label xml:lang="fr">Mepris</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000018"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Disgust">		
+		<rdfs:label xml:lang="en">Disgust</rdfs:label>
+		<rdfs:label xml:lang="fr">Degout</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000019"/>
+		<rdf:type rdf:resource="&emoca;Disgust"/>	
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Hate">		
+		<rdfs:label xml:lang="en">Hate</rdfs:label>
+		<rdfs:label xml:lang="fr">Haine</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000024"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Joy">		
+		<rdfs:label xml:lang="en">Joy</rdfs:label>
+		<rdfs:label xml:lang="fr">Joie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000034"/>
+		<rdf:type rdf:resource="&emoca;Joy"/>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>	
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Jealousy">		
+		<rdfs:label xml:lang="en">Jealousy</rdfs:label>
+		<rdfs:label xml:lang="fr">Jalousie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000025"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Fear">		
+		<rdfs:label xml:lang="en">Fear</rdfs:label>
+		<rdfs:label xml:lang="fr">Peur, crainte</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000026"/>
+		<rdf:type rdf:resource="&emoca;Fear"/>	
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Confident">		
+		<rdfs:label xml:lang="en">Confident</rdfs:label>
+		<rdfs:label xml:lang="fr">Confiant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000156"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Anxiety">		
+		<rdfs:label xml:lang="en">Anxiety</rdfs:label>
+		<rdfs:label xml:lang="fr">Anxieux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000028"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Stress">		
+		<rdfs:label xml:lang="en">Stress</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000029"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Despair">		
+		<rdfs:label xml:lang="en">Despair</rdfs:label>
+		<rdfs:label xml:lang="fr">Desespoir</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000030"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Surprise">		
+		<rdfs:label xml:lang="en">Surprise</rdfs:label>
+		<rdfs:label xml:lang="fr">Etonne</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000032"/>
+		<rdf:type rdf:resource="&emoca;Surprise"/>		
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Interest">		
+		<rdfs:label xml:lang="en">Interest</rdfs:label>
+		<rdfs:label xml:lang="fr">Interet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000033"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Pleasure">		
+		<rdfs:label xml:lang="en">Pleasure</rdfs:label>
+		<rdfs:label xml:lang="fr">Plaisir</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000035"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Pride">		
+		<rdfs:label xml:lang="en">Pride</rdfs:label>
+		<rdfs:label xml:lang="fr">Fierte, orgueil, vanite, amour-propre</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000041"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Teasing">		
+		<rdfs:label xml:lang="en">Teasing</rdfs:label>
+		<rdfs:label xml:lang="fr">Vexation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Happiness">		
+		<rdfs:label xml:lang="en">Happiness</rdfs:label>
+		<rdfs:label xml:lang="fr">Bonheur, felicite, joie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000042"/>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Love">		
+		<rdfs:label xml:lang="en">Love</rdfs:label>
+		<rdfs:label xml:lang="fr">Amour</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000048"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Disappointment">		
+		<rdfs:label xml:lang="en">Disappointment</rdfs:label>
+		<rdfs:label xml:lang="fr">Deception</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000051"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Compassion">		
+		<rdfs:label xml:lang="en">Compassion</rdfs:label>
+		<rdfs:label xml:lang="fr">Compassion</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000052"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Guilt">		
+		<rdfs:label xml:lang="en">Guilt</rdfs:label>
+		<rdfs:label xml:lang="fr">Culpabilite</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000053"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Embarrassment">		
+		<rdfs:label xml:lang="en">Embarrassment</rdfs:label>
+		<rdfs:label xml:lang="fr">Embarras, confusion</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000054"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Shame">		
+		<rdfs:label xml:lang="en">Shame</rdfs:label>
+		<rdfs:label xml:lang="fr">Honte</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000055"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Boredom">		
+		<rdfs:label xml:lang="en">Boredom</rdfs:label>
+		<rdfs:label xml:lang="fr">Ennui</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000166"/>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Curiosity">		
+		<rdfs:label xml:lang="en">Curiosity</rdfs:label>
+		<rdfs:label xml:lang="fr">Curiosite</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000167"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Concern">		
+		<rdfs:label xml:lang="en">Concern</rdfs:label>
+		<rdfs:label xml:lang="fr">Preoccupation, inquietude</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000168"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Amusement">		
+		<rdfs:label xml:lang="en">Amusement</rdfs:label>
+		<rdfs:label xml:lang="fr">Amusement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000044"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Dubious">		
+		<rdfs:label xml:lang="en">Dubious</rdfs:label>
+		<rdfs:label xml:lang="fr">Douteux</rdfs:label>
+		<rdfs:comment xml:lang="en">Douteux</rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000170"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Worry">		
+		<rdfs:label xml:lang="en">Worry</rdfs:label>
+		<rdfs:label xml:lang="fr">Inquiet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000171"/>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Confusion">		
+		<rdfs:label xml:lang="en">Confusion</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000173"/>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Greed">		
+		<rdfs:label xml:lang="en">Greed</rdfs:label>
+		<rdfs:label xml:lang="fr">Cupidite, avidite, gourmandise, concupiscence</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Power">		
+		<rdfs:label xml:lang="en">Power</rdfs:label>
+		<rdfs:label xml:lang="fr">Puissance, energie, force</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Trust">		
+		<rdfs:label xml:lang="en">Trust</rdfs:label>
+		<rdfs:label xml:lang="fr">Confiance</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Thirsty">		
+		<rdfs:label xml:lang="en">Thirsty</rdfs:label>
+		<rdfs:label xml:lang="fr">Assoiffe</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Depressed">		
+		<rdfs:label xml:lang="en">Depressed</rdfs:label>
+		<rdfs:label xml:lang="fr">Deprime</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">A color affects on a emotion. Paper: Mapping Emotion to color [Nijdam et al. 2009]. See section Wheel Pro, Von Goethe, Claudia Cortes and Shirley Willet summary.</dc:description>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Hungry">		
+		<rdfs:label xml:lang="en">Hungry</rdfs:label>
+		<rdfs:label xml:lang="fr">Affame</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Painful">		
+		<rdfs:label xml:lang="en">Painful</rdfs:label>
+		<rdfs:label xml:lang="fr">Douloureux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Emotion>
+	
+	<naturopathy:Emotion rdf:about="Expectant">		
+		<rdfs:label xml:lang="en">Expectant</rdfs:label>
+		<rdfs:label xml:lang="fr">Expectant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:comment xml:lang="fr">Qui attend quelque chose</rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000175"/>
+	</naturopathy:Emotion>
+	
+	<!-- Disease -->
+	
+	<naturopathy:Disease rdf:about="Hypertension">		
+		<rdfs:label xml:lang="en">Hypertension</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&OntoReaChir;HypertensionArterielle"/>
+		<rdf:type rdf:resource="&Person_SH_Ontology;Arterial_hypertension"/>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Alzheimer">		
+		<rdfs:label xml:lang="en">Alzheimer</rdfs:label>
+		<rdfs:comment xml:lang="en">Alzheimer, dementia</rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="sclerosis">		
+		<rdfs:label xml:lang="en">Sclerosis</rdfs:label>
+		<rdfs:label xml:lang="fr">Sclerose</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Osteoporosis">		
+		<rdfs:label xml:lang="en">Osteoporosis</rdfs:label>
+		<rdfs:label xml:lang="fr">Osteoporose</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="HeartAttack">		
+		<rdfs:label xml:lang="en">HeartAttack</rdfs:label>
+		<rdfs:label xml:lang="fr">Attaque cardiaque</rdfs:label>
+		<rdfs:comment xml:lang="en">Heart disease</rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Hypotension">		
+		<rdfs:label xml:lang="en">Hypotension</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Diabetes">		
+		<rdfs:label xml:lang="en">Diabetes</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;Diabetes"/>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Rheumatism">		
+		<rdfs:label xml:lang="en">Rheumatism</rdfs:label>
+		<rdfs:label xml:lang="fr">Rhumatisme</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;Rheumatism"/>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Overweight">		
+		<rdfs:label xml:lang="en">Overweight</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Cold">		
+		<rdfs:label xml:lang="en">Cold</rdfs:label>
+		<rdfs:label xml:lang="fr">Rhume</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	
+	
+	<naturopathy:Disease rdf:about="Flu">		
+		<rdfs:label xml:lang="en">Flu/Influenza</rdfs:label>
+		<rdfs:label xml:lang="fr">Grippe</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Asthma">		
+		<rdfs:label xml:lang="en">Asthma</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Cancer">		
+		<rdfs:label xml:lang="en">Cancer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Parkinson">		
+		<rdfs:label xml:lang="en">Parkinson</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Cataract">		
+		<rdfs:label xml:lang="en">Cataract</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Cholesterol">		
+		<rdfs:label xml:lang="en">Cholesterol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Insomnia">		
+		<rdfs:label xml:lang="en">Insomnia</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	 <naturopathy:Disease rdf:about="Asthenia">		
+		<rdfs:label xml:lang="en">Asthenia</rdfs:label>
+		<rdfs:label xml:lang="fr">Tres grande fatigue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	 <naturopathy:Disease rdf:about="KidneyStone">		
+		<rdfs:label xml:lang="en">KidneyStone</rdfs:label>
+		<rdfs:label xml:lang="fr">Calcul renal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<naturopathy:Disease rdf:about="Depression">		
+		<rdfs:label xml:lang="en">Depression</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Disease>
+	
+	<!-- Diet -->
+	    
+	<naturopathy:Diet rdf:about="Sport">		
+		<rdfs:label xml:lang="en">Sport</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Diet>
+	
+	<naturopathy:Diet rdf:about="Menaupause">		
+		<rdfs:label xml:lang="en">Menaupause</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Diet>
+	
+	<naturopathy:Diet rdf:about="Pregnant">		
+		<rdfs:label xml:lang="en">Pregnant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Diet>
+	
+	<naturopathy:Diet rdf:about="VeganDiet">		
+		<rdfs:label xml:lang="en">Vegan Diet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Diet>
+	
+	<naturopathy:Diet rdf:about="VegetarianDiet">		
+		<rdfs:label xml:lang="en">Vegetarian Diet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:Diet>
+	
+	<!-- Allergy -->
+	    
+	<naturopathy:Allergy rdf:about="AllergyToPeanut">		
+		<rdfs:label xml:lang="en">Allergy To Peanut</rdfs:label>
+		<rdfs:comment xml:lang="en">Allergie a l'arachide</rdfs:comment>
+	</naturopathy:Allergy>
+	
+	<naturopathy:Allergy rdf:about="AllergyToSoy">		
+		<rdfs:label xml:lang="en">Allergy to Soy</rdfs:label>
+		<rdfs:comment xml:lang="en">Allergie au soja</rdfs:comment>
+	</naturopathy:Allergy>
+	
+	<naturopathy:Allergy rdf:about="AllergyToTomato">		
+		<rdfs:label xml:lang="en">Allergy to Tomato</rdfs:label>
+		<rdfs:comment xml:lang="en">Allergie aux tomates</rdfs:comment>
+	</naturopathy:Allergy>
+	
+	<naturopathy:Allergy rdf:about="AllergyToWheat">		
+		<rdfs:label xml:lang="en">Allergy to Wheat</rdfs:label>
+		<rdfs:comment xml:lang="en">Allergie au ble</rdfs:comment>
+	</naturopathy:Allergy>
+	
+	<naturopathy:Allergy rdf:about="AllergyToLactose">		
+		<rdfs:label xml:lang="en">Allergy to Lactose</rdfs:label>
+		<rdfs:comment xml:lang="en">Allergie au lactose</rdfs:comment>
+	</naturopathy:Allergy>
+	
+	<naturopathy:Allergy rdf:about="AllergyToGluten">		
+		<rdfs:label xml:lang="en">Allergy to Gluten</rdfs:label>
+		<rdfs:comment xml:lang="en">Allergie au gluten</rdfs:comment>
+	</naturopathy:Allergy>
+	
+		
+	<!-- ################################################ BodyOrgan ############################################################################ -->
+
+	<naturopathy:BodyOrgan rdf:about="Brain">		
+		<rdfs:label xml:lang="en">Brain</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Stomach">		
+		<rdfs:label xml:lang="en">Stomach</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Eye">		
+		<rdfs:label xml:lang="en">Eye</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Ear">		
+		<rdfs:label xml:lang="en">Ear, hearing</rdfs:label>
+		<rdfs:label xml:lang="fr">Oreille, ouie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Bone">		
+		<rdfs:label xml:lang="en">Bone</rdfs:label>
+		<rdfs:label xml:lang="en">Os</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Muscle">		
+		<rdfs:label xml:lang="en">Muscle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Ligament">		
+		<rdfs:label xml:lang="en">Ligament</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Bladder">		
+		<rdfs:label xml:lang="en">Bladder</rdfs:label>
+		<rdfs:label xml:lang="fr">Vessie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Heart">		
+		<rdfs:label xml:lang="en">Heart</rdfs:label>
+		<rdfs:label xml:lang="fr">Coeur</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Liver">		
+		<rdfs:label xml:lang="en">Liver</rdfs:label>
+		<rdfs:label xml:lang="fr">Foie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Hair">		
+		<rdfs:label xml:lang="en">Hair</rdfs:label>
+		<rdfs:label xml:lang="fr">Cheveux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Nail">		
+		<rdfs:label xml:lang="en">Nail</rdfs:label>
+		<rdfs:label xml:lang="fr">Ongle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+	
+	<naturopathy:BodyOrgan rdf:about="Skin">		
+		<rdfs:label xml:lang="en">Skin</rdfs:label>
+		<rdfs:label xml:lang="fr">Peau</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</naturopathy:BodyOrgan>
+    
+    <!-- food -->
+    
+    <naturopathy:Food rdf:about="SplitPea">
+		<rdfs:label xml:lang="en">SplitPea</rdfs:label>
+		<rdfs:label xml:lang="fr">Pois casses</rdfs:label>
+		<rdf:type rdf:resource="&food;SplitPea"/>
+	    <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+    </naturopathy:Food>
+    
+    <!-- all meats have vitamin b and protein -->
+    
+    <naturopathy:Food rdf:about="Beef">
+		<rdfs:label xml:lang="fr">Boeuf</rdfs:label>
+		<rdfs:label xml:lang="en">Beef</rdfs:label>
+		<rdf:type rdf:resource="&food;Beef"/>
+		<rdf:type rdf:resource="&naturopathy;Meat"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <naturopathy:toAvoid rdf:resource="Overweight"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Pork">
+		<rdfs:label xml:lang="fr">Porc</rdfs:label>
+		<rdfs:label xml:lang="en">Pork</rdfs:label>
+		<rdf:type rdf:resource="&food;Pork"/>
+		<rdf:type rdf:resource="&naturopathy;Meat"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminB"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <naturopathy:toAvoid rdf:resource="Overweight"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Steak">
+		<rdfs:label xml:lang="fr">Steak</rdfs:label>
+		<rdfs:label xml:lang="en">Steak</rdfs:label>
+		<rdf:type rdf:resource="&food;Steak"/>
+		<rdf:type rdf:resource="&naturopathy;Meat"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminB"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <naturopathy:toAvoid rdf:resource="Overweight"/>
+    </naturopathy:Food>
+    
+     <!--  all fishes have zinc -->
+     <!--  all fishes isRecommendedFor Acne -->
+     <!--  all fishes isGoodFor Skin -->
+     
+     <naturopathy:Food rdf:about="Tuna">
+		<rdfs:label xml:lang="fr">Thon</rdfs:label>
+		<rdfs:label xml:lang="en">Tuna</rdfs:label>
+		<rdf:type rdf:resource="&food;Tuna"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="SeaBass">
+		<rdfs:label xml:lang="fr">Bar/Loup</rdfs:label>
+		<rdfs:label xml:lang="en">SeaBass</rdfs:label>
+		<rdf:type rdf:resource="&food;SeaBass"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="SeaUrchin">
+		<rdfs:label xml:lang="fr">Oursin</rdfs:label>
+		<rdfs:label xml:lang="en">SeaUrchin</rdfs:label>
+		<rdf:type rdf:resource="&food;SeaUrchin"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Shrimp">
+		<rdfs:label xml:lang="fr">Crevette</rdfs:label>
+		<rdfs:label xml:lang="en">Shrimp</rdfs:label>
+		<rdf:type rdf:resource="&food;Shrimp"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <!-- Scallop Saury  Roe  Octopus   Haddock Flounder Eel Abalone  -->
+    <!--  -->
+    
+    <naturopathy:Food rdf:about="Sardine">
+		<rdfs:label xml:lang="fr">Sardine</rdfs:label>
+		<rdfs:label xml:lang="en">Sardine</rdfs:label>
+		<rdf:type rdf:resource="&food;Sardine"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>    
+    
+	<naturopathy:Food rdf:about="Oyster">
+		<rdfs:label xml:lang="en">Oyster</rdfs:label>
+		<rdfs:label xml:lang="fr">Huitre</rdfs:label>
+		<rdf:type rdf:resource="&food;Oyster"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <m3:hasRecommendation rdf:resource="Brain"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Salmon">
+		<rdfs:label xml:lang="fr">Saumon</rdfs:label>
+		<rdfs:label xml:lang="en">Salmon</rdfs:label>
+		<rdf:type rdf:resource="&food;Salmon"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Herring">
+		<rdfs:label xml:lang="fr">Hareng</rdfs:label>
+		<rdfs:label xml:lang="en">Herring</rdfs:label>
+		<rdf:type rdf:resource="&food;Herring"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Lobster">
+		<rdfs:label xml:lang="fr">Homard</rdfs:label>
+		<rdfs:label xml:lang="en">Lobster</rdfs:label>
+		<rdf:type rdf:resource="&food;Lobster"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Cuttlefish">
+		<rdfs:label xml:lang="fr">Seiche</rdfs:label>
+		<rdfs:label xml:lang="en">Cuttlefish</rdfs:label>
+		<rdf:type rdf:resource="&food;Cuttlefish"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Crayfish">
+		<rdfs:label xml:lang="fr">Ecrevisse, langoustine</rdfs:label>
+		<rdfs:label xml:lang="en">Crayfish</rdfs:label>
+		<rdf:type rdf:resource="&food;Crayfish"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Cod">
+		<rdfs:label xml:lang="fr">Morue, Cabillaud</rdfs:label>
+		<rdfs:label xml:lang="en">Cod</rdfs:label>
+		<rdf:type rdf:resource="&food;Cod"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Sturgeon">
+		<rdfs:label xml:lang="fr">Esturgeon</rdfs:label>
+		<rdfs:label xml:lang="en">Sturgeon</rdfs:label>
+		<rdf:type rdf:resource="&food;Sturgeon"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Squid">
+		<rdfs:label xml:lang="fr">Calamar, calmar, encornet</rdfs:label>
+		<rdfs:label xml:lang="en">Squid</rdfs:label>
+		<rdf:type rdf:resource="&food;Squid"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Mackerel">
+		<rdfs:label xml:lang="fr">Maquereau</rdfs:label>
+		<rdfs:label xml:lang="en">Mackerel</rdfs:label>
+		<rdf:type rdf:resource="&food;SpanishMackerel"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Snapper">
+		<rdfs:label xml:lang="fr">Vivaneau</rdfs:label>
+		<rdfs:label xml:lang="en">Snapper</rdfs:label>
+		<rdf:type rdf:resource="&food;Snapper"/>
+		<rdf:type rdf:resource="&naturopathy;Fish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+     
+     <!--  each ShellFish hasNutrient zinc -->
+     <!--  each ShellFish isRecommendedFor Acne -->
+     <!--  each ShellFish isGoodFor Skin -->
+     
+     <naturopathy:Food rdf:about="Crab">
+		<rdfs:label xml:lang="fr">Crabe</rdfs:label>
+		<rdfs:label xml:lang="en">Crab</rdfs:label>
+		<rdf:type rdf:resource="&food;Crab"/>
+		<rdf:type rdf:resource="&naturopathy;ShellFish"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+    </naturopathy:Food>
+    
+    <!--   -->
+    
+    <naturopathy:Food rdf:about="Lentil">
+		<rdfs:label xml:lang="fr">Lentilles</rdfs:label>
+		<rdfs:label xml:lang="en">Lentil</rdfs:label>
+		<rdf:type rdf:resource="&food;Lentil"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Celery">
+    	<rdfs:label xml:lang="fr">Celeri</rdfs:label>
+    	<rdfs:label xml:lang="en">Celery</rdfs:label>
+    	<rdf:type rdf:resource="&food;Celery"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <m3:hasRecommendation rdf:resource="Insomnia"/>
+    </naturopathy:Food>
+ 
+     <naturopathy:Herb rdf:about="Dandelion">
+        <rdfs:label xml:lang="fr">Pissenlit</rdfs:label>
+        <rdfs:label xml:lang="en">Dandelion</rdfs:label>
+        <rdf:type rdf:resource="&food;Dandelion"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+        <m3:hasRecommendation rdf:resource="KidneyStone"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>        
+    </naturopathy:Herb>
+    
+    <naturopathy:Food rdf:about="Fennel">
+        <rdfs:label xml:lang="fr">Fenouil</rdfs:label>
+        <rdfs:label xml:lang="en">Fennel</rdfs:label>
+        <rdf:type rdf:resource="&food;Fennel"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:isGoodFor rdf:resource="Stomach"/>
+        <m3:hasRecommendation rdf:resource="Pregnant"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Garlic">
+        <rdfs:label xml:lang="fr">Ail</rdfs:label>
+        <rdfs:label xml:lang="en">Garlic</rdfs:label>
+        <rdf:type rdf:resource="&food;Garlic"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <m3:hasRecommendation rdf:resource="Hypertension"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <naturopathy:isGoodFor rdf:resource="Heart"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Carrot">
+        <rdfs:label xml:lang="fr">Carotte</rdfs:label>
+        <rdfs:label xml:lang="en">Carrot</rdfs:label>
+        <rdf:type rdf:resource="&food;Carrot"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasColor rdf:resource="Orange"/>
+        <naturopathy:isGoodFor rdf:resource="Muscle"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminA"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:isGoodFor rdf:resource="Eye"/>
+        <m3:hasRecommendation rdf:resource="Asthenia"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Vegetable rdf:about="Radish">
+	      <rdfs:label xml:lang="fr">Radis</rdfs:label>
+	      <rdfs:label xml:lang="en">Radish</rdfs:label>
+	      <rdf:type rdf:resource="&food;Radish"/>
+	      <m3:hasRecommendation rdf:resource="Headache"/>
+	      <m3:hasRecommendation rdf:resource="Digestion"/>
+	      <naturopathy:isGoodFor rdf:resource="Liver"/>
+	      <m3:hasRecommendation rdf:resource="Spring"/>
+	      <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Vegetable>
+        
+	<naturopathy:Food rdf:about="Soybean">
+        <rdfs:label xml:lang="fr">Graines de soja</rdfs:label>
+        <rdfs:label xml:lang="en">Soybean</rdfs:label>
+        <rdf:type rdf:resource="&food;Soybean"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <naturopathy:isGoodFor rdf:resource="Heart"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+        <m3:hasRecommendation rdf:resource="Menaupause"/>
+        <m3:hasRecommendation rdf:resource="Sport"/>
+        <m3:hasRecommendation rdf:resource="Cholesterol"/>
+        <m3:hasRecommendation rdf:resource="Insomnia"/>        
+        <m3:hasRecommendation rdf:resource="Acne"/> 
+    </naturopathy:Food>
+    
+    <naturopathy:Vegetable rdf:about="Squash">
+        <rdfs:label xml:lang="fr">Courge</rdfs:label>
+        <rdfs:label xml:lang="en">Squash</rdfs:label> 
+        <rdf:type rdf:resource="&food;Squash"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminE"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminB"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:isGoodFor rdf:resource="Bladder"/>
+    </naturopathy:Vegetable>
+    
+    <naturopathy:Vegetable rdf:about="GlobeArtichoke">
+   		<rdfs:label xml:lang="fr">Artichaut</rdfs:label>
+   		<rdfs:label xml:lang="en">Globe Artichoke</rdfs:label>
+   		<rdf:type rdf:resource="&food;GlobeArtichoke"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:isGoodFor rdf:resource="Liver"/>
+        <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <naturopathy:hasNutrient rdf:resource="Potassium"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Vegetable>
+    
+    <naturopathy:Food rdf:about="Sweetcorn">
+    	<rdfs:label xml:lang="fr">Mais doux</rdfs:label>
+    	<rdfs:label xml:lang="en">Sweet corn</rdfs:label>
+    	<rdf:type rdf:resource="&food;Sweetcorn"/>
+    	<naturopathy:hasColor rdf:resource="Yellow"/>
+    	<m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Vegetable rdf:about="Spinach">
+    	<rdfs:label xml:lang="fr">Epinard</rdfs:label>
+    	<rdfs:label xml:lang="en">Spinach</rdfs:label>
+    	<rdf:type rdf:resource="&food;Spinach"/>
+    	<m3:hasRecommendation rdf:resource="Spring"/>
+    	<naturopathy:hasColor rdf:resource="Vert"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminB"/>
+        <naturopathy:hasNutrient rdf:resource="Iron"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Vegetable>
+    
+    <naturopathy:Food rdf:about="Egg">
+    	<rdfs:label xml:lang="fr">Oeuf</rdfs:label>
+    	<rdfs:label xml:lang="en">Egg</rdfs:label>
+    	<rdf:type rdf:resource="&food;Egg"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Nuts rdf:about="Almond">
+    	<rdfs:label xml:lang="fr">Amande</rdfs:label>
+    	<rdfs:label xml:lang="en">Almond</rdfs:label>
+    	<rdf:type rdf:resource="&food;Almond"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+    </naturopathy:Nuts>
+    
+     <naturopathy:Vegetable rdf:about="Aubergine">
+    	<rdfs:label xml:lang="fr">Aubergine</rdfs:label>
+    	<rdfs:label xml:lang="en">Aubergine</rdfs:label>
+    	<rdf:type rdf:resource="&food;Aubergine"/>
+    	<naturopathy:hasColor rdf:resource="Purple"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Vegetable>
+    
+    <!-- ******************  VEGETABLE *************** -->
+        
+    <naturopathy:Vegetable rdf:about="Potato">
+    	<rdfs:label xml:lang="fr">Pomme de terre</rdfs:label>
+    	<rdfs:label xml:lang="en">Potato</rdfs:label>
+        <rdf:type rdf:resource="&food;Potato"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Vegetable>
+    
+    <naturopathy:Food rdf:about="Pumpkin">
+    	<rdfs:label xml:lang="fr">Potiron</rdfs:label>
+    	<rdfs:label xml:lang="en">Pumkin</rdfs:label>
+    	<naturopathy:hasColor rdf:resource="Orange"/>
+        <rdf:type rdf:resource="&food;Pumpkin"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+   
+    <!-- ***************************** FRUIT ******************************** -->
+        
+    <naturopathy:Fruit rdf:about="Lychee">
+    	<rdfs:label xml:lang="fr">Litchi</rdfs:label>
+    	<rdfs:label xml:lang="en">Lychee</rdfs:label>
+    	<rdf:type rdf:resource="&food;Lychee"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Mango">
+    	<rdfs:label xml:lang="fr">Mangue</rdfs:label>
+    	<rdfs:label xml:lang="en">Mango</rdfs:label>
+    	<rdf:type rdf:resource="&food;Mango"/>
+    	<naturopathy:hasColor rdf:resource="Yellow"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+         
+    <naturopathy:Fruit rdf:about="Longan">
+        <rdfs:label xml:lang="fr">Longane</rdfs:label>
+        <rdfs:label xml:lang="en">Longan</rdfs:label>
+        <rdf:type rdf:resource="&food;Longan"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+     <naturopathy:Food rdf:about="Kiwifruit">
+     	<rdfs:label xml:lang="fr">Kiwi</rdfs:label>
+     	<rdfs:label xml:lang="en">Kiwi</rdfs:label>
+     	<rdf:type rdf:resource="&food;Kiwifruit"/>
+     	<rdf:type rdf:resource="&naturopathy;Fruit"/>
+     	<naturopathy:hasColor rdf:resource="Green"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Lemon">
+    	<rdfs:label xml:lang="fr">Citron</rdfs:label>
+    	<rdfs:label xml:lang="en">Lemon</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Fruit"/>
+    	<rdf:type rdf:resource="&food;Lemon"/>
+    	<rdfs:comment xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</rdfs:comment>
+   		<dc:description xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</dc:description>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;CriticallyHighFever"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;HighFever"/>
+        <m3:hasRecommendation rdf:resource="Cough"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Orange">
+    	<rdfs:label xml:lang="fr">Orange fruit</rdfs:label>
+    	<rdfs:label xml:lang="en">Orange fruit</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <rdf:type rdf:resource="&food;Orange"/>
+        <rdf:type rdf:resource="&naturopathy;Fruit"/>
+        <naturopathy:hasColor rdf:resource="Orange"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Asthenia"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Fruit rdf:about="Strawberry">
+    	<rdfs:label xml:lang="fr">Fraise</rdfs:label>
+    	<rdfs:label xml:lang="en">Strawberry</rdfs:label>
+    	<naturopathy:hasColor rdf:resource="Red"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <rdf:type rdf:resource="&food;Strawberry"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Pomelo">
+    	<rdfs:label xml:lang="fr">Pomelo</rdfs:label>
+    	<rdfs:label xml:lang="en">Pomelo</rdfs:label>
+        <rdf:type rdf:resource="&food;Pomelo"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Apricot">      
+		<rdfs:label xml:lang="fr">Abricot</rdfs:label> 
+		<rdfs:label xml:lang="en">Apricot</rdfs:label>
+		<rdf:type rdf:resource="&food;Apricot"/>
+		<naturopathy:hasColor rdf:resource="Orange"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:isGoodFor rdf:resource="Brain"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>    
+               	
+	<naturopathy:Fruit rdf:about="Banana">
+		<rdfs:label xml:lang="fr">Banane</rdfs:label>
+		<rdfs:label xml:lang="en">Banana</rdfs:label>
+		<rdf:type rdf:resource="&food;Banana"/>
+		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <m3:hasRecommendation rdf:resource="Sport"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Cherry">
+    	<rdfs:label xml:lang="fr">Cerise</rdfs:label>
+        <rdfs:label xml:lang="en">Cherry</rdfs:label>
+        <rdf:type rdf:resource="&food;Cherry"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Potassium"/>
+        <naturopathy:isGoodFor rdf:resource="Bladder"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Blueberry">
+        <rdfs:label xml:lang="fr">Myrtille</rdfs:label>
+        <rdfs:label xml:lang="en">Blueberry</rdfs:label>
+        <rdf:type rdf:resource="&food;Blueberry"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:isGoodFor rdf:resource="Eye"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminP"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Grape">
+        <rdfs:label xml:lang="fr">Raisin</rdfs:label>
+        <rdfs:label xml:lang="en">Grape</rdfs:label>
+        <rdf:type rdf:resource="&food;Grape"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <naturopathy:isGoodFor rdf:resource="Heart"/>
+        <m3:hasRecommendation rdf:resource="Overweight"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminP"/>
+    </naturopathy:Fruit>
+    
+      <naturopathy:Fruit rdf:about="Grapefruit">
+      	<rdfs:label xml:lang="fr">Pamplemousse</rdfs:label>
+      	<naturopathy:hasColor rdf:resource="Pink"/>
+     	<rdfs:label xml:lang="en">Grapefruit</rdfs:label>
+     	<rdf:type rdf:resource="&food;Grapefruit"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>    
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <m3:hasRecommendation rdf:resource="Overweight"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+        <m3:hasRecommendation rdf:resource="Asthenia"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+    </naturopathy:Fruit>    
+        
+    <naturopathy:Fruit rdf:about="Papaya">
+        <rdfs:label xml:lang="fr">Papaye</rdfs:label>
+        <rdfs:label xml:lang="en">Papaya</rdfs:label>
+        <naturopathy:hasColor rdf:resource="Orange"/>
+        <rdf:type rdf:resource="&food;Papaya"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <m3:hasRecommendation rdf:resource="Overweight"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+    </naturopathy:Fruit>    
+    
+    <naturopathy:Fruit rdf:about="Pineapple">
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <rdfs:label xml:lang="fr">Ananas</rdfs:label>
+        <rdfs:label xml:lang="en">Pineapple</rdfs:label>
+        <rdf:type rdf:resource="&food;Pineapple"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminK"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <m3:hasRecommendation rdf:resource="Overweight"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <naturopathy:isGoodFor rdf:resource="Ligament"/>
+    </naturopathy:Fruit>
+            
+    <naturopathy:Fruit rdf:about="Raspberry">
+    	<rdfs:label xml:lang="fr">Framboise</rdfs:label>
+    	<rdfs:label xml:lang="en">Raspberry</rdfs:label>
+        <rdf:type rdf:resource="&food;Raspberry"/>
+        <naturopathy:hasColor rdf:resource="Pink"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Apple">
+    	<rdfs:label xml:lang="fr">Pomme</rdfs:label>
+    	<rdfs:label xml:lang="en">Apple</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasColor rdf:resource="Red"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Apple"/>
+        <m3:hasRecommendation rdf:resource="Asthenia"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <dc:description xml:lang="en">See paper: Cancer chemopreventive potential of apples, apple juice, and apple components. [Gerhausser et al. 2008].</dc:description>		
+    </naturopathy:Fruit>
+    
+    <naturopathy:Food rdf:about="MandarinOrange">
+    	<rdfs:label xml:lang="fr">Mandarine</rdfs:label>
+    	<rdfs:label xml:lang="en">Mandarin orange</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Fruit"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasColor rdf:resource="Orange"/>
+        <rdf:type rdf:resource="&food;MandarinOrange"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+    </naturopathy:Food>    
+        
+    <naturopathy:Fruit rdf:about="Pomegranate">
+    	<rdfs:label xml:lang="fr">Grenade</rdfs:label>
+    	<rdfs:label xml:lang="en">Pomegranate</rdfs:label>
+        <rdf:type rdf:resource="&food;Pomegranate"/>  
+        <naturopathy:hasColor rdf:resource="Red"/>      
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="Quince">
+    	<rdfs:label xml:lang="fr">Coing</rdfs:label>
+    	<rdfs:label xml:lang="en">Quince</rdfs:label>
+        <rdf:type rdf:resource="&food;Quince"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+            
+    <naturopathy:Fruit rdf:about="Melon">
+   		<rdfs:label xml:lang="fr">Melon</rdfs:label>
+   		<rdfs:label xml:lang="en">Melon</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Orange"/>
+   		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Melon"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <naturopathy:Fruit rdf:about="WaterMelon">
+   		<rdfs:label xml:lang="fr">Pasteque</rdfs:label>
+   		<rdfs:label xml:lang="en">Watermelon</rdfs:label>
+        <rdf:type rdf:resource="&food;WaterMelon"/>
+        <naturopathy:hasColor rdf:resource="Pink"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Fruit>
+    
+    <!-- ****************** VEGETABLE *************** -->
+    
+    <naturopathy:Vegetable rdf:about="Asparagus">
+    	<rdfs:label xml:lang="fr">Asperge</rdfs:label>
+    	<rdfs:label xml:lang="en">Asparagus</rdfs:label>
+    	<naturopathy:hasColor rdf:resource="White"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <rdf:type rdf:resource="&food;Asparagus"/>
+    </naturopathy:Vegetable>
+    
+    <!-- ****************** OTHERS *************** -->
+
+	<naturopathy:Food rdf:about="Chocolate">
+		<rdfs:label xml:lang="fr">Chocolat</rdfs:label>
+		<rdfs:label xml:lang="en">Chocolate</rdfs:label>
+        <rdf:type rdf:resource="&food;Chocolate"/>
+        <naturopathy:hasColor rdf:resource="Black"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <m3:hasRecommendation rdf:resource="Sadness"/>
+        <m3:hasRecommendation rdf:resource="Depression"/>
+        <naturopathy:toAvoid rdf:resource="Insomnia"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+    </naturopathy:Food>    
+     
+    <naturopathy:Food rdf:about="Watercress">
+    	<rdfs:label xml:lang="fr">Cresson</rdfs:label>
+    	<rdfs:label xml:lang="en">Watercress</rdfs:label>
+    	<naturopathy:hasColor rdf:resource="Green"/>
+        <rdf:type rdf:resource="&food;Watercress"/>        
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Tomato">
+    	<rdfs:label xml:lang="fr">Tomate</rdfs:label>
+    	<rdfs:label xml:lang="en">Tomato</rdfs:label>
+        <rdf:type rdf:resource="&food;Tomato"/>
+        <naturopathy:hasColor rdf:resource="Red"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Milk">
+    	<rdfs:label xml:lang="fr">Lait</rdfs:label>
+    	<rdfs:label xml:lang="en">Milk</rdfs:label>
+    	<rdfs:comment xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</rdfs:comment>
+   		<dc:description xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</dc:description>
+        <rdf:type rdf:resource="&food;Milk"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminA"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+    </naturopathy:Food>        
+    
+    <naturopathy:Food rdf:about="Cabbage">
+    	<rdfs:label xml:lang="fr">Chou</rdfs:label>
+    	<rdfs:label xml:lang="en">Cabbage</rdfs:label>
+        <rdf:type rdf:resource="&food;Cabbage"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:hasColor rdf:resource="Purple"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="Insomnia"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Broccoli">
+    	<rdfs:label xml:lang="fr">Brocoli</rdfs:label>
+    	<rdfs:label xml:lang="en">Broccoli</rdfs:label>
+        <rdf:type rdf:resource="&food;Broccoli"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Olive">
+    	<rdfs:label xml:lang="fr">Olive</rdfs:label>
+    	<rdfs:label xml:lang="en">Olive</rdfs:label>
+        <rdf:type rdf:resource="&food;Olive"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+        <naturopathy:hasColor rdf:resource="Black"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Chestnut">
+    	<rdfs:label xml:lang="fr">Chataigne</rdfs:label>
+    	<rdfs:label xml:lang="en">Chestnut</rdfs:label>
+        <rdf:type rdf:resource="&food;Chestnut"/>
+        <naturopathy:hasColor rdf:resource="Brown"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Onion">
+    	<rdfs:label xml:lang="fr">Oignon</rdfs:label>
+    	<rdfs:label xml:lang="en">Onion</rdfs:label>
+        <rdf:type rdf:resource="&food;Onion"/>
+        <naturopathy:hasColor rdf:resource="Purple"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="Flu"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Vegetable rdf:about="Beet">
+   		<rdfs:label xml:lang="fr">Betterave</rdfs:label>
+   		<rdfs:label xml:lang="en">Beet</rdfs:label>
+   		<m3:hasRecommendation rdf:resource="Autumn"/>
+   		<naturopathy:hasColor rdf:resource="Purple"/>
+        <rdf:type rdf:resource="&food;Beet"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:toAvoid rdf:resource="Insomnia"/>
+    </naturopathy:Vegetable>
+    
+    <naturopathy:Food rdf:about="Ginger">
+   		<rdfs:label xml:lang="fr">Gingembre</rdfs:label>
+   		<rdfs:label xml:lang="en">Ginger</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Ginger"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;CriticallyHighFever"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;HighFever"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+        <m3:hasRecommendation rdf:resource="Tired"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Guarana">
+   		<rdfs:label xml:lang="fr">Guarana</rdfs:label>
+   		<rdfs:label xml:lang="en">Guarana</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Tired"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="RoyalJelly">
+   		<rdfs:label xml:lang="fr">RoyalJelly</rdfs:label>
+   		<rdfs:label xml:lang="en">Gelee royale</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Tired"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Ginseng">
+   		<rdfs:label xml:lang="fr">Ginseng</rdfs:label>
+   		<rdfs:label xml:lang="en">Ginseng</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Tired"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Honey">
+   		<rdfs:label xml:lang="fr">Miel</rdfs:label>
+   		<rdfs:label xml:lang="en">Honey</rdfs:label>
+   		<rdfs:comment xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is normally used in our daily life for treatment of hearing loss, bad breath, fatigue, weight loss, pimples, influenza, ingestion, heart diseases, toothache, hair loss, bladder infections, infertility, etc. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</rdfs:comment>
+   		<dc:description xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is normally used in our daily life for treatment of hearing loss, bad breath, fatigue, weight loss, pimples, influenza, ingestion, heart diseases, toothache, hair loss, bladder infections, infertility, etc. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</dc:description>
+		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Honey"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;CriticallyHighFever"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;HighFever"/>
+        <m3:hasRecommendation rdf:resource="Pimple"/>
+        <m3:hasRecommendation rdf:resource="Tired"/>
+        <naturopathy:isGoodFor rdf:resource="Bladder"/>
+        <naturopathy:isGoodFor rdf:resource="Hair"/>
+        <naturopathy:isGoodFor rdf:resource="Heart"/>
+        <naturopathy:isGoodFor rdf:resource="Ear"/>
+        <m3:hasRecommendation rdf:resource="Infertility"/>
+		<m3:hasRecommendation rdf:resource="Toothache"/>
+		<m3:hasRecommendation rdf:resource="WeightLoss"/>
+		<m3:hasRecommendation rdf:resource="BadBreath"/>
+		<m3:hasRecommendation rdf:resource="Digestion"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Clove">
+   		<rdfs:label xml:lang="fr">Clou de girofle</rdfs:label>
+   		<rdfs:label xml:lang="en">Clove</rdfs:label>
+        <rdf:type rdf:resource="&food;Clove"/>
+        <naturopathy:hasColor rdf:resource="Black"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+   	</naturopathy:Food>
+   	
+   	<naturopathy:Food rdf:about="Cinnamon">
+   		<rdfs:label xml:lang="fr">Cannelle</rdfs:label>
+   		<rdfs:label xml:lang="en">Cinnamon</rdfs:label>
+        <rdfs:comment xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</rdfs:comment>
+   		<dc:description xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</dc:description>
+        <rdf:type rdf:resource="&food;Cinnamon"/>
+        <naturopathy:hasColor rdf:resource="Browm"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;CriticallyHighFever"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;HighFever"/>
+   	</naturopathy:Food>
+   	
+   	<naturopathy:Food rdf:about="Clover">
+   		<rdfs:label xml:lang="fr">Trefle</rdfs:label>
+   		<rdfs:label xml:lang="en">Clover</rdfs:label>
+        <rdfs:comment xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</rdfs:comment>
+   		<dc:description xml:lang="en">See paper: Honey as complementary medecine: A review [Singh et al. 2012]. Honey is used as a mixture with many natural products such as lemon, clover, milk, cinnamon and water for treatments of various ailments and other health disorders.</dc:description>
+        <rdf:type rdf:resource="&food;Cinnamon"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+   	</naturopathy:Food>
+    
+    <naturopathy:Herb rdf:about="Thyme">
+   		<rdfs:label xml:lang="fr">Thym</rdfs:label>
+   		<rdfs:label xml:lang="en">Thyme</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+        <rdf:type rdf:resource="&food;Thyme"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;CriticallyHighFever"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;HighFever"/>
+    </naturopathy:Herb>
+    
+    <naturopathy:Food rdf:about="Avocado">
+   		<rdfs:label xml:lang="fr">Avocat</rdfs:label>
+   		<rdfs:label xml:lang="en">Avocado</rdfs:label>
+        <rdf:type rdf:resource="&food;Avocado"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+        <naturopathy:isGoodFor rdf:resource="Ligament"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+   	</naturopathy:Food>
+        
+   <naturopathy:Food rdf:about="Shrimp">
+   		<rdfs:label xml:lang="fr">Crevette</rdfs:label>
+   		<rdfs:label xml:lang="en">Shrimp</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Pink"/>
+        <rdf:type rdf:resource="&food;Shrimp"/>
+        <naturopathy:isGoodFor rdf:resource="Ligament"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Tofu">
+   		<rdfs:label xml:lang="fr">Tofu</rdfs:label>
+   		<rdfs:label xml:lang="en">Tofu</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="White"/>
+        <rdf:type rdf:resource="&food;Tofu"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Sport"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="CommonFig">
+   		<rdfs:label xml:lang="fr">Figue</rdfs:label>
+   		<rdfs:label xml:lang="en">Common Fig</rdfs:label>
+        <rdf:type rdf:resource="&food;CommonFig"/>
+        <naturopathy:hasColor rdf:resource="Purple"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Cucumber">
+   		<rdfs:label xml:lang="fr">Concombre</rdfs:label>
+   		<rdfs:label xml:lang="en">Cucumber</rdfs:label>
+        <rdf:type rdf:resource="&food;Cucumber"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Guava">
+   		<rdfs:label xml:lang="fr">Goyave</rdfs:label>
+   		<rdfs:label xml:lang="en">Guava</rdfs:label>
+        <rdf:type rdf:resource="&food;Guava"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Pear">
+   		<rdfs:label xml:lang="fr">Poire</rdfs:label>
+   		<rdfs:label xml:lang="en">Pear</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Pear"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Plum">
+   		<rdfs:label xml:lang="fr">Prune</rdfs:label>
+   		<rdfs:label xml:lang="en">Plum</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Purple"/>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+   		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Plum"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Zucchini">
+   		<rdfs:label xml:lang="fr">Courgette</rdfs:label>
+   		<rdfs:label xml:lang="en">Zucchini</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+        <rdf:type rdf:resource="&food;Zucchini"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Turnip">
+   		<rdfs:label xml:lang="fr">Navet</rdfs:label>
+   		<rdfs:label xml:lang="en">Turnip</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="White"/>
+        <rdf:type rdf:resource="&food;Turnip"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Sorrel">
+   		<rdfs:label xml:lang="fr">Oseille</rdfs:label>
+   		<rdfs:label xml:lang="en">Sorrel</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+        <rdf:type rdf:resource="&food;Sorrel"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Cardoon">
+   		<rdfs:label xml:lang="fr">Cardon</rdfs:label>
+   		<rdfs:label xml:lang="en">Cardoon</rdfs:label>
+        <rdf:type rdf:resource="&food;Cardoon"/>
+        <m3:hasRecommendation rdf:resource="Winter"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Chicory">
+   		<rdfs:label xml:lang="fr">Endive</rdfs:label>
+   		<rdfs:label xml:lang="en">Chicory</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="White"/>
+   		<naturopathy:hasColor rdf:resource="Yellow"/>
+        <rdf:type rdf:resource="&food;Chicory"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Leek">
+   		<rdfs:label xml:lang="fr">Poireau</rdfs:label>
+   		<rdfs:label xml:lang="en">Leek</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="White"/>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+        <rdf:type rdf:resource="&food;Leek"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Parsnip">
+   		<rdfs:label xml:lang="fr">Panais</rdfs:label>
+   		<rdfs:label xml:lang="en">Parsnip</rdfs:label>
+        <rdf:type rdf:resource="&food;Parsnip"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>    
+    
+    <naturopathy:Food rdf:about="PurpleSalsify">
+   		<rdfs:label xml:lang="fr">Salsifis</rdfs:label>
+   		<rdfs:label xml:lang="en">Purple salsify</rdfs:label>
+   		<naturopathy:hasColor rdf:resource="White"/>
+        <rdf:type rdf:resource="&food;PurpleSalsify"/>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>    
+        
+    <naturopathy:Food rdf:about="Lettuce">
+   		<rdfs:label xml:lang="fr">Laitue</rdfs:label>
+   		<rdfs:label xml:lang="en">Lettuce</rdfs:label>
+        <rdf:type rdf:resource="&food;Lettuce"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+        <m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <m3:hasRecommendation rdf:resource="Insomnia"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Chard">
+   		<rdfs:label xml:lang="fr">Blette</rdfs:label>
+   		<rdfs:label xml:lang="en">Chard</rdfs:label>
+        <rdf:type rdf:resource="&food;Chard"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Peppermint">
+   		<rdfs:label xml:lang="fr">Menthe poivree</rdfs:label>
+   		<rdfs:label xml:lang="en">Pepper mint</rdfs:label>
+   		<rdf:type rdf:resource="&food;Peppermint"/>
+   		<rdf:type rdf:resource="&naturopathy;Herb"/>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+        <m3:hasRecommendation rdf:resource="Asthenia"/>
+        <m3:hasRecommendation rdf:resource="Cold"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;CriticallyHighFever"/>
+        <m3:hasRecommendation rdf:resource="&health-dataset;HighFever"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Parsley">
+   		<rdfs:label xml:lang="fr">Persil</rdfs:label>
+   		<rdfs:label xml:lang="en">Parsley</rdfs:label>
+   		<rdf:type rdf:resource="&food;Parsley"/>
+   		<rdf:type rdf:resource="&naturopathy;Herb"/>
+   		<naturopathy:hasColor rdf:resource="Green"/>
+        <m3:hasRecommendation rdf:resource="Asthenia"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="RomanChamomile">
+   		<rdfs:label xml:lang="fr">Camomille</rdfs:label>
+   		<rdfs:label xml:lang="en">Roman chamomile</rdfs:label>
+   		<rdf:type rdf:resource="&food;RomanChamomile"/>
+   		<rdf:type rdf:resource="&naturopathy;Herb"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+        <m3:hasRecommendation rdf:resource="Insomnia"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Rosemary">
+   		<rdfs:label xml:lang="fr">Romarin</rdfs:label>
+   		<rdfs:label xml:lang="en">Rosemary</rdfs:label>
+   		<rdf:type rdf:resource="&food;Rosemary"/>
+   		<rdf:type rdf:resource="&naturopathy;Herb"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+        <naturopathy:isGoodFor rdf:resource="Liver"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Tea">
+   		<rdfs:label xml:lang="fr">The</rdfs:label>
+   		<rdfs:label xml:lang="en">Tea</rdfs:label>
+   		<rdf:type rdf:resource="&food;Rosemary"/>
+   		<rdf:type rdf:resource="&naturopathy;Herb"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+    </naturopathy:Food>
+    
+    <!-- Do no exist in smart products food taxonomy -->
+    
+     <naturopathy:Food rdf:about="FullPasta">
+   		<rdfs:label xml:lang="fr">Pates completes</rdfs:label>
+   		<rdfs:label xml:lang="en">Full pasta</rdfs:label>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <m3:hasRecommendation rdf:resource="Sport"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+    </naturopathy:Food>
+            
+    <naturopathy:Food rdf:about="Pickle">
+   		<rdfs:label xml:lang="fr">Cornichon</rdfs:label>
+   		<rdfs:label xml:lang="en">Pickle</rdfs:label>
+   		<m3:hasRecommendation rdf:resource="Summer"/>
+        <rdf:type rdf:resource="Food"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="MashSalad">
+   		<rdfs:label xml:lang="fr">Mache</rdfs:label>
+   		<rdfs:label xml:lang="en">Mash salad</rdfs:label>
+   		<m3:hasRecommendation rdf:resource="Autumn"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+    </naturopathy:Food>
+            
+    <naturopathy:Vegetable rdf:about="GardenPeas">
+   		<rdfs:label xml:lang="fr">Petit Pois</rdfs:label>
+   		<rdfs:label xml:lang="en">Garden peas</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <naturopathy:hasNutrient rdf:resource="Fiber"/>
+        <m3:hasRecommendation rdf:resource="Spring"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+    </naturopathy:Vegetable>
+            
+    <naturopathy:Herb rdf:about="Nettle">
+    	<rdfs:label xml:lang="fr">Ortie</rdfs:label>
+    	<rdfs:label xml:lang="en">Nettle</rdfs:label>
+    	<naturopathy:isGoodFor rdf:resource="Nail"/>
+    	<naturopathy:isGoodFor rdf:resource="Hair"/>
+    	<m3:hasRecommendation rdf:resource="Spring"/>
+    	<naturopathy:hasNutrient rdf:resource="VitaminA"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminB"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminC"/>
+        <naturopathy:hasNutrient rdf:resource="VitaminE"/>
+        <m3:hasRecommendation rdf:resource="Rheumatism"/>
+        <m3:hasRecommendation rdf:resource="Headache"/>
+        <naturopathy:hasColor rdf:resource="Green"/>
+    </naturopathy:Herb>
+    
+     <!--  each cheese hasNutrient Calcium -->
+    
+     <naturopathy:Food rdf:about="ParmigianoReggiano">
+    	<rdfs:label xml:lang="fr">Parmesan</rdfs:label>
+    	<rdfs:label xml:lang="en">Parmigiano Reggiano</rdfs:label>
+    	<rdf:type rdf:resource="&food;ParmigianoReggiano"/>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+    	<naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Gorgonzola">
+    	<rdfs:label xml:lang="fr">Gorgonzola</rdfs:label>
+    	<rdfs:label xml:lang="en">Gorgonzola</rdfs:label>
+    	<rdf:type rdf:resource="&food;Gorgonzola"/>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Mozzarella">
+    	<rdfs:label xml:lang="fr">Mozzarella</rdfs:label>
+    	<rdfs:label xml:lang="en">Mozzarella</rdfs:label>
+    	<rdf:type rdf:resource="&food;Mozzarella"/>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+            
+    <naturopathy:Food rdf:about="GoatCheese">
+    	<rdfs:label xml:lang="fr">Fromage de chevre</rdfs:label>
+    	<rdfs:label xml:lang="en">Goat cheese</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <m3:hasRecommendation rdf:resource="Digestion"/>
+        <naturopathy:isGoodFor rdf:resource="Brain"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasNutrient rdf:resource="Protein"/>
+        <naturopathy:toAvoid rdf:resource="Headache"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Roquefort">
+    	<rdfs:label xml:lang="fr">Roquefort</rdfs:label>
+    	<rdfs:label xml:lang="en">Roquefort</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:hasColor rdf:resource="Blue"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="SaintNectaire">
+    	<rdfs:label xml:lang="fr">Saint Nectaire</rdfs:label>
+    	<rdfs:label xml:lang="en">Saint Nectaire</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Morbier">
+    	<rdfs:label xml:lang="fr">Morbier</rdfs:label>
+    	<rdfs:label xml:lang="en">Morbier</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Gruyere">
+    	<rdfs:label xml:lang="fr">Gruyere</rdfs:label>
+    	<rdfs:label xml:lang="en">Gruyere</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Emmental">
+    	<rdfs:label xml:lang="fr">Emmental</rdfs:label>
+    	<rdfs:label xml:lang="en">Emmental</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Comte">
+    	<rdfs:label xml:lang="fr">Comte</rdfs:label>
+    	<rdfs:label xml:lang="en">Comte</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Cantal">
+    	<rdfs:label xml:lang="fr">Cantal</rdfs:label>
+    	<rdfs:label xml:lang="en">Cantal</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:toAvoid rdf:resource="Cholesterol"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Yellow"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Riccota">
+    	<rdfs:label xml:lang="fr">Riccota</rdfs:label>
+    	<rdfs:label xml:lang="en">Riccota</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Reblochon">
+    	<rdfs:label xml:lang="fr">Reblochon</rdfs:label>
+    	<rdfs:label xml:lang="en">Reblochon</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Munster">
+    	<rdfs:label xml:lang="fr">Munster</rdfs:label>
+    	<rdfs:label xml:lang="en">Munster</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Orange"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="MontDOr">
+    	<rdfs:label xml:lang="fr">MontDOr</rdfs:label>
+    	<rdfs:label xml:lang="en">MontDOr</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Mimolette">
+    	<rdfs:label xml:lang="fr">Mimolette</rdfs:label>
+    	<rdfs:label xml:lang="en">Mimolette</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Orange"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Maroilles">
+    	<rdfs:label xml:lang="fr">Maroilles</rdfs:label>
+    	<rdfs:label xml:lang="en">Maroilles</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Feta">
+    	<rdfs:label xml:lang="fr">Feta</rdfs:label>
+    	<rdfs:label xml:lang="en">Feta</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="CrottinDeChavignol">
+    	<rdfs:label xml:lang="fr">CrottinDeChavignol</rdfs:label>
+    	<rdfs:label xml:lang="en">CrottinDeChavignol</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Coulomniers">
+    	<rdfs:label xml:lang="fr">Coulomniers</rdfs:label>
+    	<rdfs:label xml:lang="en">Coulomniers</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+   
+     <naturopathy:Food rdf:about="Camembert">
+    	<rdfs:label xml:lang="fr">Camembert</rdfs:label>
+    	<rdfs:label xml:lang="en">Camembert</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+     <naturopathy:Food rdf:about="Brie">
+    	<rdfs:label xml:lang="fr">Brie</rdfs:label>
+    	<rdfs:label xml:lang="en">Brie</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+        
+    <naturopathy:Food rdf:about="BlueCheese">
+    	<rdfs:label xml:lang="fr">Bleu</rdfs:label>
+    	<rdfs:label xml:lang="en">Blue Cheese</rdfs:label>
+    	<rdf:type rdf:resource="&naturopathy;Cheese"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="White"/>
+        <naturopathy:hasColor rdf:resource="Blue"/>
+        <naturopathy:toAvoid rdf:resource="AllergyToLactose"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Food rdf:about="Blackberry">
+    	<rdfs:label xml:lang="fr">Mure</rdfs:label>
+    	<rdfs:label xml:lang="en">Blackberry</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Summer"/>
+        <naturopathy:hasNutrient rdf:resource="Calcium"/>
+        <naturopathy:hasColor rdf:resource="Purple"/>
+        <naturopathy:hasColor rdf:resource="Black"/>
+    </naturopathy:Food>
+    
+    <naturopathy:Bread rdf:about="WholemealBread">
+		<rdfs:label xml:lang="fr">Pain complet</rdfs:label>
+		<rdfs:label xml:lang="en">WholemealBread</rdfs:label>
+        <m3:hasRecommendation rdf:resource="Acne"/>
+        <naturopathy:isGoodFor rdf:resource="Skin"/>
+        <naturopathy:hasNutrient rdf:resource="Zinc"/>
+        <naturopathy:hasColor rdf:resource="Brown"/>
+    </naturopathy:Bread>
+    
+    <naturopathy:Nuts rdf:about="Hazelnut">
+		<rdfs:label xml:lang="en">Hazelnut</rdfs:label>
+		<rdfs:label xml:lang="fr">Noisette</rdfs:label>
+	    <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+        <m3:hasRecommendation rdf:resource="Stress"/>
+        <naturopathy:hasColor rdf:resource="Brown"/>
+    </naturopathy:Nuts>
+    
+  	 <!-- ################################################ Measurement result ############################################################################ -->
+    
+    <naturopathy:Disease rdf:about="HichCholesterol">
+		<rdfs:label xml:lang="en">Hich Cholesterol</rdfs:label>
+		<rdfs:label xml:lang="fr">Taux de cholesterol trop eleve</rdfs:label>
+    </naturopathy:Disease>
+    
+    <naturopathy:Disease rdf:about="NormalCholesterol">
+		<rdfs:label xml:lang="en">Normal Cholesterol</rdfs:label>
+		<rdfs:label xml:lang="fr">Taux de cholesterol normal</rdfs:label>
+    </naturopathy:Disease>
+    
+    <naturopathy:Disease rdf:about="LowCholesterol">
+		<rdfs:label xml:lang="en">Low Cholesterol</rdfs:label>
+		<rdfs:label xml:lang="fr">Taux de cholesterol trop bas</rdfs:label>
+    </naturopathy:Disease>
+    
+    <naturopathy:Disease rdf:about="NormalTemperature">
+		<rdfs:label xml:lang="en">Normal Temperature</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+    </naturopathy:Disease>
+    
+    
+    	
+</rdf:RDF>

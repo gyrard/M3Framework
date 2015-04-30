@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE uridef[
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY security "http://www.kim.com/NRLOntologyFiles/securityMain.owl#">
+<!ENTITY assurance "http://www.kim.com/NRLOntologyFiles/securityAssurance.owl#">
+]>
+<rdf:RDF
+xmlns ="&assurance;"
+xmlns:assurance ="&assurance;"
+xml:base ="&assurance;"
+xmlns:rdf ="&rdf;"
+xmlns:rdfs ="&rdfs;"
+xmlns:owl ="&owl;"
+xmlns:xsd ="&xsd;"
+xmlns:security ="&security;">
+<owl:Ontology>
+<rdfs:comment>
+A security ontology to annotate resources with security-related assurance
+information
+</rdfs:comment>
+</owl:Ontology>
+<!-- Top Class; Assurance -->
+<owl:Class rdf:ID="Assurance"/>
+<!--
+Subclasses of Assurance: Standard, Accreditation, Evaluation, Certification-->
+<owl:Class rdf:ID= "Standard">
+<rdfs:subClassOf rdf:resource="#Assurance" />
+</owl:Class>
+<owl:Class rdf:ID="Accreditation">
+<rdfs:subClassOf rdf:resource="#Assurance" />
+</owl:Class>
+<owl:Class rdf:ID="Evaluation">
+<rdfs:subClassOf rdf:resource="#Assurance"/>
+</owl:Class>
+<owl:Class rdf:ID="Certification">
+<rdfs:subClassOf rdf:resource="#Assurance"/>
+</owl:Class>
+<!-- Subclass of Standard class: FIPS -->
+<owl:Class rdf:ID="FIPS">
+<rdfs:subClassOf rdf:resource="#Standard"/>
+</owl:Class><owl:Class rdf:ID="NSA">
+<rdfs:subClassOf rdf:resource="#Standard"/>
+</owl:Class>
+<!-- Subclass of Evaluation class: TCSEC and CommonCriteria -->
+<owl:Class rdf:ID="TCSEC">
+<rdfs:subClassOf rdf:resource="#Evaluation"/>
+<rdfs:comment>Orange Book</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:ID="CommonCriteria">
+<rdfs:subClassOf rdf:resource="#Evaluation"/>
+</owl:Class>
+<!-- Subclass of Certification class: DITSCAP class -->
+<owl:Class rdf:ID="DITSCAP">
+<rdfs:subClassOf rdf:resource="#Certification"/>
+</owl:Class>
+<!--
+Subclass of TCSEC class; DivisionA, DivisionB, DivisionC, and DivisionD -->
+<owl:Class rdf:ID="DivisionA">
+<rdfs:subClassOf rdf:resource="#TCSEC"/>
+</owl:Class>
+<owl:Class rdf:ID="DivisionB">
+<rdfs:subClassOf rdf:resource="#TCSEC"/>
+</owl:Class>
+<owl:Class rdf:ID="DivisionC">
+<rdfs:subClassOf rdf:resource="#TCSEC"/>
+</owl:Class>
+<owl:Class rdf:ID="DivisionD">
+<rdfs:subClassOf rdf:resource="#TCSEC"/>
+</owl:Class>
+<!-- Property Declarations -->
+<owl:DatatypeProperty rdf:ID="byOrganization">
+<rdfs:domain rdf:resource="#Assurance"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:comment>Specifies which organization is responsible</rdfs:comment>
+</owl:DatatypeProperty>
+<!-- Instance declarations -->
+<!-- FIPS instances -->
+<FIPS rdf:ID="FIPSI40-2"/>
+<FIPS rdf:ID="FIPSI80-2"/>
+<FIPS rdf:ID="FIPS46-3"/>
+<!-- NSA instances -->
+<NSA rdf:ID="Typel"/>
+<NSA rdf:ID="Type2"/>
+<NSA rdf:ID="Type3"/>
+<NSA rdf:ID="Type4"/>
+<!-- Division instances -->
+<DivisionA rdf:ID="Al"/>
+<DivisionB rdf:ID="Bl"/>
+<DivisionB rdf:ID="B2"/>
+<DivisionB rdf:ID="B3"/>
+<DivisionC rdf:ID="Cl"/>
+<DivisionC rdf:ID="C2"/>
+<!-- CommonCriteria instances -->
+<CommonCriteria rdf:ID="EAL1"/>
+<CommonCriteria rdf:ID="EAL2"/>
+<CommonCriteria rdf:ID="EAL3"/>
+<CommonCriteria rdf:ID="EAL4"/>
+<CommonCriteria rdf:ID="EAL5"/>
+<CommonCriteria rdf:ID="EAL6"/>
+<CommonCriteria rdf:ID="EAL7"/>
+</rdf:RDF>

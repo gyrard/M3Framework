@@ -1,0 +1,13 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX resto: <http://www.mooney.net/restaurant#> 
+
+select ?subject ?foodType ?location ?ratingString ?cityLabel{
+ ?subject rdf:type resto:Restaurant .
+ ?subject resto:isInCity ?city .
+ ?subject resto:foodType ?foodType .
+ ?subject resto:location ?location .
+ ?subject resto:ratingString ?ratingString . 
+ ?city resto:label ?cityLabel .
+ FILTER (lcase(?cityLabel) = lcase(?labelCityUser)) .
+ }

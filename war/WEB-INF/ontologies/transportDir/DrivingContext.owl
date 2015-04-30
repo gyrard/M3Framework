@@ -1,0 +1,1699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY p1 "http://www.owl-ontologies.com/assert.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY j.0 "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+<rdf:RDF xmlns="http://vi.uni-klu.ac.at/ontology/DrivingContext.owl#" xml:base="http://vi.uni-klu.ac.at/ontology/DrivingContext.owl" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:p1="http://www.owl-ontologies.com/assert.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:j.0="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:disjointWith rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">An ontology for specyfing the driving environment for intelligent driver 
+      assistance systems.</rdfs:comment>
+        <owl:imports rdf:resource="http://protege.stanford.edu/plugins/owl/protege"/>
+    </owl:Ontology>
+    <owl:AllDifferent>
+        <owl:distinctMembers rdf:parseType="Collection"/>
+    </owl:AllDifferent>
+    <owl:AllDifferent>
+        <owl:distinctMembers rdf:parseType="Collection"/>
+    </owl:AllDifferent>
+    <owl:AllDifferent>
+        <owl:distinctMembers rdf:parseType="Collection"/>
+    </owl:AllDifferent>
+    <owl:AllDifferent>
+        <owl:distinctMembers rdf:parseType="Collection"/>
+    </owl:AllDifferent>
+    <owl:DatatypeProperty rdf:ID="drivingManeuverType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#drivingManeuver"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">driveStraightFullSight</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">driveStraightHalfSight</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">driveBehind</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">changeLaneLeft</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">turnLeft</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">turnRight</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:List>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">takeOver</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:List>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stop</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:List>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">start</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:List>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">turnAround</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:List>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slowDown</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:List>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">speedUp</rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:List>
+                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increaseAttention</rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:List>
+                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stayLeft</rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:List>
+                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stayRight</rdf:first>
+                                                                                                                                        <rdf:rest>
+                                                                                                                                            <rdf:List>
+                                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">brakeReady</rdf:first>
+                                                                                                                                                <rdf:rest>
+                                                                                                                                                    <rdf:List>
+                                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gearDown</rdf:first>
+                                                                                                                                                        <rdf:rest>
+                                                                                                                                                            <rdf:List>
+                                                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gearUp</rdf:first>
+                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                    <rdf:List>
+                                                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">park</rdf:first>
+                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                            <rdf:List>
+                                                                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">crossOncomingLane</rdf:first>
+                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                    <rdf:List>
+                                                                                                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">checkLeft</rdf:first>
+                                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                                            <rdf:List>
+                                                                                                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">changeLaneRight</rdf:first>
+                                                                                                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                                                                            </rdf:List>
+                                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                                    </rdf:List>
+                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                            </rdf:List>
+                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                    </rdf:List>
+                                                                                                                                                                </rdf:rest>
+                                                                                                                                                            </rdf:List>
+                                                                                                                                                        </rdf:rest>
+                                                                                                                                                    </rdf:List>
+                                                                                                                                                </rdf:rest>
+                                                                                                                                            </rdf:List>
+                                                                                                                                        </rdf:rest>
+                                                                                                                                    </rdf:List>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:List>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:List>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:List>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:List>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:List>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:List>
+                                                                                </rdf:rest>
+                                                                            </rdf:List>
+                                                                        </rdf:rest>
+                                                                    </rdf:List>
+                                                                </rdf:rest>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="rightLaneId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#laneIsAdjacentTo"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="laneIsAdjacentTo">
+        <rdfs:subClassOf rdf:resource="#ObjectRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#leftLaneId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#rightLaneId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A lane is adjacent to none, one or two other lanes.</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="leftLaneId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#laneIsAdjacentTo"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="age">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Age of the driver; interval range between [16;100]</rdfs:comment>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="startLaneId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#laneIsConnectedTo"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="longitude">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:subPropertyOf rdf:resource="#gpsPosition"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">180</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-180</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="trafficLightDistance">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Distance between the own vehicle and the traffic light.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#technicalFeature"/>
+        <rdfs:range rdf:resource="#ownVehicle"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="restrict">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#roadConditions"/>
+                    <owl:Class rdf:about="#trafficObject"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="#drivingManeuver"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="riskWillingness">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="unordinaryBehavior">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A participant is behaving out of norm.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="isObstacle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="degreeOfExperience">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">beginner</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">advanced</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">expert</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="localContextType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#localContext"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">intersection</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">levelCrossing</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tunnel</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">roundabout</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bridge</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">crosswalk</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="source">
+        <rdfs:domain rdf:resource="#MetaInformation"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">staticallyProvided</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">onBoardSensing</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gis</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">foreignSensingSystem</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">logicallyDerived</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Source that is providing information about the object</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="Meta"/>
+    <owl:Class rdf:ID="isDerivable">
+        <rdfs:subClassOf rdf:resource="#Meta"/>
+        <owl:disjointWith rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#ObjectRelationship"/>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="attributeIsDerivable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#isDerivable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Name of attribute: given as class.attribute name</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="derivationParameters">
+        <rdfs:domain rdf:resource="#isDerivable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Attributes needed for derivation in list form: class1.attr1, class2.attr2, ...</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="derivationRule">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#isDerivable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rule that must be used for attribute derivation</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="visibility">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#roadConditions"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">veryGood</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">good</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sufficient</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bad</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">veryBad</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="steeringWheelAngle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">360</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="connectedThroughManeuver">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#laneIsConnectedTo"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">straight</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">left</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">right</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Driving maneuver through which two lanes are reachable, e.g straight, left, right</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="speed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fastest car on earth goes about 400km/h, so this is the absolute maximum value.</rdfs:comment>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">400</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="drive">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range rdf:resource="#ownVehicle"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="risk">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#drivingManeuver"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="ownMaximumSpeed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">400</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="laneWidth">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#lane"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lane width in meters; positive floating point value</rdfs:comment>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="drivesIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="#context"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="laneIsConnectedTo">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#endLaneId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#ObjectRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#startLaneId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#laneIsAdjacentTo"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Two lanes within a local context can be connected with each other, meaning that they are reachable through a driving maneuver like "drive straight" or "turn left".</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="endLaneId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#laneIsConnectedTo"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="laneType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#lane"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frontageRoad</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">track</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">accelerationLane</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decelerationLane</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">breakDownLane</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">busStop</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="laneDirection">
+        <rdfs:domain rdf:resource="#lane"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">straight</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slightRight</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sharpRight</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">right</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slightLeft</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sharpLeft</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:List>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">uTurnRight</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:List>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">uTurnLeft</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:List>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">left</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:List>
+                                                                                </rdf:rest>
+                                                                            </rdf:List>
+                                                                        </rdf:rest>
+                                                                    </rdf:List>
+                                                                </rdf:rest>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Values according to TeleAtlas-Data-Format-Specification</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="direction">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">front</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frontLeft</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frontRight</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">left</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">right</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rear</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:List>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rearLeft</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:List>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rearRight</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:List>
+                                                                        </rdf:rest>
+                                                                    </rdf:List>
+                                                                </rdf:rest>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="throttleIntensity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">light</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heavy</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="has">
+        <rdfs:domain rdf:resource="#context"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="gear">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Current gear of the vehicle;</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="validity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MetaInformation"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">permanent</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">infrequent</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">frequent</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Frequency of change for statically provided objects</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="quality">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MetaInformation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Quality value for the object, provided by source</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="stopTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:subPropertyOf rdf:resource="#timespan"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start time as unix time value: number of seconds since 00:00:00 GMT, Jan 1 1970
+OR "inf" for "valid until further notice"</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="plan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range rdf:resource="#drivingManeuver"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="dangerSign">
+        <rdfs:subClassOf rdf:resource="#trafficSign"/>
+        <owl:disjointWith rdf:resource="#informationSign"/>
+        <owl:disjointWith rdf:resource="#orderSign"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A danger sign indicates some imminant or potential danger and demands attention from the user (e.g. dangerous curve following)</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="orderSign">
+        <rdfs:subClassOf rdf:resource="#trafficSign"/>
+        <owl:disjointWith rdf:resource="#informationSign"/>
+        <owl:disjointWith rdf:resource="#dangerSign"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An order sign indicates an immediate order or prohibition to the driver (e.g. ban on passing or "do not turn left").</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="informationSign">
+        <rdfs:subClassOf rdf:resource="#trafficSign"/>
+        <owl:disjointWith rdf:resource="#orderSign"/>
+        <owl:disjointWith rdf:resource="#dangerSign"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An information sign provides useful information about the driving environment to the driver (e.g. beginning of a motorway).</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="spatialContext">
+        <rdfs:subClassOf rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#localContext"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A spatial context is the logical type of the road, the own-vehicle is currently driving in and is typically valid for a long timespan (minutes to hours). A spatial context is e.g. a highway or a city.</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="dependsOn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#localContext"/>
+        <rdfs:range rdf:resource="#spatialContext"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="localContext">
+        <rdfs:subClassOf rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#spatialContext"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A local context is a specific point (or short segment) within a spatial context, typically valid for a short time (e.g. intersection, level crossing ...)</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="participantHasRelationToVehicle">
+        <rdfs:subClassOf rdf:resource="#ObjectRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#relationOwnVehicleId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#relationPartId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#laneIsAdjacentTo"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Every participant has a relationship to the own-vehicle. Relationship-properties are measured relative to the own-vehicle (instead of being absolute with respect to the global origin).</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="directionMovement">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">towards</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">away</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">parallel</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="safetyDistance">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#drivingManeuver"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Necessary safety distance for a driving maneuver. Positive float value.</rdfs:comment>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="relationPartId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:range rdf:resource="#participant"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="surfaceTemperature">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#roadConditions"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Temperatur of the road surface; floating point value in the range of [-50;80]</rdfs:comment>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">80</j.0:maxInclusive>
+        <j.0:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-50</j.0:minExclusive>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="roadConditions">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conditions on a road are weather and day-time dependent. Examples are heavy rain, insufficient lightning conditions and freezing temperatures (leading to black-ice). Road conditions have enormous impact on the recommended driving maneuvers.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="width">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="surfaceCondition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#roadConditions"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wet</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">slippery</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dry</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="markingType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#marking"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edgeline</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">centerline</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">doubleWhiteLine</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stopline</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">laneIndicator</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="spatialContextType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#spatialContext"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">highway</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">semiMotorway</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ruralRoad</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">city</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="trafficLightState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#trafficLight"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stop</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conditionalStop</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">getReady</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">freeWay</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">outOfOrder</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="hasAdditionalInformation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#ContextObject"/>
+                    <owl:Class rdf:about="#ObjectRelationship"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="#MetaInformation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="isAllowedIn">
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range rdf:resource="#context"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="generalSpeedLimit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#spatialContext"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="numberOfLanes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#context"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Value is derived from "has"-object property.</rdfs:comment>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="participantSpeed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">400</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="dop">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:subPropertyOf rdf:resource="#gpsPosition"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="isValidFor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#trafficObject"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="usedLaneId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantUseLane"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="partLength">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Length of participant in meters</rdfs:comment>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="distance">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Distance in meters</rdfs:comment>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="airTemperature">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#roadConditions"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">80</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-50</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="relationOwnVehicleId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:range rdf:resource="#ownVehicle"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="heading">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:subPropertyOf rdf:resource="#gpsPosition"/>
+        <j.0:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">360</j.0:maxExclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="execute">
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range rdf:resource="#drivingManeuver"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="participantType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pedestrian</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bike</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">skater</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vehicle</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">truck</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">motorbike</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:List>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">moped</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:List>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tractor</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:List>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bus</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:List>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tram</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:List>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">emergencyVehicle</rdf:first>
+                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                    </rdf:List>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:List>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:List>
+                                                                                </rdf:rest>
+                                                                            </rdf:List>
+                                                                        </rdf:rest>
+                                                                    </rdf:List>
+                                                                </rdf:rest>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="ContextObject">
+        <owl:disjointWith rdf:resource="#MetaInformation"/>
+        <owl:disjointWith rdf:resource="#ObjectRelationship"/>
+        <owl:disjointWith rdf:resource="#isDerivable"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Object that occurs in the driving environment and has some impact on the driving task.</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="trafficObjId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#trafficObjectIsValidForLane"/>
+        <rdfs:range rdf:resource="#trafficObject"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="validLaneId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#trafficObjectIsValidForLane"/>
+        <rdfs:range rdf:resource="#lane"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="trafficObjectIsValidForLane">
+        <rdfs:subClassOf rdf:resource="#ObjectRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#validLaneId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#trafficObjId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A traffic object is always valid for a lane. One instance exists for every lane, for which the traffic object is valid.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="ObjectRelationship">
+        <owl:disjointWith rdf:resource="#MetaInformation"/>
+        <owl:disjointWith rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#isDerivable"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An object relationship represents a many-to-many-relationship of context objects.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="technicalFeatureState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#technicalFeature"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">active</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ready</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">failure</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="technicalFeature">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modern vehicles are equipped with a variety of technical safety and convenience systems, which influence the driving behavior. Absence of an antilock-brake-system (ABS), for instance, demands for more cautious speed-behavior, because of increased breaking distance.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="technicalFeatureType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#technicalFeature"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">light</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">headlight</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">turnIndicatorLeft</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">turnIndicatorRight</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fogLight</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fogTailLight</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:List>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">abs</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:List>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">esp</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:List>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acc</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:List>
+                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wipersFront</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:List>
+                                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wipersBack</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:List>
+                                                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">blueLight</rdf:first>
+                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                            </rdf:List>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:List>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:List>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:List>
+                                                                                </rdf:rest>
+                                                                            </rdf:List>
+                                                                        </rdf:rest>
+                                                                    </rdf:List>
+                                                                </rdf:rest>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="participantUseLane">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#usingPartId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#ObjectRelationship"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#usedLaneId"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#laneIsAdjacentTo"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Each dynamic traffic participant can use a lane. Motorized participants must use lanes, whereas pedestrians and bikes are not obliged to (or have special lanes not relevant for the own-vehicle).</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="usingPartId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantUseLane"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#ownVehicle"/>
+                    <owl:Class rdf:about="#participant"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="ownVehicle">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The own vehicle is the car with the on-board driver assistance system. All other context objects are related to the own vehicle (ego-centric world view).</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="addOnSign">
+        <rdfs:domain rdf:resource="#trafficSign"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Add-on-sign of a traffic sign e.g. direction of road that has right of way.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="spaceRight">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantUseLane"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Space on the right in meters</rdfs:comment>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="trafficSign">
+        <rdfs:subClassOf rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#trafficLight"/>
+        <owl:disjointWith rdf:resource="#marking"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A traffic sign provides information about the spatial/local context and the currently valid traffic rules, different from the default regulation.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="participant">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A participant is a dynamic, moving object within the traffic surrounding and is typically operated by other human (or robot) drivers.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="spaceLeft">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participantUseLane"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="state">
+        <rdfs:domain rdf:resource="#driver"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tired</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drunk</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stressed</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">distracted</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:List>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ill</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:List>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medicated</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:List>
+                                                        </rdf:rest>
+                                                    </rdf:List>
+                                                </rdf:rest>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Possible driver states</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="driver">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The driver is steering the own-vehicle. The driver is typically human, but could be a robot (which would render the dataproperties "age" and "state" obsolete).</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="history">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Longterm- and shortterm history can influence the currently planned driving maneuver (for future use).</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="influence">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="#context"/>
+                    <owl:Class rdf:about="#history"/>
+                    <owl:Class rdf:about="#participant"/>
+                    <owl:Class rdf:about="#technicalFeature"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="#drivingManeuver"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="context">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Currently valid context that the own-vehicle is driving in.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="brakeIntensity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">light</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heavy</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="maximumSpeed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">400</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="length">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Length of a vehicle; valid range between 0 and 20 meters.</rdfs:comment>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20</j.0:maxInclusive>
+        <j.0:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minExclusive>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="drivingManeuver">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A driving maneuver is planned and executed by the driver, e.g. take over, stop and park.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="lane">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A lane is a designated surface on a road (associated with certain rules) used by traffic participants.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="trafficFlowDirection">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#lane"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">openBoth</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">openPositive</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">openNegative</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:List>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">closedBoth</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:List>
+                                        </rdf:rest>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Allowed direction of traffic flow for a lane; values according to TeleAtlas-Format-Specification</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="lineOfSight">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Distance in meters, positive float value</rdfs:comment>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="additionalInfo">
+        <rdfs:domain rdf:resource="#trafficSign"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Additional information of a traffig sign.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="timespan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MetaInformation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Timespan of validity for a given object (for temporal reasoning)</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="latitude">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:subPropertyOf rdf:resource="#gpsPosition"/>
+        <j.0:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">90</j.0:maxInclusive>
+        <j.0:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#string">-90</j.0:minInclusive>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="gpsPosition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ownVehicle"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="partWidth">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#participant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="trafficLightDirection">
+        <rdfs:domain rdf:resource="#trafficLight"/>
+        <rdfs:range>
+            <owl:DataRange>
+                <owl:oneOf>
+                    <rdf:List>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">straight</rdf:first>
+                        <rdf:rest>
+                            <rdf:List>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">left</rdf:first>
+                                <rdf:rest>
+                                    <rdf:List>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">right</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:List>
+                                </rdf:rest>
+                            </rdf:List>
+                        </rdf:rest>
+                    </rdf:List>
+                </owl:oneOf>
+            </owl:DataRange>
+        </rdfs:range>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Driving direction for which a traffic light is valid.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="marking">
+        <rdfs:subClassOf rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#trafficLight"/>
+        <owl:disjointWith rdf:resource="#trafficSign"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A marking separates a lane from other lanes or impassable environment.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="signName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#trafficSign"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="trafficObject">
+        <rdfs:subClassOf rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#technicalFeature"/>
+        <owl:disjointWith rdf:resource="#laneIsConnectedTo"/>
+        <owl:disjointWith rdf:resource="#context"/>
+        <owl:disjointWith rdf:resource="#ownVehicle"/>
+        <owl:disjointWith rdf:resource="#drivingManeuver"/>
+        <owl:disjointWith rdf:resource="#history"/>
+        <owl:disjointWith rdf:resource="#roadConditions"/>
+        <owl:disjointWith rdf:resource="#lane"/>
+        <owl:disjointWith rdf:resource="#participant"/>
+        <owl:disjointWith rdf:resource="#participantHasRelationToVehicle"/>
+        <owl:disjointWith rdf:resource="#driver"/>
+        <owl:disjointWith rdf:resource="#participantUseLane"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A traffic object is a static, non-moving object within the driving environment, providing additional information about the mandatory behavior to the participants.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="trafficLight">
+        <rdfs:subClassOf rdf:resource="#trafficObject"/>
+        <owl:disjointWith rdf:resource="#trafficSign"/>
+        <owl:disjointWith rdf:resource="#marking"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A traffic light regulates precedence and start/stop of different directions (and lanes) and is usually valid for an intersection or a tunnel.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="MetaInformation">
+        <rdfs:subClassOf rdf:resource="#Meta"/>
+        <owl:disjointWith rdf:resource="#ContextObject"/>
+        <owl:disjointWith rdf:resource="#ObjectRelationship"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meta-information provides quality information about an object. During the reasoning process, this information is used to deal with e.g. uncertainty and noisy data.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="startTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:subPropertyOf rdf:resource="#timespan"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start time as unix time value: number of seconds since 00:00:00 GMT, Jan 1 1970</rdfs:comment>
+    </owl:DatatypeProperty>
+</rdf:RDF>

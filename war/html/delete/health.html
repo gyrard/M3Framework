@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>M3 (Machine-to-Machine Measurement)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/health.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/senml.js"></script>
+<script type="text/javascript" src="javascript/health.js"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor=#B8CEFA>   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/health.png" width="100" height="80" >Health Prototype
+		
+		<img src="images/health.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+<article>
+
+
+<article>
+ <fieldset>
+   <legend>M2M Aggregation Gateway: Convert Health Measurements into Semantic Data</legend> 
+		
+		<a href="http://emulator-box-services.appspot.com/senmladmin/zones"> SenML sensor measurements </a>
+		<br/><br/>
+		
+		<input type="button" value="Convert health measurements" onclick='requestText(alert, "health/convert", "res_convert");'/>
+		<div id="res_convert"></div>
+		
+		<div id="">	</div>	
+		<script type="text/javascript">
+		var measurement = ['Cholesterol', 'Glucose', 'BloodPressure', 'HeartBeat','MagneticField'];	
+		
+		for (var i = 0; i < measurement.length; i++) {
+			request(readSenml, "health/"+ measurement[i], measurement[i]);	  
+			var ul = document.createElement('ul');
+			ul.setAttribute('id', measurement[i]);
+			
+			divMeasurements = document.getElementById("divMeasurements");
+			var text = document.createTextNode(measurement[i] + " measurements:");
+			divMeasurements.appendChild(text);
+
+			divMeasurements.appendChild(ul);			
+		}
+		</script>
+		
+ </fieldset>
+</article>
+
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Temperature => Cold => Food => Recipe</legend> 
+	
+Input: temperature. 
+We deduce that the temperature corresponds to the body temperature.  
+We deduce that the person is sick.
+We propose all fruits/vegetables according to this disease. 
+We search a recipe according to the food. <br/>
+		
+		<div id="temp_health"></div>
+ </fieldset>
+</article>
+
+<script type="text/javascript">
+			request(temperatureSeasonFoodRecipeDisease, "temp/temperatureColdFood", "temp_health");
+		</script>
+
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Recipe & Diet:Cholesterol</legend> 
+   
+   <br/>Fat Ingredients:<ul id="fat"></ul>
+		
+		<script type="text/javascript">
+		request(displayIngredientFat, "health/fat", "fat", "li");
+		</script>
+		
+		<br/><input type="button" value="Recipe Light" onclick='request(getRecipeLight, "health/recipeLight", "recipeLight", "li");'/>		
+		<ul id="recipeLight"></ul>
+		
+ </fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Pacemaker & Magnetic Field</legend> 
+		
+ </fieldset>
+</article>
+
+
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Recipe & Diet:Hypertension (without salt)</legend> 
+		
+ </fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>M2M Application: Recipe & Disease:Diabete</legend> 
+		
+ </fieldset>
+</article>
+
+
+</body>
+</html>

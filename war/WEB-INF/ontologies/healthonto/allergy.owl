@@ -1,0 +1,1253 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY icd10 "http://who.org/2008/10/en/icd10.owl#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY food "http://www.owl-ontologies.com/food.owl#" >
+    <!ENTITY menus "http://www.owl-ontologies.com/menus.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2006/12/owl2-xml#"
+     xml:base="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:menus="http://www.owl-ontologies.com/menus.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:icd10="http://who.org/2008/10/en/icd10.owl#"
+     xmlns:food="http://www.owl-ontologies.com/food.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     URI="http://www.owl-ontologies.com/food.owl">
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToPeanut"/>
+        <Class URI="&icd10;Allergy"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToPeanut"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Peanut"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToSoy"/>
+        <Class URI="&icd10;Allergy"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToSoy"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Soy"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToTomato"/>
+        <Class URI="&icd10;Allergy"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToTomato"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Tomato"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToWheat"/>
+        <Class URI="&icd10;Allergy"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;AllergyToWheat"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Wheat"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;E73"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Lactose"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;I"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&icd10;ICD"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&icd10;II"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;III"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;IV"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;IX"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;K90.0"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Gluten"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;V"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;VI"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;VII"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;VIII"/>
+        <Class URI="&icd10;ICD"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;VeganDiet"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;AnimalIngredient"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&icd10;VegetarianDiet"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Meat"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&food;AllergyToLactose"/>
+        <Class URI="&icd10;Allergy"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&food;AllergyToLactose"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&icd10;foodRestriction"/>
+            <Class URI="&menus;Lactose"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;AllergyToLactose"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&food;AnimalFreeRecipe"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Recipe"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&menus;AnimalIngredient"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&food;AnimalFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;AnimalFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;FatFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;FatFreeRecipe"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&food;LactoseFreeMilk"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MilkGroup"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasNutrient"/>
+                    <Class URI="&menus;Lactose"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&food;LactoseFreeMilk"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&food;LactoseFreeRecipe"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Recipe"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&food;LactoseIngredient"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&food;LactoseFreeRecipe"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&food;LactoseIngredient"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Ingredient"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasNutrient"/>
+                <Class URI="&menus;Lactose"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&food;LactoseIngredient"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;MeatFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;MeatFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;Milk"/>
+        <Class URI="&menus;MilkGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&food;Milk"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Lactose"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;Milk"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&food;MilkFreeRecipe"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Recipe"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&menus;MilkGroup"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&food;MilkFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;MilkFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;PeanutFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;PeanutFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;ProteinFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;ProteinFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;SoyFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;SoyFreeRecipe"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&food;TomatoFreeRecipe"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Recipe"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&menus;Tomato"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&food;TomatoFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;TomatoFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&food;WheatFreeRecipe"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&food;WheatFreeRecipe"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;AlcoholicDrink"/>
+        <Class URI="&menus;Drink"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;AlcoholicDrink"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Almond"/>
+        <Class URI="&menus;NutSeed"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;AnimalIngredient"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;AnimalIngredient"/>
+        <Class URI="&menus;MineralIngredient"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;AnimalIngredient"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;AnimalOil"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;AnimalOil"/>
+        <Class URI="&menus;OilsGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Appetizer"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Apple"/>
+        <Class URI="&menus;FruitGroup"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;Apple"/>
+        <Class URI="&menus;Cereal"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Banana"/>
+        <Class URI="&menus;FruitGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Barley"/>
+        <Class URI="&menus;Grain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Barley"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Gluten"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Barley"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;BeanPea"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;BeanPea"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Beef"/>
+        <Class URI="&menus;Meat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Beer"/>
+        <Class URI="&menus;AlcoholicDrink"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Beer"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Broccoli"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Broccoli"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Butter"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Butter"/>
+        <Class URI="&menus;AnimalOil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Carbohydrate"/>
+        <Class URI="&menus;Macronutrient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;Carbohydrate"/>
+        <Class URI="&menus;Fat"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;Carbohydrate"/>
+        <Class URI="&menus;Protein"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Cereal"/>
+        <Class URI="&menus;GrainsGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Cereal"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Cheese"/>
+        <Class URI="&menus;MilkGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Cheese"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Lactose"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Chicken"/>
+        <Class URI="&menus;Poultry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;ChickenEgg"/>
+        <Class URI="&menus;Egg"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Chocolate"/>
+        <Class URI="&menus;Dessert"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Chocolate"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasIngredient"/>
+            <Class URI="&menus;Cocoa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Chocolate"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Cocoa"/>
+        <Class URI="&menus;BeanPea"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Cocoa"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Cod"/>
+        <Class URI="&menus;Fish"/>
+    </SubClassOf>
+    <EquivalentClasses>
+        <Class URI="&menus;DarkChocolate"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Chocolate"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&food;LactoseIngredient"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&menus;DarkChocolate"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Dessert"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <EquivalentClasses>
+        <Class URI="&menus;DominionLager"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Lager"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&menus;GlutenIngredient"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;GlutenFreeGrain"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Hops"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Water"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Yeast"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="4">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Ingredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&menus;DominionLager"/>
+    </Declaration>
+    <Declaration>
+        <Class URI="&menus;Drink"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Duck"/>
+        <Class URI="&menus;Poultry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;DuckEgg"/>
+        <Class URI="&menus;Egg"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Egg"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Egg"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Entree"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Falafel"/>
+        <Class URI="&menus;BeanPea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Fat"/>
+        <Class URI="&menus;Macronutrient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;Fat"/>
+        <Class URI="&menus;Protein"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Fish"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Fish"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;FruitGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasMainNutrient"/>
+            <Class URI="&menus;Mineral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;FruitGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasMainNutrient"/>
+            <Class URI="&menus;Vitamin"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;GrainsGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;MilkGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;OilsGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;FruitGroup"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;GarbanzoBean"/>
+        <Class URI="&menus;BeanPea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Gluten"/>
+        <Class URI="&menus;Protein"/>
+    </SubClassOf>
+    <EquivalentClasses>
+        <Class URI="&menus;GlutenFreeGrain"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Grain"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasNutrient"/>
+                    <Class URI="&menus;Gluten"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&menus;GlutenFreeGrain"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&menus;GlutenFreeRecipe"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Recipe"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&menus;GlutenIngredient"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&menus;GlutenFreeRecipe"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&menus;GlutenIngredient"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;Ingredient"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasNutrient"/>
+                <Class URI="&menus;Gluten"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&menus;GlutenIngredient"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Goose"/>
+        <Class URI="&menus;Poultry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Grain"/>
+        <Class URI="&menus;GrainsGroup"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Grain"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;GrainsGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;GrainsGroup"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;GrainsGroup"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;GrainsGroup"/>
+        <Class URI="&menus;MilkGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;GrainsGroup"/>
+        <Class URI="&menus;OilsGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;GrainsGroup"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Hazelnut"/>
+        <Class URI="&menus;NutSeed"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Hops"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Hops"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Koff"/>
+        <Class URI="&menus;Lager"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Koff"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasIngredient"/>
+            <Class URI="&menus;Barley"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Koff"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Lactose"/>
+        <Class URI="&menus;Sugar"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Lactose"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Lager"/>
+        <Class URI="&menus;Beer"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Lager"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Lentils"/>
+        <Class URI="&menus;BeanPea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;LiquidGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;LiquidGroup"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Macronutrient"/>
+        <Class URI="&menus;Nutrient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;Macronutrient"/>
+        <Class URI="&menus;Micronutrient"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;MainCourse"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Meat"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Meat"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;MeatBeansGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;MeatBeansGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasMainNutrient"/>
+            <Class URI="&menus;Protein"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;MeatBeansGroup"/>
+        <Class URI="&menus;MilkGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;MeatBeansGroup"/>
+        <Class URI="&menus;OilsGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;MeatBeansGroup"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Micronutrient"/>
+        <Class URI="&menus;Nutrient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Micronutrient"/>
+        <ObjectComplementOf>
+            <Class URI="&menus;Macronutrient"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;MilkChocolate"/>
+        <Class URI="&menus;Chocolate"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;MilkChocolate"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasIngredient"/>
+            <Class URI="&food;Milk"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;MilkChocolate"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;MilkGroup"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;MilkGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;MilkGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasMainNutrient"/>
+            <Class URI="&menus;Protein"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;MilkGroup"/>
+        <Class URI="&menus;OilsGroup"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class URI="&menus;MilkGroup"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Mineral"/>
+        <Class URI="&menus;Micronutrient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;Mineral"/>
+        <Class URI="&menus;Vitamin"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;MineralIngredient"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;MineralIngredient"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;Muesli"/>
+        <Class URI="&menus;GrainsGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;NonAlcoholicDrink"/>
+        <Class URI="&menus;Drink"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;NonAlcoholicDrink"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;NutSeed"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;NutSeed"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;OilsGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;OilsGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Fat"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class URI="&menus;OilsGroup"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </DisjointClasses>
+    <SubClassOf>
+        <Class URI="&menus;OliveOil"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;OliveOil"/>
+        <Class URI="&menus;VegetableOil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Onion"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Pasta"/>
+        <Class URI="&menus;Cereal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Pasta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Gluten"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Peanut"/>
+        <Class URI="&menus;NutSeed"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Peanut"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Pepper"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;PlantIngredient"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Pork"/>
+        <Class URI="&menus;Meat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Poultry"/>
+        <Class URI="&menus;AnimalIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Poultry"/>
+        <Class URI="&menus;Meat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Poultry"/>
+        <Class URI="&menus;MeatBeansGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Protein"/>
+        <Class URI="&menus;Macronutrient"/>
+    </SubClassOf>
+    <EquivalentClasses>
+        <Class URI="&menus;RecipeChickenPepperTomato"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MainCourse"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                    <Class URI="&menus;Chicken"/>
+                </ObjectSomeValuesFrom>
+                <ObjectExactCardinality cardinality="1">
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                </ObjectExactCardinality>
+            </ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Pepper"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Tomato"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="3">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&menus;RecipeChickenPepperTomatoOnion"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MainCourse"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                    <Class URI="&menus;Chicken"/>
+                </ObjectSomeValuesFrom>
+                <ObjectExactCardinality cardinality="1">
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                </ObjectExactCardinality>
+            </ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Onion"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Pepper"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Tomato"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="4">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&menus;RecipeChickenTomato"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MainCourse"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                    <Class URI="&menus;Chicken"/>
+                </ObjectSomeValuesFrom>
+                <ObjectExactCardinality cardinality="1">
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                </ObjectExactCardinality>
+            </ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Tomato"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="2">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&menus;RecipeRiceChickenBroccoli"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MainCourse"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasIngredient"/>
+                    <Class URI="&menus;Tomato"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Broccoli"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Chicken"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Rice"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="3">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Ingredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <Declaration>
+        <Class URI="&menus;RecipeRiceChickenBroccoli"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class URI="&menus;RecipeTomato"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MainCourse"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                    <Class URI="&menus;Tomato"/>
+                </ObjectSomeValuesFrom>
+                <ObjectExactCardinality cardinality="1">
+                    <ObjectProperty URI="&menus;hasMainIngredient"/>
+                </ObjectExactCardinality>
+            </ObjectIntersectionOf>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class URI="&menus;RecipeTomatoChicken"/>
+        <ObjectIntersectionOf>
+            <Class URI="&menus;MainCourse"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasIngredient"/>
+                <Class URI="&menus;Chicken"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty URI="&menus;hasMainIngredient"/>
+                <Class URI="&menus;Tomato"/>
+            </ObjectSomeValuesFrom>
+            <ObjectExactCardinality cardinality="2">
+                <ObjectProperty URI="&menus;hasIngredient"/>
+            </ObjectExactCardinality>
+            <ObjectExactCardinality cardinality="1">
+                <ObjectProperty URI="&menus;hasMainIngredient"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class URI="&menus;Rice"/>
+        <Class URI="&menus;Cereal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Rye"/>
+        <Class URI="&menus;Grain"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Rye"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Salmon"/>
+        <Class URI="&menus;Fish"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Salt"/>
+        <Class URI="&menus;MineralIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;SideDish"/>
+        <Class URI="&menus;Recipe"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Soy"/>
+        <Class URI="&menus;BeanPea"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Soy"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Spaghetti"/>
+        <Class URI="&menus;Pasta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Sugar"/>
+        <Class URI="&menus;Macronutrient"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Sugar"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;SunflowerOil"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;SunflowerOil"/>
+        <Class URI="&menus;VegetableOil"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Tofu"/>
+        <Class URI="&menus;BeanPea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Tofu"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasIngredient"/>
+            <Class URI="&menus;Soy"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Tomato"/>
+        <Class URI="&menus;VegetablesGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Turkey"/>
+        <Class URI="&menus;Poultry"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Veal"/>
+        <Class URI="&menus;Meat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;VegetableOil"/>
+        <Class URI="&menus;OilsGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;VegetableOil"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;VegetablesGroup"/>
+        <Class URI="&menus;Ingredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;VegetablesGroup"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;VegetablesGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Mineral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;VegetablesGroup"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Vitamin"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Vitamin"/>
+        <Class URI="&menus;Micronutrient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Water"/>
+        <Class URI="&menus;LiquidGroup"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Water"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Wheat"/>
+        <Class URI="&menus;Grain"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Wheat"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Yeast"/>
+        <Class URI="&menus;PlantIngredient"/>
+    </SubClassOf>
+    <Declaration>
+        <Class URI="&menus;Yeast"/>
+    </Declaration>
+    <SubClassOf>
+        <Class URI="&menus;Yogurt"/>
+        <Class URI="&menus;MilkGroup"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class URI="&menus;Yogurt"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty URI="&menus;hasNutrient"/>
+            <Class URI="&menus;Lactose"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&menus;hasIngredient"/>
+        <Class URI="&menus;Recipe"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&menus;hasIngredient"/>
+        <Class URI="&menus;Ingredient"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&menus;hasMainIngredient"/>
+        <ObjectProperty URI="&menus;hasIngredient"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty URI="&menus;hasMainNutrient"/>
+        <ObjectProperty URI="&menus;hasNutrient"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty URI="&menus;hasNutrient"/>
+        <Class URI="&menus;Ingredient"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty URI="&menus;hasNutrient"/>
+        <Class URI="&menus;Nutrient"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->

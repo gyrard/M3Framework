@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE uridef[
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY algorithms "http://www.kim.com/NRLOntologyFiles/securityAlgorithms.owl#">
+<!ENTITY infObj "http://www.kim.com/NRLOntologyFiles/infObj.owl#">
+]>
+<rdf:RDF
+xmlns ="&infObj;"
+xmlns:infObj ="&infObj;"
+xmlns:base ="&infObj;"
+xmlns:rdf ="&rdf;"
+xmlns:rdfs ="&rdfs;"
+xmlns:owl ="&owl;"
+xmlns:xsd ="&xsd;"
+xmlns:algorithms ="&algorithms;">
+<owl:Ontology>
+<rdfs:comment> Ontology to describe security requirements for inputs and outputs of services. Security requirements are encrypting, signing of data, etc. 
+</rdfs:comment>
+</owl:Ontology>
+<!-- Class declarations -->
+<owl:Class rdf:ID="InformationObject"/>
+<owl:Class rdf:ID="EncInfObj">
+<rdfs:subClassOf rdf:resource="#InformationObject"/>
+</owl:Class>
+<owl:Class rdf:ID="SigInfObj">
+<rdfs:subClassOf rdf:resource="#InformationObject"/>
+</owl:Class>
+<!-- PROPERTIES -->
+<owl:ObjectProperty rdf:ID="baseObject">
+<rdfs:comment>
+Describes the type or structure of the information
+that is encoded in InformationObject
+</rdfs:comment>
+<rdfs:range rdf:resource="&xsd;Thing"/>
+<rdf:type rdf:resource="&xsd;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#InformationObject"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="cryptoAlgUsed'>
+<rdfs:domain rdf:resource="#InformationObject"/>
+<rdfs:range rdf:resource="&algorithms;Algorithm"/>
+</owl:ObjectProperty>
+</rdf:RDF>

@@ -1,0 +1,95 @@
+<h1>Linked Open Vocabularies for Internet of Things (LOV4IoT)</h1>
+<h1>Smarter LOV4IoT</h1>
+<div class="hero-unit" >
+
+<h3>Real-time statistics on the LOV4IoT RDF dataset (ongoing)</h3>
+
+<table border>
+	<tr> <td>Total number of ontologies referenced:</td> <td><div id="nb_total_onto"></div></td> </tr>
+	<tr> <td class="no">Total number of ontologies confidential:</td> <td> <div id="Confidential"></div></td> </tr>
+	<tr> <td>Total number of ontologies WaitForAnswer:</td> <td> <div id="WaitForAnswer"></div></td> </tr>
+	<tr> <td class="ongoing">Total number of ontologies OngoingProcessOnline:</td> <td> <div id="OngoingProcessOnline"></div></td> </tr>
+	<tr> <td class="online">Total number of ontologies Online:</td> <td> <div id="Online"></div></td> </tr>
+	<tr> <td class="lov">Total number of ontologies OnlineLOV:</td> <td> <div id="OnlineLOV"></div></td> </tr>
+</table>
+<br/>
+Classification by domains (finished):
+<table border>
+	<tr> <td>Healthcare:</td> <td> <div id="Health"></div></td> </tr>
+	<tr> <td>Transportation:</td> <td> <div id="Transportation"></div></td> </tr>
+	<tr> <td>BuildingAutomation:</td> <td> <div id="BuildingAutomation"></div></td> </tr>
+	<tr> <td>Tourism:</td> <td> <div id="Tourism"></div></td> </tr>
+	<tr> <td>Weather:</td> <td> <div id="Weather"></div></td> </tr>
+	<tr> <td>Agriculture:</td> <td> <div id="Agriculture"></div></td> </tr>
+	<tr> <td>City:</td> <td> <div id="City"></div></td> </tr>
+	<tr> <td>Environment:</td> <td> <div id="Environment"></div></td> </tr>
+	<tr> <td>Energy:</td> <td> <div id="Energy"></div></td> </tr>
+	<tr> <td>Emotion:</td> <td> <div id="Emotion"></div></td> </tr>	
+	<tr> <td>TrackingFood</td> <td> <div id="TrackingFood"></div></td> </tr>
+	<tr> <td>Activity</td> <td> <div id="Activity"></div></td> </tr>
+	<tr> <td>Fire</td> <td> <div id="Fire"></div></td> </tr>
+	<tr> <td>TrackingCD</td> <td> <div id="TrackingCD"></div></td> </tr>
+	<tr> <td>Sensor Networks</td> <td> <div id="SensorNetworks"></div></td> </tr>
+	<tr> <td>Security</td> <td> <div id="Security"></div></td> </tr>
+</table>
+
+<h3>LOV4IoT-bot</h3>
+LOV4IoT-bot encourages domain experts to share their domain knowledge (ontologies, datasets and rules) by sending emails:
+
+<br/>
+
+To (domain expert):<br/>
+<input type="text" name="to" value="gyrard@eurecom.fr" id="to" /><br/>
+
+
+Paper:<br/><input type="text" name="paper" value="Research articles read" id="paper" /><br/>
+<button onClick="sendEmail();">Send Email</button>
+
+<div id="result_email"></div>
+
+
+
+
+<h3>RDF LOV4IoT dataset</h3>
+
+<a href="./dataset/lov4iot-dataset">RDF LOV4IoT dataset</a>
+
+
+<h3>Automatic LOV4IoT HTML web page</h3>
+Ongoing
+
+
+
+<h3>LOV4IoT API</h3>
+<a href="../?p=documentation">See documentation</a> (ongoing)
+
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayLOV4IOTStatistics, "/lov4iot/totalOnto/", "nb_total_onto","");	
+	request(displayLOV4IOTStatistics, "/lov4iot/ontoStatus/?status=Confidential", "Confidential", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/ontoStatus/?status=OngoingProcessOnline", "OngoingProcessOnline", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/ontoStatus/?status=WaitForAnswer", "WaitForAnswer", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/ontoStatus/?status=Online", "Online", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/ontoStatus/?status=OnlineLOV", "OnlineLOV", "");	
+});
+
+$.getScript('javascript/swot.js',function(){
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=BuildingAutomation", "BuildingAutomation", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Weather", "Weather", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Agriculture", "Agriculture", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Health", "Health", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Tourism", "Tourism", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Transportation", "Transportation", "");	
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=City", "City", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Environment", "Environment", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Energy", "Energy", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Emotion", "Emotion", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=TrackingFood", "TrackingFood", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Activity", "Activity", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Fire", "Fire", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=TrackingCD", "TrackingCD", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=SensorNetworks", "SensorNetworks", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Security", "Security", "");
+});

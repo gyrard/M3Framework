@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>M3 (Machine-to-Machine Measurement)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/security/iconSecurity.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/sensorFOI.js"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor="#B0E3E5">   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/m2m.png" width="100" height="80" >M3 tool
+		
+		<img src="images/m2m.png" width="100" height="80" ></p>
+	</h1>
+</header>
+<article>
+ 
+
+
+<article>
+ <fieldset>
+   <legend>Ontologies</legend>  
+   <a href="m3">Th M3 (Machine-to-Machine Measurement) ontology (XML/OWL)</a>
+   <br/><br/>
+   <a href="naturopathy">Naturopathy ontology (XML/OWL)</a>
+
+	<br/><br/>
+	<a href="naturopathy-instances">Naturopathy dataset (XML/RDF)</a>
+    </fieldset>
+
+
+<p>
+<img src="images/m3.jpg" width="400" height="300" >
+
+<img src="images/m3Hub.jpg" width="400" height="300" >
+</p>
+</article> 
+
+
+<article>
+ <fieldset>
+   <legend>M3 concepts: Sensors & Feature of Interests</legend> 
+		
+
+		<br/><br/>All sensors
+		<select id="sensor">
+		<script type="text/javascript">
+		request(readXml, "m3/subclassOf/Sensor", "sensor");
+		</script>
+		</select>
+
+		<br/><br/>All M2M devices
+		<select id="m2mdevice">
+		<script type="text/javascript">
+		request(readXml, "m3/subclassOf/M2MDevice", "m2mdevice");
+		</script>
+		</select>
+
+		<br/><br/>RFID tags embedded on:
+		<select id="rfid">
+		<script type="text/javascript">
+		request(readXml, "m3/subclassOf/RFIDMeasurement", "rfid");
+		</script>
+		</select>
+
+		<br/><br/>All feature of interests/ Zone
+		<select id="foi">
+		<script type="text/javascript">
+		request(readXml, "m3/subclassOf/FeatureOfInterest", "foi");
+		</script>
+		</select>
+
+		<br/><br/>Environment feature of interest
+		<select id="env">
+		<script type="text/javascript">
+		request(readXml, "m3/subclassOf/Environment", "env");
+		</script>
+		</select>
+
+		<br/><br/>Measurements type:
+		<select id="measurementType">
+		<script type="text/javascript">
+		request(readXml, "m3/subclassOf/MeasurementType", "measurementType");
+		</script>
+		</select>
+
+ </fieldset>
+</article>
+
+</body>
+</html>

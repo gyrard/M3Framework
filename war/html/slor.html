@@ -1,0 +1,58 @@
+<h1>Sensor-based Linked Open Rules (S-LOR)</h1>
+
+<div class="hero-unit">
+<h3>How to reason on sensor data? </h3>
+Select a sensor and we provide rules and projects exploiting this sensor.
+<br/><br/>
+Please do not forget to cite our work: 
+<br/><a href="http://www.eurecom.fr/en/people/gyrard-amelie/publications">
+Helping IoT application developers with sensor-based linked open rules [Gyrard et al., ISWC SSN 2014]</a>
+<br/><a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6803229&queryText%3DEnrich+Machine-to-Machine+Data+with+Semantic+Web+Technologies+for+Cross-Domain+Applications">
+Enrich machine-to-machine data with semantic web technologies for cross-domain applications [Gyrard et al., WF-IOT 2014]</a>
+
+<br/><br/>
+<a class="redBlink" href="https://docs.google.com/forms/d/1HR2I4VbkHyAyKM1ElJp3bON-Y3kk94YP2cIQDnxdCPU/viewform"> <img src="images/security/satisfaction.png" width="80" height="80" title="">Please give us feedback to evaluate Sensor-Based Linked Open Rules (S-LOR). It takes less than 1 minute. Click here to fill the form.</a>
+</div>
+
+<div class="hero-unit">
+<h3>Sensors used in your application? </h3>	
+
+
+
+
+Choose a sensor (e.g., precipitation sensor)
+   <select id="sensor" onclick="executeSwotAndRuleTemplateSensor();"></select>	
+ <br/>Rules using this sensor: <br/><ul id="sensor_rule_template"> </ul>	
+ <br/>Projects using this sensor too: <br/><ul id="sensor_template"> </ul>	
+</div>
+
+<div class="hero-unit">
+<h3>Actuators used in your application? </h3>	
+
+Choose an actuator (e.g., window)
+   <select id="actuator" onclick="executeSwotAndRuleTemplateActuator();"></select>	
+
+ <br/>Rules using this actuator (e.g., choose TV): <br/><ul id="actuator_rule_template"> </ul>	
+ <br/>Projects using this actuator too: <br/><ul id="actuator_template"> </ul>	
+</div>
+
+<div class="hero-unit">
+<h3>RFID tag used in your application? </h3>	
+
+Choose an actuator (e.g., food)
+   <select id="rfid" onclick="executeSwotAndRuleTemplateRfid();"></select>	
+  <br/>Rules using this rfid tag (e.g., choose Mop): <br/><ul id="rfid_rule_template"> </ul>	
+ <br/>Projects using this rfid tag too: <br/><ul id="rfid_template"> </ul>	
+
+</div>
+
+
+
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Sensor&format=xml", "sensor", "option");	
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Actuator&format=xml", "actuator", "option");	
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=RFIDTag&format=xml", "rfid", "option");	
+	
+});

@@ -1,0 +1,10 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select distinct ?subject ?name ?value ?time ?unit ?type where{
+?subject m3:hasName ?name.
+?subject m3:hasValue ?value.
+?subject m3:hasDateTimeValue ?time.
+?subject m3:hasUnit ?unit.
+?subject rdf:type ?type.
+ }

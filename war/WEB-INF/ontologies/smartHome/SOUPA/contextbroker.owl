@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="http://www.w3.org/2002/06/rdfs2html.xsl" type="application/xml"?>
+<!DOCTYPE owl [
+   <!ENTITY cobra "http://daml.umbc.edu/ontologies/cobra/0.4/">
+   <!ENTITY rdf    "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs   "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd    "http://www.w3.org/2001/XMLSchema#"> 
+   <!ENTITY owl    "http://www.w3.org/2002/07/owl#"> 
+   <!ENTITY agt	   "http://daml.umbc.edu/ontologies/cobra/0.4/agent#">
+   <!ENTITY fipaa  "http://daml.umbc.edu/ontologies/cobra/0.4/fipa-agent#">
+   <!ENTITY spc    "http://daml.umbc.edu/ontologies/cobra/0.4/space-basic#">
+   <!ENTITY ctb    "http://daml.umbc.edu/ontologies/cobra/0.4/contextbroker#">
+   <!ENTITY foaf   "http://daml.umbc.edu/ontologies/cobra/0.4/foaf-basic#">
+   ]>
+<!--
+    Author: Harry Chen (mailto:harry.chen@umbc.edu)
+            http://umbc.edu/~hchen4/
+
+    Copyright 2003 Harry Chen, All Rights Reserved.
+ 
+    This work is licensed under the Creative Commons Attribution
+    License. To view a copy of this license, visit 
+    http://creativecommons.org/licenses/by/1.0/ or send a letter to
+    Creative Commons, 559 Nathan Abbott Way, Stanford, California
+    94305, USA.  
+   
+    CoBrA Web Site: 
+      http://cobra.umbc.edu
+
+    This version: 
+      http://daml.umbc.edu/ontologies/cobra/0.4/contextbroker
+
+    Lastest version:
+      http://daml.umbc.edu/ontologies/cobra/
+
+    CVS Version: $Revision: 1.2 $, $Date: 2003/10/29 05:43:34 $
+-->
+
+<rdf:RDF  
+   xmlns:rdf   = "&rdf;"
+   xmlns:rdfs  = "&rdfs;"
+   xmlns:owl   = "&owl;"
+   xmlns:xsd   = "&xsd;"
+   xmlns:agt   = "&agt;"
+   xmlns:fipaa = "&fipaa;"
+   xmlns:spc   = "&spc;"
+   xmlns:foaf  = "&foaf;"
+   xmlns       = "&ctb;"
+   xml:base    = "http://daml.umbc.edu/ontologies/cobra/0.4/contextbroker">
+
+  <owl:Ontology rdf:about="&cobra;contextbroker">
+    <owl:versionInfo>0.4</owl:versionInfo>
+    <rdfs:label>COBRA-ONT Context Broker Ontology</rdfs:label>
+    <owl:imports rdf:resource="&cobra;agent"/>
+    <owl:imports rdf:resource="&cobra;fipa-agent"/>
+    <owl:imports rdf:resource="&cobra;space-basic"/>
+    <owl:imports rdf:resource="&cobra;foaf-basic"/>
+    <rdfs:comment>
+      This ontology defines concepts for describing a context
+      broker. The intended use of this ontology is for describing the
+      runtime properties of a context broker. An explicit
+      represenation of this information can help other agents to
+      infer the runtime capability and the configuration of a context
+      broker (e.g., the location of the broker, the organization that
+      owns the broker, the FIPA platform that hosts the context
+      brorker)      
+    </rdfs:comment>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="ContextBroker">
+    <rdfs:label>ContextBroker</rdfs:label>
+    <rdfs:subClassOf rdf:resource="&fipaa;FIPAAgent"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="managesSmartSpace">
+    <rdfs:label>managesSmartSpace</rdfs:label>
+    <rdfs:domain rdf:resource="#ContextBroker"/>
+    <rdfs:range rdf:resource="&spc;SpatialThing"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="ownedBy">
+    <rdfs:label>ownedBy</rdfs:label>
+    <rdfs:domain rdf:resource="#ContextBroker"/>
+    <rdfs:range rdf:resource="&foaf;Agent"/>
+  </owl:ObjectProperty>
+
+</rdf:RDF> 

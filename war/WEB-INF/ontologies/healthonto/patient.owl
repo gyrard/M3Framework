@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY question "http://question-modeling.googlecode.com/svn/trunk/question.owl#" >
+    <!ENTITY fact_determining "http://question-modeling.googlecode.com/svn/trunk/fact_determining.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#"
+     xml:base="http://decision-ontology.googlecode.com/svn/trunk/patient.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:question="http://question-modeling.googlecode.com/svn/trunk/question.owl#"
+     xmlns:fact_determining="http://question-modeling.googlecode.com/svn/trunk/fact_determining.owl#">
+    <owl:Ontology rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl">
+        <owl:imports rdf:resource="http://question-modeling.googlecode.com/svn/trunk/fact_determining.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#has_age -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#has_age">
+        <rdfs:label xml:lang="en">has age</rdfs:label>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Age"/>
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_age_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_age_of -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_age_of">
+        <rdfs:label xml:lang="en">is age of</rdfs:label>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Age"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_allergy_for -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_allergy_for">
+        <rdfs:label xml:lang="en">is allergy for</rdfs:label>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Allergy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_appropriate_drug_for -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_appropriate_drug_for">
+        <rdfs:label xml:lang="en">is appropriate drug for</rdfs:label>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Drug"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_diagnosed_for -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_diagnosed_for">
+        <rdfs:label xml:lang="en">is diagnosed for</rdfs:label>
+        <rdfs:domain rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Health_problem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_diagnosed_with -->
+
+    <owl:ObjectProperty rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_diagnosed_with">
+        <rdfs:label xml:lang="en">is diagnosed with</rdfs:label>
+        <rdfs:range rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Health_problem"/>
+        <owl:inverseOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#is_diagnosed_for"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://question-modeling.googlecode.com/svn/trunk/fact_determining.owl#determinesBearerOfFeature -->
+
+    <owl:ObjectProperty rdf:about="&fact_determining;determinesBearerOfFeature"/>
+    
+
+
+    <!-- http://question-modeling.googlecode.com/svn/trunk/fact_determining.owl#determinesFeature -->
+
+    <owl:ObjectProperty rdf:about="&fact_determining;determinesFeature"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Age -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Age">
+        <rdfs:label xml:lang="en">Age</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Allergy -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Allergy">
+        <rdfs:label xml:lang="en">Allergy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Health_problem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Bacterial_throat_infection -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Bacterial_throat_infection">
+        <rdfs:label xml:lang="en">Bacterial throat infection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Determining_a_fact_of_having_a_disease -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Determining_a_fact_of_having_a_disease">
+        <rdfs:label xml:lang="en">Determining a fact of having a disease</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&fact_determining;determinesBearerOfFeature"/>
+                        <owl:someValuesFrom rdf:resource="&question;Person"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&fact_determining;determinesFeature"/>
+                        <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Disease"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&fact_determining;Determining_a_fact_of_having_a_feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Determining_a_fact_of_having_an_allergy -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Determining_a_fact_of_having_an_allergy">
+        <rdfs:label xml:lang="en">Determining a fact of having an allergy</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&fact_determining;determinesBearerOfFeature"/>
+                        <owl:someValuesFrom rdf:resource="&question;Person"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&fact_determining;determinesFeature"/>
+                        <owl:someValuesFrom rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Allergy"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&fact_determining;Determining_a_fact_of_having_a_feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Disease -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Disease">
+        <rdfs:label xml:lang="en">Disease</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Health_problem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Drug -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Drug">
+        <rdfs:label xml:lang="en">Drug</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Health_problem -->
+
+    <owl:Class rdf:about="http://decision-ontology.googlecode.com/svn/trunk/patient.owl#Health_problem">
+        <rdfs:label xml:lang="en">Health problem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://question-modeling.googlecode.com/svn/trunk/fact_determining.owl#Determining_a_fact_of_having_a_feature -->
+
+    <owl:Class rdf:about="&fact_determining;Determining_a_fact_of_having_a_feature"/>
+    
+
+
+    <!-- http://question-modeling.googlecode.com/svn/trunk/question.owl#Person -->
+
+    <owl:Class rdf:about="&question;Person"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.20069) http://owlapi.sourceforge.net -->

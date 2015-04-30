@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#">
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food_smart_product "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#"> 
+         <!ENTITY cito "http://purl.org/spar/cito/">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">    
+         <!ENTITY emoca "http://ns.inria.fr/emoca#" >
+         
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">   
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY registry "http://ontology-for-registry-of-children-with-special-needs.googlecode.com/svn-history/r23/trunk/Registry3.4.4.owl">
+         
+         
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&naturopathy;"
+        xmlns:food_smart_product="&food_smart_product;"
+        xml:base="&naturopathy;"
+        xmlns:naturopathy="&naturopathy;" 
+        xmlns:obo="&obo;"
+        xmlns:emoca="&emoca;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:registry="&registry;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:foaf="&foaf;"
+        xmlns:cito="&cito;"
+        xmlns:owl="&owl;"
+        xmlns:dcterms="&dcterms;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+
+	<owl:Ontology rdf:about="&naturopathy;">
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">The naturopathy ontology</dc:title>
+		<dc:description xml:lang="en">The naturopathy ontology describes relationships between foods, their nutrients, their color, the mood, the diseases, the diets and the allergies.</dc:description>
+		<dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amelie Gyrard</dc:creator>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-09-12</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-07-04</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+		<rdfs:comment xml:lang="en">Thanks to Ghislain Atemezing, the Linked Open Vocabularies (LOV) and the Oops! Ontology Pitfall Scanner projects to build a well-written ontology. Thanks to the Parrot ontorule project to build the ontology documentation. </rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+		<vann:preferredNamespacePrefix>naturopathy</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/naturopathy#</vann:preferredNamespaceUri>
+	    <foaf:homepage>http://sensormeasurement.appspot.com/?p=ontologies</foaf:homepage>
+	    <rdfs:seeAlso>
+		    <foaf:Document rdf:about="http://goo.gl/Hb1bG4">
+	   				<rdfs:label>The naturopathy ontology documentation</rdfs:label>
+	   		</foaf:Document>
+   		</rdfs:seeAlso>   
+   		<rdfs:seeAlso>
+		    <foaf:Document rdf:about="http://sensormeasurement.appspot.com/naturopathy#">
+	   				<rdfs:label>The naturopathy ontology code (RDF/XML)</rdfs:label>
+	   		</foaf:Document>
+   		</rdfs:seeAlso> 		
+   		<rdfs:seeAlso>
+		    <foaf:Document rdf:about="http://goo.gl/c7Hbvq">
+	   				<rdfs:label>The naturopathy dataset documentation</rdfs:label>
+	   		</foaf:Document>
+   		</rdfs:seeAlso>
+   		<rdfs:seeAlso>
+		    <foaf:Document rdf:about="http://sensormeasurement.appspot.com/naturopathy-dataset">
+	   				<rdfs:label>The naturopathy dataset code (RDF/XML)</rdfs:label>
+	   		</foaf:Document>
+   		</rdfs:seeAlso> 
+	    <cito:citesAsDataSource>
+	    	<foaf:Document rdf:about="http://rhizomik.net/ontologies/2008/05/emotionsonto.owl#">
+   				<rdfs:label>Inspired by "Towards an ontology for describing emotions". [Lopez et al. 2008]</rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this emotion ontology for the sensor measurements such as heart rate, galvanic skin response (GSR) and electroencephalographic (ECG).</dcterms:description>
+   			</foaf:Document>
+   		</cito:citesAsDataSource> 
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://emotion-ontology.googlecode.com/svn/trunk/ontology/">
+   				<rdfs:label>Inspired by "The emotion ontology: Enabling Interdisciplinary Research in the Affective Sciences" [Hastings et al. 2011]. </rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this emotion ontology to describe the different emotions.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="">
+   				<rdfs:label>Inspired by "Towards the Mental Health Ontology". [Hadzic et al. 2008]. </rdfs:label>
+   				<dc:description xml:lang="en">
+   					The naturopathy ontology has been inspired by this emotion ontology to describe the relationships between nutrients, food and emotions.
+   					An example is that chocolate contains vitamin B which is recommended when you are sad or for the stress.
+   				</dc:description>
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="">
+   				<rdfs:label>Inspired by the ontology fruitsTropicaux. </rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this ontology for the property hasVitamin, hasColor, hasMineral.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+   				<rdfs:label>Inspired by the person sh ontology</rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this ontology for the concepts Allergy, Disease (Cancer, Asthma, Arthrisis)and the property wearSensor.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://ontology-for-registry-of-children-with-special-needs.googlecode.com/svn-history/r23/trunk/Registry3.4.4.owl">
+   				<rdfs:label>Inspired by the registry ontology</rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this ontology for the person description. </dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://www.personal.psu.edu/wxy119/hospital_ontology.owl">
+   				<rdfs:label>Inspired by the hospital ontology</rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this ontology for the diseases (stomach pain, stroke, hypertension, heart attack, headache, cough disease, appendictis).</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://ns.inria.fr/emoca/">
+   				<rdfs:label>Inspired by the emoca ontology [Berthelon et al.]</rdfs:label>
+   				<dcterms:description xml:lang="en">The naturopathy ontology has been inspired by this ontology for description of six emotions.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://hmi.ewi.utwente.nl/verslagen/capita-selecta/CS-Nijdam-Niels.pdf">
+   				<rdfs:label>Inspired by "Mapping Emotion to color" [Nijdam et al. 2009]</rdfs:label>
+   				<dc:description xml:lang="en">Relationships beetween emotion and colors.</dc:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+	</owl:Ontology>
+	
+	<!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+  
+	<!-- Mapping Emotion to color Nijdam et al. 2009-->    
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ USER PROFILE ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->
+	
+	<owl:Class rdf:ID="Person">		
+		<rdfs:label xml:lang="en">Person</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<rdfs:seeAlso rdf:resource="&foaf;Person"/>
+		<rdfs:seeAlso rdf:resource="&registry;Person"/>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;Person"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Patient">		
+		<rdfs:label xml:lang="en">Patient</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<rdfs:subClassOf rdf:resource="#Person"/>	
+		<rdfs:seeAlso rdf:resource="&registry;Patient"/>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;Patient"/>
+	</owl:Class>	
+	
+	<owl:ObjectProperty rdf:ID="likes">
+  		<rdfs:domain rdf:resource="#Person"/>
+ 		<rdfs:range  rdf:resource="#Food"/>
+		<rdfs:label xml:lang="en">likes</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hates">
+  		<rdfs:domain rdf:resource="#Person"/>
+ 		<rdfs:range  rdf:resource="#Food"/>
+		<rdfs:label xml:lang="en">hates</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasDisease">
+ 		<rdfs:range  rdf:resource="#Disease"/>
+		<rdfs:label xml:lang="en">hasDisease</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;hasDisease"/>
+	</owl:DatatypeProperty>
+	
+
+
+	<owl:DatatypeProperty rdf:ID="hasDiet">
+  		<rdfs:domain rdf:resource="#Person"/>
+ 		<rdfs:range  rdf:resource="#Diet"/>
+		<rdfs:label xml:lang="en">hasDiet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasAllergy">
+  		<rdfs:domain rdf:resource="#Person"/>
+ 		<rdfs:range  rdf:resource="#Allergy"/>
+		<rdfs:label xml:lang="en">hasAllergy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;hasAllergy"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasEmotion">
+  		<rdfs:domain rdf:resource="#Person"/>
+ 		<rdfs:range  rdf:resource="#Emotion"/>
+		<rdfs:label xml:lang="en">hasEmotion</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	  	
+	  	<!-- ################################################ CONCEPTS ############################################################################ -->
+	    
+	<owl:Class rdf:ID="Food">		
+		<rdfs:label xml:lang="en">Food</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&food_smart_product;FoodOrDrinkItem"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Disease">		
+		<rdfs:label xml:lang="en">Disease, ailments</rdfs:label>
+		<rdfs:label xml:lang="fr">Affections, maladie, mal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&OntoReaChir;Disease"/>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;Disease"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Diet">		
+		<rdfs:label xml:lang="en">Diet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Allergy">		
+		<rdfs:label xml:lang="en">Allergy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&Person_SH_Ontology;Allergy"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BodyOrgan">		
+		<rdfs:label xml:lang="en">Body Organ</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	 <owl:Class rdf:ID="Nutrient">		
+		<rdfs:label xml:lang="en">Nutrient</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+ 	<owl:Class rdf:ID="Season">		
+		<rdfs:label xml:lang="en">Season</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_season;Season"/>			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Color">		
+		<rdfs:label xml:lang="en">Color</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>	
+    
+    <!-- ################################################ PROPERTIES ############################################################################ -->
+ 
+	<owl:ObjectProperty rdf:ID="hasSeason">
+  		<rdfs:domain rdf:resource="#Food"/>
+ 		<rdfs:range  rdf:resource="#Season"/>
+		<rdfs:label xml:lang="en">hasSeason</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasColor">
+  		<rdfs:domain rdf:resource="#Food"/>
+ 		<rdfs:range  rdf:resource="#Color"/>
+		<rdfs:label xml:lang="en">hasColor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="isGoodFor">
+  		<rdfs:domain rdf:resource="#BodyOrgan"/>
+ 		<rdfs:range  rdf:resource="#Food"/>
+		<rdfs:label xml:lang="en">isGoodFor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="isRecommendedFor">
+  		<rdfs:domain rdf:resource="#Food"/>
+		<rdfs:label xml:lang="en">isRecommendedFor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="affectsOn">
+  		<rdfs:range  rdf:resource="#Emotion"/>
+		<rdfs:label xml:lang="en">affectsOn</rdfs:label>
+		<rdfs:comment xml:lang="en">A color affects on a emotion (Mapping Emotion to color Nijdam et al. 2009).</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasNutrient">
+  		<rdfs:domain rdf:resource="#Food"/>
+ 		<rdfs:range  rdf:resource="#Nutrient"/>
+		<rdfs:label xml:lang="en">hasNutrient</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="toAvoid">
+  		<rdfs:domain rdf:resource="#Food"/>
+ 		<rdfs:range  rdf:resource="#Disease"/>
+		<rdfs:label xml:lang="en">toAvoid</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+		
+	<!-- ################################################ FOOD ############################################################################ -->
+	
+	<owl:Class rdf:ID="Fruit">		
+		<rdfs:label xml:lang="en">Fruit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Fruit"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Vegetable">		
+		<rdfs:label xml:lang="en">Vegetable</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Vegetable"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Bread">		
+		<rdfs:label xml:lang="en">Bread</rdfs:label>
+		<rdfs:label xml:lang="fr">Pain</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Bread"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Nuts">		
+		<rdfs:label xml:lang="en">Nuts</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Nuts"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="Meat">		
+		<rdfs:label xml:lang="en">Meat</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Meat"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Poultry">		
+		<rdfs:label xml:lang="en">Poultry</rdfs:label>
+		<rdfs:label xml:lang="fr">Volaille</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Poultry"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Fish">		
+		<rdfs:label xml:lang="en">Fish</rdfs:label>
+		<rdfs:label xml:lang="fr">Poisson</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;Fish"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ShellFish">		
+		<rdfs:label xml:lang="en">ShellFish</rdfs:label>
+		<rdfs:label xml:lang="fr">Crustaces, coquillages, fruits de mer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>	
+		<owl:equivalentClass rdf:resource="&food_smart_product;Shellfish"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Herb">		
+		<rdfs:label xml:lang="en">Herb</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>		
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Cheese">		
+		<rdfs:label xml:lang="en">Cheese</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Food"/>	
+		<owl:equivalentClass rdf:resource="&food_smart_product;Cheese"/>	
+	</owl:Class>
+	
+	<!-- ################################################ NUTRIENT ############################################################################ -->
+    
+     <owl:Class rdf:ID="Vitamin">		
+		<rdfs:label xml:lang="en">Vitamin</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:subClassOf rdf:resource="#Nutrient"/>
+	</owl:Class>
+	
+	 <owl:Class rdf:ID="Omega">		
+		<rdfs:label xml:lang="en">Omega</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Nutrient"/>
+	</owl:Class>
+	
+	 <owl:Class rdf:ID="Mineral">		
+		<rdfs:label xml:lang="en">Mineral</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Nutrient"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="OligoElement">		
+		<rdfs:label xml:lang="en">OligoElement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Nutrient"/>
+	</owl:Class>
+	
+	<!-- ################################################ Emotion ############################################################################ -->
+	 
+	 <owl:Class rdf:ID="Emotion">		
+		<rdfs:label xml:lang="en">Emotion</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&obo;MFOEM_000001"/>
+		<owl:equivalentClass rdf:resource="&emoca;Emotion"/>
+	</owl:Class>  
+	
+</rdf:RDF>

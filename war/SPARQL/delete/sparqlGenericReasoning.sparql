@@ -1,0 +1,24 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select distinct ?name ?value ?unit ?inferType  ?deduce ?suggest where{
+	?measurement m3:hasName ?name.
+	?measurement m3:hasValue ?value.
+	?measurement m3:hasDateTimeValue ?time.
+	?measurement m3:hasUnit ?unit.
+	?measurement rdf:type ?inferTypeUri.
+	OPTIONAL { ?inferTypeUri rdfs:label ?inferType.}
+
+	OPTIONAL{
+		?measurement ?genericProperty1 ?type1.
+		?type1 rdfs:label ?deduce.
+		FILTER(LANGMATCHES(LANG(?deduce), "en"))
+	}
+
+	OPTIONAL{
+		?measurement2 ?genericProperty2 ?type1.
+		?measurement2 rdfs:label ?suggest.
+		FILTER(LANGMATCHES(LANG(?suggest), "en"))
+	}
+}

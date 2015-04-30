@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+		 <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY transport "http://sensormeasurement.appspot.com/transport#"> 
+         <!ENTITY tourism "http://sensormeasurement.appspot.com/tourism#">
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+         <!ENTITY transport-dataset "http://sensormeasurement.appspot.com/transport-dataset/"> 
+         <!ENTITY tourism-dataset "http://sensormeasurement.appspot.com/tourism-dataset/"> 
+         <!ENTITY weather-dataset "http://sensormeasurement.appspot.com/weather-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&transport-dataset;"
+        xml:base="&transport-dataset;"
+        xmlns:transport-dataset="&transport-dataset;"
+        xmlns:weather-dataset="&weather-dataset;"
+        xmlns:tourism-dataset="&tourism-dataset;"
+        xmlns:transport="&transport;"
+        xmlns:tourism="&tourism;"
+        xmlns:foaf="&foaf;"
+        xmlns:shw="&shw;"
+        xmlns:m3="&m3;"
+        xmlns:acco="&acco;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:naturopathy="&naturopathy;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">  
+
+
+
+	<!-- ################################################ SAFETY DEVICES ############################################################################ -->
+     
+   <transport:SafetyDevice rdf:about="SunVisor">
+      	<rdfs:label xml:lang="en">Sun Visor</rdfs:label>
+      	<rdfs:label xml:lang="fr">Pare-soleil</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Sunny"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="YellowBracket">
+      	<rdfs:label xml:lang="en">YellowBracket</rdfs:label>
+      	<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&transport-dataset;CarAccident"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="Wiper">
+      	<rdfs:label xml:lang="en">Wipers</rdfs:label>
+      	<rdfs:label xml:lang="fr">Essuie-glaces</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;HeavyRain"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="SnowChain">
+      	<rdfs:label xml:lang="en">SnowChain</rdfs:label>
+      	<rdfs:label xml:lang="fr">Pneu-neige</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+     <transport:SafetyDevice rdf:about="FogLamp">
+      	<rdfs:label xml:lang="en">FogLamp</rdfs:label>
+      	<rdfs:label xml:lang="fr">Feux de brouillard</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Foggy"/> 
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="LowBeam">
+      	<rdfs:label xml:lang="en">LowBeam</rdfs:label>
+      	<rdfs:label xml:lang="fr">Feu de croisement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Foggy"/> 
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="Heater">
+      	<rdfs:label xml:lang="en">Heater</rdfs:label>
+      	<rdfs:label xml:lang="fr">Chauffage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Cold"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="RearWiper">
+      	<rdfs:label xml:lang="en">RearWiper</rdfs:label>
+      	<rdfs:label xml:lang="fr">Essuie-glace arriere</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:isRecommendedFor rdf:resource="&weather-dataset;HeavyRain"/> 
+    </transport:SafetyDevice>
+    
+      <transport:SafetyDevice rdf:about="Brake">
+      	<rdfs:label xml:lang="en">Brake</rdfs:label>
+      	<rdfs:label xml:lang="fr">Frein</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </transport:SafetyDevice>
+    
+    <!-- to refactor -->
+    
+    <transport:Accident rdf:about="CarAccident">
+        <rdfs:label>CarAccident</rdfs:label>
+    </transport:Accident>
+	
+	
+
+    <!-- ################################################ ACTION ############################################################################ -->
+    
+    <transport:Action rdf:about="MakeABreak">
+      	<rdfs:label xml:lang="en">MakeABreak</rdfs:label>
+      	<rdfs:label xml:lang="fr">Faire une pause</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </transport:Action>
+    
+    <transport:Action rdf:about="Stop">
+      	<rdfs:label xml:lang="en">Stop</rdfs:label>
+      	<rdfs:label xml:lang="fr">S'arreter</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </transport:Action>
+	
+	<!-- ################################################ SENSOR ############################################################################ -->
+
+   <!-- <transport:Sensor rdf:about="AcceleratorSensor">
+        <rdfs:label>AcceleratorSensor</rdfs:label>
+    </transport:Sensor>
+
+    <transport:Sensor rdf:about="AirCond">
+        <rdfs:label>Air Condition</rdfs:label>
+    </transport:Sensor>
+	
+    <transport:Sensor rdf:about="DistanceSensor">
+        <rdfs:label>DistanceSensor</rdfs:label>
+    </transport:Sensor>
+	
+    <transport:Sensor rdf:about="ObstacleSensor">
+        <rdfs:label>Obstacle Sensor</rdfs:label>
+        <transport:stop>if to close</transport:stop>
+    </transport:Sensor>
+	
+	<transport:Sensor rdf:about="PositionSensor">
+        <rdfs:label>Position Sensor</rdfs:label>
+    </transport:Sensor>
+	
+    <transport:Sensor rdf:about="TemperaturSensor">
+        <rdfs:label>Temperatur Sensor</rdfs:label>
+    </transport:Sensor>
+	
+    <transport:Sensor rdf:about="VelocitySensor">
+        <rdfs:label>Velocity Sensor</rdfs:label>
+    </transport:Sensor>
+
+    <transport:Sensor rdf:about="WhiteLineDetection">
+        <rdfs:label>White Line Detection</rdfs:label>
+    </transport:Sensor>
+
+	
+    
+-->
+
+    
+
+
+</rdf:RDF>

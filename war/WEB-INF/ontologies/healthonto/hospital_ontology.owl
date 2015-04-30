@@ -1,0 +1,3022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#" xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#" xmlns:assert="http://www.owl-ontologies.com/assert.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:swrl="http://www.w3.org/2003/11/swrl#" xmlns:swrlb="http://www.w3.org/2003/11/swrlb#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://www.owl-ontologies.com/HospitalOntology.owl#" xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#" xml:base="http://www.owl-ontologies.com/HospitalOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.owl-ontologies.com/assert.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="OutPatient">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Patient"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SurgeryRoom">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Location"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasStatus"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="WaitingRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Ward"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Office"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="LabStaff">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HospitalPersonnel"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="responsibleFor"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TestFacility"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Doctor"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Nurse"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NonMedicalStaff"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Office">
+    <owl:disjointWith rdf:resource="#SurgeryRoom"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#WaitingRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Ward"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasInUse"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasCapacity"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Person">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasAddress"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Activity"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasAge"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="participateIn"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasPersonName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Device"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasUsage"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Device"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Location"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="presentIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasContactNo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasGender"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasSSNO"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Device"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasUsage"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Person class includes all people in the hospital.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#participateIn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Location"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#presentIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#NonMedicalStaff">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Doctor"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Nurse"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#LabStaff"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HospitalPersonnel"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TherapyReport">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="MedicalRecord"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AdmissionReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DischargeReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TestingReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DiagnosisReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TransferReport"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Document"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AdmissionReport">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Document"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicalRecord"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DischargeReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestingReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DiagnosisReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransferReport"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Reception">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasPatientID"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Person"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isTreatedBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Doctor"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Admission"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#participateIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#participateIn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Discharge"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDocument"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#MedicalRecord"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#MedicalRecord"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDocument"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PDA">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Testing">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Diagnosis"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasEndTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Admission"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Nurse"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Discharge"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Transfer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasStartTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="generateReport"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TestingReport"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Treatment"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="InPatient">
+    <rdfs:subClassOf rdf:resource="#Patient"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="allocatedTo"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Bed"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#allocatedTo"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Bed"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Disease">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Medicine"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDiseaseName"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MedicalTerm"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#DiagnosisReport">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicalRecord"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AdmissionReport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DischargeReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestingReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TransferReport"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Document"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TransferReport">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicalRecord"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AdmissionReport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DischargeReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestingReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DiagnosisReport"/>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Document"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity">
+    <owl:disjointWith rdf:resource="#Person"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="activatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Person"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasActivityID"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Document"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#activatedIn"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Location"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Device"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasNeed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#activatedIn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Location"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Device"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Device"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasNeed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="DeviceType">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#MedicalTerm"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDeviceName"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#HospitalPersonnel">
+    <rdfs:subClassOf rdf:resource="#Person"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDept"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Department"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Department"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#hasDept"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasSalary"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasOffice"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Office"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Office"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasOffice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasOffice"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Bed">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Device"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Ward"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Ward"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Treatment">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Doctor"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transfer"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Discharge"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasStartTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Testing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasEndTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Diagnosis"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Admission"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#DischargeReport">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Document"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicalRecord"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AdmissionReport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestingReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#DiagnosisReport"/>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <owl:disjointWith rdf:resource="#TransferReport"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MovableDevice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Device"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#DeviceType"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#DeviceType"/>
+        <owl:onProperty rdf:resource="#isType"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#isType"/>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Admission">
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <owl:disjointWith rdf:resource="#Testing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Discharge"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transfer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#AdmissionReport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Diagnosis"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#AdmissionReport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Document">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDocumentName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDocumentID"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Location">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPresence"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Person"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasLocationName"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Activity"/>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:ID="hasActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Device"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDevice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Device"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasLocationID"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasTemperature"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasHumidity"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Person"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPresence"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Person"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Device"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDevice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Activity"/>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="#hasActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Activity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Ward">
+    <rdfs:subClassOf rdf:resource="#Location"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasDevice"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Bed"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasCapacity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasInUse"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#WaitingRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#SurgeryRoom"/>
+    <owl:disjointWith rdf:resource="#Office"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Device">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isUsedFor"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Person"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <owl:disjointWith rdf:resource="#Person"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Person"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isUsedFor"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="idNeededFor"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Activity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDeviceID"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Location"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasPrice"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Location"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Activity"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#idNeededFor"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#locatedIn"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Location"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasManufacturer"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Nurse">
+    <rdfs:subClassOf rdf:resource="#HospitalPersonnel"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="careFor"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Doctor"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#NonMedicalStaff"/>
+    <owl:disjointWith rdf:resource="#LabStaff"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MedicalTerm">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasDescription"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Computer">
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="#WaitingRoom">
+    <rdfs:subClassOf rdf:resource="#Location"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#SurgeryRoom"/>
+    <owl:disjointWith rdf:resource="#Ward"/>
+    <owl:disjointWith rdf:resource="#Office"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Doctor">
+    <owl:disjointWith rdf:resource="#Nurse"/>
+    <owl:disjointWith rdf:resource="#NonMedicalStaff"/>
+    <owl:disjointWith rdf:resource="#LabStaff"/>
+    <rdfs:subClassOf rdf:resource="#HospitalPersonnel"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="treats"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Diagnosis">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Doctor"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transfer"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Admission"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasEndTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#DiagnosisReport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Discharge"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#DiagnosisReport"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Treatment"/>
+    <owl:disjointWith rdf:resource="#Testing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasStartTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Transfer">
+    <owl:disjointWith rdf:resource="#Testing"/>
+    <owl:disjointWith rdf:resource="#Treatment"/>
+    <owl:disjointWith rdf:resource="#Admission"/>
+    <owl:disjointWith rdf:resource="#Diagnosis"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Discharge"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TransferReport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Building">
+    <rdfs:subClassOf rdf:resource="#Location"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MedicalRecord">
+    <rdfs:subClassOf rdf:resource="#Document"/>
+    <owl:disjointWith rdf:resource="#AdmissionReport"/>
+    <owl:disjointWith rdf:resource="#DiagnosisReport"/>
+    <owl:disjointWith rdf:resource="#TransferReport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TestingReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <owl:disjointWith rdf:resource="#DischargeReport"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestingReport">
+    <rdfs:subClassOf rdf:resource="#Document"/>
+    <owl:disjointWith rdf:resource="#MedicalRecord"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MedicationReport"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AdmissionReport"/>
+    <owl:disjointWith rdf:resource="#DischargeReport"/>
+    <owl:disjointWith rdf:resource="#DiagnosisReport"/>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <owl:disjointWith rdf:resource="#TransferReport"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TestFacility">
+    <owl:disjointWith rdf:resource="#WaitingRoom"/>
+    <owl:disjointWith rdf:resource="#SurgeryRoom"/>
+    <owl:disjointWith rdf:resource="#Ward"/>
+    <owl:disjointWith rdf:resource="#Office"/>
+    <rdfs:subClassOf rdf:resource="#Location"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasStatus"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Discharge">
+    <owl:disjointWith rdf:resource="#Diagnosis"/>
+    <owl:disjointWith rdf:resource="#Transfer"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#DischargeReport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#generateReport"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Treatment"/>
+    <owl:disjointWith rdf:resource="#Admission"/>
+    <owl:disjointWith rdf:resource="#Testing"/>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Patient"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Department">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#HospitalPersonnel"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPersonnel"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#HospitalPersonnel"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPersonnel"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasDeptName"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MedicationReport">
+    <owl:disjointWith rdf:resource="#MedicalRecord"/>
+    <owl:disjointWith rdf:resource="#AdmissionReport"/>
+    <owl:disjointWith rdf:resource="#DischargeReport"/>
+    <owl:disjointWith rdf:resource="#TestingReport"/>
+    <owl:disjointWith rdf:resource="#DiagnosisReport"/>
+    <owl:disjointWith rdf:resource="#TherapyReport"/>
+    <owl:disjointWith rdf:resource="#TransferReport"/>
+    <rdfs:subClassOf rdf:resource="#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Medication">
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Therapy">
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Medicine">
+    <rdfs:subClassOf rdf:resource="#MedicalTerm"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasMedicineName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasIngredient"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasDrugSupplier"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasSoldPrice"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Disease"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#locatedIn">
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#Location"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasDevice"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isUsedFor">
+    <rdfs:domain rdf:resource="#Device"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasUsage"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="generatedBy">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#generateReport"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#presentIn">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasPresence"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Location"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#careFor">
+    <rdfs:range rdf:resource="#Patient"/>
+    <rdfs:domain rdf:resource="#Nurse"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#generateReport">
+    <owl:inverseOf rdf:resource="#generatedBy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasPresence">
+    <rdfs:domain rdf:resource="#Location"/>
+    <owl:inverseOf rdf:resource="#presentIn"/>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#responsibleFor">
+    <rdfs:range rdf:resource="#TestFacility"/>
+    <rdfs:domain rdf:resource="#LabStaff"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDocument">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:range rdf:resource="#Document"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containStaff">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasOffice"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasUsage">
+    <owl:inverseOf rdf:resource="#isUsedFor"/>
+    <rdfs:range rdf:resource="#Device"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasOffice">
+    <rdfs:domain rdf:resource="#HospitalPersonnel"/>
+    <rdfs:range rdf:resource="#Office"/>
+    <owl:inverseOf rdf:resource="#containStaff"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasNeed">
+    <rdfs:range rdf:resource="#Device"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#idNeededFor"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#allocatedTo">
+    <rdfs:domain rdf:resource="#InPatient"/>
+    <rdfs:range rdf:resource="#Bed"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasParticipant">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#Person"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#participateIn"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasPersonnel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:about="#hasDept"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#idNeededFor">
+    <rdfs:range rdf:resource="#Activity"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <owl:inverseOf rdf:resource="#hasNeed"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="showPatientInfo">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Computer"/>
+          <owl:Class rdf:about="#PDA"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDisease">
+    <rdfs:range rdf:resource="#Disease"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDevice">
+    <rdfs:domain rdf:resource="#Location"/>
+    <owl:inverseOf rdf:resource="#locatedIn"/>
+    <rdfs:range rdf:resource="#Device"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#participateIn">
+    <rdfs:range rdf:resource="#Activity"/>
+    <owl:inverseOf rdf:resource="#hasParticipant"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#treats">
+    <rdfs:domain rdf:resource="#Doctor"/>
+    <rdfs:range rdf:resource="#Patient"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#isTreatedBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isTreatedBy">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#Doctor"/>
+    <owl:inverseOf rdf:resource="#treats"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#hasLocationID">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:ID="hasID"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasTemperature">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCost">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDeviceModel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasHumidity">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasSalary">
+    <rdfs:domain rdf:resource="#HospitalPersonnel"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasAge">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasStatus">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ON</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasContactNo">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasSoldPrice">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasManufacturer">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasCapacity">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasLocationName">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:ID="hasName"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasInUse">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasIngredient">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasDrugSupplier">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasSSNO">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasEndTime">
+    <rdfs:subPropertyOf rdf:resource="#hasTime"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasStartTime">
+    <rdfs:subPropertyOf rdf:resource="#hasTime"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasPrice">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasStaffID">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasID"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDocumentID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasID"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Document"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDiseaseName">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasName"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasActivityID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasID"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Activity"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDeviceName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasName"/>
+    </rdfs:subPropertyOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasAddress">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasOfficeNo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAccountID">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasID"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDeviceID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasID"/>
+    </rdfs:subPropertyOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasMedicineName">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasName"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasGender">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#activatedIn">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Location"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="#hasActivity"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDeptName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Department"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasName"/>
+    </rdfs:subPropertyOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasPersonName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasName"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Department"/>
+    <owl:inverseOf rdf:resource="#hasPersonnel"/>
+    <rdfs:domain rdf:resource="#HospitalPersonnel"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasDocumentName">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasName"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Document"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasPatientID">
+    <rdfs:subPropertyOf rdf:resource="#hasID"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasActivity">
+    <owl:inverseOf rdf:resource="#activatedIn"/>
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdfs:range rdf:resource="#Activity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <Ward rdf:ID="Ward_35">
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 302</hasLocationName>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasCapacity>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD302</hasLocationID>
+  </Ward>
+  <SurgeryRoom rdf:ID="Surgery_Room_15">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SR000205</hasLocationID>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Surgery Room 205</hasLocationName>
+    <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ON</hasStatus>
+  </SurgeryRoom>
+  <Disease rdf:ID="Disease_40">
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pain in stomache</hasDescription>
+    <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stomache</hasDiseaseName>
+  </Disease>
+  <Office rdf:ID="Office_8">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000302</hasLocationID>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 302</hasLocationName>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasCapacity>
+  </Office>
+  <Ward rdf:ID="Ward_36">
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 101</hasLocationName>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasCapacity>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD303</hasLocationID>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+  </Ward>
+  <swrl:Imp rdf:about="R1">
+    <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#locatedIn"/>
+                <swrl:argument2>
+                  <swrl:Variable rdf:ID="l"/>
+                </swrl:argument2>
+                <swrl:argument1>
+                  <swrl:Variable rdf:ID="p"/>
+                </swrl:argument1>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:argument1>
+                      <swrl:Variable rdf:ID="d"/>
+                    </swrl:argument1>
+                    <swrl:classPredicate rdf:resource="#Doctor"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:argument2 rdf:resource="#l"/>
+                        <swrl:argument1 rdf:resource="#d"/>
+                        <swrl:propertyPredicate rdf:resource="#locatedIn"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:classPredicate rdf:resource="#Patient"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1 rdf:resource="#d"/>
+            <swrl:argument2 rdf:resource="#p"/>
+            <swrl:propertyPredicate rdf:resource="#treats"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <Disease rdf:ID="Disease_43">
+    <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hypertension</hasDiseaseName>
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hypertension disease</hasDescription>
+  </Disease>
+  <Ward rdf:ID="Ward_31">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD202</hasLocationID>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasCapacity>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 202</hasLocationName>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasInUse>
+  </Ward>
+  <Ward rdf:ID="Ward_32">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD203</hasLocationID>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasCapacity>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 203</hasLocationName>
+  </Ward>
+  <Ward rdf:ID="Ward_33">
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasCapacity>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 204</hasLocationName>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasInUse>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD204</hasLocationID>
+  </Ward>
+  <Ward rdf:ID="Ward_34">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD301</hasLocationID>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 301</hasLocationName>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasCapacity>
+  </Ward>
+  <rdf:Description rdf:ID="Nurse_22">
+    <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marry Barton</hasPersonName>
+  </rdf:Description>
+  <Department rdf:ID="Department_4">
+    <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Neurology</hasDeptName>
+  </Department>
+  <Department rdf:ID="Department_5">
+    <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E.N.T. Dept</hasDeptName>
+  </Department>
+  <Department rdf:ID="Department_2">
+    <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pediatrics Dept</hasDeptName>
+  </Department>
+  <Department rdf:ID="Department_3">
+    <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Obstetrics and Gynecology Dept</hasDeptName>
+  </Department>
+  <Office rdf:ID="Office_2">
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasInUse>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 102</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000102</hasLocationID>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasCapacity>
+  </Office>
+  <Office rdf:ID="Office_3">
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasInUse>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasCapacity>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 103</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000103</hasLocationID>
+  </Office>
+  <WaitingRoom rdf:ID="Waiting_Room_20">
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central Waiting Area B</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WR000CB</hasLocationID>
+  </WaitingRoom>
+  <WaitingRoom rdf:ID="Waiting_Room_22">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WR000WA</hasLocationID>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">West Waiting Area A</hasLocationName>
+  </WaitingRoom>
+  <WaitingRoom rdf:ID="Waiting_Room_23">
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">West Waiting Area B</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WR000WB</hasLocationID>
+  </WaitingRoom>
+  <Department rdf:ID="Department_6">
+    <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Urology Dept</hasDeptName>
+  </Department>
+  <Medicine rdf:ID="Medicine_44">
+    <hasMedicineName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">aspirin</hasMedicineName>
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">23.0</hasPrice>
+    <hasSoldPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">30.0</hasSoldPrice>
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medine to kill pain</hasDescription>
+    <hasDrugSupplier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AspirinPower Company</hasDrugSupplier>
+    <hasIngredient rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V1</hasIngredient>
+  </Medicine>
+  <Building rdf:ID="Building_5">
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Building A</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BD00A</hasLocationID>
+  </Building>
+  <SurgeryRoom rdf:ID="Surgery_Room_14">
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Surgery Room 206</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SR000206</hasLocationID>
+    <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</hasStatus>
+  </SurgeryRoom>
+  <SurgeryRoom rdf:ID="Surgery_Room_13">
+    <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</hasStatus>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SR000204</hasLocationID>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Surgery Room 204</hasLocationName>
+  </SurgeryRoom>
+  <swrl:Imp rdf:ID="R2">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#showPatientInfo"/>
+            <swrl:argument1>
+              <swrl:Variable rdf:ID="c"/>
+            </swrl:argument1>
+            <swrl:argument2 rdf:resource="#p"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:classPredicate rdf:resource="#Patient"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:classPredicate rdf:resource="#Doctor"/>
+                    <swrl:argument1 rdf:resource="#d"/>
+                  </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                <rdf:first>
+                                  <swrl:IndividualPropertyAtom>
+                                    <swrl:argument1 rdf:resource="#c"/>
+                                    <swrl:argument2>
+                                      <swrl:Variable rdf:ID="s"/>
+                                    </swrl:argument2>
+                                    <swrl:propertyPredicate rdf:resource="#locatedIn"/>
+                                  </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="#hasPresence"/>
+                                <swrl:argument1 rdf:resource="#s"/>
+                                <swrl:argument2 rdf:resource="#d"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:propertyPredicate rdf:resource="#hasPresence"/>
+                            <swrl:argument1 rdf:resource="#s"/>
+                            <swrl:argument2 rdf:resource="#p"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="#Computer"/>
+                        <swrl:argument1 rdf:resource="#c"/>
+                      </swrl:ClassAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#SurgeryRoom"/>
+            <swrl:argument1 rdf:resource="#s"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <Medicine rdf:ID="Medicine_45">
+    <hasDrugSupplier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">KillAllApin Company</hasDrugSupplier>
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</hasPrice>
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">general painkiller</hasDescription>
+    <hasSoldPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">24.0</hasSoldPrice>
+    <hasIngredient rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V3</hasIngredient>
+    <hasIngredient rdf:datatype="http://www.w3.org/2001/XMLSchema#string">V2</hasIngredient>
+    <hasMedicineName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">painkiller</hasMedicineName>
+  </Medicine>
+  <Ward rdf:ID="Ward_25">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD102</hasLocationID>
+    <hasDevice>
+      <Bed rdf:ID="Bed_36">
+        <locatedIn rdf:resource="#Ward_25"/>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED009</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_35">
+        <locatedIn rdf:resource="#Ward_25"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED008</hasDeviceID>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_34">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_25"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED007</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_33">
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED006</hasDeviceID>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <locatedIn rdf:resource="#Ward_25"/>
+      </Bed>
+    </hasDevice>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 102</hasLocationName>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasInUse>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasCapacity>
+  </Ward>
+  <Doctor rdf:ID="Doctor_11">
+    <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Washinton Rd 105</hasAddress>
+    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+    <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marry Smith</hasPersonName>
+    <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+    <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843009</hasSSNO>
+    <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+    <treats>
+      <InPatient rdf:ID="InPatient_63">
+        <participateIn>
+          <Admission rdf:ID="Admission_3">
+            <hasTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-08-10T12:10:00</hasTime>
+            <hasParticipant rdf:resource="#InPatient_63"/>
+            <hasParticipant>
+              <NonMedicalStaff rdf:ID="NonMedicalStaff_6">
+                <hasOffice>
+                  <Office rdf:ID="Office_9">
+                    <containStaff>
+                      <LabStaff rdf:ID="LabStaff_15">
+                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">110000.0</hasSalary>
+                        <responsibleFor>
+                          <TestFacility rdf:ID="Test_Facility_16">
+                            <hasDevice>
+                              <MovableDevice rdf:ID="MovableDevice_3">
+                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1040.0</hasPrice>
+                                <isType>
+                                  <DeviceType rdf:ID="DeviceType_57">
+                                    <hasDeviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">infusion pump</hasDeviceName>
+                                    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">infusion pump device</hasDescription>
+                                  </DeviceType>
+                                </isType>
+                                <locatedIn rdf:resource="#Test_Facility_16"/>
+                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP003</hasDeviceID>
+                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InfusionPump Factory</hasManufacturer>
+                              </MovableDevice>
+                            </hasDevice>
+                            <hasDevice>
+                              <MovableDevice rdf:ID="MovableDevice_6">
+                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1040.0</hasPrice>
+                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP003</hasDeviceID>
+                                <isType>
+                                  <DeviceType rdf:ID="DeviceType_54">
+                                    <hasDeviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OXDB</hasDeviceName>
+                                    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oxgen bottle</hasDescription>
+                                  </DeviceType>
+                                </isType>
+                                <locatedIn rdf:resource="#Test_Facility_16"/>
+                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InfusionPump Factory</hasManufacturer>
+                              </MovableDevice>
+                            </hasDevice>
+                            <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X-Ray Lab (A)</hasLocationName>
+                            <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TF0001</hasLocationID>
+                            <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</hasStatus>
+                          </TestFacility>
+                        </responsibleFor>
+                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143215567</hasContactNo>
+                        <hasOffice rdf:resource="#Office_9"/>
+                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179081230</hasSSNO>
+                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</hasAge>
+                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Karen Wu</hasPersonName>
+                        <hasDept>
+                          <Department rdf:ID="Department_1">
+                            <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Emergency Dept</hasDeptName>
+                            <hasPersonnel>
+                              <Nurse rdf:ID="Nurse_1">
+                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                                <hasDept rdf:resource="#Department_1"/>
+                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842190</hasSSNO>
+                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2290</hasAddress>
+                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">80000.0</hasSalary>
+                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                <hasOffice>
+                                  <Office rdf:ID="Office_5">
+                                    <containStaff>
+                                      <Nurse rdf:ID="Nurse_21">
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842190</hasSSNO>
+                                        <hasOffice rdf:resource="#Office_5"/>
+                                        <hasDept rdf:resource="#Department_1"/>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marry Barton</hasPersonName>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2290</hasAddress>
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                                      </Nurse>
+                                    </containStaff>
+                                    <containStaff>
+                                      <Nurse rdf:ID="Nurse_20">
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">80000.0</hasSalary>
+                                        <hasDept rdf:resource="#Department_1"/>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Westerly str. 2280</hasAddress>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25</hasAge>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842190</hasSSNO>
+                                        <hasOffice rdf:resource="#Office_5"/>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jocob Elien</hasPersonName>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                      </Nurse>
+                                    </containStaff>
+                                    <containStaff rdf:resource="#Nurse_1"/>
+                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000202</hasLocationID>
+                                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasInUse>
+                                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasCapacity>
+                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 202</hasLocationName>
+                                  </Office>
+                                </hasOffice>
+                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Susan Smith</hasPersonName>
+                              </Nurse>
+                            </hasPersonnel>
+                            <hasPersonnel rdf:resource="#Nurse_20"/>
+                            <hasPersonnel rdf:resource="#LabStaff_15"/>
+                            <hasPersonnel>
+                              <LabStaff rdf:ID="LabStaff_18">
+                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anna Wang</hasPersonName>
+                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179081230</hasSSNO>
+                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143215567</hasContactNo>
+                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">110000.0</hasSalary>
+                                <hasDept rdf:resource="#Department_1"/>
+                                <hasOffice rdf:resource="#Office_9"/>
+                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">29</hasAge>
+                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill st. 1123</hasAddress>
+                                <responsibleFor rdf:resource="#Test_Facility_16"/>
+                              </LabStaff>
+                            </hasPersonnel>
+                            <hasPersonnel>
+                              <Doctor rdf:ID="Doctor_2">
+                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843001</hasSSNO>
+                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">New York St. 100</hasAddress>
+                                <hasOffice>
+                                  <Office rdf:ID="Office_10">
+                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000304</hasLocationID>
+                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 304</hasLocationName>
+                                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasCapacity>
+                                    <containStaff>
+                                      <Doctor rdf:ID="Doctor_4">
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">160000.0</hasSalary>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843021</hasSSNO>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kate Wang</hasPersonName>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The fifth ave. 102</hasAddress>
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                        <hasDept rdf:resource="#Department_1"/>
+                                        <hasOffice rdf:resource="#Office_10"/>
+                                      </Doctor>
+                                    </containStaff>
+                                    <containStaff rdf:resource="#Doctor_2"/>
+                                    <containStaff>
+                                      <Doctor rdf:ID="Doctor_13">
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                                        <hasOffice rdf:resource="#Office_10"/>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843011</hasSSNO>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fifth Ave. 104</hasAddress>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+                                        <hasDept rdf:resource="#Department_1"/>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Smith</hasPersonName>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                      </Doctor>
+                                    </containStaff>
+                                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasInUse>
+                                  </Office>
+                                </hasOffice>
+                                <hasDept rdf:resource="#Department_1"/>
+                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jack Berry</hasPersonName>
+                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">230000.0</hasSalary>
+                              </Doctor>
+                            </hasPersonnel>
+                            <hasPersonnel rdf:resource="#Doctor_4"/>
+                            <hasPersonnel rdf:resource="#Doctor_13"/>
+                            <hasPersonnel rdf:resource="#Nurse_21"/>
+                          </Department>
+                        </hasDept>
+                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 1923</hasAddress>
+                      </LabStaff>
+                    </containStaff>
+                    <containStaff>
+                      <LabStaff rdf:ID="LabStaff_17">
+                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">45</hasAge>
+                        <hasOffice rdf:resource="#Office_9"/>
+                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kate Siegel</hasPersonName>
+                        <hasDept>
+                          <Department rdf:ID="Department_49">
+                            <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Admin Dept</hasDeptName>
+                            <hasPersonnel rdf:resource="#LabStaff_17"/>
+                            <hasPersonnel>
+                              <Doctor rdf:ID="Doctor_9">
+                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">120000.0</hasSalary>
+                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 33</hasAddress>
+                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                <hasDept rdf:resource="#Department_49"/>
+                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jason Smith</hasPersonName>
+                                <treats>
+                                  <OutPatient rdf:ID="OutPatient_69">
+                                    <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4167802230</hasContactNo>
+                                    <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                    <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marry Lim</hasPersonName>
+                                    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">66</hasAge>
+                                    <hasDisease>
+                                      <Disease rdf:ID="Disease_39">
+                                        <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stroke</hasDiseaseName>
+                                        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stroke disease</hasDescription>
+                                      </Disease>
+                                    </hasDisease>
+                                    <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OP0003</hasPatientID>
+                                    <isTreatedBy rdf:resource="#Doctor_9"/>
+                                    <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">189034485</hasSSNO>
+                                    <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Atherton Ave. 112</hasAddress>
+                                  </OutPatient>
+                                </treats>
+                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1798430078</hasSSNO>
+                                <hasOffice>
+                                  <Office rdf:ID="Office_4">
+                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000201</hasLocationID>
+                                    <containStaff>
+                                      <Doctor rdf:ID="Doctor_8">
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dey Brickley</hasPersonName>
+                                        <treats>
+                                          <OutPatient rdf:ID="OutPatient_68">
+                                            <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">66</hasAge>
+                                            <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Steven Kim</hasPersonName>
+                                            <isTreatedBy rdf:resource="#Doctor_8"/>
+                                            <hasDisease>
+                                              <Disease rdf:ID="Disease_42">
+                                                <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heart attack disease</hasDescription>
+                                                <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heart attack</hasDiseaseName>
+                                              </Disease>
+                                            </hasDisease>
+                                            <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4167802230</hasContactNo>
+                                            <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">189034485</hasSSNO>
+                                            <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                            <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Atherton Ave. 111</hasAddress>
+                                            <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OP0002</hasPatientID>
+                                          </OutPatient>
+                                        </treats>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                                        <hasDept>
+                                          <Department rdf:ID="Department_48">
+                                            <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward Dept</hasDeptName>
+                                            <hasPersonnel rdf:resource="#Doctor_8"/>
+                                            <hasPersonnel>
+                                              <Doctor rdf:ID="Doctor_7">
+                                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Atherton str. 110</hasAddress>
+                                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                                                <hasDept rdf:resource="#Department_48"/>
+                                                <hasOffice rdf:resource="#Office_4"/>
+                                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843001</hasSSNO>
+                                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100000.0</hasSalary>
+                                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Karen Wang</hasPersonName>
+                                                <treats>
+                                                  <OutPatient rdf:ID="OutPatient_70">
+                                                    <isTreatedBy rdf:resource="#Doctor_7"/>
+                                                    <hasDisease>
+                                                      <Disease rdf:ID="Disease_41">
+                                                        <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">headache</hasDiseaseName>
+                                                        <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pain in head</hasDescription>
+                                                      </Disease>
+                                                    </hasDisease>
+                                                    <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lily Li</hasPersonName>
+                                                    <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                                    <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4167802230</hasContactNo>
+                                                    <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OP0004</hasPatientID>
+                                                    <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">189034485</hasSSNO>
+                                                    <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Atherton Ave. 110</hasAddress>
+                                                    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">66</hasAge>
+                                                  </OutPatient>
+                                                </treats>
+                                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                              </Doctor>
+                                            </hasPersonnel>
+                                          </Department>
+                                        </hasDept>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843001</hasSSNO>
+                                        <hasOffice rdf:resource="#Office_4"/>
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 23</hasAddress>
+                                      </Doctor>
+                                    </containStaff>
+                                    <containStaff rdf:resource="#Doctor_9"/>
+                                    <containStaff rdf:resource="#Doctor_7"/>
+                                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasCapacity>
+                                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasInUse>
+                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 201</hasLocationName>
+                                  </Office>
+                                </hasOffice>
+                                <treats>
+                                  <OutPatient rdf:ID="OutPatient_67">
+                                    <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OP0001</hasPatientID>
+                                    <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Danis Brickley</hasPersonName>
+                                    <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4167802230</hasContactNo>
+                                    <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                    <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Atherton Ave. 110</hasAddress>
+                                    <hasDisease rdf:resource="#Disease_39"/>
+                                    <isTreatedBy rdf:resource="#Doctor_9"/>
+                                    <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">189034485</hasSSNO>
+                                    <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">66</hasAge>
+                                  </OutPatient>
+                                </treats>
+                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                              </Doctor>
+                            </hasPersonnel>
+                          </Department>
+                        </hasDept>
+                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143215567</hasContactNo>
+                        <responsibleFor>
+                          <TestFacility rdf:ID="Test_Facility_18">
+                            <hasDevice>
+                              <MovableDevice rdf:ID="MovableDevice_12">
+                                <isType>
+                                  <DeviceType rdf:ID="DeviceType_58">
+                                    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wheel chair for disables</hasDescription>
+                                    <hasDeviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheel Chair</hasDeviceName>
+                                  </DeviceType>
+                                </isType>
+                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheel Chair Factory</hasManufacturer>
+                                <locatedIn rdf:resource="#Test_Facility_18"/>
+                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP010</hasDeviceID>
+                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</hasPrice>
+                              </MovableDevice>
+                            </hasDevice>
+                            <hasDevice>
+                              <MovableDevice rdf:ID="MovableDevice_13">
+                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP011</hasDeviceID>
+                                <locatedIn rdf:resource="#Test_Facility_18"/>
+                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Body Sensor Factory</hasManufacturer>
+                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">120.0</hasPrice>
+                                <isType>
+                                  <DeviceType rdf:ID="DeviceType_59">
+                                    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">for measuring bood pressure</hasDescription>
+                                    <hasDeviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blood Pressure Device</hasDeviceName>
+                                  </DeviceType>
+                                </isType>
+                              </MovableDevice>
+                            </hasDevice>
+                            <hasDevice>
+                              <MovableDevice rdf:ID="MovableDevice_14">
+                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">120.0</hasPrice>
+                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP012</hasDeviceID>
+                                <isType rdf:resource="#DeviceType_59"/>
+                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Body Sensor Factory</hasManufacturer>
+                                <locatedIn rdf:resource="#Test_Facility_18"/>
+                              </MovableDevice>
+                            </hasDevice>
+                            <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</hasStatus>
+                            <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TF0003</hasLocationID>
+                            <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blood Testing Lab</hasLocationName>
+                          </TestFacility>
+                        </responsibleFor>
+                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">110000.0</hasSalary>
+                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179089860</hasSSNO>
+                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Washington St. 1001</hasAddress>
+                      </LabStaff>
+                    </containStaff>
+                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000303</hasLocationID>
+                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+                    <containStaff rdf:resource="#NonMedicalStaff_6"/>
+                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasCapacity>
+                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 303</hasLocationName>
+                    <containStaff>
+                      <LabStaff rdf:ID="LabStaff_16">
+                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ian Hilton</hasPersonName>
+                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179081231</hasSSNO>
+                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 1782</hasAddress>
+                        <hasDept>
+                          <Department rdf:ID="Department_46">
+                            <hasPersonnel>
+                              <Nurse rdf:ID="Nurse_25">
+                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+                                <hasOffice>
+                                  <Office rdf:ID="Office_6">
+                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 203</hasLocationName>
+                                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasInUse>
+                                    <containStaff rdf:resource="#Nurse_25"/>
+                                    <containStaff>
+                                      <Nurse rdf:ID="Nurse_24">
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842188</hasSSNO>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                                        <hasOffice rdf:resource="#Office_6"/>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lucy Barton</hasPersonName>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+                                        <hasDept rdf:resource="#Department_46"/>
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2295</hasAddress>
+                                      </Nurse>
+                                    </containStaff>
+                                    <containStaff>
+                                      <Nurse rdf:ID="Nurse_23">
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                                        <hasDept rdf:resource="#Department_46"/>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                        <hasOffice rdf:resource="#Office_6"/>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marry Barton</hasPersonName>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2291</hasAddress>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842188</hasSSNO>
+                                      </Nurse>
+                                    </containStaff>
+                                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasCapacity>
+                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000203</hasLocationID>
+                                  </Office>
+                                </hasOffice>
+                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842188</hasSSNO>
+                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2490</hasAddress>
+                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Allen Schill</hasPersonName>
+                                <hasDept rdf:resource="#Department_46"/>
+                              </Nurse>
+                            </hasPersonnel>
+                            <hasPersonnel rdf:resource="#Nurse_24"/>
+                            <hasPersonnel rdf:resource="#Nurse_23"/>
+                            <hasPersonnel rdf:resource="#LabStaff_16"/>
+                            <hasPersonnel>
+                              <Doctor rdf:ID="Doctor_12">
+                                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+                                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Washinton Rd 106</hasAddress>
+                                <hasOffice>
+                                  <Office rdf:ID="Office_1">
+                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000101</hasLocationID>
+                                    <containStaff>
+                                      <Doctor rdf:ID="Doctor_10">
+                                        <hasDept rdf:resource="#Department_46"/>
+                                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Washinton Rd 104</hasAddress>
+                                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+                                        <hasOffice rdf:resource="#Office_1"/>
+                                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843001</hasSSNO>
+                                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                        <treats>
+                                          <InPatient rdf:ID="InPatient_50">
+                                            <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843229</hasSSNO>
+                                            <hasDisease>
+                                              <Disease rdf:ID="Disease_37">
+                                                <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cough disease</hasDescription>
+                                                <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cough</hasDiseaseName>
+                                              </Disease>
+                                            </hasDisease>
+                                            <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marry Liu</hasPersonName>
+                                            <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P0001</hasPatientID>
+                                            <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                                            <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21</hasAge>
+                                            <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+                                            <allocatedTo>
+                                              <Bed rdf:ID="Bed_29">
+                                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+                                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+                                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED002</hasDeviceID>
+                                                <locatedIn>
+                                                  <Ward rdf:ID="Ward_24">
+                                                    <hasDevice>
+                                                      <Bed rdf:ID="Bed_30">
+                                                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+                                                        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+                                                        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED003</hasDeviceID>
+                                                        <locatedIn rdf:resource="#Ward_24"/>
+                                                      </Bed>
+                                                    </hasDevice>
+                                                    <hasDevice>
+                                                      <Bed rdf:ID="Bed_31">
+                                                        <locatedIn rdf:resource="#Ward_24"/>
+                                                        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+                                                        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED004</hasDeviceID>
+                                                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+                                                      </Bed>
+                                                    </hasDevice>
+                                                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasCapacity>
+                                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD101</hasLocationID>
+                                                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+                                                    <hasDevice>
+                                                      <Bed rdf:ID="Bed_32">
+                                                        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED005</hasDeviceID>
+                                                        <locatedIn rdf:resource="#Ward_24"/>
+                                                        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+                                                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+                                                      </Bed>
+                                                    </hasDevice>
+                                                    <hasDevice>
+                                                      <MovableDevice rdf:ID="MovableDevice_9">
+                                                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</hasPrice>
+                                                        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheel Chair Factory</hasManufacturer>
+                                                        <locatedIn rdf:resource="#Ward_24"/>
+                                                        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP007</hasDeviceID>
+                                                        <isType rdf:resource="#DeviceType_58"/>
+                                                      </MovableDevice>
+                                                    </hasDevice>
+                                                    <hasDevice rdf:resource="#Bed_29"/>
+                                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 101</hasLocationName>
+                                                  </Ward>
+                                                </locatedIn>
+                                              </Bed>
+                                            </allocatedTo>
+                                            <participateIn>
+                                              <Admission rdf:ID="Admission_8">
+                                                <hasTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2009-08-10T12:10:00</hasTime>
+                                                <activatedIn>
+                                                  <Reception rdf:ID="Reception_17">
+                                                    <hasActivity rdf:resource="#Admission_3"/>
+                                                    <hasActivity rdf:resource="#Admission_8"/>
+                                                    <hasActivity>
+                                                      <Admission rdf:ID="Admission_10">
+                                                        <hasParticipant>
+                                                          <InPatient rdf:ID="InPatient_64">
+                                                            <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843229</hasSSNO>
+                                                            <hasDisease rdf:resource="#Disease_37"/>
+                                                            <participateIn rdf:resource="#Admission_10"/>
+                                                            <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                                            <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yang Liu</hasPersonName>
+                                                            <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 123</hasAddress>
+                                                            <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21</hasAge>
+                                                            <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+                                                            <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P0003</hasPatientID>
+                                                            <allocatedTo rdf:resource="#Bed_31"/>
+                                                            <isTreatedBy rdf:resource="#Doctor_11"/>
+                                                          </InPatient>
+                                                        </hasParticipant>
+                                                        <hasParticipant rdf:resource="#NonMedicalStaff_6"/>
+                                                        <generateReport>
+                                                          <AdmissionReport rdf:ID="AdmissionReport_11">
+                                                            <generatedBy rdf:resource="#Admission_10"/>
+                                                            <hasDocumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">admission report 0003</hasDocumentName>
+                                                            <hasDocumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AP0003</hasDocumentID>
+                                                          </AdmissionReport>
+                                                        </generateReport>
+                                                        <activatedIn rdf:resource="#Reception_17"/>
+                                                        <hasActivityID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AD0003</hasActivityID>
+                                                      </Admission>
+                                                    </hasActivity>
+                                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reception desk</hasLocationName>
+                                                    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">REC0001</hasLocationID>
+                                                  </Reception>
+                                                </activatedIn>
+                                                <hasParticipant rdf:resource="#InPatient_50"/>
+                                                <hasParticipant rdf:resource="#NonMedicalStaff_6"/>
+                                                <generateReport>
+                                                  <AdmissionReport rdf:ID="AdmissionReport_9">
+                                                    <hasDocumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AP0002</hasDocumentID>
+                                                    <hasDocumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">admission report 0002</hasDocumentName>
+                                                    <generatedBy rdf:resource="#Admission_8"/>
+                                                  </AdmissionReport>
+                                                </generateReport>
+                                                <hasActivityID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AD0002</hasActivityID>
+                                              </Admission>
+                                            </participateIn>
+                                            <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 121</hasAddress>
+                                            <isTreatedBy rdf:resource="#Doctor_10"/>
+                                          </InPatient>
+                                        </treats>
+                                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Smith</hasPersonName>
+                                        <treats>
+                                          <InPatient rdf:ID="InPatient_65">
+                                            <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843229</hasSSNO>
+                                            <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">21</hasAge>
+                                            <hasDisease>
+                                              <Disease rdf:ID="Disease_38">
+                                                <hasDiseaseName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">appendictis</hasDiseaseName>
+                                                <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">appendictis disease</hasDescription>
+                                              </Disease>
+                                            </hasDisease>
+                                            <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jack Kim</hasPersonName>
+                                            <allocatedTo rdf:resource="#Bed_32"/>
+                                            <isTreatedBy rdf:resource="#Doctor_10"/>
+                                            <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 129</hasAddress>
+                                            <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+                                            <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P0004</hasPatientID>
+                                            <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                          </InPatient>
+                                        </treats>
+                                      </Doctor>
+                                    </containStaff>
+                                    <containStaff rdf:resource="#Doctor_12"/>
+                                    <containStaff rdf:resource="#Doctor_11"/>
+                                    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+                                    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 101</hasLocationName>
+                                    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasCapacity>
+                                  </Office>
+                                </hasOffice>
+                                <hasDept rdf:resource="#Department_46"/>
+                                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843003</hasSSNO>
+                                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alex Smith</hasPersonName>
+                                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                              </Doctor>
+                            </hasPersonnel>
+                            <hasPersonnel rdf:resource="#Doctor_11"/>
+                            <hasPersonnel rdf:resource="#Doctor_10"/>
+                            <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Surgical Dept</hasDeptName>
+                          </Department>
+                        </hasDept>
+                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100000.0</hasSalary>
+                        <responsibleFor>
+                          <TestFacility rdf:ID="Test_Facility_17">
+                            <hasDevice>
+                              <MovableDevice rdf:ID="MovableDevice_8">
+                                <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OXRB Factory</hasManufacturer>
+                                <locatedIn rdf:resource="#Test_Facility_17"/>
+                                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">820.0</hasPrice>
+                                <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP006</hasDeviceID>
+                                <isType rdf:resource="#DeviceType_57"/>
+                              </MovableDevice>
+                            </hasDevice>
+                            <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TF0002</hasLocationID>
+                            <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ON</hasStatus>
+                            <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X-Ray Lab (B)</hasLocationName>
+                          </TestFacility>
+                        </responsibleFor>
+                        <hasOffice rdf:resource="#Office_9"/>
+                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</hasAge>
+                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143215567</hasContactNo>
+                      </LabStaff>
+                    </containStaff>
+                    <containStaff rdf:resource="#LabStaff_18"/>
+                  </Office>
+                </hasOffice>
+                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+                <participateIn rdf:resource="#Admission_3"/>
+                <participateIn rdf:resource="#Admission_8"/>
+                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cathy Smith</hasPersonName>
+                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12345097</hasSSNO>
+                <hasDept>
+                  <Department rdf:ID="Department_7">
+                    <hasPersonnel rdf:resource="#NonMedicalStaff_6"/>
+                  </Department>
+                </hasDept>
+                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20000.0</hasSalary>
+                <participateIn rdf:resource="#Admission_10"/>
+                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">park street 110</hasAddress>
+              </NonMedicalStaff>
+            </hasParticipant>
+            <generateReport>
+              <AdmissionReport rdf:ID="AdmissionReport_4">
+                <generatedBy rdf:resource="#Admission_3"/>
+                <hasDocumentID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AP0001</hasDocumentID>
+                <hasDocumentName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">admission report 0001</hasDocumentName>
+              </AdmissionReport>
+            </generateReport>
+            <activatedIn rdf:resource="#Reception_17"/>
+            <hasActivityID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AD0001</hasActivityID>
+          </Admission>
+        </participateIn>
+        <isTreatedBy rdf:resource="#Doctor_11"/>
+        <hasPatientID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P0002</hasPatientID>
+        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <allocatedTo rdf:resource="#Bed_30"/>
+        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Swart Adam</hasPersonName>
+        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843229</hasSSNO>
+        <hasDisease rdf:resource="#Disease_37"/>
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">34</hasAge>
+        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 122</hasAddress>
+      </InPatient>
+    </treats>
+    <hasDept rdf:resource="#Department_46"/>
+    <treats rdf:resource="#InPatient_64"/>
+    <hasOffice rdf:resource="#Office_1"/>
+    <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+  </Doctor>
+  <Office rdf:ID="Office_7">
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasInUse>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OF000301</hasLocationID>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</hasCapacity>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Office 301</hasLocationName>
+    <containStaff>
+      <Nurse rdf:ID="Nurse_28">
+        <hasDept>
+          <Department rdf:ID="Department_47">
+            <hasPersonnel rdf:resource="#Nurse_28"/>
+            <hasPersonnel>
+              <Nurse rdf:ID="Nurse_27">
+                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842188</hasSSNO>
+                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2412</hasAddress>
+                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Henricksen</hasPersonName>
+                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                <hasOffice rdf:resource="#Office_7"/>
+                <hasDept rdf:resource="#Department_47"/>
+              </Nurse>
+            </hasPersonnel>
+            <hasPersonnel>
+              <Nurse rdf:ID="Nurse_26">
+                <hasDept rdf:resource="#Department_47"/>
+                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+                <hasOffice rdf:resource="#Office_7"/>
+                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2490</hasAddress>
+                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Avil Schill</hasPersonName>
+                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842188</hasSSNO>
+              </Nurse>
+            </hasPersonnel>
+            <hasPersonnel>
+              <Doctor rdf:ID="Doctor_6">
+                <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harry Chen</hasPersonName>
+                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843033</hasSSNO>
+                <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 12</hasAddress>
+                <hasDept rdf:resource="#Department_47"/>
+                <hasOffice>
+                  <Office rdf:ID="Office_14">
+                    <containStaff rdf:resource="#Doctor_6"/>
+                    <containStaff>
+                      <Doctor rdf:ID="Doctor_5">
+                        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ken Brickley</hasPersonName>
+                        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+                        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Park Ave. 11</hasAddress>
+                        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+                        <hasOffice rdf:resource="#Office_14"/>
+                        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Male</hasGender>
+                        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">33</hasAge>
+                        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179843001</hasSSNO>
+                        <hasDept rdf:resource="#Department_47"/>
+                      </Doctor>
+                    </containStaff>
+                  </Office>
+                </hasOffice>
+                <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">130000.0</hasSalary>
+                <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8143200990</hasContactNo>
+              </Doctor>
+            </hasPersonnel>
+            <hasPersonnel rdf:resource="#Doctor_5"/>
+            <hasDeptName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Medical Dept</hasDeptName>
+          </Department>
+        </hasDept>
+        <hasContactNo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8147771023</hasContactNo>
+        <hasOffice rdf:resource="#Office_7"/>
+        <hasPersonName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anand Kindberg</hasPersonName>
+        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Female</hasGender>
+        <hasSalary rdf:datatype="http://www.w3.org/2001/XMLSchema#float">85000.0</hasSalary>
+        <hasSSNO rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179842188</hasSSNO>
+        <hasAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gill str. 2490</hasAddress>
+        <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#int">24</hasAge>
+      </Nurse>
+    </containStaff>
+    <containStaff rdf:resource="#Nurse_27"/>
+    <containStaff rdf:resource="#Nurse_26"/>
+  </Office>
+  <Ward rdf:ID="Ward_30">
+    <hasDevice>
+      <Bed rdf:ID="Bed_57">
+        <locatedIn rdf:resource="#Ward_30"/>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0030</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_56">
+        <locatedIn rdf:resource="#Ward_30"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0029</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_55">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0028</hasDeviceID>
+        <locatedIn rdf:resource="#Ward_30"/>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_53">
+        <locatedIn rdf:resource="#Ward_30"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0027</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 201</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD201</hasLocationID>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">6</hasCapacity>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</hasInUse>
+  </Ward>
+  <Ward rdf:ID="Ward_26">
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasInUse>
+    <hasDevice>
+      <Bed rdf:ID="Bed_39">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_26"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0014</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_38">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0012</hasDeviceID>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_26"/>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_37">
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0010</hasDeviceID>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_26"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasCapacity>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD103</hasLocationID>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 103</hasLocationName>
+  </Ward>
+  <Ward rdf:ID="Ward_27">
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasCapacity>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 104</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD104</hasLocationID>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</hasInUse>
+    <hasDevice>
+      <Bed rdf:ID="Bed_43">
+        <locatedIn rdf:resource="#Ward_27"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0018</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_42">
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0017</hasDeviceID>
+        <locatedIn rdf:resource="#Ward_27"/>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_41">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_27"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0016</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_40">
+        <locatedIn rdf:resource="#Ward_27"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0015</hasDeviceID>
+      </Bed>
+    </hasDevice>
+  </Ward>
+  <WaitingRoom rdf:ID="Waiting_Room_21">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WR000CC</hasLocationID>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central Waiting Area C</hasLocationName>
+    <hasDevice>
+      <MovableDevice rdf:ID="MovableDevice_10">
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP008</hasDeviceID>
+        <locatedIn rdf:resource="#Waiting_Room_21"/>
+        <isType rdf:resource="#DeviceType_58"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheel Chair Factory</hasManufacturer>
+      </MovableDevice>
+    </hasDevice>
+    <hasDevice>
+      <MovableDevice rdf:ID="MovableDevice_11">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheel Chair Factory</hasManufacturer>
+        <isType rdf:resource="#DeviceType_58"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP009</hasDeviceID>
+        <locatedIn rdf:resource="#Waiting_Room_21"/>
+      </MovableDevice>
+    </hasDevice>
+  </WaitingRoom>
+  <Ward rdf:ID="Ward_28">
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasCapacity>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasInUse>
+    <hasDevice>
+      <Bed rdf:ID="Bed_47">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_28"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0022</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_46">
+        <locatedIn rdf:resource="#Ward_28"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0021</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_45">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <locatedIn rdf:resource="#Ward_28"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0020</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_44">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <locatedIn rdf:resource="#Ward_28"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0019</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 105</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD105</hasLocationID>
+  </Ward>
+  <Ward rdf:ID="Ward_29">
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WD106</hasLocationID>
+    <hasInUse rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasInUse>
+    <hasDevice>
+      <Bed rdf:ID="Bed_49">
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0024</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <locatedIn rdf:resource="#Ward_29"/>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_48">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_29"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0023</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasCapacity rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasCapacity>
+    <hasDevice>
+      <Bed rdf:ID="Bed_52">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0026</hasDeviceID>
+        <locatedIn rdf:resource="#Ward_29"/>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_50">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_29"/>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0025</hasDeviceID>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+      </Bed>
+    </hasDevice>
+    <hasDevice>
+      <Bed rdf:ID="Bed_51">
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HospitalBedManufacturer</hasManufacturer>
+        <locatedIn rdf:resource="#Ward_29"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300.0</hasPrice>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BED0011</hasDeviceID>
+      </Bed>
+    </hasDevice>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ward 106</hasLocationName>
+  </Ward>
+  <MovableDevice rdf:ID="MovableDevice_1">
+    <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP002</hasDeviceID>
+    <locatedIn>
+      <SurgeryRoom rdf:ID="Surgery_Room_12">
+        <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</hasStatus>
+        <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Surgery Room 105</hasLocationName>
+        <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SR0000105</hasLocationID>
+        <hasDevice rdf:resource="#MovableDevice_1"/>
+      </SurgeryRoom>
+    </locatedIn>
+    <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InfusionPump Factory</hasManufacturer>
+    <isType rdf:resource="#DeviceType_57"/>
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1020.0</hasPrice>
+  </MovableDevice>
+  <WaitingRoom rdf:ID="Waiting_Room_19">
+    <hasDevice>
+      <MovableDevice rdf:ID="MovableDevice_7">
+        <locatedIn rdf:resource="#Waiting_Room_19"/>
+        <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OXRB Factory</hasManufacturer>
+        <isType rdf:resource="#DeviceType_57"/>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">720.0</hasPrice>
+        <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP005</hasDeviceID>
+      </MovableDevice>
+    </hasDevice>
+    <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central Waiting Area A</hasLocationName>
+    <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WR000CA</hasLocationID>
+  </WaitingRoom>
+  <MovableDevice rdf:ID="MovableDevice_71">
+    <hasManufacturer rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InfusionPump Factory</hasManufacturer>
+    <isType rdf:resource="#DeviceType_57"/>
+    <hasDeviceID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DV_IP004</hasDeviceID>
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">820.0</hasPrice>
+    <locatedIn>
+      <SurgeryRoom rdf:ID="Surgery_Room_11">
+        <hasLocationID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SR000104</hasLocationID>
+        <hasLocationName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Surgery Room 104</hasLocationName>
+        <hasDevice rdf:resource="#MovableDevice_71"/>
+        <hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ON</hasStatus>
+      </SurgeryRoom>
+    </locatedIn>
+  </MovableDevice>
+</rdf:RDF>
+<!-- Created with Protege (with OWL Plugin 3.4, Build 533)  http://protege.stanford.edu -->

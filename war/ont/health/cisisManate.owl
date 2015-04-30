@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#"
+     xml:base="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#name -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasDiagnose -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasDiagnose">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Hospital"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasMedicalEquipmentAssigned -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasMedicalEquipmentAssigned">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasPatientAssigned -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasPatientAssigned">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalPersonnel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasWard -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasWard">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#isLocatedAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#isLocatedAt"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasDiagnoseSetOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#hasDiagnoseSetOn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#priority -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#priority">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Bed -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Bed">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Building -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Building"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#CirculatorySystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#CirculatorySystem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Doctor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Doctor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalPersonnel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#EKG -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#EKG">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#EarNoseMouthAndThroat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#EarNoseMouthAndThroat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Eye -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Eye">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Hospital -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Hospital">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Building"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Hospital"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalPersonnel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalPersonnel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MultipleSignificantTrauma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MultipleSignificantTrauma">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#NervousSystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#NervousSystem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Nurse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Nurse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalPersonnel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Porter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Porter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalPersonnel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PulseReader -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PulseReader">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#RespiratorySystem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#RespiratorySystem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Wheelchair -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Wheelchair">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#MedicalEquipment"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#BoneFracture -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#BoneFracture">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+        <priority rdf:datatype="&xsd;int">2</priority>
+        <name rdf:datatype="&xsd;string">Bone Fracture</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#DoctorJohn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#DoctorJohn">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Doctor"/>
+        <name rdf:datatype="&xsd;string">Doctor John</name>
+        <hasPatientAssigned rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PatientBill"/>
+        <hasPatientAssigned rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PatientDoe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Flu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Flu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Diagnose"/>
+        <priority rdf:datatype="&xsd;int">0</priority>
+        <name rdf:datatype="&xsd;string">Flu</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level"/>
+        <name rdf:datatype="&xsd;string">Level 1</name>
+        <hasWard rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward100"/>
+        <hasWard rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward101"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#NurseJenniffer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#NurseJenniffer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Nurse"/>
+        <name rdf:datatype="&xsd;string">Nurse Jenniffer</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PatientBill -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PatientBill">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient"/>
+        <hasDiagnoseSetOn rdf:datatype="&xsd;dateTimeStamp">1388481458</hasDiagnoseSetOn>
+        <name rdf:datatype="&xsd;string">Patient Bill</name>
+        <hasDiagnose rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#BoneFracture"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PatientDoe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PatientDoe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Patient"/>
+        <hasDiagnoseSetOn rdf:datatype="&xsd;dateTimeStamp">1388433620</hasDiagnoseSetOn>
+        <name rdf:datatype="&xsd;string">Patient Doe</name>
+        <hasDiagnose rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Flu"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PorterDan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#PorterDan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Porter"/>
+        <name rdf:datatype="&xsd;string">Porter Dan</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#TmHospital -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#TmHospital">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Hospital"/>
+        <name rdf:datatype="&xsd;string">Timisoara Hospital</name>
+        <hasLevel rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Level1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward100 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward100">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward"/>
+        <name rdf:datatype="&xsd;string">Ward 100</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward101 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward101">
+        <rdf:type rdf:resource="http://www.semanticweb.org/bogdan/ontologies/2013/11/cisis#Ward"/>
+        <name rdf:datatype="&xsd;string">Ward 101</name>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

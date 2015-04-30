@@ -1,0 +1,55 @@
+<h1>
+<img src="images/security/tutorial.png" width="100" height="80" >
+Frequently Asked Questions (FAQ)
+<img src="images/security/tutorial.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">	
+<h3>FAQ </h3>
+<ul><li>
+The most popular threats on web applications?    
+<select id="attack_web"></select>	
+
+</li><li>How to secure a computer network?<select id="network"></select>	
+
+</li><li>Proxies:<select id="proxy"></select>	
+
+</li><li>How can I secure a Wi-Fi communication?<br/>Protocol:
+<select id="wifi_protocol" onclick="searchCountermeasureInformation('stac', document.getElementById('wifi_protocol').value, 'wifi_protocol_feature', 'wifi_security_property','option');" ></select>
+(e.g., choose WPA2) <br/>
+Security Property: <select id="wifi_security_property"></select>
+Feature: <select id="wifi_protocol_feature"></select>
+
+</li><li>I want to be sure that the message has not been modified
+Satisfy the integrity property:
+<select id="res_integrity"></select>	
+
+</li><li>I want to be sure that the person who sends the message who claims to be
+Satisfy the authentication property:
+<select id="res_auth"></select>	
+
+</li><li>To deny an action (e.g.: buy something on Internet) is impossible
+Satisfy the non-repudiation property:
+<select id="res_repudiation"></select>	
+</li></ul>
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+    request(displayResultBindingSelect, "/stac/type/WebAttack", "attack_web", "option");	
+
+	request(displayResultBindingSelect, "stac/type/NetworkManagementSecurityMechanism", "network", "option");
+	request(displayResultBindingSelect, "stac/type/Proxy", "proxy", "option");	
+	request(displayResultBindingSelect, "stac/type/WifiSecurityProtocol", "wifi_protocol", "option");
+
+	searchAccessControlMethod('stac/conceptSecurityProperty', 'IntegrityMethod', 'res_integrity', 'option');
+	searchAccessControlMethod('stac/conceptSecurityProperty', 'AuthenticationMethod', 'res_auth','option');	
+	searchAccessControlMethod('stac/conceptSecurityProperty', 'NonRepudiationMethod', 'res_repudiation', 'option');
+});

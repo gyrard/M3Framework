@@ -1,0 +1,3455 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.traffic.com/ontologies/traffic.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.traffic.com/ontologies/traffic.owl">
+    <Prefix name="" IRI="http://www.traffic.com/ontologies/traffic.owl#"/>
+    <Prefix name="j.0" IRI="http://www.traffic.com/ontologies/a.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="xsp" IRI="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="swrl" IRI="http://www.w3.org/2003/11/swrl#"/>
+    <Prefix name="sqwrl" IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"/>
+    <Prefix name="swrla" IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"/>
+    <Prefix name="swrlb" IRI="http://www.w3.org/2003/11/swrlb#"/>
+    <Prefix name="protege" IRI="http://protege.stanford.edu/plugins/owl/protege#"/>
+    <Prefix name="ace_lexicon" IRI="http://attempto.ifi.uzh.ch/ace_lexicon#"/>
+    <Prefix name="First-Before" IRI="http://www.traffic.com/ontologies/traffic.owl#Last/First-Before/"/>
+    <Prefix name="First-Before2" IRI="http://www.traffic.com/ontologies/traffic.owl#last/First-Before/"/>
+    <Import>http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl</Import>
+    <Import>http://swrl.stanford.edu/ontologies/3.3/swrla.owl</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&xsd;string">A traffic ontology that describes the management of the traffic in a straight road with two lanes, both in the same direction.
+The situation is an ambulance trying to overtake all the other cars and they have to modify their speed and positions in order to able the ambulance to pass as fast as possible.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Accelerate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Action"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AfterGap"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ahead"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BeforeGap"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Behind"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChangeLine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Decelerate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FirstAfterGap"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LastBeforeGap"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lateral"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaintainDistanceWithCarInFront"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaintainSpeed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NoSpace"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NotOvertaker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Overtaker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Position"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SoftAccelerate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SoftDecelerate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Space"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vehicle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#doesAction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isActionDoneBy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#beforeTheGap"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#bigSpeedDifference"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDirectionValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSpace"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSpaceAhead"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSpaceBehind"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSpaceLateral"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasSpeedValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasXValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasYValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isOvertaking"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#movement"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#position"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#speedWith"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#speedWithAheadCar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#speedWithBehindCar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#speedWithOvertaker"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="j.0:hasSpaceAhead"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="j.0:hasSpaceBehind"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="j.0:hasSpaceLateral"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="j.0:isInFrontOfOvertaker"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="j.0:isOvertaking"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Accelerate"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Action"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Action"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isActionDoneBy"/>
+            <Class IRI="#Vehicle"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AfterGap"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ahead"/>
+        <Class IRI="#Space"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BeforeGap"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Behind"/>
+        <Class IRI="#Space"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChangeLine"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Decelerate"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FirstAfterGap"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LastBeforeGap"/>
+        <Class IRI="#Position"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lateral"/>
+        <Class IRI="#Space"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaintainDistanceWithCarInFront"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaintainSpeed"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NoSpace"/>
+        <Class IRI="#Space"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NotOvertaker"/>
+        <Class IRI="#Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Overtaker"/>
+        <Class IRI="#Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Position"/>
+        <Class IRI="#Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SoftAccelerate"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SoftDecelerate"/>
+        <Class IRI="#Action"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vehicle"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#doesAction"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#Vehicle"/>
+        <NamedIndividual IRI="#Car1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Vehicle"/>
+        <NamedIndividual IRI="#Car2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Vehicle"/>
+        <NamedIndividual IRI="#Car3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Vehicle"/>
+        <NamedIndividual IRI="#Car4"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#beforeTheGap"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isOvertaking"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <NamedIndividual IRI="#Car1"/>
+        <Literal datatypeIRI="&xsd;integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#beforeTheGap"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isOvertaking"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <NamedIndividual IRI="#Car2"/>
+        <Literal datatypeIRI="&xsd;integer">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#beforeTheGap"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isOvertaking"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <NamedIndividual IRI="#Car3"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isOvertaking"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <NamedIndividual IRI="#Car4"/>
+        <Literal datatypeIRI="&xsd;integer">3</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isActionDoneBy"/>
+        <ObjectProperty IRI="#doesAction"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#doesAction"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#isActionDoneBy"/>
+    </InverseFunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#doesAction"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#isActionDoneBy"/>
+    </AsymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#doesAction"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#isActionDoneBy"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#doesAction"/>
+        <Class IRI="#Vehicle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isActionDoneBy"/>
+        <Class IRI="#Vehicle"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#beforeTheGap"/>
+        <DataProperty IRI="#position"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <DataProperty IRI="#speedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasDirectionValue"/>
+        <DataProperty IRI="#movement"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <DataProperty IRI="#hasSpace"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <DataProperty IRI="#hasSpace"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <DataProperty IRI="#hasSpace"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasSpeedValue"/>
+        <DataProperty IRI="#movement"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasXValue"/>
+        <DataProperty IRI="#position"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasYValue"/>
+        <DataProperty IRI="#position"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <DataProperty IRI="#position"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#isOvertaking"/>
+        <DataProperty IRI="#position"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+        <DataProperty IRI="#position"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#speedWithAheadCar"/>
+        <DataProperty IRI="#speedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <DataProperty IRI="#speedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#speedWithBehindCar"/>
+        <DataProperty IRI="#speedWith"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#speedWithOvertaker"/>
+        <DataProperty IRI="#speedWith"/>
+    </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasDirectionValue"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasSpeedValue"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasXValue"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasYValue"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#beforeTheGap"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#isOvertaking"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#speedWithAheadCar"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#speedWithBehindCar"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#speedWithOvertaker"/>
+        <Class IRI="#Vehicle"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#beforeTheGap"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#bigSpeedDifference"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasDirectionValue"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSpaceAhead"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSpaceBehind"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSpaceLateral"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasSpeedValue"/>
+        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasXValue"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasYValue"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isInFrontOfOvertaker"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isOvertaking"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#speedWithAheadCar"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&xsd;int">1</Literal>
+            <Literal datatypeIRI="&xsd;int">2</Literal>
+            <Literal datatypeIRI="&xsd;int">3</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&xsd;int">1</Literal>
+            <Literal datatypeIRI="&xsd;int">2</Literal>
+            <Literal datatypeIRI="&xsd;int">3</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#speedWithBehindCar"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&xsd;int">1</Literal>
+            <Literal datatypeIRI="&xsd;int">2</Literal>
+            <Literal datatypeIRI="&xsd;int">3</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#speedWithOvertaker"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&xsd;int">1</Literal>
+            <Literal datatypeIRI="&xsd;int">2</Literal>
+            <Literal datatypeIRI="&xsd;int">3</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;string">faster</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainDistanceWithCarInFront"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithOvertaker"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBeforeTheGapCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainDistanceWithCarInFront"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#ChangeLine"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Accelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#bigSpeedDifference"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Decelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">1</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithAheadCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">2</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#speedWithBehindCar"/>
+                <Variable IRI="#c"/>
+                <Literal datatypeIRI="&xsd;long">3</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#MaintainSpeed"/>
+                <Variable IRI="#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftDecelerate"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isInFrontOfOvertaker"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SoftAccelerate"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Vehicle"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isOvertaking"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#NotOvertaker"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Vehicle"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#isOvertaking"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Overtaker"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#beforeTheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#AfterGap"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#beforeTheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#FirstAfterGap"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#beforeTheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#BeforeGap"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#beforeTheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#lastFirst-BeforeAfter-TheGap"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#LastBeforeGap"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceAhead"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceBehind"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceLateral"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#NoSpace"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceAhead"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceBehind"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceLateral"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Behind"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceAhead"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceLateral"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">false</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Ahead"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#hasSpaceLateral"/>
+                <Variable IRI="urn:swrl#c"/>
+                <Literal datatypeIRI="&xsd;boolean">true</Literal>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Lateral"/>
+                <Variable IRI="urn:swrl#c"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,2016 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY cose "http://casas.wsu.edu/owl/cose.owl#" >
+    <!ENTITY opencyc "http://sw.opencyc.org/concept/" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY concept "http://sw.opencyc.org/concept/http://sw.opencyc.org/concept/" >
+]>
+<rdf:RDF xmlns="http://casas.wsu.edu/owl/cose.owl#" xml:base="http://casas.wsu.edu/owl/cose.owl" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:concept="http://sw.opencyc.org/concept/http://sw.opencyc.org/concept/" xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cose="http://casas.wsu.edu/owl/cose.owl#" xmlns:opencyc="http://sw.opencyc.org/concept/">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityDependsOn -->
+
+    <owl:ObjectProperty rdf:about="#activityDependsOn">
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityDescribedWithPlan -->
+
+    <owl:ObjectProperty rdf:about="#activityDescribedWithPlan">
+        <rdfs:domain rdf:resource="#IntelligentAgentActivity"/>
+        <rdfs:range rdf:resource="#Plan"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityInvolvedPerson -->
+
+    <owl:ObjectProperty rdf:about="#activityInvolvedPerson">
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityRelatedSensorEvent -->
+
+    <owl:ObjectProperty rdf:about="#activityRelatedSensorEvent">
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:range rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#containedObject -->
+
+    <owl:ObjectProperty rdf:about="#containedObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <owl:equivalentProperty rdf:resource="http://sw.opencyc.org/concept/Mx4rwSq5epwpEbGdrcN5Y29ycA"/>
+        <rdfs:domain rdf:resource="#Container"/>
+        <rdfs:range rdf:resource="#ThreeDimensionalGeometricThing"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#controllableByEnvironment -->
+
+    <owl:ObjectProperty rdf:about="#controllableByEnvironment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ElectronicDevice"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#coordinatesUnitType -->
+
+    <owl:ObjectProperty rdf:about="#coordinatesUnitType">
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:range rdf:resource="#UnitOfMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#dataSourceSensor -->
+
+    <owl:ObjectProperty rdf:about="#dataSourceSensor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Sensor"/>
+        <rdfs:domain rdf:resource="#SensorEventOrMeasurement"/>
+        <owl:inverseOf rdf:resource="#sensorData"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#doorwayConnects -->
+
+    <owl:ObjectProperty rdf:about="#doorwayConnects">
+        <rdfs:domain rdf:resource="#Doorway"/>
+        <rdfs:range rdf:resource="#SpaceInAHOC"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#environmentContains -->
+
+    <owl:ObjectProperty rdf:about="#environmentContains">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="#SpatialThing-Localized"/>
+        <owl:inverseOf rdf:resource="#inEnvironment"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#inEnvironment -->
+
+    <owl:ObjectProperty rdf:about="#inEnvironment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#locationReferencePoint -->
+
+    <owl:ObjectProperty rdf:about="#locationReferencePoint">
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#mayInvolveObject -->
+
+    <owl:ObjectProperty rdf:about="#mayInvolveObject">
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#mayTriggerSensor -->
+
+    <owl:ObjectProperty rdf:about="#mayTriggerSensor">
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:range rdf:resource="#Sensor"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#measurementUnit -->
+
+    <owl:ObjectProperty rdf:about="#measurementUnit">
+        <rdfs:domain rdf:resource="#SensorMeasurement"/>
+        <rdfs:range rdf:resource="#UnitOfMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#mustTriggerSensor -->
+
+    <owl:ObjectProperty rdf:about="#mustTriggerSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#objectActivitySensedBy -->
+
+    <owl:ObjectProperty rdf:about="#objectActivitySensedBy">
+        <rdfs:range rdf:resource="#Sensor"/>
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <owl:inverseOf rdf:resource="#sensorRelatesToObject"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#objectInSpace -->
+
+    <owl:ObjectProperty rdf:about="#objectInSpace">
+        <rdfs:range rdf:resource="#SpaceInAHOC"/>
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#objectLocationReferenceObject -->
+
+    <owl:ObjectProperty rdf:about="#objectLocationReferenceObject">
+        <rdfs:range rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#personInvolvedInActivity -->
+
+    <owl:ObjectProperty rdf:about="#personInvolvedInActivity">
+        <rdfs:range rdf:resource="#HumanActivity"/>
+        <rdfs:domain rdf:resource="#Person"/>
+        <owl:inverseOf rdf:resource="#activityInvolvedPerson"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#planExecutesActivity -->
+
+    <owl:ObjectProperty rdf:about="#planExecutesActivity">
+        <rdfs:range rdf:resource="#IntelligentAgentActivity"/>
+        <rdfs:domain rdf:resource="#Plan"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#planStepPrecedes -->
+
+    <owl:ObjectProperty rdf:about="#planStepPrecedes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment>A planStepPrecedes B means that step A is executed before step B</rdfs:comment>
+        <rdfs:domain rdf:resource="#PlanSpecificationMicrotheory"/>
+        <rdfs:range rdf:resource="#PlanSpecificationMicrotheory"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#roomConnectsToWithoutDoorway -->
+
+    <owl:ObjectProperty rdf:about="#roomConnectsToWithoutDoorway">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="#SpaceInAHOC"/>
+        <rdfs:range rdf:resource="#SpaceInAHOC"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorChangesToState -->
+
+    <owl:ObjectProperty rdf:about="#sensorChangesToState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#SensorEvent"/>
+        <rdfs:range rdf:resource="#SensorState"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorData -->
+
+    <owl:ObjectProperty rdf:about="#sensorData">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorHasState -->
+
+    <owl:ObjectProperty rdf:about="#sensorHasState">
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#SensorState"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorInState -->
+
+    <owl:ObjectProperty rdf:about="#sensorInState">
+        <rdfs:domain rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:range rdf:resource="#SensorState"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorMeasurementRelatesToActivity -->
+
+    <owl:ObjectProperty rdf:about="#sensorMeasurementRelatesToActivity">
+        <rdfs:range rdf:resource="#HumanActivity"/>
+        <rdfs:domain rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorMeasurementRelatesToPerson -->
+
+    <owl:ObjectProperty rdf:about="#sensorMeasurementRelatesToPerson">
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:domain rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorMeasurementType -->
+
+    <owl:ObjectProperty rdf:about="#sensorMeasurementType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorRelatesToObject -->
+
+    <owl:ObjectProperty rdf:about="#sensorRelatesToObject">
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#spaceContainsObject -->
+
+    <owl:ObjectProperty rdf:about="#spaceContainsObject">
+        <rdfs:domain rdf:resource="#PartOfABuilding"/>
+        <rdfs:range rdf:resource="#SpatialThing-Localized"/>
+        <owl:inverseOf rdf:resource="#objectInSpace"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#spaceDoorway -->
+
+    <owl:ObjectProperty rdf:about="#spaceDoorway">
+        <rdfs:range rdf:resource="#Doorway"/>
+        <rdfs:domain rdf:resource="#SpaceInAHOC"/>
+        <owl:inverseOf rdf:resource="#doorwayConnects"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#spaceIsOnLevel -->
+
+    <owl:ObjectProperty rdf:about="#spaceIsOnLevel">
+        <rdfs:range rdf:resource="#LevelOfAConstruction"/>
+        <rdfs:domain rdf:resource="#SpaceInAHOC"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#spatialThingBoundry -->
+
+    <owl:ObjectProperty rdf:about="#spatialThingBoundry">
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:domain rdf:resource="#SpatialThing-Localized"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#stairwayLowerLevel -->
+
+    <owl:ObjectProperty rdf:about="#stairwayLowerLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="#LevelOfAConstruction"/>
+        <rdfs:domain rdf:resource="#Stairway"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#stairwayUpperLevel -->
+
+    <owl:ObjectProperty rdf:about="#stairwayUpperLevel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="#LevelOfAConstruction"/>
+        <rdfs:domain rdf:resource="#Stairway"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityEndTime -->
+
+    <owl:DatatypeProperty rdf:about="#activityEndTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityHasError -->
+
+    <owl:DatatypeProperty rdf:about="#activityHasError">
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#activityStartTime -->
+
+    <owl:DatatypeProperty rdf:about="#activityStartTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#HumanActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#depthOfObject -->
+
+    <owl:DatatypeProperty rdf:about="#depthOfObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#deviceVoltage -->
+
+    <owl:DatatypeProperty rdf:about="#deviceVoltage">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#deviceWattage -->
+
+    <owl:DatatypeProperty rdf:about="#deviceWattage">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#heightOfObject -->
+
+    <owl:DatatypeProperty rdf:about="#heightOfObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#lengthOfObject -->
+
+    <owl:DatatypeProperty rdf:about="#lengthOfObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#operatingTempMax -->
+
+    <owl:DatatypeProperty rdf:about="#operatingTempMax">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#operatingTempMin -->
+
+    <owl:DatatypeProperty rdf:about="#operatingTempMin">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#scalarValue -->
+
+    <owl:DatatypeProperty rdf:about="#scalarValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensableAngleHorizontal -->
+
+    <owl:DatatypeProperty rdf:about="#sensableAngleHorizontal">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensableAngleVertical -->
+
+    <owl:DatatypeProperty rdf:about="#sensableAngleVertical">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#stateIntegerRepresentation -->
+
+    <owl:DatatypeProperty rdf:about="#stateIntegerRepresentation">
+        <rdfs:domain rdf:resource="#SensorState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#timestamp -->
+
+    <owl:DatatypeProperty rdf:about="#timestamp">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#SensorEventOrMeasurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#vectorDirection -->
+
+    <owl:DatatypeProperty rdf:about="#vectorDirection">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#vectorMagnitude -->
+
+    <owl:DatatypeProperty rdf:about="#vectorMagnitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#widthOfObject -->
+
+    <owl:DatatypeProperty rdf:about="#widthOfObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#xCoordinateOfPoint -->
+
+    <owl:DatatypeProperty rdf:about="#xCoordinateOfPoint">
+        <rdfs:domain rdf:resource="#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#yCoordinateOfPoint -->
+
+    <owl:DatatypeProperty rdf:about="#yCoordinateOfPoint">
+        <rdfs:domain rdf:resource="#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#zCoordinateOfPoint -->
+
+    <owl:DatatypeProperty rdf:about="#zCoordinateOfPoint">
+        <rdfs:domain rdf:resource="#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Accelerometer -->
+
+    <owl:Class rdf:about="#Accelerometer">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rQ80a0KUlEd2AAABQjYGu0g"/>
+        <rdfs:subClassOf rdf:resource="#MotionDetector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Action -->
+
+    <owl:Class rdf:about="#Action">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVioQZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ActivityOfDailyLiving -->
+
+    <owl:Class rdf:about="#ActivityOfDailyLiving">
+        <rdfs:subClassOf rdf:resource="#HumanActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#AirFlowMeter -->
+
+    <owl:Class rdf:about="#AirFlowMeter">
+        <rdfs:subClassOf rdf:resource="#FlowMeter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#AmorphousThing -->
+
+    <owl:Class rdf:about="#AmorphousThing">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViiNZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#AspatialInformationStore -->
+
+    <owl:Class rdf:about="#AspatialInformationStore">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvf9sZJwpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#BarometricPressureSensor -->
+
+    <owl:Class rdf:about="#BarometricPressureSensor">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvXcziZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PressureSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#BasementRoom -->
+
+    <owl:Class rdf:about="#BasementRoom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVijCJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Bathroom -->
+
+    <owl:Class rdf:about="#Bathroom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rj_TbOCmDQdecrvhdjRWehQ"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Bathtub -->
+
+    <owl:Class rdf:about="#Bathtub">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVibtpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PlumbingFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Bedroom -->
+
+    <owl:Class rdf:about="#Bedroom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjQqZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#BinaryPressureSensor -->
+
+    <owl:Class rdf:about="#BinaryPressureSensor">
+        <rdfs:subClassOf rdf:resource="#PressureSensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Bowl-Generic -->
+
+    <owl:Class rdf:about="#Bowl-Generic">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjsMZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#FoodVessel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#BrownSugar -->
+
+    <owl:Class rdf:about="#BrownSugar">
+        <rdfs:subClassOf rdf:resource="#AmorphousThing"/>
+        <rdfs:subClassOf rdf:resource="#RawFood"/>
+    </owl:Class>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Building -->
+    <owl:Class rdf:about="#Building">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj7KJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Cabinet-StorageConstruction -->
+
+    <owl:Class rdf:about="#Cabinet-StorageConstruction">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj975wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PartOfABuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Closet -->
+
+    <owl:Class rdf:about="#Closet">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVic15wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ClothesDryer -->
+
+    <owl:Class rdf:about="#ClothesDryer">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViuWJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ClothesWasher -->
+
+    <owl:Class rdf:about="#ClothesWasher">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVivHZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ConceptualWork -->
+
+    <owl:Class rdf:about="#ConceptualWork">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwClAZJwpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ContactSensor -->
+
+    <owl:Class rdf:about="#ContactSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Container -->
+
+    <owl:Class rdf:about="#Container">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjOGJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#CookedFood -->
+
+    <owl:Class rdf:about="#CookedFood">
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#CookingRange -->
+
+    <owl:Class rdf:about="#CookingRange">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVicOZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#CookingVessel -->
+
+    <owl:Class rdf:about="#CookingVessel">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViF9JwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#CounterTop -->
+
+    <owl:Class rdf:about="#CounterTop">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj-L5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#TwoDimensionalGeometricThing"/>
+    </owl:Class>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#DiningRoom -->
+
+    <owl:Class rdf:about="#DiningRoom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjIjpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Doorway -->
+
+    <owl:Class rdf:about="#Doorway">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj5FJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Portal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#DrugProduct -->
+
+    <owl:Class rdf:about="#DrugProduct">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViu95wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ElectricalSwitch -->
+
+    <owl:Class rdf:about="#ElectricalSwitch">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVkI_5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Portal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ElectricalToaster -->
+
+    <owl:Class rdf:about="#ElectricalToaster">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVi-OJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ElectronicDevice -->
+
+    <owl:Class rdf:about="#ElectronicDevice">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViQlZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ElectronicDeviceActivitySensor -->
+
+    <owl:Class rdf:about="#ElectronicDeviceActivitySensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Event -->
+
+    <owl:Class rdf:about="#Event">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViADZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Situation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Experiment -->
+
+    <owl:Class rdf:about="#Experiment">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwQCT3ZwpEbGdrcN5Y29ycA"/>
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/http://sw.opencyc.org/concept/Mx4rwQCT3ZwpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Fan-ElectricalAppliance -->
+
+    <owl:Class rdf:about="#Fan-ElectricalAppliance">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViN6ZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#FloorInAConstruction -->
+
+    <owl:Class rdf:about="#FloorInAConstruction">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj4k5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#TwoDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#FlowMeter -->
+
+    <owl:Class rdf:about="#FlowMeter">
+        <rdfs:subClassOf rdf:resource="#MeasuringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#FlowSensor -->
+
+    <owl:Class rdf:about="#FlowSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#FoodIngredientOnly -->
+
+    <owl:Class rdf:about="#FoodIngredientOnly">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjaKpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#FoodVessel -->
+
+    <owl:Class rdf:about="#FoodVessel">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVijXJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Container"/>
+        <owl:disjointWith rdf:resource="#MedicineContainer"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#FurniturePiece -->
+
+    <owl:Class rdf:about="#FurniturePiece">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjQHZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Garage-Household -->
+
+    <owl:Class rdf:about="#Garage-Household">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVixa5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#GasFlowMeter -->
+
+    <owl:Class rdf:about="#GasFlowMeter">
+        <rdfs:subClassOf rdf:resource="#FlowMeter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#GoalOrientedSpecification -->
+
+    <owl:Class rdf:about="#GoalOrientedSpecification">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rk7Um5sj5EduAAADggVbxzQ"/>
+        <rdfs:subClassOf rdf:resource="#NormativeSpecification"/>
+    </owl:Class>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Gyroscope -->
+
+    <owl:Class rdf:about="#Gyroscope">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwSXw2pwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#MotionDetector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Hallway -->
+
+    <owl:Class rdf:about="#Hallway">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVieuJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpaceInAHOC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#HouseholdAppliance -->
+
+    <owl:Class rdf:about="#HouseholdAppliance">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViJk5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#HumanActivity -->
+
+    <owl:Class rdf:about="#HumanActivity">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/http://sw.opencyc.org/concept/Mx4rvViN65wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#IntelligentAgentActivity"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Individual -->
+
+    <owl:Class rdf:about="#Individual">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjaApwpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#IntelligentAgentActivity -->
+
+    <owl:Class rdf:about="#IntelligentAgentActivity">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rGGsQIeqUEdqTjAACs6hPlA"/>
+        <rdfs:subClassOf rdf:resource="#Action"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#InteractWithInformation -->
+
+    <owl:Class rdf:about="#InteractWithInformation">
+        <rdfs:subClassOf rdf:resource="#HumanActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#InteractWithPhysicalObject -->
+
+    <owl:Class rdf:about="#InteractWithPhysicalObject">
+        <rdfs:subClassOf rdf:resource="#HumanActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Kitchen -->
+
+    <owl:Class rdf:about="#Kitchen">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVifPJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#LaundryRoom -->
+
+    <owl:Class rdf:about="#LaundryRoom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVicVpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#LevelOfAConstruction -->
+
+    <owl:Class rdf:about="#LevelOfAConstruction">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjKCZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PartOfABuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#LightFixture -->
+
+    <owl:Class rdf:about="#LightFixture">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjvUpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ElectronicDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#LightSwitchOnWall -->
+
+    <owl:Class rdf:about="#LightSwitchOnWall">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj1_ZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ElectricalSwitch"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#LivingRoom -->
+
+    <owl:Class rdf:about="#LivingRoom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVieNZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MeasurableQuantityType -->
+
+    <owl:Class rdf:about="#MeasurableQuantityType">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rlsKf-MukQdiEYr6WbI2G4Q"/>
+        <rdfs:comment>[Def]"A collection of collections and a specialization of both TotallyOrderedQuantityType and MeasurableScalarIntervalType (qq.v.). Each instance of MeasurableQuantityType is a totally-ordered collection of MeasurableQuantity[ies] (q.v.) that is closedUnder addition (see PlusFn) and subtraction (see DifferenceFn).
+
+Instances of MeasurableQuantityType include Distance, RateOfRotation, and Time-Quantity. Specializations include PrimitiveMeasurableQuantityType and DerivedMeasurableQuantityType."</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MeasuringDevice -->
+
+    <owl:Class rdf:about="#MeasuringDevice">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVkJAZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MeasuringSpoon -->
+
+    <owl:Class rdf:about="#MeasuringSpoon">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViMG5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#FoodVessel"/>
+        <rdfs:subClassOf rdf:resource="#VolumeMeasuringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MedicineContainer -->
+
+    <owl:Class rdf:about="#MedicineContainer">
+        <rdfs:subClassOf rdf:resource="#Container"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Microphone -->
+
+    <owl:Class rdf:about="#Microphone">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjpapwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Microtheory -->
+
+    <owl:Class rdf:about="#Microtheory">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViA1ZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#AspatialInformationStore"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MicrowaveOven -->
+
+    <owl:Class rdf:about="#MicrowaveOven">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVi5pJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Milk -->
+
+    <owl:Class rdf:about="#Milk">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVi3fpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#AmorphousThing"/>
+        <rdfs:subClassOf rdf:resource="#RawFood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MotionDetector -->
+
+    <owl:Class rdf:about="#MotionDetector">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwQCbFJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#NormativeSpecification -->
+
+    <owl:Class rdf:about="#NormativeSpecification">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rlvOL4mY1QdiY7KN-1Xb3Fw"/>
+        <rdfs:subClassOf rdf:resource="#Specification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Oatmeal -->
+
+    <owl:Class rdf:about="#Oatmeal">
+        <rdfs:subClassOf rdf:resource="#AmorphousThing"/>
+        <rdfs:subClassOf rdf:resource="#FoodIngredientOnly"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Occupant -->
+
+    <owl:Class rdf:about="#Occupant">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVii7pwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Oven -->
+
+    <owl:Class rdf:about="#Oven">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViZrJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Pantry -->
+
+    <owl:Class rdf:about="#Pantry">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rcasbZJnOEdaAAACgycbRww"/>
+        <rdfs:subClassOf rdf:resource="#StorageRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PartOfABuilding -->
+
+    <owl:Class rdf:about="#PartOfABuilding">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVieLpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PassiveInfraredSensor -->
+
+    <owl:Class rdf:about="#PassiveInfraredSensor">
+        <rdfs:subClassOf rdf:resource="#MotionDetector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Person -->
+
+    <owl:Class rdf:about="#Person">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViAkpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Pill -->
+
+    <owl:Class rdf:about="#Pill">
+        <rdfs:subClassOf rdf:resource="#DrugProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Plan -->
+
+    <owl:Class rdf:about="#Plan">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4r9DYNZvBfQdiISKek7wWggA"/>
+        <rdfs:subClassOf rdf:resource="#GoalOrientedSpecification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PlanSpecificationMicrotheory -->
+
+    <owl:Class rdf:about="#PlanSpecificationMicrotheory">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjOtJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SupposedToBeMicrotheory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PlumbingFixture -->
+
+    <owl:Class rdf:about="#PlumbingFixture">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj1epwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Point -->
+
+    <owl:Class rdf:about="#Point">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwKUKtJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Portal -->
+
+    <owl:Class rdf:about="#Portal">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjVl5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#TwoDimensionalGeometricThing"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PressureSensor -->
+
+    <owl:Class rdf:about="#PressureSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PropositionalConceptualWork -->
+
+    <owl:Class rdf:about="#PropositionalConceptualWork">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rv5L5vZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ConceptualWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#PropositionalInformationThing -->
+
+    <owl:Class rdf:about="#PropositionalInformationThing">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvu__KJwpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#RawFood -->
+
+    <owl:Class rdf:about="#RawFood">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvgyM_pwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Refrigerator -->
+
+    <owl:Class rdf:about="#Refrigerator">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViddJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#HouseholdAppliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Resident -->
+
+    <owl:Class rdf:about="#Resident">
+        <rdfs:subClassOf rdf:resource="#Occupant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Restroom -->
+
+    <owl:Class rdf:about="#Restroom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjd65wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Bathroom"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+        <rdfs:comment>"Any room that contains a toilet. Specs are the various kinds." 
+
+In this ontology, this is room which actually contains the toilet.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#RoomInAConstruction -->
+
+    <owl:Class rdf:about="#RoomInAConstruction">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVifspwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpaceInAHOC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SafetySwitch -->
+
+    <owl:Class rdf:about="#SafetySwitch">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rg4dGZKfDEd2AAABQjYGu0g"/>
+        <rdfs:subClassOf rdf:resource="#ElectricalSwitch"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ScriptedActivityExperiment -->
+
+    <owl:Class rdf:about="#ScriptedActivityExperiment">
+        <rdfs:subClassOf rdf:resource="#Experiment"/>
+    </owl:Class>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Sensor -->
+
+    <owl:Class rdf:about="#Sensor">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVieWpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorEvent -->
+
+    <owl:Class rdf:about="#SensorEvent">
+        <rdfs:subClassOf rdf:resource="#SensorEventOrMeasurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorEventOrMeasurement -->
+
+    <owl:Class rdf:about="#SensorEventOrMeasurement"/>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorMeasurement -->
+
+    <owl:Class rdf:about="#SensorMeasurement">
+        <rdfs:subClassOf rdf:resource="#SensorEventOrMeasurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorState -->
+
+    <owl:Class rdf:about="#SensorState"/>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ShakeSensor -->
+
+    <owl:Class rdf:about="#ShakeSensor">
+        <rdfs:subClassOf rdf:resource="#MotionDetector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Sink -->
+
+    <owl:Class rdf:about="#Sink">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViJwZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PlumbingFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Situation -->
+    <owl:Class rdf:about="#Situation">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvYjIS5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#TemporallyExistingThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SmartEnvironment -->
+
+    <owl:Class rdf:about="#SmartEnvironment">
+        <rdfs:comment>Defined as &amp;quot;a physical world that is richly and invisibly interwoven with sensors, actuators, displays, and computational elements, embedded seamlessly in the everyday objects of our lives, and connected through a continuous network&amp;quot;
+
+Weiser, M. and Brown, J.S., The coming age of calm technology, Xerox PARC, 1996.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SmokeAlarm -->
+
+    <owl:Class rdf:about="#SmokeAlarm">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwRDApZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SpaceInAHOC -->
+
+    <owl:Class rdf:about="#SpaceInAHOC">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVif9pwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PartOfABuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SpatialThing-Localized -->
+
+    <owl:Class rdf:about="#SpatialThing-Localized">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/http://sw.opencyc.org/concept/Mx4rwS68M5wpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Specification -->
+
+    <owl:Class rdf:about="#Specification">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVib1JwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PropositionalConceptualWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Stairway -->
+
+    <owl:Class rdf:about="#Stairway">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjkx5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpaceInAHOC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#StaticSituation -->
+
+    <owl:Class rdf:about="#StaticSituation">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvh5TfJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Situation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#StorageRoom -->
+
+    <owl:Class rdf:about="#StorageRoom">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rZGe0XJmiEdaAAACgycbRww"/>
+        <rdfs:subClassOf rdf:resource="#RoomInAConstruction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#StoveTopCookingPot -->
+
+    <owl:Class rdf:about="#StoveTopCookingPot">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViUMJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#CookingVessel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SupposedToBeMicrotheory -->
+
+    <owl:Class rdf:about="#SupposedToBeMicrotheory">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVixZJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Microtheory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Surface -->
+
+    <owl:Class rdf:about="#Surface">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvg1ZeJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#TwoDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Telephone -->
+
+    <owl:Class rdf:about="#Telephone">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjTBZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ElectronicDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#TelephoneDirectory -->
+
+    <owl:Class rdf:about="#TelephoneDirectory">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjllJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#ThreeDimensionalGeometricThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#TemperatureMeasuringDevice -->
+
+    <owl:Class rdf:about="#TemperatureMeasuringDevice">
+        <rdfs:subClassOf rdf:resource="#MeasuringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#TemporalThing -->
+
+    <owl:Class rdf:about="#TemporalThing">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViAxJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Individual"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#TemporallyExistingThing -->
+
+    <owl:Class rdf:about="#TemporallyExistingThing">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rtM0npht0QdiUF94Dipp7Pg"/>
+        <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#TempuratureSensor -->
+
+    <owl:Class rdf:about="#TempuratureSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <rdfs:subClassOf rdf:resource="#TemperatureMeasuringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ThreeDimensionalGeometricThing -->
+
+    <owl:Class rdf:about="#ThreeDimensionalGeometricThing">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rwPu-YZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Toilet -->
+
+    <owl:Class rdf:about="#Toilet">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjYnZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PlumbingFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#TwoDimensionalGeometricThing -->
+
+    <owl:Class rdf:about="#TwoDimensionalGeometricThing">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjCpZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#SpatialThing-Localized"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfAcceleration -->
+
+    <owl:Class rdf:about="#UnitOfAcceleration">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjq35wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfAngularSpeed -->
+
+    <owl:Class rdf:about="#UnitOfAngularSpeed">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVisy5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfDistance -->
+
+    <owl:Class rdf:about="#UnitOfDistance">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViKt5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfFlowRate -->
+
+    <owl:Class rdf:about="#UnitOfFlowRate">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViZ0ZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfForce -->
+
+    <owl:Class rdf:about="#UnitOfForce">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjG85wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfMass -->
+
+    <owl:Class rdf:about="#UnitOfMass">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViKcpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfMeasure -->
+
+    <owl:Class rdf:about="#UnitOfMeasure">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/http://sw.opencyc.org/concept/Mx4rvViAqpwpEbGdrcN5Y29ycA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfPower -->
+
+    <owl:Class rdf:about="#UnitOfPower">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjqWpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfPressure -->
+
+    <owl:Class rdf:about="#UnitOfPressure">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjHdpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfSpeed -->
+
+    <owl:Class rdf:about="#UnitOfSpeed">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvd-twpwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfTemperature -->
+
+    <owl:Class rdf:about="#UnitOfTemperature">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVixf5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfTime -->
+
+    <owl:Class rdf:about="#UnitOfTime">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj5xZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#UnitOfVelocity -->
+
+    <owl:Class rdf:about="#UnitOfVelocity">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvViQ75wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#UnitOfMeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#VolumeMeasuringDevice -->
+
+    <owl:Class rdf:about="#VolumeMeasuringDevice">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVlQPJwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#MeasuringDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#WallOfAConstruction -->
+
+    <owl:Class rdf:about="#WallOfAConstruction">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj405wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#PartOfABuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Water -->
+
+    <owl:Class rdf:about="#Water">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjAHZwpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#AmorphousThing"/>
+        <rdfs:subClassOf rdf:resource="#RawFood"/>
+    </owl:Class>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#WaterFlowMeter -->
+    <owl:Class rdf:about="#WaterFlowMeter">
+        <rdfs:subClassOf rdf:resource="#FlowMeter"/>
+    </owl:Class>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#WindowPortal -->
+
+    <owl:Class rdf:about="#WindowPortal">
+        <owl:equivalentClass rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj5V5wpEbGdrcN5Y29ycA"/>
+        <rdfs:subClassOf rdf:resource="#Portal"/>
+    </owl:Class>
+    
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Cleaning -->
+    <ActivityOfDailyLiving rdf:about="#Cleaning"/>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Cooking -->
+    <ActivityOfDailyLiving rdf:about="#Cooking"/>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#CubicMeterPerSecond -->
+    <UnitOfFlowRate rdf:about="#CubicMeterPerSecond">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVj5EZwpEbGdrcN5Y29ycA"/>
+    </UnitOfFlowRate>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#DegreeCelsius -->
+    <UnitOfTemperature rdf:about="#DegreeCelsius">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVkAH5wpEbGdrcN5Y29ycA"/>
+    </UnitOfTemperature>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#DegreeFahrenheit -->
+    <UnitOfTemperature rdf:about="#DegreeFahrenheit">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVide5wpEbGdrcN5Y29ycA"/>
+    </UnitOfTemperature>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#DegreesPerSecond -->
+    <UnitOfAngularSpeed rdf:about="#DegreesPerSecond">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4r7VmzvDQDEd2AAAAOpmP6tw"/>
+    </UnitOfAngularSpeed>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Drinking -->
+    <ActivityOfDailyLiving rdf:about="#Drinking"/>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Eating -->
+    <ActivityOfDailyLiving rdf:about="#Eating"/>
+    
+
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Foot-UnitOfMeasure -->
+
+    <UnitOfDistance rdf:about="#Foot-UnitOfMeasure">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVig45wpEbGdrcN5Y29ycA"/>
+    </UnitOfDistance>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Gram -->
+    <UnitOfMass rdf:about="#Gram">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjWwJwpEbGdrcN5Y29ycA"/>
+    </UnitOfMass>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Inch -->
+    <UnitOfDistance rdf:about="#Inch">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVihIJwpEbGdrcN5Y29ycA"/>
+    </UnitOfDistance>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#MakingPhoneCall -->
+    <ActivityOfDailyLiving rdf:about="#MakingPhoneCall"/>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Meter -->
+    <UnitOfDistance rdf:about="#Meter">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjRp5wpEbGdrcN5Y29ycA"/>
+    </UnitOfDistance>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#MetersPerSecond -->
+    <UnitOfSpeed rdf:about="#MetersPerSecond">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVkBiZwpEbGdrcN5Y29ycA"/>
+    </UnitOfSpeed>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#MetersPerSecondPerSecond -->
+    <UnitOfAcceleration rdf:about="#MetersPerSecondPerSecond">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVkCR5wpEbGdrcN5Y29ycA"/>
+    </UnitOfAcceleration>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Newton -->
+    <UnitOfForce rdf:about="#Newton">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjH9JwpEbGdrcN5Y29ycA"/>
+    </UnitOfForce>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Pascal-UnitOfMeasure -->
+    <UnitOfPressure rdf:about="#Pascal-UnitOfMeasure">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVip_5wpEbGdrcN5Y29ycA"/>
+    </UnitOfPressure>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Pound-UnitOfForce -->
+    <UnitOfForce rdf:about="#Pound-UnitOfForce">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjHs5wpEbGdrcN5Y29ycA"/>
+    </UnitOfForce>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Pound-UnitOfMass -->
+    <UnitOfMass rdf:about="#Pound-UnitOfMass">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVkLYZwpEbGdrcN5Y29ycA"/>
+    </UnitOfMass>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#PoundsPerSquareInch -->
+    <UnitOfPressure rdf:about="#PoundsPerSquareInch">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvViqP5wpEbGdrcN5Y29ycA"/>
+    </UnitOfPressure>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#ReceivingPhoneCall -->
+    <HumanActivity rdf:about="#ReceivingPhoneCall"/>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#SecondsDuration -->
+    <UnitOfTime rdf:about="#SecondsDuration">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVjrsZwpEbGdrcN5Y29ycA"/>
+    </UnitOfTime>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorActivityDetectedState -->
+    <SensorState rdf:about="#SensorActivityDetectedState">
+        <stateIntegerRepresentation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stateIntegerRepresentation>
+    </SensorState>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorActivityNotDetectedState -->
+    <SensorState rdf:about="#SensorActivityNotDetectedState">
+        <stateIntegerRepresentation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stateIntegerRepresentation>
+    </SensorState>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorClosedState -->
+    <SensorState rdf:about="#SensorClosedState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <stateIntegerRepresentation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stateIntegerRepresentation>
+    </SensorState>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorOffState -->
+    <SensorState rdf:about="#SensorOffState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <stateIntegerRepresentation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stateIntegerRepresentation>
+    </SensorState>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorOnState -->
+    <SensorState rdf:about="#SensorOnState">
+        <stateIntegerRepresentation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stateIntegerRepresentation>
+    </SensorState>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#SensorOpenedState -->
+    <SensorState rdf:about="#SensorOpenedState">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <stateIntegerRepresentation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stateIntegerRepresentation>
+    </SensorState>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#Toileting -->
+    <ActivityOfDailyLiving rdf:about="#Toileting"/>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#WashingHands -->
+    <ActivityOfDailyLiving rdf:about="#WashingHands"/>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#Watt -->
+    <UnitOfPower rdf:about="#Watt">
+        <owl:sameAs rdf:resource="http://sw.opencyc.org/concept/Mx4rvVirPJwpEbGdrcN5Y29ycA"/>
+    </UnitOfPower>
+    
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorChangeState -->
+
+    <SensorEvent rdf:about="#sensorChangeState"/>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorScalarMeasurement -->
+    <SensorMeasurement rdf:about="#sensorScalarMeasurement"/>
+
+    <!-- http://casas.wsu.edu/owl/cose.owl#sensorVectorMeasurement -->
+    <SensorMeasurement rdf:about="#sensorVectorMeasurement"/>
+</rdf:RDF>
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->

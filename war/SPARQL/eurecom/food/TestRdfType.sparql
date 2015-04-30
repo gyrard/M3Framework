@@ -1,0 +1,21 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX food: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#>
+PREFIX recipe: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#>
+PREFIX taxo: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food_taxonomy.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX generic: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/generic.owl#>
+
+SELECT DISTINCT ?ingt{
+?recipe food:producesFoodItem ?r.
+?r food:hasIngredient ?portion .
+?portion generic:madeOfSubstance ?ingt .
+?recipe rdfs:label ?recipeLabel.
+FILTER (?ingt = food:Salt && ?ingt rdfs:subClassOf food:Salt)
+
+
+
+}
+
+ORDER BY ?recipe

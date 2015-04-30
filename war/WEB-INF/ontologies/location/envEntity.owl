@@ -1,0 +1,921 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY assert "http://www.owl-ontologies.com/assert.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dctxt "http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#" >
+    <!ENTITY measure "http://www.w3.org/2007/uwa/ontologies/DeliveryContext/MeasureEntity.owl#" >
+    <!ENTITY sw "http://www.w3.org/2007/uwa/ontologies/DeliveryContext/SoftwareEntity.owl#" >
+    <!ENTITY hw "http://www.w3.org/2007/uwa/ontologies/DeliveryContext/HardwareEntity.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2007/uwa/ontologies/DeliveryContext/EnvironmentEntity.owl#"
+     xml:base="http://www.w3.org/2007/uwa/ontologies/DeliveryContext/EnvironmentEntity.owl"
+     xmlns:dctxt="http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:measure="http://www.w3.org/2007/uwa/ontologies/DeliveryContext/MeasureEntity.owl#"
+     xmlns:hw="http://www.w3.org/2007/uwa/ontologies/DeliveryContext/HardwareEntity.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:assert="http://www.owl-ontologies.com/assert.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sw="http://www.w3.org/2007/uwa/ontologies/DeliveryContext/SoftwareEntity.owl#">
+    <owl:Ontology rdf:about=""/>
+    <owl:ObjectProperty rdf:ID="activeGeoCoordinateRS">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="#GeoCoordinateRS"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Active Geographical Coordinate System</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;string"
+            >TODO: Check if this property make sense</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Indicates what is the active geographical coordinate system</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="activeNetworkBearer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkSupport"/>
+        <rdfs:range rdf:resource="#AvailableNetworkBearer"/>
+        <dctxt:relatedUAProfEntity rdf:datatype="&xsd;string"
+            >CurrentBearerService</dctxt:relatedUAProfEntity>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Active Network Bearer</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property represents the currently active network bearer on a device</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="addressType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkBearer"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:label rdf:datatype="&xsd;string">Address Type</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property identifies the type of address associated with a bearer.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="altitude">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#WGS84Coordinates"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label rdf:datatype="&xsd;string">Altitude</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The altitude as defined by the WGS84 coordinate system</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="AngleOfArrivalLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Angle Of Arrival Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method Angle of Arrival for cellular / terrestrial RF system.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="AssistedLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <owl:disjointWith rdf:resource="#UnassistedLocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string">Assisted Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method is assisted by the other party (Terminal assisted for Network based, Network assisted for terminal based)</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="availableLocationProviders">
+        <rdfs:domain rdf:resource="#LocationProviderSupport"/>
+        <rdfs:range rdf:resource="#LocationProvider"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Available Location Providers</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property represents the LocationProviders that are currently available in the Delivery Context</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="AvailableNetworkBearer">
+        <rdfs:subClassOf rdf:resource="#NetworkBearer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#bearerNetwork"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Available Network Bearer</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A network bearer which is available i.e. has an associated network</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="availableNetworkBearers">
+        <rdfs:domain rdf:resource="#NetworkEnvironment"/>
+        <rdfs:range rdf:resource="#AvailableNetworkBearer"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Available network bearers</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The available network bearers in this environment</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="bearerNetwork">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkBearer"/>
+        <rdfs:range rdf:resource="#MobileNetwork"/>
+        <rdfs:label rdf:datatype="&xsd;string">Bearer Network</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The actual network of a NetworkBearer</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="BearerType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;name"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">BearerType</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:relatedUAProfEntity rdf:datatype="&xsd;string"
+            >NetworkCharacteristics</dctxt:relatedUAProfEntity>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Bearer Type</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents bearer types</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="bearerType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkBearer"/>
+        <rdfs:range rdf:resource="#BearerType"/>
+        <rdfs:label rdf:datatype="&xsd;string">Bearer Type</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property holds the type of the network bearer.</rdfs:comment>
+    </owl:ObjectProperty>
+    <GeoCoordinateRS rdf:ID="CartesianGeoCoordinateRS_1">
+        <dctxt:name rdf:datatype="&xsd;string">UTM</dctxt:name>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The Universal Traversal Marcator coordinate reference system</rdfs:comment>
+    </GeoCoordinateRS>
+    <owl:DatatypeProperty rdf:ID="cellIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkEnvironment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:label rdf:datatype="&xsd;string">Cell Identifier</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The id of the cell to which the device is interacting with in the mobile network</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="CellIdLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string">Cell Id Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method Cell-ID for cellular (in GSM, this is the same as CGI, Cell Global Identity).</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="coordinates">
+        <rdfs:domain rdf:resource="#Point"/>
+        <rdfs:range rdf:resource="#GeoCoordinates"/>
+        <rdfs:label rdf:datatype="&xsd;string">Coordinates</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The coordinates of a point</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="currentPosition">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Location"/>
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Current Position</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The current position that will need to be determined by the location provider</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="datum">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#GeoCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:label rdf:datatype="&xsd;string">Datum</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The datum that express the reference of the coordinates</rdfs:comment>
+    </owl:DatatypeProperty>
+    <rdf:Property rdf:about="&dctxt;deliveryContextEntityName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="&dctxt;name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    </rdf:Property>
+    <owl:Class rdf:ID="DeliveryContext_LocationEntity">
+        <rdfs:subClassOf rdf:resource="&dctxt;DeliveryContext_EnvironmentEntity"/>
+        <owl:disjointWith rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Delivery Context Location Entity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class reprensents the set of all delivery context entities that has to do with location</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="DeliveryContext_NetworkEntity">
+        <rdfs:subClassOf rdf:resource="&dctxt;DeliveryContext_EnvironmentEntity"/>
+        <owl:disjointWith rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:label rdf:datatype="&xsd;string">Network Entity</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class reprensents the set of all delivery context entities that have  to do with the network aspect</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="easting">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UTMCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label rdf:datatype="&xsd;string">Easting</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The easting (x) component of the UTM coordinates measured in metres</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="estimatedPosition">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >estimatedPosition</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The estimated position provided by a location provider</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="GeoCoordinateRS">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;name"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">GeoCoordinateRS</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Geographical Coordinate Reference System</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents a geographical coordinate system</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="GeoCoordinates">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#geoReferenceSystem"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">GeoCoordinates</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Geographical Coordinates</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents geographical coordinates that allow to locate precisely a point on the Earth surface</rdfs:comment>
+    </owl:Class>
+    <GeoCoordinateRS rdf:ID="GeodeticGeoCoordinateRS_1">
+        <dctxt:name rdf:datatype="&xsd;string">WGS84</dctxt:name>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The WGS 84 geographic coordinates reference system</rdfs:comment>
+    </GeoCoordinateRS>
+    <owl:ObjectProperty rdf:ID="geoReferenceSystem">
+        <rdfs:domain rdf:resource="#GeoCoordinates"/>
+        <rdfs:range rdf:resource="#GeoCoordinateRS"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Georeference System</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property represents the reference system in which are expressed the geographical coordinates</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="homeNetwork">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkSupport"/>
+        <rdfs:range rdf:resource="#MobileNetwork"/>
+        <rdfs:label rdf:datatype="&xsd;string">Home Network</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The home network of a device</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="horizontalAccuracy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Horizontal Accuracy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Stimate of the horizontal accuracy of the location in metres</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="lastKnownPosition">
+        <rdfs:domain rdf:resource="#Location"/>
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Last Known Position</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The last known position as reported by the location provider</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="latitude">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#WGS84Coordinates"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label rdf:datatype="&xsd;string">Latitude</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Latitude as defined by the WGS84 coordinate reference system</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="latitudeZone">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UTMCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >UTM Latitude Zone</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The UTM system segments each longitude zone into 20 latitude zones. Each latitude zone is 8 degrees high, and is lettered starting from &quot;C&quot; at 80&#176; S, increasing up the English alphabet until &quot;X&quot;, omitting the letters &quot;I&quot; and &quot;O&quot; (because of their similarity to the digits one and zero).</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="Location">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#lastKnownPosition"/>
+                                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#locationTimestamp"/>
+                                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#currentPosition"/>
+                        <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">Location</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Location</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents all the location information about something</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="location">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Place"/>
+        <rdfs:range rdf:resource="#Location"/>
+        <rdfs:label rdf:datatype="&xsd;string">Location</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The location information about the place corresponding to this delivery context</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="locationCostsMoney">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:label rdf:datatype="&xsd;string">Costs Money</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property indicates whether the location provider has a cost for the user</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="locationFeatures">
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="#LocationProviderFeature"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Supported Location Features</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The location features supported by the location provider</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="LocationMethod">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;name"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">LocationMethod</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Location Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >It represents an specific mechanism used to calculate the location of a thing</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="locationMethod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string">Location Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The location method used by a LocationProvider for determining the current location associated to the delivery context</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="LocationProvider">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#activeGeoCoordinateRS"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#locationMethod"/>
+                <owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#supportedGeoCoordinateRS"/>
+                <owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string"
+                    >LocationProvider</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Location Provider</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Represents an entity capable of providing location information</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="LocationProviderFeature">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string"
+                    >LocationProviderFeature</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Location Provider Feature</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents location provider features</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="LocationProviderSupport">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string"
+                    >LocationProviderSupport</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#supportedLocationProviders"/>
+                <owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Location Provider Support</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents location provider support</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="locationTimestamp">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Location"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Location Timestamp</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A timestamp that indicates when it was performed the last location request to the location provider. The value of this property can be used to determine if applications need to ask about the last known position or the current position</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="longitude">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#WGS84Coordinates"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label rdf:datatype="&xsd;string">Longitude</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The longitude as defined by the WGS84 coordinate system</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:ID="longitudeZone">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UTMCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >UTM Longitude Zone</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The UTM system divides the surface of the Earth between 80&#176; S latitude and 84&#176; N latitude into 60 zones, each 6&#176; of longitude in width and centered over a meridian of longitude. Zones are numbered from 1 to 60. Zone 1 is bounded by longitude 180&#176; to 174&#176; W and is centered on the 177th West meridian. Zone numbering increases in an easterly direction.</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="MobileNetwork">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#networkIdentifier"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;name"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string"> MobileNetwork</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Mobile Network</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A mobile network that supports several network bearers</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="NetworkBasedLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <owl:disjointWith rdf:resource="#TerminalBasedLocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Network Based Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method is of type network based. This means that the final location result is calculated in the network.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="NetworkBearer">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#networkMode"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#bearerType"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">NetworkBearer</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:relatedUAProfEntity rdf:datatype="&xsd;string"
+            >NetworkCharacteristics</dctxt:relatedUAProfEntity>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Network Bearer</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents a network bearer in a delivery context.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="NetworkEnvironment">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#operatingNetworkBearer"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string"
+                    >NetworkEnvironment</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Network Environment</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents the network environment present in a delivery context</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="networkIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MobileNetwork"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Network Identifier</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The identifier of a mobile network</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="NetworkMode">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#operationBands"/>
+                <owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#networkType"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">NetworkMode</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Newtwork Mode</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A mode of operation of a network which includes a network type and operation frequency bands</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="networkMode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkBearer"/>
+        <rdfs:range rdf:resource="#NetworkMode"/>
+        <rdfs:label rdf:datatype="&xsd;string">Network Mode</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The network operation characteristics of a network bearer</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="NetworkSupport">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">NetworkSupport</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#supportedNetworkBearers"/>
+                <owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#supportedNetworkModes"/>
+                <owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Network Support</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents the network in a delivery context</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="NetworkType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;name"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_NetworkEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">NetworkType</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:relatedUAProfEntity rdf:datatype="&xsd;string"
+            >NetworkCharacteristics</dctxt:relatedUAProfEntity>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Network Type</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents different network types</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="networkType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkMode"/>
+        <rdfs:range rdf:resource="#NetworkType"/>
+        <rdfs:label rdf:datatype="&xsd;string">Network Type</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The type of network</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="northing">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UTMCoordinates"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:label rdf:datatype="&xsd;string">Northing</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The northing component of the UTM coordinates measured in metres</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:ID="operatingNetworkBearer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#NetworkEnvironment"/>
+        <rdfs:range rdf:resource="#AvailableNetworkBearer"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Operating Network Bearer</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The network bearer that it is operative in this delivery context</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="operationBands"/>
+    <owl:Class rdf:ID="Place">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">Place</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dctxt:originator/>
+        <rdfs:label rdf:datatype="&xsd;string">Place</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents all the information about the current location associated with  the current Delivery Context</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="Point">
+        <rdfs:subClassOf rdf:resource="#DeliveryContext_LocationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#coordinates"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&dctxt;deliveryContextEntityName"/>
+                <owl:hasValue rdf:datatype="&xsd;string">Point</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="&xsd;string">Point</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents a point on the Earth surface</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="SatelliteLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Satellite  Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The location method uses satellites to assist in obtaining the location</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="ShortRangeLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Short Range Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method Short-range positioning system (for example, Bluetooth LP).</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="supportedGeoCoordinateRS">
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="#GeoCoordinateRS"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Geographical Coordinate Systems</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Indicates what are goegraphical coordinate systems supported by the location provider</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="supportedLocationProviders">
+        <rdfs:domain rdf:resource="#LocationProviderSupport"/>
+        <rdfs:range rdf:resource="#LocationProvider"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Supported Location Providers</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property is a list of the supported LocationProviders in a Delivery Context</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="supportedNetworkBearers">
+        <rdfs:domain rdf:resource="#NetworkSupport"/>
+        <rdfs:range rdf:resource="#NetworkBearer"/>
+        <dctxt:relatedUAProfEntity rdf:datatype="&xsd;string"
+            >SupportedBearers</dctxt:relatedUAProfEntity>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Supported Network Bearers</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property holds the set of network bearers supported by the device.</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:ID="supportedNetworkModes">
+        <rdfs:domain rdf:resource="#NetworkSupport"/>
+        <rdfs:range rdf:resource="#NetworkMode"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Supported Network Modes</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The supported network modes of a device</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:Class rdf:ID="TerminalBasedLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <owl:disjointWith rdf:resource="#NetworkBasedLocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Terminal Based Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method is of type terminal based. This means that the final location result is calculated in the terminal.</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="TimeDifferenceLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Time Difference Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method Time Difference for cellular / terrestrial RF system</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="TimeOfArrivalLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Time of Arrival Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method Time of Arrival (TOA) for cellular / terrestrial RF system.</rdfs:comment>
+    </owl:Class>
+    <owl:DatatypeProperty rdf:ID="typicalResponseTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Typical Response Time</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property represents the typical response time in seconds of a location provider from the instant in which the location is requested to the moment in which the location is returned</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="UnassistedLocationMethod">
+        <rdfs:subClassOf rdf:resource="#LocationMethod"/>
+        <owl:disjointWith rdf:resource="#AssistedLocationMethod"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Unassisted Method</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Location method is unassisted it does not need other party in order to obtain the location</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:ID="UTMCoordinates">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#datum"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#GeoCoordinates"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#easting"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#geoReferenceSystem"/>
+                <owl:hasValue rdf:resource="#CartesianGeoCoordinateRS_1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#northing"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#longitudeZone"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#latitudeZone"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#WGS84Coordinates"/>
+        <rdfs:label rdf:datatype="&xsd;string">UTM Coordinates</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents UTM coordinates</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="utmCoordinates">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#UTMCoordinates"/>
+        <rdfs:subPropertyOf rdf:resource="#coordinates"/>
+        <rdfs:label rdf:datatype="&xsd;string">UTM Coordinates</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Coordinates of a point expressed in the  UTM reference system</rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:ID="verticalAccuracy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocationProvider"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Vertical Accuracy</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Stimate of the vertical accuracy of the location in metres</rdfs:comment>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:ID="WGS84Coordinates">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#geoReferenceSystem"/>
+                <owl:hasValue rdf:resource="#GeodeticGeoCoordinateRS_1"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="#GeoCoordinates"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#latitude"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#longitude"/>
+                <owl:cardinality rdf:datatype="&xsd;int">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#datum"/>
+                <owl:hasValue rdf:datatype="&xsd;string">WGS84</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#UTMCoordinates"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >WGS84 Coordinates</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This class represents WGS84 coordinates</rdfs:comment>
+    </owl:Class>
+    <owl:ObjectProperty rdf:ID="wgs84Coordinates">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#WGS84Coordinates"/>
+        <rdfs:subPropertyOf rdf:resource="#coordinates"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >WGS84 Coordinates</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Coordinates of a point expressed in the  WGS84 reference system</rdfs:comment>
+    </owl:ObjectProperty>
+</rdf:RDF>

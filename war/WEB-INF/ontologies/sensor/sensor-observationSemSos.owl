@@ -1,0 +1,1605 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY weather "http://knoesis.wright.edu/ssw/ont/weather.owl#" >
+    <!ENTITY sensor-observation "http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#"
+     xml:base="http://knoesis.wright.edu/ssw/ont/sensor-observation.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:weather="http://knoesis.wright.edu/ssw/ont/weather.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:sensor-observation="http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#base -->
+
+    <owl:ObjectProperty rdf:about="#base">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The base association indicates a conceptual relationship, which may be useful in classification of observation types. The value of a specialised property-type must be described using a scale (units of measure, vocabulary) that could also be used for the base.  Example: an application may choose to include observations of WaterTemperature when the subject of interest is observations of Temperature.</rdfs:comment>
+        <rdfs:range rdf:resource="#PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#carrierOfCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="#carrierOfCharacteristic">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >carrierOfCharacteristic</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">property</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The feature type defines its set of properties, which for the current purposes may be divided into those properties whose value is assigned by some rule or assertion (e.g. name, ownership), and those properties whose value is determined by observation. Hence, the feature-of-interest must carry the observed property as part of the definition of its type.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Feature"/>
+        <rdfs:range rdf:resource="#PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#categoryValue -->
+
+    <owl:ObjectProperty rdf:about="#categoryValue">
+        <rdfs:domain rdf:resource="#CategoryData"/>
+        <rdfs:range rdf:resource="#Feature"/>
+        <rdfs:subPropertyOf rdf:resource="#objectValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#componentProcess -->
+
+    <owl:ObjectProperty rdf:about="#componentProcess">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#componentPropertyType -->
+
+    <owl:ObjectProperty rdf:about="#componentPropertyType">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A CompositePropertyType is composed of a set of component property-types. The components may not be related to each other, though useful compound property-types would usually have some semantic coherence.</rdfs:comment>
+        <rdfs:domain rdf:resource="#CompositePropertyType"/>
+        <rdfs:range rdf:resource="#PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#compoundBase -->
+
+    <owl:ObjectProperty rdf:about="#compoundBase">
+        <rdfs:domain rdf:resource="#CompoundPropertyType"/>
+        <rdfs:subPropertyOf rdf:resource="#base"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#constrainedBase -->
+
+    <owl:ObjectProperty rdf:about="#constrainedBase">
+        <rdfs:domain rdf:resource="#ConstrainedPropertyType"/>
+        <rdfs:subPropertyOf rdf:resource="#base"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#containsFeature -->
+
+    <owl:ObjectProperty rdf:about="#containsFeature">
+        <rdfs:domain rdf:resource="#Coverage"/>
+        <rdfs:range rdf:resource="#Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#coverageLocation -->
+
+    <owl:ObjectProperty rdf:about="#coverageLocation">
+        <rdfs:domain rdf:resource="#Coverage"/>
+        <rdfs:subPropertyOf rdf:resource="#location"/>
+        <rdfs:range rdf:resource="&wgs84_pos;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#coverageTime -->
+
+    <owl:ObjectProperty rdf:about="#coverageTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Coverage"/>
+        <rdfs:subPropertyOf rdf:resource="#time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#eventTime -->
+
+    <owl:ObjectProperty rdf:about="#eventTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Event"/>
+        <rdfs:subPropertyOf rdf:resource="#time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#featureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="#featureOfInterest">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The featureOfInterest is a feature of any type (ISO 19109, ISO 19101), which is a representation of the observation target, being the real-world object regarding which the observation is made.</rdfs:comment>
+        <rdfs:range rdf:resource="#Feature"/>
+        <rdfs:domain rdf:resource="#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation -->
+
+    <owl:ObjectProperty rdf:about="#generatedObservation">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Inverse of procedure.</rdfs:comment>
+        <rdfs:range rdf:resource="#Observation"/>
+        <rdfs:domain rdf:resource="#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#geometryValue -->
+
+    <owl:ObjectProperty rdf:about="#geometryValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#GeometryData"/>
+        <rdfs:subPropertyOf rdf:resource="#objectValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#hasLocatedNearRel -->
+
+    <owl:ObjectProperty rdf:about="#hasLocatedNearRel">
+        <rdfs:range rdf:resource="#LocatedNearRel"/>
+        <rdfs:domain rdf:resource="#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="#hasLocation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocatedNearRel"/>
+        <rdfs:range rdf:resource="&wgs84_pos;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#location -->
+
+    <owl:ObjectProperty rdf:about="#location">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&wgs84_pos;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#member -->
+
+    <owl:ObjectProperty rdf:about="#member">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ObservationCollection is composed of a set of member observations.</rdfs:comment>
+        <rdfs:range rdf:resource="#Observation"/>
+        <rdfs:domain rdf:resource="#ObservationCollection"/>
+        <owl:inverseOf rdf:resource="#memberOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#memberOf -->
+
+    <owl:ObjectProperty rdf:about="#memberOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Inverse of member.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:range rdf:resource="#ObservationCollection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#oValue -->
+
+    <owl:ObjectProperty rdf:about="#oValue">
+        <rdfs:domain rdf:resource="#ResultData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#objectValue -->
+
+    <owl:ObjectProperty rdf:about="#objectValue"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observationLocation -->
+
+    <owl:ObjectProperty rdf:about="#observationLocation">
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:subPropertyOf rdf:resource="#location"/>
+        <rdfs:range rdf:resource="&wgs84_pos;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty -->
+
+    <owl:ObjectProperty rdf:about="#observedProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">measurand</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >observed property</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">parameter</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">variable</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The observedProperty identifies or describes the phenomenon for which the observation result provides an estimate of its value. It must be a property associated with the type of the feature of interest.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:range rdf:resource="#PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#parameter -->
+
+    <owl:ObjectProperty rdf:about="#parameter">
+        <rdfs:label rdf:datatype="&xsd;string">determinand</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">measurand</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">observable</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">parameter</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Determinand is a parameter or a characteristic of a phenomenon subject to observation. Synonym for observable.  Measurand is a physical parameter or a characteristic of a phenomenon subject to a measurement, whose value is described using a Measure (ISO 19103). Subset of determinand or observable.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Process"/>
+        <rdfs:range rdf:resource="#PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure -->
+
+    <owl:ObjectProperty rdf:about="#procedure">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string">instrument</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">method</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">procedure</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">sensor</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The procedure is the description of a process used to generate the result. It must be suitable for the observed property.  NOTE: At this level we do not distinguish between sensor-observations, estimations made by an observer, or algorithms, simulations, computations and complex processing chains.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:range rdf:resource="#Process"/>
+        <owl:inverseOf rdf:resource="#generatedObservation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#processChainComponentProcess -->
+
+    <owl:ObjectProperty rdf:about="#processChainComponentProcess">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#ProcessChain"/>
+        <rdfs:subPropertyOf rdf:resource="#componentProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#processLocation -->
+
+    <owl:ObjectProperty rdf:about="#processLocation">
+        <rdfs:domain rdf:resource="#Process"/>
+        <rdfs:subPropertyOf rdf:resource="#location"/>
+        <rdfs:range rdf:resource="&wgs84_pos;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#propertyValueProvider -->
+
+    <owl:ObjectProperty rdf:about="#propertyValueProvider">
+        <rdfs:domain rdf:resource="#Feature"/>
+        <rdfs:range rdf:resource="#Observation"/>
+        <owl:inverseOf rdf:resource="#featureOfInterest"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result -->
+
+    <owl:ObjectProperty rdf:about="#result">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >measurement value</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >observation value</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">result</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">value</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Result is an estimate of the value of some property generated by a known procedure.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:range rdf:resource="#ResultData"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#resultTime -->
+
+    <owl:ObjectProperty rdf:about="#resultTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The resultTime is the time when the procedure associated with the observation act was applied.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:subPropertyOf rdf:resource="#time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime -->
+
+    <owl:ObjectProperty rdf:about="#samplingTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The samplingTime is the time that the result applies to the feature-of-interest. This is the time usually required for geospatial analysis of the result.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Observation"/>
+        <rdfs:subPropertyOf rdf:resource="#time"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#substance -->
+
+    <owl:ObjectProperty rdf:about="#substance">
+        <rdfs:domain rdf:resource="#ConstrainedPropertyType"/>
+        <rdfs:range rdf:resource="#Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#systemComponentProcess -->
+
+    <owl:ObjectProperty rdf:about="#systemComponentProcess">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#System"/>
+        <rdfs:subPropertyOf rdf:resource="#componentProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#temporalValue -->
+
+    <owl:ObjectProperty rdf:about="#temporalValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TemporalData"/>
+        <rdfs:subPropertyOf rdf:resource="#objectValue"/>
+        <rdfs:range rdf:resource="&time;Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#time -->
+
+    <owl:ObjectProperty rdf:about="#time">
+        <rdfs:range rdf:resource="&time;Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom -->
+
+    <owl:ObjectProperty rdf:about="#uom">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ResultData"/>
+        <rdfs:range rdf:resource="#UnitOfMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#validProcessTime -->
+
+    <owl:ObjectProperty rdf:about="#validProcessTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Process"/>
+        <rdfs:range rdf:resource="&time;Interval"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#after -->
+
+    <owl:ObjectProperty rdf:about="&time;after">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#time"/>
+        <rdfs:domain rdf:resource="&time;Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#before -->
+
+    <owl:ObjectProperty rdf:about="&time;before">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="#time"/>
+        <rdfs:domain rdf:resource="&time;Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasBeginning -->
+
+    <owl:ObjectProperty rdf:about="&time;hasBeginning">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+        <rdfs:domain rdf:resource="&time;Interval"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasEnd -->
+
+    <owl:ObjectProperty rdf:about="&time;hasEnd">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+        <rdfs:domain rdf:resource="&time;Interval"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ID -->
+
+    <owl:DatatypeProperty rdf:about="#ID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Process"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#booleanValue -->
+
+    <owl:DatatypeProperty rdf:about="#booleanValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TruthData"/>
+        <rdfs:subPropertyOf rdf:resource="#datatypeValue"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#dValue -->
+
+    <owl:DatatypeProperty rdf:about="#dValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ResultData"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#datatypeValue -->
+
+    <owl:DatatypeProperty rdf:about="#datatypeValue"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#distance -->
+
+    <owl:DatatypeProperty rdf:about="#distance">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LocatedNearRel"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#eventValue -->
+
+    <owl:DatatypeProperty rdf:about="#eventValue">
+        <rdfs:domain rdf:resource="#Event"/>
+        <rdfs:subPropertyOf rdf:resource="#datatypeValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue -->
+
+    <owl:DatatypeProperty rdf:about="#floatValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MeasureData"/>
+        <rdfs:subPropertyOf rdf:resource="#datatypeValue"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#intValue -->
+
+    <owl:DatatypeProperty rdf:about="#intValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#CountData"/>
+        <rdfs:subPropertyOf rdf:resource="#datatypeValue"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#elevation -->
+
+    <owl:DatatypeProperty rdf:about="&wgs84_pos;elevation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain rdf:resource="&wgs84_pos;Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#latitude -->
+
+    <owl:DatatypeProperty rdf:about="&wgs84_pos;latitude">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain rdf:resource="&wgs84_pos;Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#longitude -->
+
+    <owl:DatatypeProperty rdf:about="&wgs84_pos;longitude">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain rdf:resource="&wgs84_pos;Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#inXSDDateTime -->
+
+    <owl:DatatypeProperty rdf:about="&time;inXSDDateTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain rdf:resource="&time;Instant"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CategoryData -->
+
+    <owl:Class rdf:about="#CategoryData">
+        <rdfs:subClassOf rdf:resource="#ResultData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CategoryObservation -->
+
+    <owl:Class rdf:about="#CategoryObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#result"/>
+                <owl:someValuesFrom rdf:resource="#CategoryData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation, in which the result is a textual value from a controlled vocabulary</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ComplexObservation -->
+
+    <owl:Class rdf:about="#ComplexObservation">
+        <rdfs:subClassOf rdf:resource="#CompoundObservation"/>
+        <rdfs:subClassOf rdf:resource="#ObservationCollection"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >If the member observations have the same feature of interest, the same sampling time, and different observed properties, this may be represented as a ComplexObservation (sub-clause 6.3.3.2) whose observed property compounds the individual properties.  Example: A multi-band spectral radiance; a compound observable like weather; a tensor property like earthquake moment.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation, in which the result is a record representing a multi-component phenomenon</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Component -->
+
+    <owl:Class rdf:about="#Component">
+        <rdfs:subClassOf rdf:resource="#Process"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Atomic SensorML Component.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CompositePropertyType -->
+
+    <owl:Class rdf:about="#CompositePropertyType">
+        <rdfs:subClassOf rdf:resource="#CompoundPropertyType"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A CompositePropertyType is composed of a set of component property-types. The components may not be related to each other, though useful compound property-types would usually have some semantic coherence. The optional base property-types allows for the CompositePropertyType to be generated by adding components to a base.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CompoundObservation -->
+
+    <owl:Class rdf:about="#CompoundObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Under certain conditions of homogeneity, the information in an observation collection may be captured in a compound observation type, as described in sub-clause 6.3.3.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CompoundPropertyType -->
+
+    <owl:Class rdf:about="#CompoundPropertyType">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A CompoundPropertyType has several components, whose count is indicated by the dimension. CompoundPropertyType is an abstract class. Two concrete specializations are provided.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ConstrainedPropertyType -->
+
+    <owl:Class rdf:about="#ConstrainedPropertyType">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A ConstrainedPropertyType modifies a base property-type by adding singleConstraints, each specifying a value on some secondary axis.  Example: water temperature has the base temperature (i.e. it is a kind of temperature) constrained so that the property substance has the value water. Surface water temperature might add another constraint that depth is between 0 - 0.3m.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CountData -->
+
+    <owl:Class rdf:about="#CountData">
+        <rdfs:subClassOf rdf:resource="#ResultData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#CountObservation -->
+
+    <owl:Class rdf:about="#CountObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#result"/>
+                <owl:someValuesFrom rdf:resource="#CountData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation, in which the result is an integer representing the count of the observed property</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Coverage -->
+
+    <owl:Class rdf:about="#Coverage">
+        <rdfs:subClassOf rdf:resource="#Feature"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Coverage is a feature that acts as a function to return values from its range for any direct position within its spatiotemporal domain</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#DataSource -->
+
+    <owl:Class rdf:about="#DataSource">
+        <rdfs:subClassOf rdf:resource="#Process"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Process with no inputs representing a source of data (Tables, Observations ...) for other processes to connect to.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#DiscreteCoverageObservation -->
+
+    <owl:Class rdf:about="#DiscreteCoverageObservation">
+        <rdfs:subClassOf rdf:resource="#CompoundObservation"/>
+        <rdfs:subClassOf rdf:resource="#ObservationCollection"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >If the member observations have the same observed property, the same sampling time, and features of interest that comprise elements of a larger feature, this may be represented as a DiscreteCoverageObservation (sub-clause 6.3.3.3) whose feature of interest is the larger feature, and within which the result elements&#8217; geometry describe its spatio-temporal decomposition.  Example: The feature of interest is an array of stations, which may be on a grid; or an array of pixels, which comprise a scene.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ElementCoverageObservation -->
+
+    <owl:Class rdf:about="#ElementCoverageObservation">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverageObservation"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Entity -->
+
+    <owl:Class rdf:about="#Entity">
+        <rdfs:subClassOf rdf:resource="#Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Event -->
+
+    <owl:Class rdf:about="#Event">
+        <rdfs:subClassOf rdf:resource="#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#EventBasedTimeSeriesObservation -->
+
+    <owl:Class rdf:about="#EventBasedTimeSeriesObservation">
+        <rdfs:subClassOf rdf:resource="#TimeSeriesObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Feature -->
+
+    <owl:Class rdf:about="#Feature">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Feature is an abstraction of real world phenomena.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#GeometryData -->
+
+    <owl:Class rdf:about="#GeometryData">
+        <rdfs:subClassOf rdf:resource="#ResultData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#GeometryObservation -->
+
+    <owl:Class rdf:about="#GeometryObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#result"/>
+                <owl:someValuesFrom rdf:resource="#GeometryData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation, in which the result is a geometry</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#IntervalBasedTimeSeriesObservation -->
+
+    <owl:Class rdf:about="#IntervalBasedTimeSeriesObservation">
+        <rdfs:subClassOf rdf:resource="#TimeSeriesObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#LocatedNearRel -->
+
+    <owl:Class rdf:about="#LocatedNearRel"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData -->
+
+    <owl:Class rdf:about="#MeasureData">
+        <rdfs:subClassOf rdf:resource="#ResultData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasurementObservation -->
+
+    <owl:Class rdf:about="#MeasurementObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#result"/>
+                <owl:someValuesFrom rdf:resource="#MeasureData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation in which the result is a Measure</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Object -->
+
+    <owl:Class rdf:about="#Object">
+        <rdfs:subClassOf rdf:resource="#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Observation -->
+
+    <owl:Class rdf:about="#Observation">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Observation is an act of observing a property or phenomenon, with the goal of producing an estimate of the value of the property. A specialized event whose result is a data value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ObservationCollection -->
+
+    <owl:Class rdf:about="#ObservationCollection">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ObservationCollection is composed of a set of member observations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#PointCoverageObservation -->
+
+    <owl:Class rdf:about="#PointCoverageObservation">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverageObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Process -->
+
+    <owl:Class rdf:about="#Process">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Process is a method, algorithm or instrument, or system of these.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ProcessChain -->
+
+    <owl:Class rdf:about="#ProcessChain">
+        <rdfs:subClassOf rdf:resource="#Process"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Process formed by chaining sub-processes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ProcessModel -->
+
+    <owl:Class rdf:about="#ProcessModel">
+        <rdfs:subClassOf rdf:resource="#Process"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Simple atomic process defined using a ProcessMethod.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#PropertyType -->
+
+    <owl:Class rdf:about="#PropertyType">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Property Type is a concept that is a characteristic of one or more feature types, the value for which may be estimated by application of some procedure in an observation. Synonym for phenomenon in this specification.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#PropertyTypeSeries -->
+
+    <owl:Class rdf:about="#PropertyTypeSeries">
+        <rdfs:subClassOf rdf:resource="#CompoundPropertyType"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A PropertyTypeSeries applies one or more constraintLists to the base property-types, each providing a set of values for a single secondary axis. Example: A radiance spectrum may be based on radiance with a list of wavelength intervals specified.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#ResultData -->
+
+    <owl:Class rdf:about="#ResultData">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Result is an estimate of the value of some property generated by a known procedure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#Sensor -->
+
+    <owl:Class rdf:about="#Sensor">
+        <rdfs:subClassOf rdf:resource="#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#System -->
+
+    <owl:Class rdf:about="#System">
+        <rdfs:subClassOf rdf:resource="#Process"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >System is a composite component containing sub-components.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TemporalData -->
+
+    <owl:Class rdf:about="#TemporalData">
+        <rdfs:subClassOf rdf:resource="#ResultData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TemporalObservation -->
+
+    <owl:Class rdf:about="#TemporalObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#result"/>
+                <owl:someValuesFrom rdf:resource="#TemporalData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation, in which the result is a temporal object</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TimeSeriesObservation -->
+
+    <owl:Class rdf:about="#TimeSeriesObservation">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverageObservation"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >If the member observations have the same feature of interest, the same observed property, and different sampling times, this may be transformed into a TimeSeriesObservation (sub-clause 6.3.3.3) whose sampling time is the period encompassing all the member times.  Example: Air-temperature at a weather station; water quality observations at a water monitoring station.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TruthData -->
+
+    <owl:Class rdf:about="#TruthData">
+        <rdfs:subClassOf rdf:resource="#ResultData"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TruthObservation -->
+
+    <owl:Class rdf:about="#TruthObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#result"/>
+                <owl:someValuesFrom rdf:resource="#TruthData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Specialized Observation, in which the result is a boolean value representing the truth value (usually existence) of the observed property</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#UnitOfMeasurement -->
+
+    <owl:Class rdf:about="#UnitOfMeasurement"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#AirTemperature -->
+
+    <owl:Class rdf:about="&weather;AirTemperature">
+        <rdfs:subClassOf rdf:resource="&weather;TemperatureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#Blizzard -->
+
+    <owl:Class rdf:about="&weather;Blizzard">
+        <rdfs:subClassOf rdf:resource="&weather;SnowStorm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#DewPoint -->
+
+    <owl:Class rdf:about="&weather;DewPoint">
+        <rdfs:subClassOf rdf:resource="&weather;TemperatureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#Evapotranspiration -->
+
+    <owl:Class rdf:about="&weather;Evapotranspiration">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#FreezingRain -->
+
+    <owl:Class rdf:about="&weather;FreezingRain">
+        <rdfs:subClassOf rdf:resource="&weather;WinterStorm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#FreezingTemperatureObservation -->
+
+    <owl:Class rdf:about="&weather;FreezingTemperatureObservation">
+        <rdfs:subClassOf rdf:resource="&weather;TemperatureObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#HighWindSpeedObservation -->
+
+    <owl:Class rdf:about="&weather;HighWindSpeedObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WindObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#LowWindSpeedObservation -->
+
+    <owl:Class rdf:about="&weather;LowWindSpeedObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WindObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PeakWindSpeed -->
+
+    <owl:Class rdf:about="&weather;PeakWindSpeed">
+        <rdfs:subClassOf rdf:resource="&weather;WindSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#Precipitation -->
+
+    <owl:Class rdf:about="&weather;Precipitation">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PrecipitationObservation -->
+
+    <owl:Class rdf:about="&weather;PrecipitationObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WeatherObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PrecipitationProperty -->
+
+    <owl:Class rdf:about="&weather;PrecipitationProperty">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#Pressure -->
+
+    <owl:Class rdf:about="&weather;Pressure">
+        <rdfs:subClassOf rdf:resource="&weather;PressureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PressureChange -->
+
+    <owl:Class rdf:about="&weather;PressureChange">
+        <rdfs:subClassOf rdf:resource="&weather;PressureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PressureObservation -->
+
+    <owl:Class rdf:about="&weather;PressureObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WeatherObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PressureProperty -->
+
+    <owl:Class rdf:about="&weather;PressureProperty">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#PressureTendency -->
+
+    <owl:Class rdf:about="&weather;PressureTendency">
+        <rdfs:subClassOf rdf:resource="&weather;PressureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#RadiationObservation -->
+
+    <owl:Class rdf:about="&weather;RadiationObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WeatherObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#RadiationProperty -->
+
+    <owl:Class rdf:about="&weather;RadiationProperty">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation -->
+
+    <owl:Class rdf:about="&weather;RainfallObservation">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#RelativeHumidity -->
+
+    <owl:Class rdf:about="&weather;RelativeHumidity">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SeaLevelPressure -->
+
+    <owl:Class rdf:about="&weather;SeaLevelPressure">
+        <rdfs:subClassOf rdf:resource="&weather;PressureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SnowFlurry -->
+
+    <owl:Class rdf:about="&weather;SnowFlurry">
+        <rdfs:subClassOf rdf:resource="&weather;SnowStorm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SnowStorm -->
+
+    <owl:Class rdf:about="&weather;SnowStorm">
+        <rdfs:subClassOf rdf:resource="&weather;WinterStorm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#Snowfall -->
+
+    <owl:Class rdf:about="&weather;Snowfall">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SnowfallObservation -->
+
+    <owl:Class rdf:about="&weather;SnowfallObservation">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SoilMoisture -->
+
+    <owl:Class rdf:about="&weather;SoilMoisture">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SoilMoistureTension -->
+
+    <owl:Class rdf:about="&weather;SoilMoistureTension">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SoilTemperature -->
+
+    <owl:Class rdf:about="&weather;SoilTemperature">
+        <rdfs:subClassOf rdf:resource="&weather;TemperatureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#SolarRadiation -->
+
+    <owl:Class rdf:about="&weather;SolarRadiation">
+        <rdfs:subClassOf rdf:resource="&weather;RadiationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation -->
+
+    <owl:Class rdf:about="&weather;TemperatureObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WeatherObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureProperty -->
+
+    <owl:Class rdf:about="&weather;TemperatureProperty">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#Visibility -->
+
+    <owl:Class rdf:about="&weather;Visibility">
+        <rdfs:subClassOf rdf:resource="&weather;PrecipitationProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WaterTemperature -->
+
+    <owl:Class rdf:about="&weather;WaterTemperature">
+        <rdfs:subClassOf rdf:resource="&weather;TemperatureProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WeatherObservation -->
+
+    <owl:Class rdf:about="&weather;WeatherObservation">
+        <rdfs:subClassOf rdf:resource="#Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WindDirection -->
+
+    <owl:Class rdf:about="&weather;WindDirection">
+        <rdfs:subClassOf rdf:resource="&weather;WindProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WindGust -->
+
+    <owl:Class rdf:about="&weather;WindGust">
+        <rdfs:subClassOf rdf:resource="&weather;WindSpeed"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WindObservation -->
+
+    <owl:Class rdf:about="&weather;WindObservation">
+        <rdfs:subClassOf rdf:resource="&weather;WeatherObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WindProperty -->
+
+    <owl:Class rdf:about="&weather;WindProperty">
+        <rdfs:subClassOf rdf:resource="#PropertyType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeed -->
+
+    <owl:Class rdf:about="&weather;WindSpeed">
+        <rdfs:subClassOf rdf:resource="&weather;WindProperty"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WindStorm -->
+
+    <owl:Class rdf:about="&weather;WindStorm">
+        <rdfs:subClassOf rdf:resource="#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#WinterStorm -->
+
+    <owl:Class rdf:about="&weather;WinterStorm">
+        <rdfs:subClassOf rdf:resource="#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Location -->
+
+    <owl:Class rdf:about="&wgs84_pos;Location"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
+
+    <owl:Class rdf:about="&wgs84_pos;Point">
+        <rdfs:subClassOf rdf:resource="&wgs84_pos;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="&time;Instant">
+        <rdfs:subClassOf rdf:resource="&time;Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Interval -->
+
+    <owl:Class rdf:about="&time;Interval">
+        <rdfs:subClassOf rdf:resource="&time;Time"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Time -->
+
+    <owl:Class rdf:about="&time;Time"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#degrees -->
+
+    <UnitOfMeasurement rdf:about="#degrees"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#percent -->
+
+    <UnitOfMeasurement rdf:about="#percent"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_AirTemperature -->
+
+    <weather:AirTemperature rdf:about="&weather;_AirTemperature"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_DewPoint -->
+
+    <weather:DewPoint rdf:about="&weather;_DewPoint"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_Evapotranspiration -->
+
+    <weather:Evapotranspiration rdf:about="&weather;_Evapotranspiration"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_PeakWindSpeed -->
+
+    <weather:PeakWindSpeed rdf:about="&weather;_PeakWindSpeed"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_Precipitation -->
+
+    <weather:Precipitation rdf:about="&weather;_Precipitation"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_Pressure -->
+
+    <weather:Pressure rdf:about="&weather;_Pressure"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_PressureChange -->
+
+    <weather:PressureChange rdf:about="&weather;_PressureChange"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_PressureTendency -->
+
+    <weather:PressureTendency rdf:about="&weather;_PressureTendency"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_RelativeHumidity -->
+
+    <weather:RelativeHumidity rdf:about="&weather;_RelativeHumidity"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_SeaLevelPressure -->
+
+    <weather:SeaLevelPressure rdf:about="&weather;_SeaLevelPressure"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_Snowfall -->
+
+    <weather:Snowfall rdf:about="&weather;_Snowfall"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_SoilMoisture -->
+
+    <weather:SoilMoisture rdf:about="&weather;_SoilMoisture"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_SoilMoistureTension -->
+
+    <weather:SoilMoistureTension rdf:about="&weather;_SoilMoistureTension"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_SoilTemperature -->
+
+    <weather:SoilTemperature rdf:about="&weather;_SoilTemperature"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_SolarRadiation -->
+
+    <weather:SolarRadiation rdf:about="&weather;_SolarRadiation"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_Visibility -->
+
+    <weather:Visibility rdf:about="&weather;_Visibility"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_WaterTemperature -->
+
+    <weather:WaterTemperature rdf:about="&weather;_WaterTemperature"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_WindDirection -->
+
+    <weather:WindDirection rdf:about="&weather;_WindDirection"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_WindGust -->
+
+    <weather:WindGust rdf:about="&weather;_WindGust"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#_WindSpeed -->
+
+    <weather:WindSpeed rdf:about="&weather;_WindSpeed"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters -->
+
+    <UnitOfMeasurement rdf:about="&weather;centimeters"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#fahrenheit -->
+
+    <UnitOfMeasurement rdf:about="&weather;fahrenheit"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#inches -->
+
+    <UnitOfMeasurement rdf:about="&weather;inches"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#meters -->
+
+    <UnitOfMeasurement rdf:about="&weather;meters"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#miles -->
+
+    <UnitOfMeasurement rdf:about="&weather;miles"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#milesPerHour -->
+
+    <UnitOfMeasurement rdf:about="&weather;milesPerHour"/>
+    
+
+
+    <!-- http://knoesis.wright.edu/ssw/ont/weather.owl#unit -->
+
+    <UnitOfMeasurement rdf:about="&weather;unit"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1042) http://owlapi.sourceforge.net -->
+

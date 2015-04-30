@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Suggest a recipe</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/food/fridge.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/senml.js"></script>
+<script type="text/javascript" src="javascript/smartFridge.js"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor="#88E1EF">   <!--  #E2B8FA -->
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/food/recipe.png" width="100" height="80" >Link my kitchen to the Linked Data
+		
+		<img src="images/food/recipe.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+<article>
+		
+
+<article>
+<fieldset>
+   <legend>M2M Aggregation Gateway: Convert Food Measurements into Semantic Data</legend> 
+   
+   <a href="http://emulator-box-services.appspot.com/senmladmin/zones"> Simulate food measurements available in your kitchen</a>
+   
+		<br/><br/><input type="button" value="Convert into semantic food measurements" onclick='requestText(alert, "kitchen/convert", "res_convert");'/>
+		<div id="res_convert"></div>
+		
+		<br/><input type="button" value="Display semantic food measurements" onclick='request(readSenml, "kitchen/food", "food_value");'/>	
+		<ul id="food_value"></ul>			
+</fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>M2M application: Search recipe with available food in my kitchen</legend> 
+   
+   Link my semantic food measurememts to the Linked Open Data.
+<br/> Why? 
+<br/>To suggest you a recipe according to ingredients available in your kitchen.</br></br>
+		<select id="get_ingt">
+				<script type="text/javascript">
+				request(getIngtInKitchen, "kitchen/matchingFood", "get_ingt", "option");		
+		</script>
+		</select>	
+		
+		<!--  Afficher les ingredients d'une recette -->
+		<input type="button" value="Search recipe with this ingredient" 
+		onclick="sendData(displayRecipe,'kitchen/searchRecipe', document.getElementById('get_ingt').value, 'search_recipe', 'option');"/>	
+		<select id="search_recipe"></select>		
+		<a  href="#" onClick="sendData(displayRecipeIngredient, 'kitchen/recipeDetail', document.getElementById('search_recipe').value, 'detail_recipe', 'li');"> Recipe ingredients</a>
+		<ul id="detail_recipe"></ul>
+
+</fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>M2M application: Food in the kitchen & Season</legend> 
+		Suggest ingredients according to the season: <br/>
+		<input type="button" value="Food related to season" onclick='request(readFoodSeason, "kitchen/foodKitchenSeason", "food_season", "li");'/>	
+		<ul id="food_season"></ul>	
+			
+ </fieldset>
+</article>
+
+<!--   
+<article>
+ <fieldset>
+   <legend>M2M Application: Food, Temperature & Season</legend> 
+   <input type="button" value="Food according to the season" onclick='request(readFoodTempSeason, "kitchen/seasonTemperatureFood", "temp_food_season");'/>	
+		
+		<div id="temp_food_season"></div>
+
+ </fieldset>
+</article>
+-->
+
+</body>
+</html>

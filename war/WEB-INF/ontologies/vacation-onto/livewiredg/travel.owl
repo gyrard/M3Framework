@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/travel.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/travel.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">classified</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="LeisureTravel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PurposeOfTravel"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Leisure Travel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ModeOfTravel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mode of Travel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BudgetTravel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Budget Travel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#PurposeOfTravel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Low-costTravel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Low-cost Travel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#PurposeOfTravel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Vessel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A craft designed for transportation on or through water [2].</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Craft"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TravelOutsideOfCountryOfOrigin">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Travel Outside Of Country Of Origin</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="AirTravel"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="involvesActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="SeaTravel"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="InternationalTravel"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TravelActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Spacecraft">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A craft capable of traveling in outer space [2].</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Craft"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ship">
+    <rdfs:subClassOf rdf:resource="#Vessel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Vehicle">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A conveyance  that transports people or objects [2].</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Transport"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Conveyance"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ResponsibleTravel">
+    <rdfs:subClassOf rdf:resource="#PurposeOfTravel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Responsible Travel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Aircraft">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Craft"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A vehicle that can fly [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Yacht">
+    <rdfs:subClassOf rdf:resource="#Vessel"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AirTravel">
+    <rdfs:subClassOf rdf:resource="#ModeOfTravel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Air Travel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Conveyance">
+    <owl:equivalentClass>
+      <owl:Class rdf:about="#Transport"/>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Something that serves as a means of transportation [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CableCar">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cable Car</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Transport"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Conveyance"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A powered conveyance that carries skiers or tourists up a hill or mountain [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Hovercraft">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Craft"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A craft capable of moving over water or land on a cushion of air created by jet engines [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Transport">
+    <owl:equivalentClass rdf:resource="#Conveyance"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PublicTransport">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Public Transport</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Transport"/>
+    <rdfs:subClassOf rdf:resource="#Conveyance"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A public utility for conveying passengers or mail or freight [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#InternationalTravel">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="TravelAwayFromHome"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom rdf:resource="#TravelOutsideOfCountryOfOrigin"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#PurposeOfTravel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">International Travel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RailTravel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rail Travel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ModeOfTravel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MotorVehicle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Self-propelledVehicle"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motor Vehicle</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A self-propelled wheeled vehicle that does not run on rails [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="HorseDrawnVehicle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="WheeledVehicle"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Horse Drawn Vehicle</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A wheeled vehicle drawn by one or more horses [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Locomotive">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A wheeled vehicle consisting of a self-propelled engine that is used to draw trains along railway tracks [2].</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Self-propelledVehicle"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TravelWithinCountryOfOrigin">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Travel Within Country Of Origin</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#AirTravel"/>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="RoadTravel"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#RailTravel"/>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#TravelActivity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Bicycle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WheeledVehicle"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A wheeled vehicle that has two wheels and is moved by foot pedals [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Self-propelledVehicle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#WheeledVehicle"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Self-propelled Vehicle</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A wheeled vehicle that carries in itself a means of propulsion [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#WheeledVehicle">
+    <rdfs:subClassOf rdf:resource="#Vehicle"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Wheeled Vehicle</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A vehicle that moves on wheels and usually has a container for transporting things or people [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TravelAwayFromHome">
+    <rdfs:subClassOf rdf:resource="#TravelActivity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Travel Away From Home</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadTravel">
+    <rdfs:subClassOf rdf:resource="#ModeOfTravel"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Travel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Craft">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A vehicle designed for navigation in or on water or air or through outer space [2].</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SeaTravel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sea Travel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ModeOfTravel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Boat">
+    <rdfs:subClassOf rdf:resource="#Vessel"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BusinessTravel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Business Travel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#PurposeOfTravel"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TravelAwayFromHome"/>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+</rdf:RDF>
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

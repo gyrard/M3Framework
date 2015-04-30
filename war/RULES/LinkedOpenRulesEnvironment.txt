@@ -1,0 +1,106 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix environment-dataset: http://sensormeasurement.appspot.com/dataset/environment-dataset/
+
+################################################################ LINKED OPEN RULES - ENVIRONMENT ######################################################################
+# Last update: 9 September 2014
+# Creator: Gyrard
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# Number of rules = 5 rules
+
+################################################################ GNU License ######################################################################
+#
+#	Machine to Machine Measurement (M3) Framework 
+#    Copyright(c) 2012 - 2015 Eurecom
+#
+#    M3 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    M3 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with M3. The full GNU General Public License is 
+#    included in this distribution in the file called "COPYING". If not, 
+#    see <http://www.gnu.org/licenses/>.
+#
+#    Contact Information
+#    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+#  
+#	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+#	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+#	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+#  
+#  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+
+
+
+################################################################ AIR POLLUTION RULES ######################################################################
+# ADD (?t m3:hasUnit m3:EAQI) for m3:AirPollution
+
+# [Kofler et al., ThinkHome, 2011]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters 2011
+# Paper: Thinkhome energy efficiency in future smart homes 2011 
+# Paper: A semantic representation of energy-related information in future smart homes
+# Paper: A knowledge-base for Energy-Efficient Smart Homes 
+
+# Rule: VeryLowAirPollution, IF AirPollution greaterThan 0 AND lessThan 25 eaqi THEN VeryLowAirPollution
+[VeryLowAirPollution: 
+              (?measurement rdf:type m3:AirPollution)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,25)
+			  ->
+				(?measurement rdf:type environment-dataset:VeryLowAirPollution)
+]
+
+# Rule: VeryHighAirPollution, IF AirPollution greaterThan 100 THEN VeryHighAirPollution
+[VeryHighAirPollution: 
+              (?measurement rdf:type m3:AirPollution)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,100)
+			  ->
+				(?measurement rdf:type environment-dataset:VeryHighAirPollution)
+]
+
+# Rule: MediumAirPollution, IF AirPollution greaterThan 50 AND lessThan 75 eaqi THEN MediumAirPollution
+[MediumAirPollution: 
+              (?measurement rdf:type m3:AirPollution)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,50)
+              lessThan(?v,75)
+			  ->
+				(?measurement rdf:type environment-dataset:MediumAirPollution)
+]
+
+# Rule: LowAirPollution, IF AirPollution greaterThan 25 AND lessThan 50 eaqi THEN LowAirPollution
+[LowAirPollution: 
+              (?measurement rdf:type m3:AirPollution)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)
+              lessThan(?v,50)
+			  ->
+				(?measurement rdf:type environment-dataset:LowAirPollution)
+]
+
+# Rule: HighAirPollution, IF AirPollution greaterThan 75 AND lessThan 100 eaqi THEN HighAirPollution
+[HighAirPollution: 
+              (?measurement rdf:type m3:AirPollution)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,75)
+              lessThan(?v,100)
+			  ->
+				(?measurement rdf:type environment-dataset:HighAirPollution)
+]
+
+   

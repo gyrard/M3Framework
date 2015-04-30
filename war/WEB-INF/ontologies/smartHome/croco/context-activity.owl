@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://mmt.inf.tu-dresden.de/crocoon/context-activity.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:person="http://mmt.inf.tu-dresden.de/crocoon/context-person.owl#"
+    xmlns:upper="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:time="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://mmt.inf.tu-dresden.de/crocoon/context-activity.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is an ontology to model activities and meetings.</rdfs:comment>
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl"/>
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-person.owl"/>
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Activity">
+    <rdfs:subClassOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#IntervalEvent"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An activity like doing a presentation, having a discussion or browsing the web.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MailTransfer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ComputingActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ComputingActivity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="hasSubActivity"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#ComputingActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An activity which involves using some software like editing an image or browsing the WWW.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Meeting">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class captures meetings of people at one location, but also internet-based virtual meetings. Examples are conferences, chat sessions and team meetings.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#IntervalEvent"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="description"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasUsedTool">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#Object"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes a tool (e.g. a device, an application, a book, ...) used to accomplish an activity.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="transfers">
+    <rdfs:domain rdf:resource="#MailTransfer"/>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-document.owl#EMail"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="transferedBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTarget">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes some object which is the target of the activity, like a document being the target of an edit-activity.</rdfs:comment>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInvolvedAgent">
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#Agent"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes the agents (e.g. persons, groups, softwareagents) that are involved in this activity (it does not matter if the involvement is active or passive).</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasActivity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes an activity of a meeting (e.g. a presentation, discussion).</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#intervalContains"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="activityOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#activityOf">
+    <rdfs:range rdf:resource="#Meeting"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <owl:inverseOf rdf:resource="#hasActivity"/>
+    <rdfs:subPropertyOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#intervalDuring"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="subActivityOf">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:subPropertyOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#intervalDuring"/>
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:about="#hasSubActivity"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#transferedBy">
+    <rdfs:range rdf:resource="#MailTransfer"/>
+    <rdfs:domain rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-document.owl#EMail"/>
+    <owl:inverseOf rdf:resource="#transfers"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReceiver">
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-person.owl#Person"/>
+    <rdfs:domain rdf:resource="#MailTransfer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasParticipant">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes an attendee of a meeting.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Meeting"/>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-person.owl#Person"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The description of the meeting.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Meeting"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The name of the meeting.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Meeting"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#hasSubActivity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes a sub-activity of an activity.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#subActivityOf"/>
+    <rdfs:subPropertyOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-time.owl#intervalContains"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#Activity"/>
+  </owl:TransitiveProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 501)  http://protege.stanford.edu -->

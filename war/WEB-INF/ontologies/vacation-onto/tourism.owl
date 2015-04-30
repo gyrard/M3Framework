@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+<!ENTITY tourism "http://www.semanticweb.org/ontologies/2010/6/tourism.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#"
+xml:base="http://www.semanticweb.org/ontologies/2010/6/tourism.owl"
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:tourism="http://www.semanticweb.org/ontologies/2010/6/tourism.owl#">
+<owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2010/6/tourism.owl"/>
+
+
+
+<!--
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Object Properties
+//
+///////////////////////////////////////////////////////////////////////////////////////
+-->
+
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasAttraction -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasAttraction">
+<rdfs:range rdf:resource="&tourism;Attraction"/>
+<rdfs:domain rdf:resource="&tourism;Place"/>
+<owl:inverseOf rdf:resource="&tourism;isLocatedIn"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasCity -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasCity">
+<rdfs:range rdf:resource="&tourism;City"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasCountry -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasCountry">
+<rdfs:range rdf:resource="&tourism;Country"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasDimension -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasDimension">
+<rdfs:range rdf:resource="&tourism;Dimension"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasLocation -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasLocation">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPopulation -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasPopulation">
+<rdfs:range rdf:resource="&tourism;Population"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasPrice -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasPrice">
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasState -->
+
+<owl:ObjectProperty rdf:about="&tourism;hasState">
+<rdfs:range rdf:resource="&tourism;State"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#isLocatedIn -->
+
+<owl:ObjectProperty rdf:about="&tourism;isLocatedIn">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="&tourism;Attraction"/>
+<rdfs:range rdf:resource="&tourism;Place"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</owl:ObjectProperty>
+
+
+
+<!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+<owl:ObjectProperty rdf:about="&owl;topObjectProperty">
+<rdfs:range rdf:resource="&tourism;Location"/>
+</owl:ObjectProperty>
+
+
+
+<!--
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Data properties
+//
+///////////////////////////////////////////////////////////////////////////////////////
+-->
+
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasCurrency -->
+
+<owl:DatatypeProperty rdf:about="&tourism;hasCurrency">
+<rdfs:domain rdf:resource="&tourism;Price"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+</owl:DatatypeProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasLatitude -->
+
+<owl:DatatypeProperty rdf:about="&tourism;hasLatitude">
+<rdfs:domain rdf:resource="&tourism;Location"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+</owl:DatatypeProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasLongitude -->
+
+<owl:DatatypeProperty rdf:about="&tourism;hasLongitude">
+<rdfs:domain rdf:resource="&tourism;Location"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+</owl:DatatypeProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasName -->
+
+<owl:DatatypeProperty rdf:about="&tourism;hasName">
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+</owl:DatatypeProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasUnit -->
+
+<owl:DatatypeProperty rdf:about="&tourism;hasUnit">
+<rdfs:range rdf:resource="&xsd;string"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+</owl:DatatypeProperty>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#hasValue -->
+
+<owl:DatatypeProperty rdf:about="&tourism;hasValue">
+<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+</owl:DatatypeProperty>
+
+
+
+<!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+<owl:DatatypeProperty rdf:about="&owl;topDataProperty"/>
+
+
+
+<!--
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Classes
+//
+///////////////////////////////////////////////////////////////////////////////////////
+-->
+
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Attraction -->
+
+<owl:Class rdf:about="&tourism;Attraction">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;isLocatedIn"/>
+<owl:onClass rdf:resource="&tourism;Place"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasPrice"/>
+<owl:onClass rdf:resource="&tourism;Price"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasName"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#City -->
+
+<owl:Class rdf:about="&tourism;City">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasState"/>
+<owl:onClass rdf:resource="&tourism;State"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasName"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Country -->
+
+<owl:Class rdf:about="&tourism;Country">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasName"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Dimension -->
+
+<owl:Class rdf:about="&tourism;Dimension">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasUnit"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasValue"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;integer"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#FemalePopulation -->
+
+<owl:Class rdf:about="&tourism;FemalePopulation">
+<rdfs:subClassOf rdf:resource="&tourism;Population"/>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Location -->
+
+<owl:Class rdf:about="&tourism;Location">
+<owl:equivalentClass>
+<owl:Class>
+<owl:intersectionOf rdf:parseType="Collection">
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasCity"/>
+<owl:onClass rdf:resource="&tourism;City"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasLatitude"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasLongitude"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</owl:intersectionOf>
+</owl:Class>
+</owl:equivalentClass>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#MalePopulation -->
+
+<owl:Class rdf:about="&tourism;MalePopulation">
+<rdfs:subClassOf rdf:resource="&tourism;Population"/>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Place -->
+
+<owl:Class rdf:about="&tourism;Place">
+<owl:equivalentClass>
+<owl:Class>
+<owl:intersectionOf rdf:parseType="Collection">
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasAttraction"/>
+<owl:someValuesFrom rdf:resource="&tourism;Attraction"/>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasPopulation"/>
+<owl:someValuesFrom rdf:resource="&tourism;Population"/>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasDimension"/>
+<owl:onClass rdf:resource="&tourism;Dimension"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasLocation"/>
+<owl:onClass rdf:resource="&tourism;Location"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasName"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</owl:intersectionOf>
+</owl:Class>
+</owl:equivalentClass>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Population -->
+
+<owl:Class rdf:about="&tourism;Population">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasValue"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;integer"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#Price -->
+
+<owl:Class rdf:about="&tourism;Price">
+<owl:equivalentClass>
+<owl:Class>
+<owl:intersectionOf rdf:parseType="Collection">
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasCurrency"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasValue"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;integer"/>
+</owl:Restriction>
+</owl:intersectionOf>
+</owl:Class>
+</owl:equivalentClass>
+</owl:Class>
+
+
+
+<!-- http://www.semanticweb.org/ontologies/2010/6/tourism.owl#State -->
+
+<owl:Class rdf:about="&tourism;State">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasCountry"/>
+<owl:onClass rdf:resource="&tourism;Country"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="&tourism;hasName"/>
+<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+<owl:onDataRange rdf:resource="&xsd;string"/>
+</owl:Restriction>
+</rdfs:subClassOf>
+</owl:Class>
+</rdf:RDF>

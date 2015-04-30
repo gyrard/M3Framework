@@ -1,0 +1,43 @@
+<h1>
+<img src="images/security/network.png" width="100" height="80" >
+Network Management Security
+<img src="images/security/network.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">
+<h3>Network Management Security</h3>
+<ul><li>Network Management Security Tool: <select id="securityTool"></select>
+</li><li>Network security mechanisms: <select id="countermeasure"> </select>
+</li><li>IDS: <select id="ids">	</select>
+</li><li>Antivirus: <select id="antivirus"> </select>
+</li><li>Network Attacks:
+		<select id="attack" onclick="callWebServiceInstance('stac/hasSecurityMechanism', document.getElementById('attack').value, 'res', 'option')">
+		</select>(e.g.,choose DoS)  has security mechanism: <select id="res"></select>
+</li><li>Virus: <select id="virus"> </select>
+</li><li>Worm: <select id="worm"> </select>
+</li><li>Proxy: <select id="proxy"></select>
+</li><li>Server: <select id="server"></select>
+</li></ul>
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+
+	request(displayResultBindingSelect, "stac/type/NetworkManagementSecurityTool", "securityTool", "option");
+	request(displayResultBindingSelect, "stac/type/NetworkManagementSecurityMechanism", "countermeasure", "option");
+	request(displayResultBindingSelect, "stac/type/IDS", "ids", "option");
+	request(displayResultBindingSelect, "stac/type/Antivirus", "antivirus", "option");
+	request(displayResultBindingSelect, "stac/type/NetworkManagementAttack", "attack", "option");	
+	request(displayResultBindingSelect, "stac/type/Virus", "virus", "option");
+	request(displayResultBindingSelect, "stac/type/Worm", "worm", "option");
+	request(displayResultBindingSelect, "stac/type/Proxy", "proxy", "option");
+	request(displayResultBindingSelect, "stac/type/ServerTechnology", "server", "option");	
+		
+});

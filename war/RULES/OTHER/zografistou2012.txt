@@ -1,0 +1,189 @@
+(deffunction compare---Time (?current ?nextTreatment) 
+"Checks if current time is equal to the given one" 
+(bind ?a (call ?nextTreatment toLocaleString)) 
+(bind ?b (call ?current toLocaleString)) 
+(if (inTimeRange ?current ?nextTreatment) Then 
+	(printout t  "Equals" crlf) 
+	(return TRUE) 
+	else
+ 	(return FALSE)  )) 
+
+(deffunction goodResults (?rcvdVal ?minRange ?maxRange) 
+(if (and (> ?rcvdVal ?minRange) (< ?rcvdVal ?maxRange)) then 
+	(return TRUE) 
+else 
+	(return FALSE) ) )
+
+(defrule generalActionsForWatchingTV 
+"Rule 3: Performing general actions when watching TV" 
+(Activity {identifier == "WatchingTV" && activityStatus == TRUE}) 
+=> 
+(call LightsService.changeLightstatus("low")) 
+(call TVService.adjustVolumeLevel) )
+
+(defrule increaseVolume 
+"Rule 1: Increase the Volume of TV when the activity WatchingTV is recognized" 
+(Activity {identifier == "WatchingTV" && activityStatus == TRUE}) 
+(HearingImpairment{identifier == "Hearing_Loss"}) 
+(Inhabitant {identifier == "John" && hasImpairment == "Hearing_Loss"}) 
+(TV {identifier == "LivingRoomTV" && volumeLevel < 0.7}) => (call TVService.setVolume(0.9)) )
+
+(defrule adaptTVResolution  
+"Rule 2: Adapt the Resolution of TV when there  s avisual  impairment" 
+(Activity {identifier == "WatchingTV" && activityStatus == TRUE}) 
+(VisualImpairment{identifier == "ColorBlindness"}) 
+(Inhabitant {identifier == "John" &&  hasImpairment == "ColorBlind--- ness"}) 
+=> 
+(call TVService.adaptTVResolurion "ColoBlindness") ) 
+
+(defrule tvShowPreference 
+"Rule 2: Infom person about favourite show in another channel"
+(Activity {identifier == "WatchingTV" && activityStatus == TRUE})
+(TVSeriesPreference {identifier == "Friends"}(nextShow ?nextShow)(channel ?chan)) 
+(Timer (currentTime ?current)) (test(compare---Time ?current ?nextShow)) 
+(TV (currentChannel ?currChan)) 
+(not (eq(?currChan ?chan))) 
+=>
+(call NotifyService.sendNotification "Friends on ")) )
+
+(defrule generalActionsForSleeping 
+"Rule 4: General Actions when sleep detected"
+(Activity {identifier == "Sleeping" && activityStatus == TRUE})
+(Lights {status ==  "on"} (identifier ?lights)) 
+(Device {status ==  "on"} (identifier ?devices)) 
+(Blinds {status == "on"} (identifier ?blinds)) 
+=> 
+(call DeviceSevices.closeDevice ?devices) 
+(call LightsServices.changeLightsatus ?lights "off")) 
+(call BlindsService.changeStatus ?blinds "on") )
+
+(defrule habitOnSleeping 
+"Rule 4: Sleep habits when sleep detected"
+(Activity {identifier == "Sleeping" && activityStatus == TRUE})
+(SleepingHabit {identifier == "nigh_light"})
+(Inhabitant {identifier == "John" && hasADLHabit == "night_light"})
+=> (call LightsServices.nightLightStatus "on"))
+
+(defrule generalActionsForBath 
+"Rule 5: General Actions when Bath identified"
+(Activity {identifier == "Bathing" && activityStatus == TRUE})
+ =>
+(call FaucetServices.adjustWaterTemperature))
+
+(defrule habitForBath 
+"Rule 5: turn the radio on when Bath identified" 
+(Activity {identifier   == "Bathing" && activityStatus == TRUE})
+(BathHabit{identifier == "listening_to_Radio"})
+(Inhabitant {identifier == "John" && hasADLHabit == "listen--- ing_to_Radio"} )
+=>
+(call FaucetServices.adjustWaterTemperature))
+
+(defrule adjustTemperature 
+"Rule 6:Open  the Radiator if the Temerature falls under  the thresh--- old"
+(Inhabitant {identifier == "John"} (hasLocation ?x))
+(Location {identifier == ?x} (hasEnvironment ?c)) 
+(Environment {identifier == ?c} (temperature ?tmp) ) 
+(test(< ?tmp 20)) 
+(Radiator {identifier == "Radiator"  && status == "off"})  
+(Activity {identifier == "Sleeping" && activityStatus == FALSE}) 
+=> 
+(call RadiatorServices.changeRadiatorStatus "on") 
+(call RadiatorServices.setTemperature 21) ) 
+
+(defrule adjustLighting 
+"Rule 7: Adjust the lights to the required Intensity"
+(Inhabitant {identifier == "John"} (hasLocation ?x)) 
+(Location {identifier == ?x} (hasEnvironment ?c)) 
+(Environment {identifier == ?c} (lighting ?tmp) ) 
+(Lights {hasLocation ?x} (indentifier  ?lights)) 
+(test(< ?tmp 50)) 
+=> 
+LightsServices.setLighsIntensity ?lights 50) 
+)
+
+(defrule raiseBlinds 
+"Rule 8: Raising the blinds for lighting" (DayZone {Identifier
+= "Morning"}) (Inhabitant {identifier == "John" && hasLocation == "Home"}) 
+(Location {identifier == "Home"} (hasEnvironment ?c)) 
+(Environment {identifier == ?c} (lighting ?tmp) ) 
+(test(< ?tmp 40)) 
+(Blinds  {status== "on"}) 
+=>
+(call BlindsService.changeStatus ?blinds  "off")
+ ) 
+
+(defrule incomingCallHearingImpairment 
+"Rule 9: enable speech to text translator" 
+(External {identifier == "Incoming Call"}) (HearingImpairment{identifier
+== "Hearing_Loss"}) (Inhabitant {identifier == "John" && hasImpairment ==
+"Hearing_Loss"})=> PhoneServices.enableSpeechToText )
+
+(defrule incomingCallMotionImpairment 
+"Rule 10: enable  speech to text translator" 
+(External {identifier == "Incoming Call"}) 
+(MotionImpairment{identifier == "Amputee"}) 
+(Inhabitant {identifier == "John" && hasImpairment == "Amputee"})
+=>	PhoneServices.connectToSoundBoxes )
+
+(defrule doorBellMotionImpairment 
+"Rule 11: Doorbell Rings motion impairment"
+(External {identifier == "Doorbell"}) (MotionImpairment{identifier == "Amputee"})
+(Inhabitant {identifier == "John" && hasImpairment == "Amputee"}) => (call
+OutdoorService.recognizePerson) (call NotifyService.sendNotification "Kate
+Is at the door") )
+
+(defrule time---for---treatment 
+"Rule 12: Notify about Treatment" 
+(Timer (currentTime ?current)) 
+?x  <--- (Treatment (nextTreatment ?next)) 
+(test (compare---Time ?current ?next)) 
+(Treatment {name == ?x.name && received == false})
+=>
+ (call NotifyService.sendNotification "Time for your Treatment: " ?x.name)
+  )
+
+(defrule checkResults 
+"Rule 13: Check the results" 
+?x <--- (Measurement {name ==
+"BloodPressure" && received == TRUE} 
+(measurementResult ?res) (normalRangeMax ?max) (normalRangeMin ?min)) 
+(not (test (goodResults ?res ?min ?max)))
+(Disease {treatment == ?x.name} (responsibleDoctor ?doc)) 
+(Doctor {name == ?doc} (hasContactProfile ?contact)) 
+(ContactProfile {identifier == ?contact} (email ?email)) 
+=>	(call MailSender.sendEmail ?email))
+
+(defrule fallDetection 
+"Rule 17: Fall detection, warn relative"
+(EmergencyCase {identifier == "Fall"}) 
+=> (call NotifyService.sendSign) 
+(call wait_For_N_secs 30) 
+)
+
+(defrule 
+"Rule 18: Fall detection, call Neighbor" 
+(EmergencyCase {identifier == "Fall"}) 
+(Timer {N_secs_passed == TRUE}) 
+(Response {received == FALSE}) 
+(Neighbor {name == "Peter"} (hasContactProfile ?contact)) 
+(ContactProfile {identifier == ?contact} (phone ?phone)) 
+=> 
+(call PhoneServices.callNumber ?phone) 
+(call wait_For_N_mins 3) 
+)
+
+(defrule 
+"Rule 19: Neighbor came" 
+(EmergencyCase {identifier == "Fall"}) 
+(Neighbor {name == "Peter" && hasLocation == "Home"} ) 
+=> (call setNormalState) 
+) 
+
+(defrule noResponseFromNeighbor 
+"Rule 20: Neighbor not resonded, call ambulance" 
+(EmergencyCase {identifier == "Fall"}) 
+(Neighbor {name == "Peter" && hasNorified == TRUE} ) 
+(Timer {N_secs_passed == TRUE}) 
+(not(Neighbor {name == "Peter" && hasLocation == "Home"} )) 
+(call PhoneServices.callAmbulance) 
+)

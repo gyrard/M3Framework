@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/sea.owl#"
+    xmlns:travel="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/travel.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/sea.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >classified</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:ID="OilTanker">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Tanker"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Oil Tanker</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ContainerShip">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Container Ship</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CargoVessel"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CargoShip"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ship">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Engineer"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasCrewMember"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="callsAt"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Port"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#callsAt"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Dock"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Vessel"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasForm"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Captain"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#hasCrewMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PassengerShip">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Passenger Ship</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasCrewMember"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="PettyOfficer"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Ship"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#callsAt"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="PassengerTerminal"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="FerryTerminal">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Ferry Terminal</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Terminal"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Pilot">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Someone licensed to guide vessels into a harbour or waterway.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CrewMember"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OceanLiner">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Ocean Liner</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#PassengerShip"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Vessel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >A craft designed for water transportation [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Engineer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CrewMember"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Harbour">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isPartOf"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Port"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Dock"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPart"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Pier"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#hasPart"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >A sheltered location where ships can take anchorage or discharge passengers or cargo.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="LoadingAndUnloadingRole">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Loading And Unloading Role</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#PettyOfficer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CrewMember"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Petty Officer</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PilotShip">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Pilot"/>
+        <owl:onProperty rdf:resource="#hasCrewMember"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Ship"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Pilot Ship</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CargoShip">
+    <rdfs:subClassOf rdf:resource="#Ship"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="CargoTerminal"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#callsAt"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Cargo Ship</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class rdf:about="#CargoVessel"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#PassengerTerminal">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Terminal"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Passenger Terminal</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Port">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="HoverTerminal"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#hasPart"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#FerryTerminal"/>
+        <owl:onProperty rdf:resource="#hasPart"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Harbour"/>
+        <owl:onProperty rdf:resource="#hasPart"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasPart"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Dock"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="providesFacility"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Harbour"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hovercraft">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#HoverTerminal"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#callsAt"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Captain">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CrewMember"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Pier">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Pier</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >A platform built out from the shore into the water and supported by piles; provides access to ships and boats</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CruiseShip">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Cruise Ship</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#PassengerShip"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CargoTerminal">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Terminal"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Cargo Terminal</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Dock">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Port"/>
+        <owl:onProperty rdf:resource="#isPartOf"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#LoadingAndUnloadingRole"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >A platform built out from the shore into the water and supported by piles; provides access to ships and boats [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Terminal">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasForm"/>
+        <owl:someValuesFrom rdf:resource="#Dock"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasPart"/>
+        <owl:someValuesFrom rdf:resource="#Pier"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#LoadingAndUnloadingRole"/>
+        <owl:onProperty rdf:resource="#hasRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Terminal</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#HoverTerminal">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Hover Terminal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Terminal"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CargoVessel">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Cargo Vessel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Ship"/>
+    <owl:equivalentClass rdf:resource="#CargoShip"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CrewMember">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Crew Member</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Tanker">
+    <rdfs:subClassOf rdf:resource="#CargoVessel"/>
+    <rdfs:subClassOf rdf:resource="#CargoShip"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SuperTanker">
+    <rdfs:subClassOf rdf:resource="#Tanker"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Super Tanker</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Ferry">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#callsAt"/>
+        <owl:someValuesFrom rdf:resource="#FerryTerminal"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <Port rdf:ID="Port_Amsterdam">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Amsterdam</rdfs:label>
+  </Port>
+  <Harbour rdf:ID="Harbour_Dover">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Dover</rdfs:label>
+  </Harbour>
+  <Port rdf:ID="Port_Liverpool">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Liverpool</rdfs:label>
+  </Port>
+  <Port rdf:ID="Port_London">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >London</rdfs:label>
+  </Port>
+  <Port rdf:ID="Port_Alexandria">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Alexandria</rdfs:label>
+  </Port>
+  <Tanker rdf:ID="Tanker_TorreyCanyon">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Torrey Canyon</rdfs:label>
+  </Tanker>
+  <PassengerShip rdf:ID="PassengerShip_QueenMaryII">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Queen Mary II</rdfs:label>
+  </PassengerShip>
+  <Dock rdf:ID="Dock_KingGeorgeV">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >King George V</rdfs:label>
+  </Dock>
+  <PassengerTerminal rdf:ID="PassengerTerminal_Southampton">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Southampton Passenger Sea Terminal</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Southampton</rdfs:label>
+  </PassengerTerminal>
+  <PassengerShip rdf:ID="PassengerShip_QueenElizabethII">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string" >Queen Elizabeth II</rdfs:label>
+  </PassengerShip>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

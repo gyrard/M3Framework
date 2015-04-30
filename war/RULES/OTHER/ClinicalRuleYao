@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/ClinicalRuleOntology.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+  xml:base="http://www.owl-ontologies.com/ClinicalRuleOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Habits_eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Patient_evaluation_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Allergy_Eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Medical_history_eval"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Directly_heart_failure">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Patient_diagnosis_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Allergy_checking">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Prescription_checking_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient_diagnosis_rule_group">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Clinical_Rule"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Dose_checking">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Prescription_checking_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Prognosis_eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_evaluation_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Prescription_checking_rule_group">
+    <rdfs:subClassOf rdf:resource="#Clinical_Rule"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Device_therapy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Patient_treatment_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Medication_Eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medical_history_eval"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Asthma_Eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medical_history_eval"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Severity_eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_evaluation_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Circulation_disorder">
+    <rdfs:subClassOf rdf:resource="#Patient_diagnosis_rule_group"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Recommendation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_treatment_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Social_Background_eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_evaluation_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Blood_cell_disorder">
+    <rdfs:subClassOf rdf:resource="#Patient_diagnosis_rule_group"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Surgical_therapy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_treatment_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient_evaluation_rule_group">
+    <rdfs:subClassOf rdf:resource="#Clinical_Rule"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Immunization_Eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medical_history_eval"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Medication">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_treatment_rule_group"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Drug_interaction_checking">
+    <rdfs:subClassOf rdf:resource="#Prescription_checking_rule_group"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Insurance_checking">
+    <rdfs:subClassOf rdf:resource="#Prescription_checking_rule_group"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Surgery_Eval">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medical_history_eval"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient_treatment_rule_group">
+    <rdfs:subClassOf rdf:resource="#Clinical_Rule"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Medical_history_eval">
+    <rdfs:subClassOf rdf:resource="#Patient_evaluation_rule_group"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_disease">
+    <rdfs:subClassOf rdf:resource="#Patient_diagnosis_rule_group"/>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

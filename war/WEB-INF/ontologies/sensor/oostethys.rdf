@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:ogclat="urn:ogc:def:property:OGC:latitude:"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://mmisw.org/ont/mmi/20090519T125341/general/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:omv="http://omv.ontoware.org/2005/05/ontology#"
+    xmlns:ogclon="urn:ogc:def:property:OGC:longitude:"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:omvmmi="http://mmisw.org/ont/mmi/20081020/ontologyMetadata/"
+    xmlns:platform="http://mmisw.org/mmi/platform#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xml:base="http://mmisw.org/ont/mmi/20090519T125341/general">
+    <owl:Ontology rdf:about="">
+        <omv:uri>http://mmisw.org/ont/mmi/20090519T125341/general</omv:uri>
+        <omv:acronym>general</omv:acronym>
+        <omvmmi:shortNameUri>http://mmisw.org/ont/mmi/resourcetype/general</omvmmi:shortNameUri>
+        <omv:description>Models an observation and systems and listed URIs that are needed to create responses for getObservation request in SOS</omv:description>
+        <omv:name>Observation Model for OOSTethys</omv:name>
+        <dc:creator>Luis Bermudez</dc:creator>
+        <omv:creationDate>2009-05-19T12:53:41+0000</omv:creationDate>
+        <dc:date>2009-05-19T12:53:41+0000</dc:date>
+        <omvmmi:creditRequired>not specified</omvmmi:creditRequired>
+        <omvmmi:origMaintainerCode>mmi</omvmmi:origMaintainerCode>
+        <omv:hasCreator>Luis Bermudez</omv:hasCreator>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Created with TopBraid Composer</owl:versionInfo>
+        <dc:description>Models an observation and systems and listed URIs that are needed to create responses for getObservation request in SOS</dc:description>
+        <omv:version>20090519T125341</omv:version>
+        <owl:imports rdf:resource="http://mmisw.org/mmi/platform"/>
+    </owl:Ontology>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/device">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/trayectoryDataRecord">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/latitude">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/julianDay">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/time"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/dataArray">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/platform">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <owl:TransitiveProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasComponent"/>
+                </owl:onProperty>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/sensor"/>
+                            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/platform"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/component"/>
+    <owl:Class rdf:about="urn:ogc:def:property:OGC:longitude:wgs84">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/longitude"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/unitsOfMeasure"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/sensor">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/depth">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="urn:ogc:def:property:OGC:latitude:wgs84">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/latitude"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/field">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/quantityQuality">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/time">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/featureOfInterest"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/system">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/procedure"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/timeSeriesDataRecord">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/earthRealm">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/featureOfInterest"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/verticalProfileDataRecord">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/pointDataRecord">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/numericalModel">
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/procedure"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/observationSystem">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/platform"/>
+                <owl:onProperty>
+                    <owl:TransitiveProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasComponent"/>
+                </owl:onProperty>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/testInstance"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/referenceFrame"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/quantity">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/field"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/timeFrame">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/referenceFrame"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/geographicFeature">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/featureOfInterest"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/iso8601">
+        <owl:equivalentClass rdf:resource="urn:ogc:phenomenon:time:iso8601"/>
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/time"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/samplingFeature">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/featureOfInterest"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/procedure">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/component"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/event">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/featureOfInterest"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/role"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/contact"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/observation"/>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/longitude">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/horizontalProfileDataRecord">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/cfProperty">
+        <rdfs:subClassOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+    </owl:Class>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasResult">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/observation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasResultElement">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/dataRecord"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasFeatureOfInterest">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/featureOfInterest"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/observation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasProcedure">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/procedure"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/observation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasOutput">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/procedure"/>
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasRole">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/role"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasReferenceFrame">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/referenceFrame"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasUnitOfMeasure">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/unitsOfMeasure"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasInput">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/procedure"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasDeployment">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+    </owl:ObjectProperty>
+    <rdf:Property rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/sensorSystemType">
+        <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    </rdf:Property>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasQuality">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/quantity"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasSimpleTypeName">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/field"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/modelName">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/acronym">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/component"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/shortName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/component"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/longName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/component"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/serialNumber">
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/manufacturerName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/device"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/identifier">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/component"/>
+    </owl:DatatypeProperty>
+    <owl:TransitiveProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/hasComponent">
+        <rdfs:range rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+        <rdfs:domain rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/system"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    </owl:TransitiveProperty>
+    <owl:TransitiveProperty rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/isComponentOf">
+        <owl:inverseOf rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/hasComponent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    </owl:TransitiveProperty>
+    <role rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/principalInvestigator"/>
+    <role rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/serviceProvider"/>
+    <system rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/sensorSystem_1">
+        <hasOutput>
+            <result rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/result_1">
+                <hasResultElement>
+                    <ogclat:wgs84 rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/wgs84_1"/>
+                </hasResultElement>
+                <hasResultElement>
+                    <ogclon:wgs84 rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/wgs84_2"/>
+                </hasResultElement>
+            </result>
+        </hasOutput>
+        <acronym rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >s name</acronym>
+        <identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >urn:id:xx</identifier>
+        <longName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >long id</longName>
+        <hasInput rdf:resource="http://mmisw.org/ont/mmi/20090519T125341/general/result_1"/>
+    </system>
+    <role rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/operator"/>
+    <role rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/regionalAssociation"/>
+    <testInstance rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/testInstance_1"/>
+    <role rdf:about="http://mmisw.org/ont/mmi/20090519T125341/general/dataProvider"/>
+</rdf:RDF>

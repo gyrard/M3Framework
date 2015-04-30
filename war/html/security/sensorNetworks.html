@@ -1,0 +1,51 @@
+<h1>
+<img src="images/security/sensorSecurity.png" width="100" height="80" >
+Security for sensor networks 
+<img src="images/security/sensorSecurity.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">
+<h3>Sensor networks</h3>
+Sensor Attacks:
+		<select id="attack" onclick="callWebServiceInstance('stac/hasSecurityMechanism', document.getElementById('attack').value, 'res', 'option')">
+		</select>(e.g., choose jamming) has security mechanism:	  <select id="res"></select>
+
+<br/>Sensor Protocols:
+		<select id="protocol" onclick="callWebServiceInstance('stac/hasPart', document.getElementById('protocol').value, 'protocol_composed_of', 'option')">
+		</select> (e.g., choose TinySec) Is composed Of:		
+        <select id="protocol_composed_of"></select>
+
+<br/>Sensor Key management:
+<select id="keyManagement" onclick="callWebServiceInstance('stac/hasPart', document.getElementById('keyManagement').value, 'key_mgt_composedOf', 'option')">
+		</select>(e.g., choose LEAP) Is composed Of:		
+        <select id="key_mgt_composedOf"></select>
+
+
+<br/>Sensor Security Mechanisms:
+ <select id="countermeasure">		</select>
+
+</div>
+
+
+<div class="hero-unit">	
+<h3>RFID (Radio Frequency Identification) </h3>
+RFID attacks:
+    <select id="rfid_attack">		</select>
+
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+    request(displayResultBindingSelect, "stac/type/SensorSecurityProtocol", "protocol", "option");	
+	request(displayResultBindingSelect, "stac/type/SensorAttack", "attack","option");		
+	request(displayResultBindingSelect, "stac/type/SensorKeyManagement", "keyManagement", "option");		
+	request(displayResultBindingSelect, "stac/type/SensorSecurityMechanism", "countermeasure", "option");
+	request(displayResultBindingSelect, "stac/type/RfidAttack", "rfid_attack","option");
+});

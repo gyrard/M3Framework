@@ -1,0 +1,292 @@
+<script type="text/javascript" src="javascript/design/jquery1.6.1.min.js"></script>    
+
+<script LANGUAGE="JavaScript" TYPE="text/javascript"> 
+<!--
+
+var domain = "../m3"
+	var project = "../dataset/lov4iot-dataset"
+	var rule = "../dataset/rule-dataset"
+	var targetDomain = "#TransportM2MDevice"
+
+//healthcare <rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+
+$('button.getProject').live('click', function() {
+   var targetId = $(this).attr('data-rdf-id');
+   var $row = $(this).parents('tr:first');
+   GetProject(targetId, $row);
+});
+
+$('button.getRule').live('click', function() {
+   var targetId = $(this).attr('data-rdf-id');
+   var $row = $(this).parents('tr:first');
+   GetRule(targetId, $row);
+});
+
+//function to check with ontology to use
+function validate()
+{
+   var ddl = document.getElementById("domain_type");
+   var selectedValue = ddl.options[ddl.selectedIndex].value;
+   
+   // to improve should automatically query all domains from the M3 ontology
+   // to avoid to write it manually
+      if (selectedValue == "Smart home")
+      {
+         var targetDomain = "#HomeM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Transport")
+      {
+         var targetDomain = "#TransportM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Healthcare")
+      {
+         var targetDomain = "#HealthM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Weather")
+      {
+         var targetDomain = "#WeatherM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Agriculture")
+      {
+         var targetDomain = "#AgricultureM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Emotion")
+      {
+         var targetDomain = "#EmotionM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Environment")
+      {
+         var targetDomain = "#EnvironmentM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Activity")
+      {
+         var targetDomain = "#ActivityM2MDevice";// should be referenced in the M3 ontology
+      }
+      if (selectedValue == "Energy")
+      {
+         var targetDomain = "#EnergyM2MDevice";// should be referenced in the M3 ontology
+      }
+
+      GetDataSmartHome(targetDomain);
+}
+
+
+function GetDataSmartHome(targetDomain)
+{  
+
+      $.ajax({
+         type: "GET",
+         url: domain,
+         dataType: "xml",
+         cache: false,
+         success: function(xml) {
+
+         $('#detaildata').html('<table class="table table-striped"><thead><tr><th class="span6">Sensor</th><th class="span6">Projects</th></tr></thead><tbody></tbody></table>');
+
+         var $tableBody = $('#detaildata').find('tbody');
+
+
+
+         $(xml).find("[nodeName*='owl:Class']").each(function(){
+         
+
+            if ( $(this).find('[rdf\\:resource='+targetDomain+']').length === 0 ) {
+               return;
+            }
+            
+            var id = $(this).attr('rdf:ID');
+            var label = $(this).find("[nodeName*='rdfs:label']").text();
+            var comment = $(this).find("[nodeName*='rdfs:comment']").text();
+            var imgUrl = $(this).find("[nodeName*='txn:hasImage']").attr('rdf:resource');
+            var img= "<img src='"+imgUrl+"' width=50 height=50>";
+
+            if ( typeof imgUrl === 'undefined' ) {
+               imgUrl = '';
+               img = '';
+            }
+
+         
+         var colHtml = "<b>" + label + "</b>" + " "
+               + comment + " " +
+               img;
+
+
+         $tableBody.append('<tr><td class="span6">'+colHtml+'</td><td class="span6"><button data-rdf-id="'+id+'" class="getProject" type="button">Get project</button><button data-rdf-id="'+id+'" class="getRule" type="button">Get rule</button><div class="content"></div></td></tr>'); 
+        
+               
+         });         
+         
+         
+         },
+         error: function() {
+         
+            alert('Cannot find data')
+         
+         }
+      });   
+   
+}
+
+
+function GetProject(targetId, $tableRow)
+
+{  
+
+      var $col = $tableRow.find('td:eq(1) .content').html('');
+
+      $.ajax({
+         type: "GET",
+         url: project,
+         dataType: "xml",
+         cache: false,
+         success: function(xml) {
+
+         var foundProject = false;
+
+         // Loop through the project xml and find all nodes including M2MApplication
+         $(xml).find("[nodeName*='m3:M2MApplication']").each(function(){
+         
+
+            // Finding resource with needed id
+            if ( $(this).find('[rdf\\:resource="http://sensormeasurement.appspot.com/m3#'+targetId+'"]').length === 0 ) {
+               return;
+            }
+            
+            var label = $(this).find("[nodeName*='rdfs:label']").text();
+            var comment = $(this).find("[nodeName*='rdfs:comment']").text();
+            var urlRule = $(this).find("[nodeName*='m3:hasUrlRule']").attr('rdf:resource');
+
+
+            foundProject = true;
+
+            if ( urlRule ) {
+               urlRule = " - <a href='"+urlRule+"'>" + urlRule + '</a>';
+            }
+            else {
+               urlRule = '';
+            }
+
+            $col.append(
+               "<b>" + label + "</b>" + " - "
+               + comment
+               + urlRule +
+               "<br>"
+            );
+               
+               
+         });         
+         
+         
+         
+         if ( !foundProject ) {
+            $col.html('No project found!');
+         }
+
+         },
+         error: function() {
+         
+            alert('Cannot find data')
+         
+         }
+      });   
+   
+}
+
+
+function GetRule(targetId, $tableRow)
+
+{  
+
+      var $col = $tableRow.find('td:eq(1) .content').html('');
+
+      $.ajax({
+         type: "GET",
+         url: rule,
+         dataType: "xml",
+         cache: false,
+         success: function(xml) {
+
+         var foundRule = false;
+
+         // Loop through the detaildata and find all prod nodes
+         $(xml).find("[nodeName*='m3:Rule']").each(function(){
+
+            if ( $(this).find('[rdf\\:resource="http://sensormeasurement.appspot.com/m3#'+targetId+'"]').length === 0 ) {
+               return;
+            }
+            
+            var label = $(this).find("[nodeName*='rdfs:label']").text();
+            var comment = $(this).find("[nodeName*='rdfs:comment']").text();
+
+            foundRule = true;
+
+            $col.append(
+               "<b>" + label + "</b>" + " - "
+               + comment + 
+               "<br>"
+            );
+                              
+         });         
+         
+         if ( !foundRule ) {
+            $col.html('No rule found!');
+         }
+         
+         },
+         error: function() {
+         
+            alert('Cannot find data')
+         
+         }
+      });   
+   
+}
+
+
+
+</script>
+
+<h1>Sensor-based Linked Open Rules (S-LOR)</h1>
+
+<!-- bootstrap --> <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/> <link href="css/bootstrap-responsive.min.css" rel="stylesheet" /> <style type="text/css"> .body{ margin-top:50px; } </style>
+ <script src="javascript/design/bootstrap.min.js"></script>
+
+
+
+
+<div class="hero-unit">
+<h3>How to reason on sensor data? </h3>
+Select a domain and we provide you rules and projects for various sensors.
+
+
+<h3> Choose a domain </h3>
+
+Domain:
+
+   <select name="domain" id="domain_type" onChange="validate()">
+     
+      <option>Smart home </option>
+      <option>Transport </option>
+      <option>Healthcare </option>
+      <option>Weather </option>
+      <option>Agriculture </option>
+      <option>Emotion </option>
+      <option>Environment </option>
+      <option>Activity </option>
+      <option>Energy </option>
+   </select>
+
+
+<br>
+<br>
+
+<div id="headername"></div>
+<div id="headerplace"></div>
+<br>
+
+<div id="detaildata"></div>
+
+
+</div>
+
+

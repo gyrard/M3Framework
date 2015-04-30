@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY lov4iot "http://sensormeasurement.appspot.com/dataset/lov4iot-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">  
+         <!ENTITY emoca "http://ns.inria.fr/emoca/">  
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY stac_data	"http://securitytoolbox.appspot.com/stac-dataset/">  
+         <!ENTITY transport-dataset	"http://sensormeasurement.appspot.com/dataset/transport-dataset">    
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#"> 
+         <!ENTITY lorHealth	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHealth.txt"> 
+         <!ENTITY lorEnvironment	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesEnvironment.txt"> 
+         <!ENTITY lorWeather	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesWeather.txt"> 
+         <!ENTITY lorHome	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHome.txt">
+         <!ENTITY lor	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRules.txt"> 
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&lov4iot;"
+        xml:base="&lov4iot;"
+        xmlns:lov4iot="&lov4iot;"
+        xmlns:foaf="&foaf;"
+        xmlns:m3="&m3;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:emoca="&emoca;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:obo="&obo;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:stac_data="&stac_data;"
+       	xmlns:transport-dataset="&transport-dataset;"
+       	xmlns:stac="&stac;"
+       	xmlns:lor="&lor;"
+        xmlns:lorHealth="&lorHealth;"
+        xmlns:lorWeather="&lorWeather;"
+        xmlns:lorHome="&lorHome;"
+        xmlns:lorEnvironment="&lorEnvironment;"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">    
+    
+           <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+     	
+       	<!-- ################################################ AGRICULTURE RULES ############################################## -->
+       	
+    <m3:Rule rdf:about="AirStressLevelLow">
+		<rdfs:label xml:lang="en">AirStress level low</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirTemperature lessThan 12 degC AND m3:AirHumidity lessThan 25% then AirStress level = LOW</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirThermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;CA4IoTPerera2013"/>	  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="AirStressLevelHigh">
+		<rdfs:label xml:lang="en">AirStress level low</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirTemperature greaterThan 12 degC AND m3:AirHumidity greaterThan 25% then AirStress level = HIGH</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirThermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;CA4IoTPerera2013"/>	  
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="PlantInfected">
+		<rdfs:label xml:lang="en">Plant infected or not (Phytophtora disease)</rdfs:label>
+		<rdfs:comment xml:lang="en">IF AirStress=high and leafWetness greaterThan 50 then phytophtora disease = infected else not infected</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirThermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;CA4IoTPerera2013"/>	  
+    </m3:Rule>
+       	
+       	<!-- ################################################ RULE ACTIVITY LIMING CHEN ############################################## -->
+    <m3:Rule rdf:about="MakeCoffee">
+		<rdfs:label xml:lang="en">MakeCoffee</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = m3:Cup and hasUse = m3:CoffeeMachine and location=Kitchen then home:activity = home-dataset:MakeCoffee</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Cup"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CoffeeMachine"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;GyroscopeSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	   
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="BrushTeeth">
+		<rdfs:label xml:lang="en">BrushTeeth</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = m3:BrushTeeth then activity = home-dataset:BrushTeeth</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_BrushTeeth"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MakeChocolate">
+		<rdfs:label xml:lang="en">MakeChocolate</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = m3:RFID_Cup then activity = home-dataset:MakeChocolate</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Cup"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MakeTea">
+		<rdfs:label xml:lang="en">MakeTea</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = m3:RFID_Cup and m3:RFID_TeaBag m3:Boiler then activity = home-dataset:MakeChocolate</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Cup"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_TeaBag"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Boiler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	  
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MakePasta">
+		<rdfs:label xml:lang="en">MakePasta</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = m3:RFID_PASTA and m3:RFID_Pan then activity = home-dataset:MakeChocolate</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Paste"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Pan"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	  
+    </m3:Rule>
+       	       
+	 <!-- ################################################ RULE ACTIVITY KONLAKORN ############################################## -->
+	 
+	
+     <m3:Rule rdf:about="SweepingFloor">
+		<rdfs:label xml:lang="en">Sweeping_the_floor</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = m3:RFID_Broom then home:activity = sweeping the floor</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Broom"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;GyroscopeSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="WorkingComputer">
+		<rdfs:label xml:lang="en">Working_on_a_computer</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = M3:Computer then home:activity = working on a computer</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Computer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SittingToilet">
+		<rdfs:label xml:lang="en">Sitting_on_the_toilet</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = bathroom and has_posture= sit and hasUse = M3:Lavatory then home:activity = sitting on the toilet</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Lavatory"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;UltrasonicSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WaterFlow"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	  
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>  
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="WashDishes">
+		<rdfs:label xml:lang="en">Wash_dishes</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = kitchen and hasUse = M3:Sink then home:activity = Wash_dishes</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Sink"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WaterFlow"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	 
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="ScrubbingFloor">
+		<rdfs:label xml:lang="en">Scrubbing_the_floor</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = M3:RFID_Mop then home:activity = scrubbing the floor</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Mop"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;GyroscopeSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	    
+    </m3:Rule>
+    
+   <m3:Rule rdf:about="ReadingBook">
+		<rdfs:label xml:lang="en">Reading_a_book</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasPosture = Sit and hasUse = M3:RFID_Book then home:activity = home-dataset:ReadingBook</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Book"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;UltrasonicSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="WatchingTV">
+		<rdfs:label xml:lang="en">WathchingTV</rdfs:label>
+		<rdfs:comment xml:lang="en">if hasUse = M3:TV then home:activity = home-dataset:WatchTV</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;TV"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LyingDownRelaxing">
+		<rdfs:label xml:lang="en">Lying_down_relaxing</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = living room and hasUse = m3:RFID_Sofa and hasPosture=Lie-down then home:activity = home-dataset:LyingDownRelaxing</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Sofa"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	 
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;UltrasonicSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>   
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="HaveBath">
+		<rdfs:label xml:lang="en">Have a bath, taking a bath</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = bathroom and hasUse= m3:Shower then home:activity = home-dataset:HaveBath</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Shower"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WaterFlow"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	  
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;LimingChen"/>	
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>  
+    </m3:Rule>
+
+    
+     <m3:Rule rdf:about="Cooking">
+		<rdfs:label xml:lang="en">Cooking</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = kitchen and hasUse = m3:Fridge then home:activity = home-dataset:Cooking</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Fridge"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Magnetometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	    
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="EatingDrinking">
+		<rdfs:label xml:lang="en">Eating_or_drinking</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = kitchen and has_food= m3:RFID_Food and hasPosture=Sit then home:activity = home-dataset:Eating or home-dataset:Drinking</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Food"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Magnetometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;UltrasonicSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="SleepingKonlakorn">
+		<rdfs:label xml:lang="en">Sleeping Konlakorn</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = bedroom hasUse= m3:RFID_Bed and hasPosture= lieDown then home:activity = home-dataset:Sleeping</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;RFID_Bed"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;UltrasonicSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Konlakorn"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="SleepingRiboni">
+		<rdfs:label xml:lang="en">Sleeping Riboni</rdfs:label>
+		<rdfs:comment xml:lang="en">if location = bedroom AND m3:Luminosity lessThan 40 lux AND sound lessThan 30 db then home:activity = home-dataset:Sleeping</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Riboni"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LightPresence">
+		<rdfs:label xml:lang="en">LightPresence</rdfs:label>
+		<rdfs:comment xml:lang="en">if presence=yes THEN turn light actuator on</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;OccupancyDetector"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Jacquet"/>	 
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/> 	   
+    </m3:Rule>
+    
+   <!-- ################################################ RULE HEALTH ############################################## -->
+    
+    <m3:Rule rdf:about="HighFever">
+		<rdfs:label xml:lang="en">HighFever</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:BodyTemperature greaterThan 38 m3:DegreeCelsius AND lessThan 39 m3:DegreeCelsius THEN HighFever</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Obaid"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>     
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="CriticallyHighFever">
+		<rdfs:label xml:lang="en">CriticallyHighFever</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:BodyTemperature greaterThan 39 m3:DegreeCelsius THEN CriticallyHighFever</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Obaid"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BodyThermometer"/>    
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/> 
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="NormalFever">
+		<rdfs:label xml:lang="en">NormalFever</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:BodyTemperature greaterThan 36 m3:DegreeCelsius AND lessThan 38 m3:DegreeCelsius THEN NormalFever</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Obaid"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BodyThermometer"/> 
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MildHypothermia">
+		<rdfs:label xml:lang="en">MildHypothermia</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:BodyTemperature greaterThan 33 m3:DegreeCelsius AND lessThan 35 m3:DegreeCelsius THEN MildHypothermia</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Jara"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BodyThermometer"/>  
+		<m3:hasUrlRule rdf:resource="&lorHealth;"/>  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="ModerateHypothermia">
+		<rdfs:label xml:lang="en">ModerateHypothermia</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:BodyTemperature greaterThan 28 m3:DegreeCelsius AND lessThan 32 m3:DegreeCelsius THEN ModerateHypothermia</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Jara"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BodyThermometer"/>    
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/> 
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SevereHypothermia">
+		<rdfs:label xml:lang="en">SevereHypothermia</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:BodyTemperature lessThan 28 m3:DegreeCelsius THEN SevereHypothermia</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Jara"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BodyThermometer"/>  
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Hypertension">
+		<rdfs:label xml:lang="en">Hypertension</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SystolicBloodPressure greaterThan 140 m3:mmHg AND m3:DiastolicBloodPressure greaterThan 90 m3:mmHg THEN Hypertension</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hassanpour"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BloodPressureSensor"/>  
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="NormalSystolicBloodPressureBravo">
+		<rdfs:label xml:lang="en">NormalSystolicBloodPressure Bravo</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SystolicBloodPressure greaterThan 120 m3:mmHg AND m3:SystolicBloodPressure lessThan 160 m3:mmHg THEN NormalSystolicBloodPressure</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Bravo"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BloodPressureSensor"/>   
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="NormalCholesterol">
+		<rdfs:label xml:lang="en">NormalCholesterol</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Cholesterol greaterThan 4 m3:MmolPerLiter AND lessThan 6 m3:MmolPerLiter THEN NormalCholesterol</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Bravo"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;CholesterolSensor"/>  
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Diabete">
+		<rdfs:label xml:lang="en">Diabete</rdfs:label>
+		<rdfs:comment xml:lang="en">IF glucose greaterThan 126 GramPerLiter AND beforeEating THEN Diabete</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hassanpour"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;Glucometer"/>   
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="NormalSystolicBloodPressureHristoskova">
+		<rdfs:label xml:lang="en">NormalSystolicBloodPressure Hristoskova</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SystolicBloodPressure greaterThan 170 m3:mmHg AND lessThan 189 m3:mmHg THEN NormalSystolicBloodPressure</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hristoskova"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;BloodPressureSensor"/>    
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/> 
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="NormalHeartRate">
+		<rdfs:label xml:lang="en">NormalHeartRate</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat greaterThan 55 m3:BeatPerMinute AND lessThan 64 m3:BeatPerMinute THEN NormalHeartRate</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hristoskova"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="Bradycardia">
+		<rdfs:label xml:lang="en">Bradycardia</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN Bradycardia</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hristoskova"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/>    
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/> 
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Tachycardia">
+		<rdfs:label xml:lang="en">Tachycardia</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute THEN Tachycardia</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hristoskova"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/> 
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LowSPO2">
+		<rdfs:label xml:lang="en">LowSPO2</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SPO2 lessThan 190 m3:Percent THEN LowSPO2</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Hristoskova"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;PulseOxymeter"/>  
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>   
+    </m3:Rule>
+    
+    <!-- Tanantong -->
+    
+    <m3:Rule rdf:about="NormalHeartBeat">
+		<rdfs:label xml:lang="en">NormalHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat greaterThan 58 m3:BeatPerMinute AND lessThan 102 m3:BeatPerMinute THEN NormalHeartBeat</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Tanantong"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/>   
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>  
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="SlowHeartBeat">
+		<rdfs:label xml:lang="en">SlowHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat greaterThan 40 m3:BeatPerMinute AND lessThan 58 m3:BeatPerMinute THEN SlowHeartBeat</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Tanantong"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/>  
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="FastHeartBeat">
+		<rdfs:label xml:lang="en">FastHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat greaterThan 102 m3:BeatPerMinute AND lessThan 150 m3:BeatPerMinute THEN FastHeartBeat</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Tanantong"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/>  
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="VeryFastHeartBeat">
+		<rdfs:label xml:lang="en">VeryFastHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute AND lessThan 300 m3:BeatPerMinute THEN VeryFastHeartBeat</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Tanantong"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/>   
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/>  
+    </m3:Rule>
+    
+   <m3:Rule rdf:about="VerySlowHeartBeat">
+		<rdfs:label xml:lang="en">VerySlowHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN VerySlowHeartBeat</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Tanantong"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;HeartBeatSensor"/>    
+	   	<m3:hasUrlRule rdf:resource="&lorHealth;"/> 
+    </m3:Rule>
+    
+    
+    <!-- ################################################ RULE TOURISM ############################################## -->
+    
+    <m3:Rule rdf:about="BoatActivity">
+		<rdfs:label xml:lang="en">BoatActivity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF NOT night AND (activity type = family journey AND water activity) then activity = boat</rdfs:comment>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Chien"/>	   
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>	
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>	    
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>	   
+    </m3:Rule>
+    
+    <!-- ################################################ RULE WEATHER SHETH ############################################## -->
+    
+    <m3:Rule rdf:about="PotentiallyIcy">
+		<rdfs:label xml:lang="en">PotentiallyIcy</rdfs:label>
+		<rdfs:comment xml:lang="en">IF Precipitation GREATHER_THAN 0.1 mm AND m3:Temperature LOWER THAN 32 degF THEN PotentiallyIcy</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Sheth"/>	 
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Freezing">
+		<rdfs:label xml:lang="en">Freezing</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature lessThan 32 degF THEN Freezing</rdfs:comment>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Sheth"/>	   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HighWinds">
+		<rdfs:label xml:lang="en">HighWinds</rdfs:label>
+		<rdfs:comment xml:lang="en">IF wind speed greaterThan 35 MPH THEN HighWinds</rdfs:comment>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Sheth"/>	   
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="LowVisibility">
+		<rdfs:label xml:lang="en">LowVisibility</rdfs:label>
+		<rdfs:comment xml:lang="en">IF visibility lessThan 0.25 miles THEN LowVisibility</rdfs:comment>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;VisibilitySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Sheth"/>	   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="BlizzardSheth">
+		<rdfs:label xml:lang="en">Blizzard Sheth</rdfs:label>
+		<rdfs:comment xml:lang="en">IF Freezing AND HighWinds AND Snow THEN Blizzard</rdfs:comment>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Sheth"/>	   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="BlizzardHenson">
+		<rdfs:label xml:lang="en">Blizzard Henson</rdfs:label>
+		<rdfs:comment xml:lang="en">IF HighWinds AND LowVisibility AND Snowfall THEN Blizzard</rdfs:comment>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;VisibilitySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Sheth"/>	   
+    </m3:Rule>
+
+<!-- ################################################ RULE WEATHER KOFLER ############################################## -->
+       
+      <m3:Rule rdf:about="NoPrecipitation">
+		<rdfs:label xml:lang="en">NoPrecipitation, NoRain</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation = 0 mm THEN NoPrecipitation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	   
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="HeavyPrecipitation">
+		<rdfs:label xml:lang="en">HeavyPrecipitation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 4mm THEN HeavyPrecipitation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	   
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HeavyRain">
+		<rdfs:label xml:lang="en">HeavyRain</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 20 and lessThan 50 mm/h THEN HeavyRain</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="ExtremelyHeavyRain">
+		<rdfs:label xml:lang="en">ExtremelyHeavyRain</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 50 and lessThan 100 mm/h THEN ExtremelyHeavyRain</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	    
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="TropicalStormRain">
+		<rdfs:label xml:lang="en">TropicalStormRain</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 100 mm/h THEN TropicalStormRain</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>      
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LightPrecipitation">
+		<rdfs:label xml:lang="en">LightPrecipitation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 0 and lessThan 1mm THEN LightPrecipitation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>      
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LightRain">
+		<rdfs:label xml:lang="en">LightRain</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 0 and lessThan 5 mm/h THEN LightRain</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MediumRain">
+		<rdfs:label xml:lang="en">MediumRain</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 5 and lessThan 20 mm/h THEN MediumRain</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="ModeratePrecipitation">
+		<rdfs:label xml:lang="en">ModeratePrecipitation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation greaterThan 1 AND lessThan 4mm THEN ModeratePrecipitation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="RainyWeatherState">
+		<rdfs:label xml:lang="en">RainyWeatherState</rdfs:label>
+		<rdfs:comment xml:lang="en">IF ! NoPrecipitation AND AboveZeroTemperature THEN RainyWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	 
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="SnowyWeatherState">
+		<rdfs:label xml:lang="en">SnowyWeatherState</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Precipitation AND BelowOrZeroTemperature THEN SnowyWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="SunnyWeatherState">
+		<rdfs:label xml:lang="en">SunnyWeatherState</rdfs:label>
+		<rdfs:comment xml:lang="en">IF HighSolarIrradiance AND NoCloudCover AND NoPrecipitation THEN SunnyWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>    
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+    </m3:Rule>
+    
+     <!-- ################################################ WIND SPEED ############################################## -->
+    
+    <m3:Rule rdf:about="Thunderstorm">
+		<rdfs:label xml:lang="en">Thunderstorm</rdfs:label>
+		<rdfs:comment xml:lang="en">IF AboveZeroTemperature and HeavyPrecipitation and oneOf(LightWind, Storm, StrongWind) THEN Thunderstorm</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	   	<m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>    
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="FreshBreeze">
+		<rdfs:label xml:lang="en">FreshBreeze</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 7.9 and lessThan 10.7 m/s THEN FreshBreeze</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="NoWind">
+		<rdfs:label xml:lang="en">NoWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 0 and lessThan 0.2 m/s THEN NoWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="Storm">
+		<rdfs:label xml:lang="en">Storm</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 24.4 m/s THEN Storm</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="ViolentStorm">
+		<rdfs:label xml:lang="en">ViolentStorm</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 28.4 and lessThan 32.6m/s THEN ViolentStorm</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="FreshGale">
+		<rdfs:label xml:lang="en">FreshGale</rdfs:label>
+		<rdfs:label xml:lang="fr">Coup de vent</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 17.1 and lessThan 20.7 m/s THEN FreshGale</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="GentleBreeze">
+		<rdfs:label xml:lang="en">GentleBreeze</rdfs:label>
+		<rdfs:label xml:lang="fr">Petite brise</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 3.4 and lessThan 5.4 m/s THEN GentleBreeze</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="StrongBreeze">
+		<rdfs:label xml:lang="en">StrongBreeze</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 10.7 and lessThan 13.8 m/s THEN StrongBreeze</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="StrongGale">
+		<rdfs:label xml:lang="en">StrongGale</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 20.7 and lessThan 24.4 m/s THEN StrongGale</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="StrongWind">
+		<rdfs:label xml:lang="en">StrongWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 10.7 and lessThan 24.4 m/s THEN StrongWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Hurricane">
+		<rdfs:label xml:lang="en">Hurricane</rdfs:label>
+		<rdfs:label xml:lang="fr">Ouragan</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 32.6 m/s THEN Hurricane</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LightBreeze">
+		<rdfs:label xml:lang="en">LightBreeze</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 1.5 and lessThan 3.4 m/s THEN LightBreeze</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LightAir">
+		<rdfs:label xml:lang="en">LightAir, Calm</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 0.2 and lessThan 1.5 m/s THEN LightAir</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+   <m3:Rule rdf:about="ModerateBreeze">
+		<rdfs:label xml:lang="en">ModerateBreeze</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 5.4 and lessThan 7.9 m/s THEN ModerateBreeze</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="ModerateGale">
+		<rdfs:label xml:lang="en">ModerateGale</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 13.8 and lessThan 17.1 m/s THEN ModerateGale</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LightWind">
+		<rdfs:label xml:lang="en">LightWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindSpeed greaterThan 0.2 and lessThan 10.7 m/s THEN LightWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	  
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	  
+    </m3:Rule>
+    
+       <!-- ################################################ WIND DIRECTION ############################################## -->
+     
+      <m3:Rule rdf:about="NorthWind">
+		<rdfs:label xml:lang="en">NorthWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindDirection (greaterThan 0 m3:DegreeAngle AND lessThan 45 m3:DegreeAngle) OR (greaterThan 315 m3:DegreeAngle AND lessThan 360 m3:DegreeAngle) THEN NorthWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="EastWind">
+		<rdfs:label xml:lang="en">EastWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindDirection greaterThan 45 m3:DegreeAngle AND lessThan 135 m3:DegreeAngle THEN EastWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="SouthWind">
+		<rdfs:label xml:lang="en">SouthWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindDirection greaterThan 135 m3:DegreeAngle AND lessThan 225 m3:DegreeAngle THEN SouthWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	  
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>     
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="WestWind">
+		<rdfs:label xml:lang="en">WestWind</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WindDirection greaterThan 225 m3:DegreeAngle AND lessThan 315 m3:DegreeAngle THEN WestWind</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    
+     <!-- ################################################ TEMPERATURE ############################################## -->
+     
+      <m3:Rule rdf:about="AboveRoomTemperature">
+		<rdfs:label xml:lang="en">AboveRoomTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 25 AND lessThan 30 m3:DegreeCelsius THEN AboveRoomTemperature</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="AboveZeroTemperature">
+		<rdfs:label xml:lang="en">AboveZeroTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 0 m3:DegreeCelsius THEN AboveZeroTemperature</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="BelowOrZeroTemperature">
+		<rdfs:label xml:lang="en">BelowOrZeroTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="BelowRoomTemperature">
+		<rdfs:label xml:lang="en">BelowRoomTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 10 AND lessThan 20 m3:DegreeCelsius THEN BelowRoomTemperature</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>		    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="CoolingWeatherState">
+		<rdfs:label xml:lang="en">CoolingWeatherState</rdfs:label>
+		<rdfs:comment xml:lang="en">IF BelowRoomTemperature THEN CoolingWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="HeatingWeatherState">
+		<rdfs:label xml:lang="en">HeatingWeatherState</rdfs:label>
+		<rdfs:comment xml:lang="en">IF AboveRoomTemperature THEN HeatingWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="ExtremeFrost">
+		<rdfs:label xml:lang="en">ExtremeFrost</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature lessThan -25 m3:DegreeCelsius THEN ExtremeFrost</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="FrostKofler">
+		<rdfs:label xml:lang="en">FrostKofler</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan -25 m3:DegreeCelsius AND lessThan 0 m3:DegreeCelsius THEN Frost</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="FrostStaroch">
+		<rdfs:label xml:lang="en">FrostStaroch</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature = 0 m3:DegreeCelsius THEN Frost</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Cold">
+		<rdfs:label xml:lang="en">Cold</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 0 m3:DegreeCelsius AND lessThan 10 m3:DegreeCelsius THEN Frost</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="ExtremeHeat">
+		<rdfs:label xml:lang="en">ExtremeHeat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 37 m3:DegreeCelsius THEN ExtremeHeat</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="Heat">
+		<rdfs:label xml:lang="en">Heat</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 30 m3:DegreeCelsius THEN Heat</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>		    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="RoomTemperature">
+		<rdfs:label xml:lang="en">RoomTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 20 m3:DegreeCelsius AND lessThan 25 m3:DegreeCelsius THEN RoomTemperature</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>		    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="AiringWeatherState">
+		<rdfs:label xml:lang="en">AiringWeatherState</rdfs:label>
+		<rdfs:label xml:lang="fr">Ventilation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF ! AboveRoomTemperature AND NoPrecipitation and (LightWind OR StrongWind) THEN AiringWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+    </m3:Rule>
+    
+     <!-- ################################################ AIR POLLUTION ############################################## -->
+      
+      <m3:Rule rdf:about="HighAirPollution">
+		<rdfs:label xml:lang="en">HighAirPollution</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirPollution greaterThan 75 AND lessThan 100 m3:EAQI THEN HighAirPollution</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	 
+	    <m3:hasUrlRule rdf:resource="&lorEnvironment;"/>      
+    </m3:Rule>
+    
+       <m3:Rule rdf:about="LowAirPollution">
+		<rdfs:label xml:lang="en">LowAirPollution</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirPollution greaterThan 25 AND lessThan 50 m3:EAQI THEN LowAirPollution</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorEnvironment;"/>       
+    </m3:Rule>
+    
+       <m3:Rule rdf:about="MediumAirPollution">
+		<rdfs:label xml:lang="en">MediumAirPollution</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirPollution greaterThan 50 AND lessThan 75 m3:EAQI THEN MediumAirPollution</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorEnvironment;"/>       
+    </m3:Rule>
+    
+       <m3:Rule rdf:about="VeryHighAirPollution">
+		<rdfs:label xml:lang="en">VeryHighAirPollution</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirPollution greaterThan 100 m3:EAQI THEN VeryHighAirPollution</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorEnvironment;"/>       
+    </m3:Rule>
+    
+       <m3:Rule rdf:about="VeryLowAirPollution">
+		<rdfs:label xml:lang="en">VeryLowAirPollution</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AirPollution greaterThan 0 AND lessThan 25 m3:EAQI THEN VeryLowAirPollution</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AirPollutantSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorEnvironment;"/>       
+    </m3:Rule>
+    
+          <!-- ################################################ SUN POSITION ELEVATION ############################################## -->
+    
+    <m3:Rule rdf:about="SunDay">
+		<rdfs:label xml:lang="en">SunDay</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan 0 and lessThan 90 m3:DegreeAngle THEN SunDay</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SolarTwilight">
+		<rdfs:label xml:lang="en">SolarTwilight</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan 0 and lessThan 6 m3:DegreeAngle THEN SolarTwilight</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunBelowHorizon">
+		<rdfs:label xml:lang="en">SunBelowHorizon</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan -90 and lessThan 0 m3:DegreeAngle THEN SunBelowHorizon</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunTwilight">
+		<rdfs:label xml:lang="en">SunTwilight</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan -18 and lessThan 0 m3:DegreeAngle THEN SunTwilight</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunCivilTwilight">
+		<rdfs:label xml:lang="en">SunCivilTwilight</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan -6 and lessThan 0 m3:DegreeAngle THEN SunCivilTwilight</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunNauticalTwilight">
+		<rdfs:label xml:lang="en">SunNauticalTwilight</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan -12 and lessThan -6 m3:DegreeAngle THEN SunNauticalTwilight</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunAstronomicalTwilight">
+		<rdfs:label xml:lang="en">SunAstronomicalTwilight</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan -18 and lessThan -12  m3:DegreeAngle THEN SunAstronomicalTwilight</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunNight">
+		<rdfs:label xml:lang="en">SunNight</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionElevation greaterThan -90 and lessThan -18 m3:DegreeAngle THEN SunNight</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+        <!-- ################################################ SUN POSITION DIRECTION ############################################## -->
+    
+    <m3:Rule rdf:about="SunFromNorth">
+		<rdfs:label xml:lang="en">SunFromNorth</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionDirection (greaterThan 0 and lessThan 45) or (greaterThan 315 and lessThan 360) m3:DegreeAngle THEN SunFromNorth</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="SunFromEast">
+		<rdfs:label xml:lang="en">SunFromEast</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionDirection greaterThan 45 and lessThan 135 m3:DegreeAngle THEN SunFromEast</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="SunFromSouth">
+		<rdfs:label xml:lang="en">SunFromSouth</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionDirection greaterThan 135 and lessThan 225 m3:DegreeAngle THEN SunFromSouth</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="SunFromWest">
+		<rdfs:label xml:lang="en">SunFromWest</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SunPositionDirection greaterThan 225 and lessThan 315 m3:DegreeAngle THEN SunFromWest</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SunPositionDirectionSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <!-- ################################################ SOLAR IRRADIANCE - RADIATION ############################################## -->
+    
+    <m3:Rule rdf:about="NoRadiation">
+		<rdfs:label xml:lang="en">NoRadiation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation = 0 m3:WattPerMeterSquare THEN NoRadiation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LowRadiation">
+		<rdfs:label xml:lang="en">LowRadiation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 0 and lessThan 250 m3:WattPerMeterSquare THEN LowRadiation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MediumRadiation">
+		<rdfs:label xml:lang="en">MediumRadiation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 250 and lessThan 500 m3:WattPerMeterSquare THEN MediumRadiation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HighRadiation">
+		<rdfs:label xml:lang="en">HighRadiation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 500 and lessThan 750 m3:WattPerMeterSquare THEN HighRadiation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="VeryHighRadiation">
+		<rdfs:label xml:lang="en">VeryHighRadiation</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 750 m3:WattPerMeterSquare THEN VeryHighRadiation</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>    
+     
+      <m3:Rule rdf:about="HighSolarIrradiance">
+		<rdfs:label xml:lang="en">HighSolarIrradiance</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 500 m3:WattPerMeterSquare THEN HighSolarIrradiance</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HighSolarIrradiance">
+		<rdfs:label xml:lang="en">HighSolarIrradiance</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 500 m3:WattPerMeterSquare THEN HighSolarIrradiance</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	    
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LowSolarIrradiance">
+		<rdfs:label xml:lang="en">LowSolarIrradiance</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 50 and lessThan 250 m3:WattPerMeterSquare THEN LowSolarIrradiance</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="ModerateSolarIrradiance">
+		<rdfs:label xml:lang="en">ModerateSolarIrradiance</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 250 and lessThan 500 m3:WattPerMeterSquare THEN ModerateSolarIrradiance</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="NeglectibleSolarIrradiance">
+		<rdfs:label xml:lang="en">HighSolarIrradiance</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:SolarRadiation greaterThan 0 and lessThan 50 m3:WattPerMeterSquare THEN HighSolarIrradiance</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+      <!-- ################################################ ATMOSPHERIC PRESSURE ############################################## -->
+    
+    <m3:Rule rdf:about="VeryLowPressure">
+		<rdfs:label xml:lang="en">VeryLowPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AtmosphericPressure lessThan 998 hPa THEN VeryLowPressure</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	  
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>     
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="LowPressure">
+		<rdfs:label xml:lang="en">LowPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AtmosphericPressure greaterThan 998 AND lessThan 1008 hPa THEN LowPressure</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="AveragePressure">
+		<rdfs:label xml:lang="en">AveragePressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AtmosphericPressure greaterThan 1008 AND lessThan 1018 hPa THEN AveragePressure</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HighPressure">
+		<rdfs:label xml:lang="en">HighPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AtmosphericPressure greaterThan 1018 AND lessThan 1028 hPa THEN HighPressure</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="VeryHighPressure">
+		<rdfs:label xml:lang="en">VeryHighPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:AtmosphericPressure greaterThan 1028 hPa THEN VeryHighPressure</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+     <!-- ################################################ HUMIDITY ############################################## -->
+    
+    <m3:Rule rdf:about="DryHumidityKofler">
+		<rdfs:label xml:lang="en">DryHumidityKofler</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity lessThan 25 m3:Percent THEN DryHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="VeryDryHumidity">
+		<rdfs:label xml:lang="en">VeryDryHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity lessThan 30 m3:Percent THEN VeryDryHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="DryHumidityStaroch">
+		<rdfs:label xml:lang="en">DryHumidityStaroch</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 30 m3:Percent AND lessThan 40 m3:Percent THEN DryHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="AverageHumidity">
+		<rdfs:label xml:lang="en">AverageHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 40 m3:Percent AND lessThan 70 m3:Percent THEN AverageHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MoistHumidityStaroch">
+		<rdfs:label xml:lang="en">MoistHumidityStaroch</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 70 m3:Percent AND lessThan 80 m3:Percent THEN MoistHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	  
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>     
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="VeryMoistHumidity">
+		<rdfs:label xml:lang="en">VeryMoistHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 80 m3:Percent THEN VeryMoistHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MoistHumidityKofler">
+		<rdfs:label xml:lang="en">MoistHumidityKofler</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 60 m3:Percent THEN MoistHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>      
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="OptimumHumidity">
+		<rdfs:label xml:lang="en">OptimumHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 25 m3:Percent AND lessThan 60 m3:Percent THEN OptimumHumidity</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HumidifyingWeatherState">
+		<rdfs:label xml:lang="en">HumidifyingWeatherState</rdfs:label>
+		<rdfs:comment xml:lang="en">IF MoistHumidity THEN HumidifyingWeatherState</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <!-- ################################################ CLOUD COVER ############################################## -->
+    
+      <m3:Rule rdf:about="NoCloudCover">
+		<rdfs:label xml:lang="en">NoCloudCover, ClearSky</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:CloudCover = 0 m3:Okta THEN NoCloudCover</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/> 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>    	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="Overcast">
+		<rdfs:label xml:lang="en">Overcast</rdfs:label>
+		<rdfs:label xml:lang="fr">Couvert, voile</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:CloudCover = 8 m3:Okta THEN Overcast</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	  
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>  
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="PartlyCloudy">
+		<rdfs:label xml:lang="en">PartlyCloudy</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:CloudCover greaterThan 0 AND lessThan 5 m3:Okta THEN PartlyCloudy</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	 
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>     
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>   
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="UnknownCloudCover">
+		<rdfs:label xml:lang="en">UnknownCloudCover</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:CloudCover = 9 m3:Okta THEN UnknownCloudCover</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>	
+	     <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>   
+	     <m3:hasUrlRule rdf:resource="&lorWeather;"/>      
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="MostlyCloudy">
+		<rdfs:label xml:lang="en">MostlyCloudy</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:CloudCover greaterThan 5 AND lessThan 8 m3:Okta THEN MostlyCloudy</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CloudCoverSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Kofler"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;PaulStaroch"/>  	
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>       
+    </m3:Rule>
+    
+    <!-- ################################################ BLOOD GLUCOSE ############################################## -->
+    
+    <m3:Rule rdf:about="Hypoglycemia">
+		<rdfs:label xml:lang="en">Hypoglycemia</rdfs:label>
+		<rdfs:comment xml:lang="en">Hypoglycemia, IF m3:BloodGlucose lessThan 0.7 m3:GramPerLiter THEN Hypoglycemia</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Glucometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Guermah"/>  	 
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>      
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="NormalGlycemia">
+		<rdfs:label xml:lang="en">NormalGlycemia</rdfs:label>
+		<rdfs:comment xml:lang="en">NormalGlycemia, IF m3:BloodGlucose greaterThan 0.7 AND lessThan 2.5 m3:GramPerLiter THEN NormalGlycemia</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Glucometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Guermah"/>  
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="Hyperglycemia">
+		<rdfs:label xml:lang="en">Hyperglycemia</rdfs:label>
+		<rdfs:comment xml:lang="en">Hyperglycemia, IF m3:BloodGlucose greaterThan 2.5 m3:GramPerLiter THEN Hypoglycemia</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Glucometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Guermah"/>  
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>  	    
+    </m3:Rule>
+    
+    <!-- ################################################ SAFETY DEVICES WEATHER ############################################## -->
+    
+    <m3:Rule rdf:about="RainySpeedSafetyDevice">
+		<rdfs:label xml:lang="en">RainySpeedSafetyDevice</rdfs:label>
+		<rdfs:comment xml:lang="en">IF Rainy THEN hasSensor_Speed = Low_Speed AND hasSafety_Device = (ABS, ESP)</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ABS"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ESP"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Ruta"/>  
+	    <m3:hasUrlRule rdf:resource="&transport-dataset;"/>  	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="SnowySpeedSafetyDevice">
+		<rdfs:label xml:lang="en">SnowySpeedSafetyDevice</rdfs:label>
+		<rdfs:comment xml:lang="en">IF Snowy THEN hasSensor_Speed = Low_Speed AND hasSafety_Device = (Snow_Chains, ABS, ESP)</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PrecipitationSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ABS"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ESP"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SnowChains"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Ruta"/>  
+	    <m3:hasUrlRule rdf:resource="&transport-dataset;"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="FoggySpeedSafetyDevice">
+		<rdfs:label xml:lang="en">FoggySpeedSafetyDevice</rdfs:label>
+		<rdfs:comment xml:lang="en">IF Foggy THEN hasSensor_Speed = Low_Speed AND hasSafety_Device = (Fog_Lamp, ABS)</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ABS"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;FogLamp"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;VisibilitySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Ruta"/>  	 
+	    <m3:hasUrlRule rdf:resource="&transport-dataset;"/>     
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="UnevenRoadSpeedSafetyDevice">
+		<rdfs:label xml:lang="en">UnevenRoadSpeedSafetyDevice</rdfs:label>
+		<rdfs:comment xml:lang="en">IF UnevenRoad THEN hasSensor_Speed = Low_Speed AND hasSafety_Device = (ESP, ABS)</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ABS"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ESP"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Ruta"/>  	    
+    </m3:Rule>
+    
+    <m3:Rule rdf:about="HighWindSpeedSensorCar">
+		<rdfs:label xml:lang="en">HighWindSpeedSensorCar</rdfs:label>
+		<rdfs:comment xml:lang="en">IF HighWind THEN hasSensor_Speed (car) = Low_Speed </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;WindSpeedSensor"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Ruta"/>  	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="HighTrafficSpeedSafetyDevice">
+		<rdfs:label xml:lang="en">HighTrafficSpeedSafetyDevice</rdfs:label>
+		<rdfs:comment xml:lang="en">IF HighTraffic THEN hasSensor_Speed = Low_Speed AND hasSafety_Device = (ABS) </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;ABS"/>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SpeedSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Ruta"/>  	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="HighTemperatureArea">
+		<rdfs:label xml:lang="en">HighTemperatureArea</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 50 m3:DegreeCelsius THEN HighTemperatureArea </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Yus"/>  	    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="HighLevelCO2Area">
+		<rdfs:label xml:lang="en">HighLevelCO2Area</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:CO2 greaterThan 400 m3:PPM THEN HighLevelCO2Area </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;CO2_Sensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Yus"/>  	    
+    </m3:Rule>
+    
+    <!-- ################################################ RODRIGUEZ RULES : HUMISITY, LIGHTING, PRESSURE, TEMPERATURE, NOISE LEVEL ############################################## -->
+    
+    <!--  Humidity -->
+    
+     <m3:Rule rdf:about="HighHumidityRodriguez">
+		<rdfs:label xml:lang="en">HighHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 50 and LowerThan 75 m3:Percent THEN HighHumidity </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MediumHumidityRodriguez">
+		<rdfs:label xml:lang="en">MediumHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 30 and LowerThan 50 g/m3 (IS) THEN MediumHumidity </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LowHumidityRodriguez">
+		<rdfs:label xml:lang="en">LowHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Humidity greaterThan 20 and LowerThan 30 g/m3 (IS) THEN LowHumidity </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;HumiditySensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+    <!--  Lighting -->
+    
+      <m3:Rule rdf:about="HighLightingRodriguez">
+		<rdfs:label xml:lang="en">HighLighting</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Luminosity greaterThan 750 and LowerThan 2000 m3:Lux THEN HighLighting</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/> 	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MediumLightingRodriguez">
+		<rdfs:label xml:lang="en">MediumLighting</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Luminosity greaterThan 150 and LowerThan 750 m3:Lux THEN MediumLighting</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/> 	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LowLightingRodriguez">
+		<rdfs:label xml:lang="en">LowLighting</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Luminosity greaterThan 20 and LowerThan 150 m3:Lux THEN LowLighting</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;LightSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/> 	    
+    </m3:Rule>
+    
+    <!--  Pressure -->
+    
+      <m3:Rule rdf:about="HighPressureRodriguez">
+		<rdfs:label xml:lang="en">HighPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Pressure greaterThan 1.2 and LowerThan 1.6 Atmosphere (IS) THEN HighPressure </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MediumPressureRodriguez">
+		<rdfs:label xml:lang="en">MediumPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Pressure greaterThan 0.8 and LowerThan 1.2 Atmosphere (IS) THEN MediumPressure </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LowPressureRodriguez">
+		<rdfs:label xml:lang="en">LowPressure</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Pressure greaterThan 0.3 and LowerThan 0.8 Atmosphere (IS) THEN LowPressure </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;PressureSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <!--  Temperature -->
+    
+      <m3:Rule rdf:about="HighTemperatureRodriguez">
+		<rdfs:label xml:lang="en">HighTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 15 and LowerThan 25 m3:DegreeCelsius THEN HighTemperature </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MediumTemperatureRodriguez">
+		<rdfs:label xml:lang="en">MediumTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan 0 and LowerThan 15 m3:DegreeCelsius THEN MediumTemperature </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LowTemperatureRodriguez">
+		<rdfs:label xml:lang="en">LowTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Temperature greaterThan -10 and LowerThan 0 m3:DegreeCelsius THEN LowTemperature </rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  	    
+    </m3:Rule>
+    
+       <!--  Noise level -->
+    
+      <m3:Rule rdf:about="HighSoundRodriguez">
+		<rdfs:label xml:lang="en">HighSound</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Sound greaterThan 90 and LowerThan 110 m3:Decibel THEN HighSound</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/>   	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="MediumSoundRodriguez">
+		<rdfs:label xml:lang="en">MediumSound</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Sound greaterThan 40 and LowerThan 90 m3:Decibel THEN MediumSound</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/> 	    
+    </m3:Rule>
+    
+     <m3:Rule rdf:about="LowSoundRodriguez">
+		<rdfs:label xml:lang="en">LowSound</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Sound greaterThan 30 and LowerThan 40 m3:Decibel THEN LowSound</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SoundSensor"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;Rodriguez"/>  
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/>  		    
+    </m3:Rule>
+    
+       <!-- ################################################ FISHERY TEMPERATURE AND SALINITY ############################################## -->
+    
+    
+    <m3:Rule rdf:about="TemperatureSuFishery">
+		<rdfs:label xml:lang="en">Water Temperature for fish</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:WaterTemperature greaterThan 27 OR LowerThan 18 m3:DegreeCelsius THEN m3:Alert</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;Thermometer"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;SuFishery"/>   		    
+    </m3:Rule>
+    
+      <m3:Rule rdf:about="SalinitySuFishery">
+		<rdfs:label xml:lang="en">Salinity for fish</rdfs:label>
+		<rdfs:comment xml:lang="en">IF m3:Salinity greaterThan 0.033 OR LowerThan 0.008 THEN m3:Alert</rdfs:comment>
+	    <m3:ruleUsingM2MDevice rdf:resource="&m3;SaltMeter"/>
+	    <m3:fromM2MApplication rdf:resource="&lov4iot;SuFishery"/>   		    
+    </m3:Rule>
+    
+</rdf:RDF>

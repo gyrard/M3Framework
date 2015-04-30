@@ -1,0 +1,50 @@
+<h1>
+<img src="images/security/mesh.png" width="100" height="80" >
+Security for Mesh Networks & M2M
+<img src="images/security/mesh.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">
+<h3>Machine-to-Machine (M2M)</h3>
+<ul><li>
+Attack:<select id="m2m_attack"></select>
+</li><li>Security Mechanism:<select id="m2m_countermeasure"></select>
+</li></ul>	
+</div>
+
+<div class="hero-unit">
+<h3>MANET (Mobile Ad Hoc Networks)</h3>
+<ul><li>
+MANET Attack:<select id="manet_attack"></select>
+</li></ul>	
+</div>
+
+<div class="hero-unit">
+<h3>Mesh networks</h3>
+<ul><li>
+Architecture: <select id="mesh_archi" ></select>
+</li><li>Attack: <select id="mesh_attack"></select>
+</li><li>Protocol:	<select id="mesh_protocol" ></select>
+</li><li>Mesh security mechanism:	<select id="mesh_security_mechanism" ></select>
+</li></ul>	
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "stac/type/M2MAttack", "m2m_attack", "option");
+	request(displayResultBindingSelect, "stac/type/M2MSecurityMechanism", "m2m_countermeasure", "option");
+	request(displayResultBindingSelect, "stac/type/ManetAttack", "manet_attack", "option");
+	request(displayResultBindingSelect, "stac/type/MeshArchitectureComponent", "mesh_archi", "option");
+	request(displayResultBindingSelect, "stac/type/MeshAttack", "mesh_attack", "option");
+	request(displayResultBindingSelect, "stac/type/MeshSecurityProtocol", "mesh_protocol", "option");		
+	request(displayResultBindingSelect, "stac/type/MeshSecurityMechanism", "mesh_security_mechanism", "option");		
+});
+
+

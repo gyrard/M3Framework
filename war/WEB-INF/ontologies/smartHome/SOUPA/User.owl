@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.icmc.usp.br/~rporto/DOHand/User.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:soupa="http://pervasive.semanticweb.org/ont/2004/06/person#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://www.icmc.usp.br/~rporto/DOHand/User.owl">
+
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This ontology imports the SOUPA Person Ontology</rdfs:comment>
+    <owl:imports rdf:resource="http://pervasive.semanticweb.org/ont/2004/06/person"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: Complete the attributes for Ubiquitous Networking</owl:versionInfo>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DOHand User Ontology</rdfs:label>
+  </owl:Ontology>
+
+  <owl:Class rdf:ID="Newspaper"/>
+
+  <owl:Class rdf:ID="Cigarette"/>
+
+  <owl:Class rdf:ID="Transport"/>
+
+  <owl:Class rdf:ID="Drink"/>
+
+  <owl:Class rdf:ID="Child">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >User has children</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:ID="On_foot">
+    <rdfs:subClassOf rdf:resource="#Transport"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Shop"/>
+
+  <owl:Class rdf:ID="Bicycle">
+    <rdfs:subClassOf rdf:resource="#Transport"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Restaurant"/>
+
+  <owl:Class rdf:ID="Habit"/>
+
+  <owl:Class rdf:ID="Coordenate"/>
+
+  <owl:Class rdf:ID="LeisureActivity"/>
+
+  <owl:Class rdf:ID="Car">
+    <rdfs:subClassOf rdf:resource="#Transport"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Food"/>
+
+  <owl:Class rdf:ID="Sweet"/>
+
+  <owl:Class rdf:ID="Behaviour">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >User habit to help on provider choice</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Behaviour</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:ID="Bus">
+    <rdfs:subClassOf rdf:resource="#Transport"/>
+  </owl:Class>
+
+  <owl:Class rdf:ID="MaritalStatus">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <MaritalStatus rdf:ID="Single"/>
+          <MaritalStatus rdf:ID="Married"/>
+          <MaritalStatus rdf:ID="Divorced"/>
+        </owl:oneOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="User">
+    <owl:equivalentClass>
+      <rdf:Description rdf:about="http://pervasive.semanticweb.org/ont/2004/06/person#Person">
+        <owl:equivalentClass rdf:resource="#User"/>
+      </rdf:Description>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <owl:Class rdf:ID="WorkInformation"/>
+
+  <owl:Class rdf:ID="SchoolAddress"/>
+
+  <owl:Class rdf:ID="Train">
+    <rdfs:subClassOf rdf:resource="#Transport"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:ID="name"/>
+
+  <owl:ObjectProperty rdf:ID="coordenates">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SchoolAddress"/>
+          <owl:Class rdf:about="#Shop"/>
+          <owl:Class rdf:about="#WorkInformation"/>
+          <owl:Class rdf:about="#Restaurant"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Coordenate"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="narrower"/>
+
+  <owl:ObjectProperty rdf:ID="documentation"/>
+
+  <owl:ObjectProperty rdf:ID="synonym"/>
+
+  <owl:ObjectProperty rdf:ID="hasChild">
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#Child"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:ID="related_slot"/>
+
+  <owl:ObjectProperty rdf:ID="broader"/>
+
+  <owl:ObjectProperty rdf:ID="cui"/>
+
+  <owl:ObjectProperty rdf:ID="hasWorkAddress"/>
+
+  <owl:ObjectProperty rdf:ID="hasHomeAddress"/>
+
+  <owl:ObjectProperty rdf:ID="semantic_type"/>
+
+  <owl:DatatypeProperty rdf:ID="departureTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdfs:domain rdf:resource="#WorkInformation"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="coordenate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Coordenate"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="workAddress">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >workAddress</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="takeKids">
+    <rdfs:domain rdf:resource="#Behaviour"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="homeAddress">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Address where de User lives</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >homeAddress</rdfs:label>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="latitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Coordenate"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="collectKids">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Behaviour"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="longitude">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Coordenate"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="arrivalTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdfs:domain rdf:resource="#WorkInformation"/>
+  </owl:DatatypeProperty>
+
+  <owl:DatatypeProperty rdf:ID="lunchTime">
+    <rdfs:domain rdf:resource="#WorkInformation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+  </owl:DatatypeProperty>
+
+  <owl:FunctionalProperty rdf:ID="maritualStatus">
+    <rdfs:range rdf:resource="#MaritalStatus"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:ID="maritalStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#MaritalStatus"/>
+  </owl:FunctionalProperty>
+
+  <owl:FunctionalProperty rdf:ID="hasBehavior">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdfs:range rdf:resource="#Behaviour"/>
+  </owl:FunctionalProperty>
+
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

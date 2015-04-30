@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SWoT: Semantic Web of Things</title>
+<link rel="shortcut icon" href="images/scenario/favicon.ico" type="image/x-icon" />
+    <!-- bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .body{
+            margin-top:50px;
+        }
+    </style>
+    <script src="javascript/design/jquery-1.10.1.min.js"></script>
+    <script src="javascript/design/bootstrap.min.js"></script>
+    <!-- This one cannot be imported dynamically, so it is hardwired for the Restaurant scenario -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script type="text/javascript" src="javascript/design/jszip.js"></script>
+    <script type="text/javascript" src="javascript/design/FileSaver.js"></script>
+    <script type="text/javascript" src="javascript/design/fileReader.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- <a class="brand" href="#">M3</a> -->
+          <div class="">
+            <ul class="nav">
+             	<li><a href="../">Semantic Web of Things</a></li>
+			
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dev">M3 framework<b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dev">
+               			
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=m3api">SWoT Generator</a></li>
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=ontologies">Reusing domain knowledge (LOV4IoT)</a></li>
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=swot_template">Sensor-based Linked Open Rules (S-LOR)</a></li>
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=swot_page">S-LOR 2nd user interface</a></li>
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=m3">M3 Interoperable IoT Data & Domain Knowledge</a> </li>	
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=senml_converter">M3 Converter (SenML -> RDF)</a></li>
+                		<li role="presentation" class="divider"></li><!-- séparateur -->
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=documentation">M3 Documentation</a></li>                		
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=architecture">M3 architecture</a> </li>
+                		<li role="presentation" class="divider"></li><!-- séparateur -->
+                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=lov4iot">Smarter LOV4IoT (ongoing)</a></li>
+               					
+					 </ul>
+              </li>	
+						
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="scenarios">Scenarios <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="scenarios">
+                		 <li role="presentation"><a role="menuitem" tabindex="-1" href="?p=m3_scenario">M3 framework & IoT projects use cases</a></li>
+                        <li role="presentation" class="divider"></li><!-- séparateur -->
+                         <li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=tourism">Tourism (Weather & Emotion & Activity & Transport)</a></li>
+                         <li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=naturopathy">Naturopathy (Food & Health & Emotion & Weather)</a></li>
+						 <li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=transport">Transport (Weather & Safety devices)</a></li>
+						 <li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=restaurant">Restaurant</a></li>
+ 						 <li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=home">Home</a></li>
+                        </ul>
+               </li>
+               
+               <li><a href="?p=publication">Publications</a></li>
+               
+
+			<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="security">Security <b class="caret"></b></a>
+                		<ul class="dropdown-menu" role="menu" aria-labelledby="security">
+                          	
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=stac">STAC application</a></li>
+
+							<li role="presentation" class="divider"></li><!-- séparateur -->
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=ontologies#stac">STAC ontology & dataset (Security Toolbox: Attack & Coutermeasure)</a></li>
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=ontologies#security_onto">Security ontologies</a></li>
+
+							<li role="presentation" class="divider"></li><!-- séparateur -->
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=faq">FAQ</a></li>
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=network">Network Management</a></li>
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=web">Web</a></li>
+							
+							<li role="presentation" class="divider"></li><!-- séparateur -->
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=security_property">Security properties</a></li>
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=attack">Attacks & Countermeasures</a></li>
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=cryptography">Cryptography</a></li>
+							
+							<li role="presentation" class="divider"></li><!-- séparateur -->
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=sensor">Sensor Networks</a></li>
+						  	<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=wireless">Wireless Networks (Wi-Fi, Wimax, Zigbee, Bluetooth)</a></li>
+						  	<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=cellular">Cellular Networks (2G, 3G, 4G) </a> </li>
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=m2m">Mesh, M2M, Manet</a></li>
+							
+							<li role="presentation" class="divider"></li><!-- séparateur -->
+							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=STACStateOfTheArt">Security for IoT State of The Art</a></li>
+                        </ul>
+               </li>
+         
+               <li><a href="?p=help_us">Contributing to M3</a></li>
+                <li><a href="?p=about_us">About us</a></li>
+                  		 <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dev">Memento<b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dev">
+
+						
+						
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=stateOfTheArt">SWoT/SSN State of the Art</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=IoTTool">IoT tools</a></li>
+						
+						<li role="presentation" class="divider"></li><!-- séparateur -->
+						
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=rule">Linked Open Rules interoperability issues</a></li>
+
+						<li role="presentation" class="divider"></li><!-- séparateur -->
+						
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=bestPractice">Semantic Web Best Practices</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=semanticTool">Semantic Web Tools</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=ontoMappingTool">Onto Matching Tools</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+   
+    
+      <!-- Begin page content -->
+    <div class="container body" id="body">
+      <p>This website relies heavily on Javascript. It seems javascript is either blocked or your browser can't handle it, thus this message.</p>
+      <p>I swear you won't get any inconvenient advertisement. Please consider using a browser able to run javascript in order to benefits this website's features. Thank you.<p>
+    </div>
+
+<!-- Placez cette balise où vous souhaitez faire apparaître le gadget Bouton +1. -->
+
+
+<!-- Placez cette ballise après la dernière balise Bouton +1. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'en'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=324074678574";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <div id="footer">
+    
+	 <div class="container span12 offset3">
+
+ <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+
+<div class="fb-like" data-href="http://sensormeasurement.appspot.com/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+ <script src="//platform.linkedin.com/in.js" type="text/javascript">
+ lang: en_US
+</script>
+
+<script type="IN/Share" data-url="http://sensormeasurement.appspot.com/" data-counter="right"></script>
+   
+  <!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53588508-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+   
+        <p class="muted credit">
+			M3 (Machine-to-Machine Measurement), SWoT (Semantic Web of Things). © Project in collaboration with 
+			<a href="http://www.eurecom.fr/"><img src="images/eurecom.png" width="150" height="150"></img></a>
+			<img src="images/i3s.png" width="150" height="150"></img>
+			<img src="images/univNice.png" width="100" height="100"></img>
+			<br/> Designed and implemented by <a href="http://www.eurecom.fr/~gyrard/index.html">Am&eacute;lie Gyrard</a>, a PhD student at <a href="http://www.eurecom.fr/en">Eurecom</a> under the supervision of Prof. <a href="http://www.eurecom.fr/en/people/bonnet-christian">Christian Bonnet </a> and Dr. <a href="http://users.polytech.unice.fr/~karima/">Karima Boudaoud</a></a>.
+		</p>
+		
+      </div>
+    </div>
+
+
+    
+    <script type="text/javascript">
+// Get from the parameters
+function gup( name )
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+}
+// Load a js or a css file dynamically
+function loadjscssfile(filename, filetype){
+ if (filetype=="js"){ //if filename is a external JavaScript file
+  var fileref=document.createElement('script')
+  fileref.setAttribute("type","text/javascript")
+  fileref.setAttribute("src", filename)
+ }
+ else if (filetype=="css"){ //if filename is an external CSS file
+  var fileref=document.createElement("link")
+  fileref.setAttribute("rel", "stylesheet")
+  fileref.setAttribute("type", "text/css")
+  fileref.setAttribute("href", filename)
+ }
+ if (typeof fileref!="undefined")
+  document.getElementsByTagName("head")[0].appendChild(fileref)
+  return true;
+}
+// Manage dynamic loading here
+$(document).ready(function () {
+    var arg = gup('p');
+    var page = 'html/';
+    switch(arg){
+        case "":
+            page += 'index.html';
+        	loadjscssfile('css/AmelieStyle.css','css');
+            break;
+        // Scenarios
+		case "transport":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += 'transport.html';
+            break;
+        case "naturopathy":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            loadjscssfile('javascript/naturopathy.js','js');
+            page += 'naturopathy.html';
+            break;
+		case "tourism":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += 'tourism.html';
+            break;
+        case "restaurant":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            loadjscssfile('css/map.css','css');
+            loadjscssfile('javascript/restaurant.js','js');
+            page += 'restaurant.html';
+            break;
+        case "home":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += 'home.html';
+            break;
+		// naturopathy
+		case "naturopathy":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            loadjscssfile('javascript/naturopathy.js','js');
+            page += 'naturopathy.html';
+            break;
+		case "m3api":
+			loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+	        loadjscssfile('javascript/swot.js','js');
+			 page += 'generator.html';
+            break;
+		case "help_us":
+            page += 'help_us.html';
+            loadjscssfile('javascript/swot.js','js');
+        	loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+            break;
+		case "IoTTool":
+            page += 'IoTTool.html';
+            break;
+		case "m3_scenario":
+            page += 'm3_scenario.html';
+            break;
+		case "stateOfTheArt":
+            page += 'stateOfTheArt.html';
+            break;
+		case "ontoMappingTool":
+            page += 'ontoMappingTool.html';
+            break;
+		case "security":
+            page += 'security.html';
+            break;
+		case "about_us":
+            page += 'about_us.html';
+            break;
+ 		case "sensor":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/sensorNetworks.html";
+            break;
+		case "wireless":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/wirelessNetworks.html";
+            break;
+         // security for cellular networks
+		case "cellular":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/cellularNetworks.html";
+            break;
+        // secuirty for machine to machine
+		case "m2m":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/mesh_m2m.html";
+            break;
+        // security for netzork management
+		case "network":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/network.html";
+            break;
+         // security for web applications
+		case "web":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/web.html";
+            break;
+		case "security_property":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/securityProperties.html";
+            break;
+		case "attack":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/attackSecurityMechanism.html";
+            break;
+		case "cryptography":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/cryptography.html";
+            break;
+        // security, useful STAC suggestions
+		case "faq":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/faq.html";
+            break;
+        // Security knowledge base (ontology and dataset), security application to suggest security mechanisms fitting the needs
+        // STAC means Security Toolboc: Attacks & Countermeasures
+		case "stac":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/stac.html";
+            break;
+		case "STACStateOfTheArt":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += "security/STACStateOfTheArt.html";
+            break;             
+         // Interoperability issues to build the Linked Open Rules
+		case "rule":
+            page += 'rule.html';
+            break;
+        // All publications related to M3
+		case "publication":
+            page += 'publication.html';
+            break;
+        // M3 architecture is explaines
+		case "architecture":
+            page += 'architecture.html';
+            break;
+         // M3 ontology and hub are explained
+		case "m3":
+            page += 'm3.html';
+            break;
+         // Sensor-based linked Open Rules
+		case "swot_template":
+			loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+            loadjscssfile('javascript/swot.js','js');
+            page += 'slor.html';
+            break;
+        // Sensor-based linked Open Rules, another way to display information 
+		case "swot_page":
+			loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+            loadjscssfile('javascript/swot.js','js');
+            page += 'slor_bis.html';
+            break;
+         // Semantic Web best practices
+		case "bestPractice":
+            page += 'bestPractice.html';
+            break;
+		// Semantic Web tools
+		case "semanticTool":
+            page += 'semanticTool.html';
+            break;
+        // Linked Open Vocabularies for Internet of Things (LOV4IoT) dataset
+        case "ontologies":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+            page += "lov4iot.html";
+            break;
+            
+        // V2 Linked Open Vocabularies for Internet of Things (LOV4IoT) dataset 
+        case "lov4iot":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+            page += "smarterlov4iot.html";
+            break;  
+            
+        // M3 documentation
+        case "documentation":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            page += "documentation.html";
+            break;
+        // Converting SenML to RDF according to the M3 ontology
+		case "senml_converter":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+            loadjscssfile('javascript/swot.js','js');
+            page += 'senml_converter.html';
+            break;
+        default:
+            page += '404.html';
+            
+    }
+    $('#body').load(page);
+
+});
+    </script>
+</body>
+</html>
+

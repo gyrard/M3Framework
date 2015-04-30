@@ -1,0 +1,2432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#">         
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY foaf	"http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY owl "http://www.w3.org/2002/07/owl#">             
+         <!ENTITY denker "http://www.daml.org/services/owl-s/security/security.owl#"> 
+         <!ENTITY serviceContext "http://ontology.ist-spice.org/mobile-ontology/1/0/service_context/0/service_context.owl#">  
+         <!ENTITY ct "http://www.tele.pw.edu.pl/~sims-onto/ConnectivityType.owl#" >           
+         <!ENTITY secberlin "http://preciosa.informatik.hu-berlin.de/ontology/security.owl" >    
+         <!ENTITY herzog "http://www.ida.liu.se/~iislab/projects/secont/Security.owl"> 
+         <!ENTITY securitysw "http://semanticweb.org/images/5/53/OntologySecurity.owl">                  
+         <!ENTITY kim "http://securitytoolbox.appspot.com/securityMain#">
+         <!ENTITY kimalgorithms "http://securitytoolbox.appspot.com/securityAlgorithms#">
+         <!ENTITY maso "http://securitytoolbox.appspot.com/MASO#">
+         <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+         
+     
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&stac;"
+        xml:base="&stac;"
+        xmlns:stac="&stac;"
+        xmlns:herzog="&herzog;"
+        xmlns:denker="&denker;"
+        xmlns:kim="&kim;"
+        xmlns:kimalgorithms="&kimalgorithms;"
+        xmlns:maso="&maso;"
+		xmlns:secberlin="&secberlin;"
+        xmlns:securitysw="&securitysw;"
+        xmlns:owl="&owl;"
+        xmlns:ct="&ct;"
+        xmlns:serviceContext="&serviceContext;"
+		xmlns:dc="&dc;"
+		xmlns:dcterms="&dcterms;"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:foaf="&foaf;"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+
+	<owl:Ontology rdf:about="&stac;">
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">The STAC Ontology (Security Toolbox : Attacks and Countermeasures)</dc:title>
+		<dc:description xml:lang="en">A vocabulary to describe main security and cryptographic concepts: attacks, security mechanisms, OSI model, security protocols, security tools in numerous technologies: Web applications, network management, Sensor networks, Cellular (2G, 3G, 4G) and Wireless (Wifi), etc. </dc:description>
+		<dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amelie Gyrard. Eurecom</dc:creator>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-04-30</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-08-23</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+		<vann:preferredNamespacePrefix>stac</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://securitytoolbox.appspot.com/stac#</vann:preferredNamespaceUri>
+	    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This work has been inspired for the cryptographic concepts and security properties by "Security Ontology for Annotating resources" [Kim et al. 2005]</rdfs:seeAlso>
+		<rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This work has been inspired for the cryptographic concepts and security properties by "Security in the Semantic Web using OWL" [Denker et al. 2005]</rdfs:seeAlso>
+		<rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This work has been inspired for the cryptographic concepts and security properties by "Construction d'une ontologie pour le domaine de la securite" [Lekhchine et al. 2009]</rdfs:seeAlso>
+		<rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This work has been inspired for the cryptographic concepts and security properties by "An ontology of Information Security" [Herzog et al. 2007]</rdfs:seeAlso>
+	</owl:Ontology>
+	
+	<!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+	
+	 <owl:Class rdf:ID="Requirement">		
+		<rdfs:label xml:lang="en">Requirement</rdfs:label>
+		<rdfs:comment xml:lang="en">The application to secure has requirements (e.g., high sensitive data or specific technologies).</rdfs:comment>
+	</owl:Class>
+	
+	 <owl:Class rdf:ID="DataTypeSensitive">		
+		<rdfs:label xml:lang="en">DataTypeSensitive</rdfs:label>
+		<rdfs:comment xml:lang="en">DataTypeSensitive (low, medium or high sensitive). The data to secure.</rdfs:comment>
+	</owl:Class>
+     
+     <owl:Class rdf:ID="Technology">		
+		<rdfs:label xml:lang="en">Technology</rdfs:label>
+		<rdfs:comment xml:lang="en">Technologies can be wireless (Wi-Fi, Wimax), cellular (2G, 3G, 4G), sensor  networks, web application, etc.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Requirement"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Architecture">		
+		<rdfs:label xml:lang="en">Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ArchitectureComponent">		
+		<rdfs:label xml:lang="en">Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="Feature">		
+		<rdfs:label xml:lang="en">Feature</rdfs:label>
+		<rdfs:comment xml:lang="en">Features of security mechanisms. For example a sensor technology is low energy consuming, and the symmetric algorithm (a SecurityMechanism) is low energy consumming.</rdfs:comment>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="PositiveFeature">		
+		<rdfs:label xml:lang="en">Positive Feature</rdfs:label>
+		<rdfs:comment xml:lang="en">Positive Feature of security mechanisms</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Feature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NegativeFeature">		
+		<rdfs:label xml:lang="en">Negative Feature</rdfs:label>
+		<rdfs:comment xml:lang="en">Negative Feature of security mechanisms</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Feature"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="SecurityProperty">		
+		<rdfs:label xml:lang="en">SecurityProperty</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Requirement"/>
+		<rdfs:seeAlso rdf:resource="&herzog;Goal"/>
+		<rdfs:seeAlso rdf:resource="&denker;SecurityNotation"/>
+		<rdfs:seeAlso rdf:resource="&kim;SecurityObjective"/>
+		<rdfs:seeAlso rdf:resource="&maso;Objectif"/>
+		<rdfs:seeAlso rdf:resource="&securitysw;Services"/>
+		<rdfs:seeAlso rdf:resource="&secberlin;SecurityProtectionMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Attack">		
+		<rdfs:label xml:lang="en">Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<!-- SecurityMechanism -->
+	
+	<owl:Class rdf:ID="SecurityMechanism">		
+		<rdfs:label xml:lang="en">SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en">Security Mechanisms are processes that are used to detect, prevent and recover from security attacks.</rdfs:comment>
+		<dc:description xml:lang="en">Security Mechanisms are processes that are used to detect, prevent and recover from security attacks.</dc:description>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SecurityTool">		
+		<rdfs:label xml:lang="en">Security Tool</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+	</owl:Class>
+		
+	<owl:Class rdf:ID="AuthenticationServer">		
+		<rdfs:label xml:lang="en">Authentication Server (AS)</rdfs:label>
+		<rdfs:comment xml:lang="en">It identifies the supplicant, checks its credentials, and define privileges and restrictions, and allows or denies it access to the network and services.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Obfuscation">		
+		<rdfs:label xml:lang="en">Obfuscation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityTool"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#occursInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NetworkManagementSecurityTool">		
+		<rdfs:label xml:lang="en">Network Management Security Tool</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityTool"/>	
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MessageEncryptionTool">		
+		<rdfs:label xml:lang="en">Message Encryption Tool</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityTool"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Protocol">		
+		<rdfs:label xml:lang="en">Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+	</owl:Class>
+
+	<!-- Model OSI: 7 layers -->
+	
+	<owl:Class rdf:ID="OSIModel">		
+		<rdfs:label xml:lang="en"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="#PhysicalLayer"/>
+          <rdf:Description rdf:about="#LinkLayer"/>
+          <rdf:Description rdf:about="#NetworkLayer"/>
+          <rdf:Description rdf:about="#TransportLayer"/>
+          <rdf:Description rdf:about="#SessionLayer"/>	  
+          <rdf:Description rdf:about="#PresentationLayer"/>
+          <rdf:Description rdf:about="#ApplicationLayer"/>
+        </owl:oneOf>
+	</owl:Class>
+	
+	  <!-- <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#ApplicationLayer"/>
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#LinkLayer"/>
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#NetworkLayer"/>
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#PhysicalLayer"/>
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#PresentationLayer"/>
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#SessionLayer"/>
+            <rdf:Description rdf:about="http://securitytoolbox.appspot.com/stac#TransportLayer"/>
+        </owl:members>
+    </rdf:Description>
+
+-->
+			
+	<owl:Class rdf:ID="OSIModelLayer">		
+		<rdfs:label xml:lang="en">OSI Model Layer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+		
+	<!-- ***************************** STAC ONTOLOGY PROPERTIES *************************************** -->
+
+	<owl:ObjectProperty rdf:ID="isReplacedBy">
+		<rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+		<rdfs:label xml:lang="en">isReplacedBy</rdfs:label>
+		<rdfs:comment xml:lang="en">When a SecurityMechanism is not secured anymore, it is replaced by a more secure SecurityMechanism. This is also the case for technologies: a technology can be replaced by another one more recent. (E.G., 2G has been replaced by 3G)</rdfs:comment>
+		<rdfs:domain rdf:resource="#SecurityMechanism"/>		
+		<rdfs:range rdf:resource="#SecurityMechanism"/>		
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="occursInLayer">
+		<rdfs:domain rdf:resource="#Attack"/>		
+		<rdfs:range rdf:resource="#OSIModelLayer"/>		
+		<rdfs:label xml:lang="en">occursInLayer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="protectsInLayer">
+		<rdfs:domain rdf:resource="#SecurityMechanism"/>		
+		<rdfs:range rdf:resource="#OSIModelLayer"/>		
+		<rdfs:label xml:lang="en">protectsInLayer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasSecurityMechanism">
+		<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#isSecurityMechanismOf" />
+     	</owl:inverseOf>
+		<rdfs:domain rdf:resource="#Attack"/>		
+		<rdfs:range rdf:resource="#SecurityMechanism"/>		
+		<rdfs:label xml:lang="en">hasSecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	    
+    <owl:ObjectProperty rdf:ID="satisfies">
+    	<rdfs:label xml:lang="en">satisfies</rdfs:label>
+		<rdfs:comment xml:lang="en">A security mechanism (e.g., VPN) satisfies some security properties (e.g., authentication)</rdfs:comment>
+ 		<rdfs:domain rdf:resource="#SecurityMechanism" />    
+ 		<rdfs:range  rdf:resource="#SecurityProperty"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="threatens">
+		<rdfs:label xml:lang="en">threatens</rdfs:label>
+		<rdfs:comment xml:lang="en">An attack (e.g., eavesdropping) threatens some security properties (e.g., confidentiality)</rdfs:comment>
+ 		<rdfs:domain rdf:resource="#Attack" />    
+ 		<rdfs:range  rdf:resource="#SecurityProperty"/>
+	</owl:ObjectProperty>  
+	
+	<owl:ObjectProperty rdf:ID="isSecurityMechanismOf"> 
+	   	<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#hasSecurityMechanism" />
+     	</owl:inverseOf>
+     	<rdfs:domain rdf:resource="#SecurityMechanism"/>		
+		<rdfs:range rdf:resource="#Attack"/>		
+		<rdfs:label xml:lang="en">isSecurityMechanismOf</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+     </owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="isProtectedBy"> 
+	   	<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#protects" />
+     	</owl:inverseOf>
+     	<rdfs:domain rdf:resource="#Technology"/>		
+		<rdfs:range rdf:resource="#SecurityMechanism"/>		
+		<rdfs:label xml:lang="en">isProtectedBy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+     </owl:ObjectProperty>
+     
+     	<owl:ObjectProperty rdf:ID="protects"> 
+	   	<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#isProtectedBy" />
+     	</owl:inverseOf>
+     	<rdfs:domain rdf:resource="#SecurityMechanism"/>		
+		<rdfs:range rdf:resource="#Technology"/>		
+		<rdfs:label xml:lang="en">protects</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+     </owl:ObjectProperty>
+     
+     <owl:ObjectProperty rdf:ID="hasVulnerability"> 
+     	<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#isVulnerabilityOf" />
+     	</owl:inverseOf>
+     	<rdfs:domain rdf:resource="#Technology"/>		
+		<rdfs:range rdf:resource="#Attack"/>		
+		<rdfs:label xml:lang="en">has vulnerability</rdfs:label>
+		<rdfs:comment xml:lang="en">A technology can be vulnerable to some attacks.</rdfs:comment>
+     </owl:ObjectProperty>
+     
+     <owl:ObjectProperty rdf:ID="isVulnerabilityOf"> 
+     	<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#hasVulnerability" />
+     	</owl:inverseOf>
+     	<rdfs:domain rdf:resource="#Attack"/>		
+		<rdfs:range rdf:resource="#Technology"/>		
+		<rdfs:label xml:lang="en">is Vulnerability Of</rdfs:label>
+		<rdfs:comment xml:lang="en">Some attacks cannot be thwart in technologies. For example, the Denial of Service is difficult to thwart in different technologies.</rdfs:comment>
+     </owl:ObjectProperty>          
+     		
+	<owl:ObjectProperty rdf:ID="hasFeature">	
+		<rdfs:label xml:lang="en">hasFeature</rdfs:label>
+		<rdfs:comment xml:lang="en">A SecurityMechanism has specific features (secured, depreceted, low energy consuming). For example, an asymmetric algorithm is high energy consuming.</rdfs:comment>
+	    <rdfs:domain rdf:resource="#SecurityMechanism"/>		
+		<rdfs:range rdf:resource="#Feature"/>	
+		<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#isFeatureOf"/>
+     	</owl:inverseOf>
+	</owl:ObjectProperty>	
+	
+		<owl:ObjectProperty rdf:ID="isFeatureOf">	
+		<rdfs:label xml:lang="en">isFeatureOf</rdfs:label>
+		<rdfs:comment xml:lang="en">Features are related to security mechanisms. For example, an asymmetric algorithm is high energy consuming.</rdfs:comment>
+	    <rdfs:domain rdf:resource="#Feature"/>		
+		<rdfs:range rdf:resource="#SecurityMechanism"/>	
+		<owl:inverseOf>
+        	<owl:ObjectProperty rdf:about="#hasFeature"/>
+     	</owl:inverseOf>
+	</owl:ObjectProperty>	
+	
+	<owl:ObjectProperty rdf:ID="hasArchitecture">
+		<rdfs:domain rdf:resource="#Technology"/>		
+		<rdfs:range rdf:resource="#Architecture"/>		
+		<rdfs:label xml:lang="en">hasArchitecture</rdfs:label>
+		<rdfs:comment xml:lang="en">A technology has a specific architecture.</rdfs:comment>
+	</owl:ObjectProperty>	
+	
+	<!-- ################################################ attack type ############################################## -->
+	
+	<owl:Class rdf:ID="Worm">		
+		<rdfs:label xml:lang="en">Worm</rdfs:label>
+		<rdfs:comment xml:lang="en">Worms are self-propagating pieces of malicious software. They propagate from one computer/device to another via a network link.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+		<rdfs:subClassOf rdf:resource="#GPRSAttack"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>   
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#occursInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:Class rdf:ID="Virus">		
+		<rdfs:label xml:lang="en">Virus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#GPRSAttack"/>
+		<rdfs:subClassOf rdf:resource="#RfidAttack"/>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementAttack"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006], Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description> 
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#Antivirus"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#occursInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Spam">		
+		<rdfs:label xml:lang="en">Spam</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#AntiSpam"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#occursInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Spyware">		
+		<rdfs:label xml:lang="en">Spyware</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Troyan">		
+		<rdfs:label xml:lang="en">Troyan</rdfs:label>
+		<rdfs:comment xml:lang="en">A Trojan horse is a malicious piece of software hidden in a program that performs normal tasks. Program that does something malicious (such as capturing passwords) when run by an unsuspecting user.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Virus"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>   
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#isVulnerabilityOf"/>
+             	<owl:someValuesFrom rdf:resource="#WebAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PolymorphicVirus">		
+		<rdfs:label xml:lang="en">Polymorphic Virus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Virus"/>
+	</owl:Class>
+	
+	<!-- ################################################ SecurityMechanism type ############################################## -->
+
+	<owl:Class rdf:ID="Antivirus">		
+		<rdfs:label xml:lang="en">Antivirus</rdfs:label>
+		<rdfs:comment xml:lang="en">Anti-viruses softwares applications will reduce viruses and malware on M2M equipment.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: A study of information security for M2M and IoT [Jiang et al. 2010]</dc:description>   
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#M2MSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#IntegrityMethod"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Honeypot">		
+		<rdfs:label xml:lang="en">Honeypot</rdfs:label>
+		<rdfs:comment xml:lang="en">Honeypots are hosts meant to be attacked either to distract the attackers or to research their techniques.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AntiSpyware">		
+		<rdfs:label xml:lang="en">Anti Spyware</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AntiSpam">		
+		<rdfs:label xml:lang="en">Anti Spam</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ExternalAttack">		
+		<rdfs:label xml:lang="en">External Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ActiveAttack"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+	</owl:Class>		
+	
+	<owl:Class rdf:ID="PassiveAttack">		
+		<rdfs:label xml:lang="en">Passive Attack</rdfs:label>
+		<rdfs:comment xml:lang="en">Malicious users violate the confidentiality  of the information exchanged over the network.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ActiveAttack">		
+		<rdfs:label xml:lang="en">Active Attack</rdfs:label>
+		<rdfs:comment xml:lang="en">Active attacks involve actions performed by adversaries to gain the control of the network.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="InternalAttack">		
+		<rdfs:label xml:lang="en">Internal Attack</rdfs:label>
+		<rdfs:comment xml:lang="en">Internal attacks are launched from compromised nodes, are much more sophisticated than external attacks.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ActiveAttack"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Sniffer">		
+		<rdfs:label xml:lang="en">Sniffer</rdfs:label>
+		<rdfs:comment xml:lang="en">A Sniffer tries to spy passwords for instance.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityTool"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WifiAttackTool">		
+		<rdfs:label xml:lang="en">Wifi Attack Tool</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityTool"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="JavaSecurityApi">		
+		<rdfs:label xml:lang="en">Java Api</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+	</owl:Class>
+
+	<owl:Class rdf:ID="Captcha">		
+		<rdfs:label xml:lang="en">Captcha</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+	</owl:Class>
+
+	<owl:Class rdf:ID="SymmetricSensorKey">		
+		<rdfs:label xml:lang="en">SymmetricSensorKey</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SymmetricKey"/>
+	</owl:Class>
+     
+     <!-- ##################################################### Key Management ##################################################################### -->
+     	
+	<owl:Class rdf:ID="SensorKeyManagement">		
+		<rdfs:label xml:lang="en">Sensor Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#KeyManagement"/>	
+		<rdfs:subClassOf rdf:resource="#SensorSecurityMechanism"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="GSMKeyManagement">		
+		<rdfs:label xml:lang="en">GSM Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#KeyManagement"/>	
+		<rdfs:subClassOf rdf:resource="#GSMSecurityMechanism"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="UMTSKeyManagement">		
+		<rdfs:label xml:lang="en">UMTS Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#KeyManagement"/>
+		<rdfs:subClassOf rdf:resource="#UMTSSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WimaxKeyManagement">		
+		<rdfs:label xml:lang="en">Wimax Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#KeyManagement"/>	
+		<rdfs:subClassOf rdf:resource="#WimaxSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WifiKeyManagement">		
+		<rdfs:label xml:lang="en">Wifi Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#KeyManagement"/>
+		<rdfs:subClassOf rdf:resource="#WifiSecurityMechanism"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MeshKeyManagement">		
+		<rdfs:label xml:lang="en">Mesh Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#KeyManagement"/>	
+		<rdfs:subClassOf rdf:resource="#MeshSecurityMechanism"/>
+	</owl:Class>		
+	
+	<!-- ################################################################################################################################# -->
+	<!-- ##################################################### Attack #################################################################### -->
+	<!-- ################################################################################################################################# -->
+	
+	<owl:Class rdf:ID="SensorAttack">		
+		<rdfs:label xml:lang="en">Sensor Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#SensorSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ManetAttack">		
+		<rdfs:label xml:lang="en">Manet Attack</rdfs:label>
+		<rdfs:comment xml:lang="en">Manet (Mobile ad hoc network) is a self-configuring network of mobile devices connected.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#ManetSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="MeshAttack">		
+		<rdfs:label xml:lang="en">Mesh Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#MeshSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="M2MAttack">		
+		<rdfs:label xml:lang="en">M2M Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#M2MSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UwbAttack">		
+		<rdfs:label xml:lang="en">Uwb Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#UwbSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="RfidAttack">		
+		<rdfs:label xml:lang="en">RFID Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#RfidSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BluetoothAttack">		
+		<rdfs:label xml:lang="en">Bluetooth Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#BluetoothSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="ZigbeeAttack">		
+		<rdfs:label xml:lang="en">Zigbee Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#ZigbeeSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="WifiAttack">		
+		<rdfs:label xml:lang="en">Wifi Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#WifiSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WimaxAttack">		
+		<rdfs:label xml:lang="en">Wimax Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#WimaxSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GSMAttack">		
+		<rdfs:label xml:lang="en">GSM Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#GSMSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HSPDAAttack">		
+		<rdfs:label xml:lang="en">HSPDA Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#HSPDASecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UMTSAttack">		
+		<rdfs:label xml:lang="en">UMTS Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#UMTSSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EDGEAttack">		
+		<rdfs:label xml:lang="en">EDGE Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#EDGESecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GPRSAttack">		
+		<rdfs:label xml:lang="en">GPRS Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#GPRSSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LTEAttack">		
+		<rdfs:label xml:lang="en">LTE Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#LTESecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WebAttack">		
+		<rdfs:label xml:lang="en">Web Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#WebSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#occursInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="CloudAttack">		
+		<rdfs:label xml:lang="en">Cloud Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#CloudSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>		
+	
+	<owl:Class rdf:ID="FrameworkAttack">		
+		<rdfs:label xml:lang="en">Framework Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#FrameworkSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DatabaseAttack">		
+		<rdfs:label xml:lang="en">Database Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#DatabaseSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ECommerceAttack">		
+		<rdfs:label xml:lang="en">ECommerce Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#ECommerceSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ProgrammingLanguageAttack">		
+		<rdfs:label xml:lang="en">Programming Language Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#ProgrammingLanguageSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WebServiceAttack">		
+		<rdfs:label xml:lang="en">Web Service Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebAttack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#WebServiceSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NetworkManagementAttack">		
+		<rdfs:label xml:lang="en">Network Management Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#NetworkManagementSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ServerAttack">		
+		<rdfs:label xml:lang="en">Server Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementAttack"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#ServerSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="OperatingSystemAttack">		
+		<rdfs:label xml:lang="en">Operating System Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementAttack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#OperatingSystemSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EthernetAttack">		
+		<rdfs:label xml:lang="en">Ethernet Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Attack"/>
+				<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#EthernetSecurityMechanism"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<!-- ###############################################################################################################################################-->	
+	<!-- ############################################################ SecurityMechanism ################################################################-->
+	<!-- ###############################################################################################################################################-->
+		
+	<owl:Class rdf:ID="EthernetSecurityMechanism">		
+		<rdfs:label xml:lang="en">Ethernet SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#EthernetTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="M2MSecurityMechanism">		
+		<rdfs:label xml:lang="en">M2M SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#M2MTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ManetSecurityMechanism">		
+		<rdfs:label xml:lang="en">Manet SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#ManetTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="SensorSecurityMechanism">		
+		<rdfs:label xml:lang="en">Sensor Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en">Sensor nodes have very limited computationnal power, and traditional security and encryption techniques are not-well suitd to this domain.</rdfs:comment>
+		<dc:description xml:lang="en">Sensor nodes have very limited computationnal power, and traditional security and encryption techniques are not-well suitd to this domain.</dc:description>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#SensorTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MeshSecurityMechanism">		
+		<rdfs:label xml:lang="en">Mesh Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#MeshTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="WebSecurityMechanism">		
+		<rdfs:label xml:lang="en">Web Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#WebTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protectsInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CloudSecurityMechanism">		
+		<rdfs:label xml:lang="en">Cloud Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#CloudTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FrameworkSecurityMechanism">		
+		<rdfs:label xml:lang="en">Framework Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#FrameworkTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DatabaseSecurityMechanism">		
+		<rdfs:label xml:lang="en">Database Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#DatabaseTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ProgrammingLanguageSecurityMechanism">		
+		<rdfs:label xml:lang="en">Programming Language Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#ProgrammingLanguageTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+		
+	<owl:Class rdf:ID="ECommerceMechanism">		
+		<rdfs:label xml:lang="en">ECommerce Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#ECommerceTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WebServiceMechanism">		
+		<rdfs:label xml:lang="en">Web Service Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#WebServiceTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="NetworkManagementSecurityMechanism">		
+		<rdfs:label xml:lang="en">Network Management Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#NetworkManagementTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="OperatingSystemSecurityMechanism">		
+		<rdfs:label xml:lang="en">Operating System Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#OperatingSystemTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ServerSecurityMechanism">		
+		<rdfs:label xml:lang="en">Server Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#ServerTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LTESecurityMechanism">		
+		<rdfs:label xml:lang="en">LTE Security Mechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#LTETechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>			
+	
+	<owl:Class rdf:ID="GSMSecurityMechanism">		
+		<rdfs:label xml:lang="en">GSM SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#GSMTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HSPDASecurityMechanism">		
+		<rdfs:label xml:lang="en">HSPDA SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#HSPDATechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GPRSSecurityMechanism">		
+		<rdfs:label xml:lang="en">GPRS SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#GPRSTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>		
+	
+	<owl:Class rdf:ID="UMTSSecurityMechanism">		
+		<rdfs:label xml:lang="en">UMTS SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#UMTSTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EDGESecurityMechanism">		
+		<rdfs:label xml:lang="en">EDGE SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#EDGETechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="RfidSecurityMechanism">		
+		<rdfs:label xml:lang="en">Rfid SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#RfidTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UwbSecurityMechanism">		
+		<rdfs:label xml:lang="en">Uwb SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#UwbTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BluetoothSecurityMechanism">		
+		<rdfs:label xml:lang="en">Bluetooth SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#BluetoothTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ZigbeeSecurityMechanism">		
+		<rdfs:label xml:lang="en">Zigbee SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#ZigbeeTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="WimaxSecurityMechanism">		
+		<rdfs:label xml:lang="en">Wimax SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#WimaxTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WifiSecurityMechanism">		
+		<rdfs:label xml:lang="en">Wifi SecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#WifiTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- ########################################################################################################################################-->
+	<!-- ###################################################### TECHNOLOGY ######################################################################-->
+	<!-- ########################################################################################################################################-->
+	
+	<owl:Class rdf:ID="EthernetTechnology">		
+		<rdfs:label xml:lang="en">Ethernet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#HighCostDeployment"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#EthernetAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+		<!-- ######################################################  ######################################################################-->
+	
+	<!-- GSM / 2G-->	
+
+	<owl:Class rdf:ID="GSMTechnology">		
+		<rdfs:label xml:lang="en">Global System for Mobile Communication (GSM) or 2G</rdfs:label>
+		<rdfs:comment xml:lang="en">Global System for Mobile Communication (GSM) or 2G</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:seeAlso rdf:resource="&serviceContext;GSM"/>		
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#isReplacedBy"/>
+             	<owl:someValuesFrom rdf:resource="#GPRSTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#GSMArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#GSMAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+
+	<!-- GPRS / 2.5G-->	
+
+	<owl:Class rdf:ID="GPRSTechnology">		
+		<rdfs:label xml:lang="en">General Packet Radio Service (GPRS) or 2.5G</rdfs:label>
+		<rdfs:comment xml:lang="en">General Packet Radio Service (GPRS) or 2.5G</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>	
+		<rdfs:seeAlso rdf:resource="&ct;GPRS"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#isReplacedBy"/>
+             	<owl:someValuesFrom rdf:resource="#EDGETechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#GPRSArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#GPRSAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- EDGE / 2.75G-->	
+	
+	<owl:Class rdf:ID="EDGETechnology">		
+		<rdfs:label xml:lang="en">Enhanced Data Rates for GSM Evolution (EDGE) or 2.75G</rdfs:label>
+		<rdfs:comment xml:lang="en">Enhanced Data Rates for GSM Evolution (EDGE) or 2.75G</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:seeAlso rdf:resource="&ct;EDGE"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#isReplacedBy"/>
+             	<owl:someValuesFrom rdf:resource="#UMTSTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#EDGEAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- UMTS / 3G-->	
+		
+	<owl:Class rdf:ID="UMTSTechnology">		
+		<rdfs:label xml:lang="en">3G technology (UMTS:Universal Mobile Telecommunications System)</rdfs:label>
+		<rdfs:comment xml:lang="en">Universal Mobile Telecommunications System (UMTS). Third Generation (3G)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:seeAlso rdf:resource="&serviceContext;UMTS"/>	
+		<rdfs:seeAlso rdf:resource="&ct;UMTS"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#isReplacedBy"/>
+             	<owl:someValuesFrom rdf:resource="#HSPDATechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#UMTSArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#UMTSAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<!-- HSPDA / 3.5G-->
+	
+	<owl:Class rdf:ID="HSPDATechnology">		
+		<rdfs:label xml:lang="en">High-Speed Download Packet Access (HSPDA) or 3.5G</rdfs:label>
+		<rdfs:comment xml:lang="en">High-Speed Download Packet Access (HSPDA) or 3.5G</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#isReplacedBy"/>
+             	<owl:someValuesFrom rdf:resource="#LTETechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#HSPDAAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>		
+	
+	<!-- LTE / 4G-->			
+
+	<owl:Class rdf:ID="LTETechnology">		
+		<rdfs:label xml:lang="en">Long Term Evolution (LTE) Technology or 4G</rdfs:label>
+		<rdfs:comment xml:lang="en">Long Term Evolution (LTE) Technology or 4G</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#LTEArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#LTEAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- ######################################################  ######################################################################-->
+	
+	<owl:Class rdf:ID="BluetoothTechnology">		
+		<rdfs:label xml:lang="en">Bluetooth Technology</rdfs:label>
+		<rdfs:comment xml:lang="en">A protocol for short-range (up to 100 meters) wireless networks.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:seeAlso rdf:resource="&serviceContext;Bluetooth"/>
+		<rdfs:seeAlso rdf:resource="&ct;BluetoothConnectivity"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#BluetoothAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:Class rdf:ID="RfidTechnology">		
+		<rdfs:label xml:lang="en">Rfid Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#RfidAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ZigbeeTechnology">		
+		<rdfs:label xml:lang="en">Zigbee Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#LowCost"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#LowEnergyConsuming"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#Scalable"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="ZigbeeAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UwbTechnology">		
+		<rdfs:label xml:lang="en">Ultra Wideband (UWB) Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#UwbAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- ###################################################### Wifi/WLAN ######################################################################-->
+	
+	<owl:Class rdf:ID="WifiTechnology">		
+		<rdfs:label xml:lang="en"> Wi-Fi technology (Wireless-Fidelity)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:seeAlso rdf:resource="&ct;WiFiConnectivity"/>				
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#LowCostDeployment"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#WifiArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#WifiAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<!-- ###################################################### Wimax ######################################################################-->
+	
+	<owl:Class rdf:ID="WimaxTechnology">		
+		<rdfs:label xml:lang="en">Wimax Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:seeAlso rdf:resource="&ct;WiMAXConnectivity"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#WimaxArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#WimaxAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>		
+	
+	<owl:Class rdf:ID="SensorTechnology">		
+		<rdfs:label xml:lang="en">Sensor Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#SensorAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+					
+	<owl:Class rdf:ID="M2MTechnology">		
+		<rdfs:label xml:lang="en">Machine-to-Machine(M2M)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#M2MAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ManetTechnology">		
+		<rdfs:label xml:lang="en">Manet Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#ManetAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="MeshTechnology">		
+		<rdfs:label xml:lang="en">Mesh Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+		<rdfs:subClassOf rdf:resource="#Technology"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasArchitecture"/>
+             	<owl:someValuesFrom rdf:resource="#MeshArchitecture"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#MeshAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FrameworkTechnology">		
+		<rdfs:label xml:lang="en">Framework Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#FrameworkAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CloudTechnology">		
+		<rdfs:label xml:lang="en">Cloud Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#CloudAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="WebTechnology">		
+		<rdfs:label xml:lang="en">Web Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#WebAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="ECommerceTechnology">		
+		<rdfs:label xml:lang="en">ECommerce Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#ECommerceAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="DatabaseTechnology">		
+		<rdfs:label xml:lang="en">Database Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#DatabaseAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ProgrammingLanguageTechnology">		
+		<rdfs:label xml:lang="en">Programming Language</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#ProgrammingLanguageAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WebService">		
+		<rdfs:label xml:lang="en">Web Service</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#WebTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#WebServiceAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NetworkManagementTechnology">		
+		<rdfs:label xml:lang="en">Network Management Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Technology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#NetworkManagementAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<!-- Server -->
+	
+	<owl:Class rdf:ID="ServerTechnology">		
+		<rdfs:label xml:lang="en">Server Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#ServerAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- OperatingSystem -->
+	
+	<owl:Class rdf:ID="OperatingSystemTechnology">		
+		<rdfs:label xml:lang="en">Operating system Technology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementTechnology"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasVulnerability"/>
+             	<owl:someValuesFrom rdf:resource="#OperatingSystemAttack"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<!-- ###################################################### PROTOCOL ######################################################################-->
+	
+	<owl:Class rdf:ID="SensorSecurityProtocol">		
+		<rdfs:label xml:lang="en">Sensor Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#SensorSecurityMechanism"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="GSMSecurityProtocol">		
+		<rdfs:label xml:lang="en">GSM Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#GSMSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UMTSSecurityProtocol">		
+		<rdfs:label xml:lang="en">UMTS Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#UMTSSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WifiSecurityProtocol">		
+		<rdfs:label xml:lang="en">Wifi Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#WifiSecurityMechanism"/>
+	</owl:Class>	
+
+	<owl:Class rdf:ID="MeshSecurityProtocol">		
+		<rdfs:label xml:lang="en">Mesh Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#MeshSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WimaxSecurityProtocol">		
+		<rdfs:label xml:lang="en">Wimax Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#WimaxSecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WebSecurityProtocol">		
+		<rdfs:label xml:lang="en">Web Security Protocol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Protocol"/>
+		<rdfs:subClassOf rdf:resource="#WebSecurityMechanism"/>
+	</owl:Class>
+	
+	<!-- Security Algorithms -->
+		
+	<owl:Class rdf:ID="GSMSecurityAlgorithm">		
+		<rdfs:label xml:lang="en">GSM Security Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityAlgorithm"/>
+		<rdfs:subClassOf rdf:resource="#GSMSecurityMechanism"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="GPRSSecurityAlgorithm">		
+		<rdfs:label xml:lang="en">GPRS Security Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityAlgorithm"/>
+		<rdfs:subClassOf rdf:resource="#GPRSSecurityMechanism"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="UMTSSecurityAlgorithm">		
+		<rdfs:label xml:lang="en">UMTS Security Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityAlgorithm"/>
+		<rdfs:subClassOf rdf:resource="#UMTSSecurityMechanism"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="BluetoothSecurityAlgorithm">		
+		<rdfs:label xml:lang="en">Bluetooth Security Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityAlgorithm"/>
+		<rdfs:subClassOf rdf:resource="#BluetoothSecurityMechanism"/>
+	</owl:Class>	
+	
+	  <!-- ################################################ DataTypeSensitive ############################################## -->
+	
+	<owl:Class rdf:ID="LowSensitive">		
+		<rdfs:label xml:lang="en">LowSensitive</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataTypeSensitive"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MediumSensitive">		
+		<rdfs:label xml:lang="en">MediumSensitive</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataTypeSensitive"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HighSensitive">		
+		<rdfs:label xml:lang="en">HighSensitive</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataTypeSensitive"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DataProvenanceType">		
+		<rdfs:label xml:lang="en">DataProvenanceType</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Bank">		
+		<rdfs:label xml:lang="en">Bank</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataProvenanceType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Personal">		
+		<rdfs:label xml:lang="en">Personal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataProvenanceType"/>
+	</owl:Class>
+	
+	<!-- Cryptographic Concept -->
+	
+	<owl:Class rdf:ID="CryptographicConcept">		
+		<rdfs:label xml:lang="en">CryptographicConcept</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PhysicalKey">	
+		<rdfs:label xml:lang="en">Physical Key</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PhysicalAuthentication"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Badge">	
+		<rdfs:label xml:lang="en">Badge</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PhysicalAuthentication"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PhysicalAuthentication">	
+		<rdfs:label xml:lang="en">Physical Authentication</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+	</owl:Class>	
+	
+	<!-- ################################################ SecurityMechanism type ############################################## -->
+					
+	<owl:Class rdf:ID="SymmetricKey">		
+		<rdfs:label xml:lang="en">Symmetric Key</rdfs:label>
+		<rdfs:comment xml:lang="en">Symmetric key: the same key is used for encryption and decryption.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AsymmetricKey">		
+		<rdfs:label xml:lang="en">Asymmetric Key</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PublicKey">		
+		<rdfs:label xml:lang="en">Public Key </rdfs:label>
+		<rdfs:comment xml:lang="en">The public key is used for verifying a digital signature and is used for encryption.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AsymmetricKey"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PrivateKey">		
+		<rdfs:label xml:lang="en">Private Key </rdfs:label>
+		<rdfs:comment xml:lang="en">The private key is used for computing signatures and decryption.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AsymmetricKey"/>	
+	</owl:Class>
+
+	
+	<owl:Class rdf:ID="DigitalSignature">		
+		<rdfs:label xml:lang="en">Digital Signature</rdfs:label>
+		<rdfs:comment xml:lang="en">The digital signature verifies that the contents of the electronic message have not been altered.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#CryptographicConcept"/>	
+		<rdfs:subClassOf rdf:resource="#IntegrityMethod"/>	
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+		<rdfs:subClassOf rdf:resource="#NonRepudiationMethod"/>	
+		<dcterms:hasPart rdf:resource="#AsymmetricAlgorithm"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SystemLogs">	
+		<rdfs:label xml:lang="en">System Logs</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NonRepudiationMethod"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DigitalCertificate">		
+		<rdfs:label xml:lang="en">Digital Certificate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HashFunction">		
+		<rdfs:label xml:lang="en">Hash Function</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#CryptographicConcept"/>	
+		<rdfs:subClassOf rdf:resource="#IntegrityMethod"/>	
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+		<dcterms:hasPart rdf:resource="#SymmetricAlgorithm"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ChecksumAlgorithm">		
+		<rdfs:label xml:lang="en">Checksum Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#IntegrityMethod"/>	
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:ID="hasModeOperation"> 
+     	<rdfs:domain rdf:resource="#SymmetricAlgorithm"/>		
+		<rdfs:range rdf:resource="#ModeOperation"/>		
+		<rdfs:label xml:lang="en">hasModeOperation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+     </owl:ObjectProperty>
+	
+	<owl:Class rdf:ID="ModeOperation">		
+		<rdfs:label xml:lang="en">Mode of operation</rdfs:label>
+		<rdfs:comment xml:lang="en">A mode of operation describes the process of encrypting each of block cipher.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#BlockCipher"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AsymmetricAlgorithm">		
+		<rdfs:label xml:lang="en">Asymmetric algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en">The keys used for encryption and decryption are different, allowing for easier key distribution.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#EncryptionAlgorithm"/>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>
+		<rdfs:seeAlso rdf:resource="&kimalgorithms;AsymmetricAlgorithm"/>
+		<rdfs:seeAlso rdf:resource="&herzog;Public-KeyEncryption"/>
+		<rdfs:seeAlso rdf:resource="&securitysw;AsymmetricAlgorithm"/>
+		<rdfs:seeAlso rdf:resource="&maso;Cryptage-asymetrique"/>
+		<rdfs:seeAlso rdf:resource="&secberlin;Asymmetric_cryptographic_algorithm"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#HighEnergyConsuming"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#ExchangeKeyEasy"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+        <dcterms:hasPart rdf:resource="IndividualKey"/>
+		<dcterms:hasPart rdf:resource="#PrivateKey"/>
+		<dcterms:hasPart rdf:resource="#PublicKey"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SymmetricAlgorithm">		
+		<rdfs:label xml:lang="en">Symmetric algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en">The same secret key is used for encryption and decryption.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#EncryptionAlgorithm"/>	
+		<rdfs:seeAlso rdf:resource="&kimalgorithms;SymmetricAlgorithm"/>	
+		<rdfs:seeAlso rdf:resource="&herzog;SymmetricAlgorithm"/>
+		<rdfs:seeAlso rdf:resource="&secberlin;SymmetricAlgorithm"/>
+		<rdfs:seeAlso rdf:resource="&securitysw;SymmetricAlgorithm"/>
+		<rdfs:seeAlso rdf:resource="&maso;Cryptage-symetrique"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#ExchangeKeyNotEasy"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#LowEnergyConsuming"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="BlockCipher">		
+		<rdfs:label xml:lang="en">BlockCipher</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SymmetricAlgorithm"/>	
+		<rdfs:seeAlso rdf:resource="&herzog;BlockCipher"/>
+		<rdfs:seeAlso rdf:resource="&securitysw;BlockCipherAlgorithm"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="StreamCipher">		
+		<rdfs:label xml:lang="en">StreamCipher</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SymmetricAlgorithm"/>	
+		<rdfs:seeAlso rdf:resource="&herzog;StreamCipher"/>
+		<rdfs:seeAlso rdf:resource="&secberlin;StreamCipherAlgorithm"/>
+		<rdfs:seeAlso rdf:resource="&securitysw;StreamCipherAlgorithm"/>	
+	</owl:Class>
+	
+	 <owl:Class rdf:ID="KeyManagement">		
+		<rdfs:label xml:lang="en">Key Management</rdfs:label>
+		<rdfs:comment xml:lang="en">Key management protocols are fundamental requirements to develop a secure application. These protocols are used to set up and distribute various kinds of cryptographic keys to nodes in the network.</rdfs:comment>
+		<dc:description xml:lang="en">Key management protocols are fundamental requirements to develop a secure application. These protocols are used to set up and distribute various kinds of cryptographic keys to nodes in the network.</dc:description>
+		<rdfs:subClassOf rdf:resource="#CryptographicConcept"/>	
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="EncryptionAlgorithm">		
+		<rdfs:label xml:lang="en">Encryption Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en">Encryption algorithm ensures the confidentiality property.</rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&kimalgorithms;EncryptionAlgorithm"/>	
+		<rdfs:subClassOf rdf:resource="#SecurityAlgorithm"/>
+		<rdfs:subClassOf rdf:resource="#CryptographicConcept"/>
+		<rdfs:subClassOf rdf:resource="#ConfidentialityMethod"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="SecurityAlgorithm">		
+		<rdfs:label xml:lang="en">Security Algorithm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Flooding">		
+		<rdfs:label xml:lang="en">Flooding</rdfs:label>
+		<rdfs:comment xml:lang="en">Floodings attacks generally are used to drain the memry resources by sensing the control signals.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<rdfs:subClassOf rdf:resource="#SensorAttack"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasSecurityMechanism"/>
+             	<owl:someValuesFrom rdf:resource="#ClientPuzzle"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#occursInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#TransportLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<!-- ##################################################### Architecture Component ############################################################-->	
+	
+	<owl:Class rdf:ID="MeshArchitectureComponent">		
+		<rdfs:label xml:lang="en">Mesh Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WimaxArchitectureComponent">		
+		<rdfs:label xml:lang="en">Wimax Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WifiArchitectureComponent">		
+		<rdfs:label xml:lang="en">Wifi Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LTEArchitectureComponent">		
+		<rdfs:label xml:lang="en">LTE Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UMTSArchitectureComponent">		
+		<rdfs:label xml:lang="en">UMTS Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GPRSArchitectureComponent">		
+		<rdfs:label xml:lang="en">GPRS Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GSMArchitectureComponent">		
+		<rdfs:label xml:lang="en">GSM Architecture component</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#ArchitectureComponent"/>
+	</owl:Class>
+	
+	<!-- ##################################################### Architecture ############################################################-->	
+			
+	<owl:Class rdf:ID="GPRSArchitecture">		
+		<rdfs:label xml:lang="en">GPRS Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en">The GPRS system are a much more expesed to intruders, because of its IP based backbone.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Architecture"/>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="UMTSArchitecture">		
+		<rdfs:label xml:lang="en">UMTS Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Architecture"/>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="LTEArchitecture">		
+		<rdfs:label xml:lang="en">LTE Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+		<rdfs:subClassOf rdf:resource="#Architecture"/>
+	</owl:Class>	
+			
+	<owl:Class rdf:ID="MeshArchitecture">		
+		<rdfs:label xml:lang="en">Mesh Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+		<rdfs:subClassOf rdf:resource="#Architecture"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#LowCostDeployment"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#Scalable"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#Flexible"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+		
+	<owl:Class rdf:ID="WimaxArchitecture">		
+		<rdfs:label xml:lang="en">WiMAX Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Architecture"/>
+	</owl:Class>		
+		
+	<owl:Class rdf:ID="GSMArchitecture">		
+		<rdfs:label xml:lang="en">GSM Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<rdfs:subClassOf rdf:resource="#Architecture"/>	
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="WifiArchitecture">		
+		<rdfs:label xml:lang="en">Wifi Architecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Architecture"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SecurityMagazine">		
+		<rdfs:label xml:lang="en">Security Magazine</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>	
+	</owl:Class>
+	
+	
+	<!-- ##################################################### Security Property Method ############################################################-->	
+	
+	<owl:Class rdf:ID="SecurityPropertyMethod">		
+		<rdfs:label xml:lang="en">Security Property Method</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ConfidentialityMethod">		
+		<rdfs:label xml:lang="en">Confidentiality Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Confidentiality means that only destined user must be able to read data.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+			
+	<owl:Class rdf:ID="SemanticSecurityMethod">		
+		<rdfs:label xml:lang="en">Semantic Security Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Semantic security ensures that an eavesdropper has no information about the message, even if it sees multiple encryptions of the same messages.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>	
+			
+	<owl:Class rdf:ID="AuthenticationMethod">	
+		<rdfs:label xml:lang="en">Authentication Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Authentication prevents unauthorized access to the network.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="IntegrityMethod">	
+		<rdfs:label xml:lang="en">Integrity Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Data integrity guarantees that the transmitted messages are not modified by attackers, either due to malicious intent or by accident.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AccessControlMethod">	
+		<rdfs:label xml:lang="en">Access Control Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Access Control is the mechanism that allows owners of resources to define, manage and enforce access conditions applicable to each resource.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AvailabilityMethod">	
+		<rdfs:label xml:lang="en">Availability Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Data availability ensures that the network is alive and that data are accessible.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NonRepudiationMethod">	
+		<rdfs:label xml:lang="en">Non Repudiation Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Non repudiation means that a sender is unable to deny having sent a message or infoomation.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AnonymityMethod">	
+		<rdfs:label xml:lang="en">Anonymity Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Anonymity protects user identity, making it hard to track the whereabouts of a certain user.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DataFreshnessMethod">	
+		<rdfs:label xml:lang="en">Data Freshness Method</rdfs:label>
+		<rdfs:comment xml:lang="en">Data freshness suggests that the data is recent, and it ensures that no old messages have been replayed.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SecurityPropertyMethod"/>
+	</owl:Class>
+	
+	<!-- -->
+	
+	<owl:Class rdf:ID="CounterValue">		
+		<rdfs:label xml:lang="en">Counter Value</rdfs:label>
+		<rdfs:comment xml:lang="en">Since the counter value is incremented after each message, the same message is encrypted differently each time.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataFreshnessMethod"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Timestamp">		
+		<rdfs:label xml:lang="en">Timestamp</rdfs:label>
+		<rdfs:comment xml:lang="en">In order to ensure the freshness of packet, a timestamp can be attached to the packet. A receiving node can compare the timestamp in the packet with its own time clock and determine whether the packet is valid or not.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DataFreshnessMethod"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TemporaryIdentity">	
+		<rdfs:label xml:lang="en">Temporary Identity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AnonymityMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="IPS">		
+		<rdfs:label xml:lang="en">Intrusion Prevention System (IPS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#AvailabilityMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="IDS">		
+		<rdfs:label xml:lang="en">Intrusion Detection System (IDS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#AvailabilityMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Proxy">		
+		<rdfs:label xml:lang="en">Proxy</rdfs:label>
+		<rdfs:comment xml:lang="en">A proxy analyzes application commands, performs authentication and keeps logs.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ReverseProxy">		
+		<rdfs:label xml:lang="en">Reverse Proxy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RBAC">		
+		<rdfs:label xml:lang="en">Role Based Access Control (RBAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Mechanism for access control that organizes users (in the system) into specific groups called Roles. E.g., Doctor and nurses are different roles in a hospital.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasFeature"/>
+             	<owl:someValuesFrom rdf:resource="#NotFlexible"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CA-RBAC">		
+		<rdfs:label xml:lang="en">Context Aware Role Based Access Control (CA-RBAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">E.g. herat attack is a critical event. Criticaly is a context aware permission.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ABAC">		
+		<rdfs:label xml:lang="en">Attribute Based Access control (ABAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Permissions are associated with a set of rules expressed on measurable parameters and are granted to users who can prove compliance with these rules.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RelBAC">		
+		<rdfs:label xml:lang="en">Relation Based Access Control (RelBAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Permissions are modeled as relations between users (subjects) and data (objects).</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DAC">		
+		<rdfs:label xml:lang="en">Discretionary Access Control (DAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Object owners can add access rights.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>	
+	
+		
+		
+	<owl:Class rdf:ID="Firewall">		
+		<rdfs:label xml:lang="en">Firewall</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;NetworkManagementSecurityMechanism"/>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+		<rdf:type rdf:resource="&stac;UMTSSecurityMechanism"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protectsInLayer"/>
+             	<owl:someValuesFrom rdf:resource="#ApplicationLayer"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#protects"/>
+             	<owl:someValuesFrom rdf:resource="#WebTechnology"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="LoginPassword">	
+		<rdfs:label xml:lang="en">Login/Password</rdfs:label>
+		<rdfs:comment xml:lang="en">The simple form of authentication is providing a user name and password which is mainly the case in internet based authentication (e.g. email, online shopping, etc)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MandatoryAccessControl">		
+		<rdfs:label xml:lang="en">Mandatory Access Control (MAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Only an administrator is authorized to add a new access right to the system.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AccessControlMethod"/>
+	</owl:Class>	
+	       	
+    <owl:Class rdf:ID="InitialVector">		
+		<rdfs:label xml:lang="en">Initial Vector</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#SemanticSecurityMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ICV">		
+		<rdfs:label xml:lang="en">Integrity Check Value (ICV)</rdfs:label>
+		<rdfs:comment xml:lang="en">The purpose of this value is to enable the receiver to detect any malicious modifications of the message by an attacker.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#IntegrityMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MAC">		
+		<rdfs:label xml:lang="en">Message Authentication Code (MAC)</rdfs:label>
+		<rdfs:comment xml:lang="en">MAC is a short piece of information used to authenticate a message and check the integrity.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#IntegrityMethod"/>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>
+	</owl:Class>
+			
+	<owl:Class rdf:ID="PreSharedKey">	
+		<rdfs:label xml:lang="en">Pre Shared Key</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="MutualAuthentication">	
+		<rdfs:label xml:lang="en">Mutual Authentication ot two-way authentication</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>	
+	</owl:Class>
+		
+	<owl:Class rdf:ID="OneWayAuthentication">	
+		<rdfs:label xml:lang="en">One Way Authentication</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ChallengeResponse">	
+		<rdfs:label xml:lang="en">Challenge Response</rdfs:label>
+		<rdfs:comment xml:lang="en">Challenge/Response is a mechanism where on entity in the network proves to another entity that it knows the password without revealing it.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AuthenticationMethod"/>
+	</owl:Class>
+	
+	
+	<!-- 	
+	**************************** datatype PROPERTIES to delete **************************************   
+	
+	<owl:DatatypeProperty rdf:ID="levelDifficulty">
+		<rdfs:label xml:lang="en">levelDifficulty</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+ 		<rdfs:domain rdf:resource="#SecurityMechanism" />    
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty> 
+	
+	<owl:DatatypeProperty rdf:ID="codeExample">
+		<rdfs:label xml:lang="en">codeExample</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+ 		<rdfs:domain rdf:resource="#SecurityMechanism" />    
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty> 
+	
+	<owl:DatatypeProperty rdf:ID="urlTutoriel">
+		<rdfs:label xml:lang="en">urlTutoriel</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+ 		<rdfs:domain rdf:resource="#SecurityMechanism" />    
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty> 
+	
+	<owl:DatatypeProperty rdf:ID="popularity">
+		<rdfs:label xml:lang="en">popularity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+ 		<rdfs:domain rdf:resource="#Attack" />    
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+	</owl:DatatypeProperty> 
+	
+	<owl:DatatypeProperty rdf:ID="dataProvenance">
+		<rdfs:label xml:lang="en">dataProvenance</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+ 		<rdfs:domain rdf:resource="#ApplicationToSecure" />    
+ 		<rdfs:range  rdf:resource="#DataProvenanceType"/>
+	</owl:DatatypeProperty> 
+	
+	<owl:DatatypeProperty rdf:ID="dataPrivacy">
+		<rdfs:label xml:lang="en">dataPrivacy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+ 		<rdfs:domain rdf:resource="#ApplicationToSecure" />    
+ 		<rdfs:range  rdf:resource="#DataTypeSensitive"/>
+	</owl:DatatypeProperty> 
+	
+	
+	-->
+
+</rdf:RDF>

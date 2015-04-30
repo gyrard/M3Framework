@@ -1,0 +1,81 @@
+<h1>M3 Converter (SenML to RDF)</h1>
+<div class="hero-unit">
+
+<h3>SenML to RDF Converter (Use chrome)</h3>
+
+	<ol>
+	<li><a href="http://emulator-box-services.appspot.com/senmladmin/zones"> Simulate your data</a> (Follow the <a href="../documentation/NomenclatureSensorData.pdf">M3 nomenclature</a> to describe sensor measurements)</li>
+	<li><a href="http://emulator-box-services.appspot.com/senml/zones"> Get SenML/XML data</a></li>
+ 	<li>Enter an url (see previous link): <input id="url" size="80" maxlength="255" style="height:30px;width:1000px;font-size:15px;" type="text" value="http://emulator-box-services.appspot.com/senml/zones/ahdzfmVtdWxhdG9yLWJveC1zZXJ2aWNlc3IVCxIJWm9uZUFkbWluIgZoZWFsdGgM" name="url"><br/>
+	</li>
+</ol>
+<input type="button" class="btn" value="SenML to RDF Converter" onclick="convertSenMLToRDF();"/>
+
+<br/>Wait 1 minute! Use Chrome to get the result as text :-)
+<div id="res_convert"></div>
+
+
+</div>
+
+<div class="hero-unit">
+Please do not forget to cite our works: 
+<br/><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6803229">
+Enrich machine-to-machine data with semantic web technologies for cross-domain applications [Gyrard et al. 2014]</a>
+<br/>
+<a href="http://www2013.wwwconference.org/companion/p371.pdf">
+A Machine-to-Machine Architecture to Merge Semantic
+Sensor Measurements [Gyrard et al. 2013]</a>
+</div>
+
+
+<!--  
+<h1>Option 2: Copy/paste your SenML/JSON data</h1>
+<div class="hero-unit">
+
+Copy/paste your SenML/JSON sensor data here:<br/>
+ <textarea class="form-control" rows="10"  id="senmlTextJson">
+{
+
+    "e": [
+        {
+            "d_name": "Nexus_7",
+            "s_domainname": "weather",
+            "s_id": "3edcvfr4",
+            "s_name": "Light222",
+            "s_timestamp": "23/Jul/2014 09:44:13",
+            "s_typemeasurement": "luminosity",
+            "s_unit": "lx",
+            "s_value": "50000",
+            "s_version": "1.0"
+        }
+    ]
+
+}
+
+</textarea>
+ 
+<input type="button" class="btn2" value="SenML/JSON to RDF Converter" onclick="convertSenMLToRDFFormat('json');"/>
+</div>
+
+-->
+
+<h1>Option 2: Copy/paste your SenML/XML data</h1>
+<div class="hero-unit">
+
+Copy/paste your SenML/XML sensor data here (need to be surrounded by zone balise):<br/>
+ <textarea class="form-control" rows="10"  id="senmlText">
+<zone name="health">
+<senml bn="urn:body:uuid:c68ad78b-09eb-4303-ae3c-d5d23149ee96">
+<e n="blood pressure" t="0" u="Pa" v="56"/>
+<e n="cholesterol" t="0" u="g/L" v="5"/>
+<e n="heartbeat" t="0" u="beet/m" v="155"/>
+<e n="skin conductance" t="1382019143284" u="S" v="50"/>
+<e n="temperature" t="1374069830362" u="Cel" v="40"/>
+</senml></zone>
+
+</textarea>
+ 
+<input type="button" class="btn2" value="SenML/XML to RDF Converter" onclick="convertSenMLToRDFFormat('xml');"/>
+<br/>Use Chrome to get the result as text :-)<div id="res_convert_xml"></div>
+</div>
+

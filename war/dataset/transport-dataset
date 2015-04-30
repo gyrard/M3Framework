@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+		 <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY transport "http://sensormeasurement.appspot.com/ont/m3/transport#"> 
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+         <!ENTITY transport-dataset "http://sensormeasurement.appspot.com/dataset/transport-dataset/"> 
+         <!ENTITY weather-dataset "http://sensormeasurement.appspot.com/dataset/weather-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&transport-dataset;"
+        xml:base="&transport-dataset;"
+        xmlns:transport-dataset="&transport-dataset;"
+        xmlns:weather-dataset="&weather-dataset;"
+        xmlns:transport="&transport;"
+        xmlns:foaf="&foaf;"
+        xmlns:shw="&shw;"
+        xmlns:m3="&m3;"
+        xmlns:acco="&acco;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:naturopathy="&naturopathy;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">  
+
+	<!-- This transportation dataset has bee inspired by:
+	- Ruta et al. 2010-2012 to suggest safety devices or actions according to the weather forecasting.
+	  Paper: A mobile knowledge-based system for on-board diagnostics and car driving assistance. (2010)
+	  Paper: Knowledge-based real-time car monitoring and driving assistance (2012)
+	  Paper: Semantic-based knowledge dissemination and extraction in smart environments
+	  Paper: Ubiquitous knowledge based for the Semantic Web of things
+	  Paper: A semantic-based evolution of EIB konnex protocol standard
+	
+	(See http://sensormeasurement.appspot.com/?p=ontologies for more information)
+	
+	-->
+	
+	       <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+
+	<!-- ################################################ SAFETY DEVICES ############################################################################ -->
+     
+   <transport:SafetyDevice rdf:about="SwitchOnSunVisor">
+      	<rdfs:label xml:lang="en">Switch on the sun visor</rdfs:label>
+      	<rdfs:label xml:lang="fr">Utiliser le pare-soleil</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="SwitchOffSunVisor">
+      	<rdfs:label xml:lang="en">Switch off the sun visor</rdfs:label>
+      	<rdfs:label xml:lang="fr">Ne plus utiliser le pare-soleil</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Dark"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="YellowBracket">
+      	<rdfs:label xml:lang="en">YellowBracket</rdfs:label>
+      	<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&transport-dataset;CarAccident"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="Wiper">
+      	<rdfs:label xml:lang="en">Wipers</rdfs:label>
+      	<rdfs:label xml:lang="fr">Essuie-glaces</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="ABS">
+      	<rdfs:label xml:lang="en">ABS (Anti-lock braking system)</rdfs:label>
+      	<rdfs:label xml:lang="fr">ABS</rdfs:label>
+		<rdfs:comment xml:lang="en">ABS (Anti-lock braking system)</rdfs:comment>	
+		<dc:description xml:lang="en">Suggest safety devices according to weather conditions. See paper Knowledge-based real-time car monitoring and driving assistance [Ruta et al. 2010-2012]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Foggy"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="ESP">
+      	<rdfs:label xml:lang="en">ESP (Electronic Stability Program)</rdfs:label>
+      	<rdfs:label xml:lang="fr">ESP</rdfs:label>
+		<rdfs:comment xml:lang="en">ESP (Electronic Stability Program)</rdfs:comment>	
+		<dc:description xml:lang="en">Suggest safety devices according to weather conditions. See paper Knowledge-based real-time car monitoring and driving assistance [Ruta et al. 2010-2012]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="SnowChain">
+      	<rdfs:label xml:lang="en">SnowChain</rdfs:label>
+      	<rdfs:label xml:lang="fr">Pneu-neige</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<dc:description xml:lang="en">Suggest safety devices according to weather conditions. See paper Knowledge-based real-time car monitoring and driving assistance [Ruta et al. 2010-2012]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+     <transport:SafetyDevice rdf:about="FogLamp">
+      	<rdfs:label xml:lang="en">FogLamp</rdfs:label>
+      	<rdfs:label xml:lang="fr">Feux de brouillard</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<dc:description xml:lang="en">Suggest safety devices according to weather conditions. See paper Knowledge-based real-time car monitoring and driving assistance [Ruta et al. 2010-2012]</dc:description>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Foggy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="LowBeam">
+      	<rdfs:label xml:lang="en">LowBeam</rdfs:label>
+      	<rdfs:label xml:lang="fr">Feu de croisement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Foggy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="Heater">
+      	<rdfs:label xml:lang="en">Heater</rdfs:label>
+      	<rdfs:label xml:lang="fr">Chauffage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Cold"/> 
+    </transport:SafetyDevice>
+    
+    <transport:SafetyDevice rdf:about="RearWiper">
+      	<rdfs:label xml:lang="en">RearWiper</rdfs:label>
+      	<rdfs:label xml:lang="fr">Essuie-glace arriere</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+    </transport:SafetyDevice>
+    
+      <transport:SafetyDevice rdf:about="Brake">
+      	<rdfs:label xml:lang="en">Brake</rdfs:label>
+      	<rdfs:label xml:lang="fr">Frein</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </transport:SafetyDevice>
+    
+    <!-- to refactor -->
+    
+    <transport:Accident rdf:about="CarAccident">
+        <rdfs:label>CarAccident</rdfs:label>
+    </transport:Accident>
+	
+	
+
+    <!-- ################################################ ACTION ############################################################################ -->
+    
+    <transport:Action rdf:about="MakeABreak">
+      	<rdfs:label xml:lang="en">MakeABreak</rdfs:label>
+      	<rdfs:label xml:lang="fr">Faire une pause</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </transport:Action>
+    
+    <transport:Action rdf:about="Stop">
+      	<rdfs:label xml:lang="en">Stop</rdfs:label>
+      	<rdfs:label xml:lang="fr">S'arreter</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+    </transport:Action>
+    
+    <transport:Action rdf:about="LowSpeed">
+      	<rdfs:label xml:lang="en">LowSpeed</rdfs:label>
+      	<rdfs:label xml:lang="fr">Ralentir</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<dc:description xml:lang="en">Suggest safety devices or actions according to weather conditions. See paper Knowledge-based real-time car monitoring and driving assistance [Ruta et al. 2010-2012]</dc:description>		
+   		<m3:hasRecommendation rdf:resource="&weather-dataset;Foggy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Rainy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/>
+    </transport:Action>
+
+
+</rdf:RDF>

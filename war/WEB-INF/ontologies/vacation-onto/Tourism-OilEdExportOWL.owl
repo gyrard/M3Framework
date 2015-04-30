@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:owl="http://www.w3.org/??/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2000/10/XMLSchema#">
+    <owl:Ontology rdf:about="">
+        <dc:title>&quot;An Ontology&quot;</dc:title>
+        <dc:date></dc:date>
+        <dc:creator></dc:creator>
+        <dc:description></dc:description>
+        <dc:subject></dc:subject>
+        <owl:versionInfo></owl:versionInfo>
+    </owl:Ontology>
+    <owl:Class rdf:about="http://www.ina.fr#GeographicObject">
+        <rdfs:label>GeographicObject</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Entity considered in regard of its spatial location
+SWS=The entity is considered in regard of a specific point of view, depending on a human activity
+DWS=It is a geographically defined entity
+DWP=The entity is considered in regard of a peculiar point of view, depending on a human activity : It is a geographically defined entity]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SpatialEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#DependantStaticArtefact">
+        <rdfs:label>DependantStaticArtefact</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is an artefact that can't move
+SWS=Indicates whether it is dependant from another artefact
+DWS=It is dependant
+DWP=Indicates whether it is dependant from another artefact : It is dependant]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#StaticArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#BoeingPlane">
+        <rdfs:label>BoeingPlane</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a plane
+SWS=The constructor is specified
+DWS=Boeing
+DWP=The constructor is specified : Boeing]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Plane"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#DynamicArtefact">
+        <rdfs:label>DynamicArtefact</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It results from man's manufacturing activity
+SWS=It indicates wether it is mobile or not
+DWS=It can move
+DWP=It indicates wether it is mobile or not : It can move]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Artefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#LodgingFacility">
+        <rdfs:label>LodgingFacility</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a static artefact, considered as a whole
+SWS=It is an artefact related to a specific activity
+DWS=Lodging
+DWP=It is an artefact related to a specific activity : Lodging]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#IndependantStaticArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Integer">
+        <rdfs:label>Integer</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Primitive datatype
+SWS=It specifies the encoding pattern
+DWS=Numeric pattern
+DWP=It specifies the encoding pattern : Numeric pattern]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SimpleDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#RentalCar">
+        <rdfs:label>RentalCar</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a car
+SWS=Indicates the driver's status
+DWS=The driver is the person that rents the car
+DWP=Indicates the driver's status : The driver is the person that rents the car]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Car"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#BiologicalObject">
+        <rdfs:label>BiologicalObject</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Entity considered in regard of its spatial location
+SWS=The entity is considered in regard of a specific point of view, depending on a human activity
+DWS=It is a biologically defined entity
+DWP=The entity is considered in regard of a peculiar point of view, depending on a human activity : It is a biologically defined entity]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SpatialEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Monument">
+        <rdfs:label>Monument</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a town sight
+SWS=It is specified by the kind of "sight" involved
+DWS=Historic
+DWP=It is specified by the kind of "sight" involved : Historic]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TownSight"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TownSight">
+        <rdfs:label>TownSight</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a static artefact, considered as a whole
+SWS=It is an artefact related to a specific activity
+DWS=Sightseeing
+DWP=It is an artefact related to a specific activity : Sightseeing]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#IndependantStaticArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#StaticArtefact">
+        <rdfs:label>StaticArtefact</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It results from man's manufacturing activity
+SWS=It indicates wether it is mobile or not
+DWS=It doesn't move
+DWP=It indicates wether it is mobile or not : It doesn't move]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Artefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Coach">
+        <rdfs:label>Coach</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a Collective Inter UrbanMOT
+SWS=Indicates the transport modality
+DWS=on road
+DWP=Indicates the transport modality : on road]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#CollectiveInterUrbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Ferry">
+        <rdfs:label>Ferry</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a means of transport that moves on water
+SWS=
+DWS=It is a boat that carries car and coaches as welle as passengers
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Ship"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Hotel">
+        <rdfs:label>Hotel</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It provides accomodation
+SWS=The host's status is specified
+DWS=The host is a society
+DWP=The host's status is specified : The host is a society]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Plane">
+        <rdfs:label>Plane</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is an artefact designed to move other things
+SWS=It is specified by the kind of place where they can move
+DWS=It moves in the air
+DWP=It is specified by the kind of place where they can move : It moves in the air]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Price">
+        <rdfs:label>Price</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Composite datatype
+SWS=It specifies the encoding pattern
+DWS=Pattern composed of a number and a price unit
+DWP=It specifies the encoding pattern : Pattern composed of a number and a price unit]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#ComplexDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Train">
+        <rdfs:label>Train</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a Collective Inter UrbanMOT
+SWS=Indicates the transport modality
+DWS=on rails
+
+DWP=Indicates the transport modality : on rails
+]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#CollectiveInterUrbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#IndependantStaticArtefact">
+        <rdfs:label>IndependantStaticArtefact</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is an artefact that can't move
+SWS=Indicates whether it is dependant from another artefact
+DWS=It is independant
+DWP=Indicates whether it is dependant from another artefact : It is independant]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#StaticArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#BedAndBreakfast">
+        <rdfs:label>BedAndBreakfast</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It provides accomodation
+SWS=The host's status is specified
+DWS=The host is usual person
+DWP=The host's status is specified : The host is usual person]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#IndividualInterUrbanMOT">
+        <rdfs:label>IndividualInterUrbanMOT</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=A MOT that can move outside cities
+SWS=Indicates whether it is collective or individual
+DWS=It is individual
+DWP=Indicates whether it is collective or individual : It is individual]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#InterurbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Reservation">
+        <rdfs:label>Reservation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Entity considered mostly in regard of its teporal location
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TemporalEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Distance">
+        <rdfs:label>Distance</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Composite datatype
+SWS=It specifies the encoding pattern
+DWS=Pattern composed of a number and a distance unit
+DWP=It specifies the encoding pattern : Pattern composed of a number and a distance unit]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#ComplexDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#EarthlyMOT">
+        <rdfs:label>EarthlyMOT</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is an artefact designed to move other things
+SWS=It is specified by the kind of place where they can move
+DWS=It moves on the earth
+DWP=It is specified by the kind of place where they can move : It moves on the earth]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Bike">
+        <rdfs:label>Bike</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=An individual MOT that can move outside cities
+SWS=Indicates the transport modality
+DWS=Non motorized, two wheels
+DWP=Indicates the transport modality : Non motorized, two wheels]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#IndividualInterUrbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#City">
+        <rdfs:label>City</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=The existence of this obejct depends on geopolitical considerations
+SWS=An administrative principle defines the object
+DWS=The administrative principle is related to the urban agglomeration
+DWP=An administrative principle defines the object : The administrative principle is related to the urban agglomeration]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#GeopoliticalObject"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Date">
+        <rdfs:label>Date</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Primitive datatype
+SWS=It specifies the encoding pattern
+DWS=Pattern following the W3C encoding Date, Pcc-yy-mm-ddThh-mm-ss
+DWP=It specifies the encoding pattern : Pattern following the W3C encoding Date, Pcc-yy-mm-ddThh-mm-ss]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SimpleDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Port">
+        <rdfs:label>Port</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is related to the transport activity
+SWS=It allows to use a specific means of transport
+DWS=ships
+DWP=It allows to use a specific means of transport : ships]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TransportFacility"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Room">
+        <rdfs:label>Room</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#DependantStaticArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Ship">
+        <rdfs:label>Ship</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is an artefact designed to move other things
+SWS=It is specified by the kind of place where they can move
+DWS=It moves on water
+DWP=It is specified by the kind of place where they can move : It moves on water]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Taxi">
+        <rdfs:label>Taxi</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a car
+SWS=Indicates the driver's status
+DWS=The driver earns his life on driving clients
+DWP=Indicates the driver's status : The driver earns his life on driving clients]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Car"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#ConcreteEntity">
+        <rdfs:label>ConcreteEntity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=The entity has or has not a spatio-temporal location
+DWS=The entity has a spatio-temporal location
+DWP=The entity has or has not a spatio-temporal location : The entity has a spatio-temporal location]]></rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#SpatialEntity">
+        <rdfs:label>SpatialEntity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=The entity has a spatio-temporal location
+SWS=The entity is considered mostly in regard of its spatial or temporal location
+DWS=The entity is considered mostly in regard of its spatial location
+DWP=The entity is considered mostly in regard of its spatial or temporal location : The entity is considered mostly in regard of its spatial location]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#ConcreteEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#PhoneNumber">
+        <rdfs:label>PhoneNumber</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Composite datatype
+SWS=It specifies the encoding pattern
+DWS=Pattern composed possibly of a '+' and of numbers
+DWP=It specifies the encoding pattern : Pattern composed possibly of a '+' and of numbers]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#ComplexDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Customer">
+        <rdfs:label>Customer</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a person
+SWS=It specifies the kind of relationship that this person has in regard with the trip
+DWS=He buys a trip
+DWP=It specifies the kind of relationship that this person has in regard with the trip : He buys a trip]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Person"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Passenger">
+        <rdfs:label>Passenger</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=He is a costumer
+SWS=
+DWS=He buys a travel dedicates to a specific means of transport
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Customer"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#UrbanOnlyMOT">
+        <rdfs:label>UrbanOnlyMOT</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a earhtly MOT
+SWS=Indicates wehter it is likely to be used only in a city or not
+DWS=It can be used only inside cities
+DWP=Indicates wehter it is likely to be used only in a city or not : It can be used only inside cities]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#EarthlyMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#AbstractEntity">
+        <rdfs:label>AbstractEntity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=The entity has or has not a spatio-temporal location
+DWS=The entity has no spatio-temporal location
+DWP=The entity has or has not a spatio-temporal location : The entity has no spatio-temporal location]]></rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport">
+        <rdfs:label>MeansOfTransport</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is an artefact that can move
+SWS=It has a specific purpose
+DWS=It helps moving other entities
+DWP=It has a specific purpose : It helps moving other entities]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#DynamicArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Address">
+        <rdfs:label>Address</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Composite datatype
+SWS=It specifies the encoding pattern
+DWS=Pattern composed more or less of a house number, a street, city, country name and a zip code
+DWP=It specifies the encoding pattern : Pattern composed more or less of a house number, a street, city, country name and a zip code]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#ComplexDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Tramway">
+        <rdfs:label>Tramway</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a urban MOT
+SWS=Indicates the transport modality
+DWS=Above ground, with rails
+DWP=Indicates the transport modality : Above ground, with rails]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#UrbanOnlyMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Airport">
+        <rdfs:label>Airport</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is related to the transport activity
+SWS=It allows to use a specific means of transport
+DWS=planes
+DWP=It allows to use a specific means of transport : planes]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TransportFacility"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#InterurbanMOT">
+        <rdfs:label>InterurbanMOT</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a earhtly MOT
+SWS=Indicates wehter it is likely to be used only in a city or not
+DWS=It can be used out of cities
+DWP=Indicates wehter it is likely to be used only in a city or not : It can be used out of cities]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#EarthlyMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Continent">
+        <rdfs:label>Continent</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#NaturalGeographicObject"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Motorbike">
+        <rdfs:label>Motorbike</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=An individual MOT that can move outside cities
+SWS=Indicates the transport modality
+DWS=Motorized, two wheels
+DWP=Indicates the transport modality : Motorized, two wheels]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#IndividualInterUrbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#GeopoliticalObject">
+        <rdfs:label>GeopoliticalObject</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Is defined during geographic denomination activity
+SWS=Indicates wether its existence is the result of humain delimitation/naming activity or not
+DWS=Yes
+DWP=Indicates wether its existence is the result of humain delimitation/naming activity or not : Yes]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#GeographicObject"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#CollectiveInterUrbanMOT">
+        <rdfs:label>CollectiveInterUrbanMOT</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=A MOT that can move outside cities
+SWS=Indicates whether it is collective or individual
+DWS=It is collective
+DWP=Indicates whether it is collective or individual : It is collective]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#InterurbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TravelAgent">
+        <rdfs:label>TravelAgent</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a person
+SWS=It specifies the kind of relationship that this person has in regard with the trip
+DWS=He sells a trip
+DWP=It specifies the kind of relationship that this person has in regard with the trip : He sells a trip]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Person"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#ThemePark">
+        <rdfs:label>ThemePark</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a town sight
+SWS=It is specified by the kind of "sight" involved
+DWS=Leisure
+DWP=It is specified by the kind of "sight" involved : Leisure]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TownSight"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Museum">
+        <rdfs:label>Museum</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a town sight
+SWS=It is specified by the kind of "sight" involved
+DWS=Artistic
+DWP=It is specified by the kind of "sight" involved : Artistic]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TownSight"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Person">
+        <rdfs:label>Person</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It a a biological object
+SWS=
+DWS=It is a moving and reasonning biological entity
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#BiologicalObject"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#String">
+        <rdfs:label>String</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Primitive datatype
+SWS=It specifies the encoding pattern
+DWS=Alphabetic pattern
+DWP=It specifies the encoding pattern : Alphabetic pattern]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SimpleDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Datatype">
+        <rdfs:label>Datatype</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Entity with no spatio-temporal location
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#AbstractEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Car">
+        <rdfs:label>Car</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=An individual MOT that can move outside cities
+SWS=Indicates the transport modality
+DWS=Motorized, four wheels
+DWP=Indicates the transport modality : Motorized, four wheels]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#IndividualInterUrbanMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#URL">
+        <rdfs:label>URL</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Alphanumerical datatype
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#String"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#SimpleDatatype">
+        <rdfs:label>SimpleDatatype</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Datatype
+SWS=Indicates the nature of the datatype
+DWS=Simple
+DWP=Indicates the nature of the datatype : Simple]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Datatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Boolean">
+        <rdfs:label>Boolean</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Primitive datatype
+SWS=It specifies the encoding pattern
+DWS=True/False
+DWP=It specifies the encoding pattern : True/False]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SimpleDatatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TransportFacility">
+        <rdfs:label>TransportFacility</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a static artefact, considered as a whole
+SWS=It is an artefact related to a specific activity
+DWS=Transport
+DWP=It is an artefact related to a specific activity : Transport]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#IndependantStaticArtefact"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TripReservation">
+        <rdfs:label>TripReservation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a reservation
+SWS=Indicates wether it is "atomic" or composite
+DWS=It is composite
+DWP=Indicates wether it is "atomic" or composite : It is composite]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Reservation"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TwoStarHotel">
+        <rdfs:label>TwoStarHotel</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a society
+SWS=Its comfort is rated
+DWS=2 stars
+DWP=Its comfort is rated : 2 stars]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#ThreeStarHotel">
+        <rdfs:label>ThreeStarHotel</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a society
+SWS=Its comfort is rated
+DWS=3 stars
+DWP=Its comfort is rated : 3 stars]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#OneStarHotel">
+        <rdfs:label>OneStarHotel</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a society
+SWS=Its comfort is rated
+DWS=1 star
+DWP=Its comfort is rated : 1 star]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#NaturalGeographicObject">
+        <rdfs:label>NaturalGeographicObject</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Is defined during geographic denomination activity
+SWS=Indicates wether its existence is the result of humain delimitation/naming activity or not
+DWS=No
+DWP=Indicates wether its existence is the result of humain delimitation/naming activity or not : No]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#GeographicObject"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Underground">
+        <rdfs:label>Underground</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a urban MOT
+SWS=Indicates the transport modality
+DWS=Under the ground, on rails
+DWP=Indicates the transport modality : Under the ground, on rails]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#UrbanOnlyMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#CityBus">
+        <rdfs:label>CityBus</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a urban MOT
+SWS=Indicates the transport modality
+DWS=Above ground, without rails
+DWP=Indicates the transport modality : Above ground, without rails]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#UrbanOnlyMOT"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#FlightReservation">
+        <rdfs:label>FlightReservation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a travelling reservation
+SWS=It concerns a specific MOT
+DWS=The MOT is a plane
+DWP=It concerns a specific MOT : The MOT is a plane]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#SkiResort">
+        <rdfs:label>SkiResort</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a type of city
+SWS=Indicates the leisure speciality of the city
+DWS=Skiing
+DWP=Indicates the leisure speciality of the city : Skiing]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TrainStation">
+        <rdfs:label>TrainStation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is related to the transport activity
+SWS=It allows to use a specific means of transport
+DWS=trains
+DWP=It allows to use a specific means of transport : trains]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#TransportFacility"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Country">
+        <rdfs:label>Country</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=The existence of this obejct depends on geopolitical considerations
+SWS=An administrative principle defines the object
+DWS=The administrative principle is related to the nation
+DWP=An administrative principle defines the object : The administrative principle is related to the nation]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#GeopoliticalObject"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#FiveStarHotel">
+        <rdfs:label>FiveStarHotel</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a society
+SWS=Its comfort is rated
+DWS=5 stars
+DWP=Its comfort is rated : 5 stars]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#ComplexDatatype">
+        <rdfs:label>ComplexDatatype</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Datatype
+SWS=Indicates the nature of the datatype
+DWS=Complex
+DWP=Indicates the nature of the datatype : Complex]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Datatype"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#FourStarHotel">
+        <rdfs:label>FourStarHotel</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a society
+SWS=Its comfort is rated
+DWS=4 stars
+DWP=Its comfort is rated : 4 stars]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#SeasideResort">
+        <rdfs:label>SeasideResort</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a type of city
+SWS=Indicates the leisure speciality of the city
+DWS=Sea-related activities
+DWP=Indicates the leisure speciality of the city : Sea-related activities]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#SimpleReservation">
+        <rdfs:label>SimpleReservation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a reservation
+SWS=Indicates wether it is "atomic" or composite
+DWS=It is "atomic"
+DWP=Indicates wether it is "atomic" or composite : It is "atomic"]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Reservation"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#Artefact">
+        <rdfs:label>Artefact</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=Entity considered in regard of its spatial location
+SWS=The entity is considered in regard of a specific point of view, depending on a human activity
+DWS=It is an entity defined in the field of man manufacturing activity
+DWP=The entity is considered in regard of a peculiar point of view, depending on a human activity : It is an entity defined in the field of man manufacturing activity]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SpatialEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TemporalEntity">
+        <rdfs:label>TemporalEntity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=The entity has a spatio-temporal location
+SWS=The entity is considered mostly in regard of its spatial or temporal location
+DWS=The entity is considered mostly in regard of its temporal location 
+DWP=The entity is considered mostly in regard of its spatial or temporal location : The entity is considered mostly in regard of its temporal location ]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#ConcreteEntity"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#LodgingReservation">
+        <rdfs:label>LodgingReservation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a reservation for a single feature
+SWS=Specifies the purpose of the reservation
+DWS=Staying
+DWP=Specifies the purpose of the reservation : Staying]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SimpleReservation"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#AirbusPlane">
+        <rdfs:label>AirbusPlane</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a plane
+SWS=The constructor is specified
+DWS=Airbus
+DWP=The constructor is specified : Airbus]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#Plane"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.ina.fr#TransportReservation">
+        <rdfs:label>TransportReservation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=It is a reservation for a single feature
+SWS=Specifies the purpose of the reservation
+DWS=Travelling
+DWP=Specifies the purpose of the reservation : Travelling]]></rdfs:comment>
+        <rdfs:subClassOf>
+            <owl:Class rdf:about="http://www.ina.fr#SimpleReservation"/>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#MOTCapacity">
+        <rdfs:label>MOTCapacity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#MOTAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Integer"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#lodgingFacilityAttribute">
+        <rdfs:label>lodgingFacilityAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#isDistantFrom">
+        <rdfs:label>isDistantFrom</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#circumstancialRelation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#reservationAttribute">
+        <rdfs:label>reservationAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Reservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#arrivalCity">
+        <rdfs:label>arrivalCity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#arrivalDate">
+        <rdfs:label>arrivalDate</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#tripReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TripReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Date"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#arrivalTime">
+        <rdfs:label>arrivalTime</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Datatype"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#isPartOf">
+        <rdfs:label>isPartOf</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#meronymyRelation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#roomAttribute">
+        <rdfs:label>roomAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Room"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#lodgingChosen">
+        <rdfs:label>lodgingChosen</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#lodgingCapacity">
+        <rdfs:label>lodgingCapacity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Integer"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#hasAgent">
+        <rdfs:label>hasAgent</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#reservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Reservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#isLocatedIn">
+        <rdfs:label>isLocatedIn</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#circumstancialRelation"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#numberOfRooms">
+        <rdfs:label>numberOfRooms</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Integer"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#arrivalAirport">
+        <rdfs:label>arrivalAirport</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#flightReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#FlightReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Airport"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#numberOfBeds">
+        <rdfs:label>numberOfBeds</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#roomAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Room"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Integer"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#isSpatiallyLocatedIn">
+        <rdfs:label>isSpatiallyLocatedIn</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#isLocatedIn"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#businessClassPrice">
+        <rdfs:label>businessClassPrice</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Price"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#isNearFrom">
+        <rdfs:label>isNearFrom</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#isDistantFrom"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#firstClassPrice">
+        <rdfs:label>firstClassPrice</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Price"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#tripReservationAttribute">
+        <rdfs:label>tripReservationAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TripReservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#circumstancialRelation">
+        <rdfs:label>circumstancialRelation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#departureCity">
+        <rdfs:label>departureCity</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#departureDate">
+        <rdfs:label>departureDate</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#tripReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TripReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Date"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#departureTime">
+        <rdfs:label>departureTime</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Date"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#flightNumber">
+        <rdfs:label>flightNumber</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#flightReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#FlightReservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#distanceToSkiing">
+        <rdfs:label>distanceToSkiing</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Distance"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#isTemporallyLocated">
+        <rdfs:label>isTemporallyLocated</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#isLocatedIn"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#motUsed">
+        <rdfs:label>motUsed</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#internetAvailable">
+        <rdfs:label>internetAvailable</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#roomAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Room"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Boolean"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#tvAvailable">
+        <rdfs:label>tvAvailable</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#roomAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Room"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Boolean"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#distanceToBeach">
+        <rdfs:label>distanceToBeach</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Distance"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#telephoneNumber">
+        <rdfs:label>telephoneNumber</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#PhoneNumber"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#url">
+        <rdfs:label>url</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#URL"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#rigidAttribute">
+        <rdfs:label>rigidAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#meronymyRelation">
+        <rdfs:label>meronymyRelation</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#transportReservationAttribute">
+        <rdfs:label>transportReservationAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#dogsAllowed">
+        <rdfs:label>dogsAllowed</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Boolean"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#description">
+        <rdfs:label>description</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#String"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#flightReservationAttribute">
+        <rdfs:label>flightReservationAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#FlightReservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#hasClient">
+        <rdfs:label>hasClient</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#reservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#Reservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Person"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#MOTAttribute">
+        <rdfs:label>MOTAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#MeansOfTransport"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#lodgingReservationAttribute">
+        <rdfs:label>lodgingReservationAttribute</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#rigidAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingReservation"/>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#availableRoom">
+        <rdfs:label>availableRoom</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Room"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#address">
+        <rdfs:label>address</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#lodgingFacilityAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#LodgingFacility"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Address"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#economyClassPrice">
+        <rdfs:label>economyClassPrice</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#transportReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#TransportReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Price"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.ina.fr#departureAirport">
+        <rdfs:label>departureAirport</rdfs:label>
+        <rdfs:comment><![CDATA[SWP=
+SWS=
+DWS=
+DWP=]]></rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="http://www.ina.fr#flightReservationAttribute"/>
+        <rdfs:domain>
+            <owl:Class rdf:about="http://www.ina.fr#FlightReservation"/>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class rdf:about="http://www.ina.fr#Airport"/>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    <owl:Individual rdf:about="http://www.ina.fr#disneyland_paris">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#TownSight"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#holiday_inn_washington">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#2002_april_5th">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Date"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#cairo">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#egypt">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Country"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#paris">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#statue_of_liberty">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#TownSight"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#400_miles">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Distance"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#san_francisco">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#new_york">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#800_miles">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Distance"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#717">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#BoeingPlane"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#777">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#BoeingPlane"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#africa">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Continent"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#seattle">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#europe">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Continent"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#holiday_inn_ny">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Hotel"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#london">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#madrid">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#2002_april_15th">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Date"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#washington">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#City"/>
+        </rdf:type>
+    </owl:Individual>
+    <owl:Individual rdf:about="http://www.ina.fr#north_america">
+        <rdf:type>
+            <owl:Class rdf:about="http://www.ina.fr#Continent"/>
+        </rdf:type>
+    </owl:Individual>
+</rdf:RDF>

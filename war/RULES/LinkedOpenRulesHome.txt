@@ -1,0 +1,275 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+
+################################################################ LINKED OPEN RULES - HOME ######################################################################
+# Last update: 9 September 2014
+# Creator: Gyrard
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# Number of rules = 17 rules
+
+################################################################ GNU License ######################################################################
+#
+#	Machine to Machine Measurement (M3) Framework 
+#    Copyright(c) 2012 - 2015 Eurecom
+#
+#    M3 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    M3 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with M3. The full GNU General Public License is 
+#    included in this distribution in the file called "COPYING". If not, 
+#    see <http://www.gnu.org/licenses/>.
+#
+#    Contact Information
+#    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+#  
+#	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+#	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+#	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+#  
+#  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+
+
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 converter
+
+# ADD (?measurement m3:hasUnit m3:Decibel) for m3:Sound
+# ADD (?measurement m3:hasUnit m3:Lux) for m3:Luminosity
+# ADD (?measurement m3:hasUnit m3:DegreeCelsius) for m3:Temperature
+
+################################################################ LUMINOSITY RULES ######################################################################
+# Paper: A fuzzy ontology for semantic modelling and recognition of human behavior [Rodriguez 2014]
+
+# Rule: IF m3:Luminosity greaterThan 750 and LowerThan 2000 m3:Lux THEN HighLighting
+[HighLighting: 
+              (?measurement rdf:type m3:Luminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,750)
+              lessThan(?v,2000)
+			  ->
+			  (?measurement rdf:type home-dataset:HighLighting)
+]
+
+# Rule: IF m3:Luminosity greaterThan 150 and LowerThan 750 m3:Lux THEN MediumLighting
+[MediumLighting: 
+              (?measurement rdf:type m3:Luminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,150)
+              lessThan(?v,750)
+			  ->
+			  (?measurement rdf:type home-dataset:MediumLighting)
+]
+
+# Rule: IF m3:Luminosity greaterThan 20 and LowerThan 150 m3:Lux THEN LowLighting
+[LowLighting: 
+              (?measurement rdf:type m3:Luminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,150)
+			  ->
+			  (?measurement rdf:type home-dataset:LowLighting)
+
+]
+################################################################ NOISE SOUND RULES ######################################################################
+# Paper: A fuzzy ontology for semantic modelling and recognition of human behavior [Rodriguez 2014]
+
+# Rule: IF m3:Sound greaterThan 90 and LowerThan 110 m3:Decibel THEN HighSound
+[HighSound: 
+              (?measurement rdf:type m3:Sound)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,90)
+              lessThan(?v,110)
+			  ->
+			  (?measurement rdf:type home-dataset:HighSound)
+]
+
+# Rule: IF m3:Sound greaterThan 40 and LowerThan 90 m3:Decibel THEN MediumSound
+[MediumSound: 
+              (?measurement rdf:type m3:Sound)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,40)
+              lessThan(?v,90)
+			  ->
+			  (?measurement rdf:type home-dataset:MediumSound)
+]
+
+# Rule: IF m3:Sound greaterThan 30 and LowerThan 40 m3:Decibel THEN LowSound
+[LowSound: 
+              (?measurement rdf:type m3:Sound)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)
+              lessThan(?v,40)
+			  ->
+			  (?measurement rdf:type home-dataset:LowSound)
+]
+
+################################################################ TEMPERATURE ######################################################################
+
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# We select [Kofler 2011] rules since they define 15 rules
+
+# Overlapping with [Paul Staroch 2013] 6 rules
+# Overlapping with Yus 6 rules
+# Overlapping with Vasileios 
+# Overlapping with Rodriguez 
+
+# Rule: AboveRoomTemperature, IF m3:Temperature greaterThan 25 AND lessThan 30  m3:DegreeCelsius THEN AboveRoomTemperature
+# ok with staroch
+[AboveRoomTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)
+              lessThan(?v,30)         
+              ->     
+              (?measurement rdf:type home-dataset:AboveRoomTemperature)
+]
+
+# Rule: IF m3:Temperature greaterThan 10 AND lessThan 20 m3:DegreeCelsius THEN BelowRoomTemperature
+# ok with staroch
+[BelowRoomTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,10)
+              lessThan(?v,20)      
+              ->    
+              (?measurement rdf:type home-dataset:BelowRoomTemperature)    
+]
+
+# Rule: IF m3:Temperature greaterThan 20 m3:DegreeCelsius AND lessThan 25 m3:DegreeCelsius THEN RoomTemperature
+# ok with staroch
+[RoomTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,25)  
+              ->  
+              (?measurement rdf:type home-dataset:RoomTemperature)          
+]
+
+# Rule: IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature
+[BelowOrZeroTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type home-dataset:BelowOrZeroTemperature)
+]
+
+# Rule: IF m3:Temperature greaterThan -25 m3:DegreeCelsius AND lessThan 0 m3:DegreeCelsius THEN Frost
+[Frost: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-25)
+              lessThan(?v,0)    
+              ->     
+              (?measurement rdf:type home-dataset:Frost)     
+]
+
+# Rule: ExtremeFrost, IF m3:Temperature lessThan -25 m3:DegreeCelsius THEN ExtremeFrost
+[ExtremeFrost: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,-25)    
+              ->   
+              (?measurement rdf:type home-dataset:ExtremeFrost)       
+]
+
+# Rule: ExtremeHeat, IF m3:Temperature greaterThan 37 m3:DegreeCelsius THEN ExtremeHeat
+[ExtremeHeat: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,37)  
+              ->      
+              (?measurement rdf:type home-dataset:ExtremeHeat)  
+]
+
+# Rule: IF m3:Temperature greaterThan 30 m3:DegreeCelsius THEN Heat
+[Heat: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)   
+              ->      
+              (?measurement rdf:type home-dataset:Heat)  
+]
+
+# Rule: IF m3:Temperature greaterThan 0 m3:DegreeCelsius THEN AboveZeroTemperature
+[AboveZeroTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)     
+              -> 
+              (?measurement rdf:type home-dataset:AboveZeroTemperature)     
+]
+
+
+
+
+# Rule: IF BelowRoomTemperature THEN CoolingWeatherState
+
+# Rule: IF AboveRoomTemperature THEN HeatingWeatherState
+
+# Rule: IF ! AboveRoomTemperature AND NoPrecipitation and (LightWind OR StrongWind) THEN AiringWeatherState
+
+# Rule: IF AboveZeroTemperature and HeavyPrecipitation and oneOf(LightWind, Storm, StrongWind) THEN Thunderstorm
+
+# Rule: IF m3:Precipitation AND BelowOrZeroTemperature THEN SnowyWeatherState
+
+# Rule: IF ! NoPrecipitation AND AboveZeroTemperature THEN RainyWeatherState
+
+
+################################################################ ######################################################################
+
+
+# Rule: LightPresence, if presence=yes THEN turn light actuator on
+# Project: [Jacquet 2013]
+# intuitively we can provide the inverse one
+[NobodyRoomSwitchOffLight: 
+              (?measurement rdf:type m3:Presence)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)   
+              (?measurement2 rdf:type m3:BuildingLuminosity)
+              (?measurement2 m3:hasValue ?v2)
+              greaterThan(?v2,0)   
+          
+              -> 
+              (?measurement rdf:type home-dataset:NobodyInTheRoom) 
+              (?measurement2 rdf:type home-dataset:NobodyInTheRoom)    
+]
+
+# Rule: LightPresence, if presence=yes THEN turn light actuator on
+# Project: [Jacquet 2013]
+[SomeoneRoomSwitchOnLight: 
+              (?measurement rdf:type m3:Presence)
+              (?measurement m3:hasValue ?v)
+              equal(?v,1)   
+              (?measurement2 rdf:type m3:BuildingLuminosity)
+              (?measurement2 m3:hasValue ?v2)
+              equal(?v2,0)   
+          
+              -> 
+              (?measurement rdf:type home-dataset:SomeoneInTheRoom) 
+              (?measurement2 rdf:type home-dataset:SomeoneInTheRoom)    
+]
+   
+           
+    

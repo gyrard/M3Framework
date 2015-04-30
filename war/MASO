@@ -1,0 +1,635 @@
+<?xml version="1.0"?>
+<!DOCTYPE uridef[
+<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+<!ENTITY swrl "http://www.w3.org/2003/11/swrl#">
+<!ENTITY swrlb "http://www.w3.org/2003/ 11/swrlb#">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY rdfs " http: //www.w3.org/2000/01/rdf-schema#">
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#">
+<!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#">
+]>
+<rdf:RDF xmlns="http://securitytoolbox.appspot.com/MASO#"
+xml:base="http://securitytoolbox.appspot.com/MASO#"
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+xmlns:protege="&protege;"
+xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:rdf ="&rdf;">
+<owl:Ontology>
+<rdfs:comment>
+Ontologie pour le domaine de la securite: application aux agents mobiles
+</rdfs:comment>
+</owl:Ontology>
+<Cryptage-symetrique rdf:ID="_3DES"/>
+<owl:Class rdf:ID="Adresse">
+<rdfs:subClassOf rdf:resource="#Token-electronique"/>
+</owl:Class>
+<owl:Class rdf:ID="Adresse-iP">
+<rdfs:subClassOf rdf:resource="#Adresse"/>
+</owl:Class>
+<Cryptage-symetrique rdf:ID="AES"/>
+<owl:Class rdf:ID="Agent">
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="#s_execute"/>
+<owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Restriction>
+<owl:onProperty rdf:resource="#estPropriete"/>
+<owl:minCardinality rdf:datatype="&xsd;int">1</owl:minCardinality>
+</owl:Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<owl:Class>
+<owl:complementOf rdf:resource="#Hote"/>
+</owl:Class>
+</rdfs:subClassOf>
+<rdfs:subClassOf rdf:resource="#Entite"/>
+<owl:disjointWith rdf:resource="#Hôte"/>
+</owl:Class>
+<owl:Class rdf:ID="Algorithme">
+<rdfs:label rdf:datatype="&xsd;string"></rdfs:label>
+</owl:Class>
+<owl:Class rdf:ID="Algorithme-checksum">
+<rdfs:subClassOf rdf:resource="#Algorithme"/>
+</owl:Class>
+<owl:Class rdf:ID="Algorithme-cryptage">
+<rdfs:subClassOf rdf:resource="#Algorithme"/>
+</owl:Class>
+<owl:Class rdf:ID="Algorithme-gestion-cles">
+<rdfs:subClassOf rdf:resource="#Algorithme"/>
+</owl:Class>
+<owl:Class rdf:ID="Algorithme-signature">
+<rdfs:subClassOf rdf:resource="#Algorithme"/>
+</owl:Class>
+<owl:Class rdf:ID="Antivirus">
+<rdfs:subClassOf rdf:resource="#Contremesure"/>
+</owl:Class>
+<owl:Class rdf:ID="Asset"/>
+<owl:ObjectProperty rdf:ID="assureAuthentification">
+<rdfs:domain rdf:resource="#Protocole-authentification"/>
+<rdfs:range rdf:resource="#Objectif "/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="assureObjectif">
+<rdfs:domain>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class rdf:about="#Mecanisme"/>
+<owl:Class rdf:about="#Protocole"/>
+</owl:unionOf>
+</owl:Class>
+</rdfs:domain>
+<rdfs:range rdf:resource="#Objectif "/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Attaque">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<Mecanisme rdf:ID="Authentification">
+<Objectif rdf:resource="#Confidentialite" />
+</Mecanisme>
+<Mecanisme rdf:ID="Autorisation"/>
+<Antivirus rdf:ID="AVG"/>
+<Cryptage-symetrique rdf:ID="BlowFish"/>
+<owl:ObjectProperty rdf:ID="capableMecanisme">
+<rdfs:domain rdf:resource="#Entite"/>
+<rdfs:range rdf:resource="#Mecanisme"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="capableObjectif">
+<rdfs:domain rdf:resource="#Entite"/>
+<rdfs:range rdf:resource="#Objectif "/>
+</owl:ObjectProperty>
+<owl:FunctionalProperty rdf:ID="capacite">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class rdf:about="#Memoire"/>
+<owl:Class rdf:about="#Storage"/>
+</owl:unionOf>
+</owl:Class>
+</rdfs:domain>
+<rdfs:range rdf:resource="&xsd;int"/>
+</owl:FunctionalProperty>
+<owl:Class rdf:ID="Carte-credit">
+<rdfs:subClassOf rdf:resource="#Token-physique"/>
+</owl:Class>
+<Cryptage-symetrique rdf:ID="CAST"/>
+<owl:Class rdf:ID="Certificat">
+<rdfs:subClassOf rdf:resource="#Token-electronique"/>
+</owl:Class>
+<owl:FunctionalProperty rdf:ID="chemin">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#Cookie"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:FunctionalProperty>
+<owl:ObjectProperty rdf:ID="cible">
+<rdfs:domain rdf:resource="#Menace"/>
+<rdfs:range rdf:resource="#Asset"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Cle-de-Cryptage">
+<rdfs:subClassOf rdf:resource="#Token-electronique"/>
+</owl:Class>
+<owl:Class rdf:ID="Cle-privee">
+<rdfs:subClassOf rdf:resource="#Cle-de-cryptage"/>
+</owl:Class>
+<owl:Class rdf:ID="Cle-publique">
+<rdfs:subClassOf rdf:resource="#Cle-de-cryptage"/>
+</owl:Class>
+<owl:Class rdf:ID="Cle-secrete">
+<rdfs:subClassOf rdf:resource="#Cle-de-cryptage"/>
+</owl:Class>
+<owl:Class rdf:ID="Composant">
+<rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+<Objectif rdf:ID="Confiance">
+<estMecanisme rdf:resource="#Identification"/>
+</Objectif>
+<Objectif rdf:ID="Confidentialite"/>
+<owl:Class rdf:ID="Contremesure"/>
+<owl:Class rdf:ID="Contremesure-reseau">
+<rdfs:subClassOf rdf:resource="#Contremesure"/>
+</owl:Class>
+<Mecanisme rdf:ID="Controle-dacces">
+<Objectif rdf:resource="#Disponibilite"/>
+</Mecanisme>
+<owl:Class rdf:ID="Cookie">
+<rdfs:subClassOf rdf:resource="#Token-electronique"/>
+</owl:Class>
+<owl:Class rdf:ID="Cryptage-asymetrique">
+<rdfs:subClassOf rdf:resource="#Algorithme-Cryptage"/>
+</owl:Class>
+<owl:Class rdf:ID="Cryptage-symetrique">
+<rdfs:subClassOf rdf:resource="#Algorithme-Cryptage"/>
+</owl:Class>
+<owl:Class rdf:ID="Data">
+<rdfs:subClassOf rdf:resource="#Asset"/>
+</owl:Class>
+<owl:DatatypeProperty rdf:ID="date-expiration">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#Carte-credit"/>
+<rdfs:range rdf:resource="&xsd;date"/>
+</owl:DatatypeProperty>
+<Cryptage-symetrique rdf:ID="DES"/>
+<owl:DatatypeProperty rdf:ID="Description-logiciel">
+<rdfs:domain rdf:resource="#Software"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+<Objectif rdf:ID="Disponibilite"/>
+<owl:ObjectProperty rdf:ID="dispose">
+<rdfs:domain rdf:resource="#Hôte"/>
+<rdfs:range rdf:resource="#Asset"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Domaine">
+<rdfs:subClassOf rdf:resource="#Adresse"/>
+</owl:Class>
+<owl:Class rdf:ID="Defaut">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<owl:Class rdf:ID="Defaut-interaction">
+<rdfs:subClassOf rdf:resource="#Defaut"/>
+</owl:Class>
+<owl:Class rdf:ID="Defaut-physique">
+<rdfs:subClassOf rdf:resource="#Defaut"/>
+</owl:Class>
+<Attaque rdf:ID="Deni_de_service"/>
+<owl:Class rdf:ID="Echec-technique">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<Cryptage-asymetrique rdf:ID="ElGamal"/>
+<Cryptage-asymetrique rdf:ID="Elliptic_curve"/>
+<owl:DatatypeProperty rdf:ID="email">
+<rdfs:domain rdf:resource="#Proprietaire"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:ID="eninteractionAvec">
+<rdfs:domain rdf:resource="#Entite"/>
+<rdfs:range rdf:resource="#Entite"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Entite">
+<rdfs:subClassOf>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class rdf:about="#Agent"/>
+<owl:Class rdf:about="#Hôte"/>
+</owl:unionOf>
+</owl:Class>
+</rdfs:subClassOf>
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class>
+<owl:Class rdf:ID="Erreur">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="estAssureMecanisme">
+<rdfs:domain rdf:resource="#Objectif "/>
+<rdfs:range rdf:resource="#Mecanisme"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estAssureProtocole">
+<rdfs:domain rdf:resource="#Objectif "/>
+<rdfs:range rdf:resource="#Protocole"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estexigeProtocole">
+<rdfs:domain rdf:resource="#Passeport"/>
+<owl:inverseOf rdf:resource="#exigePasseport" />
+<rdfs:range rdf:resource="#Protocole"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estexploitePar">
+<rdfs:domain rdf:resource="#Vulnerabilite"/>
+<owl:inverseOf rdf:resource="#exploite"/>
+<rdfs:range rdf:resource="#Menace"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estPropriete">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#Agent"/>
+<owl:inverseOf rdf:resource="#proprietaireDe"/>
+<rdfs:range rdf:resource="#Proprietaire"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estProtegePar">
+<rdfs:domain rdf:resource="#Asset"/>
+<owl:inverseOf rdf:resource="#protege"/>
+<rdfs:range rdf:resource="#Contremesure"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estUtiliseProtocole">
+<rdf:type rdf:resource="&owl;SymmetricProperty"/>
+<rdfs:domain rdf:resource="#Algorithme"/>
+<owl:inverseOf rdf:resource="#estUtiliseProtocole"/>
+<rdfs:range rdf:resource="#Protocole"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estUtiliseProtocoleCryptage">
+<rdfs:domain rdf:resource="#Algorithme-cryptage"/>
+<owl:inverseOf rdf:resource="#utilisecryptage" />
+<rdfs:range rdf:resource="#Protocole- Cryptage"/>
+<rdfs:subPropertyOf rdf:resource="#estUtiliseProtocole"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="estUtiliseProtocoleSignature">
+<rdfs:domain rdf:resource="#Algorithme-signature"/>
+<owl:inverseOf rdf:resource="#utiliseSignature"/>
+<rdfs:range rdf:resource="#Protocole-signature"/>
+<rdfs:subPropertyOf rdf:resource="#estUtiliseProtocole"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="exigeMecanisme">
+<rdfs:domain rdf:resource="#Entite"/>
+<rdfs:range rdf:resource="#Mecanisme"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="exigeObjectif">
+<rdfs:domain rdf:resource="#Entite"/>
+<rdfs:range rdf:resource="#Objectif "/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="exigePasseport">
+<rdfs:domain rdf:resource="#Protocole"/>
+<owl:inverseOf rdf:resource="#estExigeProtocole"/>
+<rdfs:range rdf:resource="#Passeport"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="exploite">
+<rdfs:domain rdf:resource="#Menace"/>
+<owl:inverseOf rdf:resource="#estExploitePar"/>
+<rdfs:range rdf:resource="#Vulnerabilite"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="execute">
+<rdfs:domain rdf:resource="#Hôte"/>
+<owl:inverseOf rdf:resource="#s_execute"/>
+<rdfs:range rdf:resource="#Agent"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:ID="fax">
+<rdfs:domain rdf:resource="#Proprietaire"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+<owl:Class rdf:ID="Firewall">
+<rdfs:subClassOf rdf:resource="#Contremesure"/>
+</owl:Class>
+<Mecanisme rdf:ID="Gestion-cles"/>
+<owl:Class rdf:ID="Hardware">
+<rdfs:subClassOf rdf:resource="#Asset"/>
+</owl:Class>
+<owl:Class rdf:ID="Hash">
+<rdfs:subClassOf rdf:resource="#Algorithme-signature"/>
+</owl:Class>
+<MAC rdf:ID="HMAC"/>
+<owl:Class rdf:ID="Hôte">
+<rdfs:subClassOf>
+<owl:Class>
+<owl:complementOf rdf:resource="#Agent"/>
+</owl:Class>
+</rdfs:subClassOf>
+<rdfs:subClassOf rdf:resource="#Entite"/>
+<owl:disjointWith rdf:resource="#Agent"/>
+</owl:Class>
+<Cryptage-symetrique rdf:ID="IDEA"/>
+<Mecanisme rdf:ID="identification"/>
+<Objectif rdf:ID="Imputabilite"/>
+<owl:ObjectProperty rdf:ID="initialise">
+<rdfs:domain rdf:resource="#Entite"/>
+<rdfs:range rdf:resource="#Menace"/>
+</owl:ObjectProperty>
+<Attaque rdf:ID="intrusion"/>
+<Objectif rdf:ID="Integrite"/>
+<owl:FunctionalProperty rdf:ID="issuer">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#X.509"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:FunctionalProperty>
+<Algorithme-gestion-cles rdf:ID="KEA"/>
+<owl:FunctionalProperty rdf:ID="longueur-cle">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#Cle-de-Cryptage"/>
+<rdfs:range rdf:resource="&xsd;int"/>
+</owl:FunctionalProperty>
+<owl:FunctionalProperty rdf:ID="longueur-minimum">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#Mot-de-passe"/>
+<rdfs:range rdf:resource="&xsd;int"/>
+</owl:FunctionalProperty>
+<owl:Class rdf:ID="MAC">
+<rdfs:subClassOf rdf:resource="#Algorithme-signature"/>
+</owl:Class>
+<owl:FunctionalProperty rdf:ID="marque">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#Microprocesseur"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:FunctionalProperty>
+<Hash rdf:ID="MD4"/>
+<Hash rdf:ID="MD5"/>
+<owl:Class rdf:ID="Menace"/>
+<owl:Class rdf:ID="Microprocesseur">
+<rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+<owl:FunctionalProperty rdf:ID="modele">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#Microprocesseur"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:FunctionalProperty>
+<owl:Class rdf:ID="Mot-de-passe">
+<rdfs:subClassOf rdf:resource="#Token-electronique"/>
+</owl:Class>
+<owl:Class rdf:ID="Mecanisme">
+<rdfs:subClassOf>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Authentification"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Autorisation"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Controle-dacces"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Gestion-cle"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Identification"/>
+</owl:oneOf>
+</owl:Class>
+</owl:unionOf>
+</owl:Class>
+</rdfs:subClassOf>
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class>
+<owl:Class rdf:ID="Memoire">
+<rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+<owl:FunctionalProperty rdf:ID="nom">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class rdf:about="#Antivirus "/>
+<owl:Class rdf:about="#Cookie"/>
+<owl:Class rdf:about="#Proprietaire"/>
+<owl:Class rdf:about="#Software"/>
+<owl:Class rdf:about="#Virus "/>
+</owl:unionOf>
+</owl:Class>
+</rdfs:domain>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:FunctionalProperty>
+<Objectif rdf:ID="Non-repudiation"/>
+<Antivirus rdf:ID="Norton"/>
+<owl:FunctionalProperty rdf:ID="notAfter">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#X.509"/>
+<rdfs:range rdf:resource="&xsd;date"/>
+</owl:FunctionalProperty>
+<owl:DatatypeProperty rdf:ID="notBefore">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#X.509"/>
+<rdfs:range rdf:resource="&xsd;date"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:ID="numero-de-serie">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#X.509"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+<owl:Class rdf:ID="Objectif">
+<rdfs:subClassOf>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Confiance"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Confidentialite"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Disponibilite"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Imputabilite"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Integrite"/>
+</owl:oneOf>
+</owl:Class>
+<owl:Class>
+<owl:oneOf rdf:parseType="Collection">
+<rdf:Description rdf:about="#Non-repudiation"/>
+</owl:oneOf>
+</owl:Class>
+</owl:unionOf>
+</owl:Class>
+</rdfs:subClassOf>
+<rdfs:subClassOf rdf:resource="&owl;Thing"/>
+</owl:Class>
+<owl:Class rdf:ID="Passeport"/>
+<owl:Class rdf:ID="Personne">
+<rdfs:subClassOf rdf:resource="#Proprietaire"/>
+<owl:disjointWith rdf:resource="#Societe"/>
+</owl:Class>
+<owl:Class rdf:ID="Proprietaire"/>
+<owl:ObjectProperty rdf:ID="proprietaireDe">
+<rdf:type rdf:resource="&owl;inverseFunctionalProperty"/>
+<rdfs:domain rdf:resource="#Proprietaire"/>
+<owl:inverseOf rdf:resource="#estPropriete"/>
+<rdfs:range rdf:resource="#Agent"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Protection-physique">
+<rdfs:subClassOf rdf:resource="#Contremesure"/>
+</owl:Class>
+<owl:Class rdf:ID="Protocole"/>
+<owl:Class rdf:ID="Protocole-authentification">
+<rdfs:subClassOf rdf:resource="#Protocole"/>
+</owl:Class>
+<owl:Class rdf:ID="Protocole-cryptage">
+<rdfs:subClassOf rdf:resource="#Protocole"/>
+</owl:Class>
+<owl:Class rdf:ID="Protocole-gestion-cles">
+<rdfs:subClassOf rdf:resource="#Protocole"/>
+</owl:Class>
+<owl:Class rdf:ID="Protocole-gestion-reseau">
+<rdfs:subClassOf rdf:resource="#Protocole"/>
+</owl:Class>
+<owl:Class rdf:ID="Protocole-signature">
+<rdfs:subClassOf rdf:resource="#Protocole"/>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="protege">
+<rdfs:domain rdf:resource="#Contremesure"/>
+<owl:inverseOf rdf:resource="#estProtegePar"/>
+<rdfs:range rdf:resource="#Asset"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:ID="prenom">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#Personne"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+<owl:Class rdf:ID="RBAC">
+<rdfs:subClassOf rdf:resource="#Certificat"/>
+</owl:Class>
+<Rivest rdf:ID="RC2"/>
+<Rivest rdf:ID="RC4"/>
+<Rivest rdf:ID="RC5"/>
+<Rivest rdf:ID="RC6"/>
+<owl:Class rdf:ID="Rivest">
+<rdfs:subClassOf rdf:resource="#Cryptage-asymetrique"/>
+</owl:Class>
+<Cryptage-asymetrique rdf:ID="RSA"/>
+<owl:ObjectProperty rdf:ID="reduit">
+<rdfs:domain rdf:resource="#Contremesure"/>
+<rdfs:range rdf:resource="#Vulnerabilite"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="s_execute">
+<rdfs:domain rdf:resource="#Agent"/>
+<owl:inverseOf rdf:resource="#execute"/>
+<rdfs:range rdf:resource="#Hôte"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Service">
+<rdfs:subClassOf rdf:resource="#Software"/>
+</owl:Class>
+<owl:Class rdf:ID="Signature-numerique">
+<rdfs:subClassOf rdf:resource="#"/>
+</owl:Class>
+<owl:Class rdf:ID="Societe">
+<rdfs:subClassOf rdf:resource="#Proprietaire"/>
+<owl:disjointWith rdf:resource="#Pers onne"/>
+</owl:Class>
+<owl:Class rdf:ID="Software">
+<rdfs:subClassOf rdf:resource="#Asset"/>
+</owl:Class>
+<Protocole-gestion-cles rdf:ID="SSH"/>
+<Protocole-gestion-cles rdf:ID="SSL">
+<Objectif rdf:resource="#Confidentialite" />
+</Protocole-gestion-cles>
+<owl:Class rdf:ID="Storage">
+<rdfs:subClassOf rdf:resource="#Hardware"/>
+</owl:Class>
+<owl:Class rdf:ID="Token-physique">
+<rdfs:subClassOf rdf:resource="#Passeport"/>
+</owl:Class>
+<owl:Class rdf:ID="Token-electronique">
+<rdfs:subClassOf rdf:resource="#Passeport"/>
+</owl:Class>
+<Protection-physique rdf:ID="TPE"/>
+<owl:Class rdf:ID="Trojan-horse">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<Cryptage-symetrique rdf:ID="TwoFish"/>
+<owl:DatatypeProperty rdf:ID="telephone">
+<rdfs:domain rdf:resource="#Proprietaire"/>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:ID="utiliseAlgorithme">
+<rdfs:domain rdf:resource="#Protocole"/>
+<rdfs:range rdf:resource="#Algorithme"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="utilisecryptage">
+<rdfs:domain rdf:resource="#Protocole-Cryptage"/>
+<owl:inverseOf rdf:resource="#estUtiliseProtocoleCryptage"/>
+<rdfs:range rdf:resource="#Algorithme- Cryptage"/>
+<rdfs:subPropertyOf rdf:resource="#utiliseAlgorithme"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="utiliseMecanisme">
+<rdfs:domain rdf:resource="#Protocole"/>
+<owl:inverseOf rdf:resource="#utiliseProtocole"/>
+<rdfs:range rdf:resource="#Mecanisme"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="utilisePasseport">
+<rdfs:domain rdf:resource="#Algorithme"/>
+<rdfs:range rdf:resource="#Passeport"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="utiliseProtocole">
+<rdfs:domain rdf:resource="#Mecanisme"/>
+<owl:inverseOf rdf:resource="#utiliseMecanisme"/>
+<rdfs:range rdf:resource="#Protocole"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="utiliseSignature">
+<rdfs:domain rdf:resource="#Protocole-signature"/>
+<owl:inverseOf rdf:resource="#estUtiliseProtocoleSignature"/>
+<rdfs:range rdf:resource="#Algorithme-signature"/>
+<rdfs:subPropertyOf rdf:resource="#utiliseAlgorithme"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:ID="valeur-cookie">
+<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+<rdfs:domain rdf:resource="#Cookie"/>
+<rdfs:range rdf:resource="&xsd;int"/>
+</owl:DatatypeProperty>
+<owl:FunctionalProperty rdf:ID="version">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain>
+<owl:Class>
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class rdf:about="#Antivirus "/>
+<owl:Class rdf:about="#X.509"/>
+</owl:unionOf>
+</owl:Class>
+</rdfs:domain>
+<rdfs:range rdf:resource="&xsd;string"/>
+</owl:FunctionalProperty>
+<owl:Class rdf:ID="Virus">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<owl:FunctionalProperty rdf:ID="vitesse">
+<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+<rdfs:domain rdf:resource="#Microprocesseur"/>
+<rdfs:range rdf:resource="&xsd;int"/>
+</owl:FunctionalProperty>
+<owl:Class rdf:ID="Vulnerabilite"/>
+<owl:Class rdf:ID="Worm">
+<rdfs:subClassOf rdf:resource="#Menace"/>
+</owl:Class>
+<owl:Class rdf:ID="X.509">
+<rdfs:subClassOf rdf:resource="#Certificat"/>
+</owl:Class>
+</rdf:RDF>

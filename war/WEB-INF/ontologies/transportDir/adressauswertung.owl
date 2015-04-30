@@ -1,0 +1,144 @@
+Namespace(=<http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#>)
+Namespace(owl2xml=<http://www.w3.org/2006/12/owl2-xml#>)
+Namespace(xsd=<http://www.w3.org/2001/XMLSchema#>)
+Namespace(owl2=<http://www.w3.org/2006/12/owl2#>)
+Namespace(adressauswertung=<http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#>)
+Namespace(rdfs=<http://www.w3.org/2000/01/rdf-schema#>)
+Namespace(rdf=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Namespace(owl=<http://www.w3.org/2002/07/owl#>)
+
+
+Ontology(<http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl>
+
+
+// Class: http://www.w3.org/2002/07/owl#Thing
+
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#InDerNaeheVon
+
+Declaration(OWLClass(InDerNaeheVon))
+SubClassOf(InDerNaeheVon owl:Thing)
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#RouteKreuztSich
+
+Declaration(OWLClass(RouteKreuztSich))
+EquivalentClasses(RouteKreuztSich DataHasValue(hat_StrassenSegmentID "4"^^xsd:int))
+SubClassOf(RouteKreuztSich OWLList)
+SubClassOf(RouteKreuztSich Route)
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#RouteEnthaeltPosition
+
+Declaration(OWLClass(RouteEnthaeltPosition))
+SubClassOf(RouteEnthaeltPosition owl:Thing)
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#RouteEnthaeltPunkt
+
+Declaration(OWLClass(RouteEnthaeltPunkt))
+EquivalentClasses(RouteEnthaeltPunkt DataAllValuesFrom(hat_StrassenSegmentID xsd:int))
+SubClassOf(RouteEnthaeltPunkt OWLList)
+SubClassOf(RouteEnthaeltPunkt Route)
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#OWLList
+
+Declaration(OWLClass(OWLList))
+SubClassOf(OWLList ObjectAllValuesFrom(isFollowedBy OWLList))
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#EmptyList
+
+Declaration(OWLClass(EmptyList))
+EquivalentClasses(EmptyList ObjectUnionOf(EmptyList ObjectIntersectionOf(ObjectComplementOf(ObjectSomeValuesFrom(isFollowedBy owl:Thing)) OWLList)))
+SubClassOf(EmptyList ObjectIntersectionOf(ObjectMaxCardinality(0 hasContents) OWLList))
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#BeginntBeiPosition
+
+Declaration(OWLClass(BeginntBeiPosition))
+EquivalentClasses(BeginntBeiPosition ObjectIntersectionOf(ObjectSomeValuesFrom(hasContents DataSomeValuesFrom(hat_StrassenSegmentID xsd:int)) OWLList))
+SubClassOf(BeginntBeiPosition Route)
+
+
+
+// Class: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#Route
+
+Declaration(OWLClass(Route))
+SubClassOf(Route owl:Thing)
+
+
+
+// Object property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hasListProperty
+
+Declaration(ObjectProperty(hasListProperty))
+ObjectPropertyDomain(hasListProperty OWLList)
+
+
+
+// Object property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hasNext
+
+Declaration(ObjectProperty(hasNext))
+SubObjectPropertyOf(hasNext isFollowedBy)
+FunctionalObjectProperty(hasNext)
+
+
+
+// Object property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hasContents
+
+Declaration(ObjectProperty(hasContents))
+SubObjectPropertyOf(hasContents hasListProperty)
+FunctionalObjectProperty(hasContents)
+
+
+
+// Object property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#isFollowedBy
+
+Declaration(ObjectProperty(isFollowedBy))
+SubObjectPropertyOf(isFollowedBy hasListProperty)
+TransitiveObjectProperty(isFollowedBy)
+ObjectPropertyRange(isFollowedBy OWLList)
+
+
+
+// Data property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hat_Position
+
+Declaration(DataProperty(hat_Position))
+
+
+
+// Data property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hat_PositionX
+
+Declaration(DataProperty(hat_PositionX))
+SubDataPropertyOf(hat_PositionX hat_Position)
+FunctionalDataProperty(hat_PositionX)
+DataPropertyRange(hat_PositionX xsd:double)
+
+
+
+// Data property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hat_PositionY
+
+Declaration(DataProperty(hat_PositionY))
+SubDataPropertyOf(hat_PositionY hat_Position)
+FunctionalDataProperty(hat_PositionY)
+DataPropertyRange(hat_PositionY xsd:double)
+
+
+
+// Data property: http://home.in.tum.de/~mair/DA/szenario1/adressauswertung.owl#hat_StrassenSegmentID
+
+Declaration(DataProperty(hat_StrassenSegmentID))
+DataPropertyRange(hat_StrassenSegmentID xsd:int)
+
+
+
+)

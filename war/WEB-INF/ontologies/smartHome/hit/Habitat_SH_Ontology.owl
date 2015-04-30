@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Habitat_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#" >
+    <!ENTITY Equipment_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#"
+     xml:base="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Equipment_SH_Ontology="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Habitat_SH_Ontology="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:label>Habitat</rdfs:label>
+        <rdfs:comment
+            >Cette ontologie decrit tout ce qui se rapporte au logement dans le cadre de l&#39;Habitat Intelligent, sous sa structure immobili&#232;re et mobili&#232;re.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#hasSensor -->
+
+    <owl:ObjectProperty rdf:about="&Equipment_SH_Ontology;hasSensor"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#broader -->
+
+    <owl:ObjectProperty rdf:about="#broader"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="#contains"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#cui -->
+
+    <owl:ObjectProperty rdf:about="#cui"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#documentation -->
+
+    <owl:ObjectProperty rdf:about="#documentation"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#isComposedOf -->
+
+    <owl:ObjectProperty rdf:about="#isComposedOf"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#name -->
+
+    <owl:ObjectProperty rdf:about="#name"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#narrower -->
+
+    <owl:ObjectProperty rdf:about="#narrower"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#related_slot -->
+
+    <owl:ObjectProperty rdf:about="#related_slot"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#semantic_type -->
+
+    <owl:ObjectProperty rdf:about="#semantic_type"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#synonym -->
+
+    <owl:ObjectProperty rdf:about="#synonym"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Equipment -->
+
+    <owl:Class rdf:about="&Equipment_SH_Ontology;Equipment"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Opening -->
+
+    <owl:Class rdf:about="&Equipment_SH_Ontology;Opening">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Equipment_SH_Ontology;hasSensor"/>
+                <owl:allValuesFrom rdf:resource="&Equipment_SH_Ontology;Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor -->
+
+    <owl:Class rdf:about="&Equipment_SH_Ontology;Sensor"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Bathroom -->
+
+    <owl:Class rdf:about="#Bathroom">
+        <rdfs:subClassOf rdf:resource="#Dwelling_area"/>
+        <owl:disjointWith rdf:resource="#Bedroom"/>
+        <owl:disjointWith rdf:resource="#Dining_room"/>
+        <owl:disjointWith rdf:resource="#Hall"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Living_room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Bedroom -->
+
+    <owl:Class rdf:about="#Bedroom">
+        <rdfs:subClassOf rdf:resource="#Dwelling_area"/>
+        <owl:disjointWith rdf:resource="#Dining_room"/>
+        <owl:disjointWith rdf:resource="#Hall"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Living_room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Dining_room -->
+
+    <owl:Class rdf:about="#Dining_room">
+        <rdfs:subClassOf rdf:resource="#Dwelling_area"/>
+        <owl:disjointWith rdf:resource="#Hall"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Living_room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Dwelling_area -->
+
+    <owl:Class rdf:about="#Dwelling_area">
+        <rdfs:subClassOf rdf:resource="#Immoveable_property"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#contains"/>
+                <owl:allValuesFrom rdf:resource="&Equipment_SH_Ontology;Equipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Technical_area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Habitat -->
+
+    <owl:Class rdf:about="#Habitat">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isComposedOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Immoveable_property"/>
+                            <rdf:Description rdf:about="#Moveable_property"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isComposedOf"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Hall -->
+
+    <owl:Class rdf:about="#Hall">
+        <rdfs:label>Entree</rdfs:label>
+        <rdfs:label>Hall</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dwelling_area"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Living_room"/>
+        <rdfs:comment
+            >Correspond au Hall d entree de l appartement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Immoveable_property -->
+
+    <owl:Class rdf:about="#Immoveable_property">
+        <owl:disjointWith rdf:resource="#Moveable_property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Kitchen -->
+
+    <owl:Class rdf:about="#Kitchen">
+        <rdfs:subClassOf rdf:resource="#Dwelling_area"/>
+        <owl:disjointWith rdf:resource="#Living_room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Living_room -->
+
+    <owl:Class rdf:about="#Living_room">
+        <rdfs:subClassOf rdf:resource="#Dwelling_area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Moveable_property -->
+
+    <owl:Class rdf:about="#Moveable_property">
+        <rdfs:label
+            >Partie mobiliere</rdfs:label>
+        <rdfs:label
+            >Movable property</rdfs:label>
+        <rdfs:comment
+            >This class describes the different parts of the habitat, which cannot be classified as immoveable property nor like appliance or furniture.</rdfs:comment>
+        <rdfs:comment
+            >Cette classe d&#233;crit les diff&#233;rentes parties du logement qui ne peuvent &#234;tre class&#233;es comme pi&#232;ces en tant que telles (chambre, etc.) mais qui ne peuvent pas non plus &#234;tre d&#233;crites comme des meubles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#Technical_area -->
+
+    <owl:Class rdf:about="#Technical_area">
+        <rdfs:subClassOf rdf:resource="#Immoveable_property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.941) http://owlapi.sourceforge.net -->
+

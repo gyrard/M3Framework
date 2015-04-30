@@ -1,0 +1,757 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.doom-srl.com/unnamed.owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="http://www.doom-srl.com/unnamed.owl"/>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ESP">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Safety_Device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Abnormal_PostOxy1">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PostOxy1_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_RPM">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#RPM_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Abnormal_PostOxy2">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PostOxy2_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Time">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Time"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Temp">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Coolant_Temp_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Traffic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Traffic"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Traffic"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_Device"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ABS"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Primary_Road">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Type"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Throttle_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Vehicle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Coolant_Temp_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Driver">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Unclassified_Road">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Type"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_MAF">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#MAF_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Secondary_Road">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Type"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Alert_State">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#State"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#State"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasTime"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Time"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasCovered_Distance"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Dist"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#DistanceCovered">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Traffic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Traffic"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PreOxy1_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_MAF">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#MAF_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Weather">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_FLevel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Level_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ABS">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Safety_Device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Abnormal_PreOxy1">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#PreOxy1_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Abnormal_PreOxy2">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PreOxy2_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_FLevel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Level_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Clear">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Weather"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Ratio">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ThrottleLoad_Ratio"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Avail">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Availability"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Dist">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#DistanceCovered"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Even_Pace_Style">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Driving_Style"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Behaviour">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Driver"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Driving_Style">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Driver"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Load">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Load_Engine_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PostOxy2_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Selected_Gear">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Driver"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Osc">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Compass_Osc"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Level_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Load">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Load_Engine_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Safety_Device">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Avail">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Availability"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Availability"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_FLevel"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#High_FLevel"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Slope">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Cons">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Consumption"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Consumption"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_MAF"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_MAF"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_CoolTemp"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Normal_Temp"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_RPM"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_RPM"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Dangerous_Behaviour">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Behaviour"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Dist">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#DistanceCovered"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Normal_PostOxy1">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PostOxy1_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Normal_PostOxy2">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#PostOxy2_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Snow_Chains">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Safety_Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Wind">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Wind"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Wind"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Normal_Temp">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Coolant_Temp_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Tired_State">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#State"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Osc">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Compass_Osc"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Speed">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Speed_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Cons">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Consumption"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#RPM_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#MAF_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Tertiary_Road">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Type"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Wind">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Aggressive_Style">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Driving_Style"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Compass_Osc">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fog_Lamp">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Safety_Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Snow">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Weather"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Weather"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_Device"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Snow_Chains"/>
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ABS"/>
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ESP"/>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Cloudy">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Weather"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Traffic">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Speed_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Wrong_Gear">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Selected_Gear"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Throttle">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Throttle_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Time">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Time"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Load_Engine_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Even_Road">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Surface"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#State">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Driver"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Time">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Availability">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Emission">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ThrottleLoad_Ratio">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Type">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Road"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Uneven_Road">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Surface"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Surface"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_Device"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ABS"/>
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ESP"/>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Ratio">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#ThrottleLoad_Ratio"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_RPM">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#RPM_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Road_Surface">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Road"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Normal_PreOxy2">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PreOxy2_Sens"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Emission">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Emission"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Ascent_Slope">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Road_Slope"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PreOxy2_Sens">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Sensors">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Normal_PreOxy1">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#PreOxy1_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Throttle">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Throttle_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fog">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Weather"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Weather"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_Device"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ABS"/>
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fog_Lamp"/>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Descent_Slope">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Road_Slope"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Right_Gear">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Selected_Gear"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Selected_Gear"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_TLRatio"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Ratio"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSlopeGear"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Descent_Slope"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_RPM"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#High_RPM"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Low_Emission">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Emission"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Emission"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_PreOxy1"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Normal_PreOxy1"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_PostOxy1"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Normal_PostOxy1"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Fuel_Consumption">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#PostOxy1_Sens">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Sensors"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#High_Speed">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Speed_Sens"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Regular_Behaviour">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Behaviour"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Behaviour"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasCompass_Osc"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Osc"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasRoad_Type"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Unclassified_Road"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_RPMBehav"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_RPM"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Weak_Wind">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Wind"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Rain">
+    <rdfs:subClassOf rdf:resource="http://www.doom-srl.com/unnamed.owl#Weather"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#Weather"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="http://www.doom-srl.com/unnamed.owl#Low_Speed"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_Device"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ABS"/>
+                  <owl:Class rdf:about="http://www.doom-srl.com/unnamed.owl#ESP"/>
+                </owl:intersectionOf>
+              </owl:Class>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_MAF">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#MAF_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_DeviceSurface">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Safety_Device"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_PreOxy2">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#PreOxy2_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_PreOxy1">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#PreOxy1_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_Speed">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Speed_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_CoolTemp">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Coolant_Temp_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_PostOxy1">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#PostOxy1_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasCompass_Osc">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Compass_Osc"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Compass_Osc"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSafety_Device">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Safety_Device"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_TLRatio">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#ThrottleLoad_Ratio"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_FLevel">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Fuel_Level_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasRoad_Type">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Road"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Road_Type"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_PostOxy2">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#PostOxy2_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_RPMBehav">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#RPM_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSlopeGear">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Road"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Road_Slope"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasTime">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Time"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#Time"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasSensor_RPM">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#Vehicle"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#RPM_Sens"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.doom-srl.com/unnamed.owl#hasCovered_Distance">
+    <rdfs:domain rdf:resource="http://www.doom-srl.com/unnamed.owl#DistanceCovered"/>
+    <rdfs:range rdf:resource="http://www.doom-srl.com/unnamed.owl#DistanceCovered"/>
+  </owl:ObjectProperty>
+</rdf:RDF>
+
+<!--_Created_with_OwlEd2 for OWL DL (2.1)  http://www.doom-srl.com -->

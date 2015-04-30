@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY gr "http://purl.org/goodrelations/v1#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY gastro "http://www.ebsemantics.net/gastro#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+<rdf:RDF xmlns="http://www.ebsemantics.net/gastro#" xml:base="http://www.ebsemantics.net/gastro" xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:gastro="http://www.ebsemantics.net/gastro#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:owl2="http://www.w3.org/2006/12/owl2#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+    
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://purl.org/goodrelations/v1"/>
+		rdfs:label="ebSemantics Gastro Ontology is part of the ebSemantics project, see www.ebsemantics.net for more details."&gt;
+        <owl:versionInfo xml:lang="en">Version 1.1 - 2008-12-05</owl:versionInfo>
+    </owl:Ontology>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#belongsToCuisine -->
+
+    <owl:ObjectProperty rdf:about="#belongsToCuisine">
+        <rdfs:label xml:lang="de">ist zugehörig zur Küche</rdfs:label>
+        <rdfs:label xml:lang="en">belongs to cuisine</rdfs:label>
+        <rdfs:range rdf:resource="#Cuisine"/>
+        <rdfs:domain rdf:resource="#FoodOrBeverage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#belongsToRegion -->
+
+    <owl:ObjectProperty rdf:about="#belongsToRegion">
+        <rdfs:label xml:lang="de">gehört zu einer Region</rdfs:label>
+        <rdfs:label xml:lang="en">belongs to a region</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="#Region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasAddress -->
+
+    <owl:ObjectProperty rdf:about="#hasAddress">
+        <rdfs:label xml:lang="de">hat eine Adresse</rdfs:label>
+        <rdfs:label xml:lang="en">has an address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasFoodOrBeverageCategory -->
+
+    <owl:ObjectProperty rdf:about="#hasFoodOrBeverageCategory">
+        <rdfs:domain rdf:resource="#FoodOrBeverage"/>
+        <rdfs:range rdf:resource="#FoodOrBeverageCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasInnCategory -->
+
+    <owl:ObjectProperty rdf:about="#hasInnCategory">
+        <rdfs:label xml:lang="de">hat eine gastronomische Kategorie</rdfs:label>
+        <rdfs:label xml:lang="en">has an inn categorie</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="#InnCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="#hasLocation">
+        <rdfs:label xml:lang="de">hat einen Ort</rdfs:label>
+        <rdfs:label xml:lang="en">has location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasMenu -->
+
+    <owl:ObjectProperty rdf:about="#hasMenu">
+        <rdfs:label xml:lang="en">has a menu</rdfs:label>
+        <rdfs:label xml:lang="en">hat eine Speisekarte</rdfs:label>
+        <rdfs:domain rdf:resource="#Company"/>
+        <rdfs:range rdf:resource="#Menu"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasMenuCategory -->
+
+    <owl:ObjectProperty rdf:about="#hasMenuCategory">
+        <rdfs:label xml:lang="de">hat eine Speisekarte Kategorie</rdfs:label>
+        <rdfs:label xml:lang="en">has a menu category</rdfs:label>
+        <rdfs:domain rdf:resource="#Menu"/>
+        <rdfs:range rdf:resource="#MenuCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#hasOpeningHours -->
+
+    <owl:ObjectProperty rdf:about="#hasOpeningHours">
+        <rdfs:label xml:lang="de">hat Öffnungszeiten</rdfs:label>
+        <rdfs:label xml:lang="en">has opening hours</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="#OpeningHours"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#includesMealsAndDrinks -->
+
+    <owl:ObjectProperty rdf:about="#includesMealsAndDrinks">
+        <rdfs:label xml:lang="de">hat Speisen und Getränke</rdfs:label>
+        <rdfs:label xml:lang="en">inlcudes meals and drinks</rdfs:label>
+        <rdfs:range rdf:resource="#FoodOrBeverage"/>
+        <rdfs:domain rdf:resource="#Menu"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#allInclusive -->
+
+    <owl:DatatypeProperty rdf:about="#allInclusive">
+        <rdfs:label xml:lang="de">All Inclusive Menü</rdfs:label>
+        <rdfs:label xml:lang="en">all inclusive</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#billard -->
+
+    <owl:DatatypeProperty rdf:about="#billard">
+        <rdfs:label xml:lang="de">Billard</rdfs:label>
+        <rdfs:label xml:lang="en">billard</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#country -->
+
+    <owl:DatatypeProperty rdf:about="#country">
+        <rdfs:label xml:lang="de">Land</rdfs:label>
+        <rdfs:label xml:lang="en">country</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#day -->
+
+    <owl:DatatypeProperty rdf:about="#day">
+        <rdfs:label xml:lang="de">Tag</rdfs:label>
+        <rdfs:label xml:lang="en">day</rdfs:label>
+        <rdfs:domain rdf:resource="#OpeningHours"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#description -->
+
+    <owl:DatatypeProperty rdf:about="#description">
+        <rdfs:label xml:lang="de">Beschreibung</rdfs:label>
+        <rdfs:label xml:lang="en">description</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#FoodOrBeverage"/>
+                    <rdf:Description rdf:about="#FoodOrBeverageCategory"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                    <rdf:Description rdf:about="#InnCategory"/>
+                    <rdf:Description rdf:about="#Menu"/>
+                    <rdf:Description rdf:about="#MenuCategory"/>
+                    <rdf:Description rdf:about="#OpeningHours"/>
+                    <rdf:Description rdf:about="#Region"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#dogsAllowed -->
+
+    <owl:DatatypeProperty rdf:about="#dogsAllowed">
+        <rdfs:label xml:lang="de">Hunde erlaubt</rdfs:label>
+        <rdfs:label xml:lang="en">Dogs allowed</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#email -->
+
+    <owl:DatatypeProperty rdf:about="#email">
+        <rdfs:label xml:lang="de">Email Adresse</rdfs:label>
+        <rdfs:label xml:lang="en">email address</rdfs:label>
+        <rdfs:domain rdf:resource="#Company"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#endTime -->
+
+    <owl:DatatypeProperty rdf:about="#endTime">
+        <rdfs:label xml:lang="de">End Zeit</rdfs:label>
+        <rdfs:label xml:lang="en">end time</rdfs:label>
+        <rdfs:domain rdf:resource="#OpeningHours"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#liveMusic -->
+
+    <owl:DatatypeProperty rdf:about="#liveMusic">
+        <rdfs:label xml:lang="de">Livemusik</rdfs:label>
+        <rdfs:label xml:lang="en">live music</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#month -->
+
+    <owl:DatatypeProperty rdf:about="#month">
+        <rdfs:label xml:lang="de">Monat</rdfs:label>
+        <rdfs:label xml:lang="en">month</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#name -->
+
+    <owl:DatatypeProperty rdf:about="#name">
+        <rdfs:label xml:lang="de">Name</rdfs:label>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#FoodOrBeverage"/>
+                    <rdf:Description rdf:about="#FoodOrBeverageCategory"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                    <rdf:Description rdf:about="#InnCategory"/>
+                    <rdf:Description rdf:about="#Menu"/>
+                    <rdf:Description rdf:about="#MenuCategory"/>
+                    <rdf:Description rdf:about="#Region"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#noSmoking -->
+
+    <owl:DatatypeProperty rdf:about="#noSmoking">
+        <rdfs:label xml:lang="de">Nichtraucherlokal</rdfs:label>
+        <rdfs:label xml:lang="en">No smoking</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#picture -->
+
+    <owl:DatatypeProperty rdf:about="#picture">
+        <rdfs:label xml:lang="de">Abbildung</rdfs:label>
+        <rdfs:label xml:lang="en">picture</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#sodexho -->
+
+    <owl:DatatypeProperty rdf:about="#sodexho">
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#startTime -->
+
+    <owl:DatatypeProperty rdf:about="#startTime">
+        <rdfs:label xml:lang="de">Start Zeit</rdfs:label>
+        <rdfs:label xml:lang="en">start time</rdfs:label>
+        <rdfs:domain rdf:resource="#OpeningHours"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#state -->
+
+    <owl:DatatypeProperty rdf:about="#state">
+        <rdfs:label xml:lang="de">Bundesland</rdfs:label>
+        <rdfs:label xml:lang="en">state</rdfs:label>
+        <rdfs:domain rdf:resource="#Region"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#street -->
+
+    <owl:DatatypeProperty rdf:about="#street">
+        <rdfs:label xml:lang="de">Straße</rdfs:label>
+        <rdfs:label xml:lang="en">Street</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#streetNr -->
+
+    <owl:DatatypeProperty rdf:about="#streetNr">
+        <rdfs:label xml:lang="de">Hausnummer</rdfs:label>
+        <rdfs:label xml:lang="en">House number</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#takeAway -->
+
+    <owl:DatatypeProperty rdf:about="#takeAway">
+        <rdfs:label xml:lang="de">Selbstabholung</rdfs:label>
+        <rdfs:label xml:lang="en">take away</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#town -->
+
+    <owl:DatatypeProperty rdf:about="#town">
+        <rdfs:label xml:lang="de">Ort</rdfs:label>
+        <rdfs:label xml:lang="en">town</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#website -->
+
+    <owl:DatatypeProperty rdf:about="#website">
+        <rdfs:label xml:lang="de">Webseite</rdfs:label>
+        <rdfs:label xml:lang="en">website</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                    <rdf:Description rdf:about="#Menu"/>
+                    <rdf:Description rdf:about="#Region"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#wlan -->
+
+    <owl:DatatypeProperty rdf:about="#wlan">
+        <rdfs:label xml:lang="de">Wireless LAN</rdfs:label>
+        <rdfs:label xml:lang="en">Wireless LAN</rdfs:label>
+        <rdfs:domain rdf:resource="#Inn"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#zipcode -->
+
+    <owl:DatatypeProperty rdf:about="#zipcode">
+        <rdfs:label xml:lang="de">Postleitzahl</rdfs:label>
+        <rdfs:label xml:lang="en">Zipcode</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Company"/>
+                    <rdf:Description rdf:about="#Inn"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#BusinessEntity -->
+
+    <owl:Class rdf:about="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning -->
+
+    <owl:Class rdf:about="http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#OpeningHoursSpecification -->
+
+    <owl:Class rdf:about="http://purl.org/goodrelations/v1#OpeningHoursSpecification"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#ProductOrService -->
+
+    <owl:Class rdf:about="http://purl.org/goodrelations/v1#ProductOrService"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#QualitativeValue -->
+
+    <owl:Class rdf:about="http://purl.org/goodrelations/v1#QualitativeValue"/>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Beverage -->
+
+    <owl:Class rdf:about="#Beverage">
+        <rdfs:label xml:lang="de">Getränke</rdfs:label>
+        <rdfs:label xml:lang="en">bevarage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodOrBeverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Company -->
+
+    <owl:Class rdf:about="#Company">
+        <rdfs:label xml:lang="de">Unternehmen</rdfs:label>
+        <rdfs:label xml:lang="en">company</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Cuisine -->
+
+    <owl:Class rdf:about="#Cuisine">
+        <rdfs:label xml:lang="de">Küche</rdfs:label>
+        <rdfs:label xml:lang="en">Cuisine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodOrBeverageCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Food -->
+
+    <owl:Class rdf:about="#Food">
+        <rdfs:label xml:lang="de">Essen</rdfs:label>
+        <rdfs:label xml:lang="en">food</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FoodOrBeverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#FoodOrBeverage -->
+
+    <owl:Class rdf:about="#FoodOrBeverage">
+        <rdfs:label xml:lang="de">Essen oder Drinken</rdfs:label>
+        <rdfs:label xml:lang="en">food our beverage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrService"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#FoodOrBeverageCategory -->
+
+    <owl:Class rdf:about="#FoodOrBeverageCategory">
+        <rdfs:label xml:lang="de">Essen oder Getränkkategorie</rdfs:label>
+        <rdfs:label xml:lang="en">food or beverage category</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#QualitativeValue"/>
+        <rdfs:comment xml:lang="de">Jede Speise und jedes Getränk kann einer Kategorie (z.B. Suppen, Vorspeisen, Cocktails, ...) zugeordnet werden. Diese Zuordnung erlaubt es Anwendungen, eine Strukturierung der Speisekarte auf Basis der Kategorien vorzunehmen.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Using categories for meals and drinks makes it easier for applications to do a clustering on the representation layer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Inn -->
+
+    <owl:Class rdf:about="#Inn">
+        <rdfs:label xml:lang="de">Gaststätte</rdfs:label>
+        <rdfs:label xml:lang="en">Inn</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#InnCategory -->
+
+    <owl:Class rdf:about="#InnCategory">
+        <rdfs:label xml:lang="de">Gastronomie Kategorie</rdfs:label>
+        <rdfs:label xml:lang="en">inn category</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#QualitativeValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Menu -->
+
+    <owl:Class rdf:about="#Menu">
+        <rdfs:label xml:lang="de">Speisekarte</rdfs:label>
+        <rdfs:label xml:lang="en">Menu</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#MenuCategory -->
+
+    <owl:Class rdf:about="#MenuCategory">
+        <rdfs:label xml:lang="de">Speisekarte Kategorie</rdfs:label>
+        <rdfs:label xml:lang="en">menu category</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#QualitativeValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#OpeningHours -->
+
+    <owl:Class rdf:about="#OpeningHours">
+        <rdfs:label xml:lang="de">Öffnungszeiten</rdfs:label>
+        <rdfs:label xml:lang="en">opening hours</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#OpeningHoursSpecification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Region -->
+
+    <owl:Class rdf:about="#Region">
+        <rdfs:label xml:lang="de">Tourismusregion</rdfs:label>
+        <rdfs:label xml:lang="en">tourism destination</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Antipasti -->
+
+    <FoodOrBeverageCategory rdf:about="#Antipasti">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Anitpasti</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Appetizer -->
+
+    <FoodOrBeverageCategory rdf:about="#Appetizer">
+        <name xml:lang="de">Aperitif</name>
+        <name xml:lang="en">aperitif</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Bar -->
+
+    <InnCategory rdf:about="#Bar">
+        <name xml:lang="de">Bar</name>
+        <name xml:lang="en">Bar</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Beer -->
+
+    <FoodOrBeverageCategory rdf:about="#Beer">
+        <name xml:lang="de">Bier</name>
+        <name xml:lang="en">beer</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#BeverageMenu -->
+
+    <MenuCategory rdf:about="#BeverageMenu">
+        <name xml:lang="de">Getränkekarte</name>
+        <name xml:lang="en">Baverage Menu</name>
+    </MenuCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Breakfast -->
+
+    <FoodOrBeverageCategory rdf:about="#Breakfast">
+        <name xml:lang="de">Frühstück</name>
+        <name xml:lang="en">breakfast</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#BreakfastMenu -->
+
+    <MenuCategory rdf:about="#BreakfastMenu">
+        <name xml:lang="de">Frühstückskarte</name>
+        <name xml:lang="en">breakfast menu</name>
+    </MenuCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Cafe -->
+
+    <InnCategory rdf:about="#Cafe">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cafe</name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cafe</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#DesertMenu -->
+
+    <MenuCategory rdf:about="#DesertMenu">
+        <name xml:lang="de">Nachspeisen Karte</name>
+        <name xml:lang="en">Desert Menu</name>
+    </MenuCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Dessert -->
+
+    <FoodOrBeverageCategory rdf:about="#Dessert">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nachspeise</name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dessert</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Discotheque -->
+
+    <InnCategory rdf:about="#Discotheque">
+        <name xml:lang="de">Diskothek</name>
+        <name xml:lang="en">discotheque</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#FishDish -->
+
+    <FoodOrBeverageCategory rdf:about="#FishDish">
+        <name xml:lang="de">Fischgerichte</name>
+        <name xml:lang="en">fish dishes</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#FrenchCuisine -->
+
+    <Cuisine rdf:about="#FrenchCuisine">
+        <name xml:lang="de">Französische Küche</name>
+        <name xml:lang="en">French Cuisine</name>
+    </Cuisine>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Heuriger -->
+
+    <InnCategory rdf:about="#Heuriger">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Heuriger</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#HotDrinks -->
+
+    <FoodOrBeverageCategory rdf:about="#HotDrinks">
+        <name xml:lang="de">Heißgetränke</name>
+        <name xml:lang="en">hot drinks</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#ItalianCuisine -->
+
+    <Cuisine rdf:about="#ItalianCuisine">
+        <name xml:lang="de">Italienische Kueche</name>
+        <name xml:lang="en">Italian Cuisine</name>
+    </Cuisine>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Liquor -->
+
+    <FoodOrBeverageCategory rdf:about="#Liquor">
+        <name xml:lang="de">Liköre</name>
+        <name xml:lang="en">liquors</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#MainDish -->
+
+    <FoodOrBeverageCategory rdf:about="#MainDish">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hauptspeisen</name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">main dishes</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Mostviertler_K&#252;che -->
+
+    <Cuisine rdf:about="#Mostviertler_Küche">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mostviertler Küche</name>
+    </Cuisine>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Pizzeria -->
+
+    <InnCategory rdf:about="#Pizzeria">
+        <name xml:lang="de">Pizzeria</name>
+        <name xml:lang="en">pizzeria</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#RedWine -->
+
+    <FoodOrBeverageCategory rdf:about="#RedWine">
+        <name xml:lang="de">Rotweine</name>
+        <name xml:lang="en">red wines</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Restaurant -->
+
+    <InnCategory rdf:about="#Restaurant">
+        <name xml:lang="de">Restaurant</name>
+        <name xml:lang="en">restaurant</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Salad -->
+
+    <FoodOrBeverageCategory rdf:about="#Salad">
+        <name xml:lang="de">Salate</name>
+        <name xml:lang="en">salads</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#SaladMenu -->
+
+    <MenuCategory rdf:about="#SaladMenu">
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <name xml:lang="de">Salad Karte</name>
+        <name xml:lang="en">Salad Menu</name>
+    </MenuCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Snack -->
+
+    <FoodOrBeverageCategory rdf:about="#Snack">
+        <name xml:lang="de">Imbiss</name>
+        <name xml:lang="en">snacks</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#SnackBar -->
+
+    <InnCategory rdf:about="#SnackBar">
+        <name xml:lang="de">Imbiss</name>
+        <name xml:lang="en">snack bar</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Soups -->
+
+    <FoodOrBeverageCategory rdf:about="#Soups">
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <name xml:lang="de">Suppen</name>
+        <name xml:lang="en">Soups</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Spirits -->
+
+    <FoodOrBeverageCategory rdf:about="#Spirits">
+        <name xml:lang="de">Spirituosen</name>
+        <name xml:lang="en">spirits</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Starter -->
+
+    <FoodOrBeverageCategory rdf:about="#Starter">
+        <name xml:lang="de">Vorspeisen</name>
+        <name xml:lang="en">starters</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Tageskarte -->
+
+    <MenuCategory rdf:about="#Tageskarte">
+        <description rdf:datatype="http://www.w3.org/2001/XMLSchema#string"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tageskarte</name>
+    </MenuCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Vegetarian -->
+
+    <FoodOrBeverageCategory rdf:about="#Vegetarian">
+        <name xml:lang="de">Vegetarisch</name>
+        <name xml:lang="en">vegetarian</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Vinotheque -->
+
+    <InnCategory rdf:about="#Vinotheque">
+        <name xml:lang="de">Vinothek</name>
+        <name xml:lang="en">vinotheque</name>
+    </InnCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#Whiskey -->
+
+    <FoodOrBeverageCategory rdf:about="#Whiskey">
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whiskey</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#WhiteWine -->
+
+    <FoodOrBeverageCategory rdf:about="#WhiteWine">
+        <name xml:lang="de">Weißweine</name>
+        <name xml:lang="en">white wine</name>
+    </FoodOrBeverageCategory>
+    
+
+
+    <!-- http://www.ebsemantics.net/gastro#WineMenu -->
+
+    <MenuCategory rdf:about="#WineMenu">
+        <name xml:lang="de">Weinkarte</name>
+        <name xml:lang="en">Wine menu</name>
+    </MenuCategory>
+</rdf:RDF>

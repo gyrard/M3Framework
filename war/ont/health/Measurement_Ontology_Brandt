@@ -1,0 +1,931 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2013/2/Measurement_Ontology.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/ontologies/2013/2/Measurement_Ontology.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Access_point"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Detector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Indicating_meas_instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Input_quant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kind_quantity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Material_measure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_dev_prop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_func"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_method"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_model"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_principle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_procedure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_quant_value"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_ref"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_result"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_system"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_uncertainty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meas_unit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Measurand"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Measurement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Num_quant_value"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Output_quant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Quantity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Quantity_value"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#True_quant_value"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#basedUpon"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAccess_point"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAttribute"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDevice_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasInput_quant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKind_quantity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_dev_prop"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_func"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_instrument"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_method"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_principle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_quant_value"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_ref"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_result"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_system"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMeas_uncertainty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasNum_quant_value"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasOutput_quant"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProperty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasQuantity_value"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAttributeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDevice_typeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isInput_quantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isKind_quantityOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_dev_propOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_funcOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_instrumentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_methodOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_principleOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_quant_valueOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_refOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_resultOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_systemOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMeas_uncertaintyOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isNum_quant_valueOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isOutput_quantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isProperty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isQuantity_valueOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isDeviceType"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Detector"/>
+        <Class IRI="#Indicating_meas_instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Indicating_meas_instrument"/>
+        <Class IRI="#Meas_instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Input_quant"/>
+        <Class IRI="#Quantity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kind_quantity"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Material_measure"/>
+        <Class IRI="#Meas_instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_instrument"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_model"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_procedure"/>
+        <Class IRI="#Meas_ref"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_quant_value"/>
+        <Class IRI="#Quantity_value"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_ref"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_result"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_system"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_uncertainty"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meas_unit"/>
+        <Class IRI="#Meas_ref"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Measurand"/>
+        <Class IRI="#Quantity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Measurement"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Num_quant_value"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Output_quant"/>
+        <Class IRI="#Measurand"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Quantity"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Quantity_value"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sensor"/>
+        <Class IRI="#Indicating_meas_instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#True_quant_value"/>
+        <Class IRI="#Quantity_value"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Detector"/>
+        <Class IRI="#Sensor"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Indicating_meas_instrument"/>
+        <Class IRI="#Material_measure"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Meas_procedure"/>
+        <Class IRI="#Meas_unit"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Meas_quant_value"/>
+        <Class IRI="#True_quant_value"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasAccess_point"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasDevice_type"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasInput_quant"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKind_quantity"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_dev_prop"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_func"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_instrument"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_method"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_principle"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_quant_value"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_ref"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_result"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_system"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMeas_uncertainty"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasNum_quant_value"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasOutput_quant"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasQuantity_value"/>
+        <ObjectProperty IRI="#hasProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isAttributeOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isDevice_typeOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isInput_quantOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isKind_quantityOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_dev_propOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_funcOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_instrumentOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_methodOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_principleOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_quant_valueOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_refOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_resultOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_systemOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isMeas_uncertaintyOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isNum_quant_valueOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isOutput_quantOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isQuantity_valueOf"/>
+        <ObjectProperty IRI="#isProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <ObjectProperty IRI="#isAttributeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasDevice_type"/>
+        <ObjectProperty IRI="#isDevice_typeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isInput_quantOf"/>
+        <ObjectProperty IRI="#hasInput_quant"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isKind_quantityOf"/>
+        <ObjectProperty IRI="#hasKind_quantity"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMeas_dev_prop"/>
+        <ObjectProperty IRI="#isMeas_dev_propOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_funcOf"/>
+        <ObjectProperty IRI="#hasMeas_func"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_instrumentOf"/>
+        <ObjectProperty IRI="#hasMeas_instrument"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_methodOf"/>
+        <ObjectProperty IRI="#hasMeas_method"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_principleOf"/>
+        <ObjectProperty IRI="#hasMeas_principle"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_quant_valueOf"/>
+        <ObjectProperty IRI="#hasMeas_quant_value"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMeas_ref"/>
+        <ObjectProperty IRI="#isMeas_refOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_resultOf"/>
+        <ObjectProperty IRI="#hasMeas_result"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMeas_system"/>
+        <ObjectProperty IRI="#isMeas_systemOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isMeas_uncertaintyOf"/>
+        <ObjectProperty IRI="#hasMeas_uncertainty"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasNum_quant_value"/>
+        <ObjectProperty IRI="#isNum_quant_valueOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasOutput_quant"/>
+        <ObjectProperty IRI="#isOutput_quantOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasQuantity_value"/>
+        <ObjectProperty IRI="#isQuantity_valueOf"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#basedUpon"/>
+        <Class IRI="#Meas_procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAccess_point"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAccess_point"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <Class IRI="#Measurand"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasInput_quant"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasKind_quantity"/>
+        <Class IRI="#Quantity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_dev_prop"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_func"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_instrument"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_method"/>
+        <Class IRI="#Meas_procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_principle"/>
+        <Class IRI="#Meas_procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_quant_value"/>
+        <Class IRI="#Meas_result"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_ref"/>
+        <Class IRI="#Quantity_value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_result"/>
+        <Class IRI="#Measurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_system"/>
+        <Class IRI="#Measurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMeas_uncertainty"/>
+        <Class IRI="#Meas_result"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasNum_quant_value"/>
+        <Class IRI="#Quantity_value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOutput_quant"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasOutput_quant"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasQuantity_value"/>
+        <Class IRI="#Quantity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAttributeOf"/>
+        <Class IRI="#Meas_quant_value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isInput_quantOf"/>
+        <Class IRI="#Input_quant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isKind_quantityOf"/>
+        <Class IRI="#Kind_quantity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_dev_propOf"/>
+        <Class IRI="#Meas_dev_prop"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_funcOf"/>
+        <Class IRI="#Meas_func"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_instrumentOf"/>
+        <Class IRI="#Meas_instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_methodOf"/>
+        <Class IRI="#Meas_method"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_principleOf"/>
+        <Class IRI="#Meas_principle"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_quant_valueOf"/>
+        <Class IRI="#Meas_quant_value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_refOf"/>
+        <Class IRI="#Meas_ref"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_resultOf"/>
+        <Class IRI="#Meas_result"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_systemOf"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isMeas_uncertaintyOf"/>
+        <Class IRI="#Meas_uncertainty"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isNum_quant_valueOf"/>
+        <Class IRI="#Num_quant_value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isOutput_quantOf"/>
+        <Class IRI="#Output_quant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isQuantity_valueOf"/>
+        <Class IRI="#Quantity_value"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#basedUpon"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAccess_point"/>
+        <Class IRI="#Access_point"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAttribute"/>
+        <Class IRI="#Meas_quant_value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasInput_quant"/>
+        <Class IRI="#Input_quant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasKind_quantity"/>
+        <Class IRI="#Kind_quantity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_dev_prop"/>
+        <Class IRI="#Meas_dev_prop"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_func"/>
+        <Class IRI="#Meas_func"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_instrument"/>
+        <Class IRI="#Meas_instrument"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_method"/>
+        <Class IRI="#Meas_method"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_principle"/>
+        <Class IRI="#Meas_principle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_quant_value"/>
+        <Class IRI="#Meas_quant_value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_ref"/>
+        <Class IRI="#Meas_ref"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_result"/>
+        <Class IRI="#Meas_result"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_system"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMeas_uncertainty"/>
+        <Class IRI="#Meas_uncertainty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasNum_quant_value"/>
+        <Class IRI="#Num_quant_value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasOutput_quant"/>
+        <Class IRI="#Output_quant"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasQuantity_value"/>
+        <Class IRI="#Quantity_value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAttributeOf"/>
+        <Class IRI="#Measurand"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isInput_quantOf"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isKind_quantityOf"/>
+        <Class IRI="#Quantity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_dev_propOf"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_funcOf"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_instrumentOf"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_methodOf"/>
+        <Class IRI="#Meas_procedure"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_principleOf"/>
+        <Class IRI="#Meas_procedure"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_quant_valueOf"/>
+        <Class IRI="#Meas_result"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_refOf"/>
+        <Class IRI="#Quantity_value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_resultOf"/>
+        <Class IRI="#Measurement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_systemOf"/>
+        <Class IRI="#Measurement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isMeas_uncertaintyOf"/>
+        <Class IRI="#Meas_result"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isNum_quant_valueOf"/>
+        <Class IRI="#Quantity_value"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isOutput_quantOf"/>
+        <Class IRI="#Meas_model"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isOutput_quantOf"/>
+        <Class IRI="#Meas_system"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isQuantity_valueOf"/>
+        <Class IRI="#Quantity"/>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#hasMeas_quant_value"/>
+        <ObjectProperty IRI="#isMeas_quant_valueOf"/>
+    </DisjointObjectProperties>
+    <DisjointObjectProperties>
+        <ObjectProperty IRI="#hasMeas_uncertainty"/>
+        <ObjectProperty IRI="#isMeas_uncertaintyOf"/>
+    </DisjointObjectProperties>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Detector</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Detector</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Indicating_meas_instrument</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Indicating_meas_instrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Kind_quantity</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Kind_quantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Material_measure</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Material_measure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_instrument</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_instrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_model</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_model</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_procedure</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_procedure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_quant_value</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_quant_value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_ref</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_ref</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_result</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_result</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_system</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_system</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_uncertainty</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_uncertainty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Meas_unit</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Meas_unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Measurand</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Measurand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Measurement</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Measurement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Num_quant_value</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Num_quant_value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Quantity</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Quantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Quantity_value</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Quantity_value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sensor</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Sensor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#True_quant_value</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">True_quant_value</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

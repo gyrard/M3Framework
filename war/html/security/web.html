@@ -1,0 +1,50 @@
+<h1>
+<img src="images/security/web.png" width="100" height="80" >
+Secure Web
+<img src="images/security/web.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">
+<h3>Web</h3>	
+<ul><li>
+Web security mechanisms: <select id="countermeasure"></select>
+	
+</li><li>Web Protocols:
+<select id="protocol" onclick="callWebServiceInstance('stac/hasPart', document.getElementById('protocol').value, 'protocol_composed_of', 'option')"></select> 
+(e.g., choose HTTPS)
+Is composed Of: <select id="protocol_composed_of"></select>
+
+
+</li><li>Web Attacks:
+<select id="attack" onclick="callWebServiceInstance('stac/hasSecurityMechanism', document.getElementById('attack').value, 'res', 'option')"></select>
+(e.g., choose SQL injection)
+has security mechanism: <select id="res"></select> </br>
+
+</li><li>Programming Language: <select id="programmingLanguage"></select>	 </br>
+</li><li>Frameworks: <select id="framework"></select>	</br>
+</li><li>Databases: <select id="database"></select>	</br>
+</li><li>Operating system: <select id="operatingSystem"></select>	</br>
+</li><li>How to encrypt messages? <select id="msg_encryption_tool"></select>	</br>
+</li><li>Obfuscation: <select id="Obfuscation"></select>	
+</li></ul>		
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "stac/type/WebSecurityMechanism", "countermeasure", "option");	
+	request(displayResultBindingSelect, "stac/type/WebSecurityProtocol", "protocol", "option");
+	request(displayResultBindingSelect, "stac/type/WebAttack", "attack", "option");		
+	request(displayResultBindingSelect, "stac/type/ProgrammingLanguageTechnology", "programmingLanguage", "option");		
+	request(displayResultBindingSelect, "stac/type/FrameworkTechnology", "framework", "option");	
+	request(displayResultBindingSelect, "stac/type/DatabaseTechnology", "database", "option");	
+	request(displayResultBindingSelect, "stac/type/OperatingSystemTechnology", "operatingSystem", "option");	
+	request(displayResultBindingSelect, "stac/type/MessageEncryptionTool", "msg_encryption_tool", "option");	
+	request(displayResultBindingSelect, "stac/type/Obfuscation", "Obfuscation", "option");			
+});

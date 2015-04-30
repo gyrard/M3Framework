@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE uridef[
+  <!ENTITY rdf 		      "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs 	      "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY owl 		      "http://www.w3.org/2002/07/owl#">
+  <!ENTITY xsd 		      "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY credentials 	  "http://chacs.nrl.navy.mil/projects/4SEA/NRLOntologyFiles/credentials.owl#">
+  <!ENTITY algorithms 	  "http://chacs.nrl.navy.mil/projects/4SEA/NRLOntologyFiles/securityAlgorithms.owl#">
+  <!ENTITY assurance 	  "http://chacs.nrl.navy.mil/projects/4SEA/NRLOntologyFiles/securityAssurance.owl#">
+  <!ENTITY security 	  "http://chacs.nrl.navy.mil/projects/4SEA/NRLOntologyFiles/securityMain.owl#">
+  ]>
+  
+<rdf:RDF
+    xmlns             ="&security;"
+    xmlns:security    ="&security;" 
+    xml:base          ="&security;"
+    xmlns:rdf         ="&rdf;"
+    xmlns:rdfs        ="&rdfs;"
+    xmlns:owl         ="&owl;"
+    xmlns:xsd         ="&xsd;"
+    xmlns:credentials ="&credentials;"
+    xmlns:algorithms  ="&algorithms;"
+    xmlns:assurance   ="&assurance;"
+>
+    
+ <owl:Ontology>
+   <rdfs:comment>
+      A security ontology to annotate resources with security-related information
+   </rdfs:comment>
+ </owl:Ontology>
+   
+ <!-- Top Level Classes; SecurityObjective and SecurityConcept
+ -->
+ 
+  <owl:Class rdf:ID="SecurityObjective"/>
+  
+  <owl:Class rdf:ID="SecurityConcept">
+    <owl:disjointWith rdf:resource="#SecurityObjective"/>
+  </owl:Class>
+  
+  
+ <!--
+ Second Tier classes, subclasses of SecurityConcept; 
+ SecurityProtocol, SecurityMechansism, SecurityPolicy 
+ -->
+ 
+  <owl:Class rdf:ID="SecurityProtocol">
+    <rdfs:subClassOf rdf:resource="#SecurityConcept"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="SecurityMechanism">
+    <rdfs:subClassOf rdf:resource="#SecurityConcept"/>
+  </owl:Class>
+  
+  <!-- Only SecurityPolicy is disjoint with SecurityMechanism and SecurityProtocol.
+       This implies that a Mechanism and Protocol are not disjoint and thus 
+       can have the same instance. We are purposefully blurring this line, 
+       since a protocol can also be a mechanism.
+  -->
+  <owl:Class rdf:ID="SecurityPolicy">
+    <rdfs:subClassOf rdf:resource="#SecurityConcept"/>
+    <owl:disjointWith rdf:resource="#SecurityProtocol"/>
+    <owl:disjointWith rdf:resource="#SecurityMechanism"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#supportsSecurityObjective"/>
+        <owl:hasValue rdf:resource="#Authorization"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+    
+ <!-- 
+ Subclasses of SecurityProtocol class, including
+ SignatureProtocol, AuthenticationProtocol, NetworkSecurityProtocol, EncryptionProtocol, and KeyMgmtProtocol
+ -->
+ 
+  <owl:Class rdf:ID="AuthenticationProtocol">
+    <rdfs:subClassOf rdf:resource="#SecurityProtocol"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#supportsSecurityObjective"/>
+        <owl:hasValue rdf:resource="#UserAuthentication"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class> 
+  
+  <owl:Class rdf:ID="KeyManagementProtocol">
+    <rdfs:subClassOf rdf:resource="#SecurityProtocol"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#supportsSecurityObjective"/>
+        <owl:hasValue rdf:resource="#KeyManagement"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="EncryptionProtocol">
+    <rdfs:subClassOf rdf:resource="#SecurityProtocol"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#supportsSecurityObjective"/>
+        <owl:hasValue rdf:resource="#Confidentiality"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="SignatureProtocol">
+    <rdfs:subClassOf rdf:resource="#SecurityProtocol"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#supportsSecurityObjective"/>
+        <owl:hasValue rdf:resource="#MessageAuthentication"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:ID="NetworkSecurityProtocol">
+    <rdfs:subClassOf rdf:resource="#SecurityProtocol"/>
+  </owl:Class>
+  
+  <!-- 
+  Subclasses of SecurityMechanism class; Service, Host, Network, Application
+  -->
+  
+  <owl:Class rdf:ID="ServiceMechanism">
+    <rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="HostMechanism">
+    <rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="NetworkMechanism">
+    <rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="ApplicationMechanism">
+    <rdfs:subClassOf rdf:resource="#SecurityMechanism"/>
+  </owl:Class>
+  
+  <!-- 
+  Subclasses of SecurityPolicy class; Commercial, Military
+  -->
+  
+  <owl:Class rdf:ID="CommercialPolicy">
+    <rdfs:subClassOf rdf:resource="#SecurityPolicy"/>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="MilitaryPolicy">
+    <rdfs:subClassOf rdf:resource="#SecurityPolicy"/>
+  </owl:Class>
+
+  <!-- 
+  Property Definitions: SecurityConcept class
+  -->
+  
+  <owl:ObjectProperty rdf:ID="supportsSecurityObjective">
+    <rdfs:domain rdf:resource="#SecurityConcept"/>
+    <rdfs:range rdf:resource="#SecurityObjective"/>
+    <rdfs:comment> 
+      Any SecurityConcept can support one or more of the Security Objective defined in the SecurityObjective class
+    </rdfs:comment>
+  </owl:ObjectProperty>
+  
+  <!-- 
+  Property Definitions: SecurityProtocol class
+  -->
+  <owl:ObjectProperty rdf:ID="hasAlgorithm">
+    <rdfs:domain rdf:resource="#SecurityProtocol"/>
+    <rdfs:range rdf:resource="&algorithms;Algorithm"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="hasAssurance">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SecurityProtocol"/>
+          <owl:Class rdf:about="#SecurityMechanism"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="&assurance;Assurance"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="reqCredential">
+    <rdfs:domain rdf:resource="#SecurityProtocol"/>
+    <rdfs:range rdf:resource="&credentials;Credential"/>
+  </owl:ObjectProperty>
+  
+  <!-- 
+  Property Definitions: SecurityMechanism class
+  -->
+  <!-- Property is hasAssurance, which is already declared above -->
+  
+  <!-- 
+  Property Definitions: SignatureProtocol class
+  -->
+  <owl:ObjectProperty rdf:ID="hasSignatureAlgorithm">
+    <rdfs:subPropertyOf rdf:resource="#hasAlgorithm"/>
+    <rdfs:domain rdf:resource="#SignatureProtocol"/>
+    <rdfs:range rdf:resource="&algorithms;SignatureAlgorithm"/>
+  </owl:ObjectProperty>
+  
+  <!-- 
+  Property Definitions: EncryptionProtocol class
+  -->
+  <owl:ObjectProperty rdf:ID="hasEncryptionAlgorithm">
+    <rdfs:subPropertyOf rdf:resource="#hasAlgorithm"/>
+    <rdfs:domain rdf:resource="#EncryptionProtocol"/>
+    <rdfs:range rdf:resource="&algorithms;EncryptionAlgorithm"/>
+  </owl:ObjectProperty>
+
+  <!-- 
+  Instance declarations for SecurityObjective class
+  -->
+  
+  <SecurityObjective rdf:ID="Confidentiality">
+    <rdfs:comment> 
+      Protects against information being disclosed or revealed to unauthorized parties.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="Availability">
+    <rdfs:comment> 
+      Provides guarantee that resource is available to authorized users at any authorized time.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="UserAuthentication">
+    <rdfs:comment> 
+      Provides assurance of the identity of a person or entity.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="MessageAuthentication">
+    <rdfs:comment> 
+      Provides guarantee that message came from whoever claimed to have sent it.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="Authorization">
+    <rdfs:comment> 
+      Only authorized entities are allowed to access resources in an authorized manner. 
+      (Aka Access Control). If desired, user may create instance of AccessControl as well. 
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="MessageIntegrity">
+    <rdfs:comment>
+      Data integrity or Message integrity; data cannot be changed, deleted, modified, etc by unauthorized parties.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="KeyManagement">
+    <rdfs:comment> 
+      (SecondaryObjective) Securely manages keys for legitimate users.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="ReplayPrevention">
+    <rdfs:comment>
+      (Secondary Objective) Protect against replay attacks
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="Trust">
+    <rdfs:comment>
+      (Secondary Objective) How to trust entity. Trust not only of identification, but statements, claims, etc.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="HostTrust">
+    <rdfs:comment>
+     (Secondary Objective) How to trust host or platform. Is relevant to Common criteria, etc.
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="CovertChannelPrevention">
+    <rdfs:comment> 
+      (Secondary Objective) Prevent or limit the existance of covert channels
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="Separation">
+    <rdfs:comment>
+      (Secondary Objective)
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="TrafficHiding">
+    <rdfs:comment>
+      (Secondary Objective) Pad traffic with bogus data to hide traffic patterns
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <SecurityObjective rdf:ID="Anonymity">
+    <rdfs:comment>
+      (Secondary Objective) Provides anonymity
+    </rdfs:comment>
+  </SecurityObjective>
+  
+  <!--
+  Instance declarations for AuthenticationProtocol class
+  -->
+  <AuthenticationProtocol rdf:ID="Kerberos"/>
+
+  <AuthenticationProtocol rdf:ID="SAML"/>
+  
+  <AuthenticationProtocol rdf:ID="LoginProtocol"/>
+  
+  <!--
+  Instance declarations for SignatureProtocol class
+  -->
+  <SignatureProtocol rdf:ID="XML_DSig"/>
+   
+  <!--
+  Instance declarations for EncryptionProtocol class
+  -->
+  <EncryptionProtocol rdf:ID="XML_Enc"/>
+  
+  <!--
+  Instance declarations for KeyManagementProtocol class
+  -->
+  
+  <KeyManagementProtocol rdf:ID="XKMS"/>
+  
+  <!--
+  Instance declarations for NetworkSecurityProtocol class
+  -->
+  <NetworkSecurityProtocol rdf:ID="SSH">
+    <supportsSecurityObjective rdf:resource="#MessageIntegrity"/>
+    <supportsSecurityObjective rdf:resource="#Confidentiality"/>
+    <supportsSecurityObjective rdf:resource="#UserAuthentication"/>
+    <supportsSecurityObjective rdf:resource="#MessageAuthentication"/>
+    <supportsSecurityObjective rdf:resource="#KeyManagement"/>
+  </NetworkSecurityProtocol>
+ 
+  <NetworkSecurityProtocol rdf:ID="IPSec">
+    <supportsSecurityObjective rdf:resource="#MessageAuthentication"/>
+    <supportsSecurityObjective rdf:resource="#MessageIntegrity"/>
+    <supportsSecurityObjective rdf:resource="#Confidentiality"/>
+    <supportsSecurityObjective rdf:resource="#TrafficHiding"/>
+    <supportsSecurityObjective rdf:resource="#KeyManagement"/>
+  </NetworkSecurityProtocol>
+  
+  <NetworkSecurityProtocol rdf:ID="SSL">
+    <owl:sameAs rdf:resource="#TLS"/>
+    <supportsSecurityObjective rdf:resource="#Confidentiality"/>
+    <supportsSecurityObjective rdf:resource="#UserAuthentication"/>
+    <supportsSecurityObjective rdf:resource="#KeyManagement"/>
+  </NetworkSecurityProtocol>
+  
+  <NetworkSecurityProtocol rdf:ID="TLS">
+    <owl:sameAs rdf:resource="#SSL"/>
+    <supportsSecurityObjective rdf:resource="#UserAuthentication"/>
+    <supportsSecurityObjective rdf:resource="#Confidentiality"/>
+    <supportsSecurityObjective rdf:resource="#KeyManagement"/>
+  </NetworkSecurityProtocol>
+  
+  <!--
+  Instance declarations for SecurityMechanism:ServiceMechanism class
+  -->
+
+  <ServiceMechanism  rdf:ID="SoapFirewall">
+    <supportsSecurityObjective rdf:resource="#Authorization"/>
+  </ServiceMechanism>
+  
+  <!--
+  Instance declarations for SecurityMechanism:HostMechanism class
+  -->
+  
+  <HostMechanism rdf:ID="Safehost">
+    <supportsSecurityObjective rdf:resource="#HostTrust"/>
+  </HostMechanism>
+  
+  <HostMechanism rdf:ID="VMM">
+    <supportsSecurityObjective rdf:resource="#HostTrust"/>
+  </HostMechanism>
+  
+  <!--
+  Instance declarations for SecurityMechanism:NetworkMechanism class
+  -->
+  
+  <NetworkMechanism rdf:ID="VPN">
+    <supportsSecurityObjective rdf:resource="#Confidentiality"/>
+    <supportsSecurityObjective rdf:resource="#Separation"/>
+  </NetworkMechanism>
+  
+  <NetworkMechanism rdf:ID="MLSPump">
+    <supportsSecurityObjective rdf:resource="#CovertChannelPrevention"/>
+  </NetworkMechanism>
+  
+  <NetworkMechanism rdf:ID="OnionRouter">
+    <supportsSecurityObjective rdf:resource="#Anonymity"/>
+    <supportsSecurityObjective rdf:resource="#Confidentiality"/>
+  </NetworkMechanism>
+  
+  <!--
+  Instance declarations for SecurityPolicy class
+  -->
+  
+  <SecurityPolicy rdf:ID="RBAC">
+    <rdfs:comment>
+      Role-based Access Control
+    </rdfs:comment>
+  </SecurityPolicy>
+    
+  <!--
+  Instance declarations for SecurityPolicy:Commercial class
+  -->
+  <CommercialPolicy rdf:ID="ClarkWilson"/>
+  
+  <CommercialPolicy rdf:ID="ChineseWall"/>
+  
+  <!--
+  Instance declarations for SecurityPolicy:Military class
+  -->
+  <MilitaryPolicy rdf:ID="BLP">
+    <rdfs:comment>Bell La-Padula</rdfs:comment>
+  </MilitaryPolicy>
+
+</rdf:RDF>
+

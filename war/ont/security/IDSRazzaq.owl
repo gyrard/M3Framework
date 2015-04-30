@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/Ontology1218874924.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:assert="http://www.owl-ontologies.com/assert.owl#"
+  xml:base="http://www.owl-ontologies.com/Ontology1218874924.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.owl-ontologies.com/assert.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Input">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HtmlTag"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Script"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Form"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Image"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Header"/>
+  <owl:Class rdf:ID="Host">
+    <rdfs:subClassOf rdf:resource="#Header"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BenignCode">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Code"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SQLInjection">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Attack"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SMTP">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Protocol"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DirecroryTraversal">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="mayInfect"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Resource"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Attack"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Payload">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="Contains"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Header"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="href">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HtmlTag"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="HttpResponse">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="HttpRequest"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HttpMessage"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cookie">
+    <rdfs:subClassOf rdf:resource="#Header"/>
+  </owl:Class>
+  <owl:Class rdf:ID="QueryString">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPart"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="ParameterValue"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="ParameterName"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ParameterValue">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Code"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Port"/>
+  <owl:Class rdf:ID="FTP">
+    <rdfs:subClassOf rdf:resource="#Protocol"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Indicators"/>
+  <owl:Class rdf:ID="DomainName"/>
+  <owl:Class rdf:about="#HtmlTag">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Code"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#Contains"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RequestMethod"/>
+  <owl:Class rdf:ID="HTTP">
+    <rdfs:subClassOf rdf:resource="#Protocol"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ProtocolName"/>
+  <owl:Class rdf:about="#Image">
+    <rdfs:subClassOf rdf:resource="#HtmlTag"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Script"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Form"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Input"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HttpMessage">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:valuesFrom rdf:resource="#Header"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+        <owl:valuesFrom>
+          <owl:Class rdf:ID="StartLine"/>
+        </owl:valuesFrom>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Referrer">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:valuesFrom>
+          <owl:Class rdf:ID="URL"/>
+        </owl:valuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#Contains"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Header"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TCP">
+    <rdfs:subClassOf rdf:resource="#Protocol"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HttpRequest">
+    <rdfs:subClassOf rdf:resource="#HttpMessage"/>
+    <owl:disjointWith rdf:resource="#HttpResponse"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DirectoryTraversalIndicators">
+    <rdfs:subClassOf rdf:resource="#Indicators"/>
+  </owl:Class>
+  <owl:Class rdf:ID="HttpGetRequest">
+    <rdfs:subClassOf rdf:resource="#HttpRequest"/>
+  </owl:Class>
+  <owl:Class rdf:about="#URL">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:valuesFrom rdf:resource="#DomainName"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+        <owl:valuesFrom rdf:resource="#ProtocolName"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+        <owl:valuesFrom rdf:resource="#Port"/>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:valuesFrom rdf:resource="#QueryString"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="XSSIndicators">
+    <rdfs:subClassOf rdf:resource="#Indicators"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SQLInjectionIndicators">
+    <rdfs:subClassOf rdf:resource="#Indicators"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Form">
+    <rdfs:subClassOf rdf:resource="#HtmlTag"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Script"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Image"/>
+    <owl:disjointWith rdf:resource="#Input"/>
+  </owl:Class>
+  <owl:Class rdf:ID="XSS">
+    <rdfs:subClassOf rdf:resource="#Attack"/>
+  </owl:Class>
+  <owl:Class rdf:ID="HttpVersion"/>
+  <owl:Class rdf:about="#StartLine">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#Contains"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:valuesFrom rdf:resource="#QueryString"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#Contains"/>
+        </owl:onProperty>
+        <owl:valuesFrom rdf:resource="#Resource"/>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#Contains"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:valuesFrom rdf:resource="#RequestMethod"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:valuesFrom rdf:resource="#HttpVersion"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#Contains"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MaliciousCode">
+    <rdfs:subClassOf rdf:resource="#Code"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Script">
+    <rdfs:subClassOf rdf:resource="#HtmlTag"/>
+    <owl:disjointWith rdf:resource="#Form"/>
+    <owl:disjointWith rdf:resource="#Image"/>
+    <owl:disjointWith rdf:resource="#Input"/>
+  </owl:Class>
+  <owl:Class rdf:ID="HttpPostRequest">
+    <rdfs:subClassOf rdf:resource="#HttpRequest"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:valuesFrom rdf:resource="#Payload"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPart"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="using">
+    <rdfs:domain rdf:resource="#Attack"/>
+    <rdfs:range rdf:resource="#HttpMessage"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isIdentifiedBy"/>
+  <owl:ObjectProperty rdf:about="#hasPart">
+    <rdfs:domain rdf:resource="#HttpRequest"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#StartLine"/>
+          <owl:Class rdf:about="#Header"/>
+          <owl:Class rdf:about="#Payload"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#Contains">
+    <rdfs:range rdf:resource="#HtmlTag"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Payload"/>
+          <owl:Class rdf:about="#QueryString"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasMaliciousValue">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Attack"/>
+          <owl:Class rdf:about="#MaliciousCode"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <HttpGetRequest rdf:ID="HttpGetRequest_2">
+    <hasPart>
+      <Header rdf:ID="Header_2"/>
+    </hasPart>
+  </HttpGetRequest>
+  <StartLine rdf:ID="StartLine_2"/>
+  <StartLine rdf:ID="StartLine_1"/>
+  <XSS rdf:ID="XSS_4">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&gt;</hasMaliciousValue>
+  </XSS>
+  <XSS rdf:ID="XSS_1">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cookies</hasMaliciousValue>
+  </XSS>
+  <DirecroryTraversal rdf:ID="Direcrory_Traversal_3">
+    <using rdf:resource="#HttpGetRequest_2"/>
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></hasMaliciousValue>
+  </DirecroryTraversal>
+  <XSS rdf:ID="XSS_3">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;</hasMaliciousValue>
+  </XSS>
+  <HttpGetRequest rdf:ID="HttpGetRequest_1">
+    <hasPart rdf:resource="#StartLine_2"/>
+  </HttpGetRequest>
+  <SQLInjection rdf:ID="SQL_Injection_2">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Delete</hasMaliciousValue>
+  </SQLInjection>
+  <HttpPostRequest rdf:ID="HttpPostRequest_2"/>
+  <Header rdf:ID="Header_1"/>
+  <XSS rdf:ID="XSS_2">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Script</hasMaliciousValue>
+    <using rdf:resource="#HttpGetRequest_2"/>
+  </XSS>
+  <SQLInjection rdf:ID="SQL_Injection_3">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >--</hasMaliciousValue>
+  </SQLInjection>
+  <SQLInjection rdf:ID="SQL_Injection_5">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Update</hasMaliciousValue>
+  </SQLInjection>
+  <Payload rdf:ID="Payload_2"/>
+  <DirecroryTraversal rdf:ID="Direcrory_Traversal_2">
+    <using rdf:resource="#HttpGetRequest_1"/>
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >../</hasMaliciousValue>
+  </DirecroryTraversal>
+  <SQLInjection rdf:ID="SQL_Injection_1">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ShutDown</hasMaliciousValue>
+  </SQLInjection>
+  <XSS rdf:ID="XSS_5">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >document.cookie</hasMaliciousValue>
+  </XSS>
+  <Payload rdf:ID="Payload_1"/>
+  <DirecroryTraversal rdf:ID="Direcrory_Traversal_1">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >///</hasMaliciousValue>
+    <using rdf:resource="#HttpGetRequest_1"/>
+  </DirecroryTraversal>
+  <SQLInjection rdf:ID="SQL_Injection_4">
+    <hasMaliciousValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OR</hasMaliciousValue>
+  </SQLInjection>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY tourism "http://sensormeasurement.appspot.com/ont/m3/tourism#"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">    
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">   
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY registry "http://ontology-for-registry-of-children-with-special-needs.googlecode.com/svn-history/r23/trunk/Registry3.4.4.owl">
+         <!ENTITY hospital "http://www.personal.psu.edu/wxy119/hospital_ontology.owl">
+         <!ENTITY dbpedia "http://dbpedia.org/ontology/">
+         <!ENTITY food_smart_product "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#"> 
+         <!ENTITY cito "http://purl.org/spar/cito/">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+        
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&tourism;"
+        xmlns:food_smart_product="&food_smart_product;"
+        xml:base="&tourism;"
+        xmlns:tourism="&tourism;" 
+        xmlns:hospital="&hospital;"
+        xmlns:obo="&obo;"
+        xmlns:acco="&acco;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:registry="&registry;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:foaf="&foaf;"
+        xmlns:dbpedia="&dbpedia;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:food="&food;"
+        xmlns:cito="&cito;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="&dcterms;"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+
+	<owl:Ontology rdf:about="&tourism;">
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">tourism</dc:title>
+		<dc:description xml:lang="en">The tourism ontology</dc:description>
+		<dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amelie Gyrard.</dc:creator>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-09-14</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-04-07</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+		<rdfs:comment xml:lang="en">Tourism, vacation recommendation. Description of activities according to the season, the weather forecasting.</rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+		<vann:preferredNamespacePrefix>tourism</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/tourism#</vann:preferredNamespaceUri>
+
+	</owl:Ontology>
+	
+	<!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+	
+	<owl:ObjectProperty rdf:ID="isLocated">
+  		<rdfs:domain rdf:resource="#Activity"/>
+ 		<rdfs:range  rdf:resource="#Place"/>
+		<rdfs:label xml:lang="en">isLocated</rdfs:label>
+		<rdfs:comment xml:lang="en">An activity is located outdoor or indoor.</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:Class rdf:ID="Place">
+		<rdfs:label xml:lang="en">Place</rdfs:label>
+		<rdfs:comment xml:lang="en">Place (Inside or Outside)</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Accomodation">
+		<rdfs:label xml:lang="en">Accomodation</rdfs:label>
+		<rdfs:comment xml:lang="en">Accomodation</rdfs:comment>
+		<owl:equivalentClass rdf:resource="&acco;Accommodation "/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Garment">
+		<rdfs:label xml:lang="en">Garment</rdfs:label>
+		<rdfs:label xml:lang="fr">Vetement</rdfs:label>
+		<rdfs:comment xml:lang="en">Before going on vacation, you should prepare your luggage with specific garments.</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Shoe">
+      	<rdfs:label xml:lang="en">Shoe</rdfs:label>
+      	<rdfs:label xml:lang="fr">Chaussure</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Garment"/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Pant">
+      	<rdfs:label xml:lang="en">Pant</rdfs:label>
+      	<rdfs:label xml:lang="fr">Pantalon</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Garment"/>
+    </owl:Class>
+    
+     <owl:Class rdf:ID="DayPeriod">
+      	<rdfs:label xml:lang="en">DayPeriod</rdfs:label>
+      	<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+    <owl:ObjectProperty rdf:ID="hasSeason">
+  		<rdfs:domain rdf:resource="#Garment"/>
+ 		<rdfs:range  rdf:resource="#Season"/>
+		<rdfs:label xml:lang="en">hasSeason</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:Class rdf:ID="Season">		
+		<rdfs:label xml:lang="en">Season</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_season;Season"/>			
+		<dc:description xml:lang="en">Season, Light, Activity: Inspired by the Master's thesis: A real-time semantics-aware recognition system [Vasileios 2012]</dc:description>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:ID="hasWeather">
+ 		<rdfs:range  rdf:resource="#Weather"/>
+		<rdfs:label xml:lang="en">hasWeather</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	 <owl:ObjectProperty rdf:ID="isRecommendedFor">
+ 		<rdfs:range  rdf:resource="#Weather"/>
+		<rdfs:label xml:lang="en">isRecommendedFor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+    
+    <!-- ################################################ ACTIVITY ############################################################################ -->
+    
+    <owl:Class rdf:ID="Activity">
+      	<rdfs:label xml:lang="en">Activity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Season, Light, Activity: Inspired by the Master's thesis: A real-time semantics-aware recognition system [Vasileios 2012]</dc:description>
+    </owl:Class>
+    
+     <owl:Class rdf:ID="Sport">
+      	<rdfs:label xml:lang="en">Sport</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="MartialArt">
+      	<rdfs:label xml:lang="en">Martial Art</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sport"/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="WaterSport">
+      	<rdfs:label xml:lang="en">Water Sport, water activity</rdfs:label>
+		<rdfs:comment xml:lang="en">Water Sport, aquatic sport</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Relaxation">
+      	<rdfs:label xml:lang="en">Relaxation, Wellness</rdfs:label>
+		<rdfs:comment xml:lang="en">Relaxation, Wellness</rdfs:comment>
+		<rdfs:label xml:lang="fr">Bien-etre</rdfs:label>
+		<rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Sightseeing">
+      	<rdfs:label xml:lang="en">Sightseeing</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Nightlife">
+      	<rdfs:label xml:lang="en">Nightlife</rdfs:label>
+      	<rdfs:label xml:lang="fr">Vie Nocturne</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Shopping">
+      	<rdfs:label xml:lang="en">Shopping</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    
+    <!-- ################################################ RESTAURANT ############################################################################ -->
+    
+    
+    <owl:Class rdf:ID="Restaurant">
+      	<rdfs:label xml:lang="en">Restaurant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+        <!-- ################################################ MUSEUM ############################################################################ -->
+    
+    
+    <owl:Class rdf:ID="Museum">
+      	<rdfs:label xml:lang="en">Museum</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+   	<!-- ################################################ TRANSPORT ############################################################################ -->
+    
+    
+    <owl:Class rdf:ID="Transport">
+      	<rdfs:label xml:lang="en">Transport</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Road">
+      	<rdfs:label xml:lang="en">Road</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Station">
+      	<rdfs:label xml:lang="en">Station</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+	
+</rdf:RDF>

@@ -1,0 +1,4329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY locont "http://webmind.dico.unimi.it/CARE/locont.owl#" >
+]>
+<rdf:RDF xmlns="http://webmind.dico.unimi.it/CARE/locont.owl#" xml:base="http://webmind.dico.unimi.it/CARE/locont.owl" xmlns:locont="http://webmind.dico.unimi.it/CARE/locont.owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#HomeBuindingOf -->
+
+    <owl:ObjectProperty rdf:about="#HomeBuindingOf">
+        <rdfs:domain rdf:resource="#Building"/>
+        <rdfs:range rdf:resource="#Person"/>
+        <owl:inverseOf rdf:resource="#livesInBuilding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#canHostActivity -->
+
+    <owl:ObjectProperty rdf:about="#canHostActivity">
+        <rdfs:range rdf:resource="#Activity"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#canTakePlaceDuring -->
+
+    <owl:ObjectProperty rdf:about="#canTakePlaceDuring">
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:range rdf:resource="#TimeGranularity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#canTakePlaceOn -->
+
+    <owl:ObjectProperty rdf:about="#canTakePlaceOn">
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:range rdf:resource="#SymbolicLocation"/>
+        <owl:inverseOf rdf:resource="#canHostActivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#colleague -->
+
+    <owl:ObjectProperty rdf:about="#colleague">
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#colocated -->
+
+    <owl:ObjectProperty rdf:about="#colocated">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#contains -->
+
+    <owl:ObjectProperty rdf:about="#contains">
+        <owl:inverseOf rdf:resource="#isInside"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#employedBy -->
+
+    <owl:ObjectProperty rdf:about="#employedBy">
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:domain rdf:resource="#Person"/>
+        <owl:inverseOf rdf:resource="#employer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#employer -->
+
+    <owl:ObjectProperty rdf:about="#employer">
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasActor -->
+
+    <owl:ObjectProperty rdf:about="#hasActor">
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Action"/>
+                    <rdf:Description rdf:about="#Activity"/>
+                    <rdf:Description rdf:about="#Posture"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasArtifact -->
+
+    <owl:ObjectProperty rdf:about="#hasArtifact">
+        <rdfs:range rdf:resource="#Artifact"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasCurrentActivity -->
+
+    <owl:ObjectProperty rdf:about="#hasCurrentActivity">
+        <rdfs:range rdf:resource="#Activity"/>
+        <rdfs:domain rdf:resource="#Person"/>
+        <owl:inverseOf rdf:resource="#hasActor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasCurrentPosture -->
+
+    <owl:ObjectProperty rdf:about="#hasCurrentPosture">
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="#Posture"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasCurrentSymbolicLocation -->
+
+    <owl:ObjectProperty rdf:about="#hasCurrentSymbolicLocation">
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="#SymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasInteractionType -->
+
+    <owl:ObjectProperty rdf:about="#hasInteractionType">
+        <rdfs:range rdf:resource="#InteractionType"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasLightFixture -->
+
+    <owl:ObjectProperty rdf:about="#hasLightFixture">
+        <rdfs:range rdf:resource="#LightingFixture"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasOffice -->
+
+    <owl:ObjectProperty rdf:about="#hasOffice">
+        <rdfs:range rdf:resource="#Office"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasOfficeOwner -->
+
+    <owl:ObjectProperty rdf:about="#hasOfficeOwner">
+        <rdfs:domain rdf:resource="#Office"/>
+        <rdfs:range rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasStudent -->
+
+    <owl:ObjectProperty rdf:about="#hasStudent">
+        <rdfs:domain rdf:resource="#Professor"/>
+        <rdfs:range rdf:resource="#Student"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasSupervisor -->
+
+    <owl:ObjectProperty rdf:about="#hasSupervisor">
+        <rdfs:range rdf:resource="#Professor"/>
+        <rdfs:domain rdf:resource="#Student"/>
+        <owl:inverseOf rdf:resource="#hasStudent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasTimeGranularity -->
+
+    <owl:ObjectProperty rdf:about="#hasTimeGranularity">
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:range rdf:resource="#TimeGranularity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hosts -->
+
+    <owl:ObjectProperty rdf:about="#hosts">
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+        <owl:inverseOf rdf:resource="#hasCurrentSymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#includesCommunicationRoute -->
+
+    <owl:ObjectProperty rdf:about="#includesCommunicationRoute">
+        <rdfs:range rdf:resource="#CommunicationRoute"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#isInside -->
+
+    <owl:ObjectProperty rdf:about="#isInside">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#isUpon -->
+
+    <owl:ObjectProperty rdf:about="#isUpon">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#isWearing -->
+
+    <owl:ObjectProperty rdf:about="#isWearing">
+        <rdfs:range rdf:resource="#Garment"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#livesInBuilding -->
+
+    <owl:ObjectProperty rdf:about="#livesInBuilding">
+        <rdfs:range rdf:resource="#Building"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#lookingAt -->
+
+    <owl:ObjectProperty rdf:about="#lookingAt">
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#measuredTemperature -->
+
+    <owl:ObjectProperty rdf:about="#measuredTemperature">
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+        <rdfs:range rdf:resource="#Temperature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#nextDoorNeighbor -->
+
+    <owl:ObjectProperty rdf:about="#nextDoorNeighbor">
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#officeOwnerIsIn -->
+
+    <owl:ObjectProperty rdf:about="#officeOwnerIsIn">
+        <rdfs:domain rdf:resource="#Office"/>
+        <rdfs:range rdf:resource="#SymbolicLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#personsInSupervisorOffice -->
+
+    <owl:ObjectProperty rdf:about="#personsInSupervisorOffice">
+        <rdfs:range rdf:resource="#Person"/>
+        <rdfs:domain rdf:resource="#Person"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="#hasSupervisor"/>
+            <rdf:Description rdf:about="#hasOffice"/>
+            <rdf:Description rdf:about="#hosts"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#talkingTo -->
+
+    <owl:ObjectProperty rdf:about="#talkingTo">
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#usingArtifact -->
+
+    <owl:ObjectProperty rdf:about="#usingArtifact">
+        <rdfs:range rdf:resource="#Artifact"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#confidenceValue -->
+
+    <owl:DatatypeProperty rdf:about="#confidenceValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Action"/>
+                    <rdf:Description rdf:about="#Activity"/>
+                    <rdf:Description rdf:about="#Posture"/>
+                    <rdf:Description rdf:about="#Sensor"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#derivationApproach -->
+
+    <owl:DatatypeProperty rdf:about="#derivationApproach">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Action"/>
+                    <rdf:Description rdf:about="#Activity"/>
+                    <rdf:Description rdf:about="#Posture"/>
+                    <rdf:Description rdf:about="#Sensor"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conservative</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">positive</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasCelsiusValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasCelsiusValue">
+        <rdfs:domain rdf:resource="#Temperature"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasCurrentTime -->
+
+    <owl:DatatypeProperty rdf:about="#hasCurrentTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasDoorStatus -->
+
+    <owl:DatatypeProperty rdf:about="#hasDoorStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Door"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLOSED</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPEN</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasDrapeStatus -->
+
+    <owl:DatatypeProperty rdf:about="#hasDrapeStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Drape"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLOSED</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPEN</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasHumidityValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasHumidityValue">
+        <rdfs:domain rdf:resource="#HumiditySensor"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasID -->
+
+    <owl:DatatypeProperty rdf:about="#hasID">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Artifact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasLightStatus -->
+
+    <owl:DatatypeProperty rdf:about="#hasLightStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LightingFixture"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HIGH</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LOW</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MEDIUM</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasLightValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasLightValue">
+        <rdfs:domain rdf:resource="#LightSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasLightingType -->
+
+    <owl:DatatypeProperty rdf:about="#hasLightingType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LightingFixture"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">normal</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stroboscopic</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasPhoneStatus -->
+
+    <owl:DatatypeProperty rdf:about="#hasPhoneStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Phone"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BUSY</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IDLE</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasSSN -->
+
+    <owl:DatatypeProperty rdf:about="#hasSSN">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasSoundLevel_dB -->
+
+    <owl:DatatypeProperty rdf:about="#hasSoundLevel_dB">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasTemperatureInCelsius -->
+
+    <owl:DatatypeProperty rdf:about="#hasTemperatureInCelsius">
+        <rdfs:domain rdf:resource="#SymbolicLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#hasWaterHeaterStatus -->
+
+    <owl:DatatypeProperty rdf:about="#hasWaterHeaterStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#WaterHeater"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OFF</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ON</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#measuredPressure -->
+
+    <owl:DatatypeProperty rdf:about="#measuredPressure">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NO</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YES</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#measuredTemperatureInCelsius -->
+
+    <owl:DatatypeProperty rdf:about="#measuredTemperatureInCelsius">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TemperatureSensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#measuresValue -->
+
+    <owl:DatatypeProperty rdf:about="#measuresValue">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Acknowledgement -->
+
+    <owl:Class rdf:about="#Acknowledgement">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Action -->
+
+    <owl:Class rdf:about="#Action">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Activity -->
+
+    <owl:Class rdf:about="#Activity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Afternoon -->
+
+    <owl:Class rdf:about="#Afternoon">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Airplane -->
+
+    <owl:Class rdf:about="#Airplane">
+        <rdfs:subClassOf rdf:resource="#PublicVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Arcade -->
+
+    <owl:Class rdf:about="#Arcade">
+        <rdfs:subClassOf rdf:resource="#IndoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Corridor"/>
+        <owl:disjointWith rdf:resource="#Elevator"/>
+        <owl:disjointWith rdf:resource="#Stairs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Artifact -->
+
+    <owl:Class rdf:about="#Artifact">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#AskOpinion -->
+
+    <owl:Class rdf:about="#AskOpinion">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#AssistantProfessor -->
+
+    <owl:Class rdf:about="#AssistantProfessor">
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BathTub -->
+
+    <owl:Class rdf:about="#BathTub">
+        <rdfs:subClassOf rdf:resource="#BathroomFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Bathing -->
+
+    <owl:Class rdf:about="#Bathing">
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#BathTub"/>
+                                    <rdf:Description rdf:about="#Shower"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BathroomFixture -->
+
+    <owl:Class rdf:about="#BathroomFixture">
+        <rdfs:subClassOf rdf:resource="#Fixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Beach -->
+
+    <owl:Class rdf:about="#Beach">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#BeachUmbrella"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Deckchair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#River"/>
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Steps"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Promenade"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BeachUmbrella -->
+
+    <owl:Class rdf:about="#BeachUmbrella">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Bed -->
+
+    <owl:Class rdf:about="#Bed">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BedRoom -->
+
+    <owl:Class rdf:about="#BedRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Projector"/>
+                                    <rdf:Description rdf:about="#Sink"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Bed"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#ClassRoom"/>
+        <owl:disjointWith rdf:resource="#ConferenceRoom"/>
+        <owl:disjointWith rdf:resource="#DiningRoom"/>
+        <owl:disjointWith rdf:resource="#HospitalRoom"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Laboratory"/>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Bench -->
+
+    <owl:Class rdf:about="#Bench">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Bike -->
+
+    <owl:Class rdf:about="#Bike">
+        <rdfs:subClassOf rdf:resource="#PrivateVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Blackboard -->
+
+    <owl:Class rdf:about="#Blackboard">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BreakRoom -->
+
+    <owl:Class rdf:about="#BreakRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BrushingTeeth -->
+
+    <owl:Class rdf:about="#BrushingTeeth">
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Building -->
+
+    <owl:Class rdf:about="#Building">
+        <rdfs:subClassOf rdf:resource="#IndoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Stairs"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Corridor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Elevator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Bus -->
+
+    <owl:Class rdf:about="#Bus">
+        <rdfs:subClassOf rdf:resource="#PublicVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#BusinessMeeting -->
+
+    <owl:Class rdf:about="#BusinessMeeting">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#SocialActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:someValuesFrom rdf:resource="#MeetingRoom"/>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FaceToFaceMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#CampusBuilding -->
+
+    <owl:Class rdf:about="#CampusBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#BathTub"/>
+                                    <rdf:Description rdf:about="#Shower"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#HomeBuilding"/>
+        <owl:disjointWith rdf:resource="#Hospital"/>
+        <owl:disjointWith rdf:resource="#IndoorSportsCenter"/>
+        <owl:disjointWith rdf:resource="#Mall"/>
+        <owl:disjointWith rdf:resource="#WorkBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Car -->
+
+    <owl:Class rdf:about="#Car">
+        <rdfs:subClassOf rdf:resource="#PrivateVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#CarnivalParty -->
+
+    <owl:Class rdf:about="#CarnivalParty">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FriendlyMeeting"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Person"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#isWearing"/>
+                                        <owl:someValuesFrom rdf:resource="#Mask"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FriendlyMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Chair -->
+
+    <owl:Class rdf:about="#Chair">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ClassRoom -->
+
+    <owl:Class rdf:about="#ClassRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Desk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Projector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Blackboard"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#PersonalComputer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Loudspeaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#ConferenceRoom"/>
+        <owl:disjointWith rdf:resource="#DiningRoom"/>
+        <owl:disjointWith rdf:resource="#HospitalRoom"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Laboratory"/>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Clerk -->
+
+    <owl:Class rdf:about="#Clerk">
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ClimbingDown -->
+
+    <owl:Class rdf:about="#ClimbingDown">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Track"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ClimbingUp -->
+
+    <owl:Class rdf:about="#ClimbingUp">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Track"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Clothing -->
+
+    <owl:Class rdf:about="#Clothing">
+        <rdfs:subClassOf rdf:resource="#Garment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ColdWaterSensor -->
+
+    <owl:Class rdf:about="#ColdWaterSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Comb -->
+
+    <owl:Class rdf:about="#Comb">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#CombingHair -->
+
+    <owl:Class rdf:about="#CombingHair">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                        <owl:someValuesFrom rdf:resource="#RestRoom"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#usingArtifact"/>
+                                        <owl:someValuesFrom rdf:resource="#Comb"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#lookingAt"/>
+                                        <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Comment -->
+
+    <owl:Class rdf:about="#Comment">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Communication -->
+
+    <owl:Class rdf:about="#Communication">
+        <rdfs:subClassOf rdf:resource="#SocialActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#CommunicationRoute -->
+
+    <owl:Class rdf:about="#CommunicationRoute">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#CommunicationThroughDevice -->
+
+    <owl:Class rdf:about="#CommunicationThroughDevice">
+        <rdfs:subClassOf rdf:resource="#Communication"/>
+        <owl:disjointWith rdf:resource="#FaceToFaceMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Computer -->
+
+    <owl:Class rdf:about="#Computer">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ConferenceRoom -->
+
+    <owl:Class rdf:about="#ConferenceRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Desk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#PersonalComputer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Projector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Kettle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#DiningRoom"/>
+        <owl:disjointWith rdf:resource="#HospitalRoom"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Laboratory"/>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Cooker -->
+
+    <owl:Class rdf:about="#Cooker">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Corridor -->
+
+    <owl:Class rdf:about="#Corridor">
+        <rdfs:subClassOf rdf:resource="#IndoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Elevator"/>
+        <owl:disjointWith rdf:resource="#Stairs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#DarkPlace -->
+
+    <owl:Class rdf:about="#DarkPlace">
+        <rdfs:subClassOf rdf:resource="#Place"/>
+        <owl:disjointWith rdf:resource="#LightPlace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Dawn -->
+
+    <owl:Class rdf:about="#Dawn">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Day -->
+
+    <owl:Class rdf:about="#Day">
+        <rdfs:subClassOf rdf:resource="#TimeGranularity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Deckchair -->
+
+    <owl:Class rdf:about="#Deckchair">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Desk -->
+
+    <owl:Class rdf:about="#Desk">
+        <rdfs:subClassOf rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Device -->
+
+    <owl:Class rdf:about="#Device">
+        <rdfs:subClassOf rdf:resource="#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#DiningRoom -->
+
+    <owl:Class rdf:about="#DiningRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#DinnerTable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Projector"/>
+                                    <rdf:Description rdf:about="#Sink"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#HospitalRoom"/>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Laboratory"/>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#DinnerTable -->
+
+    <owl:Class rdf:about="#DinnerTable">
+        <rdfs:subClassOf rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#DoingPresentation -->
+
+    <owl:Class rdf:about="#DoingPresentation">
+        <rdfs:subClassOf rdf:resource="#ProfessionalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Door -->
+
+    <owl:Class rdf:about="#Door">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Drape -->
+
+    <owl:Class rdf:about="#Drape">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Dusk -->
+
+    <owl:Class rdf:about="#Dusk">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Eating -->
+
+    <owl:Class rdf:about="#Eating">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#DiningRoom"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hosts"/>
+                                                <owl:onClass rdf:resource="#Person"/>
+                                                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Elevator -->
+
+    <owl:Class rdf:about="#Elevator">
+        <rdfs:subClassOf rdf:resource="#IndoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Stairs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Employee -->
+
+    <owl:Class rdf:about="#Employee">
+        <rdfs:subClassOf rdf:resource="#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Environment -->
+
+    <owl:Class rdf:about="#Environment">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Evening -->
+
+    <owl:Class rdf:about="#Evening">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#FaceToFaceMeeting -->
+
+    <owl:Class rdf:about="#FaceToFaceMeeting">
+        <rdfs:subClassOf rdf:resource="#Communication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Fixture -->
+
+    <owl:Class rdf:about="#Fixture">
+        <rdfs:subClassOf rdf:resource="#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#FriendlyMeeting -->
+
+    <owl:Class rdf:about="#FriendlyMeeting">
+        <rdfs:subClassOf rdf:resource="#FaceToFaceMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Furniture -->
+
+    <owl:Class rdf:about="#Furniture">
+        <rdfs:subClassOf rdf:resource="#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Garden -->
+
+    <owl:Class rdf:about="#Garden">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#River"/>
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Bench"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#BeachUmbrella"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Deckchair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Garment -->
+
+    <owl:Class rdf:about="#Garment">
+        <rdfs:subClassOf rdf:resource="#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#GivingClass -->
+
+    <owl:Class rdf:about="#GivingClass">
+        <rdfs:subClassOf rdf:resource="#ProfessionalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Holiday -->
+
+    <owl:Class rdf:about="#Holiday">
+        <rdfs:subClassOf rdf:resource="#Day"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#HomeBuilding -->
+
+    <owl:Class rdf:about="#HomeBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <owl:disjointWith rdf:resource="#Hospital"/>
+        <owl:disjointWith rdf:resource="#IndoorSportsCenter"/>
+        <owl:disjointWith rdf:resource="#Mall"/>
+        <owl:disjointWith rdf:resource="#WorkBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Hospital -->
+
+    <owl:Class rdf:about="#Hospital">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <owl:disjointWith rdf:resource="#IndoorSportsCenter"/>
+        <owl:disjointWith rdf:resource="#Mall"/>
+        <owl:disjointWith rdf:resource="#WorkBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#HospitalRoom -->
+
+    <owl:Class rdf:about="#HospitalRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Projector"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Kitchen"/>
+        <owl:disjointWith rdf:resource="#Laboratory"/>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#HotWaterSensor -->
+
+    <owl:Class rdf:about="#HotWaterSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#HumiditySensor -->
+
+    <owl:Class rdf:about="#HumiditySensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#IndividualActivity -->
+
+    <owl:Class rdf:about="#IndividualActivity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Activity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:onClass rdf:resource="#Person"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#IndividualJobInterview -->
+
+    <owl:Class rdf:about="#IndividualJobInterview">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FaceToFaceMeeting"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Employee"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#hasInteractionType"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:unionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="#AskOpinion"/>
+                                                    <rdf:Description rdf:about="#Comment"/>
+                                                    <rdf:Description rdf:about="#RequestInfo"/>
+                                                </owl:unionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#hasActor"/>
+                                        <owl:onClass>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <owl:Class>
+                                                        <owl:complementOf rdf:resource="#Employee"/>
+                                                    </owl:Class>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasInteractionType"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Class>
+                                                                <owl:unionOf rdf:parseType="Collection">
+                                                                    <rdf:Description rdf:about="#NegOpinion"/>
+                                                                    <rdf:Description rdf:about="#PosOpinion"/>
+                                                                    <rdf:Description rdf:about="#Propose"/>
+                                                                </owl:unionOf>
+                                                            </owl:Class>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:onClass>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FaceToFaceMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#IndoorCommunicationRoute -->
+
+    <owl:Class rdf:about="#IndoorCommunicationRoute">
+        <rdfs:subClassOf rdf:resource="#CommunicationRoute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#IndoorLocation -->
+
+    <owl:Class rdf:about="#IndoorLocation">
+        <rdfs:subClassOf rdf:resource="#SymbolicLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#OutdoorCommunicationRoute"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#OutdoorLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#IndoorSportsCenter -->
+
+    <owl:Class rdf:about="#IndoorSportsCenter">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <owl:disjointWith rdf:resource="#Mall"/>
+        <owl:disjointWith rdf:resource="#WorkBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#InformalParty -->
+
+    <owl:Class rdf:about="#InformalParty">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FriendlyMeeting"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#LivingRoom"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#SoundSensor"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FriendlyMeeting"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasLightingType"/>
+                                                        <owl:someValuesFrom>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                <owl:oneOf>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stroboscopic</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </owl:oneOf>
+                                                            </rdf:Description>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hosts"/>
+                                                <owl:onClass rdf:resource="#Person"/>
+                                                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hasSoundLevel_dB"/>
+                                                <owl:allValuesFrom>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                            <rdf:Description>
+                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</xsd:minExclusive>
+                                                            </rdf:Description>
+                                                        </owl:withRestrictions>
+                                                    </rdf:Description>
+                                                </owl:allValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FriendlyMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#InstantMessaging -->
+
+    <owl:Class rdf:about="#InstantMessaging">
+        <rdfs:subClassOf rdf:resource="#CommunicationThroughDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Computer"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#InteractionType -->
+
+    <owl:Class rdf:about="#InteractionType">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Jogging -->
+
+    <owl:Class rdf:about="#Jogging">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Promenade"/>
+                                    <rdf:Description rdf:about="#Sidewalk"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Kettle -->
+
+    <owl:Class rdf:about="#Kettle">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Kitchen -->
+
+    <owl:Class rdf:about="#Kitchen">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Sink"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Projector"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#KitchenTable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Cooker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Laboratory"/>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#KitchenTable -->
+
+    <owl:Class rdf:about="#KitchenTable">
+        <rdfs:subClassOf rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Laboratory -->
+
+    <owl:Class rdf:about="#Laboratory">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#PersonalComputer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Desk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Kettle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Blackboard"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#LivingRoom"/>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Lamp -->
+
+    <owl:Class rdf:about="#Lamp">
+        <rdfs:subClassOf rdf:resource="#LightingFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Lecturer -->
+
+    <owl:Class rdf:about="#Lecturer">
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#LightPlace -->
+
+    <owl:Class rdf:about="#LightPlace">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Place"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasLightFixture"/>
+                        <owl:someValuesFrom rdf:resource="#LightingFixture"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Place"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#LightSensor -->
+
+    <owl:Class rdf:about="#LightSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#LightingFixture -->
+
+    <owl:Class rdf:about="#LightingFixture">
+        <rdfs:subClassOf rdf:resource="#Fixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#LivingRoom -->
+
+    <owl:Class rdf:about="#LivingRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Desk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Sofa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Office"/>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Loudspeaker -->
+
+    <owl:Class rdf:about="#Loudspeaker">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#LyingDown -->
+
+    <owl:Class rdf:about="#LyingDown">
+        <rdfs:subClassOf rdf:resource="#Posture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Mall -->
+
+    <owl:Class rdf:about="#Mall">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#BathTub"/>
+                                    <rdf:Description rdf:about="#Shower"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#WorkBuilding"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Manager -->
+
+    <owl:Class rdf:about="#Manager">
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Mask -->
+
+    <owl:Class rdf:about="#Mask">
+        <rdfs:subClassOf rdf:resource="#Garment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Meadow -->
+
+    <owl:Class rdf:about="#Meadow">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#River"/>
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Steps"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#MeetingRoom -->
+
+    <owl:Class rdf:about="#MeetingRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Mirror -->
+
+    <owl:Class rdf:about="#Mirror">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Morning -->
+
+    <owl:Class rdf:about="#Morning">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Motorbike -->
+
+    <owl:Class rdf:about="#Motorbike">
+        <rdfs:subClassOf rdf:resource="#PrivateVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#MovingArm -->
+
+    <owl:Class rdf:about="#MovingArm">
+        <rdfs:subClassOf rdf:resource="#Action"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#MovingByCar -->
+
+    <owl:Class rdf:about="#MovingByCar">
+        <rdfs:subClassOf rdf:resource="#Traveling"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#MovingByMotorbike -->
+
+    <owl:Class rdf:about="#MovingByMotorbike">
+        <rdfs:subClassOf rdf:resource="#Traveling"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#MovingByTrain -->
+
+    <owl:Class rdf:about="#MovingByTrain">
+        <rdfs:subClassOf rdf:resource="#Traveling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#NegOpinion -->
+
+    <owl:Class rdf:about="#NegOpinion">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Night -->
+
+    <owl:Class rdf:about="#Night">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#NonPedestrianOutdoorLocation -->
+
+    <owl:Class rdf:about="#NonPedestrianOutdoorLocation">
+        <rdfs:subClassOf rdf:resource="#OutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Promenade"/>
+                                    <rdf:Description rdf:about="#Sidewalk"/>
+                                    <rdf:Description rdf:about="#Steps"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#PedestrianOutdoorLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Noon -->
+
+    <owl:Class rdf:about="#Noon">
+        <rdfs:subClassOf rdf:resource="#TimeOfDay"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#NoonBreak -->
+
+    <owl:Class rdf:about="#NoonBreak">
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Office -->
+
+    <owl:Class rdf:about="#Office">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Desk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Chair"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#PersonalComputer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Printer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#RestRoom"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#OutdoorCommunicationRoute -->
+
+    <owl:Class rdf:about="#OutdoorCommunicationRoute">
+        <rdfs:subClassOf rdf:resource="#CommunicationRoute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#OutdoorField -->
+
+    <owl:Class rdf:about="#OutdoorField">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#River"/>
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Steps"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#OutdoorLocation -->
+
+    <owl:Class rdf:about="#OutdoorLocation">
+        <rdfs:subClassOf rdf:resource="#SymbolicLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#IndoorCommunicationRoute"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#BathroomFixture"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Sink"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Projector"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#OutdoorSportsCenter -->
+
+    <owl:Class rdf:about="#OutdoorSportsCenter">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#River"/>
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PDA -->
+
+    <owl:Class rdf:about="#PDA">
+        <rdfs:subClassOf rdf:resource="#Computer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Park -->
+
+    <owl:Class rdf:about="#Park">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Street"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Bench"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Road"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PedestrianOutdoorLocation -->
+
+    <owl:Class rdf:about="#PedestrianOutdoorLocation">
+        <rdfs:subClassOf rdf:resource="#OutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Sidewalk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Person -->
+
+    <owl:Class rdf:about="#Person">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PersonalActivity -->
+
+    <owl:Class rdf:about="#PersonalActivity">
+        <rdfs:subClassOf rdf:resource="#IndividualActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PersonalComputer -->
+
+    <owl:Class rdf:about="#PersonalComputer">
+        <rdfs:subClassOf rdf:resource="#Computer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PhD -->
+
+    <owl:Class rdf:about="#PhD">
+        <rdfs:subClassOf rdf:resource="#Student"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Phone -->
+
+    <owl:Class rdf:about="#Phone">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PhoneConference -->
+
+    <owl:Class rdf:about="#PhoneConference">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#CommunicationThroughDevice"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#usingArtifact"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#hasPhoneStatus"/>
+                                        <owl:allValuesFrom>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                <owl:oneOf>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BUSY</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </owl:oneOf>
+                                            </rdf:Description>
+                                        </owl:allValuesFrom>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#CommunicationThroughDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Computer"/>
+                                    <rdf:Description rdf:about="#Phone"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PhysicalActivity -->
+
+    <owl:Class rdf:about="#PhysicalActivity">
+        <rdfs:subClassOf rdf:resource="#IndividualActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Place -->
+
+    <owl:Class rdf:about="#Place">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DarkPlace"/>
+                    <rdf:Description rdf:about="#LightPlace"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Play -->
+
+    <owl:Class rdf:about="#Play">
+        <rdfs:subClassOf rdf:resource="#SocialActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PosOpinion -->
+
+    <owl:Class rdf:about="#PosOpinion">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Posture -->
+
+    <owl:Class rdf:about="#Posture">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Printer -->
+
+    <owl:Class rdf:about="#Printer">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PrivateVehicle -->
+
+    <owl:Class rdf:about="#PrivateVehicle">
+        <rdfs:subClassOf rdf:resource="#Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ProfessionalActivity -->
+
+    <owl:Class rdf:about="#ProfessionalActivity">
+        <rdfs:subClassOf rdf:resource="#IndividualActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Professor -->
+
+    <owl:Class rdf:about="#Professor">
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Projector -->
+
+    <owl:Class rdf:about="#Projector">
+        <rdfs:subClassOf rdf:resource="#Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Promenade -->
+
+    <owl:Class rdf:about="#Promenade">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#River"/>
+        <owl:disjointWith rdf:resource="#Road"/>
+        <owl:disjointWith rdf:resource="#Sidewalk"/>
+        <owl:disjointWith rdf:resource="#Street"/>
+        <owl:disjointWith rdf:resource="#Track"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Propose -->
+
+    <owl:Class rdf:about="#Propose">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#PublicVehicle -->
+
+    <owl:Class rdf:about="#PublicVehicle">
+        <rdfs:subClassOf rdf:resource="#Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Rails -->
+
+    <owl:Class rdf:about="#Rails">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#RequestInfo -->
+
+    <owl:Class rdf:about="#RequestInfo">
+        <rdfs:subClassOf rdf:resource="#InteractionType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#RestRoom -->
+
+    <owl:Class rdf:about="#RestRoom">
+        <rdfs:subClassOf rdf:resource="#Room"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#ToiletBowl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Mirror"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Projector"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Sink"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#RidingBicycle -->
+
+    <owl:Class rdf:about="#RidingBicycle">
+        <rdfs:subClassOf rdf:resource="#Traveling"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                        <owl:someValuesFrom rdf:resource="#Beach"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Promenade"/>
+                                    <rdf:Description rdf:about="#Road"/>
+                                    <rdf:Description rdf:about="#Sidewalk"/>
+                                    <rdf:Description rdf:about="#Street"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#River -->
+
+    <owl:Class rdf:about="#River">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Road"/>
+        <owl:disjointWith rdf:resource="#Sidewalk"/>
+        <owl:disjointWith rdf:resource="#Street"/>
+        <owl:disjointWith rdf:resource="#Track"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Road -->
+
+    <owl:Class rdf:about="#Road">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Sidewalk"/>
+        <owl:disjointWith rdf:resource="#Street"/>
+        <owl:disjointWith rdf:resource="#Track"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Room -->
+
+    <owl:Class rdf:about="#Room">
+        <rdfs:subClassOf rdf:resource="#IndoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#CommunicationRoute"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Seated -->
+
+    <owl:Class rdf:about="#Seated">
+        <rdfs:subClassOf rdf:resource="#Posture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Sensor -->
+
+    <owl:Class rdf:about="#Sensor">
+        <rdfs:subClassOf rdf:resource="#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Shower -->
+
+    <owl:Class rdf:about="#Shower">
+        <rdfs:subClassOf rdf:resource="#BathroomFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Showering -->
+
+    <owl:Class rdf:about="#Showering">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#RestRoom"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#hasDoorStatus"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                        <owl:oneOf>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPEN</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </owl:oneOf>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#WaterHeater"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#hasWaterHeaterStatus"/>
+                                                                <owl:allValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                        <owl:oneOf>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ON</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </owl:oneOf>
+                                                                    </rdf:Description>
+                                                                </owl:allValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasDoorStatus"/>
+                                                        <owl:someValuesFrom>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                <owl:oneOf>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLOSED</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </owl:oneOf>
+                                                            </rdf:Description>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#RestRoom"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#hasDoorStatus"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                        <owl:oneOf>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPEN</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </owl:oneOf>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#WaterHeater"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasDoorStatus"/>
+                                                        <owl:someValuesFrom>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                <owl:oneOf>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CLOSED</rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </owl:oneOf>
+                                                            </rdf:Description>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#RestRoom"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#TemperatureSensor"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Sidewalk -->
+
+    <owl:Class rdf:about="#Sidewalk">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Street"/>
+        <owl:disjointWith rdf:resource="#Track"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Sink -->
+
+    <owl:Class rdf:about="#Sink">
+        <rdfs:subClassOf rdf:resource="#Fixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Sleeping -->
+
+    <owl:Class rdf:about="#Sleeping">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#BedRoom"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#LightSensor"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</xsd:maxExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#SoundSensor"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xsd:maxExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#PersonalActivity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentPosture"/>
+                                <owl:someValuesFrom rdf:resource="#LyingDown"/>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:allValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#BedRoom"/>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#hasDrapeStatus"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                        <owl:oneOf>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPEN</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </owl:oneOf>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                            <owl:Class>
+                                                <owl:complementOf>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                                                        <owl:someValuesFrom>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#hasLightStatus"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DataRange"/>
+                                                                        <owl:oneOf>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HIGH</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MEDIUM</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </owl:oneOf>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:someValuesFrom>
+                                                    </owl:Restriction>
+                                                </owl:complementOf>
+                                            </owl:Class>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#PersonalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Smartphone -->
+
+    <owl:Class rdf:about="#Smartphone">
+        <rdfs:subClassOf rdf:resource="#Computer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#SocialActivity -->
+
+    <owl:Class rdf:about="#SocialActivity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Activity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Sofa -->
+
+    <owl:Class rdf:about="#Sofa">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#SoundSensor -->
+
+    <owl:Class rdf:about="#SoundSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Stairs -->
+
+    <owl:Class rdf:about="#Stairs">
+        <rdfs:subClassOf rdf:resource="#IndoorCommunicationRoute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Standing -->
+
+    <owl:Class rdf:about="#Standing">
+        <rdfs:subClassOf rdf:resource="#Posture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#StandingStill -->
+
+    <owl:Class rdf:about="#StandingStill">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Steps -->
+
+    <owl:Class rdf:about="#Steps">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Stockholder -->
+
+    <owl:Class rdf:about="#Stockholder">
+        <rdfs:subClassOf rdf:resource="#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#StockholdersMeeting -->
+
+    <owl:Class rdf:about="#StockholdersMeeting">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#BusinessMeeting"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Manager"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#hasCurrentActivity"/>
+                                        <owl:someValuesFrom rdf:resource="#DoingPresentation"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Stockholder"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#hasCurrentPosture"/>
+                                        <owl:someValuesFrom rdf:resource="#Seated"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#BusinessMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#StoveBurnerSensor -->
+
+    <owl:Class rdf:about="#StoveBurnerSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Street -->
+
+    <owl:Class rdf:about="#Street">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+        <owl:disjointWith rdf:resource="#Track"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Strolling -->
+
+    <owl:Class rdf:about="#Strolling">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Promenade"/>
+                                    <rdf:Description rdf:about="#Sidewalk"/>
+                                    <rdf:Description rdf:about="#Track"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Student -->
+
+    <owl:Class rdf:about="#Student">
+        <rdfs:subClassOf rdf:resource="#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Subway -->
+
+    <owl:Class rdf:about="#Subway">
+        <rdfs:subClassOf rdf:resource="#PublicVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#SymbolicLocation -->
+
+    <owl:Class rdf:about="#SymbolicLocation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Table -->
+
+    <owl:Class rdf:about="#Table">
+        <rdfs:subClassOf rdf:resource="#Furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Taxi -->
+
+    <owl:Class rdf:about="#Taxi">
+        <rdfs:subClassOf rdf:resource="#PublicVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#TeaParty -->
+
+    <owl:Class rdf:about="#TeaParty">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FriendlyMeeting"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasActor"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#hasCurrentSymbolicLocation"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="#LivingRoom"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#SoundSensor"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</xsd:maxExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#contains"/>
+                                                <owl:someValuesFrom>
+                                                    <owl:Class>
+                                                        <owl:intersectionOf rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="#TemperatureSensor"/>
+                                                            <owl:Restriction>
+                                                                <owl:onProperty rdf:resource="#measuresValue"/>
+                                                                <owl:someValuesFrom>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+                                                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                                                        <owl:withRestrictions rdf:parseType="Collection">
+                                                                            <rdf:Description>
+                                                                                <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</xsd:minExclusive>
+                                                                            </rdf:Description>
+                                                                        </owl:withRestrictions>
+                                                                    </rdf:Description>
+                                                                </owl:someValuesFrom>
+                                                            </owl:Restriction>
+                                                        </owl:intersectionOf>
+                                                    </owl:Class>
+                                                </owl:someValuesFrom>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FriendlyMeeting"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Temperature -->
+
+    <owl:Class rdf:about="#Temperature">
+        <rdfs:subClassOf rdf:resource="#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#TemperatureSensor -->
+
+    <owl:Class rdf:about="#TemperatureSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#TimeGranularity -->
+
+    <owl:Class rdf:about="#TimeGranularity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#TimeOfDay -->
+
+    <owl:Class rdf:about="#TimeOfDay">
+        <rdfs:subClassOf rdf:resource="#TimeGranularity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#ToiletBowl -->
+
+    <owl:Class rdf:about="#ToiletBowl">
+        <rdfs:subClassOf rdf:resource="#BathroomFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Track -->
+
+    <owl:Class rdf:about="#Track">
+        <rdfs:subClassOf rdf:resource="#OutdoorCommunicationRoute"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Train -->
+
+    <owl:Class rdf:about="#Train">
+        <rdfs:subClassOf rdf:resource="#PublicVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Tram -->
+
+    <owl:Class rdf:about="#Tram">
+        <rdfs:subClassOf rdf:resource="#PublicVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Traveling -->
+
+    <owl:Class rdf:about="#Traveling">
+        <rdfs:subClassOf rdf:resource="#IndividualActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#OutdoorCommunicationRoute"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Undergraduate -->
+
+    <owl:Class rdf:about="#Undergraduate">
+        <rdfs:subClassOf rdf:resource="#Student"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#UrbanArea -->
+
+    <owl:Class rdf:about="#UrbanArea">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasArtifact"/>
+                <owl:someValuesFrom rdf:resource="#Bench"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Track"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Street"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Road"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#UsingDevice -->
+
+    <owl:Class rdf:about="#UsingDevice">
+        <rdfs:subClassOf rdf:resource="#IndividualActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#UsingPcSensor -->
+
+    <owl:Class rdf:about="#UsingPcSensor">
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#UsingPersonalComputer -->
+
+    <owl:Class rdf:about="#UsingPersonalComputer">
+        <rdfs:subClassOf rdf:resource="#UsingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#PersonalComputer"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#UsingProjector -->
+
+    <owl:Class rdf:about="#UsingProjector">
+        <rdfs:subClassOf rdf:resource="#UsingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Projector"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Vehicle -->
+
+    <owl:Class rdf:about="#Vehicle">
+        <rdfs:subClassOf rdf:resource="#Artifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#VideoConference -->
+
+    <owl:Class rdf:about="#VideoConference">
+        <rdfs:subClassOf rdf:resource="#CommunicationThroughDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Computer"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Walking -->
+
+    <owl:Class rdf:about="#Walking">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                        <owl:someValuesFrom rdf:resource="#NonPedestrianOutdoorLocation"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#WalkingDownstairs -->
+
+    <owl:Class rdf:about="#WalkingDownstairs">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Stairs"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#WalkingUpstairs -->
+
+    <owl:Class rdf:about="#WalkingUpstairs">
+        <rdfs:subClassOf rdf:resource="#PhysicalActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Stairs"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#WaterHeater -->
+
+    <owl:Class rdf:about="#WaterHeater">
+        <rdfs:subClassOf rdf:resource="#BathroomFixture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Weekday -->
+
+    <owl:Class rdf:about="#Weekday">
+        <rdfs:subClassOf rdf:resource="#Day"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#Wood -->
+
+    <owl:Class rdf:about="#Wood">
+        <rdfs:subClassOf rdf:resource="#PedestrianOutdoorLocation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                        <owl:someValuesFrom rdf:resource="#Road"/>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#includesCommunicationRoute"/>
+                <owl:someValuesFrom rdf:resource="#Track"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#WorkBuilding -->
+
+    <owl:Class rdf:about="#WorkBuilding">
+        <rdfs:subClassOf rdf:resource="#Building"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#BathTub"/>
+                                    <rdf:Description rdf:about="#Shower"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:complementOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#WorkingAtPc -->
+
+    <owl:Class rdf:about="#WorkingAtPc">
+        <rdfs:subClassOf rdf:resource="#ProfessionalActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://webmind.dico.unimi.it/CARE/locont.owl#WritingOnBlackboard -->
+
+    <owl:Class rdf:about="#WritingOnBlackboard">
+        <rdfs:subClassOf rdf:resource="#UsingDevice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#canTakePlaceOn"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasArtifact"/>
+                        <owl:someValuesFrom rdf:resource="#Blackboard"/>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+</rdf:RDF>
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->

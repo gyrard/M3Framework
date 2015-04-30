@@ -1,0 +1,61 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX naturopathy: <http://sensormeasurement.appspot.com/naturopathy#> 
+PREFIX nat: <http://sensormeasurement.appspot.com/naturopathy-dataset> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX food: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#>
+PREFIX recipe: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX generic: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/generic.owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?m2mappli ?m2mappli_label ?m2mappli_comment 
+?m2mdevice ?onto ?rule
+?techno ?techno_label ?techno_comment
+?securityMechanism ?security_mechanism_label ?security_mechanism_comment
+?domain ?domain_label
+
+WHERE{
+?m2mappli m3:hasContext ?domain.
+
+?domain rdfs:subClassOf m3:FeatureOfInterest.
+?domain rdfs:label ?domain_label.
+FILTER(LANGMATCHES(LANG(?domain_label), "en")).
+?m2mappli rdf:type m3:M2MApplication.
+?m2mappli m3:hasM2MDevice ?m2mdevice.
+
+OPTIONAL{ 
+?m2mappli m3:hasContext ?domain.
+}
+
+OPTIONAL{ 
+?m2mappli m3:hasUrlOntology ?onto.
+}
+
+OPTIONAL{ 
+?m2mappli m3:hasUrlRule ?rule.
+}
+OPTIONAL{ 
+?m2mappli rdfs:label ?m2mappli_label.
+?m2mappli rdfs:comment ?m2mappli_comment.
+FILTER(LANGMATCHES(LANG(?m2mappli_label), "en")).
+FILTER(LANGMATCHES(LANG(?m2mappli_comment), "en")).
+}
+OPTIONAL{ 
+?m2mappli m3:hasTechnology ?techno.
+?techno rdfs:label ?techno_label.
+?techno rdfs:comment ?techno_comment.
+FILTER(LANGMATCHES(LANG(?techno_label), "en")).
+FILTER(LANGMATCHES(LANG(?techno_comment), "en")).
+}
+OPTIONAL{ 
+?m2mappli m3:hasSecurityMechanism ?securityMechanism.
+?securityMechanism rdfs:label ?security_mechanism_label.
+?securityMechanism rdfs:comment ?security_mechanism_comment.
+FILTER(LANGMATCHES(LANG(?security_mechanism_label), "en")).
+FILTER(LANGMATCHES(LANG(?security_mechanism_comment), "en")).
+}
+
+}
+

@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY transport "http://sensormeasurement.appspot.com/ont/m3/transport#"> 
+         <!ENTITY transport-dataset "http://sensormeasurement.appspot.com/dataset/transport-dataset/"> 
+         <!ENTITY tourism "http://sensormeasurement.appspot.com/ont/m3/tourism#"> 
+         <!ENTITY tourism-dataset "http://sensormeasurement.appspot.com/dataset/tourism-dataset/"> 
+         <!ENTITY weather "http://sensormeasurement.appspot.com/ont/m3/weather#"> 
+         <!ENTITY weather-dataset "http://sensormeasurement.appspot.com/dataset/weather-dataset/"> 
+         <!ENTITY environment "http://sensormeasurement.appspot.com/environment#"> 
+         <!ENTITY environment-dataset "http://sensormeasurement.appspot.com/environment-dataset/"> 
+         <!ENTITY home "http://sensormeasurement.appspot.com/ont/m3/home#"> 
+         <!ENTITY home-dataset "http://sensormeasurement.appspot.com/dataset/home-dataset/"> 
+         <!ENTITY emotion "http://sensormeasurement.appspot.com/emotion#"> 
+         <!ENTITY emotion-dataset "http://sensormeasurement.appspot.com/emotion-dataset/"> 
+         <!ENTITY health "http://sensormeasurement.appspot.com/ont/m3/health#"> 
+         <!ENTITY health-dataset "http://sensormeasurement.appspot.com/dataset/health-dataset/"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY naturopathy-dataset "http://sensormeasurement.appspot.com/naturopathy-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">  
+         <!ENTITY emoca "http://ns.inria.fr/emoca/">  
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY stac_data	"http://securitytoolbox.appspot.com/stac-dataset/">   
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#"> 
+         <!ENTITY lor	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRules.txt"> 
+         <!ENTITY lorHealth	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHealth.txt"> 
+         <!ENTITY lorEnvironment	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesEnvironment.txt"> 
+         <!ENTITY lorWeather	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesWeather.txt"> 
+         <!ENTITY lorHome	"http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHome.txt"> 
+         <!ENTITY ruleM3Converter	"http://sensormeasurement.appspot.com/RULES/ruleM3Converter.txt"> 
+         <!ENTITY sparql	"http://sensormeasurement.appspot.com/SPARQL/template/"> 
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&m3;"
+        xml:base="&m3;"
+        xmlns:foaf="&foaf;"
+        xmlns:m3="&m3;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:sparql="&sparql;"
+        xmlns:transport="&transport;"
+        xmlns:transport-dataset="&transport-dataset;"
+        xmlns:weather="&weather;"
+        xmlns:ruleM3Converter="&ruleM3Converter;"        
+        xmlns:weather-dataset="&weather-dataset;"
+        xmlns:tourism="&tourism;"
+        xmlns:tourism-dataset="&tourism-dataset;"
+        xmlns:lor="&lor;"
+        xmlns:lorHealth="&lorHealth;"
+        xmlns:lorWeather="&lorWeather;"
+        xmlns:lorEnvironment="&lorEnvironment;"
+        xmlns:lorHome="&lorHome;"
+        xmlns:home="&home;"
+        xmlns:home-dataset="&home-dataset;"
+        xmlns:health="&health;"
+        xmlns:health-dataset="&health-dataset;"
+        xmlns:emotion="&emotion;"
+        xmlns:emotion-dataset="&emotion-dataset;"
+        xmlns:environment="&environment;"
+        xmlns:environment-dataset="&environment-dataset;"
+        xmlns:naturopathy="&naturopathy;"
+        xmlns:naturopathy-dataset="&naturopathy-dataset;"
+        xmlns:emoca="&emoca;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:obo="&obo;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:stac_data="&stac_data;"
+       	xmlns:stac="&stac;"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">    
+       	
+       
+       <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+       	
+      <!-- 33 iot appli templates: 17 cross-domain templates + 15 basic interpretation of sensor data + 1 involving 2 sensors (presence + light, or temperature + precipitation)-->
+       	       
+	  <!-- ################################################ TRANSPORTATION, WEATHER, SAFETY DEVICES IoT APPLICATIONS ############################################## -->
+	
+	<!--Do not modify this template, tested on Android too -->
+	
+	 <m3:M2MApplication rdf:about="&m3;WeatherTransportationSafetyDeviceLight">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">Luminosity, Transportation and Safety Device</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest safety devices according to the luminosity (e.g., sunny -> sun visor)</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&transport;"/>	
+	    <m3:hasUrlDataset rdf:resource="&transport-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherLuminosity"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&transport;SafetyDevice"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTransportationSafetyDevicePrecipitation">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">Precipitation, Transportation and Safety Device</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest safety devices according to the precipitation (e.g., rainy -> low beam)</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&transport;"/>	
+	    <m3:hasUrlDataset rdf:resource="&transport-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Precipitation"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&transport;SafetyDevice"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+     <m3:M2MApplication rdf:about="&m3;WeatherTransportationSafetyDeviceTemperature">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">Temperature, Transportation and Safety Device</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest safety devices according to the outisde temperature (e.g., rainy -> low beam)</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&transport;"/>	
+	    <m3:hasUrlDataset rdf:resource="&transport-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherTemperature"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&transport;SafetyDevice"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    
+    <!-- other scenarios not tested -->
+    
+     <!-- ################################################ TOURISM, WEATHER IoT APPLICATIONS ############################################## -->
+
+	<!-- Activity -->
+
+	 <m3:M2MApplication rdf:about="&m3;WeatherTourismActivityLight">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Luminosity, Tourism and Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest activities according to the luminosity</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherLuminosity"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Activity"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTourismActivityPrecipitation">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Precipitation, Tourism and Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest activities according to the precipitation</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Precipitation"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Activity"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTourismActivityThermometer">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Temperature, Tourism and Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest activities according to the temperature</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherTemperature"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Activity"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTourismActivityWindSpeed">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Wind speed, Tourism and Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest activities according to the wind speed</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WindSpeed"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Activity"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+	<!-- Garment -->
+	
+	<m3:M2MApplication rdf:about="&m3;WeatherTourismGarmentLight">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Luminosity, Tourism and Garment</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest garments according to the luminosity</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherLuminosity"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Garment"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTourismGarmentPrecipitation">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Precipitation, Tourism and Garment</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest garments according to the precipitation</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Precipitation"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Garment"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTourismGarmentThermometer">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Temperature, Tourism and Garment</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest garments according to the temperature</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherTemperature"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Garment"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;WeatherTourismGarmentWindSpeed">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Wind speed, Tourism and Garment</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest garments according to the wind speed</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;WindSpeedSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WindSpeed"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Garment"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;TourismSnowActivity">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Snow, Tourism and Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest activities according to snow</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&weather-dataset;;Snowy"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Activity"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+   <m3:M2MApplication rdf:about="&m3;TourismSnowGarment">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Tourism"/>
+		<rdfs:label xml:lang="en">Snow, Tourism and Garment</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest garments according to snow</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&tourism;"/>	
+	    <m3:hasUrlDataset rdf:resource="&tourism-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&weather-dataset;;Snowy"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&tourism;Garment"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="&m3;TransportSnow">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+   		<m3:hasContext rdf:resource="&m3;Transportation"/>
+		<rdfs:label xml:lang="en">Snow, Transportation and safety devices</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest safety devices or actions according to snow</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;PrecipitationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	   	<m3:hasUrlOntology rdf:resource="&transport;"/>	
+	    <m3:hasUrlDataset rdf:resource="&transport-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&weather-dataset;;Snowy"/>	  
+	    <m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&transport;SafetyDevice"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+    
+    <!-- to  improve update -->
+    
+      <!-- ################################################ NATUROPATHY IoT APPLICATIONS ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;BodyTemperatureSymptomHomeRemedy">
+   		<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">Body Temperature, Symptoms and Home Remedies</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest home remedies according to your body temperature (39 degC -> fever -> honey)</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;BodyThermometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&health;"/>	
+	    <m3:hasUrlDataset rdf:resource="&health-dataset;"/>	
+	    <m3:hasUrlOntology rdf:resource="&naturopathy;"/>	
+	    <m3:hasUrlDataset rdf:resource="&naturopathy-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;BodyTemperature"/>	
+	    <m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&naturopathy;Food"/> 	   
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="&m3;OutsideTemperatureSeasonFood">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Outside Temperature, Season and Food</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to suggest food according to the season and the external temperature (39 degC -> summer -> peach)</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&naturopathy;"/>	
+	    <m3:hasUrlDataset rdf:resource="&naturopathy-dataset;"/>
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>		
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherTemperature"/>	
+	    <m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&naturopathy;Food"/> 	   
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+      <m3:M2MApplication rdf:about="&m3;WeatherLuminosityEmotion">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Weather, Luminosity and Emotion</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to detect emotion according to the luminosity and the color of the sky.</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&naturopathy;"/>	
+	    <m3:hasUrlDataset rdf:resource="&naturopathy-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WeatherLuminosity"/>	
+	    <m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&naturopathy;Emotion"/> 	     
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ HOME SCENARIO: PRESENCE + LIGHT ############################################## -->
+    
+       <m3:M2MApplication rdf:about="&m3;HomePresenceLightSwitchOn">
+   		<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">Home, Presence and Light</rdfs:label>
+		<rdfs:comment xml:lang="en">Switch on/off light according to the presence</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasM2MDevice rdf:resource="&m3;OccupancyDetector"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&home;"/>	
+	    <m3:hasUrlDataset rdf:resource="&home-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;testLightPresence.sparql"/>  
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&home-dataset;NobodyInTheRoom"/>	  
+	   	<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&home;Status"/> 	 
+	    <m3:hasUrlRule rdf:resource="&lorHome;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	  
+    </m3:M2MApplication>
+    
+      <!-- ################################################ AIR POLLUTION SCENARIO ############################################## -->
+    
+     <m3:M2MApplication rdf:about="&m3;AirPollutionAppli">
+   		<m3:hasContext rdf:resource="&m3;Environment"/>
+		<rdfs:label xml:lang="en">Just interpret air pollution values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret air pollution values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;AirPollutantSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&environment;"/>	
+	    <m3:hasUrlDataset rdf:resource="&environment-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;AirPollution"/>		
+	    <m3:hasUrlRule rdf:resource="&lorEnvironment;"/>
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>		
+    </m3:M2MApplication>
+    
+    <!-- ################################################ HEART BEAT SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;HeartBeatAppli">
+   		<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">Just interpret heart beat values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret heart beat values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;HeartBeatSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&health;"/>	
+	    <m3:hasUrlDataset rdf:resource="&health-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;HearBeat"/>	  
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ BLOOD GLUCOSE SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;BloodGlucoseAppli">
+   		<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">Just interpret blood glucose values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret blood glucose values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Glucometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&health;"/>	
+	    <m3:hasUrlDataset rdf:resource="&health-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;BloodGlucose"/>	
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ SPO2 SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;SPO2Appli">
+   		<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">Just interpret SPO2 values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret SPO2 values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;PulseOxymeter"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&health;"/>	
+	    <m3:hasUrlDataset rdf:resource="&health-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;SPO2"/>	
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ CHOLESTEROL SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;CholesterolAppli">
+   		<m3:hasContext rdf:resource="&m3;Health"/>
+		<rdfs:label xml:lang="en">Just interpret cholesterol values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret cholesterol values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;CholesterolSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&health;"/>	
+	    <m3:hasUrlDataset rdf:resource="&health-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Cholesterol"/>	
+	    <m3:hasUrlRule rdf:resource="&lorHealth;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ CLOUD COVER SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;CloudCoverAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret cloud cover values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret cholesterol values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;CloudCoverSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	   <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;CloudCover"/>	   
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ WEATHER HUMIDITY SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;HumidityAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret humidity values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret humidity values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;HumiditySensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+		<m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Humidity"/>	      
+	    <m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+	    <m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>  
+    
+     <!-- ################################################ WIND DIRECTION SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;WindDirectionAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret wind direction values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret wind direction values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;WindDirectionSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;WindDirection"/>	
+  		<m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>  
+    
+    <!-- ################################################ SUN POSITION DIRECTION SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;SunPositionDirectionAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret sun position direction values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret sun position direction values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;SunPositionDirectionSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;SunPosition"/>	
+  		<m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>  
+    
+    <!-- ################################################ ATMOSPHERIC PRESSURE SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;AtmosphericPressureAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret atmospheric pressure values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret atmospheric pressure values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;AtmosphericPressureSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;AtmosphericPressure"/>		
+  		<m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication> 
+    
+      <!-- ################################################ SUN POSITION ELEVATION SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;SunPositionElevationAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret sun position elevation values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret sun position elevation values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;SunPositionElevationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;SunPositionElevation"/>		
+  		<m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+      <!-- ################################################ SUN POSITION ELEVATION SCENARIO ############################################## -->
+
+     <m3:M2MApplication rdf:about="&m3;SolarRadiationAppli">
+   		<m3:hasContext rdf:resource="&m3;Weather"/>
+		<rdfs:label xml:lang="en">Just interpret solar radiation values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret solar radiation values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;SolarRadiationSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&weather;"/>	
+	    <m3:hasUrlDataset rdf:resource="&weather-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;SolarRadiation"/>		
+  		<m3:hasUrlRule rdf:resource="&lorWeather;"/>	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+    <!-- ################################################ LUMINOSITY SCENARIO ############################################## -->
+    
+      <m3:M2MApplication rdf:about="&m3;LuminosityAppli">
+   		<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">Just interpret luminosity values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret luminosity values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&home;"/>	
+	    <m3:hasUrlDataset rdf:resource="&home-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+	    <m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Luminosity"/>		
+  		<m3:hasUrlRule rdf:resource="&lorHome;"/>	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+        <!-- ################################################ SOUND LEVEL SCENARIO ############################################## -->
+    
+    <!-- scenario tested -->
+    
+      <m3:M2MApplication rdf:about="&m3;SoundAppli">
+   		<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">Just interpret noise level values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret noise level values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;SoundSensor"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&home;"/>	
+	    <m3:hasUrlDataset rdf:resource="&home-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+  		<m3:hasUrlRule rdf:resource="&lorHome;"/>	
+  		<m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;Sound"/>
+  		<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&home;Status"/> 	
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>		
+    </m3:M2MApplication>
+    
+         <!-- ################################################ ROOM TEMPERATURE SCENARIO ############################################## -->
+    
+    <!-- scenario tested -->
+    
+      <m3:M2MApplication rdf:about="&m3;RoomTemperatureAppli">
+   		<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
+		<rdfs:label xml:lang="en">Just interpret room temperature values</rdfs:label>
+		<rdfs:comment xml:lang="en">IoT application to interpret room temperature values</rdfs:comment>    
+	    <m3:hasM2MDevice rdf:resource="&m3;Thermometer"/>	
+	    <m3:hasUrlOntology rdf:resource="&m3;"/>	
+	    <m3:hasUrlOntology rdf:resource="&home;"/>	
+	    <m3:hasUrlDataset rdf:resource="&home-dataset;"/>	
+	    <m3:hasUrlSparql rdf:resource="&sparql;m3SparqlGeneric.sparql"/>	
+  		<m3:hasUrlRule rdf:resource="&lorHome;"/>	
+  		<m3:hasSparqlVariableinferTypeUri rdf:resource="&m3;RoomTemperature"/>	
+  		<m3:hasSparqlVariabletypeRecommendedUri rdf:resource="&home;Status"/> 	    
+  		<m3:hasUrlRule rdf:resource="&ruleM3Converter;"/>	
+    </m3:M2MApplication>
+    
+</rdf:RDF>

@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://ontology.ist-spice.org/mobile-ontology/1/0/service_context/0/service_context.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:core="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#"
+  xml:base="http://ontology.ist-spice.org/mobile-ontology/1/0/service_context/0/service_context.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="TimeValidity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Validity"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTimeValidity"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#Time"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >describes when is the service valid</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ServiceContextElement">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A ServiceContext contains one or more ServiceContextElement</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ActiveServiceQoS">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It shows the dynamic QoS information the Service is having right at the moment.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ServiceContextElement"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="NetworkAccessProtocol"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Presentity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ResourceDependency"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Popularity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Validity"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ServiceContext">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="contains"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#ServiceContextElement"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Each ServiceContext  is connected to a Service (the concept Service should be defined somewhere else. Here it is only a reference). A ServiceContext contains one or more ServiceContextElement</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DeviceDependency">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ResourceDependency"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDeviceDependency"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#Device"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >which describes what kind of Devices are needed. Example are: Printer, Scanner, Display, Sensor.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ResourceDependency">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Presentity"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ActiveServiceQoS"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NetworkAccessProtocol"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Popularity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Validity"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Recources that are needed to run the service, including dependency on other enabler service as well as dependency on devices.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ServiceContextElement"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Validity">
+    <rdfs:subClassOf rdf:resource="#ServiceContextElement"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >When and where is the service valid? For example, a movie search service might only be valid when the user is accessing it inside the cinema. Likewise, a service might only be valid for a given period of time.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ActiveServiceQoS"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Presentity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NetworkAccessProtocol"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Popularity"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ResourceDependency"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PopularitySource">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >. It is used  to explain the knowledge source of the decision. A PopularitySource can be for example, user feedback, usage frequency, or connectivity by other services</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Presentity">
+    <owl:disjointWith rdf:resource="#ActiveServiceQoS"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NetworkAccessProtocol"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Popularity"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ResourceDependency"/>
+    <owl:disjointWith rdf:resource="#Validity"/>
+    <rdfs:subClassOf rdf:resource="#ServiceContextElement"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasStatus"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:oneOf rdf:parseType="Collection">
+              <Presentity rdf:ID="available"/>
+              <Presentity rdf:ID="not_available"/>
+              <Presentity rdf:ID="active"/>
+              <Presentity rdf:ID="not_active"/>
+            </owl:oneOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It shows the state of the service. E.g, whether it is available/active or not. Ideally, it should refer to the states defined in the life cycle management of services. Example states are: available, active, not available, not active.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="LocationValidity">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#Location"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasLocationValidity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Validity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >which describes where is the service valid</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Popularity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It shows how popular the service is in the platform. It could take the value of High, Low or Medium. To explain where is the value taken from, we introduce another concept</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#PopularitySource"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isBasedOn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ServiceContextElement"/>
+    <owl:disjointWith rdf:resource="#Validity"/>
+    <owl:disjointWith rdf:resource="#ResourceDependency"/>
+    <owl:disjointWith rdf:resource="#Presentity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#NetworkAccessProtocol"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ActiveServiceQoS"/>
+  </owl:Class>
+  <owl:Class rdf:ID="EnablerDependecy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >which describes what kind of Enablers are needed. Examples are SMS, MMS, DiscoveryManager, IdentifyManager, Recommender.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasEnablerDependecy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <rdf:Description rdf:about="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#Service">
+            <rdfs:subClassOf>
+              <owl:Restriction>
+                <owl:someValuesFrom rdf:resource="#ServiceContext"/>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:ID="hasServiceContext"/>
+                </owl:onProperty>
+              </owl:Restriction>
+            </rdfs:subClassOf>
+          </rdf:Description>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ResourceDependency"/>
+  </owl:Class>
+  <owl:Class rdf:about="#NetworkAccessProtocol">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:oneOf rdf:parseType="Collection">
+              <NetworkAccessProtocol rdf:ID="WLAN"/>
+              <NetworkAccessProtocol rdf:ID="GSM"/>
+              <NetworkAccessProtocol rdf:ID="UMTS"/>
+              <NetworkAccessProtocol rdf:ID="Bluetooth"/>
+            </owl:oneOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasNetworkAccessProtocol"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ServiceContextElement"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It tells the service can be accessed via what kind of network. Example are: WLAN, GSM, UMTS, Bluetooth</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ActiveServiceQoS"/>
+    <owl:disjointWith rdf:resource="#ResourceDependency"/>
+    <owl:disjointWith rdf:resource="#Validity"/>
+    <owl:disjointWith rdf:resource="#Popularity"/>
+    <owl:disjointWith rdf:resource="#Presentity"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#hasServiceContext">
+    <rdfs:domain rdf:resource="http://ontology.ist-spice.org/mobile-ontology/1/0/core/0/core.owl#Service"/>
+    <rdfs:range rdf:resource="#ServiceContext"/>
+  </owl:ObjectProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3, Build 407)  http://protege.stanford.edu -->

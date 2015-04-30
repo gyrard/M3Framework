@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!-- This is an ontology created by the Ontrapro group at Lockheed Martin
+		Advance Laboratories in Cherry Hill-->
+<!DOCTYPE rdf:RDF [
+     <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+     <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+   ]>
+<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://www.atl.lmco.com/projects/ontology/ontologies/hotel/hotelA.owl" xmlns="http://www.atl.lmco.com/projects/ontology/ontologies/hotel/hotelA.owl#">
+	
+<owl:Ontology rdf:about=""> 
+	<rdfs:comment>A hotel ontology</rdfs:comment>
+	<rdfs:label>Hotel Ontology 1</rdfs:label>
+</owl:Ontology>
+  
+<owl:Class rdf:ID="HotelRoom">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#hasSmokingPreference"/>
+			<owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#hasNumBeds"/>
+			<owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#hasOnFloor"/>
+			<owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+
+	
+<owl:Class rdf:ID="TownHouse">
+	<rdfs:subClassOf rdf:resource="#HotelRoom"/>
+</owl:Class>
+
+<owl:Class rdf:ID="Suite">
+	<rdfs:subClassOf rdf:resource="#HotelRoom"/>
+</owl:Class>
+
+<owl:Class rdf:ID="OneRoom">
+	<rdfs:subClassOf rdf:resource="#HotelRoom"/>
+</owl:Class>
+
+<owl:Class rdf:ID="SmokingPreference"/>
+<SmokingPreference rdf:ID="Smoking"/>
+<SmokingPreference rdf:ID="NonSmoking"/>
+
+<owl:Class rdf:ID="OnFloor"/>
+<OnFloor rdf:ID="Hardwood"/>
+<OnFloor rdf:ID="Carpet"/>
+
+<owl:Class rdf:ID="NumBeds"/>
+<NumBeds rdf:ID="one"/>
+<NumBeds rdf:ID="two"/>
+<NumBeds rdf:ID="three"/>
+
+
+<owl:ObjectProperty rdf:ID="hasSmokingPreference">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+	<rdfs:domain rdf:resource="#HotelRoom"/>
+	<rdfs:range rdf:resource="#SmokingPreference"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:ID="hasNumBeds">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+	<rdfs:domain rdf:resource="#HotelRoom"/>
+	<rdfs:range rdf:resource="#NumBeds"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:ID="hasOnFloor">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+	<rdfs:domain rdf:resource="#HotelRoom"/>
+	<rdfs:range rdf:resource="#OnFloor"/>
+</owl:ObjectProperty>
+	
+	
+</rdf:RDF>

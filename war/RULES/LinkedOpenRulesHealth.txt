@@ -1,0 +1,345 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix naturopathy: http://sensormeasurement.appspot.com/naturopathy#
+@prefix nat: http://sensormeasurement.appspot.com/naturopathy-dataset/
+@prefix emotion-dataset: http://sensormeasurement.appspot.com/dataset/emotion-dataset/
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix transport: http://sensormeasurement.appspot.com/ont/m3/transport#
+
+################################################################ LINKED OPEN RULES - HEALTH ######################################################################
+# Last update: 9 September 2014
+# Creator: Gyrard
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+################################################################ GNU License ######################################################################
+#
+#	Machine to Machine Measurement (M3) Framework 
+#    Copyright(c) 2012 - 2015 Eurecom
+#
+#    M3 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    M3 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with M3. The full GNU General Public License is 
+#    included in this distribution in the file called "COPYING". If not, 
+#    see <http://www.gnu.org/licenses/>.
+#
+#    Contact Information
+#    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+#  
+#	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+#	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+#	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+#  
+#  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+
+
+
+################################################################ TO DO, REMARKS ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too
+# ADD (?measurement m3:hasUnit m3:BeatPerMinute) for m3:HeartBeat
+# ADD (?measurement m3:hasUnit m3:Percent) for m3:SPO2
+# ADD (?measurement m3:hasUnit m3:DegreeCelsius) for m3:BodyTemperature
+# ADD (?measurement m3:hasUnit m3:MmolPerLiter) for m3:Cholesterol
+# ADD (?measurement m3:hasUnit m3:GramPerLiter) for m3:BloodGlucose
+
+# check with M3 converter
+
+# Number of rules = 25 rules (16 real health rules with references + 9 rules for scenarios to improve with real rules)
+
+################################################################ BODY TEMPERATURE RULES ######################################################################
+#Paper: An ontology based system for social networking for health application support [Obaid et al. 2013]
+#IF m3:BodyTemperature GREATER_THAN 39 m3:DegreeCelsius THEN CriticallyHighFever
+#tested
+# completude + correctness OK
+[CriticallyHighFever: 
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,39.0)
+              ->
+              (?measurement rdf:type health-dataset:CriticallyHighFever)
+       
+]
+       
+#Paper: An ontology based system for social networking for health application support [Obaid et al. 2013]
+#IF m3:BodyTemperature GREATER_THAN 38 m3:DegreeCelsius AND LOWER_THAN 39 m3:DegreeCelsius THEN HighFever
+[HighFever: 
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,38.0)
+              lessThan(?v,39.0)
+              ->
+              (?measurement rdf:type health-dataset:HighFever)
+]
+
+#Paper: An ontology based system for social networking for health application support [Obaid et al. 2013]
+#IF m3:BodyTemperature greaterThan 36 m3:DegreeCelsius AND lessThan 38 m3:DegreeCelsius THEN NormalFever
+[NormalBodyTemperature:
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,36.0)
+              lessThan(?v,38.0)
+              ->
+              (?measurement rdf:type health-dataset:NormalBodyTemperature)
+]
+
+# Paper: An ambient assisted living system for telemedicine with detection of symtoms [Jara et al. 2009]
+# IF m3:BodyTemperature lessThan 28 m3:DegreeCelsius THEN SevereHypothermia
+[SevereHypothermia:
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,28)
+              ->
+              (?measurement rdf:type health-dataset:SevereHypothermia)
+]
+
+# Paper: An ambient assisted living system for telemedicine with detection of symtoms [Jara et al. 2009]
+# IF m3:BodyTemperature greaterThan 28 m3:DegreeCelsius AND lessThan 32 m3:DegreeCelsius THEN ModerateHypothermia
+[ModerateHypothermia: 
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,28)
+              lessThan(?v,32)
+              ->
+              (?measurement rdf:type health-dataset:ModerateHypothermia)
+]
+
+# Paper: An ambient assisted living system for telemedicine with detection of symtoms [Jara et al. 2009]
+# IF m3:BodyTemperature greaterThan 32 m3:DegreeCelsius AND lessThan 35 m3:DegreeCelsius THEN MildHypothermia
+[MildHypothermia: 
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,32)
+              lessThan(?v,35)
+              ->
+              (?measurement rdf:type health-dataset:MildHypothermia)
+]
+
+################################################################ HEALTH - HEARTBEAT RULES ######################################################################
+# add (?measurement m3:hasUnit m3:BeatPerMinute)   
+# correctness ok 2 rules [Tanantong 2011] + 3 rules
+# completude no > 300 nothing
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# FastHeartBeat, IF m3:HeartBeat greaterThan 102 m3:BeatPerMinute AND lessThan 150 m3:BeatPerMinute THEN FastHeartBeat
+[FastHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,102)
+              lessThan(?v,150)
+              ->
+              (?measurement rdf:type health-dataset:FastHeartBeat)
+]
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# SlowHeartBeat, IF m3:HeartBeat greaterThan 40 m3:BeatPerMinute AND lessThan 58 m3:BeatPerMinute THEN SlowHeartBeat
+[SlowHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,40)
+              lessThan(?v,58)
+              ->
+              (?measurement rdf:type health-dataset:SlowHeartBeat)
+]
+
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# NormalHeartRate, IF m3:HeartBeat greaterThan 55 m3:BeatPerMinute AND lessThan 64 m3:BeatPerMinute THEN NormalHeartRate
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# NormalHeartBeat, IF m3:HeartBeat greaterThan 58 m3:BeatPerMinute AND lessThan 102 m3:BeatPerMinute THEN NormalHeartBeat
+[NormalHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,58)
+              lessThan(?v,102)
+              ->
+              (?measurement rdf:type health-dataset:NormalHeartBeat)
+]
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Tachycardia, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute THEN Tachycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VeryFastHeartBeat, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute AND lessThan 300 m3:BeatPerMinute THEN VeryFastHeartBeat
+[VeryFastHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,150)
+              lessThan(?v,300)
+              ->
+              (?measurement rdf:type health-dataset:VeryFastHeartBeat)
+]
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Bradycardia, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN Bradycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VerySlowHeartBeat, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN VerySlowHeartBeat
+[VerySlowHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,40)
+              ->
+              (?measurement rdf:type health-dataset:VerySlowHeartBeat)
+]
+
+
+################################################################ BLOOD GLUCOSE RULES ######################################################################
+# Paper: A semantic approach for service adaptation in context-aware environment [Guermah 2014]
+# Hypoglycemia, IF m3:BloodGlucose lessThan 0.7 m3:GramPerLiter THEN Hypoglycemia
+[Hypoglycemia: 
+              (?measurement rdf:type m3:BloodGlucose)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0.7)
+              ->
+              (?measurement rdf:type health-dataset:Hypoglycemia)
+]
+
+# Paper: A semantic approach for service adaptation in context-aware environment [Guermah 2014]
+# NormalGlycemia, IF m3:BloodGlucose greaterThan 0.7 AND lessThan 2.5 m3:GramPerLiter THEN NormalGlycemia
+[NormalGlycemia: 
+              (?measurement rdf:type m3:BloodGlucose)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,2.5)
+              greaterThan(?v,0.7)
+              ->
+              (?measurement rdf:type health-dataset:NormalGlycemia)
+]
+
+# Paper: A semantic approach for service adaptation in context-aware environment [Guermah 2014]
+# Hyperglycemia, IF m3:BloodGlucose greaterThan 2.5 m3:GramPerLiter THEN Hypoglycemia
+[Hyperglycemia: 
+              (?measurement rdf:type m3:BloodGlucose)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,2.5)
+              ->
+              (?measurement rdf:type health-dataset:Hyperglycemia)
+]
+
+################################################################ SPO2 RULES ######################################################################
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# LowSPO2, IF m3:SPO2 lessThan 190 m3:Percent THEN LowSPO2
+
+[LowSPO2: 
+              (?measurement rdf:type m3:SPO2)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,190)
+              ->
+              (?measurement rdf:type health-dataset:LowSPO2)
+]
+
+################################################################ CHOLESTEROL RULES ######################################################################
+
+# Paper: Mobile monitoring and reasoning methods to prevent cardiovascular diseases [Bravo 2009-2013]
+# NormalCholesterol, IF m3:Cholesterol greaterThan 4 m3:MmolPerLiter AND lessThan 6 m3:MmolPerLiter THEN NormalCholesterol
+[NormalCholesterol: 
+              <-
+              (?measurement rdf:type m3:Cholesterol)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,4)
+              lessThan(?v,6)
+              ->
+              (?measurement rdf:type health-dataset:NormalCholesterol)
+]
+
+
+################################################################ BLOOD PRESSURE RULES ######################################################################
+
+
+# test scenario
+[BloodPressureStress: (?measurement naturopathy:affectsOn nat:Stress)
+              <-
+              (?measurement rdf:type m3:BloodPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+# test scenario
+[BloodPressureHypertension: (?measurement naturopathy:hasDisease nat:Hypertension)
+              <-
+              (?measurement rdf:type m3:BloodPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+################################################################ EMOTION RULES ######################################################################
+# tested in scenario naturopathy
+[HeartBeatFear: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,130)
+              ->
+              (?measurement naturopathy:affectsOn nat:Fear)
+]
+
+[SkinConductanceStress: 
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+              lessThan(?v,30)
+			  ->
+			  (?measurement naturopathy:affectsOn nat:Stress)
+			  (?measurement transport:hasDriverState emotion-dataset:Stressed)
+			  
+]
+
+[SkinConductanceTired: 
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)
+			  ->
+			  (?measurement transport:hasDriverState emotion-dataset:Tired)
+			  
+]
+
+[SkinConductanceAnxiety: (?measurement naturopathy:affectsOn nat:Anxiety)
+              <-
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+
+
+
+
+#test skin conductance type emotion
+[SkinConductanceEmotion: (?measurement rdf:type m3:Emotion)
+              <-
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+################################################################ HEALTH ######################################################################
+          
+[Cold: (?measurement naturopathy:hasDisease nat:Cold)
+              <-
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,38)
+]
+
+
+[NormalTemperature: (?measurement naturopathy:hasDisease nat:NormalTemperature)
+              <-
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,39)
+]
+
+
+
+

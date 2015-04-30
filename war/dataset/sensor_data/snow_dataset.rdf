@@ -1,0 +1,33 @@
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:m3="http://sensormeasurement.appspot.com/m3#" > 
+<rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#weather">
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#FeatureOfInterest"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement2">
+<m3:hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">m</m3:hasUnit>
+<m3:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1.415034375702E12</m3:hasDateTimeValue>
+<m3:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</m3:hasValue>
+<m3:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">precipitation</m3:hasName>
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement"/>
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Precipitation"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#urn:thermometer:uuid:bad5ee41-383a-4137-863f-3a88cd1d51db">
+<m3:observes rdf:resource="http://sensormeasurement.appspot.com/m3#weather"/>
+<m3:produces rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement3"/>
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Sensor"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement3">
+<m3:hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cel</m3:hasUnit>
+<m3:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1.415034338059E12</m3:hasDateTimeValue>
+<m3:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</m3:hasValue>
+<m3:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature</m3:hasName>
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement"/>
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#WeatherTemperature"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#urn:precipitationsensor:uuid:165c9c1a-e4dd-46e5-ae4b-6c3ea2d39f71">
+<m3:observes rdf:resource="http://sensormeasurement.appspot.com/m3#weather"/>
+<m3:produces rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement2"/>
+<rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Sensor"/>
+</rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,46 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:m3="http://sensormeasurement.appspot.com/m3#" > 
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#weather">
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#FeatureOfInterest"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement2">
+    <m3:hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">m/s</m3:hasUnit>
+    <m3:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">0.0</m3:hasDateTimeValue>
+    <m3:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">140.0</m3:hasValue>
+    <m3:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wind speed</m3:hasName>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#WindSpeed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement0">
+    <m3:hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cel</m3:hasUnit>
+    <m3:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">0.0</m3:hasDateTimeValue>
+    <m3:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">41.0</m3:hasValue>
+    <m3:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature</m3:hasName>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#WeatherTemperature"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement1">
+    <m3:hasUnit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">m</m3:hasUnit>
+    <m3:hasDateTimeValue rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">0.0</m3:hasDateTimeValue>
+    <m3:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</m3:hasValue>
+    <m3:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">precipitation</m3:hasName>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Precipitation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#urn:thermometer:uuid:0948027d-aca6-4e7e-9ce7-5175197faacd">
+    <m3:observes rdf:resource="http://sensormeasurement.appspot.com/m3#weather"/>
+    <m3:produces rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement0"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#urn:rainfall sensor:uuid:8877ab3f-10cf-4c2d-89c1-2d075b6ac0e4">
+    <m3:observes rdf:resource="http://sensormeasurement.appspot.com/m3#weather"/>
+    <m3:produces rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement1"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#urn:windvelocitysensor:uuid:e64a3287-90cf-40d5-ba5d-6a0e98e8c069">
+    <m3:observes rdf:resource="http://sensormeasurement.appspot.com/m3#weather"/>
+    <m3:produces rdf:resource="http://sensormeasurement.appspot.com/m3#Measurement2"/>
+    <rdf:type rdf:resource="http://sensormeasurement.appspot.com/m3#Sensor"/>
+  </rdf:Description>
+</rdf:RDF>

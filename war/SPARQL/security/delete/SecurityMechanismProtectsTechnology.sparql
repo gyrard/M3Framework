@@ -1,0 +1,21 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX stac: <http://securitytoolbox.appspot.com/stac#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+select distinct  ?subSecurityMechanismLabel ?subSecurityMechanismComment ?subSecurityMechanismUri ?attackUri where{
+
+	?subSecurityMechanismUri rdfs:subClassOf ?securityMechanismUri.
+	?securityMechanismUri rdfs:subClassOf ?restriction .
+	?restriction owl:onProperty stac:protects .
+	?restriction owl:someValuesFrom ?securityTechnology .
+	?subSecurityMechanismUri rdfs:label ?subSecurityMechanismLabel .
+ 	?subSecurityMechanismUri rdfs:comment ?subSecurityMechanismComment.
+ 	
+ 	 FILTER(LANGMATCHES(LANG(?subSecurityMechanismLabel), "en")).
+ 	 FILTER(LANGMATCHES(LANG(?subSecurityMechanismComment), "en")).
+ 	 
+ 	 OPTIONAL{ ?attackUri stac:hasSecurityMechanism ?securityMechanismUri}.
+ 	 
+ }
+ 

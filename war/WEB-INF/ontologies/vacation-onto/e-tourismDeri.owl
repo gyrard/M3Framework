@@ -1,0 +1,2849 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://e-tourism.deri.at/ont/e-tourism.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://e-tourism.deri.at/ont/e-tourism.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Accomodation">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasRoom"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Guestroom"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#Guestroom"/>
+              <owl:Class rdf:ID="ConferenceRoom"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of accomodations.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Infrastructure">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of infrastructure.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Guestroom">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Room"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the concept of guestrooms.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConferenceRoom"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Room">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of rooms.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Season">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="DateTime"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of seasons.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Ticket">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the ticket that has to be bought to consume a product or service with costs. It enables the distinction between various price categories, such as kids, adults and seniors.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ConferenceRoom">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the concept of conference rooms.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Guestroom"/>
+    <rdfs:subClassOf rdf:resource="#Room"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TimePeriod">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Period"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the concept of time periods.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Period">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of time and date periods.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#DateTime"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GPSCoordinates">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the GPS coordinates of an entity using the WGS 84 (World Geodetic System 1984) as global reference frame.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PostalAddress"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#DateTime">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the concept of time. It's used to describe opening hours as well as seasons.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Activity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of activities.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DatePeriod">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the concept of date periods.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Period"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Event">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of events.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Language"/>
+  <owl:Class rdf:about="#Location">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents different ways for describing the geographical location of an entity.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#PostalAddress">
+    <owl:disjointWith rdf:resource="#GPSCoordinates"/>
+    <rdfs:subClassOf rdf:resource="#Location"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents the postal address of an entity.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="OpeningHours">
+    <rdfs:subClassOf rdf:resource="#DateTime"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class is a concrete representation of the concept of an individual's opening hours.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ContactData">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class represents an individual's contact data.</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasSeason">
+    <rdfs:range rdf:resource="#DatePeriod"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing a season.</rdfs:comment>
+    <rdfs:domain rdf:resource="#OpeningHours"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="canBeDoneAt">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing the infrastructure where an activity can be done.</rdfs:comment>
+    <rdfs:range rdf:resource="#Infrastructure"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="providesInfrastructureFor"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDatePeriod">
+    <rdfs:domain rdf:resource="#Season"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing a time period.</rdfs:comment>
+    <rdfs:range rdf:resource="#DatePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="spokenLanguage">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates which languages are spoken.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:range rdf:resource="#Language"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOpeningHours">
+    <rdfs:range rdf:resource="#OpeningHours"/>
+    <rdfs:domain rdf:resource="#Infrastructure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTicket">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#Infrastructure"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Ticket"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links one or more individuals representing different kinds of tickets.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTimePeriond">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing a date period.</rdfs:comment>
+    <rdfs:range rdf:resource="#TimePeriod"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#OpeningHours"/>
+          <owl:Class rdf:about="#Event"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasRoom">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links one or more individuals representing rooms.</rdfs:comment>
+    <rdfs:range rdf:resource="#Room"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#providesInfrastructureFor">
+    <rdfs:domain rdf:resource="#Infrastructure"/>
+    <owl:inverseOf rdf:resource="#canBeDoneAt"/>
+    <rdfs:range rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasInternetAccess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has internet access or not. Its character can be specified with the help of the subproperties.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Room"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasArea">
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates an individual's area in square metres.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="wiredConnection">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a wired connection to the Internet or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#hasInternetAccess"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="wirelessConnerction">
+    <rdfs:subPropertyOf rdf:resource="#hasInternetAccess"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a wireless connection to the Internet or not.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasFlipChart">
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a flip chart or not.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasView">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates which view somebody has from an individual.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTerrace">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a terrace or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasStage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a stage or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="petsAllowed">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether pets are allowed or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSauna">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="hasWellnessFacilities"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a sauna or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasFaxNumber">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates an individual's fax number and is part of its contact data. It includes country and area codes separated by hyphens as well as possibly necessary extensions (i.e. +43-512-507-0).</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ContactData"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTelephone">
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a telephone or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasHandicapAccessibility">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has handicap accessibility or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasEndDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the date when a date period ends (2004-11-19).</rdfs:comment>
+    <rdfs:domain rdf:resource="#DatePeriod"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasElevator">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has an elevator or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasWeekday">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Monday</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Tuesday</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >Friday</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Saturday</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >Sunday</rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:rest>
+                  </rdf:rest>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Thrusday</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Wednesday</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates a weekday.</rdfs:comment>
+    <rdfs:domain rdf:resource="#OpeningHours"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasHouseNumber">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the house number of the building where an individual is located and is part of its postal address.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasKingSizeBed">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a King size bed or not. It's also known as Standard or Eastern King and has a width of 39 inches and a lenght of 75 inches.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:ID="hasBed"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPool">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a pool or not.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#hasWellnessFacilities"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasName">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Ticket"/>
+          <owl:Class rdf:about="#Season"/>
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Infrastructure"/>
+          <owl:Class rdf:about="#Accomodation"/>
+          <owl:Class rdf:about="#Room"/>
+          <owl:Class rdf:about="#Language"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the name of an individual.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasVCR">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a VCR (Video Cassette Recorder) or not.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasLatitude">
+    <rdfs:domain rdf:resource="#GPSCoordinates"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the latitude of an individual in degrees and is part of its GPS coordinates. The WGS 84 (World Geodetic System 1984) is used as global reference frame.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasWellnessFacilities">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has wellness facilities or not. The facilities can be specified with the help of the subproperties.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasBoard">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates which board is offerd by an individual. Allowed values are full board, half board, breakfast and all inclusive.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasLongitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#GPSCoordinates"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the longitude of an individual in degrees and is part of its GPS coordinates. The WGS 84 (World Geodetic System 1984) is used as global reference frame.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasBaggageRoom">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a baggage room or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasVideoConferenceSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a video conference system or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasWebsite">
+    <rdfs:domain rdf:resource="#ContactData"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates one or more of an individual's web site addresses and is part of its contact data. The protocol part of the URI must not be part of the value (i.e. www.uibk.ac.at).</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasHalfboard">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an accomodation offers half-board.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#hasBoard"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMassageStudio">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a massage studio or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:subPropertyOf rdf:resource="#hasWellnessFacilities"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSteamBath">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a steam bath or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:subPropertyOf rdf:resource="#hasWellnessFacilities"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="litByNaturalDaylight">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual is lit by natural daylight or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasAudioEquipment">
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has audio equipment or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTVSet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a TV set or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasMinibar">
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a minibar or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasStartDate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the date when a date period starts (2004-11-19).</rdfs:comment>
+    <rdfs:domain rdf:resource="#DatePeriod"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasAlarmClock">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has an alarm clock or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasCountry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the country where an individual is located and is part of its postal address.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPostalCode">
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the postal code of the area where an individual is located and is part of its postal address.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasParking">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has parking or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBreakfast">
+    <rdfs:subPropertyOf rdf:resource="#hasBoard"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an accomodation offers breakfast.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="offersCrib">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual provides a crib on request or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStarRating">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the number of stars of an accomodation (1-5 stars).</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="offersLaudryCleaning">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual offers laundry service or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTeaCoffeeEquipment">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a tea and coffee equipment or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasQueenSizeBed">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasBed"/>
+    </rdfs:subPropertyOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a Queen size bed or not. It has a width of 60 inches and a lenght of 80 inches.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDoubleSizeBed">
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasBed"/>
+    </rdfs:subPropertyOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a Double size bed or not. It's also known as Full and has a width of 54 inches and a lenght of 75 inches.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasScreen">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a screen or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAllInclusive">
+    <rdfs:subPropertyOf rdf:resource="#hasBoard"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates wheter an accomodation offers all inclusive.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBalcony">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a balcony or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTwinSizeBed">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a Twin size bed or not. It's also known as Single and has a width of 39 inches and a lenght of 75 inches.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:subPropertyOf>
+      <owl:FunctionalProperty rdf:about="#hasBed"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPostalAddress">
+    <rdfs:range rdf:resource="#PostalAddress"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#Infrastructure"/>
+          <owl:Class rdf:about="#Accomodation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing another individual's postal address.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasBed">
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a bed or not. The bed's size can be specified with the help of the subproperties.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFitnessRoom">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a fitness room or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#hasWellnessFacilities"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDryingRoom">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a drying room or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTelephoneNumber">
+    <rdfs:domain rdf:resource="#ContactData"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates an individual's telephone number and is part of its contact data. It includes country and area codes separated by hyphens as well as possible extensions (i.e. +43-512-507-0).</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBathroom">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a bathroom or not. Its furnishing can be specified with the help of the subproperties.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFaxMachine">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a fax machine or not.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasContactData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#ContactData"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#Infrastructure"/>
+          <owl:Class rdf:about="#Accomodation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing another individual's contact data.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStartTime">
+    <rdfs:domain rdf:resource="#TimePeriod"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the time when a time period starts. Hours, minutes and seconds are separated by colons. The postfix stands for the hour difference compared to the Coordinated Universal Time (i.e. 13:20:00+05:00).</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAirCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has air condition or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasHairDryer">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a hair-dryer or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasShower">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:subPropertyOf rdf:resource="#hasBathroom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a shower or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the city where an individual is located and is part of its postal address.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSolarium">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a solarium or not.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#hasWellnessFacilities"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBathTub">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:subPropertyOf rdf:resource="#hasBathroom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a bath tub or not.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPrice">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the price of an individual in Euros.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Ticket"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSlideProjector">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a slide projector or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSafe">
+    <rdfs:domain rdf:resource="#Guestroom"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a safe or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEndTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#TimePeriod"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the time when a time period ends. Hours, minutes and seconds are separated by colons. The postfix stands for the hour difference compared to the Coordinated Universal Time (i.e. 13:20:00+05:00).</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="smokingAllowed">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Guestroom"/>
+          <owl:Class rdf:about="#Room"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether smoking is allowed or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasFullboard">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an accomodation offers full-board.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="#hasBoard"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="offersChildCare">
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual offers child care or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEMail">
+    <rdfs:domain rdf:resource="#ContactData"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates an individual's e-mail address and is part of its contact data.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasVideoProjector">
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a video projector or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasType">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Infrastructure"/>
+          <owl:Class rdf:about="#Accomodation"/>
+          <owl:Class rdf:about="#Guestroom"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the type of an individual.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="offersShuttleService">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual offers a shuttle service or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasGPSCoordinates">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Event"/>
+          <owl:Class rdf:about="#Infrastructure"/>
+          <owl:Class rdf:about="#Accomodation"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property links an individual representing another individual's GPS coordinates.</rdfs:comment>
+    <rdfs:range rdf:resource="#GPSCoordinates"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="offersCot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual provides a cot on request or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Accomodation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLectern">
+    <rdfs:domain rdf:resource="#ConferenceRoom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates whether an individual has a lectern or not.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStreet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This property indicates the street where an individual is located and is part of its postal address.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <PostalAddress rdf:ID="PenzPA">
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3</hasHouseNumber>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6020</hasPostalCode>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Adolf-Pichler-Platz</hasStreet>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Innsbruck</hasCity>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+  </PostalAddress>
+  <Infrastructure rdf:ID="SkiingresortStubaierGletscher">
+    <providesInfrastructureFor>
+      <Activity rdf:ID="Snowboarding">
+        <canBeDoneAt>
+          <Infrastructure rdf:ID="SkiingresortPatscherkofel">
+            <hasTicket>
+              <Ticket rdf:ID="PatscherkofelTicket2">
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Ganztagsticket Jugendliche</hasName>
+                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >22.5</hasPrice>
+              </Ticket>
+            </hasTicket>
+            <hasPostalAddress>
+              <PostalAddress rdf:ID="PatscherkofelbahnPA">
+                <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >24</hasHouseNumber>
+                <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Bilgeristrasse</hasStreet>
+                <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Igls</hasCity>
+                <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Austria</hasCountry>
+                <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >6080</hasPostalCode>
+              </PostalAddress>
+            </hasPostalAddress>
+            <hasTicket>
+              <Ticket rdf:ID="PatscherkofelTicket3">
+                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >14.0</hasPrice>
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Ganztagsticket Kinder</hasName>
+              </Ticket>
+            </hasTicket>
+            <providesInfrastructureFor>
+              <Activity rdf:ID="Skiing">
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="SkiingresortHochserles">
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="HochserlesGPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,385833</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,5972222</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Hochserles</hasName>
+                    <hasContactData>
+                      <ContactData rdf:ID="HochserlesCD">
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >info@hochserles.at  Telefon</hasEMail>
+                        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5225-62776-4</hasFaxNumber>
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.hochserles.at/</hasWebsite>
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5225-62776-0</hasTelephoneNumber>
+                      </ContactData>
+                    </hasContactData>
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >skiing resort</hasType>
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasPostalAddress>
+                      <PostalAddress rdf:ID="HochserlesPA">
+                        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >6142</hasPostalCode>
+                        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Austria</hasCountry>
+                        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >150</hasHouseNumber>
+                        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Mieders</hasCity>
+                      </PostalAddress>
+                    </hasPostalAddress>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="SkiingresortAxamerLizum">
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <hasTicket>
+                      <Ticket rdf:ID="AxamerLizumTicket3">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >14.0</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >GantztagsTicket Kinder</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasOpeningHours>
+                      <OpeningHours rdf:ID="Skiingresort1OH"/>
+                    </hasOpeningHours>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Skiing Resort</hasType>
+                    <hasTicket>
+                      <Ticket rdf:ID="AxamerLizumTicket2">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >18.0</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Jugendliche</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasContactData>
+                      <ContactData rdf:ID="AxamerLizumCD">
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.axamer-lizum.at</hasWebsite>
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >verkauf@axamer-lizum.at</hasEMail>
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5234-68240</hasTelephoneNumber>
+                        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-512-330333</hasFaxNumber>
+                      </ContactData>
+                    </hasContactData>
+                    <hasTicket>
+                      <Ticket rdf:ID="AxamerLizumTicket1">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >23.5</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Erwachsene</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Axamer Lizum</hasName>
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="AxamerLizumGPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,368889</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,367778</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="Skiingresort11erLifte">
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="ElferLifteGPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,288889</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,375278</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                    <hasTicket>
+                      <Ticket rdf:ID="ElferLifteTicket2">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >8.7</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganzgatsticket Jugendliche</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >11er Lifte</hasName>
+                    <hasTicket>
+                      <Ticket rdf:ID="ElferLifteTicket3">
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganzgatsticket Kinder</hasName>
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >5.6</hasPrice>
+                      </Ticket>
+                    </hasTicket>
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Skiing resort</hasType>
+                    <hasPostalAddress>
+                      <PostalAddress rdf:ID="ElferLiftePA">
+                        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >6167</hasPostalCode>
+                        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Neustift</hasCity>
+                        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Austria</hasCountry>
+                      </PostalAddress>
+                    </hasPostalAddress>
+                    <hasTicket>
+                      <Ticket rdf:ID="ElferLifteTicket1">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >11.5</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganzgatsticket Erwachsene</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasContactData>
+                      <ContactData rdf:ID="ElferLifteCD">
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5226-2270</hasTelephoneNumber>
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.elfer.at</hasWebsite>
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >elfer@neustift.at</hasEMail>
+                      </ContactData>
+                    </hasContactData>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="SkiingresortSattelbergbahn">
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="SattelbergbahnGPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,079167</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,648611</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                    <hasTicket>
+                      <Ticket rdf:ID="SattelbergTicket1">
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Erwachsene</hasName>
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >26.8</hasPrice>
+                      </Ticket>
+                    </hasTicket>
+                    <hasPostalAddress>
+                      <PostalAddress rdf:ID="SattelbergPA">
+                        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Gries am Brenner</hasCity>
+                        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Austria</hasCountry>
+                        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >6156</hasPostalCode>
+                        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >311</hasHouseNumber>
+                        <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Neder</hasStreet>
+                      </PostalAddress>
+                    </hasPostalAddress>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Sattelbergbahn</hasName>
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >skiing resort</hasType>
+                    <hasTicket>
+                      <Ticket rdf:ID="SattelbergTicket3">
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Kinder</hasName>
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >12.9</hasPrice>
+                      </Ticket>
+                    </hasTicket>
+                    <hasContactData>
+                      <ContactData rdf:ID="SattelbergCD">
+                        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5274-87717-4</hasFaxNumber>
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.sattelalm.com</hasWebsite>
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5274-87717</hasTelephoneNumber>
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >sattelbergalm@tirol.com</hasEMail>
+                      </ContactData>
+                    </hasContactData>
+                    <hasTicket>
+                      <Ticket rdf:ID="SattelbergTicket2">
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Jugendliche</hasName>
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >18.8</hasPrice>
+                      </Ticket>
+                    </hasTicket>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <canBeDoneAt rdf:resource="#SkiingresortPatscherkofel"/>
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="SkiingresortNordpark">
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasPostalAddress>
+                      <PostalAddress rdf:ID="NordparkPA">
+                        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Austria</hasCountry>
+                        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Innsbruck</hasCity>
+                        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >6020</hasPostalCode>
+                        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >145</hasHouseNumber>
+                        <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Höhenstraße</hasStreet>
+                      </PostalAddress>
+                    </hasPostalAddress>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >skiing resort</hasType>
+                    <hasContactData>
+                      <ContactData rdf:ID="NordparkCD">
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-512-293344</hasTelephoneNumber>
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.nordpark.at</hasWebsite>
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >info@nordpark.at</hasEMail>
+                        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-512-293344-13</hasFaxNumber>
+                      </ContactData>
+                    </hasContactData>
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="NordparkGPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,335278</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,650278</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Nordpark</hasName>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Skiing</hasName>
+                <canBeDoneAt rdf:resource="#SkiingresortStubaierGletscher"/>
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="SkiingresortSchlick2000">
+                    <hasPostalAddress>
+                      <PostalAddress rdf:ID="Schlick2000PA">
+                        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >17</hasHouseNumber>
+                        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >6166</hasPostalCode>
+                        <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Bahnstrasse</hasStreet>
+                        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Austria</hasCountry>
+                        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Fulpmes</hasCity>
+                      </PostalAddress>
+                    </hasPostalAddress>
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="Schlick2000GPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,247500</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,510278</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                    <hasTicket>
+                      <Ticket rdf:ID="Schlick2000TIcket1">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >8.0</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Erwachsene</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasContactData>
+                      <ContactData rdf:ID="Schlick2000CD">
+                        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5225-63843</hasFaxNumber>
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >info@stubai.at</hasEMail>
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.schlick2000.at</hasWebsite>
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5225-62235</hasTelephoneNumber>
+                      </ContactData>
+                    </hasContactData>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Skizentrum Schlick 2000</hasName>
+                    <hasTicket>
+                      <Ticket rdf:ID="Schlick2000Ticket2">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >5.6</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Jugendliche</hasName>
+                      </Ticket>
+                    </hasTicket>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Skiing resort</hasType>
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasTicket>
+                      <Ticket rdf:ID="Schlick2000Ticket3">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >4.0</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Kinder</hasName>
+                      </Ticket>
+                    </hasTicket>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <canBeDoneAt>
+                  <Infrastructure rdf:ID="SkiingresortGlungezerBahn">
+                    <providesInfrastructureFor rdf:resource="#Skiing"/>
+                    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Glungezer Bahnen</hasName>
+                    <hasContactData>
+                      <ContactData rdf:ID="GlungezerBahnCD">
+                        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >info@tulfes.at</hasEMail>
+                        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5223-78324</hasTelephoneNumber>
+                        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >www.glungezerbahn.at</hasWebsite>
+                        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >+43-5223-78808</hasFaxNumber>
+                      </ContactData>
+                    </hasContactData>
+                    <hasPostalAddress>
+                      <PostalAddress rdf:ID="GlungezerBahnPA">
+                        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Austria</hasCountry>
+                        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Tulfes</hasCity>
+                        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >6060</hasPostalCode>
+                      </PostalAddress>
+                    </hasPostalAddress>
+                    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >Skiing resort</hasType>
+                    <hasTicket>
+                      <Ticket rdf:ID="GlungezerBahnTicket3">
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Kinder</hasName>
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >14.5</hasPrice>
+                      </Ticket>
+                    </hasTicket>
+                    <hasTicket>
+                      <Ticket rdf:ID="GlungezerBahnTicket1">
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Erwachsene</hasName>
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >23.5</hasPrice>
+                      </Ticket>
+                    </hasTicket>
+                    <hasGPSCoordinates>
+                      <GPSCoordinates rdf:ID="GlungezerBahnGPS">
+                        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >47,371389</hasLatitude>
+                        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >11,693611</hasLongitude>
+                      </GPSCoordinates>
+                    </hasGPSCoordinates>
+                    <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+                    <hasTicket>
+                      <Ticket rdf:ID="GlungezerBahnTicket2">
+                        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                        >18.5</hasPrice>
+                        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Ganztagsticket Jugendliche</hasName>
+                      </Ticket>
+                    </hasTicket>
+                  </Infrastructure>
+                </canBeDoneAt>
+                <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Sport</hasType>
+              </Activity>
+            </providesInfrastructureFor>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Patscherkofelbahn</hasName>
+            <hasGPSCoordinates>
+              <GPSCoordinates rdf:ID="PatscherkofelGPS">
+                <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >47,428889</hasLatitude>
+                <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >11,629722</hasLongitude>
+              </GPSCoordinates>
+            </hasGPSCoordinates>
+            <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ski resort</hasType>
+            <hasTicket>
+              <Ticket rdf:ID="PatscherkofelTicket1">
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Ganztagsticket Erwachsene</hasName>
+                <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >28.0</hasPrice>
+              </Ticket>
+            </hasTicket>
+            <hasContactData>
+              <ContactData rdf:ID="PatscherkofelCD">
+                <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >www.patscherkofelbahnen.at</hasWebsite>
+                <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >+43-512-377234-15</hasFaxNumber>
+                <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >patscherkofel@skisport.com</hasEMail>
+                <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >+43-512-37723</hasTelephoneNumber>
+              </ContactData>
+            </hasContactData>
+            <providesInfrastructureFor rdf:resource="#Snowboarding"/>
+          </Infrastructure>
+        </canBeDoneAt>
+        <canBeDoneAt rdf:resource="#Skiingresort11erLifte"/>
+        <canBeDoneAt rdf:resource="#SkiingresortAxamerLizum"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Snowboarding</hasName>
+        <canBeDoneAt rdf:resource="#SkiingresortHochserles"/>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sport</hasType>
+        <canBeDoneAt rdf:resource="#SkiingresortSchlick2000"/>
+        <canBeDoneAt rdf:resource="#SkiingresortStubaierGletscher"/>
+        <canBeDoneAt rdf:resource="#SkiingresortGlungezerBahn"/>
+        <canBeDoneAt rdf:resource="#SkiingresortNordpark"/>
+        <canBeDoneAt rdf:resource="#SkiingresortSattelbergbahn"/>
+      </Activity>
+    </providesInfrastructureFor>
+    <hasTicket>
+      <Ticket rdf:ID="StubaierGletscherTicket1">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ganztagsticket Erwachsene</hasName>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >34.5</hasPrice>
+      </Ticket>
+    </hasTicket>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Stubaier Gletscher</hasName>
+    <hasGPSCoordinates>
+      <GPSCoordinates rdf:ID="StubaierGletscherGPS">
+        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11,251389</hasLongitude>
+        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >47,246667</hasLatitude>
+      </GPSCoordinates>
+    </hasGPSCoordinates>
+    <hasTicket>
+      <Ticket rdf:ID="StubaierGletscherTicket2">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >22.4</hasPrice>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ganztagsticket Jugenliche</hasName>
+      </Ticket>
+    </hasTicket>
+    <hasContactData>
+      <ContactData rdf:ID="StubaierGletscherCD">
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-5226-2789-20</hasFaxNumber>
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.stubaier-gletscher.com</hasWebsite>
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >info@stubaier-gletscher.com</hasEMail>
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-5226-8151</hasTelephoneNumber>
+      </ContactData>
+    </hasContactData>
+    <hasTicket>
+      <Ticket rdf:ID="StubaierGletscherTicket3">
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >17.3</hasPrice>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ganztagsticket Kinder</hasName>
+      </Ticket>
+    </hasTicket>
+    <providesInfrastructureFor rdf:resource="#Skiing"/>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Skiing resort</hasType>
+    <hasPostalAddress>
+      <PostalAddress rdf:ID="StubaierGletscherPA">
+        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Stubai</hasCity>
+        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Austria</hasCountry>
+      </PostalAddress>
+    </hasPostalAddress>
+  </Infrastructure>
+  <ConferenceRoom rdf:ID="JugendherbergeConferenceRoom">
+    <hasSlideProjector rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSlideProjector>
+    <hasVideoProjector rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasVideoProjector>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasVCR rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasVCR>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasFlipChart rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasFlipChart>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Seminarraum</hasName>
+    <hasScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasScreen>
+  </ConferenceRoom>
+  <Ticket rdf:ID="SeegrubeTicket2">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ganztagsticket Kinder</hasName>
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >10.4</hasPrice>
+  </Ticket>
+  <GPSCoordinates rdf:ID="ZurLindeGPS">
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,332500</hasLatitude>
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11.642222</hasLongitude>
+  </GPSCoordinates>
+  <ConferenceRoom rdf:ID="HiltonInnsbruckConferenceroom">
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasScreen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasScreen>
+    <hasSlideProjector rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSlideProjector>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HIlton Konferenzraum</hasName>
+    <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >80.0</hasArea>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasStage rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasStage>
+    <litByNaturalDaylight rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</litByNaturalDaylight>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasFlipChart rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasFlipChart>
+    <hasLectern rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasLectern>
+    <hasAirCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAirCondition>
+    <hasAudioEquipment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAudioEquipment>
+    <hasFaxMachine rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasFaxMachine>
+    <hasVideoProjector rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasVideoProjector>
+  </ConferenceRoom>
+  <GPSCoordinates rdf:ID="BowlinghallGPS">
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,381667</hasLatitude>
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11,598611</hasLongitude>
+  </GPSCoordinates>
+  <Guestroom rdf:ID="ZurLindeGuestroom4">
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FourBedRoom</hasType>
+  </Guestroom>
+  <ContactData rdf:ID="PensionPaulaCD">
+    <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-293017</hasFaxNumber>
+    <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.pensionpaula.at</hasWebsite>
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >office@pensionpaula.at</hasEMail>
+    <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-292262</hasTelephoneNumber>
+  </ContactData>
+  <PostalAddress rdf:ID="AxamerLizumPA">
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3-4</hasHouseNumber>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6094</hasPostalCode>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Axamer-Lizum</hasStreet>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Axams</hasCity>
+  </PostalAddress>
+  <Guestroom rdf:ID="ZurLindeGuestroom3">
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ThreeBedRoom</hasType>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+  </Guestroom>
+  <Guestroom rdf:ID="LizumerhofGuestroom2">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Landhaus</hasName>
+    <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSafe>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleBedRoom</hasType>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+  </Guestroom>
+  <Guestroom rdf:ID="LizumerhofGuestroom3">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lizum</hasName>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleBedRoom</hasType>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+  </Guestroom>
+  <PostalAddress rdf:ID="JugendherbergeInnsbruckPA">
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >147</hasHouseNumber>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Innsbruck</hasCity>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6020</hasPostalCode>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reichenauerstrasse</hasStreet>
+  </PostalAddress>
+  <ContactData rdf:ID="LizumerhofCD">
+    <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-5234-68244</hasTelephoneNumber>
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hotel@lizumerhof.at</hasEMail>
+    <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-5234-682446</hasFaxNumber>
+    <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.lizumerhof.at</hasWebsite>
+  </ContactData>
+  <PostalAddress rdf:ID="HiltonInnsbruckPA">
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Salurnerstraße</hasStreet>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >15</hasHouseNumber>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Innsbruck</hasCity>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6020</hasPostalCode>
+  </PostalAddress>
+  <ConferenceRoom rdf:ID="LizumerhofConferenceRoom">
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasFlipChart rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasFlipChart>
+    <hasSlideProjector rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSlideProjector>
+    <hasFaxMachine rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasFaxMachine>
+  </ConferenceRoom>
+  <Accomodation rdf:ID="HotelStubaierhof">
+    <hasDryingRoom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasDryingRoom>
+    <hasStarRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</hasStarRating>
+    <offersChildCare rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</offersChildCare>
+    <spokenLanguage>
+      <Language rdf:ID="Italian">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Italian</hasName>
+      </Language>
+    </spokenLanguage>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel</hasType>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom8">
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasAlarmClock>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >35.0</hasArea>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Turmsuite</hasName>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+      </Guestroom>
+    </hasRoom>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom1">
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >20.0</hasArea>
+        <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasMinibar>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Komfort-Doppelzimmer</hasName>
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+      </Guestroom>
+    </hasRoom>
+    <hasGPSCoordinates>
+      <GPSCoordinates rdf:ID="HotelStubaierhofGPS">
+        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >47,331944</hasLatitude>
+        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11,486944</hasLongitude>
+      </GPSCoordinates>
+    </hasGPSCoordinates>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom3">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Appartement</hasName>
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >40.0</hasArea>
+        <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasAlarmClock>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+      </Guestroom>
+    </hasRoom>
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom5">
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasType>
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasMinibar>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >50.0</hasArea>
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Suite</hasName>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasAlarmClock>
+      </Guestroom>
+    </hasRoom>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel Stubaierhof</hasName>
+    <hasContactData>
+      <ContactData rdf:ID="HotelStubaierhofCD">
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.stubaierhof.at</hasWebsite>
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >hotel@stubaierhof.at</hasEMail>
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-5225-62266-0</hasTelephoneNumber>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-5225-62266-55</hasFaxNumber>
+      </ContactData>
+    </hasContactData>
+    <spokenLanguage>
+      <Language rdf:ID="English">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >English</hasName>
+      </Language>
+    </spokenLanguage>
+    <spokenLanguage>
+      <Language rdf:ID="German"/>
+    </spokenLanguage>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom2">
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasAlarmClock>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >20.0</hasArea>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Komfort-Einzelzimmer</hasName>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+      </Guestroom>
+    </hasRoom>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom7">
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasAlarmClock>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasType>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >15.0</hasArea>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Standard-Einzelzimmer</hasName>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+      </Guestroom>
+    </hasRoom>
+    <hasPostalAddress>
+      <PostalAddress rdf:ID="HotelStubaierhofPA">
+        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Austria</hasCountry>
+        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Fulpmes</hasCity>
+        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >6166</hasPostalCode>
+      </PostalAddress>
+    </hasPostalAddress>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom6">
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasType>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >15.0</hasArea>
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Standard-Doppelzimmer-Minisize</hasName>
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+      </Guestroom>
+    </hasRoom>
+    <hasWellnessFacilities rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasWellnessFacilities>
+    <spokenLanguage>
+      <Language rdf:ID="French"/>
+    </spokenLanguage>
+    <hasParking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasParking>
+    <hasRoom>
+      <Guestroom rdf:ID="HotelStubaierhofGuestroom4">
+        <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTelephone>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasTVSet>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Standard-Doppelzimmer</hasName>
+        <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >20.0</hasArea>
+      </Guestroom>
+    </hasRoom>
+  </Accomodation>
+  <Ticket rdf:ID="PartyTicket">
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >25.0</hasPrice>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PartyEntrance</hasName>
+  </Ticket>
+  <Guestroom rdf:ID="PensionPaulaGuestroom3">
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ThreeBedRoom</hasType>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Old Town</hasView>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+  </Guestroom>
+  <PostalAddress rdf:ID="ZurLindePA">
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Höhenstrasse</hasStreet>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6020</hasPostalCode>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >143</hasHouseNumber>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Innsbruck-Hungerburg</hasCity>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+  </PostalAddress>
+  <Infrastructure rdf:ID="Bowlinghall">
+    <hasTicket>
+      <Ticket rdf:ID="HochserlesTicket2">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ganztagsticket Jugendliche</hasName>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >16.0</hasPrice>
+      </Ticket>
+    </hasTicket>
+    <hasOpeningHours>
+      <OpeningHours rdf:ID="HollywoodbowlingOH"/>
+    </hasOpeningHours>
+    <hasContactData>
+      <ContactData rdf:ID="BowlinghallCD">
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-585886</hasTelephoneNumber>
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >hsb-innsbruck@aon.at</hasEMail>
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.hollywood-super-bowling.at/</hasWebsite>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-585868-13</hasFaxNumber>
+      </ContactData>
+    </hasContactData>
+    <hasPostalAddress>
+      <PostalAddress rdf:ID="BowlinghallPA">
+        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Austria</hasCountry>
+        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >6020</hasPostalCode>
+        <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tschamlerstrasse</hasStreet>
+        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >4a</hasHouseNumber>
+        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Innsbruck</hasCity>
+      </PostalAddress>
+    </hasPostalAddress>
+    <hasTicket>
+      <Ticket rdf:ID="HochserlesTicket3">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ganztagsticket Kinder</hasName>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >11.5</hasPrice>
+      </Ticket>
+    </hasTicket>
+    <hasTicket>
+      <Ticket rdf:ID="HochserlesTicket1">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Ganztagszicket Erwachsene</hasName>
+        <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >23.0</hasPrice>
+      </Ticket>
+    </hasTicket>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Bowlinghall</hasType>
+    <providesInfrastructureFor>
+      <Activity rdf:ID="Bowling">
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Sport</hasType>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Bowling</hasName>
+        <canBeDoneAt rdf:resource="#Bowlinghall"/>
+      </Activity>
+    </providesInfrastructureFor>
+    <hasGPSCoordinates rdf:resource="#BowlinghallGPS"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hollywood Super Bowling</hasName>
+  </Infrastructure>
+  <Guestroom rdf:ID="PenzGuestroom">
+    <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSafe>
+    <hasAirCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAirCondition>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasMinibar>
+    <hasTeaCoffeeEquipment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTeaCoffeeEquipment>
+    <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAlarmClock>
+    <smokingAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</smokingAllowed>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+  </Guestroom>
+  <Guestroom rdf:ID="LizumerhofGuestroom1">
+    <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSafe>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Unsere Besten Zimmer</hasName>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleBedRoom</hasType>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+  </Guestroom>
+  <Accomodation rdf:ID="PensionPaula">
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <hasContactData rdf:resource="#PensionPaulaCD"/>
+    <hasPostalAddress>
+      <PostalAddress rdf:ID="PensionPaulaPA">
+        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >15</hasHouseNumber>
+        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Austria</hasCountry>
+        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >6020</hasPostalCode>
+        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Innsbruck</hasCity>
+        <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Weiherburggasse</hasStreet>
+      </PostalAddress>
+    </hasPostalAddress>
+    <petsAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</petsAllowed>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension Paula</hasName>
+    <hasParking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasParking>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension</hasType>
+    <hasRoom>
+      <Guestroom rdf:ID="PensionPaulaGuestroom4">
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FourBedRoom</hasType>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Old Town</hasView>
+      </Guestroom>
+    </hasRoom>
+    <hasRoom rdf:resource="#PensionPaulaGuestroom3"/>
+    <hasRoom>
+      <Guestroom rdf:ID="PensionPaulaGuestroom1">
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Old Town</hasView>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OneBedRoom</hasType>
+      </Guestroom>
+    </hasRoom>
+    <hasRoom>
+      <Guestroom rdf:ID="PensionPaulaGuestroom2">
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >TwoBedRoom</hasType>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Old Town</hasView>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+      </Guestroom>
+    </hasRoom>
+    <hasGPSCoordinates>
+      <GPSCoordinates rdf:ID="PensionPaulaGPS">
+        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >47,450556</hasLatitude>
+        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11,580833</hasLongitude>
+      </GPSCoordinates>
+    </hasGPSCoordinates>
+    <spokenLanguage rdf:resource="#English"/>
+    <spokenLanguage rdf:resource="#German"/>
+  </Accomodation>
+  <PostalAddress rdf:ID="TennisIglsPA">
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Patscherstrasse</hasStreet>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >21</hasHouseNumber>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6080</hasPostalCode>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Igls</hasCity>
+  </PostalAddress>
+  <Accomodation rdf:ID="JugendherbergeInnsbruck">
+    <hasRoom rdf:resource="#JugendherbergeConferenceRoom"/>
+    <hasRoom>
+      <Guestroom rdf:ID="JugendherbergeGuestroom2">
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasFaxMachine rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</hasFaxMachine>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</hasSafe>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >TwoBedRoom</hasType>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+      </Guestroom>
+    </hasRoom>
+    <spokenLanguage rdf:resource="#German"/>
+    <hasRoom>
+      <Guestroom rdf:ID="JugendherbergeGuestroom4">
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SixthBedRoom</hasType>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</hasMinibar>
+      </Guestroom>
+    </hasRoom>
+    <spokenLanguage rdf:resource="#English"/>
+    <hasRoom>
+      <Guestroom rdf:ID="JugendherbergeGuestroom1">
+        <hasTeaCoffeeEquipment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</hasTeaCoffeeEquipment>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OneBedRoom</hasType>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+      </Guestroom>
+    </hasRoom>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Youth Hostel</hasType>
+    <hasContactData>
+      <ContactData rdf:ID="JugendherbergeInnsbruckCD">
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-346179</hasTelephoneNumber>
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.youth-hostel-innsbruck.at</hasWebsite>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-346179-12</hasFaxNumber>
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >office@youth-hostel-innsbruck.at</hasEMail>
+      </ContactData>
+    </hasContactData>
+    <hasRoom>
+      <Guestroom rdf:ID="JugendherbergeGuestroom3">
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >FourBedRoom</hasType>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+      </Guestroom>
+    </hasRoom>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Jugendherberge Innsbruck</hasName>
+    <hasGPSCoordinates>
+      <GPSCoordinates rdf:ID="JugendherbergeInnsbruckGPS">
+        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >47,401667</hasLatitude>
+        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11,597778</hasLongitude>
+      </GPSCoordinates>
+    </hasGPSCoordinates>
+    <hasPostalAddress rdf:resource="#JugendherbergeInnsbruckPA"/>
+  </Accomodation>
+  <Language rdf:ID="Maltese">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maltese</hasName>
+  </Language>
+  <GPSCoordinates rdf:ID="LizumerhofGPS">
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,368889</hasLatitude>
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11,367778</hasLongitude>
+  </GPSCoordinates>
+  <ContactData rdf:ID="PartyCD">
+    <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-345543</hasFaxNumber>
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >houseparty@blabla.com</hasEMail>
+    <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-432234</hasTelephoneNumber>
+  </ContactData>
+  <GPSCoordinates rdf:ID="PensionTulferhofGPS">
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,403889</hasLatitude>
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11,5433333</hasLongitude>
+  </GPSCoordinates>
+  <ContactData rdf:ID="PensionTulferhofCD">
+    <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-5223-78316-4</hasFaxNumber>
+    <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.tulfes.at/tulferhof/</hasWebsite>
+    <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-5223-78316</hasTelephoneNumber>
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tulferhof@tulfes.at</hasEMail>
+  </ContactData>
+  <PostalAddress rdf:ID="HotelCentralPA">
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6020</hasPostalCode>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >5</hasHouseNumber>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gilmstrasse</hasStreet>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Innsbruck</hasCity>
+  </PostalAddress>
+  <Language rdf:ID="Arabian"/>
+  <PostalAddress rdf:ID="PensionGlungezerPA">
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tulfes</hasCity>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >21</hasHouseNumber>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6060</hasPostalCode>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Schmalzgasse</hasStreet>
+  </PostalAddress>
+  <Guestroom rdf:ID="PensionGlungezerGuestroom2">
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Familienzimmer</hasName>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >2-4BedRoom</hasType>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+  </Guestroom>
+  <Accomodation rdf:ID="ZurLinde">
+    <hasGPSCoordinates rdf:resource="#ZurLindeGPS"/>
+    <hasRoom rdf:resource="#ZurLindeGuestroom3"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Zur Linde</hasName>
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <hasPostalAddress rdf:resource="#ZurLindePA"/>
+    <spokenLanguage rdf:resource="#English"/>
+    <spokenLanguage rdf:resource="#German"/>
+    <offersShuttleService rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</offersShuttleService>
+    <spokenLanguage rdf:resource="#French"/>
+    <spokenLanguage rdf:resource="#Italian"/>
+    <hasRoom rdf:resource="#ZurLindeGuestroom4"/>
+    <hasRoom>
+      <Guestroom rdf:ID="ZurLindeGuestroom1">
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >OneBedRoom</hasType>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+      </Guestroom>
+    </hasRoom>
+    <hasRoom>
+      <Guestroom rdf:ID="ZurLindeGuestroom2">
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DoubleBedRoom</hasType>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+      </Guestroom>
+    </hasRoom>
+    <hasParking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasParking>
+    <hasContactData>
+      <ContactData rdf:ID="ZurLindeCD">
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >hotel.zurlinde@tirol.com</hasEMail>
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >members.tirol.com/zur.linde/</hasWebsite>
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-292345</hasTelephoneNumber>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-292345</hasFaxNumber>
+      </ContactData>
+    </hasContactData>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension</hasType>
+  </Accomodation>
+  <ContactData rdf:ID="RidingStableCD">
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rantner-payer@aon.at</hasEMail>
+    <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.reitstall-gnadenwald.at</hasWebsite>
+  </ContactData>
+  <ContactData rdf:ID="HotelCentralCD">
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >office@central.co.at</hasEMail>
+    <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-580310</hasFaxNumber>
+    <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.central.co.at</hasWebsite>
+    <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-5920</hasTelephoneNumber>
+  </ContactData>
+  <DatePeriod rdf:ID="PatscherkofelDP"/>
+  <Guestroom rdf:ID="PensionGlungezerGuestroom1">
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TwoBedRoom</hasType>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Komfortzimmer</hasName>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+  </Guestroom>
+  <Accomodation rdf:ID="PenzInnsbruck">
+    <hasElevator rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasElevator>
+    <spokenLanguage rdf:resource="#French"/>
+    <spokenLanguage rdf:resource="#Italian"/>
+    <hasGPSCoordinates>
+      <GPSCoordinates rdf:ID="PenzInnsbruckGPS">
+        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11,539444</hasLongitude>
+        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >47,526944</hasLatitude>
+      </GPSCoordinates>
+    </hasGPSCoordinates>
+    <hasContactData>
+      <ContactData rdf:ID="PenzCD">
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-575657-0</hasTelephoneNumber>
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >office@thepenz.com</hasEMail>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-575657-9</hasFaxNumber>
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.thepenz.com</hasWebsite>
+      </ContactData>
+    </hasContactData>
+    <hasStarRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</hasStarRating>
+    <hasRoom rdf:resource="#PenzGuestroom"/>
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <spokenLanguage>
+      <Language rdf:ID="Spanish">
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Spanish</hasName>
+      </Language>
+    </spokenLanguage>
+    <hasHandicapAccessibility rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHandicapAccessibility>
+    <hasRoom>
+      <ConferenceRoom rdf:ID="PenzConferenceRoom"/>
+    </hasRoom>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Penz Hotel</hasName>
+    <spokenLanguage rdf:resource="#German"/>
+    <hasPostalAddress rdf:resource="#PenzPA"/>
+    <spokenLanguage rdf:resource="#English"/>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel</hasType>
+  </Accomodation>
+  <Season rdf:ID="PatscherkofelSeason">
+    <hasDatePeriod rdf:resource="#PatscherkofelDP"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hauptsainson</hasName>
+  </Season>
+  <GPSCoordinates rdf:ID="PensionGlungezerGPS">
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,402222</hasLatitude>
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11,545556</hasLongitude>
+  </GPSCoordinates>
+  <Guestroom rdf:ID="HotelCentralGuestroom2">
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >City</hasView>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasAirCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</hasAirCondition>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Doppelzimmer</hasName>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DoubleBedRoom</hasType>
+  </Guestroom>
+  <Guestroom rdf:ID="HotelCentralGuestroom1">
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OneBedRoom</hasType>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >City</hasView>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Einzelzimmer</hasName>
+  </Guestroom>
+  <PostalAddress rdf:ID="RidingStablePA">
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6060</hasPostalCode>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mairbach</hasStreet>
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >7</hasHouseNumber>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gnadenwald</hasCity>
+  </PostalAddress>
+  <PostalAddress rdf:ID="PensionTulferhofPA">
+    <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >12</hasHouseNumber>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Angererweg</hasStreet>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6060</hasPostalCode>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tulfes</hasCity>
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+  </PostalAddress>
+  <GPSCoordinates rdf:ID="HiltonInnsbruckGPS">
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11,596667</hasLongitude>
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,468056</hasLatitude>
+  </GPSCoordinates>
+  <Guestroom rdf:ID="HiltonInnsbruckGuestroom1">
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hilton Zimmer</hasName>
+    <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasMinibar>
+    <hasAirCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAirCondition>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSafe>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAlarmClock>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Doubleroom</hasType>
+    <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >30.0</hasArea>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+  </Guestroom>
+  <Infrastructure rdf:ID="TennisCourt">
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tennis court</hasType>
+    <hasGPSCoordinates>
+      <GPSCoordinates rdf:ID="TennisIglsGPS">
+        <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >11,577222</hasLongitude>
+        <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >47,376667</hasLatitude>
+      </GPSCoordinates>
+    </hasGPSCoordinates>
+    <hasContactData>
+      <ContactData rdf:ID="TennisIglsCD">
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >tennis@parkclub-igls.com</hasEMail>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-377207-15</hasFaxNumber>
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.parkclub-igls.com  </hasWebsite>
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-512-377207-14</hasTelephoneNumber>
+      </ContactData>
+    </hasContactData>
+    <hasPostalAddress rdf:resource="#TennisIglsPA"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TC Parkclub - Igls</hasName>
+  </Infrastructure>
+  <Activity rdf:ID="Riding">
+    <canBeDoneAt>
+      <Infrastructure rdf:ID="RidingStable">
+        <hasContactData rdf:resource="#RidingStableCD"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Reitstall Gnadenwald</hasName>
+        <hasGPSCoordinates>
+          <GPSCoordinates rdf:ID="ReitstallGnadenwaldGPS">
+            <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >47,434167</hasLatitude>
+            <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >11,700556</hasLongitude>
+          </GPSCoordinates>
+        </hasGPSCoordinates>
+        <providesInfrastructureFor rdf:resource="#Riding"/>
+        <hasPostalAddress rdf:resource="#RidingStablePA"/>
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >RidingStable</hasType>
+      </Infrastructure>
+    </canBeDoneAt>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Horse Back Riding</hasName>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sport</hasType>
+  </Activity>
+  <Guestroom rdf:ID="HiltonInnsbruckGuestroom2">
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Doubleroom</hasType>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSafe>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasTeaCoffeeEquipment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTeaCoffeeEquipment>
+    <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >40.0</hasArea>
+    <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasMinibar>
+    <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAlarmClock>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hilton Deluxe Zimmer</hasName>
+    <hasAirCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAirCondition>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+  </Guestroom>
+  <Accomodation rdf:ID="PensionTulferhof">
+    <spokenLanguage rdf:resource="#Italian"/>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension</hasType>
+    <hasContactData rdf:resource="#PensionTulferhofCD"/>
+    <hasRoom>
+      <Guestroom rdf:ID="PensionTulferhofGuestroom1">
+        <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DoubleBedRoom</hasType>
+        <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBed>
+        <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBalcony>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Familienzimmer</hasName>
+        <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >true</hasBathroom>
+        <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mountain</hasView>
+      </Guestroom>
+    </hasRoom>
+    <hasWellnessFacilities rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasWellnessFacilities>
+    <spokenLanguage rdf:resource="#French"/>
+    <hasGPSCoordinates rdf:resource="#PensionTulferhofGPS"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension Tulferhof</hasName>
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <hasPostalAddress rdf:resource="#PensionTulferhofPA"/>
+    <spokenLanguage rdf:resource="#German"/>
+    <spokenLanguage rdf:resource="#English"/>
+  </Accomodation>
+  <GPSCoordinates rdf:ID="HotelCentralGPS">
+    <hasLongitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >11,610556</hasLongitude>
+    <hasLatitude rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >47,524167</hasLatitude>
+  </GPSCoordinates>
+  <DatePeriod rdf:ID="SkiingResortDP"/>
+  <Guestroom rdf:ID="PensionGlungezerGuestroom3">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Familienwohnung</hasName>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appartment</hasType>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+  </Guestroom>
+  <Accomodation rdf:ID="HotelCentral">
+    <spokenLanguage rdf:resource="#English"/>
+    <hasContactData rdf:resource="#HotelCentralCD"/>
+    <hasRoom rdf:resource="#HotelCentralGuestroom2"/>
+    <spokenLanguage rdf:resource="#French"/>
+    <hasParking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</hasParking>
+    <hasPostalAddress rdf:resource="#HotelCentralPA"/>
+    <hasStarRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</hasStarRating>
+    <hasRoom rdf:resource="#HotelCentralGuestroom1"/>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel</hasType>
+    <hasGPSCoordinates rdf:resource="#HotelCentralGPS"/>
+    <spokenLanguage rdf:resource="#Spanish"/>
+    <spokenLanguage rdf:resource="#German"/>
+    <spokenLanguage rdf:resource="#Italian"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel Central</hasName>
+  </Accomodation>
+  <Accomodation rdf:ID="PensionGlungezer">
+    <hasPostalAddress rdf:resource="#PensionGlungezerPA"/>
+    <hasStarRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</hasStarRating>
+    <hasParking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasParking>
+    <hasContactData>
+      <ContactData rdf:ID="PensionGlungezerCD">
+        <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >www.netwing.at/tirol/tulfes/glungez/html/mainfr.html</hasWebsite>
+        <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-5223-78302</hasFaxNumber>
+        <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >+43-5223-78302</hasTelephoneNumber>
+        <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >p.glungezer@tirol.com</hasEMail>
+      </ContactData>
+    </hasContactData>
+    <hasRoom rdf:resource="#PensionGlungezerGuestroom3"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension Glungezer</hasName>
+    <hasRoom rdf:resource="#PensionGlungezerGuestroom2"/>
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pension</hasType>
+    <spokenLanguage rdf:resource="#German"/>
+    <spokenLanguage rdf:resource="#English"/>
+    <hasGPSCoordinates rdf:resource="#PensionGlungezerGPS"/>
+    <hasRoom rdf:resource="#PensionGlungezerGuestroom1"/>
+  </Accomodation>
+  <ContactData rdf:ID="HiltonCD">
+    <hasWebsite rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.hilton.de/innsbruck</hasWebsite>
+    <hasTelephoneNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-566344</hasTelephoneNumber>
+    <hasEMail rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >info.innsbruck@hilton.de</hasEMail>
+    <hasFaxNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >+43-512-345645</hasFaxNumber>
+  </ContactData>
+  <Accomodation rdf:ID="Lizumerhof">
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lizumerhof</hasName>
+    <spokenLanguage rdf:resource="#French"/>
+    <hasRoom rdf:resource="#LizumerhofGuestroom3"/>
+    <hasRoom rdf:resource="#LizumerhofGuestroom1"/>
+    <petsAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</petsAllowed>
+    <hasRoom rdf:resource="#LizumerhofGuestroom2"/>
+    <hasDryingRoom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</hasDryingRoom>
+    <hasContactData rdf:resource="#LizumerhofCD"/>
+    <spokenLanguage rdf:resource="#English"/>
+    <hasPostalAddress>
+      <PostalAddress rdf:ID="LizumerhofPA">
+        <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Axams</hasCity>
+        <hasHouseNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3-4</hasHouseNumber>
+        <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Austria</hasCountry>
+        <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Axamer-Lizum</hasStreet>
+        <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >6094</hasPostalCode>
+      </PostalAddress>
+    </hasPostalAddress>
+    <hasParking rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasParking>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel</hasType>
+    <hasRoom rdf:resource="#LizumerhofConferenceRoom"/>
+    <hasBaggageRoom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBaggageRoom>
+    <hasGPSCoordinates rdf:resource="#LizumerhofGPS"/>
+    <hasStarRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</hasStarRating>
+    <hasElevator rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasElevator>
+  </Accomodation>
+  <PostalAddress rdf:ID="PartyPA">
+    <hasCountry rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Austria</hasCountry>
+    <hasCity rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Innsbruck</hasCity>
+    <hasStreet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hafen</hasStreet>
+    <hasPostalCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >6020</hasPostalCode>
+  </PostalAddress>
+  <Ticket rdf:ID="SeegrubeTicket1">
+    <hasPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >20.8</hasPrice>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ganztagsticket Erwachsene</hasName>
+  </Ticket>
+  <Guestroom rdf:ID="HiltonInnsbruckGuestroom3">
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Suite</hasType>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hilton Suite</hasName>
+    <hasTelephone rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTelephone>
+    <hasFaxMachine rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasFaxMachine>
+    <hasTVSet rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTVSet>
+    <hasSafe rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasSafe>
+    <hasInternetAccess rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasInternetAccess>
+    <hasBathroom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBathroom>
+    <hasTeaCoffeeEquipment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasTeaCoffeeEquipment>
+    <smokingAllowed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</smokingAllowed>
+    <hasMinibar rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasMinibar>
+    <hasArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >70.0</hasArea>
+    <hasAlarmClock rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAlarmClock>
+    <hasBed rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBed>
+    <hasHairDryer rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHairDryer>
+    <hasBalcony rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBalcony>
+    <hasAirCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasAirCondition>
+    <hasView rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mountain</hasView>
+  </Guestroom>
+  <Event rdf:ID="Party">
+    <hasPostalAddress rdf:resource="#PartyPA"/>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clubbing</hasType>
+    <hasTicket rdf:resource="#PartyTicket"/>
+    <hasContactData rdf:resource="#PartyCD"/>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HouseParty</hasName>
+  </Event>
+  <TimePeriod rdf:ID="BowlinghallTP"/>
+  <Accomodation rdf:ID="HiltonInnsbruck">
+    <hasHandicapAccessibility rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasHandicapAccessibility>
+    <hasRoom rdf:resource="#HiltonInnsbruckGuestroom3"/>
+    <hasPostalAddress rdf:resource="#HiltonInnsbruckPA"/>
+    <hasType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hotel</hasType>
+    <hasRoom rdf:resource="#HiltonInnsbruckConferenceroom"/>
+    <hasWellnessFacilities rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasWellnessFacilities>
+    <offersCrib rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</offersCrib>
+    <hasRoom rdf:resource="#HiltonInnsbruckGuestroom2"/>
+    <hasGPSCoordinates rdf:resource="#HiltonInnsbruckGPS"/>
+    <hasContactData rdf:resource="#HiltonCD"/>
+    <hasElevator rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasElevator>
+    <offersCot rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</offersCot>
+    <hasRoom rdf:resource="#HiltonInnsbruckGuestroom1"/>
+    <spokenLanguage rdf:resource="#Maltese"/>
+    <hasBoard rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBoard>
+    <spokenLanguage rdf:resource="#Spanish"/>
+    <offersLaudryCleaning rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</offersLaudryCleaning>
+    <hasBaggageRoom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</hasBaggageRoom>
+    <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hilton Innsbruck</hasName>
+    <spokenLanguage rdf:resource="#German"/>
+    <hasStarRating rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >4</hasStarRating>
+    <spokenLanguage rdf:resource="#French"/>
+    <spokenLanguage rdf:resource="#English"/>
+    <spokenLanguage rdf:resource="#Italian"/>
+  </Accomodation>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 1.3, Build 208)  http://protege.stanford.edu -->
+<!-- KS | KP | DB     Version 0.15 -->

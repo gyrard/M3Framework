@@ -1,0 +1,128 @@
+
+################################################################ LINKED OPEN RULES ######################################################################
+# Last update: 22 September 2014
+# Creator: Gyrard
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 converter
+
+################################################################ GNU License ######################################################################
+#
+#	Machine to Machine Measurement (M3) Framework 
+#    Copyright(c) 2012 - 2015 Eurecom
+#
+#    M3 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    M3 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with M3. The full GNU General Public License is 
+#    included in this distribution in the file called "COPYING". If not, 
+#    see <http://www.gnu.org/licenses/>.
+#
+#    Contact Information
+#    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+#  
+#	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+#	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+#	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+#  
+#  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+
+
+################################################################  LINKED OPEN RULES BY DOMAIN ######################################################################
+
+# Number of rules = 102 rules
+
+# HEALTH, EMOTION
+# Number of rules = 25 rules (16 real health rules with references + 9 rules for scenarios to improve with real rules)
+# see http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHealth.txt for health and emotion rules
+
+# ENVIRONMENT: AIR POLLUTION
+# Number of rules = 5 rules
+# see http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesEnvironment.txt for air pollution rules
+
+# WEATHER: CLOUD COVER, PRECIPITATION, LUMINOSITY, TEMPERATURE, WIND DIRECTION
+# Number of rules = 55 rules
+# see http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesWeather.txt for weather rules
+
+# HOME: TEMPERATURE, PRESENCE, LIGHT, SOUND
+# Number of rules = 17 rules
+# see http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHome.txt for home rules
+   
+                  
+
+################################################################ TO CLEAN ######################################################################
+################################################################ RULES SWRL JENA ######################################################################
+# magnetic field unit tesla
+# http://en.wikipedia.org/wiki/Tesla_%28unit%29    
+
+#accelerometer data m/s2
+# traffic jam
+# accelerometer megnetic field
+   
+
+
+#skin conductance to detect the stress or anxiety
+#Wearable sensors: opportunities and challenges for low cost health care [Picard et al. 1997]
+#Affective wearables [Picard et al. 1997]
+
+#accelerated hear rate
+#Affective wearables [Picard et al. 1997]
+
+# heart rate increased -> fear
+#Emotion Recognition from physiological signals for presence technology [Nasoz et al. 2003]
+
+
+################################################################ RULES SWRL FREQUENCY HERTZ ######################################################################
+#[MusicalNoteLa: (?measurement rdf:type m3:LaNote)
+#              <-
+#              (?measurement rdf:type m3:Frequency)
+#              (?measurement m3:hasValue ?v)
+#              isEqual(?v,660)
+#]
+
+# As explained by wikipedia: illuminance rules are: 
+# 0,0001 lux: moonless, overcast night sky
+# 0,002 lux: moonless clear night sky with airglow
+# between 0,27  and 1 lux: full moon on a clear night
+# 3,4 lux: dark limit of civil twilight under a clear sky
+# 50 lux: family living room lights
+# 80 lux: office building hallway/ toilet lighting
+# 100 lux: very dark overcast day
+# between 320  and 500 lux: office lighting
+# 400 lux: sunrise or sunset on a clear day
+# 1 000 lux : tv studio lighting
+# between 10 000  and 25 000 lux: full daylight (not direct sun)
+# between 32 000  and 130 000 lux: direct sunlight
+
+# As explained by http://repairfaq.cis.upenn.edu/sam/icets/basicp.htm
+# section Luminosity
+# Besides differing in color (frequency), light can also differ in luminosity, or brightness. A table lamp emits less light than a halogen lamp, but even a halogen source cannot be compared with bright sunlight, as far as luminosity is concerned. Luminosity depends on the amount of available light. It can be measured and recorded in a numeric value. In the past, it was expressed in Hefner Candlepower, but nowadays Lux is used to express the amount of luminosity.
+# Brightness Values:
+# Candle light at 20 cm             10-15 Lux
+# Street light                      10-20 Lux
+# Normal living room lighting       100 Lux
+# Office fluorescent light          300-500 Lux
+# Halogen lamp                      750 Lux
+# Sunlight, 1 hour before sunset    1000 Lux
+# Daylight, cloudy sky              5000 Lux
+# Daylight, clear sky               10,000 Lux
+# Bright sunlight                   > 20,000 Lux
+
+
+
+
+
+   

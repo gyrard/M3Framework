@@ -1,0 +1,76 @@
+<h1><img src="./images/homePage/SWoTGeneratorV2.png" width="100" height="100"/>Semantic Web of Things (SWoT) Generator</h1>
+<div class="hero-unit">
+
+The SWoT generator enables designing SWoT applications to interpret IoT data.
+<br/>
+<a class="redBlink" href="https://docs.google.com/forms/d/1qaEbg7eAMSIcVxyvGJMfmy86GuYYyFttt3X8aQX9CsU/viewform?usp=send_form"> <img src="images/security/satisfaction.png" width="80" height="80" title="">Please give us feedback to evaluate and improve SWoT generator, it takes less than 1 minute. Click here to fill the form</a>
+
+
+
+<h3>STEP 1: Search M3 Template</h3>
+	<ol>
+		
+		<li>Choose a sensor (e.g., Light/Illuminance Sensor) <select id="sensor" ></select> </li>
+		<li>Choose the domain where is deployed your sensor (e.g., Weather)	<select id="domain" ></select> </li>
+		<li><button type="button" onclick="searchIoTApplicationTemplate();">Search IoT Application Template</button> </li>
+		</ol>
+	
+		
+
+
+<h3>STEP 2: Choose M3 Template</h3>
+	<ul>
+		<li>Choose an application template: <select  width="300" style="width: 300px" id="iot_application_template" > </select>	</li>
+
+	</ul>
+	
+<h3>STEP 3: Download M3 template</h3>
+	<ul> 
+		<li><button type="button" onclick="generateIoTApplicationTemplate();">Generate zip file</button> </li>
+		
+		<div id="generate_iot_application_template"></div>
+	
+</ul>
+
+
+<br/>Please do not forget to cite our work: 
+<br/><a href="http://www.eurecom.fr/en/people/gyrard-amelie/publications">
+Standardizing generic cross-domain applications in Internet of Things [Gyrard et al. 2014]</a>
+
+<br/><br/>
+What are you looking for? <br/>
+Tell us your need, and we will help you to find a solution: <img src="./images/mail.png"/>
+
+
+
+
+</div>
+<div class="hero-unit">
+
+<div style="visibility: hidden" id="content_file"></div>
+
+<!--  
+Test zip file: <button type="button"  onclick="create_zip();" id="test_zip">test_zip</button>	
+
+<div id="fileContent"></div>
+<input type="file" id="files" name="file" /> Read bytes: 
+<span class="readBytesButtons">
+  <button data-startbyte="0" data-endbyte="4">1-5</button>
+  <button data-startbyte="5" data-endbyte="14">6-15</button>
+  <button data-startbyte="6" data-endbyte="7">7-8</button>
+  <button>entire file</button>
+</span>
+<div id="byte_range"></div>
+<div id="byte_content"></div>
+-->
+</div>
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Sensor&format=xml", "sensor", "option");	
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=FeatureOfInterest&format=xml", "domain", "option");	
+});
+
+
+
+
+

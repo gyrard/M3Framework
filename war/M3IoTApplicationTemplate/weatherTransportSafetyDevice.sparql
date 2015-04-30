@@ -1,0 +1,26 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX transport: <http://sensormeasurement.appspot.com/transport#>
+PREFIX weather: <http://sensormeasurement.appspot.com/weather#> 
+
+SELECT DISTINCT ?name ?value ?unit ?inferType ?deduce ?suggest WHERE{
+	?measurement m3:hasName ?name.
+	?measurement m3:hasValue ?value.
+	?measurement m3:hasDateTimeValue ?time.
+	?measurement m3:hasUnit ?unit.
+	
+	?measurement rdf:type <http://sensormeasurement.appspot.com/m3#WeatherLuminosity>.
+	OPTIONAL { <http://sensormeasurement.appspot.com/m3#WeatherLuminosity> rdfs:label ?inferType. FILTER(LANGMATCHES(LANG(?inferType), "en"))}
+	
+	?weatherUri rdfs:label ?deduce.
+	FILTER(LANGMATCHES(LANG(?deduce), "en"))
+		
+	?measurement rdf:type ?weatherUri .
+	?resUri m3:isRecommendedFor ?weatherUri.
+	?resUri rdf:type <http://sensormeasurement.appspot.com/transport#SafetyDevice>.
+	?resUri rdfs:label ?suggest.
+
+	FILTER(LANGMATCHES(LANG(?suggest), "en"))
+
+}

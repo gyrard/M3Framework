@@ -1,0 +1,45 @@
+<h1>
+<img src="images/security/crypto2.png" width="100" height="80" >
+Cryptography
+<img src="images/security/crypto2.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">
+<h3>Cryptography</h3>	
+ <ul><li>   Asymmetric Algorithms:
+	    <select id="asym"></select>
+	
+</li><li>Symmetric Algorithms:<br/>
+	<ul><li>Stream Cipher: <select id="stream"></select>
+	</li><li>Block Cipher: <select id="block"></select>		
+	</li></ul>			
+</li><li>Hash Function	<select id="hashFunction"></select>
+		
+</li><li>Digital Signature	<select id="digitalSignature"></select>
+		
+</li><li>Mode Of Operation
+<select id="modeOperation"></select>
+		
+</li><li>Key Management
+<select id="keyManagement"></select>
+</li></ul>	
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "stac/type/AsymmetricAlgorithm", "asym", "option");
+	request(displayResultBindingSelect, "stac/type/StreamCipher", "stream", "option");
+	request(displayResultBindingSelect, "stac/type/BlockCipher", "block", "option");
+	request(displayResultBindingSelect, "stac/type/HashFunction", "hashFunction", "option");
+	request(displayResultBindingSelect, "stac/type/DigitalSignature", "digitalSignature", "option");
+	request(displayResultBindingSelect, "stac/type/ModeOperation", "modeOperation", "option");
+	request(displayResultBindingSelect, "stac/type/KeyManagement", "keyManagement", "option");		
+});
+

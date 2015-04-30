@@ -1,0 +1,32 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX naturopathy: <http://sensormeasurement.appspot.com/naturopathy#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX food: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#>
+PREFIX recipe: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX generic: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/generic.owl#>
+
+
+select distinct ?subject ?name ?value ?unit ?season ?seasonUri ?food ?foodUri ?recipeUri ?recipeLabel ?r where{
+?subject m3:hasName ?name.
+?subject m3:hasValue ?value.
+?subject m3:hasDateTimeValue ?time.
+?subject m3:hasUnit ?unit.
+?subject rdf:type ?type.
+?subject rdf:type ?seasonUri.
+?seasonUri rdfs:subClassOf naturopathy:Season .
+?seasonUri rdfs:label ?season.
+?foodUri naturopathy:hasSeason ?seasonUri .
+?foodUri rdfs:label ?food.
+
+?r food:hasIngredient ?portion .
+?portion generic:hasQuantity ?quantity .
+?portion generic:madeOfSubstance ?foodUri .
+?recipeUri food:producesFoodItem ?r.
+?recipeUri rdfs:label ?recipeLabel.
+
+ FILTER(LANGMATCHES(LANG(?food), "en"))
+
+ }

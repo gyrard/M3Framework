@@ -1,0 +1,2114 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.polymtl.ca/Ontology/cuisine#"
+    xmlns:sumo2="http://www.ontologyportal.org/translations/SUMO.owl.txt#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:sumo="http://reliant.teknowledge.com/DAML/SUMO.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+    xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+    xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+  xml:base="http://www.polymtl.ca/Ontology/cuisine">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Stock">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Fruit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Sugar"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Stock</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Salt"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Spice"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Stock is a flavoured liquid. It forms the basis of many dishes, particularly soups and sauces.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Beverage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Vegetable"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Chemical"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Ingredient">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="is_in_quantity"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                  <owl:Class rdf:ID="Cuisine_quantity"/>
+                  <owl:Class rdf:ID="Dimensional_quantity"/>
+                  <owl:Class rdf:ID="Estimative_quantity"/>
+                  <owl:Class rdf:ID="Mass_quantity"/>
+                </owl:unionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#is_in_quantity"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <owl:Class rdf:about="#Food"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="is_made_of"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Cuisine_operand"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Numerical_prefix"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cuisine_product"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Ingredient</rdfs:label>
+    <rdfs:comment xml:lang="en">Initial ingredient required by a recipe</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Cuisine_product">
+    <owl:disjointWith rdf:resource="#Ingredient"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Numerical_prefix"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Cuisine_operand"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">The product of a cuisine operation</rdfs:comment>
+    <rdfs:label xml:lang="en">Cuisine product</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#ShapeAttribute"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="has_shape_attribute"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="has_dimension"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Dimensional_quantity"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:ID="is_produced_by"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="Cuisine_Operation"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:about="#is_produced_by"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Action_attribute">
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#RelationalAttribute"/>
+    <rdfs:comment xml:lang="en">Example: well</rdfs:comment>
+    <rdfs:comment xml:lang="en">Example: quickly</rdfs:comment>
+    <rdfs:comment xml:lang="en">An attribute with which an action can be performed.</rdfs:comment>
+    <rdfs:label xml:lang="en">Action attribute</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Precise_quantity">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="Measurement_unit"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_in_unit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Numerical_prefix"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="has_magnitude"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#is_in_unit"/>
+            </owl:onProperty>
+            <owl11:onClass>
+              <owl:Class rdf:about="#Measurement_unit"/>
+            </owl11:onClass>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#has_magnitude"/>
+            </owl:onProperty>
+            <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</owl:maxCardinality>
+            <owl11:onClass>
+              <owl:Class rdf:about="#Numerical_prefix"/>
+            </owl11:onClass>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="has_value"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Class rdf:ID="Quantity"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Precise quantity</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Estimative_quantity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Portion"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Example: 3 miligrams</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Vegetable">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chemical"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Fruit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Spice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Beverage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Salt"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sugar"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Vegerable</rdfs:label>
+    <owl:disjointWith rdf:resource="#Stock"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Not_condition">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="Logical_condition"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="negated_condition"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Logical_condition"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#negated_condition"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment xml:lang="en">A condition of type (not A) where A is a condition</rdfs:comment>
+    <rdfs:label xml:lang="en">Not condition</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Binary_compound_condition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Atomic_condition"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Cuisine_operand">
+    <rdfs:comment xml:lang="en">An entity used as an input of an operation</rdfs:comment>
+    <rdfs:label xml:lang="en">Cuisine operand</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Object"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Mass_quantity">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Temporal_quantity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Dimensional_quantity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cuisine_quantity"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Precise_quantity"/>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Restriction>
+                <owl:hasValue>
+                  <Imperial_measurement_unit rdf:ID="IMPERIAL_MEASUREMENT_UNIT_Pound"/>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+                <owl:hasValue>
+                  <Metric_measurement_unit rdf:ID="METRIC_MEASUREMENT_UNIT_Gram"/>
+                </owl:hasValue>
+              </owl:Restriction>
+            </owl:unionOf>
+          </owl:Class>
+          <rdf:Description rdf:about="http://www.ontologyportal.org/translations/SUMO.owl.txt#MassMeasure"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment xml:lang="en">Any quantity with a mass unit</rdfs:comment>
+    <rdfs:comment xml:lang="en">Example: 3 kilograms</rdfs:comment>
+    <rdfs:label xml:lang="en">Mass quantity</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Salt">
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chemical"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Fruit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sugar"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Beverage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Stock"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Spice"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Salt</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Temporal_quantity">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Precise_quantity"/>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Restriction>
+                <owl:hasValue>
+                  <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Over_night"/>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue>
+                  <Metric_measurement_unit rdf:ID="METRIC_MEASUREMENT_UNIT_Second"/>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue>
+                  <Metric_measurement_unit rdf:ID="METRIC_MEASUREMENT_UNIT_Minute"/>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:hasValue>
+                  <Metric_measurement_unit rdf:ID="METRIC_MEASUREMENT_UNIT_Hour"/>
+                </owl:hasValue>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+              </owl:Restriction>
+            </owl:unionOf>
+          </owl:Class>
+          <rdf:Description rdf:about="http://www.ontologyportal.org/translations/SUMO.owl.txt#TimeMeasure"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#MassMeasure"/>
+    <rdfs:label xml:lang="en">Temporal quantity</rdfs:label>
+    <owl:disjointWith rdf:resource="#Mass_quantity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Dimensional_quantity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cuisine_quantity"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Example: Half an hour</rdfs:comment>
+    <rdfs:comment xml:lang="en">Any quantity with a temporal unit</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Container">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Cuisine_Tool"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Container</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Human_body_part"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Pan"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">null</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Binary_compound_condition">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Logical_condition"/>
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Logical_condition"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="left_hand"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#left_hand"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Logical_condition"/>
+            </owl:allValuesFrom>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:ID="right_hand"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#right_hand"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#Not_condition"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Atomic_condition"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Binary condition</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Cuisine_Operation">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_performed_with_tool"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Cuisine_Tool"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_performed_in_manner"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#Action_attribute"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_performed_by_doing"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:ID="Action"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#is_performed_by_doing"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:resource="#Temporal_quantity"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_performed_during"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_performed_until"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class rdf:about="#Logical_condition"/>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:ID="produces"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#Cuisine_product"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:about="#produces"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="is_performed_on"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                  <owl:Class rdf:ID="Portion_of_cuisine_operand"/>
+                  <owl:Class rdf:about="#Cuisine_operand"/>
+                </owl:unionOf>
+              </owl:Class>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#is_performed_on"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment xml:lang="en">An operation defines the way to transform operands (ingredients and products) to a new product</rdfs:comment>
+    <rdfs:label xml:lang="en">Cuisine operation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Process"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Spice">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Spice</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Beverage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Stock"/>
+    <owl:disjointWith rdf:resource="#Salt"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sugar"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chemical"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Fruit"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Action">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Action</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Something done or performed</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Example: Boil</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Process"/>
+  </owl:Class>
+  <owl:Class rdf:ID="And_condition">
+    <rdfs:comment xml:lang="en">A condition of type (A and B), where A and B are logical conditions</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Or_condition"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">And condition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Binary_compound_condition"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Atomic_condition">
+    <rdfs:label xml:lang="en">Atomic condition</rdfs:label>
+    <owl:disjointWith rdf:resource="#Not_condition"/>
+    <owl:disjointWith rdf:resource="#Binary_compound_condition"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Logical_condition"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Metric_measurement_unit">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SI_measurement_unit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Imperial_measurement_unit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cuisine_measurement_unit"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement_unit"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Metric measurement unit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Recipe">
+    <rdfs:label xml:lang="en">Recipe</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Procedure"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="requires_ingredient"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#requires_ingredient"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#Ingredient"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:allValuesFrom rdf:resource="#Cuisine_product"/>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:ID="defines_cooking_of"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:InverseFunctionalProperty rdf:about="#defines_cooking_of"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment xml:lang="en">A recipes indicates the necessary ingredients and has a pointer to the final product. You need to follow this backward linked tree in order to have the cooking directions</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SI_measurement_unit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement_unit"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Systeme International measurement unit</rdfs:label>
+    <owl:disjointWith rdf:resource="#Metric_measurement_unit"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Imperial_measurement_unit"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cuisine_measurement_unit"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Chemical">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Spice"/>
+    <owl:disjointWith rdf:resource="#Salt"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Beverage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+    <owl:disjointWith rdf:resource="#Stock"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Fruit"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">null</rdfs:comment>
+    <rdfs:label xml:lang="en">Chemical</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sugar"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Cuisine_measurement_unit">
+    <rdfs:comment xml:lang="en">A measurement unit used in cuisine that is not an Imperial, Metric or SI measurement unit</rdfs:comment>
+    <owl:disjointWith rdf:resource="#SI_measurement_unit"/>
+    <owl:disjointWith rdf:resource="#Metric_measurement_unit"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Imperial_measurement_unit"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Cuisine measurement unit</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement_unit"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Imperial_measurement_unit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement_unit"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Imperial measurement unit</rdfs:label>
+    <owl:disjointWith rdf:resource="#SI_measurement_unit"/>
+    <owl:disjointWith rdf:resource="#Metric_measurement_unit"/>
+    <owl:disjointWith rdf:resource="#Cuisine_measurement_unit"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Estimative_quantity">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >0</owl:cardinality>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#has_value"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class>
+            <owl:complementOf>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+                <owl:someValuesFrom>
+                  <owl:Class rdf:about="#Measurement_unit"/>
+                </owl:someValuesFrom>
+              </owl:Restriction>
+            </owl:complementOf>
+          </owl:Class>
+          <owl:Class rdf:about="#Quantity"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:comment xml:lang="en">Estimative quantity</rdfs:comment>
+    <rdfs:comment xml:lang="en">Example: A few</rdfs:comment>
+    <rdfs:comment xml:lang="en">An estimation of a quantitative measure</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Portion"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Precise_quantity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Cuisine_Tool">
+    <rdfs:label xml:lang="en">Cuisine tool</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Object"/>
+    <rdfs:comment xml:lang="en">An instrument from the cuisine usually used for an operation</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Human_body_part">
+    <owl:disjointWith rdf:resource="#Container"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Pan"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Human body part</rdfs:label>
+    <rdfs:comment xml:lang="en">null</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Cuisine_Tool"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Beverage">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Salt"/>
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Fruit"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Beverage</rdfs:label>
+    <owl:disjointWith rdf:resource="#Chemical"/>
+    <owl:disjointWith rdf:resource="#Stock"/>
+    <rdfs:comment xml:lang="en">Any one of various liquids for drinking, including water.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Food"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Spice"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sugar"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Portion_of_cuisine_operand">
+    <rdfs:comment xml:lang="en">Sometimes an operation does not require a full operand (ingredient or product) to be used. A portion of the operand will be created and used instead, which is a quantity of the operand</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Object"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#is_in_quantity"/>
+            </owl:onProperty>
+            <owl:allValuesFrom>
+              <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#Cuisine_quantity"/>
+                  <owl:Class rdf:about="#Dimensional_quantity"/>
+                  <owl:Class rdf:about="#Estimative_quantity"/>
+                  <owl:Class rdf:about="#Portion"/>
+                  <owl:Class rdf:about="#Mass_quantity"/>
+                </owl:unionOf>
+              </owl:Class>
+            </owl:allValuesFrom>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#is_in_quantity"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#is_made_of"/>
+            </owl:onProperty>
+            <owl:allValuesFrom rdf:resource="#Cuisine_operand"/>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#is_made_of"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Portion of cuisine operand</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Food">
+    <rdfs:label xml:lang="en">Food</rdfs:label>
+    <rdfs:comment xml:lang="en">Food is any substance, usually composed primarily of carbohydrates, fats, water and/or proteins, that can be eaten or drunk for nutrition or pleasure</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Object"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Logical_condition">
+    <rdfs:label xml:lang="en">Logical condition</rdfs:label>
+    <rdfs:comment xml:lang="en">A boolean function with variable input parameters</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Atomic_condition"/>
+          <owl:Class rdf:about="#Binary_compound_condition"/>
+          <owl:Class rdf:about="#Not_condition"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Function"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Fruit">
+    <owl:disjointWith rdf:resource="#Beverage"/>
+    <owl:disjointWith rdf:resource="#Salt"/>
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+    <rdfs:label xml:lang="en">Fruit</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en"></rdfs:comment>
+    <owl:disjointWith rdf:resource="#Spice"/>
+    <owl:disjointWith rdf:resource="#Chemical"/>
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Sugar"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Stock"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Measurement_unit">
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#UnitOfMeasure"/>
+    <rdfs:comment xml:lang="en">A measurement unit is a standardised quantity of a physical property, used as a factor to express occurring quantities of that property.</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Cuisine_measurement_unit"/>
+          <owl:Class rdf:about="#Imperial_measurement_unit"/>
+          <owl:Class rdf:about="#Metric_measurement_unit"/>
+          <owl:Class rdf:about="#SI_measurement_unit"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Measurement unit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Numerical_prefix">
+    <rdfs:comment xml:lang="en">A numerical prefix is a prefix that denotes a number, which is usually a multiplier for the thing being prefixed.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Ingredient"/>
+    <owl:disjointWith rdf:resource="#Cuisine_product"/>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#Quantity"/>
+    <rdfs:label xml:lang="en">Numerical prefix</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Dimensional_quantity">
+    <rdfs:comment xml:lang="en">Example: 3 meters</rdfs:comment>
+    <rdfs:comment xml:lang="en">Any quantity with a dimensional unit</rdfs:comment>
+    <rdfs:label xml:lang="en">Dimensional quantity</rdfs:label>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Precise_quantity"/>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+                <owl:hasValue>
+                  <Imperial_measurement_unit rdf:ID="IMPERIAL_MEASUREMENT_UNIT_Inch"/>
+                </owl:hasValue>
+              </owl:Restriction>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+                <owl:hasValue>
+                  <Metric_measurement_unit rdf:ID="METRIC_MEASUREMENT_UNIT_Meter"/>
+                </owl:hasValue>
+              </owl:Restriction>
+            </owl:unionOf>
+          </owl:Class>
+          <rdf:Description rdf:about="http://www.ontologyportal.org/translations/SUMO.owl.txt#LengthMeasure"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#Mass_quantity"/>
+    <owl:disjointWith rdf:resource="#Temporal_quantity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cuisine_quantity"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Cuisine_quantity">
+    <rdfs:comment xml:lang="en">Any quantity used in cuisine recepies that is not dimensional, mass or temporal</rdfs:comment>
+    <rdfs:label xml:lang="en">Cuisine quantity</rdfs:label>
+    <owl:disjointWith rdf:resource="#Mass_quantity"/>
+    <owl:disjointWith rdf:resource="#Dimensional_quantity"/>
+    <owl:disjointWith rdf:resource="#Temporal_quantity"/>
+    <rdfs:subClassOf rdf:resource="#Precise_quantity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Pan">
+    <rdfs:label xml:lang="en">Pan</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Cuisine_Tool"/>
+    <rdfs:comment xml:lang="en">null</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Container"/>
+    <owl:disjointWith rdf:resource="#Human_body_part"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sugar">
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+    <owl:disjointWith rdf:resource="#Salt"/>
+    <owl:disjointWith rdf:resource="#Chemical"/>
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <owl:disjointWith rdf:resource="#Beverage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Meat"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Sugar</rdfs:label>
+    <owl:disjointWith rdf:resource="#Fruit"/>
+    <owl:disjointWith rdf:resource="#Spice"/>
+    <owl:disjointWith rdf:resource="#Stock"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Or_condition">
+    <owl:disjointWith rdf:resource="#And_condition"/>
+    <rdfs:subClassOf rdf:resource="#Binary_compound_condition"/>
+    <rdfs:comment xml:lang="en">A condition of type (A or B), where A and B are logical conditions</rdfs:comment>
+    <rdfs:label xml:lang="en">Or condition</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Meat">
+    <owl:disjointWith rdf:resource="#Stock"/>
+    <owl:disjointWith rdf:resource="#Chemical"/>
+    <rdfs:subClassOf rdf:resource="#Food"/>
+    <rdfs:comment xml:lang="en">null</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Sugar"/>
+    <owl:disjointWith rdf:resource="#Vegetable"/>
+    <owl:disjointWith rdf:resource="#Spice"/>
+    <owl:disjointWith rdf:resource="#Beverage"/>
+    <owl:disjointWith rdf:resource="#Salt"/>
+    <rdfs:label xml:lang="en">Meat</rdfs:label>
+    <owl:disjointWith rdf:resource="#Fruit"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Portion">
+    <rdfs:comment xml:lang="en">A portion of an entity</rdfs:comment>
+    <rdfs:label xml:lang="en">Portion</rdfs:label>
+    <owl:disjointWith rdf:resource="#Estimative_quantity"/>
+    <owl:disjointWith rdf:resource="#Precise_quantity"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#has_value"/>
+            </owl:onProperty>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:cardinality>
+          </owl:Restriction>
+          <owl:Class>
+            <owl:complementOf>
+              <owl:Restriction>
+                <owl:onProperty>
+                  <owl:ObjectProperty rdf:about="#is_in_unit"/>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="#Measurement_unit"/>
+              </owl:Restriction>
+            </owl:complementOf>
+          </owl:Class>
+          <owl:Class rdf:about="#Quantity"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Quantity">
+    <rdfs:comment xml:lang="en">A quantitative measure</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Estimative_quantity"/>
+          <owl:Class rdf:about="#Portion"/>
+          <owl:Class rdf:about="#Precise_quantity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:versionInfo xml:lang="en">TODO: Because SUMO was not originally designed in OWL, it some of meaning when ported. local:Quantity and children should be tighter integrated with sumo:ConstantQuantity when a better port of SUMO for OWL is available.</owl:versionInfo>
+    <rdfs:label xml:lang="en">Quantity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#ConstantQuantity"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="has_length">
+    <rdfs:range rdf:resource="#Dimensional_quantity"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#has_dimension"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_performed_during">
+    <rdfs:range rdf:resource="#Temporal_quantity"/>
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_performed_until">
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+    <rdfs:range rdf:resource="#Logical_condition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="is_performed_with_quality">
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#has_dimension">
+    <rdfs:range rdf:resource="#Dimensional_quantity"/>
+    <rdfs:domain rdf:resource="#Cuisine_product"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_in_unit">
+    <rdfs:domain rdf:resource="#Precise_quantity"/>
+    <rdfs:range rdf:resource="#Measurement_unit"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="has_depth">
+    <rdfs:range rdf:resource="#Dimensional_quantity"/>
+    <rdfs:subPropertyOf rdf:resource="#has_dimension"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_performed_on">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Portion_of_cuisine_operand"/>
+          <owl:Class rdf:about="#Cuisine_operand"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_performed_by_doing">
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+    <rdfs:range rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_performed_in_manner">
+    <rdfs:range rdf:resource="#Action_attribute"/>
+    <rdfs:subPropertyOf rdf:resource="#is_performed_with_quality"/>
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#has_magnitude">
+    <rdfs:range rdf:resource="#Numerical_prefix"/>
+    <rdfs:domain rdf:resource="#Precise_quantity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#requires_ingredient">
+    <rdfs:domain rdf:resource="#Recipe"/>
+    <rdfs:range rdf:resource="#Ingredient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#is_performed_with_tool">
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+    <rdfs:range rdf:resource="#Cuisine_Tool"/>
+    <rdfs:subPropertyOf rdf:resource="#is_performed_with_quality"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#has_shape_attribute">
+    <rdfs:range rdf:resource="http://www.ontologyportal.org/translations/SUMO.owl.txt#ShapeAttribute"/>
+    <rdfs:domain rdf:resource="#Cuisine_product"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="has_width">
+    <rdfs:subPropertyOf rdf:resource="#has_dimension"/>
+    <rdfs:range rdf:resource="#Dimensional_quantity"/>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:about="#is_made_of">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Food"/>
+          <owl:Class rdf:about="#Ingredient"/>
+          <owl:Class rdf:about="#Cuisine_product"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Ingredient"/>
+          <owl:Class rdf:about="#Portion_of_cuisine_operand"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#negated_condition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Not_condition"/>
+    <rdfs:range rdf:resource="#Logical_condition"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#has_value">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Precise_quantity"/>
+          <owl:Class rdf:about="#Portion"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#is_in_quantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Ingredient"/>
+          <owl:Class rdf:about="#Portion_of_cuisine_operand"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#left_hand">
+    <rdfs:domain rdf:resource="#Binary_compound_condition"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Logical_condition"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#right_hand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Binary_compound_condition"/>
+    <rdfs:range rdf:resource="#Logical_condition"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#is_produced_by">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="#produces"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Cuisine_Operation"/>
+    <rdfs:domain rdf:resource="#Cuisine_product"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#produces">
+    <rdfs:range rdf:resource="#Cuisine_product"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Cuisine_Operation"/>
+    <owl:inverseOf rdf:resource="#is_produced_by"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#defines_cooking_of">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Recipe"/>
+    <rdfs:range rdf:resource="#Cuisine_product"/>
+  </owl:InverseFunctionalProperty>
+  <Cuisine_Operation rdf:ID="OPERATION_R2_Boil_the_black_beens">
+    <is_performed_by_doing>
+      <Action rdf:ID="ACTION_Boil">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >To cook in boiling water</rdfs:comment>
+      </Action>
+    </is_performed_by_doing>
+    <is_performed_on>
+      <Ingredient rdf:ID="INGREDIENT_R2_Two_cups_of_dried_black_beans">
+        <is_in_quantity>
+          <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Two_cups">
+            <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >2.0</has_value>
+            <is_in_unit>
+              <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Cup"/>
+            </is_in_unit>
+          </Cuisine_quantity>
+        </is_in_quantity>
+        <is_made_of>
+          <Vegetable rdf:ID="VEGETABLE_Dried_black_beans"/>
+        </is_made_of>
+      </Ingredient>
+    </is_performed_on>
+    <is_performed_on>
+      <Portion_of_cuisine_operand rdf:ID="PORTION_OF_CUISINE_OPERAND_R2_Six_cups_of_water">
+        <is_made_of>
+          <Ingredient rdf:ID="INGREDIENT_R2_Nine_cups_of_water">
+            <is_in_quantity>
+              <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Nine_cups">
+                <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >9.0</has_value>
+                <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Cup"/>
+              </Cuisine_quantity>
+            </is_in_quantity>
+            <is_made_of>
+              <Beverage rdf:ID="BEVERAGE_Water"/>
+            </is_made_of>
+          </Ingredient>
+        </is_made_of>
+        <is_in_quantity>
+          <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Six_cups">
+            <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >6.0</has_value>
+            <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Cup"/>
+          </Cuisine_quantity>
+        </is_in_quantity>
+      </Portion_of_cuisine_operand>
+    </is_performed_on>
+    <produces>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Boiled_black_beens">
+        <is_produced_by rdf:resource="#OPERATION_R2_Boil_the_black_beens"/>
+      </Cuisine_product>
+    </produces>
+  </Cuisine_Operation>
+  <Action rdf:ID="ACTION_Bring_to_boil">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heat until the liquid reaches the boiling point (http://en.wikipedia.org/wiki/Boiling_point)</rdfs:comment>
+  </Action>
+  <Cuisine_Operation rdf:ID="OPERATION_R2_Cover_boiled_beans">
+    <is_performed_on rdf:resource="#CUISINE_PRODUCT_R2_Boiled_black_beens"/>
+    <produces>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Covered_beans">
+        <is_produced_by rdf:resource="#OPERATION_R2_Cover_boiled_beans"/>
+      </Cuisine_product>
+    </produces>
+    <is_performed_by_doing>
+      <Action rdf:ID="ACTION_Cover"/>
+    </is_performed_by_doing>
+  </Cuisine_Operation>
+  <Salt rdf:ID="SALT_Sea_salt"/>
+  <Ingredient rdf:ID="INGREDIENT_R2_Half_a_pound_of_pork">
+    <is_in_quantity>
+      <Mass_quantity rdf:ID="MASS_QUANTITY_Half_a_pound">
+        <is_in_unit rdf:resource="#IMPERIAL_MEASUREMENT_UNIT_Pound"/>
+        <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.5</has_value>
+      </Mass_quantity>
+    </is_in_quantity>
+    <is_made_of>
+      <Meat rdf:ID="MEET_Pork"/>
+    </is_made_of>
+  </Ingredient>
+  <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Romanian_sausage">
+    <is_produced_by>
+      <Cuisine_Operation rdf:ID="OPERATION_R1_Broil_the_sausages_three_minutes_per_side_until_cooked_through_and_browned">
+        <is_performed_during>
+          <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_Three_minutes">
+            <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >3.0</has_value>
+            <is_in_unit rdf:resource="#METRIC_MEASUREMENT_UNIT_Minute"/>
+          </Temporal_quantity>
+        </is_performed_during>
+        <is_performed_by_doing>
+          <Action rdf:ID="ACTION_Broil">
+            <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >A form of cooking that involves direct heat. Devices that broill are called grills</rdfs:comment>
+          </Action>
+        </is_performed_by_doing>
+        <is_performed_until>
+          <And_condition rdf:ID="AND_CONDITION_Cooked_through_and_browned">
+            <right_hand>
+              <Atomic_condition rdf:ID="ATOMIC_CONDITION_Browned"/>
+            </right_hand>
+            <left_hand>
+              <Atomic_condition rdf:ID="ATOMIC_CONDITION_Cooked_through"/>
+            </left_hand>
+          </And_condition>
+        </is_performed_until>
+        <produces rdf:resource="#CUISINE_PRODUCT_R1_Romanian_sausage"/>
+        <is_performed_in_manner>
+          <Action_attribute rdf:ID="MANNER_Per_side"/>
+        </is_performed_in_manner>
+        <is_performed_on>
+          <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Refrigerated_sausages">
+            <is_produced_by>
+              <Cuisine_Operation rdf:ID="OPERATION_R1_Refrigerate_overnight">
+                <produces rdf:resource="#CUISINE_PRODUCT_R1_Refrigerated_sausages"/>
+                <is_performed_during>
+                  <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_Overnight">
+                    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >1.0</has_value>
+                    <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Over_night"/>
+                  </Temporal_quantity>
+                </is_performed_during>
+                <is_performed_on>
+                  <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Placed_sausages">
+                    <is_produced_by>
+                      <Cuisine_Operation rdf:ID="OPERATION_R1_Place_sausages_side_by_side_in_a_container">
+                        <produces rdf:resource="#CUISINE_PRODUCT_R1_Placed_sausages"/>
+                        <is_performed_on>
+                          <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Sausages">
+                            <is_produced_by>
+                              <Cuisine_Operation rdf:ID="OPERATION_R1_Take_one_third_of_the_meat_mixture_and_roll_between_the_palms_of_your_hands_into_a_sausage_shape_about_4_inches_long">
+                                <is_performed_by_doing>
+                                  <Action rdf:ID="ACTION_Roll"/>
+                                </is_performed_by_doing>
+                                <is_performed_on>
+                                  <Portion_of_cuisine_operand rdf:ID="CUISINE_OPERAND_R1_One_third_of_meat_mixture">
+                                    <is_in_quantity>
+                                      <Portion rdf:ID="PORTION_One_third">
+                                        <rdfs:label rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >One third</rdfs:label>
+                                        <has_value rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#float"
+                                        >0.33</has_value>
+                                      </Portion>
+                                    </is_in_quantity>
+                                    <is_made_of>
+                                      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Meat_mixture">
+                                        <is_produced_by>
+                                          <Cuisine_Operation rdf:ID="OPERATION_R1_Add_beef_stock_and_mix_well">
+                                            <is_performed_on>
+                                              <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Compound1">
+                                                <is_produced_by>
+                                                  <Cuisine_Operation rdf:ID="OPERATION_R1_Stir_the_meat_baking_soda_seasonings_and_garlic">
+                                                    <is_performed_on>
+                                                      <Ingredient rdf:ID="INGREDIENT_R1_One_tablespoon_of_baking_soda">
+                                                        <is_in_quantity>
+                                                          <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_One_tablespoon">
+                                                            <has_value
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#float"
+                                                            >1.0</has_value>
+                                                            <is_in_unit>
+                                                              <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Tablespoon"/>
+                                                            </is_in_unit>
+                                                          </Cuisine_quantity>
+                                                        </is_in_quantity>
+                                                        <is_made_of>
+                                                          <Chemical rdf:ID="CHEMICAL_Baking_soda"/>
+                                                        </is_made_of>
+                                                      </Ingredient>
+                                                    </is_performed_on>
+                                                    <is_performed_on>
+                                                      <Ingredient rdf:ID="INGREDIENT_R1_Two_thirds_of_a_pound_of_ground_pork">
+                                                        <is_made_of>
+                                                          <Meat rdf:ID="MEET_Coarsely_ground_pork"/>
+                                                        </is_made_of>
+                                                        <is_in_quantity>
+                                                          <Mass_quantity rdf:ID="MASS_QUANTITY_Two_thirds_of_a_pound">
+                                                            <has_value
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#float"
+                                                            >0.66</has_value>
+                                                            <is_in_unit rdf:resource="#IMPERIAL_MEASUREMENT_UNIT_Pound"/>
+                                                          </Mass_quantity>
+                                                        </is_in_quantity>
+                                                      </Ingredient>
+                                                    </is_performed_on>
+                                                    <produces rdf:resource="#CUISINE_PRODUCT_R1_Compound1"/>
+                                                    <is_performed_on>
+                                                      <Ingredient rdf:ID="INGREDIENT_R1_One_and_a_half_tablespoons_of_salt">
+                                                        <is_made_of>
+                                                          <Salt rdf:ID="SALT_Regular_salt"/>
+                                                        </is_made_of>
+                                                        <is_in_quantity>
+                                                          <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_One_and_a_half_table_spoon">
+                                                            <has_value
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#float"
+                                                            >1.5</has_value>
+                                                            <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Tablespoon"/>
+                                                          </Cuisine_quantity>
+                                                        </is_in_quantity>
+                                                      </Ingredient>
+                                                    </is_performed_on>
+                                                    <is_performed_on>
+                                                      <Ingredient rdf:ID="INGREDIENT_R1_Half_a_tablespoon_of_dried_basil">
+                                                        <is_in_quantity>
+                                                          <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Half_a_tablespoon">
+                                                            <has_value
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#float"
+                                                            >0.5</has_value>
+                                                            <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Tablespoon"/>
+                                                          </Cuisine_quantity>
+                                                        </is_in_quantity>
+                                                        <is_made_of>
+                                                          <Spice rdf:ID="SPICE_Dried_basil"/>
+                                                        </is_made_of>
+                                                      </Ingredient>
+                                                    </is_performed_on>
+                                                    <is_performed_on>
+                                                      <Ingredient rdf:ID="INGREDIENT_R1_One_pound_of_ground_chuck">
+                                                        <is_in_quantity>
+                                                          <Mass_quantity rdf:ID="MASS_QUANTITY_One_pound">
+                                                            <is_in_unit rdf:resource="#IMPERIAL_MEASUREMENT_UNIT_Pound"/>
+                                                            <has_value
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#float"
+                                                            >1.0</has_value>
+                                                          </Mass_quantity>
+                                                        </is_in_quantity>
+                                                        <is_made_of>
+                                                          <Meat rdf:ID="MEET_Ground_chuck"/>
+                                                        </is_made_of>
+                                                      </Ingredient>
+                                                    </is_performed_on>
+                                                    <is_performed_on>
+                                                      <Ingredient rdf:ID="INGREDIENT_R1_One_tablespoon_of_black_pepper">
+                                                        <is_in_quantity rdf:resource="#CUISINE_QUANTITY_One_tablespoon"/>
+                                                        <is_made_of>
+                                                          <Spice rdf:ID="SPICE_Black_pepper"/>
+                                                        </is_made_of>
+                                                      </Ingredient>
+                                                    </is_performed_on>
+                                                    <is_performed_on>
+                                                      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Garlic_puree">
+                                                        <is_produced_by>
+                                                          <Cuisine_Operation rdf:ID="OPERATION_R1_Crush_the_garlic_well_in_water_using_a_fork">
+                                                            <is_performed_by_doing>
+                                                              <Action rdf:ID="ACTION_Crush"/>
+                                                            </is_performed_by_doing>
+                                                            <produces rdf:resource="#CUISINE_PRODUCT_R1_Garlic_puree"/>
+                                                            <is_performed_on>
+                                                              <Ingredient rdf:ID="INGREDIENT_R1_Five_peeled_cloves_of_garlic">
+    <is_made_of>
+      <Vegetable rdf:ID="VEGETABLE_Garlic"/>
+    </is_made_of>
+    <is_in_quantity>
+      <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Five_cloves">
+        <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >5.0</has_value>
+        <is_in_unit>
+          <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Clove"/>
+        </is_in_unit>
+      </Cuisine_quantity>
+    </is_in_quantity>                                         </Ingredient>
+                                                            </is_performed_on>
+                                                            <is_performed_on>
+                                                              <Ingredient rdf:ID="INGREDIENT_R1_A_quater_cup_of_water">
+    <is_in_quantity>
+      <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_A_quarter_cup">
+        <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >0.25</has_value>
+        <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Cup"/>
+      </Cuisine_quantity>
+    </is_in_quantity>
+    <is_made_of rdf:resource="#BEVERAGE_Water"/>              </Ingredient>
+                                                            </is_performed_on>
+                                                            <is_performed_with_tool>
+                                                              <Cuisine_Tool rdf:ID="CUISINE_TOOL_Fork"/>
+                                                            </is_performed_with_tool>
+                                                          </Cuisine_Operation>
+                                                        </is_produced_by>
+                                                      </Cuisine_product>
+                                                    </is_performed_on>
+                                                    <is_performed_by_doing>
+                                                      <Action rdf:ID="ACTION_Stir"/>
+                                                    </is_performed_by_doing>
+                                                  </Cuisine_Operation>
+                                                </is_produced_by>
+                                              </Cuisine_product>
+                                            </is_performed_on>
+                                            <is_performed_on>
+                                              <Ingredient rdf:ID="INGREDIENT_R1_Half_a_cup_of_beef_stock">
+                                                <is_made_of>
+                                                  <Stock rdf:ID="STOCK_Beef_stock"/>
+                                                </is_made_of>
+                                                <is_in_quantity>
+                                                  <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Half_a_cup">
+                                                    <has_value
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#float"
+                                                    >0.5</has_value>
+                                                    <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Cup"/>
+                                                  </Cuisine_quantity>
+                                                </is_in_quantity>
+                                              </Ingredient>
+                                            </is_performed_on>
+                                            <produces rdf:resource="#CUISINE_PRODUCT_R1_Meat_mixture"/>
+                                            <is_performed_in_manner>
+                                              <Action_attribute rdf:ID="MANNER_Well"/>
+                                            </is_performed_in_manner>
+                                            <is_performed_by_doing>
+                                              <Action rdf:ID="ACTION_Mix"/>
+                                            </is_performed_by_doing>
+                                          </Cuisine_Operation>
+                                        </is_produced_by>
+                                      </Cuisine_product>
+                                    </is_made_of>
+                                  </Portion_of_cuisine_operand>
+                                </is_performed_on>
+                                <produces rdf:resource="#CUISINE_PRODUCT_R1_Sausages"/>
+                                <is_performed_with_tool>
+                                  <Human_body_part rdf:ID="HUMAN_BODY_PART_Right_palm">
+                                    <rdfs:label rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Right palm</rdfs:label>
+                                  </Human_body_part>
+                                </is_performed_with_tool>
+                                <is_performed_with_tool>
+                                  <Human_body_part rdf:ID="HUMAN_BODY_PART_Left_palm">
+                                    <rdfs:label rdf:datatype=
+                                    "http://www.w3.org/2001/XMLSchema#string"
+                                    >Left palm</rdfs:label>
+                                  </Human_body_part>
+                                </is_performed_with_tool>
+                              </Cuisine_Operation>
+                            </is_produced_by>
+                            <has_length>
+                              <Dimensional_quantity rdf:ID="DIMENSIONAL_QUANTITY_Four_inches">
+                                <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                                >4.0</has_value>
+                                <is_in_unit rdf:resource="#IMPERIAL_MEASUREMENT_UNIT_Inch"/>
+                              </Dimensional_quantity>
+                            </has_length>
+                            <has_shape_attribute>
+                              <sumo2:ShapeAttribute rdf:ID="SHAPE_Sausage">
+                                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >=allantoid
+=rounded - curving and somewhat round in shape rather than jagged; "low rounded hills"; "rounded shoulders" 
+(From http://www.thefreedictionary.com/sausage-shaped)</rdfs:comment>
+                              </sumo2:ShapeAttribute>
+                            </has_shape_attribute>
+                          </Cuisine_product>
+                        </is_performed_on>
+                        <is_performed_in_manner>
+                          <Action_attribute rdf:ID="MANNER_Side_by_side"/>
+                        </is_performed_in_manner>
+                        <is_performed_with_tool>
+                          <Container rdf:ID="CONTAINER_Standard_container">
+                            <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >Standard container</rdfs:label>
+                          </Container>
+                        </is_performed_with_tool>
+                        <is_performed_by_doing>
+                          <Action rdf:ID="ACTION_Place"/>
+                        </is_performed_by_doing>
+                      </Cuisine_Operation>
+                    </is_produced_by>
+                  </Cuisine_product>
+                </is_performed_on>
+                <is_performed_by_doing>
+                  <Action rdf:ID="ACTION_Refrigerate"/>
+                </is_performed_by_doing>
+              </Cuisine_Operation>
+            </is_produced_by>
+          </Cuisine_product>
+        </is_performed_on>
+      </Cuisine_Operation>
+    </is_produced_by>
+  </Cuisine_product>
+  <Spice rdf:ID="SPICE_Whole_dried_thyme"/>
+  <Ingredient rdf:ID="INGREDIENT_R2_Pepper">
+    <is_made_of>
+      <Spice rdf:ID="SPICE_Pepper"/>
+    </is_made_of>
+    <is_in_quantity>
+      <Estimative_quantity rdf:ID="ESTIMATIVE_QUANTITY_To_taste">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >To taste</rdfs:label>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Subjective quantity</rdfs:comment>
+      </Estimative_quantity>
+    </is_in_quantity>
+  </Ingredient>
+  <Cuisine_Operation rdf:ID="OPERATION_R2_Cook_compound1">
+    <is_performed_until>
+      <Atomic_condition rdf:ID="ATOMIC_CONDITION_Tender"/>
+    </is_performed_until>
+    <is_performed_by_doing>
+      <Action rdf:ID="ACTION_Cook">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >To keep under heat</rdfs:comment>
+      </Action>
+    </is_performed_by_doing>
+    <produces>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound2">
+        <is_produced_by rdf:resource="#OPERATION_R2_Cook_compound1"/>
+      </Cuisine_product>
+    </produces>
+    <is_performed_in_manner>
+      <Action_attribute rdf:ID="MANNER_Over_reduced_heat"/>
+    </is_performed_in_manner>
+    <is_performed_in_manner>
+      <Action_attribute rdf:ID="MANNER_While_stirring"/>
+    </is_performed_in_manner>
+    <is_performed_during>
+      <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_One_and_a_half_hours">
+        <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >1.5</has_value>
+        <is_in_unit rdf:resource="#METRIC_MEASUREMENT_UNIT_Hour"/>
+      </Temporal_quantity>
+    </is_performed_during>
+    <is_performed_on>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound1">
+        <is_produced_by>
+          <Cuisine_Operation rdf:ID="OPERATION_R2_Bring_to_boil_beans">
+            <is_performed_on>
+              <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Drained_beans">
+                <is_produced_by>
+                  <Cuisine_Operation rdf:ID="OPERATION_R2_Drain_beans">
+                    <is_performed_on>
+                      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Soaked_beans">
+                        <is_produced_by>
+                          <Cuisine_Operation rdf:ID="OPERATION_R2_Set_beans_aside_for_one_hour">
+                            <produces rdf:resource="#CUISINE_PRODUCT_R2_Soaked_beans"/>
+                            <is_performed_by_doing>
+                              <Action rdf:ID="ACTION_Set_aside">
+                                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Keep away from heat, at room temperature.</rdfs:comment>
+                              </Action>
+                            </is_performed_by_doing>
+                            <is_performed_on rdf:resource="#CUISINE_PRODUCT_R2_Covered_beans"/>
+                            <is_performed_during>
+                              <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_One_hour">
+                                <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                                >1.0</has_value>
+                                <is_in_unit rdf:resource="#METRIC_MEASUREMENT_UNIT_Hour"/>
+                              </Temporal_quantity>
+                            </is_performed_during>
+                          </Cuisine_Operation>
+                        </is_produced_by>
+                      </Cuisine_product>
+                    </is_performed_on>
+                    <is_performed_by_doing>
+                      <Action rdf:ID="ACTION_Drain">
+                        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Remove liquid from compound</rdfs:comment>
+                      </Action>
+                    </is_performed_by_doing>
+                    <produces rdf:resource="#CUISINE_PRODUCT_R2_Drained_beans"/>
+                  </Cuisine_Operation>
+                </is_produced_by>
+              </Cuisine_product>
+            </is_performed_on>
+            <is_performed_on>
+              <Portion_of_cuisine_operand rdf:ID="PORTION_OF_CUISINE_OPERAND_R2_Three_cups_of_water">
+                <is_made_of rdf:resource="#INGREDIENT_R2_Nine_cups_of_water"/>
+                <is_in_quantity>
+                  <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Three_cups">
+                    <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Cup"/>
+                    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >3.0</has_value>
+                  </Cuisine_quantity>
+                </is_in_quantity>
+              </Portion_of_cuisine_operand>
+            </is_performed_on>
+            <is_performed_in_manner>
+              <Action_attribute rdf:ID="MANNER_Over_high_heat"/>
+            </is_performed_in_manner>
+            <is_performed_by_doing rdf:resource="#ACTION_Bring_to_boil"/>
+            <produces rdf:resource="#CUISINE_PRODUCT_R2_Compound1"/>
+            <is_performed_with_tool>
+              <Pan rdf:ID="PAN_Large_saucepan">
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                ></rdfs:comment>
+                <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Large saucepan</rdfs:label>
+              </Pan>
+            </is_performed_with_tool>
+          </Cuisine_Operation>
+        </is_produced_by>
+      </Cuisine_product>
+    </is_performed_on>
+  </Cuisine_Operation>
+  <Cuisine_Operation rdf:ID="OPERATION_R2_Chop_the_pepper">
+    <produces>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Chopped_pepper">
+        <is_produced_by rdf:resource="#OPERATION_R2_Chop_the_pepper"/>
+      </Cuisine_product>
+    </produces>
+    <is_performed_on>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Seeded_pepper">
+        <is_produced_by>
+          <Cuisine_Operation rdf:ID="OPERATION_R2_Seed_the_pepper">
+            <is_performed_on>
+              <Ingredient rdf:ID="INGREDIENT_R2_Ground_red_pepper">
+                <is_made_of>
+                  <Spice rdf:ID="SPICE_Ground_red_pepper"/>
+                </is_made_of>
+                <is_in_quantity rdf:resource="#ESTIMATIVE_QUANTITY_To_taste"/>
+              </Ingredient>
+            </is_performed_on>
+            <produces rdf:resource="#CUISINE_PRODUCT_R2_Seeded_pepper"/>
+            <is_performed_by_doing>
+              <Action rdf:ID="ACTION_Remove_seeds"/>
+            </is_performed_by_doing>
+          </Cuisine_Operation>
+        </is_produced_by>
+      </Cuisine_product>
+    </is_performed_on>
+    <is_performed_by_doing>
+      <Action rdf:ID="ACTION_Chop"/>
+    </is_performed_by_doing>
+  </Cuisine_Operation>
+  <Recipe rdf:ID="RECIPE_R1_Mititei">
+    <rdfs:label xml:lang="ro">Romanian sausage</rdfs:label>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_Two_thirds_of_a_pound_of_ground_pork"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.freecookingrecipes.net/recipes/sausages/r/romanian-sausages-mititei.html</rdfs:comment>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_One_pound_of_ground_chuck"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_One_tablespoon_of_black_pepper"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_Half_a_cup_of_beef_stock"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_One_and_a_half_tablespoons_of_salt"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_Five_peeled_cloves_of_garlic"/>
+    <defines_cooking_of rdf:resource="#CUISINE_PRODUCT_R1_Romanian_sausage"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_Half_a_tablespoon_of_dried_basil"/>
+    <rdfs:label xml:lang="ro">Mici</rdfs:label>
+    <requires_ingredient rdf:resource="#INGREDIENT_R1_A_quater_cup_of_water"/>
+    <rdfs:label xml:lang="en">Mititei</rdfs:label>
+  </Recipe>
+  <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound5">
+    <is_produced_by>
+      <Cuisine_Operation rdf:ID="OPERATION_R2_Cook_compound4">
+        <is_performed_on>
+          <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound4">
+            <is_produced_by>
+              <Cuisine_Operation rdf:ID="OPERATION_R2_Cover_compound3">
+                <is_performed_on>
+                  <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound3">
+                    <is_produced_by>
+                      <Cuisine_Operation rdf:ID="OPERATION_R2_Mix">
+                        <is_performed_in_manner rdf:resource="#MANNER_Well"/>
+                        <is_performed_by_doing rdf:resource="#ACTION_Mix"/>
+                        <is_performed_on rdf:resource="#CUISINE_PRODUCT_R2_Compound2"/>
+                        <is_performed_on>
+                          <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Cut_beef">
+                            <has_length>
+                              <Dimensional_quantity rdf:ID="DIMENSIONAL_QUANTITY_One_inch">
+                                <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                                >1.0</has_value>
+                                <is_in_unit rdf:resource="#IMPERIAL_MEASUREMENT_UNIT_Inch"/>
+                              </Dimensional_quantity>
+                            </has_length>
+                            <has_shape_attribute>
+                              <sumo2:GeometricFigure rdf:ID="SHAPE_Cube"/>
+                            </has_shape_attribute>
+                            <has_depth rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                            <is_produced_by>
+                              <Cuisine_Operation rdf:ID="OPERATION_R2_Cut_the_beef">
+                                <is_performed_by_doing>
+                                  <Action rdf:ID="ACTION_Cut"/>
+                                </is_performed_by_doing>
+                                <is_performed_on>
+                                  <Ingredient rdf:ID="INGREDIENT_R2_Half_a_pound_of_beef">
+                                    <is_made_of>
+                                      <Meat rdf:ID="MEET_Beef"/>
+                                    </is_made_of>
+                                    <is_in_quantity rdf:resource="#MASS_QUANTITY_Half_a_pound"/>
+                                  </Ingredient>
+                                </is_performed_on>
+                                <produces rdf:resource="#CUISINE_PRODUCT_R2_Cut_beef"/>
+                              </Cuisine_Operation>
+                            </is_produced_by>
+                            <has_width rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                          </Cuisine_product>
+                        </is_performed_on>
+                        <is_performed_on>
+                          <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Cut_pork">
+                            <is_produced_by>
+                              <Cuisine_Operation rdf:ID="OPERATION_R2_Cut_the_pork">
+                                <is_performed_by_doing rdf:resource="#ACTION_Cut"/>
+                                <is_performed_on rdf:resource="#INGREDIENT_R2_Half_a_pound_of_pork"/>
+                                <produces rdf:resource="#CUISINE_PRODUCT_R2_Cut_pork"/>
+                              </Cuisine_Operation>
+                            </is_produced_by>
+                            <has_width rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                            <has_depth rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                            <has_length rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                            <has_shape_attribute rdf:resource="#SHAPE_Cube"/>
+                          </Cuisine_product>
+                        </is_performed_on>
+                        <is_performed_on>
+                          <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Cut_sausages">
+                            <is_produced_by>
+                              <Cuisine_Operation rdf:ID="OPERATION_R2_Cut_the_sausages">
+                                <produces rdf:resource="#CUISINE_PRODUCT_R2_Cut_sausages"/>
+                                <is_performed_by_doing rdf:resource="#ACTION_Cut"/>
+                                <is_performed_on>
+                                  <Ingredient rdf:ID="INGREDIENT_R2_Half_a_pound_of_sausage">
+                                    <is_made_of>
+                                      <Meat rdf:ID="MEET_Sausage"/>
+                                    </is_made_of>
+                                    <is_in_quantity rdf:resource="#MASS_QUANTITY_Half_a_pound"/>
+                                  </Ingredient>
+                                </is_performed_on>
+                              </Cuisine_Operation>
+                            </is_produced_by>
+                            <has_dimension rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                          </Cuisine_product>
+                        </is_performed_on>
+                        <produces rdf:resource="#CUISINE_PRODUCT_R2_Compound3"/>
+                      </Cuisine_Operation>
+                    </is_produced_by>
+                  </Cuisine_product>
+                </is_performed_on>
+                <is_performed_by_doing rdf:resource="#ACTION_Cover"/>
+                <produces rdf:resource="#CUISINE_PRODUCT_R2_Compound4"/>
+              </Cuisine_Operation>
+            </is_produced_by>
+          </Cuisine_product>
+        </is_performed_on>
+        <is_performed_by_doing rdf:resource="#ACTION_Cook"/>
+        <is_performed_in_manner>
+          <Action_attribute rdf:ID="MANNER_Over_medium_heat"/>
+        </is_performed_in_manner>
+        <is_performed_in_manner rdf:resource="#MANNER_While_stirring"/>
+        <is_performed_during>
+          <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_45_minutes">
+            <is_in_unit rdf:resource="#METRIC_MEASUREMENT_UNIT_Minute"/>
+            <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+            >45.0</has_value>
+          </Temporal_quantity>
+        </is_performed_during>
+        <produces rdf:resource="#CUISINE_PRODUCT_R2_Compound5"/>
+      </Cuisine_Operation>
+    </is_produced_by>
+  </Cuisine_product>
+  <Action rdf:ID="ACTION_Fry">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A method of cooking in a pan or pot which may involve immersion in a fat</rdfs:comment>
+  </Action>
+  <Estimative_quantity rdf:ID="ESTIMATIVE_QUANTITY_Some">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Some</rdfs:label>
+  </Estimative_quantity>
+  <Ingredient rdf:ID="INGREDIENT_R2_Three_cloves_of_garlic">
+    <is_made_of rdf:resource="#VEGETABLE_Garlic"/>
+    <is_in_quantity>
+      <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Three_cloves">
+        <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Clove"/>
+        <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >3.0</has_value>
+      </Cuisine_quantity>
+    </is_in_quantity>
+  </Ingredient>
+  <Cuisine_product rdf:ID="CUISINE_PRODUCT_R1_Covered_sausages">
+    <is_produced_by>
+      <Cuisine_Operation rdf:ID="OPERATION_R1_Cover_sausages">
+        <produces rdf:resource="#CUISINE_PRODUCT_R1_Covered_sausages"/>
+        <is_performed_by_doing rdf:resource="#ACTION_Cover"/>
+      </Cuisine_Operation>
+    </is_produced_by>
+  </Cuisine_product>
+  <Vegetable rdf:ID="VEGETABLE_Jalapeno"/>
+  <Portion rdf:ID="PORTION_Half">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Half</rdfs:label>
+    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.5</has_value>
+  </Portion>
+  <Vegetable rdf:ID="VEGETABLE_Tomato"/>
+  <Cuisine_Operation rdf:ID="OPERATION_R2_Mix_bacon_with_vegetables">
+    <is_performed_by_doing rdf:resource="#ACTION_Mix"/>
+    <produces>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound6">
+        <is_produced_by rdf:resource="#OPERATION_R2_Mix_bacon_with_vegetables"/>
+      </Cuisine_product>
+    </produces>
+    <is_performed_in_manner rdf:resource="#MANNER_Well"/>
+    <is_performed_on>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Fried_bacon">
+        <is_produced_by>
+          <Cuisine_Operation rdf:ID="OPERATION_R2_Fry_bacon">
+            <is_performed_during>
+              <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_5_minutes">
+                <is_in_unit rdf:resource="#METRIC_MEASUREMENT_UNIT_Minute"/>
+                <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >5.0</has_value>
+              </Temporal_quantity>
+            </is_performed_during>
+            <produces rdf:resource="#CUISINE_PRODUCT_R2_Fried_bacon"/>
+            <is_performed_until>
+              <Atomic_condition rdf:ID="ATOMIC_CONDITION_Crisp"/>
+            </is_performed_until>
+            <is_performed_by_doing rdf:resource="#ACTION_Fry"/>
+            <is_performed_on>
+              <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Cut_bacon">
+                <has_length rdf:resource="#DIMENSIONAL_QUANTITY_One_inch"/>
+                <is_produced_by>
+                  <Cuisine_Operation rdf:ID="OPERATION_R2_Cut_the_bacon">
+                    <is_performed_on>
+                      <Ingredient rdf:ID="INGREDIENT_R2_Three_slices_of_bacon">
+                        <is_made_of>
+                          <Meat rdf:ID="MEET_Bacon"/>
+                        </is_made_of>
+                        <is_in_quantity>
+                          <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_Three_slices">
+                            <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                            >3.0</has_value>
+                            <is_in_unit>
+                              <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Slice"/>
+                            </is_in_unit>
+                          </Cuisine_quantity>
+                        </is_in_quantity>
+                      </Ingredient>
+                    </is_performed_on>
+                    <is_performed_by_doing rdf:resource="#ACTION_Cut"/>
+                    <produces rdf:resource="#CUISINE_PRODUCT_R2_Cut_bacon"/>
+                  </Cuisine_Operation>
+                </is_produced_by>
+              </Cuisine_product>
+            </is_performed_on>
+          </Cuisine_Operation>
+        </is_produced_by>
+      </Cuisine_product>
+    </is_performed_on>
+    <is_performed_on>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Chopped_tomato">
+        <is_produced_by>
+          <Cuisine_Operation rdf:ID="OPERATION_R2_Finely_chop_the_tomato">
+            <produces rdf:resource="#CUISINE_PRODUCT_R2_Chopped_tomato"/>
+            <is_performed_by_doing rdf:resource="#ACTION_Chop"/>
+            <is_performed_in_manner>
+              <Action_attribute rdf:ID="MANNER_Finely"/>
+            </is_performed_in_manner>
+            <is_performed_on>
+              <Ingredient rdf:ID="INGREDIENT_R2_One_tomato">
+                <is_in_quantity>
+                  <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_One">
+                    <is_in_unit>
+                      <Measurement_unit rdf:ID="MEASUREMENT_UNIT_Unity"/>
+                    </is_in_unit>
+                    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                    >1.0</has_value>
+                  </Cuisine_quantity>
+                </is_in_quantity>
+                <is_made_of rdf:resource="#VEGETABLE_Tomato"/>
+              </Ingredient>
+            </is_performed_on>
+          </Cuisine_Operation>
+        </is_produced_by>
+      </Cuisine_product>
+    </is_performed_on>
+    <is_performed_on>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Chopped_garlic">
+        <is_produced_by>
+          <Cuisine_Operation rdf:ID="OPERATION_R2_Finely_chop_the_garlic">
+            <is_performed_on rdf:resource="#INGREDIENT_R2_Three_cloves_of_garlic"/>
+            <produces rdf:resource="#CUISINE_PRODUCT_R2_Chopped_garlic"/>
+            <is_performed_by_doing rdf:resource="#ACTION_Chop"/>
+            <is_performed_in_manner rdf:resource="#MANNER_Finely"/>
+          </Cuisine_Operation>
+        </is_produced_by>
+      </Cuisine_product>
+    </is_performed_on>
+    <is_performed_on>
+      <Ingredient rdf:ID="INGREDIENT_R2_One_Jalapeno">
+        <is_in_quantity rdf:resource="#CUISINE_QUANTITY_One"/>
+        <is_made_of rdf:resource="#VEGETABLE_Jalapeno"/>
+      </Ingredient>
+    </is_performed_on>
+  </Cuisine_Operation>
+  <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Spoon"/>
+  <Estimative_quantity rdf:ID="ESTIMATIVE_QUANTITY_A_pinch">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A pinch</rdfs:label>
+  </Estimative_quantity>
+  <Numerical_prefix rdf:ID="NUMERICAL_PREFIX_Kilo">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Kilo</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10^3</rdfs:comment>
+  </Numerical_prefix>
+  <Portion rdf:ID="PORTION_Three_quarters">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Three quarters</rdfs:label>
+    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.75</has_value>
+  </Portion>
+  <Container rdf:ID="CONTAINER_Large_container">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Large container</rdfs:label>
+  </Container>
+  <Numerical_prefix rdf:ID="NUMERICAL_PREFIX_Deca">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Deca</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10</rdfs:comment>
+  </Numerical_prefix>
+  <Metric_measurement_unit rdf:ID="METRIC_MEASUREMENT_UNIT_Liter"/>
+  <Ingredient rdf:ID="INGREDIENT_R2_Salt">
+    <is_made_of rdf:resource="#SALT_Regular_salt"/>
+    <is_in_quantity rdf:resource="#ESTIMATIVE_QUANTITY_To_taste"/>
+  </Ingredient>
+  <Numerical_prefix rdf:ID="NUMERICAL_PREFIX_Mili">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Mili</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10^-3</rdfs:comment>
+  </Numerical_prefix>
+  <Portion rdf:ID="PORTION_All">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >All</rdfs:label>
+    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >1.0</has_value>
+  </Portion>
+  <sumo2:ShapeAttribute rdf:ID="SHAPE_Concave"/>
+  <sumo2:ShapeAttribute rdf:ID="SHAPE_Round"/>
+  <Pan rdf:ID="PAN_Small_skillet">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Small skillet</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://images.crateandbarrel.com/is/image/CrateandBarrel/CalphContempSSSmallSkillet?$lg$</rdfs:comment>
+  </Pan>
+  <Numerical_prefix rdf:ID="NUMERICAL_PREFIX_Centi">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Centi</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10^-2</rdfs:comment>
+  </Numerical_prefix>
+  <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Tablespoonful"/>
+  <Cuisine_Operation rdf:ID="OPERATION_R2_Mix_everything">
+    <is_performed_by_doing rdf:resource="#ACTION_Mix"/>
+    <is_performed_in_manner rdf:resource="#MANNER_Well"/>
+    <produces>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Feijoada">
+        <is_produced_by rdf:resource="#OPERATION_R2_Mix_everything"/>
+      </Cuisine_product>
+    </produces>
+    <is_performed_on rdf:resource="#CUISINE_PRODUCT_R2_Compound5"/>
+    <is_performed_on>
+      <Cuisine_product rdf:ID="CUISINE_PRODUCT_R2_Compound7">
+        <is_produced_by>
+          <Cuisine_Operation rdf:ID="OPERATION_R2_Cook_compound6">
+            <is_performed_on rdf:resource="#CUISINE_PRODUCT_R2_Compound6"/>
+            <produces rdf:resource="#CUISINE_PRODUCT_R2_Compound7"/>
+            <is_performed_during>
+              <Temporal_quantity rdf:ID="TEMPORAL_QUANTITY_2_minutes">
+                <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+                >2.0</has_value>
+                <is_in_unit rdf:resource="#METRIC_MEASUREMENT_UNIT_Minute"/>
+              </Temporal_quantity>
+            </is_performed_during>
+            <is_performed_by_doing rdf:resource="#ACTION_Cook"/>
+          </Cuisine_Operation>
+        </is_produced_by>
+      </Cuisine_product>
+    </is_performed_on>
+    <is_performed_on rdf:resource="#INGREDIENT_R2_Salt"/>
+    <is_performed_on rdf:resource="#INGREDIENT_R2_Pepper"/>
+    <is_performed_on rdf:resource="#CUISINE_PRODUCT_R2_Chopped_pepper"/>
+  </Cuisine_Operation>
+  <Cuisine_measurement_unit rdf:ID="CUISINE_MEASUREMENT_UNIT_Teaspoon"/>
+  <Numerical_prefix rdf:ID="NUMERICAL_PREFIX_Hecto">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hecto</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10^2</rdfs:comment>
+  </Numerical_prefix>
+  <Human_body_part rdf:ID="HUMAN_BODY_PART_Palm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A palm, regardless if it is the left or right one</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Palm</rdfs:label>
+  </Human_body_part>
+  <Estimative_quantity rdf:ID="ESTIMATIVE_QUANTITY_A_few">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A few</rdfs:label>
+  </Estimative_quantity>
+  <Recipe rdf:ID="RECIPE_R2_Feijoada">
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Pepper"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Three_cloves_of_garlic"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Three_slices_of_bacon"/>
+    <rdfs:label xml:lang="en">Meat Stew with Black Beans</rdfs:label>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Ground_red_pepper"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Nine_cups_of_water"/>
+    <defines_cooking_of rdf:resource="#CUISINE_PRODUCT_R2_Feijoada"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.freecookingrecipes.net/recipes/beans-and-grains/f/feijoada-meat-stew-with-black-beans-brazil.html</rdfs:comment>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Two_cups_of_dried_black_beans"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_One_tomato"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Half_a_pound_of_beef"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_One_Jalapeno"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Half_a_pound_of_sausage"/>
+    <rdfs:label xml:lang="pt">Feijoada</rdfs:label>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Salt"/>
+    <requires_ingredient rdf:resource="#INGREDIENT_R2_Half_a_pound_of_pork"/>
+  </Recipe>
+  <Estimative_quantity rdf:ID="ESTIMATIVE_QUANTITY_A_lot">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A lot</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </Estimative_quantity>
+  <Not_condition rdf:ID="NOT_CONDITION_Not_browned">
+    <negated_condition rdf:resource="#ATOMIC_CONDITION_Browned"/>
+  </Not_condition>
+  <Portion rdf:ID="PORTION_A_quater">
+    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.25</has_value>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A quarter</rdfs:label>
+  </Portion>
+  <Imperial_measurement_unit rdf:ID="IMPERIAL_MEASUREMENT_UNIT_Ounce"/>
+  <rdf:Description rdf:ID="RECIPE_R2_Feiojada">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://www.freecookingrecipes.net/recipes/beans-and-grains/f/feijoada-meat-stew-with-black-beans-brazil.html</rdfs:comment>
+    <rdfs:label xml:lang="pt">Feijoada</rdfs:label>
+    <rdfs:label xml:lang="en">Meat Stew with Black Beans</rdfs:label>
+  </rdf:Description>
+  <Numerical_prefix rdf:ID="NUMERICAL_PREFIX_Deci">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Deci</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >10^-1</rdfs:comment>
+  </Numerical_prefix>
+  <Estimative_quantity rdf:ID="ESTIMATIVE_QUANTITY_A_squeeze">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A squeeze</rdfs:label>
+  </Estimative_quantity>
+  <Cuisine_quantity rdf:ID="CUISINE_QUANTITY_One_third_of_a_cup">
+    <has_value rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.33</has_value>
+    <is_in_unit rdf:resource="#CUISINE_MEASUREMENT_UNIT_Cup"/>
+  </Cuisine_quantity>
+  <SI_measurement_unit rdf:ID="SI_MEASUREMENT_UNIT_Kelvin"/>
+  <Sugar rdf:ID="SUGAR_Regular_sugar"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
+

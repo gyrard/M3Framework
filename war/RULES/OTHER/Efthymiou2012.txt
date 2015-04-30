@@ -1,0 +1,62 @@
+Rule: Bathroom Door Closed 
+core:status(BathroomDoor, "off") ^ core:isActivated(Bathroom_Door_Closed, false) ^ core:isActivated(Bathroom_Door_Closed, true) 
+
+Rule: Cooker Status 
+core:status(CookerID, "on") ^ core:isActivated(CookerOn, false) ^ core:isActivated(CookerOn, true) 
+
+Rule: Facing TV 
+core:facing(John, LivingRoomTV) ^ core:isActivated(Facing_TV, false) ^ core:isActivated(Facing_TV, true) 
+
+Rule: In Front of Cooker 
+core:inFrontOf(John, CookerID) ^ core:isActivated(User_In_Front_Of_Cooker, false) ^ core:isActivated(User_In_Front_Of_Cooker, true) 
+
+Rule: Lie in Bed 
+lying_in(John, Bed) ^ core:isActivated(Lie_in_Bed, false) ^ core:isActivated(Lie_in_Bed, true) 
+
+Rule: TV on 
+core:status(LivingRoomTV, "on") ^ core:isActivated(TV_On, false) ^ core:isActivated(TV_On, true) 
+
+Rule: Sitting on Sofa 
+core:sittingOn(John, Sofa) ^ core:isActivated(Sitting_On_Sofa, false) ^ core:isActivated(Sitting_On_Sofa, true) 
+//Here is an example of rules that aim in user assistance (that occurs after activity recognition). In this example we would like to turn off the lights, if the recognized activity is Sleeping. 
+
+Rule: Lights Off With Sleep Detection 
+core:activityStatus(Sleeping, true) ^ core:status(Bedroom1Light, “on”) ^ core:startService(turn_the_lights_off, true) 
+
+Rule: Set Lights Off 
+core:startService(turn_the_lights_off, true) ^ core:status(Bedroom1Light, "on")^ core:status(Bedroom1Light, "off") 
+//2.	Rules Smart classroom
+//In our implementation we try to transform our scenarios for intelligent classroom into rules. This rule based approach is implemented by using SWRL (Semantic Web Rule Language). The first step is to capture data from sensors into the ontology (e.g. status of devices). After that, SWRL rules are applied on these data and save the result into the Simple Event class. Examples of rules are shown below. 
+
+Rule: High Noise Level 
+SmartClassroom(SmartClassroom1) ^ Core:Environment(SmartClassroomEnvironment) ^ Core:hasEnvironment(SmartClassroom1, SmartClassroomEnvironment) ^ Core:noise(SmartClassroomEnvironment, ^noise) ^ swrlb:greaterThan(^noise, 70) ^ isActivated(High_Level_Noise, true) 
+
+Rule: High Temperature Level 
+SmartClassroom(SmartClassroom1) ^ Core:Environment(SmartClassroomEnvironment) ^ Core:hasEnvironment(SmartClassroom1, SmartClassroomEnvironment) ^ Core:temperature(SmartClassroomEnvironment, ^temperature) ^ swrlb:greaterThan(^temperature, 30) ^ isActivated(High_Level_Temperature, true) 
+
+Rule: High Lighting Level 
+SmartClassroom(SmartClassroom1) ^ Core:Environment(SmartClassroomEnvironment) ^ Core:hasEnvironment(SmartClassroom1, SmartClassroomEnvironment) ^ Core:lighting(SmartClassroomEnvironment, ^lighting) ^ swrlb:greaterThan(^lighting, 300) ^ isActivated(High_Level_Light, true) 
+
+Rule: Low Lighting Level 
+SmartClassroom(SmartClassroom1) ^ Core:Environment(SmartClassroomEnvironment) ^ Core:hasEnvironment(SmartClassroom1, SmartClassroomEnvironment) ^ Core:lighting(SmartClassroomEnvironment, ^lighting) ^ swrlb:lessThan(^lighting, 220) ^ isActivated(Low_Level_Light, true) 
+
+Rule: Projector is on 
+Projector(Projector1) ^ Core:status(Projector1, "on") ^ isActivated(Projector_is_On, true) 
+
+Rule: Classroom Lights Low Level 
+Lights(ClassroomLights) ^ Core:status(ClassroomLights, "low") ^ isActivated (Classroom_Lights_Low_Level, true) 
+
+Rule: Classroom Lights Medium Level 
+Lights(ClassroomLights) ^ Core:status(ClassroomLights, "medium") ^ isActivated (Classroom_Lights_Low_Medium, true) 
+
+Rule: Classroom Lights High Level 
+Lights(ClassroomLights) ^ Core:status(ClassroomLights, "high") ^ isActivated (Classroom_Lights_High_Level, true) 
+
+Rule: Student in front of Projector 
+Projector(Projector1) ^ Person:Student(^s) ^ Core:inFrontOf(^s, Projector1) ^ isActivated(Student_inFrontOf_Projector, true) 
+
+Rule: Professor in front of Projector 
+Projector(Projector1) ^ Person:AcademicStaff(^a) ^ Core:inFrontOf(^a, Projector1) ^ isActivated(Professor_inFrontOf_Projector, true) 
+
+Rule: Student Located in Classroom 
+Person:Student(^s) ^ Core:hasLocation(^s, SmartClassroom1) ^ isActivated(Student_LocatedIn_Classroom, true) 

@@ -1,0 +1,1074 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:constr="http://www.livewiredg.myby.co.uk/rdf/geo-layers/construct.owl#"
+    xmlns:commerce="http://www.livewiredg.myby.co.uk/rdf/geo-layers/commerce.owl#"
+    xmlns:culture="http://www.livewiredg.myby.co.uk/rdf/geo-layers/culture.owl#"
+    xmlns:retail="http://www.livewiredg.myby.co.uk/rdf/geo-layers/retail.owl#"
+    xmlns="http://www.livewiredg.myby.co.uk/rdf/geo-layers/Tourism/tourism-uk.owl#"
+    xmlns:indust="http://www.livewiredg.myby.co.uk/rdf/geo-layers/industry.owl#"
+    xmlns:org_sys="http://www.livewiredg.myby.co.uk/rdf/geo-layers/organisation_system.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sea="http://www.livewiredg.myby.co.uk/rdf/geo-layers/sea.owl#"
+    xmlns:sport="http://www.livewiredg.myby.co.uk/rdf/geo-layers/sport.owl#"
+    xmlns:educ="http://www.livewiredg.myby.co.uk/rdf/geo-layers/education.owl#"
+    xmlns:geo_rzb="http://www.livewiredg.myby.co.uk/rdf/geo-layers/geo_region_zone_boundary.owl#"
+    xmlns:rail="http://www.livewiredg.myby.co.uk/rdf/geo-layers/rail.owl#"
+    xmlns:travel="http://www.livewiredg.myby.co.uk/rdf/geo-layers/travel.owl#"
+    xmlns:air="http://www.livewiredg.myby.co.uk/rdf/geo-layers/air.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:road="http://www.livewiredg.myby.co.uk/rdf/geo-layers/road.owl#"
+    xmlns:pop_grp="http://www.livewiredg.myby.co.uk/rdf/geo-layers/pop_group.owl#"
+    xmlns:gov="http://www.livewiredg.myby.co.uk/rdf/geo-layers/government.owl#"
+    xmlns:food="http://www.livewiredg.myby.co.uk/rdf/geo-layers/food_drink.owl#"
+    xmlns:entertain="http://www.livewiredg.myby.co.uk/rdf/geo-layers/entertainment.owl#"
+  xml:base="http://www.livewiredg.myby.co.uk/rdf/geo-layers/Tourism/tourism-uk.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="pop_grp_._Town"/>
+  <owl:Class rdf:ID="sport_._Swimming">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB to get as s/c of TouristActivity define TouristActivity with with some thing linking to sport:WaterSport ???</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="sport_._SportingActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DestinationManagementCompany">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TourismOrganisation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTourismRole"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="ConferenceManagementRole"/>
+              <owl:Class rdf:ID="TourManagementRole"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A company that handles all bookings and arrangements for tours or conferences in a specific destination. Tour operators or conference planners are likely to use the services of a DMC because of their specialist local knowledge [10].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CruiseHoliday">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="includesFeature"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="travel_._SeaTravel"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="includesTravelBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="CruiseShip"/>
+              <owl:Class rdf:ID="road_._Coach"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#includesTravelBy"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#CruiseShip"/>
+              <owl:Class rdf:ID="rail_._PassengerTrain"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#includesTravelBy"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#CruiseShip"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Holiday"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TravelOutsideOfCountryOfOrigin">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TouristActivity"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="travel_._InternationalTravel"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="involvesActivity"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#travel_._SeaTravel"/>
+              <owl:Class rdf:ID="travel_._AirTravel"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CulturalTourism">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="indust_._TourismIndustry"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tourism focusing on culture and cultural environments including local beliefs, lifestyles and traditions, heritage, visual and performing arts, industries, and landscapes of the destination.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="air_._Aeroplane"/>
+  <owl:Class rdf:ID="SelfCateringApartment"/>
+  <owl:Class rdf:ID="entertain_._WinterGarden">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="entertain_._VisitorAttraction"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Resort"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An indoor garden, often in the form of a conservatory, containing exotic plants that blossom in the winter; or a place of entertainment, usually associated with coastal resorts [1].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SportsTourism">
+    <rdfs:subClassOf rdf:resource="#indust_._TourismIndustry"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Tourism where the prime purpose of the trip is to take part in sports events as either a participant or spectator [9].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="food_._EatingOut">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="food_._FoodAndDrinkActivityActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="retail_._Shopping">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="retail_._RetailActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="entertain_._Walking">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A leisure and fitness activity.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="entertain_._LeisureActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SelfCateringVilla"/>
+  <owl:Class rdf:ID="SightseeingTour">
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >References
+
+[1] Ordnance Survey (2001) Ordnance Survey Master Map Real World Objects Catalogue, v. 1.0, November 2001 - http://www.ordnancesurvey.co.uk/oswebsite/products/osmastermap/information/technical/docs/realworldobjectcatalogue.pdf
+[2] WordNet Online - http://wordnet.princeton.edu/perl/webwn
+[3] Cambridge Dictionary On line (2006) Cambridge University Press - http://dictionary.cambridge.org/
+[4] GIS Dictionary: Association for Geographic Information and the University Of Edinburgh Department of Geography - http://www.geo.ed.ac.uk/agidict/welcome.html
+[5] Monkhouse, F.J. (1966) A Dictionary of Geography, Edward Arnold Publishers, Ltd., London. 
+[6] Moore, W.G. (1967) A Dictionary of Geography, Adam and Charles Black, London. 
+[7] Pearsall, J. and B. Trumble (eds.) (1995) The Oxford English Reference Dictionary, Oxford University Press, London. 
+[8] Collins English Dictionary (1986) P. Hanks (ed.) William Collins Sons. &amp; Co. Ltd. Glasgow.
+[9] THE BUSINESS OF TOURISM MANAGEMENT - http://www.stile.coventry.ac.uk/cbs/staff/beech/BOTM/Glossary.htm
+[10] The Tourism network - http://www.tourismnetwork.org/Tourism_Network_Intro_Guide_to_Tourism.pdf
+[11] International Ecotourism Society - http://www.ecotourism.org/
+[13] Thesaurus.Com - http://thesaurus.reference.com/</rdfs:comment>
+      </rdf:Description>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="Sightseeing"/>
+              <owl:Class rdf:about="#entertain_._LeisureActivity"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="pop_grp_._Country"/>
+  <owl:Class rdf:ID="TravelAgent">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A person or organisation that sells or arranges trips or tours to customers on behalf of third party companies</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TouristAttraction">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Serves as a place of interest to attract tourists.  Typified by cultural, historical, natural or amusement characterisitics.  Synonym entertain:VisitorAttraction</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TourismMarketingRole"/>
+  <owl:Class rdf:ID="ExploringLocations">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ecotourism">
+    <rdfs:subClassOf rdf:resource="#indust_._TourismIndustry"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="travel_._ResponsibleTravel"/>
+              <owl:Class rdf:ID="EnvironmentConservation"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="NaturalArea"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDestination"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="pop_grp_._LocalCommunity"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="sustainsWell-beingOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Responsible travel to natural areas that conserves the environment and sustains the well-being of local people - International Ecotourism Society: http://www.ecotourism.org/</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="educ_._TrainingCentre"/>
+  <owl:Class rdf:ID="culture_._WatchingPerformingArts">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="culture_._CulturalActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IndependentTraveller"/>
+  <owl:Class rdf:ID="TouristArea">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="geo_rzb_._Region"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DomesticTourist">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Tourist"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="conductsActivity"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="travel_._TravelWithinCountryOfOrigin"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TourismSector"/>
+  <owl:Class rdf:ID="BusinessTourist">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Tourist"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="commerce_._CommercialActivity"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#conductsActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A person who travels for primarily business purposes, and who may temporarily live away from their permanent home and work base.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="entertain_._VisitingAttractions">
+    <rdfs:subClassOf rdf:resource="#entertain_._LeisureActivity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DestinationMarketingOrganisation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Company or consortia (often a public/private partnership) responsible for the promotion of a specific area or town. DMOs are becoming increasingly popular in the UK [10].</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TourismOrganisation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom rdf:resource="#TourismMarketingRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GroundOperator">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A company making all arrangements for incoming groups or travellers from overseas, from the moment they arrive in a country to the moment they leave the country. This may include anything from accommodation booking to arranging sightseeing tours [10].</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasResponsibilityFor"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="InternationalTourist"/>
+              <owl:Class rdf:ID="BookingAccommodation"/>
+              <owl:Class rdf:about="#SightseeingTour"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TourismDevelopmentRole"/>
+  <owl:Class rdf:ID="CruiseLiner">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="sea_._Ship"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="providesService"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#CruiseHoliday"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A passenger ship used commercially for pleasure cruises [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ExtremeSports">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Tourist">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A person who travels for pleasure, family or business purposes, and who may temporarily live away from their permanent home and work base.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="travelsFrom"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="PermanentPlaceOfResidenceAndWork"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="GatewayCity"/>
+              <owl:Class rdf:about="#Resort"/>
+              <owl:Class rdf:about="#entertain_._VisitorAttraction"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="makesTemporaryVisitTo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CruiseShip">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#providesService"/>
+        <owl:someValuesFrom rdf:resource="#CruiseHoliday"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#sea_._Ship"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A passenger ship used commercially for pleasure cruises [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RegionalDevelopmentAgency">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TourismOrganisation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TourismDevelopmentRole"/>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TourismOrganisation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="org_sys_._Organisation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Fly-CruiseHoliday">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#travel_._SeaTravel"/>
+        <owl:onProperty rdf:resource="#includesFeature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#includesTravelBy"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#CruiseShip"/>
+              <owl:Class rdf:ID="FlightToJoinACruise"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Holiday"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OverseasTourist">
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#conductsActivity"/>
+        <owl:someValuesFrom rdf:resource="#TravelOutsideOfCountryOfOrigin"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class rdf:about="#InternationalTourist"/>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Abroad">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Synonym of ForeignCountry</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HolidayDestination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TouristInformationCentre"/>
+  <owl:Class rdf:ID="BusinessTourism">
+    <rdfs:subClassOf rdf:resource="#indust_._TourismIndustry"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#commerce_._CommercialActivity"/>
+              <owl:Class rdf:ID="travel_._TravelAwayFromHome"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#BookingAccommodation"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasDestination"/>
+        <owl:someValuesFrom rdf:resource="#org_sys_._Organisation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The temporary short term movement of people to destinations outside places where they normally live and work, and their business or commercial activities during their stay at these destinations.  Tourism where all costs are met by the business tourist's business.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="VisitingFriendsAndRelatives">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="indust_._TransportOperator"/>
+  <owl:Class rdf:ID="TouristDestinationRole"/>
+  <owl:Class rdf:ID="air_._Airport"/>
+  <owl:Class rdf:ID="indust_._Low-costCarrier">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Could be freight or passenger carrier using road or air.  Synonym Low-costAirline</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#indust_._TransportOperator"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="No-frillsService"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#providesService"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="travel_._RoadTravel"/>
+  <owl:Class rdf:ID="travel_._RailTravel"/>
+  <owl:Class rdf:about="#GatewayCity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HolidayDestination"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#pop_grp_._Country"/>
+        <owl:onProperty rdf:resource="#locatedIn"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="pop_grp_._City"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasForm"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="air_._ConnectingFlight"/>
+  <owl:Class rdf:ID="air_._PassengerAirline"/>
+  <owl:Class rdf:about="#HolidayDestination">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom rdf:resource="#TouristDestinationRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#travel_._InternationalTravel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB: used as noun (not verb e.g. to travel).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                  <owl:Class rdf:about="#travel_._SeaTravel"/>
+                  <owl:Class rdf:about="#travel_._AirTravel"/>
+                </owl:unionOf>
+              </owl:Class>
+            </owl:someValuesFrom>
+            <owl:onProperty rdf:resource="#involvesActivity"/>
+          </owl:Restriction>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#TravelOutsideOfCountryOfOrigin"/>
+            <owl:onProperty rdf:resource="#involvesActivity"/>
+          </owl:Restriction>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Resort">
+    <rdfs:subClassOf rdf:resource="#HolidayDestination"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#pop_grp_._City"/>
+              <owl:Class rdf:about="#pop_grp_._Town"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="locatedNear"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#pop_grp_._Country"/>
+        <owl:onProperty rdf:resource="#locatedIn"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasForm"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#pop_grp_._City"/>
+              <owl:Class rdf:about="#pop_grp_._Town"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="sea_._Port"/>
+  <owl:Class rdf:ID="travel_._BudgetTravel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB: used as noun (not verb e.g. to travel).  A combination of travelling at low-cost, staying in hostels or guesthouses, and eating as cheaply as possible</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PackageHoliday">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#retail_._Shopping"/>
+              <owl:Class rdf:about="#sport_._Swimming"/>
+              <owl:Class rdf:about="#Sightseeing"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#food_._EatingOut"/>
+              <owl:Class rdf:ID="entertain_._ViewingEntertainment"/>
+              <owl:Class rdf:about="#entertain_._VisitingAttractions"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#includesFeature"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#travel_._InternationalTravel"/>
+              <owl:Class rdf:ID="TouristAccommodationRole"/>
+              <owl:Class rdf:ID="SunSeaAndSandHoliday"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Holiday"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A holiday offered with an inclusive price that may include various pre-arranged holiday components e.g. travel to destination, food and accommodation, car rental, and leisure and sightseeing activities.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TouristAccommodationRole">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Specialist tourist accommodation.  For Hotels etc. see Context: Accommodation.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#No-frillsService">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A basic customer service provided at low-cost</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="rail_._RailwayStation"/>
+  <owl:Class rdf:ID="DomesticTourism">
+    <rdfs:subClassOf rdf:resource="#indust_._TourismIndustry"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#travel_._TravelWithinCountryOfOrigin"/>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The activity of people visiting destinations within their own country's boundaries.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SunSeaAndSandHoliday">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Holiday"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="sport_._Mountaineering">
+    <rdfs:subClassOf rdf:resource="#sport_._SportingActivity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The activity of climbing a mountain [2].  NB to get as s/c of TouristActivity define TouristActivity with some thing linking to sport:ExtremeSport ???</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#travel_._TravelWithinCountryOfOrigin">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#travel_._AirTravel"/>
+              <owl:Class rdf:about="#travel_._RoadTravel"/>
+              <owl:Class rdf:about="#travel_._RailTravel"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#NaturalArea">
+    <rdfs:subClassOf rdf:resource="#HolidayDestination"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasForm"/>
+        <owl:someValuesFrom rdf:resource="#geo_rzb_._Region"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="culture_._VisitingHeritageExhibits">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#culture_._CulturalActivity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Sightseeing">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#culture_._CulturalActivity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TourOperator"/>
+  <owl:Class rdf:about="#entertain_._ViewingEntertainment">
+    <rdfs:subClassOf rdf:resource="#entertain_._LeisureActivity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RegionalTouristBoard">
+    <rdfs:subClassOf rdf:resource="#TourismOrganisation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom rdf:resource="#TourismMarketingRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Promotes a region by marketing nationally</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ForeignCountry">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Synonym of Abroad</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#HolidayDestination"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BudgetTraveller">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A traveller seeking low-cost travel, accommodation or meals</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Promenade">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#locatedIn"/>
+        <owl:someValuesFrom rdf:resource="#Resort"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A road or path along the front at a seaside resort [1].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#travel_._ResponsibleTravel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB: used as noun (not verb e.g. to travel)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ShortBreak">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Holiday"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#food_._EatingOut"/>
+              <owl:Class rdf:about="#retail_._Shopping"/>
+              <owl:Class rdf:about="#Sightseeing"/>
+              <owl:Class rdf:about="#entertain_._Walking"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="gov_._GovernmentDepartment">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#BusinessTourism"/>
+              <owl:Class rdf:about="#CulturalTourism"/>
+              <owl:Class rdf:about="#DomesticTourism"/>
+              <owl:Class rdf:about="#Ecotourism"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#hasResponsibilityFor"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BookingAccommodation">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#travel_._TravelAwayFromHome"/>
+              <owl:Class rdf:about="#BookingAccommodation"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CityBreak">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#SightseeingTour"/>
+              <owl:Class rdf:about="#travel_._InternationalTravel"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#includesFeature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Holiday"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#food_._EatingOut"/>
+              <owl:Class rdf:about="#entertain_._ViewingEntertainment"/>
+              <owl:Class rdf:about="#culture_._WatchingPerformingArts"/>
+              <owl:Class rdf:about="#retail_._Shopping"/>
+              <owl:Class rdf:about="#Sightseeing"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasForm"/>
+        <owl:someValuesFrom rdf:resource="#CulturalTourism"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A short package holiday to a major urban destination, typically including hotel accommodations and transportation</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DayVisitor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visitors who arrive and leave the same day, irrespective of why they are travelling</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+  </owl:Class>
+  <owl:Class rdf:about="#FlightToJoinACruise">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A flight that enables a cruise holiday tourist to join a cruise ship</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#air_._ConnectingFlight"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LeisureTourist">
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#entertain_._LeisureActivity"/>
+              <owl:Class rdf:about="#VisitingFriendsAndRelatives"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#conductsActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A person who primarily travels for pleasure and/or visiting friends, family or relatives, and who may temporarily live away from their permanent home base.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="travel_._BusinessTravel">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:intersectionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#commerce_._CommercialActivity"/>
+              <owl:Class rdf:about="#travel_._TravelAwayFromHome"/>
+            </owl:intersectionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom rdf:resource="#BookingAccommodation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB: used as noun (not verb e.g. to travel).  Travel undertaken primarily for business purposes,  as opposed to leisure, and where related costs are met by the determining business.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DayTripper">
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Visitors who arrive and leave the same day, irrespective of why they are travelling</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Holiday">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Leisure time away from work devoted to rest or pleasure [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="culture_._VisitingHeritageSites">
+    <rdfs:subClassOf rdf:resource="#culture_._CulturalActivity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#InternationalTourist">
+    <owl:equivalentClass rdf:resource="#OverseasTourist"/>
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TravelOutsideOfCountryOfOrigin"/>
+        <owl:onProperty rdf:resource="#conductsActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TourismSkillsTrainingAndDevelopmentOrganisation">
+    <rdfs:subClassOf rdf:resource="#educ_._TrainingCentre"/>
+    <rdfs:subClassOf rdf:resource="#TourismOrganisation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="TourismEducationAndTrainingRole"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="GuestHouse"/>
+  <owl:Class rdf:ID="Low-costTravelProviderRole"/>
+  <owl:Class rdf:ID="Low-costAirline">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#providesService"/>
+        <owl:someValuesFrom rdf:resource="#No-frillsService"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom rdf:resource="#Low-costTravelProviderRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Implicitly a passenger carrier.  Synonym indust:Low-costCarrier</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="entertain_._ThemePark">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#entertain_._VisitorAttraction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Vacation">
+    <rdfs:subClassOf rdf:resource="#Holiday"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Leisure time away from work devoted to rest or pleasure [2].</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="HealthSpaAndRelaxation">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentConservation">
+    <rdfs:subClassOf rdf:resource="#TouristActivity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="travel_._LeisureTravel">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Sightseeing"/>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB: used as noun (not verb e.g. to travel).  Travel undertaken for pleasure and unrelated to paid work time [9].  Whilst travel for leisure is a feature of holidaying, it is considered here, primarily a variety of travel.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ActivityHoliday">
+    <rdfs:subClassOf rdf:resource="#Holiday"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#involvesActivity"/>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#sport_._Mountaineering"/>
+              <owl:Class rdf:about="#entertain_._Walking"/>
+              <owl:Class rdf:about="#ExtremeSports"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NationalTouristBoard">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Promotes a country by marketing internationally</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#TourismOrganisation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom rdf:resource="#TourismMarketingRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="travel_._Low-costTravel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NB: used as noun (not verb e.g. to travel).  A service provided by a low-cost airline or transport operator offering low fares in exchange for basic passenger service</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PackageHolidayTraveller"/>
+  <owl:Class rdf:ID="Hotel"/>
+  <owl:Class rdf:ID="CharterAircraft">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A non-scheduled flight operation using a chartered aircraft</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#entertain_._VisitorAttraction">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasTourismRole"/>
+        <owl:someValuesFrom rdf:resource="#TouristDestinationRole"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BackPacker">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A hiker who wears a backpack and often seeks low-cost travel</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Tourist"/>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

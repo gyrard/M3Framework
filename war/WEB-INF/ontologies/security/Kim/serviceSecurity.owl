@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE uridef[
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+<!ENTITY profile "http://www.daml.org/services/owl-s/l.I/Profile.owl#">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY serviceSecurity
+"http://www.kim.com/NRLOntologyFiles/securitySecurity.owl#">
+<!ENTITY security "http://www.kim.com/NRLOntologyFiles/securityMain.owl#">
+]>
+<rdf:RDF
+xmlns ="&serviceSecurity;"
+xmlns:serviceSecurity ="&serviceSecurity;"
+xml:base ="&serviceSecurity;"
+xmlns:rdf ="&rdf;"
+xmlns:rdfs ="&rdfs;"
+xmlns:owl ="&owl;"
+xmlns:profile ="&profile;"
+xmlns:xsd ="&xsd;"
+xmlns:security ="&security;">
+<owl:Ontology>
+<rdfs:comment>
+An ontology to annotate OWL-S descriptions with security capabilities
+and security requirements of the resource or service.
+</rdfs:comment>
+</owl:Ontology>
+<!-- Class Definitions -->
+<!-- Security Concept and Security Objective are made a subclass of
+ServiceParameter, so that we can define capability and requirement as
+a subPropertyOf serviceParameter -->
+<owl:Class rdf:about="&security;SecurityConcept">
+<rdfs:subClassOf rdf:resource="&profile;ServiceParameter"/>
+</owl:Class>
+<owl:Class rdf:about="&security;SecurityObjective">
+<rdfs:subClassOf rdf:resource="&profile;ServiceParameter"/>
+</owl:Class>
+<!--
+A ParamValues class that includes both the SecurityConcept class and
+the SecurityObjective class.
+This ParamValue class is used to define the range of values the two
+properties, securityCapability and securityRequirement can possess. -->
+<owl:Class rdf:ID="ParamValues">
+<owl:unionOf rdf:parseType="Collection">
+<owl:Class rdf:about="&security;SecurityConcept"/>
+<owl:Class rdf:about="&security;SecurityObjective"/>
+</owl:unionOf>
+</owl:Class>
+<!-- Properties -->
+<owl:ObjectProperty rdf:ID="securityCapability">
+<rdfs:subPropertyOf rdf:resource="&profile;serviceParameter"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="securityRequirement">
+<rdfs:subPropertyOf rdf:resource="&profile;serviceParameter"/>
+</owl:ObjectProperty>
+<!-- Property Restrictions -->
+<!--
+These restrictions enable the properties to be either a concept or objective -->
+<owl:Restriction>
+<owl:onProperty rdf:resource="#SecurityCapability"/>
+<owl:allValuesFrom rdf:resource="#ParamValues"/>
+</owl:Restriction>
+<owl:Restriction>
+<owl:onProperty rdf:resource="#SecurityRequirement"/>
+<owl:allValuesFrom rdf:resource="#ParamValues"/>
+</owl:Restriction>
+</rdf:RDF>

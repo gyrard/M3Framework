@@ -1,0 +1,32 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX naturopathy: <http://sensormeasurement.appspot.com/naturopathy#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX food: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#>
+PREFIX recipe: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX generic: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/generic.owl#>
+
+select distinct ?name ?value ?unit ?measurement ?inferType  ?deduce ?suggest where{
+	?measurement m3:hasName ?name.
+	?measurement m3:hasValue ?value.
+	?measurement m3:hasDateTimeValue ?time.
+	?measurement m3:hasUnit ?unit.
+	?measurement rdf:type ?inferTypeUri.
+	OPTIONAL { ?inferTypeUri rdfs:label ?inferType. FILTER(LANGMATCHES(LANG(?inferType), "en"))}
+
+	
+	
+	OPTIONAL{
+		?measurement naturopathy:hasDisease ?diseaseUri.
+		?diseaseUri rdfs:label ?deduce.
+		FILTER(LANGMATCHES(LANG(?deduce), "en"))
+	}
+
+	OPTIONAL{
+		?measurement naturopathy:affectsOn ?emotionUri.
+		?emotionUri rdfs:label ?deduce.
+		FILTER(LANGMATCHES(LANG(?deduce), "en"))
+	}
+}

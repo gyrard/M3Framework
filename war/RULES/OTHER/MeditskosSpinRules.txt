@@ -1,0 +1,36 @@
+CONSTRUCT {
+?y a BedExit; //SpecialisationType
+isSpecialisedBy ?x.
+}
+WHERE{
+?x a NightSleep; //ContextType
+hasStartTime ?st1;
+hasEndTime ?et1;
+hasActor ?p.
+?y a OutOfBed; //SpecialisedType
+hasStartTime ?st2;
+hasEndTime ?et2;
+hasActor ?p.
+FILTER(:contains(?st1, ?et1, ?st2, ?et2))
+}
+
+CONSTRUCT {
+?new a Nocturia; //CompositeType
+hasStartTime ?st1;
+hasEndTime ?et2;
+hasActor ?p;
+hasSubActivity ?x;
+hasSubActivity ?y.
+}
+WHERE{
+?x a BedExit; //SubActivityType
+hasStartTime ?st1;
+hasEndTime ?et1;
+hasActor ?p.
+?y a InBathroom; //SubActivityType
+hasStartTime ?st2;
+hasEndTime ?et2;
+hasActor ?p.
+FILTER(:contains(?st1, ?et1, ?st2, ?et2))
+BIND(:newURI(?x, ?y) as ?new)
+}

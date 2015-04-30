@@ -1,0 +1,10 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX txn: <http://lod.taxonconcept.org/ontology/txn.owl#>
+
+ select distinct ?subject ?object ?label ?comment ?imgUrl where{
+ ?subject rdfs:subClassOf ?object .
+ ?subject rdfs:label ?label.
+ ?subject rdfs:comment ?comment.
+ 
+ OPTIONAL{?subject txn:hasImage ?imgUrl }
+ }

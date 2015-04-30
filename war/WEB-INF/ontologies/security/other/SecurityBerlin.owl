@@ -1,0 +1,382 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ict "http://www.preciosa-project.org/ontologies/ict.owl#" >
+    <!ENTITY security "http://www.preciosa-project.org/ontologies/security.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2006/12/owl2-xml#"
+     xml:base="http://www.preciosa-project.org/ontologies/security.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:ict="http://www.preciosa-project.org/ontologies/ict.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:security="http://www.preciosa-project.org/ontologies/security.owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >this ontology contains/references the description of concepts like security protection technologies and mechanisms
+
+security protection technologies and mechanisms can be used or extended to enable privacy protection</rdfs:comment>
+        <owl:imports rdf:resource="http://www.preciosa-project.org/ontologies/ict.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="&ict;consistsOf"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#creates -->
+
+    <owl:ObjectProperty rdf:about="&ict;creates"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#partOf -->
+
+    <owl:ObjectProperty rdf:about="&ict;partOf"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#performs -->
+
+    <owl:ObjectProperty rdf:about="&ict;performs"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#certifiesCorrectnessOf -->
+
+    <owl:ObjectProperty rdf:about="#certifiesCorrectnessOf">
+        <rdfs:range rdf:resource="&ict;Information"/>
+        <rdfs:domain rdf:resource="#Certificate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#createsCertificate -->
+
+    <owl:ObjectProperty rdf:about="#createsCertificate">
+        <rdfs:subPropertyOf rdf:resource="&ict;creates"/>
+        <rdfs:range rdf:resource="#Certificate"/>
+        <rdfs:domain rdf:resource="#Certification"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#performsCertification -->
+
+    <owl:ObjectProperty rdf:about="#performsCertification">
+        <rdfs:subPropertyOf rdf:resource="&ict;performs"/>
+        <rdfs:range rdf:resource="#Certification"/>
+        <rdfs:domain rdf:resource="#CertificationAuthority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#Authority -->
+
+    <owl:Class rdf:about="&ict;Authority"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#Information -->
+
+    <owl:Class rdf:about="&ict;Information"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/ict.owl#ProtectionMechanism -->
+
+    <owl:Class rdf:about="&ict;ProtectionMechanism"/>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#AccessControl -->
+
+    <owl:Class rdf:about="#AccessControl">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Accountability -->
+
+    <owl:Class rdf:about="#Accountability">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#AdvancedEncryptionStandard -->
+
+    <owl:Class rdf:about="#AdvancedEncryptionStandard">
+        <rdfs:subClassOf rdf:resource="#Asymmetric_cryptographic_algorithm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Advanced Encryption Standard (AES)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#AsymmetricKey -->
+
+    <owl:Class rdf:about="#AsymmetricKey">
+        <rdfs:subClassOf rdf:resource="#CryptographicKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Asymmetric_cryptographic_algorithm -->
+
+    <owl:Class rdf:about="#Asymmetric_cryptographic_algorithm">
+        <rdfs:subClassOf rdf:resource="#Cryptography"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Authorization -->
+
+    <owl:Class rdf:about="#Authorization">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Certificate -->
+
+    <owl:Class rdf:about="#Certificate">
+        <rdfs:subClassOf rdf:resource="&ict;Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#CertificateChain -->
+
+    <owl:Class rdf:about="#CertificateChain">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Certificate"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#certifiesCorrectnessOf"/>
+                                <owl:someValuesFrom rdf:resource="#Certificate"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty>
+                                    <owl:ObjectProperty>
+                                        <owl:inverseOf rdf:resource="#certifiesCorrectnessOf"/>
+                                    </owl:ObjectProperty>
+                                </owl:onProperty>
+                                <owl:someValuesFrom rdf:resource="#Certificate"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#CertificateRevocationList -->
+
+    <owl:Class rdf:about="#CertificateRevocationList">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ict;Information"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ict;consistsOf"/>
+                        <owl:allValuesFrom rdf:resource="#Certificate"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Certificate Revocation List (CRL)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Certification -->
+
+    <owl:Class rdf:about="#Certification">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#CertificationAuthority -->
+
+    <owl:Class rdf:about="#CertificationAuthority">
+        <rdfs:subClassOf rdf:resource="&ict;Authority"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#CryptographicKey -->
+
+    <owl:Class rdf:about="#CryptographicKey">
+        <rdfs:subClassOf rdf:resource="&ict;Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Cryptography -->
+
+    <owl:Class rdf:about="#Cryptography">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >TODO: child definitions to be revised</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#DigitalCertificate -->
+
+    <owl:Class rdf:about="#DigitalCertificate">
+        <rdfs:subClassOf rdf:resource="#Certificate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Digital_signature -->
+
+    <owl:Class rdf:about="#Digital_signature">
+        <rdfs:subClassOf rdf:resource="#Asymmetric_cryptographic_algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#EllipticCurveCryptography -->
+
+    <owl:Class rdf:about="#EllipticCurveCryptography">
+        <rdfs:subClassOf rdf:resource="#Asymmetric_cryptographic_algorithm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Elliptic Curve Cryptography (ECC)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Hardware_Security_Module_(HMS) -->
+
+    <owl:Class rdf:about="#Hardware_Security_Module_(HMS)">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Hash_function -->
+
+    <owl:Class rdf:about="#Hash_function">
+        <rdfs:subClassOf rdf:resource="#Cryptography"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#IdentityVerification -->
+
+    <owl:Class rdf:about="#IdentityVerification">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#PrivateKey -->
+
+    <owl:Class rdf:about="#PrivateKey">
+        <rdfs:subClassOf rdf:resource="#AsymmetricKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#PublicKey -->
+
+    <owl:Class rdf:about="#PublicKey">
+        <rdfs:subClassOf rdf:resource="#AsymmetricKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#RevokedCertificate -->
+
+    <owl:Class rdf:about="#RevokedCertificate">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Certificate"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ict;partOf"/>
+                        <owl:someValuesFrom rdf:resource="#CertificateRevocationList"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#SecurityProtectionMechanism -->
+
+    <owl:Class rdf:about="#SecurityProtectionMechanism">
+        <rdfs:subClassOf rdf:resource="&ict;ProtectionMechanism"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#SymmetricKey -->
+
+    <owl:Class rdf:about="#SymmetricKey">
+        <rdfs:subClassOf rdf:resource="#CryptographicKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Symmetric_cryptographic_algorithm -->
+
+    <owl:Class rdf:about="#Symmetric_cryptographic_algorithm">
+        <rdfs:subClassOf rdf:resource="#Cryptography"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.preciosa-project.org/ontologies/security.owl#Trust_Anchor -->
+
+    <owl:Class rdf:about="#Trust_Anchor">
+        <rdfs:subClassOf rdf:resource="#SecurityProtectionMechanism"/>
+    </owl:Class>
+</rdf:RDF>

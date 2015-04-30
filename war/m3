@@ -1,0 +1,3294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY dul "http://www.loa-cnr.it/ontologies/DUL.owl#">
+         <!ENTITY spitfire "http://spitfire-project.eu/ontology/ns/">          
+
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">          
+         <!ENTITY m3	"http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#">  
+         <!ENTITY home "http://sensormeasurement.appspot.com/home#"> 
+         <!ENTITY food_smart_product "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#"> 
+      	 <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+        
+        
+        <!ENTITY cose "http://casas.wsu.edu/owl/cose.owl#">
+        <!ENTITY ssn "http://purl.oclc.org/NET/ssnx/ssn#">
+        
+        <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#">
+        <!ENTITY qudt "http://qudt.org/schema/qudt#">
+        <!ENTITY ucum "http://idi.fundacionctic.org/muo/ucum-instances.owl">
+        
+        <!ENTITY aws "http://purl.oclc.org/NET/ssnx/meteo/aws#"> 
+        <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#">
+        <!ENTITY sweet_unit "http://sweet.jpl.nasa.gov/ontology/units.owl#">
+        <!ENTITY weather "http://archive.knoesis.org/research/semsci/application_domain/sem_sensor/ont/weather.owl">
+        <!ENTITY semsor_weather "http://archive.knoesis.org/research/semsci/application_domain/sem_sensor/ont/sensor-observation.owl">
+        <!ENTITY ontoSensor "http://mmisw.org/ont/univmemphis/sensor">    
+        <!ENTITY emotion "http://rhizomik.net/ontologies/2008/05/emotionsonto.owl#">         
+        <!ENTITY dogont "http://elite.polito.it/ontologies/dogont.owl#">
+        <!ENTITY dbpedia "http://dbpedia.org/ontology/">
+        <!ENTITY movie "http://www.movieontology.org/2010/01/movieontology.owl">   
+        <!ENTITY mo "http://purl.org/ontology/mo/">   
+
+        <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+        <!ENTITY emoca "http://ns.inria.fr/emoca#" >
+        <!ENTITY txn	"http://lod.taxonconcept.org/ontology/txn.owl#"> 
+        <!ENTITY voaf	"http://purl.org/vocommons/voaf#"> 
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns:voaf="&voaf;"
+        xmlns="&m3;"
+        xml:base="&m3;"
+        xmlns:m3="&m3;"
+        xmlns:cose="&cose;"
+        xmlns:dul="&dul;"
+        xmlns:spitfire="&spitfire;"
+        xmlns:shw="&shw;"
+        xmlns:txn="&txn;"
+        xmlns:naturopathy="&naturopathy;"
+        xmlns:stac="&stac;"
+        xmlns:home="&home;"
+        xmlns:foaf="&foaf;"
+        xmlns:dcterms="&dcterms;"
+        xmlns:dbpedia="&dbpedia;"
+        xmlns:food_smart_product="&food_smart_product;"
+        xmlns:ssn="&ssn;"
+        
+       	xmlns:muo="&muo;"
+        xmlns:qudt="&qudt;"
+        xmlns:ucum="&ucum;"
+        
+        xmlns:emoca="&emoca;"
+        xmlns:ontoSensor="&ontoSensor;"
+        xmlns:sweet_unit="&sweet_unit;"
+        xmlns:weather="&weather;"
+        xmlns:aws="&aws;"
+        xmlns:wgs84_pos="&wgs84_pos;"
+        xmlns:dogont="&dogont;"
+        xmlns:owl="&owl;"
+        xmlns:mo="&mo;"
+        xmlns:movie="&movie;"
+		xmlns:dc="&dc;"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+<!-- W3C SSN ontology:
+What is the difference between ssn:observes and ssn:observedProperty? -->
+
+	<owl:Ontology rdf:about="&m3;">
+		<rdf:type rdf:resource="&voaf;Vocabulary"/>
+		<dc:title xml:lang="en">The M2M Measurements Ontology (M3)</dc:title>
+		<dc:description xml:lang="en">The M2M Measurements Ontology (M3) enables to combine data provided by heterogeneous devices measurements (sensors, RFID tags, etc.). We classify all devices, their measurements and the feature of interests (health, smart home, smart kitchen, environmental monitoring, etc.). By combining data from heterogeneous areas, we could propose new kinds of applications.</dc:description>
+		<dc:creator>
+  			<foaf:Person rdf:about="mailto:gyrard@eurecom.fr">
+   			<foaf:name>Amelie Gyrard</foaf:name>
+  			</foaf:Person>
+		</dc:creator>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-02-21</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-04-07</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+     	<cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/> 
+		<vann:preferredNamespacePrefix>m3</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/m3#</vann:preferredNamespaceUri>
+	</owl:Ontology>
+
+	<owl:Class rdf:ID="DomainM2MDevice">		
+		<rdfs:label xml:lang="en">Domain M2M Devices</rdfs:label>
+		<rdfs:comment xml:lang="en">To classify devices such as sensors by domains (health, transport, weather, home, etc.)</rdfs:comment>	
+	</owl:Class>
+
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ Transport M2M DEVICES ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+	
+	<owl:Class rdf:ID="TransportM2MDevice">		
+		<rdfs:label xml:lang="en">Transport M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FogLamp">		
+		<rdfs:label xml:lang="en">Fog lamp</rdfs:label>
+		<rdfs:comment xml:lang="en">The actuator fog lamp (on/off)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/fogLamp.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AlcoholLevelSensor">		
+		<rdfs:label xml:lang="en">AlcoholLevelSensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/noise.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#AlcoholLevel"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="VisibilitySensor">		
+		<rdfs:label xml:lang="en">Visibility Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Visibility sensor to detect fog</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Visibility"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SnowChains">		
+		<rdfs:label xml:lang="en">Snow Chains</rdfs:label>
+		<rdfs:comment xml:lang="en">The actuator Snow chains (on/off)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/snowChain.png"/>
+	</owl:Class>	
+			
+	<owl:Class rdf:ID="SeatBeltTensionSensor">		
+		<rdfs:label xml:lang="en">Seat belt tension actuator (on/off)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/seatBelt.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ESP">		
+		<rdfs:label xml:lang="en">ESP (Electronic Stability Program)</rdfs:label>
+		<rdfs:comment xml:lang="en">The actuator ESP (on/off)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/esp.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ABS">		
+		<rdfs:label xml:lang="en">ABS (Anti-lock braking system)</rdfs:label>
+		<rdfs:comment xml:lang="en">The actuator ABS (on/off)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/abs.png"/>
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="FuelLevel">		
+		<rdfs:label xml:lang="en">Fuel Level Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/fuel.png"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ThrottleSensor">		
+		<rdfs:label xml:lang="en">Throttle Position Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/throttle.png"/>	
+	</owl:Class>
+			
+	<owl:Class rdf:ID="GPSSensor">		
+		<rdfs:label xml:lang="en">GPS Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Used in iPhone4 which allows the phone to localize itself.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Location"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/gps.png"/>	
+	</owl:Class>
+			
+	<owl:Class rdf:ID="SpeedSensor">		
+		<rdfs:label xml:lang="en">Car Speed Sensor, speedometer, Velocity</rdfs:label>
+		<rdfs:comment xml:lang="en">Speed Sensor used in a car</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Speed"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+        <txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/speed.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DistanceSensor">		
+		<rdfs:label xml:lang="en">Distance Sensor, safety distance</rdfs:label>
+		<rdfs:comment xml:lang="en">Distance Sensor to detect the distance with other cars for instance (it can be a laser).</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Distance"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/distance.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Accelerometer">		
+		<rdfs:label xml:lang="en">Accelerometer, Motion detector/Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">In iPhone 4, accelerometers are used to automatically determine the orientation in which the user is holding the phone (portrait or landscape).</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#ActivityM2MDevice"/>
+		<owl:equivalentClass rdf:resource="&cose;Accelerometer"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Motion"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="GyroscopeSensor">		
+		<rdfs:label xml:lang="en">Gyroscope Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">A gyroscope is a device for measuring or maintening orientation. In a home it can be attached to a broom, mop, etc. Used in iPhone 4.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<owl:equivalentClass rdf:resource="&cose;Gyroscope"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="ShakeSensor">		
+		<rdfs:label xml:lang="en">Shake Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Shake sensors can deduce the quality of the road, earthquakes.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<owl:equivalentClass rdf:resource="&cose;ShakeSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GyrometerSensor">		
+		<rdfs:label xml:lang="en">Gyrometer Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">A gyrometer is an instrument which measures an angular speed.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+	</owl:Class>
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ HEALTHCARE M2M DEVICES ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+		
+	<owl:Class rdf:ID="HealthM2MDevice">		
+		<rdfs:label xml:lang="en">Healthcare M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EmotionM2MDevice">		
+		<rdfs:label xml:lang="en">Emotion M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en">For instance ECG</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+		<owl:Class rdf:ID="ActivityM2MDevice">		
+		<rdfs:label xml:lang="en">Activity M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en">For instance accelerometer</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyM2MDevice">		
+		<rdfs:label xml:lang="en">Energy M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en">For instance thermometer</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PulseOxymeter">		
+		<rdfs:label xml:lang="en">Pulse Oxymeter, SpO2, Blood Oxygen Saturation Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Pulse oximetry is a method used to measure the concentration of oxygen in the blood.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#SPO2"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ECG">		
+		<rdfs:label xml:lang="en">ECG or EKG (Electrocardiogram)</rdfs:label>
+		<rdfs:comment xml:lang="en">ECG or EKG (Electrocardiogram)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#EmotionM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BloodPressureSensor">		
+		<rdfs:label xml:lang="en">Blood Pressure Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/bloodPressure.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#BloodPressure"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CholesterolSensor">		
+		<rdfs:label xml:lang="en">Cholesterol Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/cholesterol.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Cholesterol"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WeightSensor">		
+		<rdfs:label xml:lang="en">Weight Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/weight.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Weight"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>	
+	
+		<owl:Class rdf:ID="Pedometer">		
+		<rdfs:label xml:lang="en">Pedometer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#NumberStep"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HeartBeatSensor">		
+		<rdfs:label xml:lang="en">HeartBeat Sensor, Heart rate, breath rate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/heartbeat.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#HeartBeat"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SkinConductanceSensor">		
+		<rdfs:label xml:lang="en">SkinConductanceSensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#EmotionM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#SkinConductance"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+		
+	<owl:Class rdf:ID="BodyThermometer">		
+		<rdfs:label xml:lang="en">Body Thermometer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/bodyThermometer.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#BodyTemperature"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Glucometer">		
+		<rdfs:label xml:lang="en">Glucometer, Blood sugar, blood glucose level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/glucometer.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#BloodGlucose"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ AGRICULTURE M2M DEVICES ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+		
+	<owl:Class rdf:ID="AgricultureM2MDevice">		
+		<rdfs:label xml:lang="en">Agriculture M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PHSensor">		
+		<rdfs:label xml:lang="en">PHSensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#PH"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ SMART HOME M2M DEVICES ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+		
+	<owl:Class rdf:ID="HomeM2MDevice">		
+		<rdfs:label xml:lang="en">Healthcare M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+		
+	<owl:Class rdf:ID="PressureSensor">		
+		<rdfs:label xml:lang="en">Pressure sensor (e.g., bed), bed occupancy</rdfs:label>
+		<rdfs:comment xml:lang="en">A pressure sensor is attached on the bed to infer if the user is lying, sleeping, sitting, etc.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>	
+	</owl:Class>
+			
+	<owl:Class rdf:ID="OccupancyDetector">		
+		<rdfs:label xml:lang="en">Presence detector, motion sensor, Pyroelectric IR Occupancy Detector, Intrusion Detector/ Trespassing, Infrared Sensor, Proximity sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Infrared sensor are used to detect human location. Used in iPhone4 to detect whtn the user holds the phone to her face to speak to diable touchscreen.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<owl:equivalentClass rdf:resource="&cose;PassiveInfraredSensor"/>
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Presence"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+			
+	<owl:Class rdf:ID="LightSensor">		
+		<rdfs:label xml:lang="en">Light/Illuminance Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Used in iPhone4 to adjust the brightness of the screen.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/light.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Luminosity"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>		
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SoundSensor">		
+		<rdfs:label xml:lang="en">Sound Sensor, Noise level Sensor, Volume sensor, Microphone</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#AcousticSensor"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/noise.png"/>
+		<owl:equivalentClass rdf:resource="&cose;Microphone"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Sound"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="WaterFlow">		
+		<rdfs:label xml:lang="en">Water Flow </rdfs:label>
+		<rdfs:comment xml:lang="en">Water flow to detect if sinks, showers, baths or flushing are used.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Magnetometer">		
+		<rdfs:label xml:lang="en">Magnetic sensor, magnetometer sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Magnetic sensors are attached to cupboards to deduce if they are opened or closed</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>		
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UltrasonicSensor">		
+		<rdfs:label xml:lang="en">Ultrasonic sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Ultrasonic sensors are used to deduce human posture in smart home for example.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>		
+	</owl:Class>
+		
+	<owl:Class rdf:ID="SmokeDetector">		
+		<rdfs:label xml:lang="en">Smoke Detector/ Fire Alarm</rdfs:label>
+		<owl:equivalentClass rdf:resource="&cose;SmokeAlarm"/>	
+		<rdfs:comment xml:lang="en">Smoke detectors can detect if there is a fire, the smoke.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/smoke.png"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FallDetector">		
+		<rdfs:label xml:lang="en">Fall Detector</rdfs:label>
+		<rdfs:comment xml:lang="en">Fall detectors to detect if elderly people falls.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/fall.png"/>
+	</owl:Class>
+				
+	<owl:Class rdf:ID="Curtain">		
+		<rdfs:label xml:lang="en">Curtain</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the curtain.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Window">		
+		<rdfs:label xml:lang="en">Window</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the window.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Door">		
+		<rdfs:label xml:lang="en">Door</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the door.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Cupboard">		
+		<rdfs:label xml:lang="en">Cupboard</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the cupboard.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Drawer">		
+		<rdfs:label xml:lang="en">Drawer</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the drawer.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Ventilation">		
+		<rdfs:label xml:lang="en">Ventilation</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the ventilation.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Freezer">		
+		<rdfs:label xml:lang="en">Freezer, chiller</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically open/close the freezer.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AirConditioner">		
+		<rdfs:label xml:lang="en">Air conditioner</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the air conditioner.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AlarmSystem">		
+		<rdfs:label xml:lang="en">Alarm Systemr</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the alarm system.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Heating">		
+		<rdfs:label xml:lang="en">Heating</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the heating.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Blind">		
+		<rdfs:label xml:lang="en">Blind</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the blind.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="Shower">		
+		<rdfs:label xml:lang="en">Shower</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the shower.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Irrigation">		
+		<rdfs:label xml:lang="en">Irriagation</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically irrigate or not.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Lavatory">		
+		<rdfs:label xml:lang="en">Lavatory</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the lavatory.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Sink">		
+		<rdfs:label xml:lang="en">Sink</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the sink.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TV">		
+		<rdfs:label xml:lang="en">TV</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the television.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Telephone">		
+		<rdfs:label xml:lang="en">Telephone</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the Telephone.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Microwave">		
+		<rdfs:label xml:lang="en">Microwave</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the Microwave.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Lamp">		
+		<rdfs:label xml:lang="en">Lamp</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the lamp.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WashingMachine">		
+		<rdfs:label xml:lang="en">Washing Machine</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the washing machine.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CoffeeMachine">		
+		<rdfs:label xml:lang="en">Coffee Machine, Coffee maker</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the coffe machine.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Fridge">		
+		<rdfs:label xml:lang="en">Fridge, refrigerator</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the fridge.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DishWasher">		
+		<rdfs:label xml:lang="en">DishWasher</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the dishwasher.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Boiler">		
+		<rdfs:label xml:lang="en">Boiler</rdfs:label>
+		<rdfs:comment xml:lang="en">An actuator to automatically switch on/off the boiler.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ ENVIRONMENT M2M DEVICES ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+		
+	<owl:Class rdf:ID="EnvironmentM2MDevice">		
+		<rdfs:label xml:lang="en">Environment M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ WEATHER M2M DEVICES ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+		
+	<owl:Class rdf:ID="WeatherM2MDevice">		
+		<rdfs:label xml:lang="en">Weather M2M Devices (sensors or actuators)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
+	</owl:Class>
+	
+		
+	<owl:Class rdf:ID="AtmosphericPressureSensor">		
+		<rdfs:label xml:lang="en">Atmospheric Pressure Sensor, Barometer, Barometric Pressure Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">A barometer is a scientific instrument used im meteorology to measure atmospheric pressure.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<owl:equivalentClass rdf:resource="&weather;Pressure"/>
+		<owl:equivalentClass rdf:resource="&aws;AtmosphericPressureSensor"/>
+		<owl:equivalentClass rdf:resource="&cose;BarometricPressureSensor"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#AtmosphericPressure"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Thermometer">		
+		<rdfs:label xml:lang="en">Thermometer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#EnergyM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/thermometer.png"/>
+		<owl:equivalentClass rdf:resource="&aws;TemperatureSensor"/>
+		<owl:equivalentClass rdf:resource="&cose;TempuratureSensor"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Temperature"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AirThermometer">		
+		<rdfs:label xml:lang="en">Air Thermometer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/thermometer.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#AirTemperature"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RoadSurfaceThermometer">		
+		<rdfs:label xml:lang="en">Road Surface Thermometer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/thermometer.png"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#RoadTemperature"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SaltMeter">		
+		<rdfs:label xml:lang="en">Salt meter, salinity</rdfs:label>
+		<rdfs:comment xml:lang="en">Can be used in the fishery domain [Xiang Su et al. 2014]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#EnvionmentM2MDevice"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Salinity"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SolarRadiationSensor">		
+		<rdfs:label xml:lang="en">Solar Radiation Sensor. PAR (Photosynthetically Active Radiation) Sensor, Sun Light</rdfs:label>
+		<rdfs:comment xml:lang="en">PAR (Photosynthetically Active Radiation) Sensor, unit watts per square meter (w/m2)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<owl:equivalentClass rdf:resource="&spitfire;Light"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/solarRadiation.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#SolarRadiation"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+		<owl:equivalentClass rdf:resource="&aws;RadiationSensor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HumiditySensor">		
+		<rdfs:label xml:lang="en">Humidity sensor, Hygrometer</rdfs:label>
+		<rdfs:comment xml:lang="en">Hygrometer is an instrument used for measuring the moisture concent in the environment.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>		
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Humidity"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+		<owl:equivalentClass rdf:resource="&aws;HumiditySensor"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LeafWetnessSensor">		
+		<rdfs:label xml:lang="en">Leaf wetness sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>		
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#LeafWetness"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SoilHumiditySensor">		
+		<rdfs:label xml:lang="en">Soil Humidity sensor, Soil moisture</rdfs:label>
+		<rdfs:comment xml:lang="en">Hygrometer is an instrument used for measuring the soil moisture.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>		
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#SoilHumidity"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PrecipitationSensor">		
+		<rdfs:label xml:lang="en">Precipitation Sensor, Pluviometer, Rainfall sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">A pluviometer is a sensor measuring the amount of precipitation/rainfall.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>		
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/rain.png"/>
+		<owl:equivalentClass rdf:resource="&aws;PrecipitationSensor"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Precipitation"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WindSpeedSensor">		
+		<rdfs:label xml:lang="en">Wind Speed Sensor, Anemometer, Wind Velocity Sensor, </rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/wind.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#WindSpeed"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WindDirectionSensor">		
+		<rdfs:label xml:lang="en">Wind Direction Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">WindDirectionSensor, unit in Degree</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>		
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/windDirection.png"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#WindDirection"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SunPositionDirectionSensor">		
+		<rdfs:label xml:lang="en">Sun Position Direction Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">To detect sun from north eastm, south or west. Unit Degree</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>		
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#SunPositionDirection"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+		<owl:Class rdf:ID="SunPositionElevationSensor">		
+		<rdfs:label xml:lang="en">Sun Position Elevation Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">To detect sun state (day, twilight, night, etc). Unit Degree</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>		
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#SunPositionElevation"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CloudCoverSensor">		
+		<rdfs:label xml:lang="en">Cloud Cover Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>		
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/cloud.png"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#CloudCover"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+		<!-- ################################################ M2M (Machine-to-Machine) CONCEPTS ############################################################################ -->
+	
+	<owl:Class rdf:ID="M2MArchitecture">		
+		<rdfs:label xml:lang="en">M2MArchitecture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="#M2MGateway"/>
+		<dcterms:hasPart rdf:resource="#M2MApplication"/>
+		<dcterms:hasPart rdf:resource="#M2MDevice"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="M2MGateway">		
+		<rdfs:label xml:lang="en">M2MGateway</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="M2MSensorGateway">		
+		<rdfs:label xml:lang="en">M2MSensorGateway</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MGateway"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="M2MAggregationGateway">		
+		<rdfs:label xml:lang="en">M2MAggregationGateway</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MGateway"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="M2MApplication">		
+		<rdfs:label xml:lang="en">M2MApplication</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+
+	<owl:Class rdf:ID="M2MDevice">		
+		<rdfs:label xml:lang="en">M2MDevice</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>	
+	
+	<!-- ################################################ M2M devices ############################################################################ -->
+		
+	<owl:Class rdf:ID="Actuator">		
+		<rdfs:label xml:lang="en">Actuator</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Controller">		
+		<rdfs:label xml:lang="en">Controller</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Transducer">		
+		<rdfs:label xml:lang="en">Transducer</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+		
+	<owl:Class rdf:ID="RFIDTag">		
+		<rdfs:label xml:lang="en">RFID Tag</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>	
+
+	<owl:Class rdf:ID="Sensor">		
+		<rdfs:label xml:lang="en">Physical Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<owl:equivalentClass rdf:resource="&ssn;Sensor"/>
+		<owl:equivalentClass rdf:resource="&ontoSensor;Sensor"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Pacemaker">		
+		<rdfs:label xml:lang="en">Pacemaker</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Camera">		
+		<rdfs:label xml:lang="en">Camera</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>	
+		
+	<owl:Class rdf:ID="MobilePhone">		
+		<rdfs:label xml:lang="en">MobilePhone</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PDA">		
+		<rdfs:label xml:lang="en">PDA</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Computer">		
+		<rdfs:label xml:lang="en">Computer, PC</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Actuator"/>	
+		<rdfs:subClassOf rdf:resource="#HomeM2MDevice"/>
+	</owl:Class>
+	
+	<!-- ################################################ M2M Actuator ############################################################################ -->
+	
+	<!-- ################################################ M2M RFIDTag ############################################################################ -->
+	
+	<owl:Class rdf:ID="RFID_Food">		
+		<rdfs:label xml:lang="en">Food</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on food or beverage</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_BrushTeeth">		
+		<rdfs:label xml:lang="en">BrushTeeth</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on BrushTeeth.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Cup">		
+		<rdfs:label xml:lang="en">Cup</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on a coffee, tea, chocolate cup.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_TeaBag">		
+		<rdfs:label xml:lang="en">TeaBag</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on tea bag.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_CD">		
+		<rdfs:label xml:lang="en">CD</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on CD</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Bed">		
+		<rdfs:label xml:lang="en">Bed</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on Bed</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Sofa">		
+		<rdfs:label xml:lang="en">Sofa</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on Sofa</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Broom">		
+		<rdfs:label xml:lang="en">Broom</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on broom</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Mop">		
+		<rdfs:label xml:lang="en">Mop</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on mop</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Pan">		
+		<rdfs:label xml:lang="en">Pan</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on pan</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Garment">		
+		<rdfs:label xml:lang="en">Garment, Clothes</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on garments, clothes</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_DVD">		
+		<rdfs:label xml:lang="en">DVD</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on DVD</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFID_Book">		
+		<rdfs:label xml:lang="en">Book</rdfs:label>
+		<rdfs:comment xml:lang="en">RFID Tag embedded on Book</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDTag"/>	
+	</owl:Class>
+	
+	<!-- ################################################ other concepts ############################################################################ -->
+		
+	<owl:Class rdf:ID="Unit">		
+		<rdfs:label xml:lang="en">Unit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_unit;Unit"/>
+		<rdfs:seeAlso rdf:resource="&muo;UnitOfMeasurement"/>
+		<rdfs:seeAlso rdf:resource="&ucum;BaseUnit"/>
+		<owl:equivalentClass rdf:resource="&qudt;Unit"/>
+		<owl:equivalentClass rdf:resource="&spitfire;Unit"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Stimulus">		
+		<rdfs:label xml:lang="en">Stimulus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&ssn;Stimulus"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FeatureOfInterest">		
+		<rdfs:label xml:lang="en">FeatureOfInterest</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		 <rdfs:domain rdf:resource="#Sensor"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<owl:equivalentClass rdf:resource="&ssn;FeatureOfInterest"/>
+		<owl:equivalentClass rdf:resource="&semsor_weather;Observation"/>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Measurement">		
+		<rdfs:label xml:lang="en">Measurement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&ssn;SensorOutput"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ObservationValue">		
+		<rdfs:label xml:lang="en">ObservationValue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&ssn;ObservationValue"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MeasurementType">		
+		<rdfs:label xml:lang="en">Measurement Type</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&semsor_weather;PropertyType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RFIDMeasurementType">		
+		<rdfs:label xml:lang="en">RFID Measurement Type</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Process">		
+		<rdfs:label xml:lang="en">Process</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&ssn;Process"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Observation">		
+		<rdfs:label xml:lang="en">Observation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&ssn;Observation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Rule">		
+		<rdfs:label xml:lang="en">Rule</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+		
+	<!-- ################################################ Otologies Properties ############################################################################ -->
+	
+	<owl:ObjectProperty rdf:ID="produces">
+  		<rdfs:domain rdf:resource="#M2MDevice"/>
+ 		<rdfs:range  rdf:resource="#Measurement"/>
+		<rdfs:label xml:lang="en">produces</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasMeasurementType">
+  		<rdfs:domain rdf:resource="#FeatureOfInterest"/>
+ 		<rdfs:range  rdf:resource="#MeasurementType"/>
+		<rdfs:label xml:lang="en">hasMeasurementType</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="detects">
+  		<rdfs:domain rdf:resource="#Sensor"/>
+ 		<rdfs:range  rdf:resource="#Stimulus"/>
+		<rdfs:label xml:lang="en">detects</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentProperty rdf:resource="&ssn;detects"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="observes">
+  		<rdfs:domain rdf:resource="#Sensor"/>
+ 		<rdfs:range  rdf:resource="#FeatureOfInterest"/>
+		<rdfs:label xml:lang="en">observes</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentProperty rdf:resource="&ssn;observes"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasName">
+  		<rdfs:domain rdf:resource="#Measurement"/>
+ 		<rdfs:range  rdf:resource="#MeasurementType"/>
+		<rdfs:label xml:lang="en">hasName</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentProperty rdf:resource="&ssn;observedProperty"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasValue">
+  		<rdfs:domain rdf:resource="#Measurement"/>
+ 		<rdfs:range  rdf:resource="#Value"/><!-- &xsd;double-->
+		<rdfs:label xml:lang="en">hasValue</rdfs:label>
+		<rdfs:comment xml:lang="en">This property is used to describe the value of a measurement (e.g, 39).</rdfs:comment>
+		<owl:equivalentProperty rdf:resource="&ssn;hasValue"/>
+		<owl:equivalentProperty rdf:resource="&dul;hasValue"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasDateTimeValue">
+  		<rdfs:domain rdf:resource="#Measurement"/>
+ 		<rdfs:range  rdf:resource="&rdfs;Literal"/>
+		<rdfs:label xml:lang="en">hasDateTimeValue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasUnit">
+  		<rdfs:domain rdf:resource="#Measurement"/>
+ 		<rdfs:range  rdf:resource="#Unit"/>
+		<rdfs:label xml:lang="en">hasUnit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasContext">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="#FeatureOfInterest"/>
+		<rdfs:label xml:lang="en">hasContext</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasM2MDevice">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="#M2MDevice"/>
+		<rdfs:label xml:lang="en">hasM2MDevice</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasTechnology">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&stac;Technology"/>
+		<rdfs:label xml:lang="en">hasTechnology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasSecurityMechanism">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&stac;SecurityMechanism"/>
+		<rdfs:label xml:lang="en">hasSecurityMechanism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasUrlOntology">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasUrlOntology</rdfs:label>
+		<rdfs:comment xml:lang="en">To associate specific models, vocabularies or ontologies useful to build Internet of Things applications.</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasUrlDataset">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasUrlDataset</rdfs:label>
+		<rdfs:comment xml:lang="en">To associate specific datasets useful to build Internet of Things applications.</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="ruleUsingM2MDevice">
+  		<rdfs:domain rdf:resource="#Rule"/>
+ 		<rdfs:range  rdf:resource="#M2MDevice"/>
+		<rdfs:label xml:lang="en">ruleUsingM2MDevice</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="fromM2MApplication">
+  		<rdfs:domain rdf:resource="#Rule"/>
+ 		<rdfs:range  rdf:resource="#M2MApplication"/>
+		<rdfs:label xml:lang="en">fromM2MApplication</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasUrlRule">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasUrlRule</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:DatatypeProperty>
+
+	
+	<owl:DatatypeProperty rdf:ID="hasUrlSparql">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasUrlSparql</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasSparqlVariableinferTypeUri">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasSparqlVariableinferTypeUri</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to replace the inferTypeUri variable in generic sparql queries</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:ID="hasSparqlVariabletypeRecommendedUri">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasSparqlVariabletypeRecommendedUri</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to replace the typeRecommendedUri variable in generic sparql queries</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+		<owl:DatatypeProperty rdf:ID="hasSparqlVariabletypeDeducedUri">
+  		<rdfs:domain rdf:resource="#M2MApplication"/>
+ 		<rdfs:range  rdf:resource="&xsd;string"/>
+		<rdfs:label xml:lang="en">hasSparqlVariabletypeDeducedUri</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to replace the typeDeducedUri variable in generic sparql queries</rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	<owl:Class rdf:ID="State">		
+		<rdfs:label xml:lang="en">State</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="On">		
+		<rdfs:label xml:lang="en">On</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#State"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Off">		
+		<rdfs:label xml:lang="en">Off</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#State"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Open">		
+		<rdfs:label xml:lang="en">Open</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#State"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Close">		
+		<rdfs:label xml:lang="en">Close</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#State"/>	
+	</owl:Class>
+
+	<owl:ObjectProperty rdf:ID="hasState">
+  		<rdfs:domain rdf:resource="#Actuator"/>
+ 		<rdfs:range  rdf:resource="#State"/>
+		<rdfs:label xml:lang="en">hasState</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<!-- ######################### Other sensors  ############################################## -->
+		
+	<owl:Class rdf:ID="MechanicalSensor">		
+		<rdfs:label xml:lang="en">Mechanical Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	
+	<owl:Class rdf:ID="Electromagnetic">		
+		<rdfs:label xml:lang="en">Electromagnetic Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#MechanicalSensor"/>
+		<rdfs:subClassOf rdf:resource="#Magnetometer"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricalSensor">		
+		<rdfs:label xml:lang="en">ElectricalSensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#ElectricCurrent"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+
+	<!-- ################################################ ACOUSTIC SENSOR ############################################################################ -->
+	
+	<owl:Class rdf:ID="AcousticSensor">		
+		<rdfs:label xml:lang="en">Acoustic Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<owl:equivalentClass rdf:resource="&ontoSensor;Acoustic"/>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="Seismometer">		
+		<rdfs:label xml:lang="en">Seismometer</rdfs:label>
+		<rdfs:comment xml:lang="en">Seismometers are instruments that measure motions of the ground, including those of seismic waves generated by earthquakes, volcanic eruptions, and other seismic sources.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AcousticSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Hydrophone">		
+		<rdfs:label xml:lang="en">Hydrophone</rdfs:label>
+		<rdfs:comment xml:lang="en">A hydrophone is a microphone designed to be used underwater for recording or listening to underwater sound.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AcousticSensor"/>	
+	</owl:Class>
+	
+	<!-- ################################################  ############################################################################ -->
+	
+	<owl:Class rdf:ID="OpticalSensor">		
+		<rdfs:label xml:lang="en">Optical Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NuclearSensor">		
+		<rdfs:label xml:lang="en">Nuclear Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ChemicalSensor">		
+		<rdfs:label xml:lang="en">Chemical Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ThermalSensor">		
+		<rdfs:label xml:lang="en">ThermalSensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Odometer">		
+		<rdfs:label xml:lang="en">Odometer/Odograph</rdfs:label>
+		<rdfs:comment xml:lang="en">An odometer or odograph is an instrument that indicates distance traveled by a vehicle, such as bicycle or automobile.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="ConductivitySensor">		
+		<rdfs:label xml:lang="en">Conductivity Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Salinity</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="FrequencySensor">		
+		<rdfs:label xml:lang="en">Frequency Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Frequency"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+
+	<owl:Class rdf:ID="Clock">		
+		<rdfs:label xml:lang="en">Clock</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/clock.png"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Time"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<!-- PollutantSensor -->
+	
+	<owl:Class rdf:ID="AirPollutantSensor">		
+		<rdfs:label xml:lang="en">Air Pollutant Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#AirPollution"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GasDetector">		
+		<rdfs:label xml:lang="en">Gas Detector</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GaseousPollutantSensor">		
+		<rdfs:label xml:lang="en">Gaseous Pollutant Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#AirPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NH3_Sensor">		
+		<rdfs:label xml:lang="en">NH3_Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Oxygen_Sensor">		
+		<rdfs:label xml:lang="en">Oxygen Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CO2_Sensor">		
+		<rdfs:label xml:lang="en">Carbon dioxide (CO2) Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#AgricultureM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#CO2"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CO_Sensor">		
+		<rdfs:label xml:lang="en">Carbon Monoxide (CO) Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Methane_Sensor">		
+		<rdfs:label xml:lang="en">Methane (CH4) Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="O3_Sensor">		
+		<rdfs:label xml:lang="en">Ozone (O3) Level Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NO_Sensor">		
+		<rdfs:label xml:lang="en">Nitrogen Oxide (NO) Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SO2_Sensor">		
+		<rdfs:label xml:lang="en">Sulfur Dioxide (SO2) Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NO2_Sensor">		
+		<rdfs:label xml:lang="en">Nitrogen Dioxide (NO2) Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+		
+	</owl:Class>
+	
+	<owl:Class rdf:ID="H2S_Sensor">		
+		<rdfs:label xml:lang="en">H2S_Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
+	</owl:Class>
+
+	<!-- ############################################################################################################################################## -->
+	<!-- ################################################ MEASUREMENT TYPE ############################################################################ -->
+	<!-- ############################################################################################################################################## -->
+	
+	<owl:Class rdf:ID="CO2">		
+		<rdfs:label xml:lang="en">CO2 measurements</rdfs:label>
+		<rdfs:comment xml:lang="en">To measure air quality</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#PPM"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Pressure">		
+		<rdfs:label xml:lang="en">Pressure</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<owl:equivalentClass rdf:resource="&semsor_weather;PressureProperty"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Bar"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Pascal"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AtmosphericPressure">		
+		<rdfs:label xml:lang="en">Atmospheric Pressure measurement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Pressure"/>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Pascal"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:equivalentClass rdf:resource="&shw;AtmosphericPressure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Sound">		
+		<rdfs:label xml:lang="en">Sound, noise level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Decibel"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WindSpeed">		
+		<rdfs:label xml:lang="en">Wind Velocity/ Wind Speed</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#MeterPerSecond"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AlcoholLevel">		
+		<rdfs:label xml:lang="en">AlcoholLevel</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Visibility">		
+		<rdfs:label xml:lang="en">Visibility</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Miles"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Meter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Speed">		
+		<rdfs:label xml:lang="en">Speed</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#MeterPerSecond"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Frequency">		
+		<rdfs:label xml:lang="en">Frequency</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AirPollution">		
+		<rdfs:label xml:lang="en">AirPollution</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#EAQI"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WindDirection">		
+		<rdfs:label xml:lang="en">Wind Direction</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<owl:equivalentClass rdf:resource="&shw;DirectionalWind"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#DegreeAngle"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="SunPositionDirection">		
+		<rdfs:label xml:lang="en">Sun Position Direction</rdfs:label>
+		<rdfs:comment xml:lang="en">To detect sun from north eastm, south or west. Unit Degree</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#DegreeAngle"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="SunPositionElevation">		
+		<rdfs:label xml:lang="en">Sun Position Elevation</rdfs:label>
+		<rdfs:comment xml:lang="en">To detect sun state (day, twilight, night, etc). Unit Degree</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#DegreeAngle"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="CloudCover">		
+		<rdfs:label xml:lang="en">CloudCover</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Okta"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>		
+	
+	<owl:Class rdf:ID="Temperature">		
+		<rdfs:label xml:lang="en">Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">By defaut, Air temperature</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<owl:equivalentClass rdf:resource="&semsor_weather;TemperatureProperty"/>
+		<owl:equivalentClass rdf:resource="&aws;air_temperature"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#DegreeKelvin"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#DegreeCelsius"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#DegreeFahrenheit"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AirTemperature">		
+		<rdfs:label xml:lang="en">Air Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Salinity">		
+		<rdfs:label xml:lang="en">Salinity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+			
+	<owl:Class rdf:ID="WaterLevel">		
+		<rdfs:label xml:lang="en">Water level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Precipitation">		
+		<rdfs:label xml:lang="en">Precipitation</rdfs:label>
+		<rdfs:comment xml:lang="en">Precipitation or rainfall measurements</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<owl:equivalentClass rdf:resource="&semsor_weather;PrecipitationProperty"/>
+		<owl:equivalentClass rdf:resource="&shw;Precipitation"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Inch"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Meter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#MilimeterPerHour"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- Precipitation -->
+	
+	<owl:Class rdf:ID="WeatherPrecipitation">		
+		<rdfs:label xml:lang="en">Weather Precipitation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Precipitation"/>
+	</owl:Class>
+	
+	<!-- Temperature: foi + measurement type-->
+		
+	<owl:Class rdf:ID="WeatherTemperature">		
+		<rdfs:label xml:lang="en">Weather Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+		<owl:equivalentClass rdf:resource="&shw;Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WeatherLuminosity">		
+		<rdfs:label xml:lang="en">Weather Luminosity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Luminosity"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BodyTemperature">		
+		<rdfs:label xml:lang="en">Body Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BuildingTemperature">		
+		<rdfs:label xml:lang="en">Building Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WaterTemperature">		
+		<rdfs:label xml:lang="en">Water Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SoilTemperature">		
+		<rdfs:label xml:lang="en">Soil Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RoadTemperature">		
+		<rdfs:label xml:lang="en">Road Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="RoomTemperature">		
+		<rdfs:label xml:lang="en">Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#BuildingTemperature"/>
+		<owl:equivalentClass rdf:resource="&home;RoomTemperature"/>
+		<owl:equivalentClass rdf:resource="&dogont;TemperatureMeasurementMNotification"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FoodTemperature">		
+		<rdfs:label xml:lang="en">Food Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HouseholdApplianceTemperature">		
+		<rdfs:label xml:lang="en">Household Appliance Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Temperature"/>
+	</owl:Class>
+	
+	<!-- others-->
+	
+	<owl:Class rdf:ID="SolarRadiation">		
+		<rdfs:label xml:lang="en">SolarRadiationMeasurement, PAR Measurement (Photosynthetically Active Radiation),</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#WattPerMeterSquare"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+
+	<owl:Class rdf:ID="Luminosity">		
+		<rdfs:label xml:lang="en">Illuminance/Luminosity</rdfs:label>
+		<rdfs:comment xml:lang="en">Illuminance is the total luminous flux incident on a surface, per unit area.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Lux"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Presence">		
+		<rdfs:label xml:lang="en">Presence</rdfs:label>
+		<rdfs:comment xml:lang="en">A person is in the room or not.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Conductivity">		
+		<rdfs:label xml:lang="en">Conductivity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<!-- ######################### HEALTH MEASUREMENT ############################################## -->
+	
+	<owl:Class rdf:ID="BloodPressure">		
+		<rdfs:label xml:lang="en">Blood pressure</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf rdf:resource="#Pressure"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#mmGg"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SystolicBloodPressure">		
+		<rdfs:label xml:lang="en">Systolic Blood pressure</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf rdf:resource="#BloodPressure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DiastolicBloodPressure">		
+		<rdfs:label xml:lang="en">Diastolic Blood pressure</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf rdf:resource="#BloodPressure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Cholesterol">		
+		<rdfs:label xml:lang="en">Cholesterol</rdfs:label>
+		<rdfs:comment xml:lang="en">Cholesterol measurement</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#GramPerLiter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#MmolPerLiter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BloodGlucose">		
+		<rdfs:label xml:lang="en">Blood Glucose</rdfs:label>
+		<rdfs:comment xml:lang="en">Blood Glucose level, blood sugar level</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#GramPerLiter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PH">		
+		<rdfs:label xml:lang="en">PH</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Calcium">		
+		<rdfs:label xml:lang="en">Calcium</rdfs:label>
+		<rdfs:comment xml:lang="en">Blood Calcium level</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#GramPerLiter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Potassium">		
+		<rdfs:label xml:lang="en">Potassium</rdfs:label>
+		<rdfs:comment xml:lang="en">Blood Potassium level</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#GramPerLiter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Sodium">		
+		<rdfs:label xml:lang="en">Sodium</rdfs:label>
+		<rdfs:comment xml:lang="en">Blood Sodium level</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#GramPerLiter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SkinConductance">		
+		<rdfs:label xml:lang="en">Skin conductance/ GSR</rdfs:label>
+		<rdfs:comment xml:lang="en">Skin conductance (or GSR: Galvanic Skin Response)</rdfs:comment>
+		<dc:description xml:lang="en">Electroderal activity (also known as skin conductance or galvanic skin response) directly correlates to the sympathetic nervous system activity and thus provides a powerful tool for monitoring arousal and certain aspects of autonomic regulation.</dc:description>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HeartBeat">		
+		<rdfs:label xml:lang="en">HeartBeat, heart rate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#BeatPerMinute"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NumberStep">		
+		<rdfs:label xml:lang="en">NumberStep</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Weight">		
+		<rdfs:label xml:lang="en">Weight</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Kilo"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Pound"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SPO2">		
+		<rdfs:label xml:lang="en">SPO2</rdfs:label>
+		<rdfs:comment xml:lang="en">SPO2 measurement</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Percent"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+		
+	<owl:Class rdf:ID="MagneticField">		
+		<rdfs:label xml:lang="en">Magnetic Field</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Tesla"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MagneticFluxDensity">		
+		<rdfs:label xml:lang="en">MagneticFluxDensity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Gauss"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- ######################### MEASUREMENT ############################################## -->
+	
+	<owl:Class rdf:ID="Location">		
+		<rdfs:label xml:lang="en">Location</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<owl:equivalentClass rdf:resource="&wgs84_pos;SpatialThing"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Longitude"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Latitude"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Altitude"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Humidity">		
+		<rdfs:label xml:lang="en">Humidity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Percent"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+		<owl:equivalentClass rdf:resource="&dogont;HumidityMeasurementMNotification"/>
+		<owl:equivalentClass rdf:resource="&shw;Humidity"/>
+	</owl:Class>
+	
+		<owl:Class rdf:ID="LeafWetness">		
+		<rdfs:label xml:lang="en">Leaf Wetness</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Percent"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SoilHumidity">		
+		<rdfs:label xml:lang="en">SoilHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Percent"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<!-- ######################### HOME MEASUREMENT ############################################## -->
+		
+	<owl:Class rdf:ID="Motion">		
+		<rdfs:label xml:lang="en">Motion</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<owl:equivalentClass rdf:resource="&spitfire;Motion"/>
+		 <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#MeterPerSecondSquare"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Distance">		
+		<rdfs:label xml:lang="en">Distance</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		 <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Meter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+
+	
+	<!-- ######################### RFID MEASUREMENT ############################################## -->
+	
+	<owl:Class rdf:ID="Food">		
+		<rdfs:label xml:lang="en">Food</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on food.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+		<owl:equivalentClass rdf:resource="&naturopathy;Food"/>
+		<owl:equivalentClass rdf:resource="&food_smart_product;FoodOrDrinkItem"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Gram"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Liter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Book">		
+		<rdfs:label xml:lang="en">Book</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on book.</rdfs:comment>
+		<owl:equivalentClass rdf:resource="&dbpedia;Book"/>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>
+	</owl:Class>
+
+	<owl:Class rdf:ID="CD">		
+		<rdfs:label xml:lang="en">CD</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on CD.</rdfs:comment>
+		<owl:equivalentClass rdf:resource="&dbpedia;Album"/>
+		<owl:equivalentClass rdf:resource="&mo;CD"/>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DVD">		
+		<rdfs:label xml:lang="en">DVD</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on DVD.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+		<owl:equivalentClass rdf:resource="&movie;Movie"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Clothing">		
+		<rdfs:label xml:lang="en">Clothes</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on clothes.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Luggage">		
+		<rdfs:label xml:lang="en">Luggage</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on luggage.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Toll">		
+		<rdfs:label xml:lang="en">Toll</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on electronic toll system.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Passport">		
+		<rdfs:label xml:lang="en">Passport</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on passport.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TransitPass">		
+		<rdfs:label xml:lang="en">TransitPass</rdfs:label>
+		<rdfs:comment xml:lang="en">CommutationTicket/ Transit pass</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Animal">		
+		<rdfs:label xml:lang="en">Animal</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on animal.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>	
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="ParkingSpace">		
+		<rdfs:label xml:lang="en">ParkingSpace</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on parking space to detect if they are available or not.</rdfs:comment>	
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PaymentCard">		
+		<rdfs:label xml:lang="en">Payment Card</rdfs:label>
+		<rdfs:comment xml:lang="en">An RFID tag is embedded on payment card.</rdfs:comment>	
+		<rdfs:subClassOf rdf:resource="#RFIDMeasurementType"/>
+	</owl:Class>
+
+	
+	<!-- ######################### OTHER MEASUREMENT ############################################## -->
+	
+	<owl:Class rdf:ID="ElectricCurrent">		
+		<rdfs:label xml:lang="en">Electric Current</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Ampere"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LuminousIntensity">		
+		<rdfs:label xml:lang="en">Luminous Intensity</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Candela"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricCharge">		
+		<rdfs:label xml:lang="en">Electric Charge</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Coulomb"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Capacitance">		
+		<rdfs:label xml:lang="en">Capacitance</rdfs:label>
+		<rdfs:comment xml:lang="en">Capacitance is the ability of a body to store an electric charge.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Farad"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LuminousFlux">		
+		<rdfs:label xml:lang="en">LuminousFlux</rdfs:label>
+		<rdfs:comment xml:lang="en">Luminous Flux is the measure of the perceived power of light.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Lumen"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricalResistance">		
+		<rdfs:label xml:lang="en">Electrical Resistance</rdfs:label>
+		<rdfs:comment xml:lang="en">The electrical resitance of an electrical conductor is the opposition to the passage of an electric current through that conductor.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Ohm"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ElectricalPotential">		
+		<rdfs:label xml:lang="en">Electrical Potential</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Volt"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Power">		
+		<rdfs:label xml:lang="en">Power</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Watt"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Angular">		
+		<rdfs:label xml:lang="en">Angular</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#Radian"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Time">		
+		<rdfs:label xml:lang="en">Time</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ UNITS TYPE ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->
+
+	<owl:Class rdf:ID="Ampere">		
+		<rdfs:label xml:lang="en">Ampere (A)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;ampere"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Bar">		
+		<rdfs:label xml:lang="en">bar</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Candela">		
+		<rdfs:label xml:lang="en">Candela</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;candela"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Coulomb">		
+		<rdfs:label xml:lang="en">Coulomb</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;coulomb"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Day">		
+		<rdfs:label xml:lang="en">Day</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DegreeAngle">		
+		<rdfs:label xml:lang="en">Degree angle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DegreeCelsius">		
+		<rdfs:label xml:lang="en">Degree celsius</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;degreeC"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DegreeFahrenheit">		
+		<rdfs:label xml:lang="en">Degree fahrenheit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;degreeF"/>
+		<owl:equivalentClass rdf:resource="&weather;fahrenheit"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Farad">		
+		<rdfs:label xml:lang="en">Farad</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;farad"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Gram">		
+		<rdfs:label xml:lang="en">Gram</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="DegreeKelvin">		
+		<rdfs:label xml:lang="en">Degree Kelvin</rdfs:label>
+		<rdfs:comment xml:lang="en">Kelvin is a unit of measurement for temperature.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;kelvin"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Hour">		
+		<rdfs:label xml:lang="en">Hour</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;hour"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Kilo_Watt_Hour">		
+		<rdfs:label xml:lang="en">Kilo Watt Hour</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Liter">		
+		<rdfs:label xml:lang="en">Liter</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Lumen">		
+		<rdfs:label xml:lang="en">Lumen (lm)</rdfs:label>
+		<rdfs:comment xml:lang="en">The lumen is the unit of luminous flux.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Decibel">		
+		<rdfs:label xml:lang="en">Decibel (db)</rdfs:label>
+		<rdfs:comment xml:lang="en">Decibel is the unit of sound/noise level.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Lux">		
+		<rdfs:label xml:lang="en">Lux (lx)</rdfs:label>
+		<rdfs:comment xml:lang="en">Lux is the unit of illuminance (light).</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;lux"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Okta">		
+		<rdfs:label xml:lang="en">Okta</rdfs:label>
+		<rdfs:comment xml:lang="en">Okta is the unit to measure the cloud cover</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+		
+	<owl:Class rdf:ID="Meter">		
+		<rdfs:label xml:lang="en">Meter</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;meter"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Miles">		
+		<rdfs:label xml:lang="en">Miles</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MilimeterPerHour">		
+		<rdfs:label xml:lang="en">mm/h</rdfs:label>
+		<rdfs:comment xml:lang="en">mm/h is used to measure precipitation measurements.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="mmHg">		
+		<rdfs:label xml:lang="en">mmHg</rdfs:label>
+		<rdfs:comment xml:lang="en">mmHg unit is used to measure blood pressure measurements (systolic and diastolic).</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MeterPerSecondSquare">		
+		<rdfs:label xml:lang="en">Meter Per Second Square (m/s2)</rdfs:label>
+		<rdfs:comment xml:lang="en">m/s2 is used to measure acceleration measurements</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MeterPerSecond">		
+		<rdfs:label xml:lang="en">Meter Per Second (m/s)</rdfs:label>
+		<rdfs:comment xml:lang="en">m/s is used to measure speed measurements (e>g>, wind speed)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Inch">		
+		<rdfs:label xml:lang="en">Inch</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WattPerMeterSquare">		
+		<rdfs:label xml:lang="en">Watt par meter square</rdfs:label>
+		<rdfs:comment xml:lang="en">Unit to measure solar radiation</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Minute_angle">		
+		<rdfs:label xml:lang="en">Minute_angle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Minute_time">		
+		<rdfs:label xml:lang="en">Minute_time</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Ohm">		
+		<rdfs:label xml:lang="en">Ohm</rdfs:label>
+		<rdfs:comment xml:lang="en">Ohm is the unit of electrical resistance.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;ohm"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Percent">		
+		<rdfs:label xml:lang="en">Percent</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;percent"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Radian">		
+		<rdfs:label xml:lang="en">Radian</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;radian"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Second_angle">		
+		<rdfs:label xml:lang="en">Second angle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Second_time">		
+		<rdfs:label xml:lang="en">Second time</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EAQI">		
+		<rdfs:label xml:lang="en">European Air Quality Index (EAQI)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="PPM">		
+		<rdfs:label xml:lang="en">PPM (parts per million)</rdfs:label>
+		<rdfs:comment xml:lang="en">Used bu CO2 sensor level</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Tonne">		
+		<rdfs:label xml:lang="en">Tonne</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Volt">		
+		<rdfs:label xml:lang="en">Volt</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;volt"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Watt">		
+		<rdfs:label xml:lang="en">Watt (W)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;watt"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Year">		
+		<rdfs:label xml:lang="en">Year</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<owl:equivalentClass rdf:resource="&sweet_unit;year"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Latitude">		
+		<rdfs:label xml:lang="en">Latitude</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Longitude">		
+		<rdfs:label xml:lang="en">Longitude</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Altitude">		
+		<rdfs:label xml:lang="en">Altitude</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Tesla">		
+		<rdfs:label xml:lang="en">Tesla</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="GramPerLiter">		
+		<rdfs:label xml:lang="en">GramPerLiter (g/L)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MmolPerLiter">		
+		<rdfs:label xml:lang="en">MmolPerLiter</rdfs:label>
+		<rdfs:comment xml:lang="en">MmolPerLiter unit to measure cholesterol</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Pascal">		
+		<rdfs:label xml:lang="en">Pascal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Kilo">		
+		<rdfs:label xml:lang="en">Kilo</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Pound">		
+		<rdfs:label xml:lang="en">Pound</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BeatPerMinute">		
+		<rdfs:label xml:lang="en">Beat Per Minute (bpm)</rdfs:label>
+		<rdfs:comment xml:lang="en">BeatPerMinute (bpm) is the unit to measure heart rate</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Gauss">		
+		<rdfs:label xml:lang="en">Gauss</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Hertz">		
+		<rdfs:label xml:lang="en">Hertz</rdfs:label>
+		<rdfs:comment xml:lang="en">Hertz</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+	</owl:Class>
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ USER PROFILE ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->
+			
+	<owl:Class rdf:ID="Person">		
+		<rdfs:label xml:lang="en">Person</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<owl:equivalentClass rdf:resource="&naturopathy;Person"/>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:ID="wears">
+  		<rdfs:domain rdf:resource="#Person"/>
+ 		<rdfs:range  rdf:resource="#M2MDevice"/>
+		<rdfs:label xml:lang="en">wears</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################ FEATURE OF INTEREST TYPE ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->
+
+	<!-- Health -->
+	
+	<owl:Class rdf:ID="Health">		
+		<rdfs:label xml:lang="en">Healthcare</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SensorNetworks">		
+		<rdfs:label xml:lang="en">Sensor Networks</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to reference and classify sensor ontologies in LOV4IoT</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrafficJam">		
+		<rdfs:label xml:lang="en">TrafficJam</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Transport"/>			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="BuildingAutomation">		
+		<rdfs:label xml:lang="en">Smart Home/Building Automation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&m3;FeatureOfInterest"/>	
+		<owl:equivalentClass rdf:resource="&dogont;BuildingEnvironment"/>		
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Activity">		
+		<rdfs:label xml:lang="en">Activity recognition</rdfs:label>
+		<rdfs:comment xml:lang="en">Activity recognition</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&m3;BuildingAutomation"/>		
+	</owl:Class>
+	
+	
+	<!-- Location -->
+	
+	<owl:Class rdf:ID="Other">		
+		<rdfs:label xml:lang="en">Other</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Place">		
+		<rdfs:label xml:lang="en">Place, Location, GPS coordinates</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Hotel">		
+		<rdfs:label xml:lang="en">Hotel</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Place"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Restaurant">		
+		<rdfs:label xml:lang="en">Restaurant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Place"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Monument">		
+		<rdfs:label xml:lang="en">Monument</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Place"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Event">		
+		<rdfs:label xml:lang="en">Event</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Place"/>	
+	</owl:Class>
+	
+	<!-- Tracking RFID objects -->
+	
+	<owl:Class rdf:ID="TrackingGood">		
+		<rdfs:label xml:lang="en">Tracking RFID Goods</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingFood">		
+		<rdfs:label xml:lang="en">Tracking Food</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Food"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingBook">		
+		<rdfs:label xml:lang="en">Tracking Book</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Book"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingLuggage">		
+		<rdfs:label xml:lang="en">Tracking Luggage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Luggage"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingCD">		
+		<rdfs:label xml:lang="en">Tracking CD</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#CD"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingDVD">		
+		<rdfs:label xml:lang="en">Tracking DVD</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#DVD"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingClothing">		
+		<rdfs:label xml:lang="en">Tracking Clothing</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Clothing"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingPassport">		
+		<rdfs:label xml:lang="en">Tracking Passport</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Passport"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingPaymentCard">		
+		<rdfs:label xml:lang="en">Tracking Payment Card</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#PaymentCard"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingParkingSpace">		
+		<rdfs:label xml:lang="en">Tracking ParkingSpace</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#ParkingSpace"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingAnimal">		
+		<rdfs:label xml:lang="en">Tracking Animal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Animal"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingTransitPass">		
+		<rdfs:label xml:lang="en">Tracking TransitPass</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#TransitPass"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="TrackingToll">		
+		<rdfs:label xml:lang="en">Tracking Toll</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#TrackingGood"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasMeasurementType"/>
+             	<owl:someValuesFrom rdf:resource="#Toll"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>	
+	
+	<owl:Class rdf:ID="Security">		
+		<rdfs:label xml:lang="en">Security (sensor, cellular, application, network management, web)</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to reference and classify sensor ontologies in LOV4IoT</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Emotion">		
+		<rdfs:label xml:lang="en">Affective Science, Emotion, Mood, Emotional State, Brain Wave</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&naturopathy;Emotion"/>
+		<rdfs:seeAlso rdf:resource="&emoca;Emotion"/>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<!-- Environment -->
+	
+	<owl:Class rdf:ID="Energy">		
+		<rdfs:label xml:lang="en">Energy or smart grid</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Environment">		
+		<rdfs:label xml:lang="en">Environment (earthquake, flooding, fire, pollution)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Pollution">		
+		<rdfs:label xml:lang="en">Pollution</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Air">		
+		<rdfs:label xml:lang="en">Air</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Wind">		
+		<rdfs:label xml:lang="en">Wind</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Soil">		
+		<rdfs:label xml:lang="en">Environment</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Weather">		
+		<rdfs:label xml:lang="en">Weather Forecasting, Meterology</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&m3;FeatureOfInterest"/>	
+		<owl:equivalentClass rdf:resource="&semsor_weather;WeatherObservation"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Wave">		
+		<rdfs:label xml:lang="en">Wave</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Ocean"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Tsunami">		
+		<rdfs:label xml:lang="en">Tsunami</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Wave"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Water">		
+		<rdfs:label xml:lang="en">Water</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Sea">		
+		<rdfs:label xml:lang="en">Sea</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="River">		
+		<rdfs:label xml:lang="en">River</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Lake">		
+		<rdfs:label xml:lang="en">Lake</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Reservoir">		
+		<rdfs:label xml:lang="en">Reservoir</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Estuary">		
+		<rdfs:label xml:lang="en">Estuary</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Wetland">		
+		<rdfs:label xml:lang="en">Wetland</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Ocean">		
+		<rdfs:label xml:lang="en">Ocean</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Water"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Mountain">		
+		<rdfs:label xml:lang="en">Mountain</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Hill">		
+		<rdfs:label xml:lang="en">Hill</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Fire">		
+		<rdfs:label xml:lang="en">Fire</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Environment"/>	
+	</owl:Class>
+	
+	<!-- City -->
+	
+	<owl:Class rdf:ID="City">		
+		<rdfs:label xml:lang="en">Smart City</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Other"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Transportation">		
+		<rdfs:label xml:lang="en">Transport, Smart Car/Vehicle, Intelligent Transport System (ITS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Agriculture">		
+		<rdfs:label xml:lang="en">Agriculture, Smart farm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Tourism">		
+		<rdfs:label xml:lang="en">Tourism</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
+	</owl:Class>
+	
+	<!-- Military -->
+	
+	<owl:Class rdf:ID="Military">		
+		<rdfs:label xml:lang="en">Military</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Other"/>	
+	</owl:Class>
+	
+		
+	<!-- BuildingAutomation -->
+	
+	<owl:Class rdf:ID="Office">		
+		<rdfs:label xml:lang="en">Office</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#BuildingAutomation"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Leisure">		
+		<rdfs:label xml:lang="en">Leisure</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#BuildingAutomation"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Home">		
+		<rdfs:label xml:lang="en">Home</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#BuildingAutomation"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Plant">		
+		<rdfs:label xml:lang="en">Plant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#BuildingAutomation"/>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Room">		
+		<rdfs:label xml:lang="en">Room</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Office"/>
+		<rdfs:subClassOf rdf:resource="#Home"/>
+		<owl:equivalentClass rdf:resource="&dogont;Room"/>
+		<owl:equivalentClass rdf:resource="&home;Room"/>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:ID="isRecommendedFor">
+		<rdfs:label xml:lang="en">isRecommendedFor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasOntologyStatus">
+		<rdfs:label xml:lang="en">hasOntologyStatus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:ID="hasRecommendation">
+		<rdfs:label xml:lang="en">hasRecommendation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:Class rdf:ID="Alert">		
+		<rdfs:label xml:lang="en">Alert</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NothingAnormal">		
+		<rdfs:label xml:lang="en">NothingAnormal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</owl:Class>
+
+	
+</rdf:RDF>

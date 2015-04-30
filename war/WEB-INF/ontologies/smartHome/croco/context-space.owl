@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:units="http://mmt.inf.tu-dresden.de/crocoon/context-units.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://mmt.inf.tu-dresden.de/crocoon/context-group.owl#"
+    xmlns:geo="http://mmt.inf.tu-dresden.de/crocoon/context-geo.owl#"
+    xmlns:upper="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#"
+  xml:base="http://mmt.inf.tu-dresden.de/crocoon/context-space.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-group.owl"/>
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-units.owl"/>
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-geo.owl"/>
+    <owl:imports rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: more region relations and connect structures with regions</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An ontology to model locations with their relationships on a symbolic level. The definitions are based on different other ontologies, i.e. SOUPA space, GeoStuff of MINDSWAP and time zone ontology by Pan and Hobbs.</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="LandBasedRegion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GeographicRegion"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A coherent land area, like a continent or island.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SpaceInAFixedStructure">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A space which is inside a FixedStructure including rooms, halls, floors and stairwells. This term is taken from SOUPA space.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeographicRegion"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FixedStructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="hasSpatialPart"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#SpaceInAFixedStructure"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SpatialLocation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Room">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AtomicSpaceInAFixedStructure"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NonPoliticalRegion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AdministrativeRegion"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is a controlled region which is administrated by some non political organization. Examples are a company or hospital complex and a campus.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PoliticalRegion"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="State">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A federal state of some country.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasParentRegion"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParentRegion"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Country"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PoliticalRegion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Island">
+    <rdfs:subClassOf rdf:resource="#LandBasedRegion"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Distance">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The distance between two spatial locations.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#Attribute"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="toSpatialLocation"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDistanceValueDescription"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#FixedStructure">
+    <owl:disjointWith rdf:resource="#SpaceInAFixedStructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GeographicRegion"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SpatialLocation"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An human-built structure like a building, a bridge or a road (but also parts of a fixed structure, e.g. a road segment). The term is taken from SOUPA space (and probably has its origin in OpenCyc).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TimeZone">
+    <rdfs:subClassOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#TemporalAbstraction"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="gmtOffset"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An instance of this class represents one of the globally defined time zones.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Continent">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</owl:cardinality>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:ID="hasAncestorRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#LandBasedRegion"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AtomicSpaceInAFixedStructure">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:TransitiveProperty rdf:about="#hasSpatialPart"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#SpaceInAFixedStructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A space inside a fixed structure which is atomic in that it does not contain other spaces. Examples are rooms or halls.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PoliticalRegion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="County">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A county of some state.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParentRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#State"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParentRegion"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PoliticalRegion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="City">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParentRegion"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PoliticalRegion"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SpatialLocation">
+    <rdfs:subClassOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#Location"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A location with some spatial extend and a shape.</rdfs:comment>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: add an MovableSpatialLocation?? ; should the amount of possible shapes be restricted to a max of 1??</owl:versionInfo>
+  </owl:Class>
+  <owl:Class rdf:about="#GeographicRegion">
+    <owl:disjointWith rdf:resource="#SpaceInAFixedStructure"/>
+    <owl:disjointWith rdf:resource="#FixedStructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A more or less larger region forming a geographic unity and can contain other GeographicRegions or FixedStructures.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SpatialLocation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="UniversityCampus">
+    <rdfs:subClassOf rdf:resource="#NonPoliticalRegion"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Building">
+    <rdfs:subClassOf rdf:resource="#FixedStructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A single building which is normally found in some GeographicRegion.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DaylightSavingsPolicy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The daylight saving policy of a region. If this value is not specified for one (political) region a reasoner can use the one given for the parent region (compare http://www.w3.org/TR/owl-time/#timezone). (equivalent to definition of time zone ontology)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-upper.owl#TemporalAbstraction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PoliticalRegion">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDaylightSavingsPolicy"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#name"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTimeZonePart"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="controlledBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AdministrativeRegion"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTimeZoneRelatedExceptionalRegion"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >0</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >3</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTimeZone"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="observesDaylightSavingsTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#controlledBy"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-group.owl#PoliticalOrganization"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#NonPoliticalRegion"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: make it equivalent to tz:PoliticalRegion? , better not because we define it less restrictive (concerning parent regions)</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A region which is controlled by some sort of government (including city councils). This class was introduced to have an equivalent to the definitions of the time zone ontology (created by Hobbs and Pan), so that the available instance date of this ontology can be reused with little modification. Note: This class is not quite equivalent to tz:PoliticalRegion, because it does not define the same strict restriction on possible parent regions (i.e. not restricted to max 1).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#AdministrativeRegion">
+    <rdfs:subClassOf rdf:resource="#GeographicRegion"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A region which is controlled by some sort of organization like a government, a council or a company. Examples are countries, cities, universities (campus) and a company complex.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="EnumeratedDaylightSavingsPolicy">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="dayLightSavingsStartDate"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="dayLightSavingsEndDate"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#DaylightSavingsPolicy"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Captures the dates when daylight savings start and stop. (equivalent to definition of time zone ontology)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="FacultyTerrain">
+    <rdfs:subClassOf rdf:resource="#NonPoliticalRegion"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#hasTimeZoneRelatedExceptionalRegion">
+    <rdfs:range rdf:resource="#GeographicRegion"/>
+    <rdfs:domain rdf:resource="#GeographicRegion"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Exceptional sub-political-regions that have different time zones and/or daylight saving time policies (e.g. West Wendover, Nevada). (equivalent to exceptionalRegion of time zone ontology)</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSpatialLocation">
+    <rdfs:range rdf:resource="#SpatialLocation"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TODO: restrict to objects or should events and stuff also have spatial locations?</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assigns a SpatialLocation to an entity.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDaylightSavingsPolicy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The daylight saving policy that the region uses.</rdfs:comment>
+    <rdfs:domain rdf:resource="#GeographicRegion"/>
+    <rdfs:range rdf:resource="#DaylightSavingsPolicy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="locatedInRegion">
+    <rdfs:domain rdf:resource="#FixedStructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes that a fixed structure is situated in a region.</rdfs:comment>
+    <rdfs:range rdf:resource="#GeographicRegion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTimeZone">
+    <rdfs:domain rdf:resource="#GeographicRegion"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assigns time zones to geographical regions.</rdfs:comment>
+    <rdfs:range rdf:resource="#TimeZone"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDistanceValueDescription">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the actual value of a Distance. A Distance can contain more than one value descriptions for instance one given in miles and another in kilometre.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-units.owl#DistanceValueDescription"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasShape">
+    <rdfs:domain rdf:resource="#SpatialLocation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assignes a shape (e.g. point or polygon) to a SpatialLocation. This shape is described in terms of coordinates (e.g. longitude, latitude and altitude).</rdfs:comment>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-geo.owl#Shape"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#controlledBy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assigns the controlling entity to the administrated region.</rdfs:comment>
+    <rdfs:domain rdf:resource="#AdministrativeRegion"/>
+    <rdfs:range rdf:resource="http://mmt.inf.tu-dresden.de/crocoon/context-group.owl#Organization"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTimeZonePart">
+    <rdfs:domain rdf:resource="#GeographicRegion"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sub-non-political-regions that have different time zones and/or daylight saving time policies (e.g. two different time zone parts in Idaho County in Idaho State). (equivalent to timeZonePart of time zone ontology)</rdfs:comment>
+    <rdfs:range rdf:resource="#GeographicRegion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasParentRegion">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assigns the parent region, which is the direct ancestor region of some region (like a country being the parent of a state). Note: The meaning of the equally named property of the time zone ontology is slightly different because here a PoliticalRegion can have more than one parent region. This is especially useful for countries which are situated on more than one continent. Other PoliticalRegions are defined analogous to the time zone ontology (and thus have only one parent region).</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:TransitiveProperty rdf:about="#hasAncestorRegion"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#toSpatialLocation">
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="#SpatialLocation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the target of a distance description.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#dayLightSavingsStartDate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The date the region goes on daylight savings time. (equivalent to DLSstartDate of time zone ontology)</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#gmtOffset">
+    <rdfs:domain rdf:resource="#TimeZone"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The offset to the Greenwich Mean Time.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#observesDaylightSavingsTime">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True if the region goes on daylight savings time, false otherwise.</rdfs:comment>
+    <rdfs:domain rdf:resource="#GeographicRegion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#name">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The name of a SpatialLocation or time zone.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#dayLightSavingsEndDate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The date the region goes off daylight savings time. (equivalent to DLSendDate property of time zone ontology)</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:about="#hasAncestorRegion">
+    <rdfs:domain rdf:resource="#GeographicRegion"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes ancestor geographical regions of some region as seen on a map. For example a company complex has a city as direct ancestor region and the city has a county, which has a state and the state has a country as ancestor region. A country or mountains may have more than one ancestor region (like different continents or different countries for the latter).</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#GeographicRegion"/>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="#hasSpatialPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines spatial parts of a fixed structure or a space in a fixed structure, while the former can have other FixedStructures (e.g. a road has road segments as part) or SpaceInAFixedStructure as parts, the latter can only have parts which are of the same type.</rdfs:comment>
+  </owl:TransitiveProperty>
+  <owl:SymmetricProperty rdf:ID="hasNeighboringLocation">
+    <owl:inverseOf rdf:resource="#hasNeighboringLocation"/>
+    <rdfs:range rdf:resource="#SpatialLocation"/>
+    <rdfs:domain rdf:resource="#SpatialLocation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes a direct neighborhood between locations (they touch each other). This kind of relation is normally only usefull when defined for locations of same abstraction level (neighboring countries, atomic spaces in a fixed structure, buildings).</rdfs:comment>
+  </owl:SymmetricProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

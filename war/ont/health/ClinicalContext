@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.owl-ontologies.com/Ontology1254773129.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1254773129.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="PulseRate">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PhysiologicalData"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="age">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PersonalInfo"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Time_of_Day">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Environment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Assert">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Resource"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Humidity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Environment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Facility">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resource"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Device">
+    <rdfs:subClassOf rdf:resource="#Assert"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Medicine">
+    <rdfs:subClassOf rdf:resource="#Assert"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OperatingRoom">
+    <rdfs:subClassOf rdf:resource="#Facility"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Environment">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Patient"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Clinician"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Resource"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Activity"/>
+  <owl:Class rdf:ID="WorkLoad">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ward">
+    <rdfs:subClassOf rdf:resource="#Facility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StressLevel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Temperature">
+    <rdfs:subClassOf rdf:resource="#Environment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PhysiologicalData">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Load">
+    <rdfs:subClassOf rdf:resource="#Environment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MRI">
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ExperienceLevel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BloodPressure">
+    <rdfs:subClassOf rdf:resource="#PhysiologicalData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="People"/>
+  <owl:Class rdf:about="#PersonalInfo">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RespiratoryRate">
+    <rdfs:subClassOf rdf:resource="#PhysiologicalData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ECG">
+    <rdfs:subClassOf rdf:resource="#PhysiologicalData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MobilityState">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="UrgencyLevel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient">
+    <rdfs:subClassOf rdf:resource="#People"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Clinician"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Environment"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Resource"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="RadiologyRoom">
+    <rdfs:subClassOf rdf:resource="#Facility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ExpertiseArea">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BodyTemperature">
+    <rdfs:subClassOf rdf:resource="#PhysiologicalData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Clinician">
+    <owl:disjointWith rdf:resource="#Patient"/>
+    <owl:disjointWith rdf:resource="#Environment"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Resource"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#People"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Resource">
+    <owl:disjointWith rdf:resource="#Clinician"/>
+    <owl:disjointWith rdf:resource="#Environment"/>
+    <owl:disjointWith rdf:resource="#Patient"/>
+  </owl:Class>
+  <owl:Class rdf:ID="name">
+    <rdfs:subClassOf rdf:resource="#PersonalInfo"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Bed">
+    <rdfs:subClassOf rdf:resource="#Assert"/>
+  </owl:Class>
+  <owl:Class rdf:ID="X-ray">
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

@@ -1,0 +1,5092 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Equipment_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#"
+     xml:base="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Equipment_SH_Ontology="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:label>Equipment</rdfs:label>
+        <rdfs:label>&#201;quipement</rdfs:label>
+        <rdfs:comment
+            >Cette ontologie decrit tout &#233;quipement dont l&#39;Habitat Intelligent a besoin.</rdfs:comment>
+        <rdfs:comment
+            >This ontology describes any equipment which the Intelligent Habitat needs (or will need).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#hasFormat -->
+
+    <owl:ObjectProperty rdf:about="#hasFormat">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Format</rdfs:label>
+        <rdfs:comment
+            >A property created to be used with the ValuePartition - Format.</rdfs:comment>
+        <rdfs:comment
+            >Propri&#233;t&#233; cr&#233;&#233;e pour &#234;tre utilis&#233;e avec le patron Format.</rdfs:comment>
+        <rdfs:range rdf:resource="#Format"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Furniture_equipment"/>
+                    <rdf:Description rdf:about="#Houshold_equipment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#hasSensor -->
+
+    <owl:ObjectProperty rdf:about="#hasSensor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>has Senser</rdfs:label>
+        <rdfs:label>a un capteur</rdfs:label>
+        <rdfs:comment
+            >This property allows to know if the equipment has a sensor or not.</rdfs:comment>
+        <rdfs:comment
+            >Cette propri&#233;t&#233; permet de dire si un &#233;quipement dispose d&#39;un capteur ou non.</rdfs:comment>
+        <rdfs:range rdf:resource="#Sensor"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Furniture_equipment"/>
+                    <rdf:Description rdf:about="#Houshold_equipment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#hasSize -->
+
+    <owl:ObjectProperty rdf:about="#hasSize">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Grandeur</rdfs:label>
+        <rdfs:label>has Size</rdfs:label>
+        <rdfs:comment
+            >A property created to be used with the ValuePartition - Size.</rdfs:comment>
+        <rdfs:comment
+            >Propri&#233;t&#233; cr&#233;&#233;e pour &#234;tre utilis&#233;e avec le patron Taille (ou Grandeur).</rdfs:comment>
+        <rdfs:range rdf:resource="#Size"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Furniture_equipment"/>
+                    <rdf:Description rdf:about="#Houshold_equipment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#hasState -->
+
+    <owl:ObjectProperty rdf:about="#hasState"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#hasType -->
+
+    <owl:ObjectProperty rdf:about="#hasType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Type</rdfs:label>
+        <rdfs:label>has Type</rdfs:label>
+        <rdfs:comment
+            >A property created to be used with the ValuePartition - Sensor_type.</rdfs:comment>
+        <rdfs:comment
+            >Propri&#233;t&#233; cr&#233;&#233;e pour &#234;tre utilis&#233;e avec le patron Type de capteur (Sensor_type).</rdfs:comment>
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#Sensor_type"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="#isLocatedIn">
+        <rdfs:label>has Location</rdfs:label>
+        <rdfs:label>Emplacement</rdfs:label>
+        <rdfs:comment
+            >This property will allow to establish the link between the equipment and the parts where they are (or must be). That implies two ontologies: Equipment and Habitat.</rdfs:comment>
+        <rdfs:comment
+            >C&#39;est une propri&#233;t&#233; qui pemet de faire le lien entre les &#233;quipements et les pi&#232;ces o&#249; ils se trouvent (ou doivent se trouver).
+Cela implique deux ontologies : &#201;quipement et Habitat.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Equipment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#isMadeOf -->
+
+    <owl:ObjectProperty rdf:about="#isMadeOf">
+        <rdfs:label>is made of</rdfs:label>
+        <rdfs:label>Fabriqu&#233; en</rdfs:label>
+        <rdfs:comment
+            >Propri&#233;t&#233; cr&#233;&#233;e pour &#234;tre utilis&#233;e avec le patron Mati&#232;re.</rdfs:comment>
+        <rdfs:comment
+            >A property created to be used with the ValuePartition - Material.</rdfs:comment>
+        <rdfs:range rdf:resource="#Equipment_material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#putOn_In -->
+
+    <owl:ObjectProperty rdf:about="#putOn_In">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>est pose sur</rdfs:label>
+        <rdfs:label>put On</rdfs:label>
+        <rdfs:comment
+            >Cette propriete permet de faire le lien entre un equipement qui doit (ou 
+    peut) se trouver sur un autre.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#sensorSensitivity -->
+
+    <owl:ObjectProperty rdf:about="#sensorSensitivity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>Sensibilite</rdfs:label>
+        <rdfs:label>Sensitivity</rdfs:label>
+        <rdfs:comment
+            >Propri&#233;t&#233; cr&#233;&#233;e pour &#234;tre utilis&#233;e avec le patron Sensibilit&#233; du capteur.</rdfs:comment>
+        <rdfs:comment
+            >A property created to be used with the ValuePartition - Sensor_sensitivity</rdfs:comment>
+        <rdfs:domain rdf:resource="#Sensor"/>
+        <rdfs:range rdf:resource="#Sensor_sensitivity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Equipment_ID -->
+
+    <owl:DatatypeProperty rdf:about="#Equipment_ID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>ID Equipement</rdfs:label>
+        <rdfs:label>Equipment_ID</rdfs:label>
+        <rdfs:comment
+            >Sert a definir un identifiant de l&#39;equipement quelqu&#39;il soit.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Equipment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Equipment_designation -->
+
+    <owl:DatatypeProperty rdf:about="#Equipment_designation">
+        <rdfs:label>D&#233;signation</rdfs:label>
+        <rdfs:label>Designation</rdfs:label>
+        <rdfs:comment
+            >This property defines the wording of the equipment.</rdfs:comment>
+        <rdfs:comment
+            >Cette propri&#233;t&#233; d&#233;finit le libell&#233; de l&#39;&#233;quipement.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Equipment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#bodyTemperature -->
+
+    <owl:DatatypeProperty rdf:about="#bodyTemperature">
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Alarm -->
+
+    <owl:Class rdf:about="#Alarm">
+        <rdfs:subClassOf rdf:resource="#Telecommunications"/>
+        <owl:disjointWith rdf:resource="#Pager"/>
+        <owl:disjointWith rdf:resource="#Videophony"/>
+        <owl:disjointWith rdf:resource="#Wire_telephony"/>
+        <owl:disjointWith rdf:resource="#Wireless_telephony"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Apron -->
+
+    <owl:Class rdf:about="#Apron">
+        <rdfs:label>Apron</rdfs:label>
+        <rdfs:label>Tablier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_textile"/>
+        <owl:disjointWith rdf:resource="#Oven_mitt"/>
+        <owl:disjointWith rdf:resource="#Place_mat"/>
+        <owl:disjointWith rdf:resource="#Pot_holder"/>
+        <owl:disjointWith rdf:resource="#Tea_towel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Armchair -->
+
+    <owl:Class rdf:about="#Armchair">
+        <rdfs:label>Fauteuil</rdfs:label>
+        <rdfs:label>Armchair</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sofa_Armchair"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Sofa"/>
+        <rdfs:comment
+            >Doit normalement se trouver au salon ou dans la chambe a coucher.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bath_sheet -->
+
+    <owl:Class rdf:about="#Bath_sheet">
+        <rdfs:label>Bath sheet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_textile"/>
+        <owl:disjointWith rdf:resource="#Bath_towel"/>
+        <owl:disjointWith rdf:resource="#Bathroom_mat"/>
+        <owl:disjointWith rdf:resource="#Hand_towel"/>
+        <owl:disjointWith rdf:resource="#Shower_curtain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bath_towel -->
+
+    <owl:Class rdf:about="#Bath_towel">
+        <rdfs:label>Bath towel</rdfs:label>
+        <rdfs:label
+            >Serviette de bain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_textile"/>
+        <owl:disjointWith rdf:resource="#Bathroom_mat"/>
+        <owl:disjointWith rdf:resource="#Hand_towel"/>
+        <owl:disjointWith rdf:resource="#Shower_curtain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bathroom_furniture -->
+
+    <owl:Class rdf:about="#Bathroom_furniture">
+        <rdfs:label
+            >Bathroom furniture</rdfs:label>
+        <rdfs:label
+            >Equipement Salle de bain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Houshold_equipment"/>
+        <owl:disjointWith rdf:resource="#Cleaning_accessories"/>
+        <owl:disjointWith rdf:resource="#Curtain_blind"/>
+        <owl:disjointWith rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Household_crockery"/>
+        <owl:disjointWith rdf:resource="#Household_linen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bathroom_mat -->
+
+    <owl:Class rdf:about="#Bathroom_mat">
+        <rdfs:label
+            >Tapis de salle de bain</rdfs:label>
+        <rdfs:label>Bathroom mat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_textile"/>
+        <owl:disjointWith rdf:resource="#Hand_towel"/>
+        <owl:disjointWith rdf:resource="#Shower_curtain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bathroom_textile -->
+
+    <owl:Class rdf:about="#Bathroom_textile">
+        <rdfs:label
+            >Necessaire de bain</rdfs:label>
+        <rdfs:label
+            >Bathroom textile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_linen"/>
+        <owl:disjointWith rdf:resource="#Bed_textile"/>
+        <owl:disjointWith rdf:resource="#Kitchen_textile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bed -->
+
+    <owl:Class rdf:about="#Bed">
+        <rdfs:label>Bed</rdfs:label>
+        <rdfs:label>Lit</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasSize"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Double"/>
+                                    <rdf:Description rdf:about="#Queen"/>
+                                    <rdf:Description rdf:about="#King"/>
+                                    <rdf:Description rdf:about="#Single"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMadeOf"/>
+                        <owl:hasValue rdf:resource="#Wood"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Bin"/>
+        <owl:disjointWith rdf:resource="#Chair"/>
+        <owl:disjointWith rdf:resource="#Desk"/>
+        <owl:disjointWith rdf:resource="#Lamp"/>
+        <owl:disjointWith rdf:resource="#Matress"/>
+        <owl:disjointWith rdf:resource="#Media_furniture"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+        <rdfs:comment
+            >Cette classe donne une description du lit qui se trouve dans la chambre &#224; coucher. Sa grandeur ainsi que sa mati&#232;re de fabrication sont importantes &#224; savoir. En plus, cela permettra de savoir si un capteur y est install&#233; ou non.</rdfs:comment>
+        <rdfs:comment
+            >This class gives describes the bed which is in the bedroom. Its size as its matter of manufacture, amongst other, are important to know. Moreover, that will allow to know if a sensor is installed there or not.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bed_sheet -->
+
+    <owl:Class rdf:about="#Bed_sheet">
+        <rdfs:label>Drap</rdfs:label>
+        <rdfs:label>Bed sheet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bedclothes"/>
+        <owl:disjointWith rdf:resource="#Bed_valance"/>
+        <owl:disjointWith rdf:resource="#Bedsock"/>
+        <owl:disjointWith rdf:resource="#Bedspread"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bed_textile -->
+
+    <owl:Class rdf:about="#Bed_textile">
+        <rdfs:label>Bed textile</rdfs:label>
+        <rdfs:label
+            >Necessaire Chambre a coucher</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_linen"/>
+        <owl:disjointWith rdf:resource="#Kitchen_textile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bed_valance -->
+
+    <owl:Class rdf:about="#Bed_valance">
+        <rdfs:label>Jupon de Lit</rdfs:label>
+        <rdfs:label>Bed valance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bedclothes"/>
+        <owl:disjointWith rdf:resource="#Bedsock"/>
+        <owl:disjointWith rdf:resource="#Bedspread"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bedclothes -->
+
+    <owl:Class rdf:about="#Bedclothes">
+        <rdfs:label>Bedclothes</rdfs:label>
+        <rdfs:label
+            >Draps et couvertures</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cover"/>
+        <owl:disjointWith rdf:resource="#Cushion_cover"/>
+        <owl:disjointWith rdf:resource="#Pillowcase"/>
+        <owl:disjointWith rdf:resource="#Quilt_cover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bedside_lamp -->
+
+    <owl:Class rdf:about="#Bedside_lamp">
+        <rdfs:label>Lampe de chevet</rdfs:label>
+        <rdfs:label>Bedside lamp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#putOn_In"/>
+                <owl:allValuesFrom rdf:resource="#Bedside_table"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Boudoir_lamp"/>
+        <owl:disjointWith rdf:resource="#Chandelier"/>
+        <owl:disjointWith rdf:resource="#Desk_lamp"/>
+        <owl:disjointWith rdf:resource="#Floor_lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bedside_table -->
+
+    <owl:Class rdf:about="#Bedside_table">
+        <rdfs:label>Bedside table</rdfs:label>
+        <rdfs:label>Table de chevet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Table"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Coffee_Table"/>
+        <owl:disjointWith rdf:resource="#Dining_table"/>
+        <owl:disjointWith rdf:resource="#Folding_table"/>
+        <owl:disjointWith rdf:resource="#Side_table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bedsock -->
+
+    <owl:Class rdf:about="#Bedsock">
+        <rdfs:label>Bedsock</rdfs:label>
+        <rdfs:label
+            >Chaussette de Lit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bedclothes"/>
+        <owl:disjointWith rdf:resource="#Bedspread"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bedspread -->
+
+    <owl:Class rdf:about="#Bedspread">
+        <rdfs:label>Bedspread</rdfs:label>
+        <rdfs:label>Couvre Lit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bedclothes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bin -->
+
+    <owl:Class rdf:about="#Bin">
+        <rdfs:label>Bin</rdfs:label>
+        <rdfs:label>Poubelle</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasSize"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Small"/>
+                                    <rdf:Description rdf:about="#Medium"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMadeOf"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Plastic"/>
+                                    <rdf:Description rdf:about="#Melamine"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Chair"/>
+        <owl:disjointWith rdf:resource="#Desk"/>
+        <owl:disjointWith rdf:resource="#Lamp"/>
+        <owl:disjointWith rdf:resource="#Matress"/>
+        <owl:disjointWith rdf:resource="#Media_furniture"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+        <rdfs:comment
+            >Cette classe d&#233;crit les poubelles n&#233;cesaires au logement. On peut en trouver dans la salle de bain (g&#233;n&#233;ralement de petite taille) et dans la cuisine (petite ou moyenne).</rdfs:comment>
+        <rdfs:comment
+            >This class describes the dustbins n&#233;cesaires with housing. One can find some in the bathroom (generally of small size) and in the kitchen (Small or Medium).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Blender -->
+
+    <owl:Class rdf:about="#Blender">
+        <rdfs:label>Mixeur</rdfs:label>
+        <rdfs:label>Blender</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Can_opener"/>
+        <owl:disjointWith rdf:resource="#Coffee_maker"/>
+        <owl:disjointWith rdf:resource="#Deep_fryer"/>
+        <owl:disjointWith rdf:resource="#Dishwasher"/>
+        <owl:disjointWith rdf:resource="#Fan_filter"/>
+        <owl:disjointWith rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Blind -->
+
+    <owl:Class rdf:about="#Blind">
+        <rdfs:label>Store</rdfs:label>
+        <rdfs:label>Blind</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Curtain_blind"/>
+        <owl:disjointWith rdf:resource="#Curtain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Blood_pressure_sensor -->
+
+    <owl:Class rdf:about="#Blood_pressure_sensor">
+        <rdfs:label
+            >Capteur de pression arterielle</rdfs:label>
+        <rdfs:label
+            >Blood pressure sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Patient_parameters_sensors"/>
+        <owl:disjointWith rdf:resource="#Body_temperature_detector"/>
+        <owl:disjointWith rdf:resource="#Fall_detector"/>
+        <owl:disjointWith rdf:resource="#Motion_detector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Body_temperature_detector -->
+
+    <owl:Class rdf:about="#Body_temperature_detector">
+        <rdfs:label
+            >Temperature du Patient</rdfs:label>
+        <rdfs:label
+            >Patient temperature</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Patient_parameters_sensors"/>
+        <owl:disjointWith rdf:resource="#Fall_detector"/>
+        <owl:disjointWith rdf:resource="#Motion_detector"/>
+        <rdfs:comment
+            >Cette classe concerne les capteurs permettant de mesurer la temperature que peut avoir le patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bookcase -->
+
+    <owl:Class rdf:about="#Bookcase">
+        <rdfs:label>Bibliotheque</rdfs:label>
+        <rdfs:label>Bookcase</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Storage"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#High"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Cabinet"/>
+        <owl:disjointWith rdf:resource="#Shoe_cabinet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Boolean_Sensor_States -->
+
+    <owl:Class rdf:about="#Boolean_Sensor_States">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#True"/>
+                    <rdf:Description rdf:about="#False"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bottle_opener -->
+
+    <owl:Class rdf:about="#Bottle_opener">
+        <rdfs:label>Bottle opener</rdfs:label>
+        <rdfs:label
+            >Ouvre-bouteilles</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <owl:disjointWith rdf:resource="#Breadknife"/>
+        <owl:disjointWith rdf:resource="#Cheese_knife"/>
+        <owl:disjointWith rdf:resource="#Kitchen_knife"/>
+        <owl:disjointWith rdf:resource="#Kitchen_spoon"/>
+        <owl:disjointWith rdf:resource="#Meat_knife"/>
+        <owl:disjointWith rdf:resource="#Pepper_pot"/>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Boudoir_lamp -->
+
+    <owl:Class rdf:about="#Boudoir_lamp">
+        <rdfs:label
+            >Lampe de Boudoir</rdfs:label>
+        <rdfs:label>Boudoir lamp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#putOn_In"/>
+                <owl:someValuesFrom rdf:resource="#Side_table"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Chandelier"/>
+        <owl:disjointWith rdf:resource="#Desk_lamp"/>
+        <owl:disjointWith rdf:resource="#Floor_lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Bowl -->
+
+    <owl:Class rdf:about="#Bowl">
+        <rdfs:label>Bowl</rdfs:label>
+        <rdfs:label>Bol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Crockery"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFormat"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Round"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Cookset"/>
+        <owl:disjointWith rdf:resource="#Plate"/>
+        <owl:disjointWith rdf:resource="#Tumbler"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Breadknife -->
+
+    <owl:Class rdf:about="#Breadknife">
+        <rdfs:label>Breadknife</rdfs:label>
+        <rdfs:label>Couteau a pain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Cheese_knife"/>
+        <owl:disjointWith rdf:resource="#Kitchen_knife"/>
+        <owl:disjointWith rdf:resource="#Kitchen_spoon"/>
+        <owl:disjointWith rdf:resource="#Meat_knife"/>
+        <owl:disjointWith rdf:resource="#Pepper_pot"/>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Breath_remedy -->
+
+    <owl:Class rdf:about="#Breath_remedy">
+        <rdfs:label>Breath Rremedy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Butler_gum"/>
+        <owl:disjointWith rdf:resource="#Colgate"/>
+        <owl:disjointWith rdf:resource="#Crest"/>
+        <owl:disjointWith rdf:resource="#Dentek"/>
+        <owl:disjointWith rdf:resource="#Glide"/>
+        <owl:disjointWith rdf:resource="#Mentadent"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Broom -->
+
+    <owl:Class rdf:about="#Broom">
+        <rdfs:label>Broom</rdfs:label>
+        <rdfs:label>Balai</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cleaning_accessories"/>
+        <owl:disjointWith rdf:resource="#Carpet_sweeper"/>
+        <owl:disjointWith rdf:resource="#Floorcloth"/>
+        <owl:disjointWith rdf:resource="#Squeegee"/>
+        <owl:disjointWith rdf:resource="#Toilet_brush_holder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Buffet -->
+
+    <owl:Class rdf:about="#Buffet">
+        <rdfs:label>Buffet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cabinet"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Kitchen_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wardrobe"/>
+        <rdfs:comment
+            >Armoire plus large que haute et qu&#39;on peut trouver dans la cuisine, la salle a manger, ou meme a l&#39;entree,  etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Butler_gum -->
+
+    <owl:Class rdf:about="#Butler_gum">
+        <rdfs:label>Butler Gum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Colgate"/>
+        <owl:disjointWith rdf:resource="#Crest"/>
+        <owl:disjointWith rdf:resource="#Dentek"/>
+        <owl:disjointWith rdf:resource="#Glide"/>
+        <owl:disjointWith rdf:resource="#Mentadent"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cabinet -->
+
+    <owl:Class rdf:about="#Cabinet">
+        <rdfs:label>Cabinet</rdfs:label>
+        <rdfs:label>Armoire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Shoe_cabinet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Camera -->
+
+    <owl:Class rdf:about="#Camera">
+        <rdfs:subClassOf rdf:resource="#Telecommunications"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Can_opener -->
+
+    <owl:Class rdf:about="#Can_opener">
+        <rdfs:label>Can opener</rdfs:label>
+        <rdfs:label>Ouvre-boites</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Coffee_maker"/>
+        <owl:disjointWith rdf:resource="#Deep_fryer"/>
+        <owl:disjointWith rdf:resource="#Dishwasher"/>
+        <owl:disjointWith rdf:resource="#Fan_filter"/>
+        <owl:disjointWith rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Carpet_sweeper -->
+
+    <owl:Class rdf:about="#Carpet_sweeper">
+        <rdfs:label>Balai mecanique</rdfs:label>
+        <rdfs:label>Carpet sweeper</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cleaning_accessories"/>
+        <owl:disjointWith rdf:resource="#Floorcloth"/>
+        <owl:disjointWith rdf:resource="#Squeegee"/>
+        <owl:disjointWith rdf:resource="#Toilet_brush_holder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Chair -->
+
+    <owl:Class rdf:about="#Chair">
+        <rdfs:label>Chaise</rdfs:label>
+        <rdfs:label>Chair</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Folding_chair"/>
+                            <rdf:Description rdf:about="#Rocking_chair"/>
+                            <rdf:Description rdf:about="#Simple_chair"/>
+                            <rdf:Description rdf:about="#Swivelchair"/>
+                            <rdf:Description rdf:about="#Wheelchair"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMadeOf"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Desk"/>
+        <owl:disjointWith rdf:resource="#Lamp"/>
+        <owl:disjointWith rdf:resource="#Matress"/>
+        <owl:disjointWith rdf:resource="#Media_furniture"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Chandelier -->
+
+    <owl:Class rdf:about="#Chandelier">
+        <rdfs:label>Chandelier</rdfs:label>
+        <rdfs:label>Lustre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+        <owl:disjointWith rdf:resource="#Desk_lamp"/>
+        <owl:disjointWith rdf:resource="#Floor_lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cheese_knife -->
+
+    <owl:Class rdf:about="#Cheese_knife">
+        <rdfs:label
+            >Couteau a fromage</rdfs:label>
+        <rdfs:label>Cheese knife</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Kitchen_knife"/>
+        <owl:disjointWith rdf:resource="#Kitchen_spoon"/>
+        <owl:disjointWith rdf:resource="#Meat_knife"/>
+        <owl:disjointWith rdf:resource="#Pepper_pot"/>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cleaning_accessories -->
+
+    <owl:Class rdf:about="#Cleaning_accessories">
+        <rdfs:label
+            >Cleaning accessories</rdfs:label>
+        <rdfs:label
+            >Accessoires de Nettoyage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Houshold_equipment"/>
+        <owl:disjointWith rdf:resource="#Curtain_blind"/>
+        <owl:disjointWith rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Household_crockery"/>
+        <owl:disjointWith rdf:resource="#Household_linen"/>
+        <rdfs:comment
+            >Cette classe decrit tout ce dont on peut se servir pour nettoyer le logement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Clothes_drier -->
+
+    <owl:Class rdf:about="#Clothes_drier">
+        <rdfs:label>Secheuse</rdfs:label>
+        <rdfs:label>Clothes drier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dryer"/>
+        <owl:disjointWith rdf:resource="#Hair_drier"/>
+        <owl:disjointWith rdf:resource="#Hand_drier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Coffee_Table -->
+
+    <owl:Class rdf:about="#Coffee_Table">
+        <rdfs:label>Table de salon</rdfs:label>
+        <rdfs:label>Coffee table</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Table"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Dining_table"/>
+        <owl:disjointWith rdf:resource="#Folding_table"/>
+        <owl:disjointWith rdf:resource="#Side_table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Coffee_cup -->
+
+    <owl:Class rdf:about="#Coffee_cup">
+        <rdfs:label>Tasse a cafe</rdfs:label>
+        <rdfs:label>Coffee cup</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cup"/>
+        <owl:disjointWith rdf:resource="#Tea_cup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Coffee_maker -->
+
+    <owl:Class rdf:about="#Coffee_maker">
+        <rdfs:label>Coffee machine</rdfs:label>
+        <rdfs:label>Cafetiere</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Deep_fryer"/>
+        <owl:disjointWith rdf:resource="#Dishwasher"/>
+        <owl:disjointWith rdf:resource="#Fan_filter"/>
+        <owl:disjointWith rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#ColdWater_faucet -->
+
+    <owl:Class rdf:about="#ColdWater_faucet">
+        <rdfs:label
+            >Cold WaterFaucet</rdfs:label>
+        <rdfs:label
+            >Robinet pour Eau Froide</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Faucet"/>
+        <owl:disjointWith rdf:resource="#HotWater_faucet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Colgate -->
+
+    <owl:Class rdf:about="#Colgate">
+        <rdfs:label>Colgate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Crest"/>
+        <owl:disjointWith rdf:resource="#Dentek"/>
+        <owl:disjointWith rdf:resource="#Glide"/>
+        <owl:disjointWith rdf:resource="#Mentadent"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Combined_ElectricGasStove -->
+
+    <owl:Class rdf:about="#Combined_ElectricGasStove">
+        <rdfs:label
+            >Combined Electric-Gas Stove</rdfs:label>
+        <rdfs:label>Cuisiniee mixte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Electric_stove"/>
+        <owl:disjointWith rdf:resource="#Gas_stove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Communication_system -->
+
+    <owl:Class rdf:about="#Communication_system">
+        <rdfs:subClassOf rdf:resource="#Technical_equipment"/>
+        <owl:disjointWith rdf:resource="#Computing_hardware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Computing_hardware -->
+
+    <owl:Class rdf:about="#Computing_hardware">
+        <rdfs:label
+            >Materiel Informatique</rdfs:label>
+        <rdfs:label
+            >Computing hardware</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Technical_equipment"/>
+        <rdfs:comment
+            >Cette classe permet de decrire les differents systemes informatiques (materiel ou ordinateur) utilises dans le cadre du systeme d&#39;Habitat Intelligents en Telesante. Cela interesse principalement l&#39;aspect interne de l&#39;habitat.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cookset -->
+
+    <owl:Class rdf:about="#Cookset">
+        <rdfs:label>Cookset</rdfs:label>
+        <rdfs:label
+            >Batterie de cuisine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Crockery"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFormat"/>
+                <owl:hasValue rdf:resource="#Round"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Plate"/>
+        <owl:disjointWith rdf:resource="#Tumbler"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Corner_desk -->
+
+    <owl:Class rdf:about="#Corner_desk">
+        <rdfs:label>Corner desk</rdfs:label>
+        <rdfs:label>Bureau de coin</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Desk"/>
+        <owl:disjointWith rdf:resource="#Simple_desk"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Corner_sofa -->
+
+    <owl:Class rdf:about="#Corner_sofa">
+        <rdfs:label>Sofa de coin</rdfs:label>
+        <rdfs:label>Corner sofa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sofa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Sofa_bed"/>
+        <owl:disjointWith rdf:resource="#Three_seater_sofa"/>
+        <owl:disjointWith rdf:resource="#Two_seater_sofa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cover -->
+
+    <owl:Class rdf:about="#Cover">
+        <rdfs:label>Cover</rdfs:label>
+        <rdfs:label>Couverture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bed_textile"/>
+        <owl:disjointWith rdf:resource="#Cushion"/>
+        <owl:disjointWith rdf:resource="#Pillow"/>
+        <owl:disjointWith rdf:resource="#Quilt"/>
+        <rdfs:comment
+            >Cette classe contient toutes les couvertures qui peuvent servir au lit et accessoires.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Crest -->
+
+    <owl:Class rdf:about="#Crest">
+        <rdfs:label>Crest</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Dentek"/>
+        <owl:disjointWith rdf:resource="#Glide"/>
+        <owl:disjointWith rdf:resource="#Mentadent"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Crockery -->
+
+    <owl:Class rdf:about="#Crockery">
+        <rdfs:label>Vaisselle</rdfs:label>
+        <rdfs:label>Crockery</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_crockery"/>
+        <owl:disjointWith rdf:resource="#Kitchen_ustensil"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cup -->
+
+    <owl:Class rdf:about="#Cup">
+        <rdfs:label>Cup</rdfs:label>
+        <rdfs:label>Tasse</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Tumbler"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Glass_matter"/>
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Paper_matter"/>
+                            <rdf:Description rdf:about="#Porcelain"/>
+                            <rdf:Description rdf:about="#Melamine"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Glass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Curtain -->
+
+    <owl:Class rdf:about="#Curtain">
+        <rdfs:label>Curtain</rdfs:label>
+        <rdfs:label>Rideau</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Curtain_blind"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Curtain_blind -->
+
+    <owl:Class rdf:about="#Curtain_blind">
+        <rdfs:label
+            >Rideaux et stores</rdfs:label>
+        <rdfs:label>Curtain blind</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Houshold_equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Household_crockery"/>
+        <owl:disjointWith rdf:resource="#Household_linen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cushion -->
+
+    <owl:Class rdf:about="#Cushion">
+        <rdfs:label>Coussin</rdfs:label>
+        <rdfs:label>Cushion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bed_textile"/>
+        <owl:disjointWith rdf:resource="#Pillow"/>
+        <owl:disjointWith rdf:resource="#Quilt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cushion_cover -->
+
+    <owl:Class rdf:about="#Cushion_cover">
+        <rdfs:label>Cushion cover</rdfs:label>
+        <rdfs:label>Taie de coussin</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cover"/>
+        <owl:disjointWith rdf:resource="#Pillowcase"/>
+        <owl:disjointWith rdf:resource="#Quilt_cover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cutlery -->
+
+    <owl:Class rdf:about="#Cutlery">
+        <rdfs:label>Couvert</rdfs:label>
+        <rdfs:label>Cutlery</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_ustensil"/>
+        <owl:disjointWith rdf:resource="#Ustensil_accessories"/>
+        <rdfs:comment
+            >Cette classe decrit les differents accessoires (couteaux, cuilleres et fourchettes) devant servir a manger.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#DVD_player -->
+
+    <owl:Class rdf:about="#DVD_player">
+        <rdfs:label>DVD Player</rdfs:label>
+        <rdfs:label>Lecteur DVD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Media_player"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#putOn_In"/>
+                <owl:allValuesFrom rdf:resource="#media_cabinet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Television"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Deep_fryer -->
+
+    <owl:Class rdf:about="#Deep_fryer">
+        <rdfs:label>Deep Fryer</rdfs:label>
+        <rdfs:label>Friteuse</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Dishwasher"/>
+        <owl:disjointWith rdf:resource="#Fan_filter"/>
+        <owl:disjointWith rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Dentek -->
+
+    <owl:Class rdf:about="#Dentek">
+        <rdfs:label>Dentek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Glide"/>
+        <owl:disjointWith rdf:resource="#Mentadent"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Desk -->
+
+    <owl:Class rdf:about="#Desk">
+        <rdfs:label>Bureau</rdfs:label>
+        <rdfs:label>Desk</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Corner_desk"/>
+                            <rdf:Description rdf:about="#Simple_desk"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isMadeOf"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Lamp"/>
+        <owl:disjointWith rdf:resource="#Matress"/>
+        <owl:disjointWith rdf:resource="#Media_furniture"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Desk_lamp -->
+
+    <owl:Class rdf:about="#Desk_lamp">
+        <rdfs:label>Lampe de bureau</rdfs:label>
+        <rdfs:label>Desk lamp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#putOn_In"/>
+                <owl:allValuesFrom rdf:resource="#Desk"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Floor_lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Desktop_computer -->
+
+    <owl:Class rdf:about="#Desktop_computer">
+        <rdfs:label
+            >Ordinateur de bureau</rdfs:label>
+        <rdfs:label
+            >Desktop_computer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computing_hardware"/>
+        <owl:disjointWith rdf:resource="#Display_unit"/>
+        <owl:disjointWith rdf:resource="#Lame_PC"/>
+        <owl:disjointWith rdf:resource="#Laptop"/>
+        <owl:disjointWith rdf:resource="#Personal_Digital_Assistant"/>
+        <owl:disjointWith rdf:resource="#Tablet_PC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Dessert_plate -->
+
+    <owl:Class rdf:about="#Dessert_plate">
+        <rdfs:label
+            >Assiette a dessert</rdfs:label>
+        <rdfs:label>Dessert plate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Plate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Dinner_plate"/>
+        <owl:disjointWith rdf:resource="#Saucer"/>
+        <owl:disjointWith rdf:resource="#Soup_plate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Dining_table -->
+
+    <owl:Class rdf:about="#Dining_table">
+        <rdfs:label>Dining table</rdfs:label>
+        <rdfs:label>Table a manger</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Table"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Folding_table"/>
+        <owl:disjointWith rdf:resource="#Side_table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Dinner_plate -->
+
+    <owl:Class rdf:about="#Dinner_plate">
+        <rdfs:label>Assiette plate</rdfs:label>
+        <rdfs:label>Dinner plate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Plate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Saucer"/>
+        <owl:disjointWith rdf:resource="#Soup_plate"/>
+        <rdfs:comment
+            >Decrit les assiettes plates.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Dishwasher -->
+
+    <owl:Class rdf:about="#Dishwasher">
+        <rdfs:label>Dishwasher</rdfs:label>
+        <rdfs:label>Lave-vaisselle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Fan_filter"/>
+        <owl:disjointWith rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Display_unit -->
+
+    <owl:Class rdf:about="#Display_unit">
+        <rdfs:label>Display unit</rdfs:label>
+        <rdfs:label
+            >Console d&#39;affichage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computing_hardware"/>
+        <owl:disjointWith rdf:resource="#Lame_PC"/>
+        <owl:disjointWith rdf:resource="#Laptop"/>
+        <owl:disjointWith rdf:resource="#Personal_Digital_Assistant"/>
+        <owl:disjointWith rdf:resource="#Tablet_PC"/>
+        <rdfs:comment
+            >Generalement, la console d&#39;affichage peut servir a afficher des messages comme elle peut aussi servir de moyen de reponse (console tactile).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Door -->
+
+    <owl:Class rdf:about="#Door">
+        <rdfs:subClassOf rdf:resource="#Opening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Dryer -->
+
+    <owl:Class rdf:about="#Dryer">
+        <rdfs:label>Dryer</rdfs:label>
+        <rdfs:label>Sechoir</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Media_player"/>
+        <owl:disjointWith rdf:resource="#Vacuum_cleaner"/>
+        <owl:disjointWith rdf:resource="#Washing_machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Electric_oven -->
+
+    <owl:Class rdf:about="#Electric_oven">
+        <rdfs:label>Four electrique</rdfs:label>
+        <rdfs:label>Electric oven</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Gas_oven"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Electric_stove -->
+
+    <owl:Class rdf:about="#Electric_stove">
+        <rdfs:label>Electric stove</rdfs:label>
+        <rdfs:label
+            >Cuisiniere electrique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Gas_stove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Environment_parameters_sensors -->
+
+    <owl:Class rdf:about="#Environment_parameters_sensors">
+        <rdfs:label
+            >Capteurs des parametres de l&#39;environnement</rdfs:label>
+        <rdfs:label
+            >Envirnment parameters sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <owl:disjointWith rdf:resource="#Force_sensitive_sensor"/>
+        <owl:disjointWith rdf:resource="#Patient_parameters_sensors"/>
+        <rdfs:comment
+            >Dans cette classe, on retrouve tous les capteurs dont le role est de prendre en charge tous les parametres concernant l&#39;environnement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Environment_temperature -->
+
+    <owl:Class rdf:about="#Environment_temperature">
+        <rdfs:label>Ambience sensor</rdfs:label>
+        <rdfs:label
+            >Capteur d&#39;ambiance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Temperature_sensor"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Decrit les differents capteurs qui peuvent mesurer la temperature d&#39;une piece.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Equipment -->
+
+    <owl:Class rdf:about="#Equipment">
+        <rdfs:label>Equipment</rdfs:label>
+        <rdfs:label>Equipement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Equipment_ID"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Equipment_designation"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#EquipmentValuePartition -->
+
+    <owl:Class rdf:about="#EquipmentValuePartition">
+        <rdfs:label>Patterns</rdfs:label>
+        <rdfs:label>Patrons</rdfs:label>
+        <rdfs:comment
+            >A ValuePartition is a pattern that describes a restricted set of classes from which a property can be associated. The parent class is used in restrictions, and the covering axiom means that only members of the subclasses may be used as values. The possible subclasses cannot be extended without updating the ValuePartition class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Equipment_material -->
+
+    <owl:Class rdf:about="#Equipment_material">
+        <rdfs:label>Patrons Matiere</rdfs:label>
+        <rdfs:label
+            >Matter Value Partition</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Silicone"/>
+                    <rdf:Description rdf:about="#Silver"/>
+                    <rdf:Description rdf:about="#Iron"/>
+                    <rdf:Description rdf:about="#Glass_matter"/>
+                    <rdf:Description rdf:about="#Stainless_steel"/>
+                    <rdf:Description rdf:about="#Aluminum"/>
+                    <rdf:Description rdf:about="#Cast_iron"/>
+                    <rdf:Description rdf:about="#Gold_plated"/>
+                    <rdf:Description rdf:about="#Wood"/>
+                    <rdf:Description rdf:about="#Plastic"/>
+                    <rdf:Description rdf:about="#Paper_matter"/>
+                    <rdf:Description rdf:about="#Porcelain"/>
+                    <rdf:Description rdf:about="#Melamine"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <owl:disjointWith rdf:resource="#Format"/>
+        <owl:disjointWith rdf:resource="#Sensor_activity"/>
+        <owl:disjointWith rdf:resource="#Sensor_sensitivity"/>
+        <owl:disjointWith rdf:resource="#Sensor_state"/>
+        <owl:disjointWith rdf:resource="#Sensor_type"/>
+        <owl:disjointWith rdf:resource="#Size"/>
+        <rdfs:comment
+            >A ValuePartition that describes only values from Equipment material, like Plastic, Glass, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Fall_detector -->
+
+    <owl:Class rdf:about="#Fall_detector">
+        <rdfs:subClassOf rdf:resource="#Patient_parameters_sensors"/>
+        <owl:disjointWith rdf:resource="#Motion_detector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Fan_filter -->
+
+    <owl:Class rdf:about="#Fan_filter">
+        <rdfs:label
+            >Ventilateur filtre</rdfs:label>
+        <rdfs:label>Fan filter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+        <rdfs:comment
+            >Decrit le(s) Ventilateur(s) filtre(s) qu&#39;on peut trouver dans la cuisine d&#39;un logement dans le cadre de l&#39;Habitat Intelligent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Faucet -->
+
+    <owl:Class rdf:about="#Faucet">
+        <rdfs:label>Faucet</rdfs:label>
+        <rdfs:label>Robinet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#Scales"/>
+        <owl:disjointWith rdf:resource="#Shower_caddy"/>
+        <owl:disjointWith rdf:resource="#Soap_dish"/>
+        <owl:disjointWith rdf:resource="#Stool"/>
+        <owl:disjointWith rdf:resource="#ToothPaste"/>
+        <owl:disjointWith rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Faucet_Sensor -->
+
+    <owl:Class rdf:about="#Faucet_Sensor">
+        <rdfs:subClassOf rdf:resource="#Force_sensitive_sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Faucet_Sensor_States"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Faucet_Sensor_States -->
+
+    <owl:Class rdf:about="#Faucet_Sensor_States">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Hot"/>
+                    <rdf:Description rdf:about="#Off"/>
+                    <rdf:Description rdf:about="#Both"/>
+                    <rdf:Description rdf:about="#Cold"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Floor_lamp -->
+
+    <owl:Class rdf:about="#Floor_lamp">
+        <rdfs:label>Lampadaire</rdfs:label>
+        <rdfs:label>Floor lamp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Lamp"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Floorcloth -->
+
+    <owl:Class rdf:about="#Floorcloth">
+        <rdfs:label>Floorcloth</rdfs:label>
+        <rdfs:label>Serpilliere</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cleaning_accessories"/>
+        <owl:disjointWith rdf:resource="#Squeegee"/>
+        <owl:disjointWith rdf:resource="#Toilet_brush_holder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Folding_chair -->
+
+    <owl:Class rdf:about="#Folding_chair">
+        <rdfs:label>Folding chair</rdfs:label>
+        <rdfs:label>Chaise pliante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Rocking_chair"/>
+        <owl:disjointWith rdf:resource="#Simple_chair"/>
+        <owl:disjointWith rdf:resource="#Swivelchair"/>
+        <owl:disjointWith rdf:resource="#Wheelchair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Folding_table -->
+
+    <owl:Class rdf:about="#Folding_table">
+        <rdfs:label>Folding table</rdfs:label>
+        <rdfs:label>Table pliante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Table"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Side_table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Food_temperature -->
+
+    <owl:Class rdf:about="#Food_temperature">
+        <rdfs:label
+            >Food temperature</rdfs:label>
+        <rdfs:label
+            >Temperature de nourriture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Temperature_sensor"/>
+        <rdfs:comment
+            >Cette classe decrit les differents capteurs de la temperature de la nourriture.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Force_sensitive_sensor -->
+
+    <owl:Class rdf:about="#Force_sensitive_sensor">
+        <rdfs:label
+            >Force sensitive sensor</rdfs:label>
+        <rdfs:label
+            >Capteur sensible a la pression</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <owl:disjointWith rdf:resource="#Patient_parameters_sensors"/>
+        <rdfs:comment
+            >Cette classe permet de decrire les capteurs qui permettent d&#39;avoir les mesures de poids, pression, ecrasement et appui. Leur resistance varie en fonction de la pression qu&#39;on exerce sur la zone sensible d&#39;ou le libelle Force Sensitive Resistor (FSR).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Fork -->
+
+    <owl:Class rdf:about="#Fork">
+        <rdfs:label>Fork</rdfs:label>
+        <rdfs:label>Fourchette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cutlery"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Knife"/>
+        <owl:disjointWith rdf:resource="#Spoon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Format -->
+
+    <owl:Class rdf:about="#Format">
+        <rdfs:label
+            >Partition des Formats</rdfs:label>
+        <rdfs:label
+            >Format Value Partition</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Oval"/>
+                    <rdf:Description rdf:about="#Square"/>
+                    <rdf:Description rdf:about="#Round"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <owl:disjointWith rdf:resource="#Sensor_activity"/>
+        <owl:disjointWith rdf:resource="#Sensor_sensitivity"/>
+        <owl:disjointWith rdf:resource="#Sensor_state"/>
+        <owl:disjointWith rdf:resource="#Sensor_type"/>
+        <owl:disjointWith rdf:resource="#Size"/>
+        <rdfs:comment
+            >A ValuePartition that describes only values from Double, Queen, King, Single, Large, Medium or Small. NB Subclasses can themselves be divided up into further partitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Freezer -->
+
+    <owl:Class rdf:about="#Freezer">
+        <rdfs:label>Freezer</rdfs:label>
+        <rdfs:label>Congelateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Fridge"/>
+        <owl:disjointWith rdf:resource="#Refrigerator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Fridge -->
+
+    <owl:Class rdf:about="#Fridge">
+        <rdfs:label>Fridge</rdfs:label>
+        <rdfs:label>Frigidaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Microware_oven"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+        <rdfs:comment
+            >Cette classe decrit les appareils utilises pour la refrigeration de la nourriture. Elle peut inclure les refrigerateurs, les congelateurs ou les deux combines.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Frying_pan -->
+
+    <owl:Class rdf:about="#Frying_pan">
+        <rdfs:label>Frying pan</rdfs:label>
+        <rdfs:label>Poele</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cookset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Stainless_steel"/>
+                            <rdf:Description rdf:about="#Aluminum"/>
+                            <rdf:Description rdf:about="#Cast_iron"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Pressure_cooker"/>
+        <owl:disjointWith rdf:resource="#Saucepan"/>
+        <owl:disjointWith rdf:resource="#Stewpot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Furniture_equipment -->
+
+    <owl:Class rdf:about="#Furniture_equipment">
+        <rdfs:label>Furniture</rdfs:label>
+        <rdfs:label>Mobilier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSensor"/>
+                <owl:allValuesFrom rdf:resource="#Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Houshold_equipment"/>
+        <owl:disjointWith rdf:resource="#Technical_equipment"/>
+        <rdfs:comment
+            >This class describes all the furniture of the Habitat.</rdfs:comment>
+        <rdfs:comment
+            >Classe d&#233;crivant le mobilier de l&#39;Habitat.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GPP_Replacement_Compact_HeadClass -->
+
+    <owl:Class rdf:about="#GPP_Replacement_Compact_HeadClass">
+        <rdfs:subClassOf rdf:resource="#Gum_pulse_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GPP_Replacement_Full_HeadClass -->
+
+    <owl:Class rdf:about="#GPP_Replacement_Full_HeadClass">
+        <rdfs:subClassOf rdf:resource="#Gum_pulse_power"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GP_2_head_ToothBruch_mediumClass -->
+
+    <owl:Class rdf:about="#GP_2_head_ToothBruch_mediumClass">
+        <rdfs:subClassOf rdf:resource="#Gum_protect"/>
+        <rdfs:comment
+            >A toothBrush with 2 convenient replaceable heads with antibacterial bristles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GP_2_head_ToothBruch_softClass -->
+
+    <owl:Class rdf:about="#GP_2_head_ToothBruch_softClass">
+        <rdfs:subClassOf rdf:resource="#Gum_protect"/>
+        <rdfs:comment
+            >A toothBrush with 2 convenient replaceable heads with antibacterial 
+    bristles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GP_3_head_ToothBruchClass -->
+
+    <owl:Class rdf:about="#GP_3_head_ToothBruchClass">
+        <rdfs:subClassOf rdf:resource="#Gum_protect"/>
+        <rdfs:comment
+            >A toothBrush with 3 convenient replaceable heads with antibacterial bristles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GTQGT_Adult_full_Head_MediumClass -->
+
+    <owl:Class rdf:about="#GTQGT_Adult_full_Head_MediumClass">
+        <rdfs:subClassOf rdf:resource="#Gum_technique_quad_grip_toothBrush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GTQGT_Adult_full_Head_SoftClass -->
+
+    <owl:Class rdf:about="#GTQGT_Adult_full_Head_SoftClass">
+        <rdfs:subClassOf rdf:resource="#Gum_technique_quad_grip_toothBrush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gas_detector -->
+
+    <owl:Class rdf:about="#Gas_detector">
+        <rdfs:subClassOf rdf:resource="#Environment_parameters_sensors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Sensor_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Light_sensor"/>
+        <owl:disjointWith rdf:resource="#Opening_sensor"/>
+        <owl:disjointWith rdf:resource="#Presence_sensor"/>
+        <owl:disjointWith rdf:resource="#Temperature_sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gas_oven -->
+
+    <owl:Class rdf:about="#Gas_oven">
+        <rdfs:label>Four a gaz</rdfs:label>
+        <rdfs:label>Gas oven</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Oven"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gas_stove -->
+
+    <owl:Class rdf:about="#Gas_stove">
+        <rdfs:label>Gas stove</rdfs:label>
+        <rdfs:label>Cuisinier a gaz</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Stove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Glass -->
+
+    <owl:Class rdf:about="#Glass">
+        <rdfs:label>Glass</rdfs:label>
+        <rdfs:label>Verre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Tumbler"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Glide -->
+
+    <owl:Class rdf:about="#Glide">
+        <rdfs:label>Glide</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Mentadent"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gum_protect -->
+
+    <owl:Class rdf:about="#Gum_protect">
+        <rdfs:label>Gum Protect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Butler_gum"/>
+        <owl:disjointWith rdf:resource="#Gum_pulse_power"/>
+        <owl:disjointWith rdf:resource="#Gum_technique_quad_grip_toothBrush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gum_pulse_power -->
+
+    <owl:Class rdf:about="#Gum_pulse_power">
+        <rdfs:label>Gum Pulse Power</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Butler_gum"/>
+        <owl:disjointWith rdf:resource="#Gum_technique_quad_grip_toothBrush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gum_technique_quad_grip_toothBrush -->
+
+    <owl:Class rdf:about="#Gum_technique_quad_grip_toothBrush">
+        <rdfs:label
+            >Gum Technique Quad Grip ToothBrush</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Butler_gum"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Hair_drier -->
+
+    <owl:Class rdf:about="#Hair_drier">
+        <rdfs:label>Seche-cheveux</rdfs:label>
+        <rdfs:label>Hair drier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dryer"/>
+        <owl:disjointWith rdf:resource="#Hand_drier"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Hand_drier -->
+
+    <owl:Class rdf:about="#Hand_drier">
+        <rdfs:label>Seche-main</rdfs:label>
+        <rdfs:label>Hand drier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dryer"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Clothes_drier"/>
+                    <rdf:Description rdf:about="#Hair_drier"/>
+                    <rdf:Description rdf:about="#Hand_drier"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Hand_towel -->
+
+    <owl:Class rdf:about="#Hand_towel">
+        <rdfs:label>Hand towel</rdfs:label>
+        <rdfs:label
+            >Serviette a main</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_textile"/>
+        <owl:disjointWith rdf:resource="#Shower_curtain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#HotWater_faucet -->
+
+    <owl:Class rdf:about="#HotWater_faucet">
+        <rdfs:label>Hot WaterFaucet</rdfs:label>
+        <rdfs:label
+            >Robinet pour Eau chaude</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Faucet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Household_appliance -->
+
+    <owl:Class rdf:about="#Household_appliance">
+        <rdfs:label
+            >Household appliance</rdfs:label>
+        <rdfs:label
+            >Appareil electomenager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Houshold_equipment"/>
+        <owl:disjointWith rdf:resource="#Household_crockery"/>
+        <owl:disjointWith rdf:resource="#Household_linen"/>
+        <rdfs:comment
+            >Appareils electomenagers pouvant servir au patient dans l&#39;habitat.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Household_appliances_temperature -->
+
+    <owl:Class rdf:about="#Household_appliances_temperature">
+        <rdfs:label
+            >Household appliances temperature</rdfs:label>
+        <rdfs:label
+            >Temperature d&#39;electromenager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Temperature_sensor"/>
+        <rdfs:comment
+            >Concerne les capteurs de temperature qu&#39;on peut retrouver dans les appareils electromenagers dans la temperature constitue un element a risque (important a surveiller) comme le four a cuisiniere, ...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Household_crockery -->
+
+    <owl:Class rdf:about="#Household_crockery">
+        <rdfs:label>Vaissellerie</rdfs:label>
+        <rdfs:label>Crockery</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Houshold_equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#putOn_In"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Buffet"/>
+                            <rdf:Description rdf:about="#Kitchen_cabinet"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Household_linen"/>
+        <rdfs:comment
+            >Decrit tout ce qui a trait a la vaissellerie dont dispose le patient dans l&#39;habitat et qu&#39;il peut utiliser de maniere securitaire.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Household_linen -->
+
+    <owl:Class rdf:about="#Household_linen">
+        <rdfs:label>Linge de maison</rdfs:label>
+        <rdfs:label>Household linen</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Houshold_equipment"/>
+        <rdfs:comment
+            >Cette classe decrit tout le linge dont on peut se servir dans l&#39;habitat. Cela inclut le necessaire pour la chambre a coucher aussi.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Houshold_equipment -->
+
+    <owl:Class rdf:about="#Houshold_equipment">
+        <rdfs:label
+            >Equipement menager</rdfs:label>
+        <rdfs:label
+            >Household equipment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSensor"/>
+                <owl:allValuesFrom rdf:resource="#Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Technical_equipment"/>
+        <rdfs:comment
+            >Concerne tous les appareils electromenagers, le linge ainsi que la vaissellerie qu&#39;on peut trouver dans l&#39;habitat.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Kitchen_appliance -->
+
+    <owl:Class rdf:about="#Kitchen_appliance">
+        <rdfs:label
+            >Kitchen appliance</rdfs:label>
+        <rdfs:label
+            >Electro de cuisine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Media_player"/>
+        <owl:disjointWith rdf:resource="#Vacuum_cleaner"/>
+        <owl:disjointWith rdf:resource="#Washing_machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Kitchen_cabinet -->
+
+    <owl:Class rdf:about="#Kitchen_cabinet">
+        <rdfs:label>Kitchen cabinet</rdfs:label>
+        <rdfs:label
+            >Armoire de cuisine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cabinet"/>
+        <owl:disjointWith rdf:resource="#Wardrobe"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Kitchen_knife -->
+
+    <owl:Class rdf:about="#Kitchen_knife">
+        <rdfs:label>Kitchen knife</rdfs:label>
+        <rdfs:label
+            >Couteau de cuisine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Kitchen_spoon"/>
+        <owl:disjointWith rdf:resource="#Meat_knife"/>
+        <owl:disjointWith rdf:resource="#Pepper_pot"/>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Kitchen_spoon -->
+
+    <owl:Class rdf:about="#Kitchen_spoon">
+        <rdfs:label
+            >Cuillere de cuisine</rdfs:label>
+        <rdfs:label>Kitchen spoon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Meat_knife"/>
+        <owl:disjointWith rdf:resource="#Pepper_pot"/>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Kitchen_textile -->
+
+    <owl:Class rdf:about="#Kitchen_textile">
+        <rdfs:label
+            >Linge de cuisine</rdfs:label>
+        <rdfs:label>Kitchen textile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_linen"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Kitchen_ustensil -->
+
+    <owl:Class rdf:about="#Kitchen_ustensil">
+        <rdfs:label
+            >Ustensile de cuisine</rdfs:label>
+        <rdfs:label
+            >Kitchen ustensil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_crockery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Knife -->
+
+    <owl:Class rdf:about="#Knife">
+        <rdfs:label>Couteau</rdfs:label>
+        <rdfs:label>Knife</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cutlery"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Spoon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Lame_PC -->
+
+    <owl:Class rdf:about="#Lame_PC">
+        <rdfs:label>PC Lame</rdfs:label>
+        <rdfs:label>Lame PC</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computing_hardware"/>
+        <owl:disjointWith rdf:resource="#Laptop"/>
+        <owl:disjointWith rdf:resource="#Personal_Digital_Assistant"/>
+        <owl:disjointWith rdf:resource="#Tablet_PC"/>
+        <rdfs:comment
+            >Boitier connecte localement a un ecran, clavier et souris, via le reseau a un PC et non directement au serveur.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Lamp -->
+
+    <owl:Class rdf:about="#Lamp">
+        <rdfs:label>Lampe</rdfs:label>
+        <rdfs:label>Lamp</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Bedside_lamp"/>
+                    <rdf:Description rdf:about="#Boudoir_lamp"/>
+                    <rdf:Description rdf:about="#Chandelier"/>
+                    <rdf:Description rdf:about="#Desk_lamp"/>
+                    <rdf:Description rdf:about="#Floor_lamp"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Matress"/>
+        <owl:disjointWith rdf:resource="#Media_furniture"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Laptop -->
+
+    <owl:Class rdf:about="#Laptop">
+        <rdfs:label>Laptop</rdfs:label>
+        <rdfs:label>Portable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computing_hardware"/>
+        <owl:disjointWith rdf:resource="#Personal_Digital_Assistant"/>
+        <owl:disjointWith rdf:resource="#Tablet_PC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Light_sensor -->
+
+    <owl:Class rdf:about="#Light_sensor">
+        <rdfs:label>Light sensor</rdfs:label>
+        <rdfs:label
+            >Capteur de lumiere</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Environment_parameters_sensors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Sensor_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Opening_sensor"/>
+        <owl:disjointWith rdf:resource="#Presence_sensor"/>
+        <owl:disjointWith rdf:resource="#Temperature_sensor"/>
+        <rdfs:comment
+            >Cette classe decrit les capteurs qu&#39;on peut utiliser pour mesurer l&#39;intensite lumineuse dans une piece. Il s&#39;agit des capteurs photo-resistance ou Light Dependent Resistor (LDR).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Matress -->
+
+    <owl:Class rdf:about="#Matress">
+        <rdfs:label>Matress</rdfs:label>
+        <rdfs:label>Matelat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Media_furniture"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Meat_knife -->
+
+    <owl:Class rdf:about="#Meat_knife">
+        <rdfs:label>Meat knife</rdfs:label>
+        <rdfs:label
+            >Couteau a viande</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Pepper_pot"/>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Media_furniture -->
+
+    <owl:Class rdf:about="#Media_furniture">
+        <rdfs:label>Media furniture</rdfs:label>
+        <rdfs:label>Meuble media</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Mirror"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Media_player -->
+
+    <owl:Class rdf:about="#Media_player">
+        <rdfs:label>Appareil Media</rdfs:label>
+        <rdfs:label>Media player</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Vacuum_cleaner"/>
+        <owl:disjointWith rdf:resource="#Washing_machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Mentadent -->
+
+    <owl:Class rdf:about="#Mentadent">
+        <rdfs:label>Mentadent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Oral-B"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Microware_oven -->
+
+    <owl:Class rdf:about="#Microware_oven">
+        <rdfs:label
+            >Four a Micro-ondes</rdfs:label>
+        <rdfs:label>Microware Oven</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Oven"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Mirror -->
+
+    <owl:Class rdf:about="#Mirror">
+        <rdfs:label>Miroir</rdfs:label>
+        <rdfs:label>Mirror</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Rug"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+        <rdfs:comment
+            >Cette classe decrit tous les miroirs qu&#39;on peut trouver dans lelogement. Le miroir peut etre place dans le salon, la chambre a coucher, la salle de bain ou a l&#39;entree. Sa forme et taille varie en fonction du lieu ou il se trouve.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Motion_detector -->
+
+    <owl:Class rdf:about="#Motion_detector">
+        <rdfs:label>Motion sensor</rdfs:label>
+        <rdfs:label
+            >Capteur de mouvement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Patient_parameters_sensors"/>
+        <rdfs:comment
+            >Classedecrivant les capteurs qui peuvent etre utilises pour suivre les deplacements du patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Open_cupboard_sensor -->
+
+    <owl:Class rdf:about="#Open_cupboard_sensor">
+        <rdfs:label
+            >Capteur d&#39;ouverture des portes d&#39;armoires</rdfs:label>
+        <rdfs:label
+            >Open cupboard sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Opening_sensor"/>
+        <owl:disjointWith rdf:resource="#Open_door_sensor"/>
+        <owl:disjointWith rdf:resource="#Open_drawer_sensor"/>
+        <owl:disjointWith rdf:resource="#Open_window_sensor"/>
+        <rdfs:comment
+            >Classe decrivant les Capteurs d&#39;ouverture des portes d&#39;armoires qu&#39;on peut trouver dans la chambre a coucher, la salle amanger, la salle de bain ou la cuisine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Open_door_sensor -->
+
+    <owl:Class rdf:about="#Open_door_sensor">
+        <rdfs:label
+            >Capteur d&#39;ouverture de porte</rdfs:label>
+        <rdfs:label
+            >Open door sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Opening_sensor"/>
+        <owl:disjointWith rdf:resource="#Open_drawer_sensor"/>
+        <owl:disjointWith rdf:resource="#Open_window_sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Open_drawer_sensor -->
+
+    <owl:Class rdf:about="#Open_drawer_sensor">
+        <rdfs:label
+            >Open drawer sensor</rdfs:label>
+        <rdfs:label
+            >Capteur d&#39;ouverture de tiroir</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Opening_sensor"/>
+        <owl:disjointWith rdf:resource="#Open_window_sensor"/>
+        <rdfs:comment
+            >Cette classe decrit les capteurs installes dans les tiroirs qui peuvent se trouver dans la cuisine, la salle de bain ou la chambre a coucher.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Open_window_sensor -->
+
+    <owl:Class rdf:about="#Open_window_sensor">
+        <rdfs:label
+            >Capteur d&#39;ouverture de fenetre</rdfs:label>
+        <rdfs:label
+            >Open window sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Opening_sensor"/>
+        <rdfs:comment
+            >Decrit les capteurs d&#39;ouverture des fenetres. Cela permet de detecter si une fenetre mettant en jeu la securite ou tout simplement la sante du patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Opening -->
+
+    <owl:Class rdf:about="#Opening">
+        <rdfs:subClassOf rdf:resource="#Equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSensor"/>
+                <owl:allValuesFrom rdf:resource="#Sensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Opening_Sensor_States -->
+
+    <owl:Class rdf:about="#Opening_Sensor_States">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Closed"/>
+                    <rdf:Description rdf:about="#Opened"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Opening_sensor -->
+
+    <owl:Class rdf:about="#Opening_sensor">
+        <rdfs:label
+            >Capteur d&#39;ouverture</rdfs:label>
+        <rdfs:label>Opening sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Environment_parameters_sensors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Opening_Sensor_States"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Presence_sensor"/>
+        <owl:disjointWith rdf:resource="#Temperature_sensor"/>
+        <rdfs:comment
+            >Classe decrivant les capteurs d&#39;ouverture de porte, de fenetre, de tiroir ou autres.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Oral-B -->
+
+    <owl:Class rdf:about="#Oral-B">
+        <rdfs:label>Oral-B</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Reach"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Oven -->
+
+    <owl:Class rdf:about="#Oven">
+        <rdfs:label>Four</rdfs:label>
+        <rdfs:label>Oven</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Stove"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Oven_mitt -->
+
+    <owl:Class rdf:about="#Oven_mitt">
+        <rdfs:label>Gant de four</rdfs:label>
+        <rdfs:label>Oven mitt</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_textile"/>
+        <owl:disjointWith rdf:resource="#Place_mat"/>
+        <owl:disjointWith rdf:resource="#Pot_holder"/>
+        <owl:disjointWith rdf:resource="#Tea_towel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Pager -->
+
+    <owl:Class rdf:about="#Pager">
+        <rdfs:subClassOf rdf:resource="#Telecommunications"/>
+        <owl:disjointWith rdf:resource="#Videophony"/>
+        <owl:disjointWith rdf:resource="#Wire_telephony"/>
+        <owl:disjointWith rdf:resource="#Wireless_telephony"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Patient_parameters_sensors -->
+
+    <owl:Class rdf:about="#Patient_parameters_sensors">
+        <rdfs:label
+            >Capteurs des parametres Patients</rdfs:label>
+        <rdfs:label
+            >Patient parameters sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensor"/>
+        <rdfs:comment
+            >Dans cette classe, on retrouve tous les capteurs dont le role est de prendre en charge tous les parametres concernant le patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Pepper_pot -->
+
+    <owl:Class rdf:about="#Pepper_pot">
+        <rdfs:label>Pepper pot</rdfs:label>
+        <rdfs:label>Poivrier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Salt_cellar"/>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Personal_Digital_Assistant -->
+
+    <owl:Class rdf:about="#Personal_Digital_Assistant">
+        <rdfs:label>PDA</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computing_hardware"/>
+        <owl:disjointWith rdf:resource="#Tablet_PC"/>
+        <rdfs:comment
+            >Decrit les differents PDA (Personal Digital Assistant) utilises ou que le patient peut utiliser selon ses besoins.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Pillow -->
+
+    <owl:Class rdf:about="#Pillow">
+        <rdfs:label>Oreiller</rdfs:label>
+        <rdfs:label>Pillow</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bed_textile"/>
+        <owl:disjointWith rdf:resource="#Quilt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Pillowcase -->
+
+    <owl:Class rdf:about="#Pillowcase">
+        <rdfs:label>Pillowcase</rdfs:label>
+        <rdfs:label>Taie d&#39;Oreiller</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cover"/>
+        <owl:disjointWith rdf:resource="#Quilt_cover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Place_mat -->
+
+    <owl:Class rdf:about="#Place_mat">
+        <rdfs:label>Place mat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_textile"/>
+        <owl:disjointWith rdf:resource="#Pot_holder"/>
+        <owl:disjointWith rdf:resource="#Tea_towel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Plate -->
+
+    <owl:Class rdf:about="#Plate">
+        <rdfs:label>Plate</rdfs:label>
+        <rdfs:label>Assiette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Crockery"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFormat"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Oval"/>
+                            <rdf:Description rdf:about="#Round"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Tumbler"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Position_Sensor_states -->
+
+    <owl:Class rdf:about="#Position_Sensor_states">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Seated"/>
+                    <rdf:Description rdf:about="#Upright"/>
+                    <rdf:Description rdf:about="#LyingDown"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Position_sensor -->
+
+    <owl:Class rdf:about="#Position_sensor">
+        <rdfs:subClassOf rdf:resource="#Patient_parameters_sensors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Position_Sensor_states"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Pot_holder -->
+
+    <owl:Class rdf:about="#Pot_holder">
+        <rdfs:label>Pot holder</rdfs:label>
+        <rdfs:label
+            >Support Assiette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_textile"/>
+        <owl:disjointWith rdf:resource="#Tea_towel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Presence_sensor -->
+
+    <owl:Class rdf:about="#Presence_sensor">
+        <rdfs:label>Presence sensor</rdfs:label>
+        <rdfs:label
+            >Capeur de presence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Environment_parameters_sensors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Boolean_Sensor_States"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Temperature_sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Pressure_cooker -->
+
+    <owl:Class rdf:about="#Pressure_cooker">
+        <rdfs:label>Pressure cooker</rdfs:label>
+        <rdfs:label>Autocuiseur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cookset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:hasValue rdf:resource="#Stainless_steel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Saucepan"/>
+        <owl:disjointWith rdf:resource="#Stewpot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Quilt -->
+
+    <owl:Class rdf:about="#Quilt">
+        <rdfs:label>Quilt</rdfs:label>
+        <rdfs:label>Couette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bed_textile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Quilt_cover -->
+
+    <owl:Class rdf:about="#Quilt_cover">
+        <rdfs:label>Quilt cover</rdfs:label>
+        <rdfs:label
+            >Couverture de couette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Reach -->
+
+    <owl:Class rdf:about="#Reach">
+        <rdfs:label>Reach</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Toothbrush"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Refrigerator -->
+
+    <owl:Class rdf:about="#Refrigerator">
+        <rdfs:label>Refrigerateur</rdfs:label>
+        <rdfs:label>Refrigerator</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Fridge"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Remote_monitoring -->
+
+    <owl:Class rdf:about="#Remote_monitoring">
+        <rdfs:label
+            >Remote monitoring</rdfs:label>
+        <rdfs:label
+            >Tele supervision</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Communication_system"/>
+        <rdfs:comment
+            >Decrit tout le materiel permettant d assurer une surveillance a distance du patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Rocking_chair -->
+
+    <owl:Class rdf:about="#Rocking_chair">
+        <rdfs:label>Rocking chair</rdfs:label>
+        <rdfs:label>Chaise bercante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Simple_chair"/>
+        <owl:disjointWith rdf:resource="#Swivelchair"/>
+        <owl:disjointWith rdf:resource="#Wheelchair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Roller_blind -->
+
+    <owl:Class rdf:about="#Roller_blind">
+        <rdfs:label>Roller blind</rdfs:label>
+        <rdfs:label>Store roulant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Blind"/>
+        <owl:disjointWith rdf:resource="#Roman_blind"/>
+        <owl:disjointWith rdf:resource="#Venetian_blind"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Roman_blind -->
+
+    <owl:Class rdf:about="#Roman_blind">
+        <rdfs:label>Store romain</rdfs:label>
+        <rdfs:label>Roman blind</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Blind"/>
+        <owl:disjointWith rdf:resource="#Venetian_blind"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Rug -->
+
+    <owl:Class rdf:about="#Rug">
+        <rdfs:label>Tapis</rdfs:label>
+        <rdfs:label>Rug</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Sofa_Armchair"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+        <rdfs:comment
+            >Classe decrivant les differents tapis disponibles dans le logement. On en trouve dans le salon, la salle a manger, la chambre a coucher ou la cuisine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Salt_cellar -->
+
+    <owl:Class rdf:about="#Salt_cellar">
+        <rdfs:label>Saliere</rdfs:label>
+        <rdfs:label>Salt cellar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Soup_ladle"/>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Saucepan -->
+
+    <owl:Class rdf:about="#Saucepan">
+        <rdfs:label>Sauce pan</rdfs:label>
+        <rdfs:label>Casserole</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cookset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Stainless_steel"/>
+                            <rdf:Description rdf:about="#Aluminum"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Stewpot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Saucer -->
+
+    <owl:Class rdf:about="#Saucer">
+        <rdfs:label>Sous-tasse</rdfs:label>
+        <rdfs:label>Saucer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Plate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Soup_plate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Scales -->
+
+    <owl:Class rdf:about="#Scales">
+        <rdfs:label>Scales</rdfs:label>
+        <rdfs:label>Pese-personne</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#Shower_caddy"/>
+        <owl:disjointWith rdf:resource="#Soap_dish"/>
+        <owl:disjointWith rdf:resource="#Stool"/>
+        <owl:disjointWith rdf:resource="#ToothPaste"/>
+        <owl:disjointWith rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+        <rdfs:comment
+            >Decrit le type de balance (pese-personne) qui sert a peser le patient de sorte a avoir son poids par le moyen du capteur de poids.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor -->
+
+    <owl:Class rdf:about="#Sensor">
+        <rdfs:label>Capteur</rdfs:label>
+        <rdfs:label>Sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Remote_monitoring"/>
+        <rdfs:comment
+            >Cette classe decrit tous les types de capteurs qu&#39;on peut (doit) avoir dans le logement et/ou sur le patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor_activity -->
+
+    <owl:Class rdf:about="#Sensor_activity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Passive"/>
+                    <rdf:Description rdf:about="#Active"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <owl:disjointWith rdf:resource="#Sensor_sensitivity"/>
+        <owl:disjointWith rdf:resource="#Sensor_state"/>
+        <owl:disjointWith rdf:resource="#Sensor_type"/>
+        <owl:disjointWith rdf:resource="#Size"/>
+        <rdfs:comment
+            >A ValuePartition that describes only values from Active or Passive. NB Subclasses can themselves be divided up into further partitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor_sensitivity -->
+
+    <owl:Class rdf:about="#Sensor_sensitivity">
+        <rdfs:label
+            >Sensibilite de Capteur</rdfs:label>
+        <rdfs:label
+            >sensor sensitivity</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Sensitive"/>
+                    <rdf:Description rdf:about="#Hard"/>
+                    <rdf:Description rdf:about="#Soft"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <owl:disjointWith rdf:resource="#Sensor_state"/>
+        <owl:disjointWith rdf:resource="#Sensor_type"/>
+        <owl:disjointWith rdf:resource="#Size"/>
+        <rdfs:comment
+            >A ValuePartition that describes only values from  Hard or Soft or Sensitive. NB Subclasses can themselves be divided up into further partitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor_state -->
+
+    <owl:Class rdf:about="#Sensor_state">
+        <rdfs:label>Sensor state</rdfs:label>
+        <rdfs:label>Etat du capteur</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Off"/>
+                    <rdf:Description rdf:about="#On"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <owl:disjointWith rdf:resource="#Sensor_type"/>
+        <owl:disjointWith rdf:resource="#Size"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A ValuePartition that describes only values from Active or Inactive. NB Subclasses can themselves be divided up into further partitions.</rdfs:comment>
+        <rdfs:comment
+            >Decrit l&#39;etat du capteur : On / Off</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor_states -->
+
+    <owl:Class rdf:about="#Sensor_states">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Upright"/>
+                    <rdf:Description rdf:about="#Off"/>
+                    <rdf:Description rdf:about="#Both"/>
+                    <rdf:Description rdf:about="#False"/>
+                    <rdf:Description rdf:about="#Cold"/>
+                    <rdf:Description rdf:about="#NotUsed"/>
+                    <rdf:Description rdf:about="#Seated"/>
+                    <rdf:Description rdf:about="#True"/>
+                    <rdf:Description rdf:about="#Hot"/>
+                    <rdf:Description rdf:about="#LyingDown"/>
+                    <rdf:Description rdf:about="#Closed"/>
+                    <rdf:Description rdf:about="#On"/>
+                    <rdf:Description rdf:about="#Used"/>
+                    <rdf:Description rdf:about="#Opened"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensor_type -->
+
+    <owl:Class rdf:about="#Sensor_type">
+        <rdfs:label>Type de Capteur</rdfs:label>
+        <rdfs:label>Sensor type</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Non_Contact_sensor"/>
+                    <rdf:Description rdf:about="#Handhold_sensor"/>
+                    <rdf:Description rdf:about="#Contact_sensor"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <owl:disjointWith rdf:resource="#Size"/>
+        <rdfs:comment
+            >A ValuePartition that describes only values from Contact_sensor, Non_contact_sensor. NB Subclasses can themselves be divided up into further partitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Shoe_cabinet -->
+
+    <owl:Class rdf:about="#Shoe_cabinet">
+        <rdfs:label
+            >Range chaussures</rdfs:label>
+        <rdfs:label>Shoe cabinet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Storage"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Shower_caddy -->
+
+    <owl:Class rdf:about="#Shower_caddy">
+        <rdfs:label
+            >Porte produits douche</rdfs:label>
+        <rdfs:label>Shower caddy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#Soap_dish"/>
+        <owl:disjointWith rdf:resource="#Stool"/>
+        <owl:disjointWith rdf:resource="#ToothPaste"/>
+        <owl:disjointWith rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Shower_curtain -->
+
+    <owl:Class rdf:about="#Shower_curtain">
+        <rdfs:label
+            >Rideau de douche</rdfs:label>
+        <rdfs:label>Shower curtain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_textile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Side_table -->
+
+    <owl:Class rdf:about="#Side_table">
+        <rdfs:label>Side table</rdfs:label>
+        <rdfs:label>Table de coin</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Table"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Simple_chair -->
+
+    <owl:Class rdf:about="#Simple_chair">
+        <rdfs:label>Simple chair</rdfs:label>
+        <rdfs:label>Chaise simple</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Swivelchair"/>
+        <owl:disjointWith rdf:resource="#Wheelchair"/>
+        <rdfs:comment
+            >Repr&#233;sente les chaises qu&#39;on peut trouver autour de la table &#224; manger.</rdfs:comment>
+        <rdfs:comment
+            >Represent the chairs which one can find around the dinner table.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Simple_desk -->
+
+    <owl:Class rdf:about="#Simple_desk">
+        <rdfs:label>Bureau</rdfs:label>
+        <rdfs:label>Desk</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Desk"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Size -->
+
+    <owl:Class rdf:about="#Size">
+        <rdfs:label>Mesure</rdfs:label>
+        <rdfs:label>Size</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Small"/>
+                    <rdf:Description rdf:about="#Double"/>
+                    <rdf:Description rdf:about="#Medium"/>
+                    <rdf:Description rdf:about="#Queen"/>
+                    <rdf:Description rdf:about="#King"/>
+                    <rdf:Description rdf:about="#High"/>
+                    <rdf:Description rdf:about="#Single"/>
+                    <rdf:Description rdf:about="#Large"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+        <rdfs:comment
+            >A ValuePartition that describes only values from Double, Queen, King, Single, Large, Medium or Small. NB Subclasses can themselves be divided up into further partitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Smart_phone -->
+
+    <owl:Class rdf:about="#Smart_phone">
+        <rdfs:label
+            >Telephone Intelligent</rdfs:label>
+        <rdfs:label>Smart phone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Wireless_telephony"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Soap_dish -->
+
+    <owl:Class rdf:about="#Soap_dish">
+        <rdfs:label rdf:datatype="&xsd;string">Porte savon</rdfs:label>
+        <rdfs:label>Soap dish</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#Stool"/>
+        <owl:disjointWith rdf:resource="#ToothPaste"/>
+        <owl:disjointWith rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sofa -->
+
+    <owl:Class rdf:about="#Sofa">
+        <rdfs:label>Sofa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sofa_Armchair"/>
+        <rdfs:comment
+            >Se trouve au salon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sofa_Armchair -->
+
+    <owl:Class rdf:about="#Sofa_Armchair">
+        <rdfs:label>Sofa &amp; Armchair</rdfs:label>
+        <rdfs:label>Sofa &amp; Fauteuil</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Armchair"/>
+                    <rdf:Description rdf:about="#Sofa"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <owl:disjointWith rdf:resource="#Storage"/>
+        <owl:disjointWith rdf:resource="#Table"/>
+        <rdfs:comment
+            >Permet de decrire le mobilier qu&#39;on peut trouver dans le salon.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sofa_bed -->
+
+    <owl:Class rdf:about="#Sofa_bed">
+        <rdfs:label>Sofa lit</rdfs:label>
+        <rdfs:label>Sofa bed</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sofa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Three_seater_sofa"/>
+        <owl:disjointWith rdf:resource="#Two_seater_sofa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Soup_ladle -->
+
+    <owl:Class rdf:about="#Soup_ladle">
+        <rdfs:label>Soup ladle</rdfs:label>
+        <rdfs:label>Louche</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Spaghetti_server"/>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Soup_plate -->
+
+    <owl:Class rdf:about="#Soup_plate">
+        <rdfs:label>Assiette creuse</rdfs:label>
+        <rdfs:label>Soup plate</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Plate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Designe les assiettes creuses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Spaghetti_server -->
+
+    <owl:Class rdf:about="#Spaghetti_server">
+        <rdfs:label
+            >Spaghetti server</rdfs:label>
+        <rdfs:label
+            >Spatule a Spaghetti</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Spatula"/>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Spatula -->
+
+    <owl:Class rdf:about="#Spatula">
+        <rdfs:label>Spatula</rdfs:label>
+        <rdfs:label>Spatule</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Sugar_bowl"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Spoon -->
+
+    <owl:Class rdf:about="#Spoon">
+        <rdfs:label>Cuillere</rdfs:label>
+        <rdfs:label>Spoon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cutlery"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Squeegee -->
+
+    <owl:Class rdf:about="#Squeegee">
+        <rdfs:label>Raclette</rdfs:label>
+        <rdfs:label>Squeegee</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cleaning_accessories"/>
+        <owl:disjointWith rdf:resource="#Toilet_brush_holder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Stewpot -->
+
+    <owl:Class rdf:about="#Stewpot">
+        <rdfs:label>Stewpot</rdfs:label>
+        <rdfs:label>Faitout</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cookset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Stainless_steel"/>
+                            <rdf:Description rdf:about="#Aluminum"/>
+                            <rdf:Description rdf:about="#Cast_iron"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Stool -->
+
+    <owl:Class rdf:about="#Stool">
+        <rdfs:label>Stool</rdfs:label>
+        <rdfs:label>Tabouret</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#ToothPaste"/>
+        <owl:disjointWith rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Storage -->
+
+    <owl:Class rdf:about="#Storage">
+        <rdfs:label>Rangement</rdfs:label>
+        <rdfs:label>Storage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Table"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Stove -->
+
+    <owl:Class rdf:about="#Stove">
+        <rdfs:label>Stove</rdfs:label>
+        <rdfs:label>Cuisiniere</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+        <owl:disjointWith rdf:resource="#Toaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sugar_bowl -->
+
+    <owl:Class rdf:about="#Sugar_bowl">
+        <rdfs:label>Sugar bowl</rdfs:label>
+        <rdfs:label>Sucrier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+        <owl:disjointWith rdf:resource="#Vinegar_pot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Swivelchair -->
+
+    <owl:Class rdf:about="#Swivelchair">
+        <rdfs:label>Swivelchair</rdfs:label>
+        <rdfs:label
+            >Chaise pivotante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Plastic"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Wheelchair"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#TV_bench -->
+
+    <owl:Class rdf:about="#TV_bench">
+        <rdfs:label>TV bench</rdfs:label>
+        <rdfs:label>Support TV</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Media_furniture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Table -->
+
+    <owl:Class rdf:about="#Table">
+        <rdfs:label>Table</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Bedside_table"/>
+                    <rdf:Description rdf:about="#Coffee_Table"/>
+                    <rdf:Description rdf:about="#Dining_table"/>
+                    <rdf:Description rdf:about="#Folding_table"/>
+                    <rdf:Description rdf:about="#Side_table"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Furniture_equipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFormat"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Oval"/>
+                            <rdf:Description rdf:about="#Square"/>
+                            <rdf:Description rdf:about="#Round"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Tablespoon -->
+
+    <owl:Class rdf:about="#Tablespoon">
+        <rdfs:label>Tablespoon</rdfs:label>
+        <rdfs:label
+            >Cuillere a soupe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Spoon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Teaspoon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Tablet_PC -->
+
+    <owl:Class rdf:about="#Tablet_PC">
+        <rdfs:label>Tablet PC</rdfs:label>
+        <rdfs:label>Tablette PC</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Computing_hardware"/>
+        <rdfs:comment
+            >Ce genre d&#39;ordinateur (ultraportable) est tres inteessant dans le cas ou le patient est quelqu&#39;un qui n&#39;apprecie pas (ou n&#39;est pas a l&#39;aise avec) l&#39;utilisation du clavier.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Tea_cup -->
+
+    <owl:Class rdf:about="#Tea_cup">
+        <rdfs:label>Tea cup</rdfs:label>
+        <rdfs:label>Tasse a the</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Tea_towel -->
+
+    <owl:Class rdf:about="#Tea_towel">
+        <rdfs:label>Tea towel</rdfs:label>
+        <rdfs:label>Torchon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_textile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Teaspoon -->
+
+    <owl:Class rdf:about="#Teaspoon">
+        <rdfs:label
+            >Cuillere a the et a cafe</rdfs:label>
+        <rdfs:label>Teaspoon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Spoon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Small"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Technical_equipment -->
+
+    <owl:Class rdf:about="#Technical_equipment">
+        <rdfs:label
+            >Equipement Technique</rdfs:label>
+        <rdfs:label
+            >Technical Equipment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Equipment"/>
+        <rdfs:comment
+            >Represente tous les equipements informatiques et de telecommunications ainsi que les differents capteurs dont l Habitat est equipe pour mener a bien sa tache.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Telecommunications -->
+
+    <owl:Class rdf:about="#Telecommunications">
+        <rdfs:label
+            >Telecommunications</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Communication_system"/>
+        <rdfs:comment rdf:datatype="&xsd;string"></rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Television -->
+
+    <owl:Class rdf:about="#Television">
+        <rdfs:label>Television</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Media_player"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#putOn_In"/>
+                        <owl:someValuesFrom rdf:resource="#TV_bench"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#putOn_In"/>
+                        <owl:someValuesFrom rdf:resource="#media_cabinet"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Temperature_Sensor_States -->
+
+    <owl:Class rdf:about="#Temperature_Sensor_States">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Hot"/>
+                    <rdf:Description rdf:about="#Cold"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Temperature_sensor -->
+
+    <owl:Class rdf:about="#Temperature_sensor">
+        <rdfs:label
+            >Capteur de temperature</rdfs:label>
+        <rdfs:label
+            >Temperature sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Environment_parameters_sensors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Temperature_Sensor_States"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Cette classe englobe (decrit) tous les capteurs servant a mesurer la temperature dans tout l&#39;Habitat (Piece, Nourriture, Electromenager, etc.).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Three_seater_sofa -->
+
+    <owl:Class rdf:about="#Three_seater_sofa">
+        <rdfs:label>Sofa</rdfs:label>
+        <rdfs:label
+            >Three seater sofa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sofa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Large"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Two_seater_sofa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Toaster -->
+
+    <owl:Class rdf:about="#Toaster">
+        <rdfs:label>Toaster</rdfs:label>
+        <rdfs:label>Grille pain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_appliance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Toilet_brush_holder -->
+
+    <owl:Class rdf:about="#Toilet_brush_holder">
+        <rdfs:label>Toilet brush</rdfs:label>
+        <rdfs:label
+            >Brosse de toilette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cleaning_accessories"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#ToothPaste -->
+
+    <owl:Class rdf:about="#ToothPaste">
+        <rdfs:label>Pate dentifrice</rdfs:label>
+        <rdfs:label>ToothPaste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#Toothbrush"/>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+        <rdfs:comment
+            >Paste used in combination with the ToothBrush to clean teeth.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Tooth_glass -->
+
+    <owl:Class rdf:about="#Tooth_glass">
+        <rdfs:label>Tooth glass</rdfs:label>
+        <rdfs:label>Verre a dents</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Glass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Melamine"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Water_glass"/>
+        <owl:disjointWith rdf:resource="#Wine_glass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Toothbrush -->
+
+    <owl:Class rdf:about="#Toothbrush">
+        <rdfs:label>Toothbrush</rdfs:label>
+        <rdfs:label>Brosse a dents</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:hasValue rdf:resource="#Small"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Toothbrush_mug"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+        <rdfs:comment
+            >La brosse a dents est un instrument de nettoyage des dents utilisee avec la pate a dents.</rdfs:comment>
+        <rdfs:comment
+            >ToothBrush is a small brush on a handle, used in combination with the toothPaste to clean teeth.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Toothbrush_mug -->
+
+    <owl:Class rdf:about="#Toothbrush_mug">
+        <rdfs:label
+            >Porte-brosse a dents</rdfs:label>
+        <rdfs:label>Toothbrush mug</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <owl:disjointWith rdf:resource="#Wall_cabinet"/>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Touch_sensistive_sensor -->
+
+    <owl:Class rdf:about="#Touch_sensistive_sensor">
+        <rdfs:label>Capteur tactile</rdfs:label>
+        <rdfs:label
+            >Touch sensistive sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Force_sensitive_sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Usage_Sensor_States"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Weight_sensistive_sensor"/>
+        <rdfs:comment
+            >Decrit les senseurs desties a l&#39;usage tactile.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Tumbler -->
+
+    <owl:Class rdf:about="#Tumbler">
+        <rdfs:label>Gobelet</rdfs:label>
+        <rdfs:label>Tumbler</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Crockery"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFormat"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Round"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Decrit tous les recipients a boire, incluant les verres. Generalement qui sont plus hauts que larges.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Two_seater_sofa -->
+
+    <owl:Class rdf:about="#Two_seater_sofa">
+        <rdfs:label>Causeuse</rdfs:label>
+        <rdfs:label>Two seater sofa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sofa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Medium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Usage_Sensor_States -->
+
+    <owl:Class rdf:about="#Usage_Sensor_States">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#NotUsed"/>
+                    <rdf:Description rdf:about="#Used"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#EquipmentValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Ustensil_accessories -->
+
+    <owl:Class rdf:about="#Ustensil_accessories">
+        <rdfs:label
+            >Ustensil accessories</rdfs:label>
+        <rdfs:label
+            >Accessoires ustensiles</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Kitchen_ustensil"/>
+        <rdfs:comment
+            >Cette classe decrit tous les accessoires ustensiles servant a la preparation de la nourriture.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Vacuum_cleaner -->
+
+    <owl:Class rdf:about="#Vacuum_cleaner">
+        <rdfs:label>Aspirateur</rdfs:label>
+        <rdfs:label>Vacuum cleaner</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_appliance"/>
+        <owl:disjointWith rdf:resource="#Washing_machine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Venetian_blind -->
+
+    <owl:Class rdf:about="#Venetian_blind">
+        <rdfs:label>Venetian blind</rdfs:label>
+        <rdfs:label>Store venetien</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Blind"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Videophony -->
+
+    <owl:Class rdf:about="#Videophony">
+        <rdfs:label>Videophonie</rdfs:label>
+        <rdfs:label>Videophony</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Telecommunications"/>
+        <owl:disjointWith rdf:resource="#Wire_telephony"/>
+        <owl:disjointWith rdf:resource="#Wireless_telephony"/>
+        <rdfs:comment
+            >Materiel integrant des cameras et des ecrans au telephone et permettant de communiquer tout en voyant la personne a l autre bout du fil.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Vinegar_pot -->
+
+    <owl:Class rdf:about="#Vinegar_pot">
+        <rdfs:label>Vinegar pot</rdfs:label>
+        <rdfs:label>Vinaigrier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ustensil_accessories"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wall_cabinet -->
+
+    <owl:Class rdf:about="#Wall_cabinet">
+        <rdfs:label rdf:datatype="&xsd;string">Meuble mural</rdfs:label>
+        <rdfs:label>Wall Cabinet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Wall_shelf"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wall_shelf -->
+
+    <owl:Class rdf:about="#Wall_shelf">
+        <rdfs:label>Etagere murale</rdfs:label>
+        <rdfs:label>Wall shelf</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Bathroom_furniture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wardrobe -->
+
+    <owl:Class rdf:about="#Wardrobe">
+        <rdfs:label>Garde-robe</rdfs:label>
+        <rdfs:label>Wardrobe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cabinet"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSize"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#High"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Decrit les armoires qu&#39;on peut trouver dans la chambre a coucher, l&#39;entree, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Washing_machine -->
+
+    <owl:Class rdf:about="#Washing_machine">
+        <rdfs:label>Machine a laver</rdfs:label>
+        <rdfs:label>Washing machine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Household_appliance"/>
+        <rdfs:comment
+            >Machine a laver le linge.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Water_glass -->
+
+    <owl:Class rdf:about="#Water_glass">
+        <rdfs:label>Verre a eau</rdfs:label>
+        <rdfs:label>Water glass</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Glass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Glass_matter"/>
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Melamine"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Wine_glass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Weight_sensistive_sensor -->
+
+    <owl:Class rdf:about="#Weight_sensistive_sensor">
+        <rdfs:label
+            >Capteur sensible au poids</rdfs:label>
+        <rdfs:label
+            >Weight sensistive sensor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Force_sensitive_sensor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasState"/>
+                <owl:allValuesFrom rdf:resource="#Usage_Sensor_States"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Cette classe decrit tous les capteurs qu&#39;on peut utiliser pour suivre les deplacements du patient en se basant surtout sur son poids.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wheelchair -->
+
+    <owl:Class rdf:about="#Wheelchair">
+        <rdfs:label
+            >Fauteuil roulant</rdfs:label>
+        <rdfs:label>Wheelchair</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chair"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Iron"/>
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Wood"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Fauteuil qui peut servir &#224; la personne ayant un handicap particulier l&#39;emp&#234;chant de se d&#233;placer normalement.</rdfs:comment>
+        <rdfs:comment
+            >Armchair which can be used by the patient having a particular handicap preventing it from moving normally.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Window -->
+
+    <owl:Class rdf:about="#Window">
+        <rdfs:subClassOf rdf:resource="#Opening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wine_glass -->
+
+    <owl:Class rdf:about="#Wine_glass">
+        <rdfs:label>Verre a vin</rdfs:label>
+        <rdfs:label>Wine glass</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Glass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Glass_matter"/>
+                            <rdf:Description rdf:about="#Plastic"/>
+                            <rdf:Description rdf:about="#Melamine"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wire_telephony -->
+
+    <owl:Class rdf:about="#Wire_telephony">
+        <rdfs:label
+            >Telephonie filaire</rdfs:label>
+        <rdfs:label>Wire telephony</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Telecommunications"/>
+        <owl:disjointWith rdf:resource="#Wireless_telephony"/>
+        <rdfs:comment
+            >Decrit tous les types d appreils telephoniques filaires (un ou plusieurs) se trouvant dans l Habitat et dont dispose le patient pour communiquer avec l exterieur.Elle decrit aussi tous les types d appareils auxquels les appels du patient (ou a partir de l Habitat) sont rediriges.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wireless_telephony -->
+
+    <owl:Class rdf:about="#Wireless_telephony">
+        <rdfs:label
+            >Wireless_telephony</rdfs:label>
+        <rdfs:label
+            >Telephonie sans fil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Telecommunications"/>
+        <rdfs:comment
+            >Decrit tous les appreils sans fil (un ou plusieurs) se trouvant dans l Habitat et dont dispose le patient pour communiquer avec l exterieur.Elle decrit aussi tous les appareils sans fil auxquels les appels du patient (ou a partir de l Habitat) sont rediriges.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#_TEMPORARY-ITEMS -->
+
+    <owl:Class rdf:about="#_TEMPORARY-ITEMS"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#media_cabinet -->
+
+    <owl:Class rdf:about="#media_cabinet">
+        <rdfs:label>Armoire media</rdfs:label>
+        <rdfs:label>Media cabinet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Media_furniture"/>
+        <rdfs:comment
+            >Cet article peut contenir non seulement la television mais aussi les autres media players.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Active -->
+
+    <Sensor_activity rdf:about="#Active">
+        <rdfs:label>Active</rdfs:label>
+        <rdfs:label>Actif</rdfs:label>
+    </Sensor_activity>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Aluminum -->
+
+    <Equipment_material rdf:about="#Aluminum">
+        <rdfs:label>Aluminium</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Both -->
+
+    <Sensor_states rdf:about="#Both"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cast_iron -->
+
+    <Equipment_material rdf:about="#Cast_iron">
+        <rdfs:label>Fonte</rdfs:label>
+        <rdfs:label>Cast iron</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Closed -->
+
+    <Sensor_states rdf:about="#Closed"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Cold -->
+
+    <Sensor_states rdf:about="#Cold"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Contact_sensor -->
+
+    <Sensor_type rdf:about="#Contact_sensor">
+        <rdfs:label
+            >Capteur &#224; Contact</rdfs:label>
+        <rdfs:label>Contact sensor</rdfs:label>
+        <rdfs:comment
+            >Cette propriete decrit les capteurs qui reagissent au contact seulement.</rdfs:comment>
+    </Sensor_type>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Double -->
+
+    <Size rdf:about="#Double">
+        <rdfs:label rdf:datatype="&xsd;string">Double</rdfs:label>
+        <rdfs:label>Double</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#False -->
+
+    <Sensor_states rdf:about="#False"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GPP_Replacement_Compact_Head -->
+
+    <GPP_Replacement_Compact_HeadClass rdf:about="#GPP_Replacement_Compact_Head"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GPP_Replacement_Full_Head -->
+
+    <GPP_Replacement_Full_HeadClass rdf:about="#GPP_Replacement_Full_Head"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GTQGT_Adult_full_Head_Medium -->
+
+    <GTQGT_Adult_full_Head_MediumClass rdf:about="#GTQGT_Adult_full_Head_Medium"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#GTQGT_Adult_full_Head_Soft -->
+
+    <GTQGT_Adult_full_Head_SoftClass rdf:about="#GTQGT_Adult_full_Head_Soft"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Glass_matter -->
+
+    <Equipment_material rdf:about="#Glass_matter">
+        <rdfs:label>Verre</rdfs:label>
+        <rdfs:label>Glass matter</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Gold_plated -->
+
+    <Equipment_material rdf:about="#Gold_plated">
+        <rdfs:label>Gold plated</rdfs:label>
+        <rdfs:label>Plaque or</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Handhold_sensor -->
+
+    <Sensor_type rdf:about="#Handhold_sensor">
+        <rdfs:label>Capteur port&#233;</rdfs:label>
+        <rdfs:label>Handhold sensor</rdfs:label>
+        <rdfs:comment
+            >Capteur porte par le patient, generalement autour de la main.</rdfs:comment>
+    </Sensor_type>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Hard -->
+
+    <Sensor_sensitivity rdf:about="#Hard">
+        <rdfs:label>Hard</rdfs:label>
+        <rdfs:label>Dur</rdfs:label>
+    </Sensor_sensitivity>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#High -->
+
+    <Size rdf:about="#High">
+        <rdfs:label>Haut</rdfs:label>
+        <rdfs:label>High</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Hot -->
+
+    <Sensor_states rdf:about="#Hot"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Iron -->
+
+    <Equipment_material rdf:about="#Iron">
+        <rdfs:label>Iron</rdfs:label>
+        <rdfs:label>Fer</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#King -->
+
+    <Size rdf:about="#King">
+        <rdfs:label>Tres grand</rdfs:label>
+        <rdfs:label>King</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Large -->
+
+    <Size rdf:about="#Large">
+        <rdfs:label rdf:datatype="&xsd;string">Large</rdfs:label>
+        <rdfs:label>Large</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#LyingDown -->
+
+    <Sensor_states rdf:about="#LyingDown"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Medium -->
+
+    <Size rdf:about="#Medium">
+        <rdfs:label>Moyen</rdfs:label>
+        <rdfs:label>Medium</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Melamine -->
+
+    <Equipment_material rdf:about="#Melamine">
+        <rdfs:label>Melamine</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Non_Contact_sensor -->
+
+    <Sensor_type rdf:about="#Non_Contact_sensor">
+        <rdfs:label
+            >Capteur Non-Contact</rdfs:label>
+        <rdfs:label
+            >Non-Contact sensor</rdfs:label>
+        <rdfs:comment
+            >Cette propriete decrit les capteurs qui n&#39;ont pasbesoin de contact pour reagir.</rdfs:comment>
+    </Sensor_type>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#NotUsed -->
+
+    <Sensor_states rdf:about="#NotUsed"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Off -->
+
+    <Sensor_states rdf:about="#Off"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#On -->
+
+    <Sensor_states rdf:about="#On"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Opened -->
+
+    <Sensor_states rdf:about="#Opened"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Oval -->
+
+    <Format rdf:about="#Oval">
+        <rdfs:label>Oval</rdfs:label>
+    </Format>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Paper_matter -->
+
+    <Equipment_material rdf:about="#Paper_matter">
+        <rdfs:label>Paper matter</rdfs:label>
+        <rdfs:label>Papier</rdfs:label>
+        <rdfs:comment
+            >Des gobelets ou assiettes en papier, jetables.</rdfs:comment>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Passive -->
+
+    <Sensor_activity rdf:about="#Passive">
+        <rdfs:label>Passive</rdfs:label>
+        <rdfs:label>Passif</rdfs:label>
+    </Sensor_activity>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Plastic -->
+
+    <Equipment_material rdf:about="#Plastic">
+        <rdfs:label>Plastique</rdfs:label>
+        <rdfs:label>Plastic</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Porcelain -->
+
+    <Equipment_material rdf:about="#Porcelain">
+        <rdfs:label>Porcelaine</rdfs:label>
+        <rdfs:label>Porcelain</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Queen -->
+
+    <Size rdf:about="#Queen">
+        <rdfs:label>Grand</rdfs:label>
+        <rdfs:label>Queen</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Round -->
+
+    <Format rdf:about="#Round">
+        <rdfs:label>Round</rdfs:label>
+        <rdfs:label>Rond</rdfs:label>
+    </Format>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Seated -->
+
+    <Sensor_states rdf:about="#Seated"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Sensitive -->
+
+    <Sensor_sensitivity rdf:about="#Sensitive">
+        <rdfs:label>Sensitive</rdfs:label>
+        <rdfs:label>Sensible</rdfs:label>
+    </Sensor_sensitivity>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Silicone -->
+
+    <Equipment_material rdf:about="#Silicone">
+        <rdfs:label>Silicone</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Silver -->
+
+    <Equipment_material rdf:about="#Silver">
+        <rdfs:label>Argent</rdfs:label>
+        <rdfs:label>Silver</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Single -->
+
+    <Size rdf:about="#Single">
+        <rdfs:label>Simple</rdfs:label>
+        <rdfs:label>Single</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Small -->
+
+    <Size rdf:about="#Small">
+        <rdfs:label>Petit</rdfs:label>
+        <rdfs:label>Small</rdfs:label>
+    </Size>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Soft -->
+
+    <Sensor_sensitivity rdf:about="#Soft">
+        <rdfs:label>Soft</rdfs:label>
+        <rdfs:label>Tres sensible</rdfs:label>
+    </Sensor_sensitivity>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Square -->
+
+    <Format rdf:about="#Square">
+        <rdfs:label>Square</rdfs:label>
+        <rdfs:label>Carre</rdfs:label>
+    </Format>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Stainless_steel -->
+
+    <Equipment_material rdf:about="#Stainless_steel">
+        <rdfs:label>Stainless steel</rdfs:label>
+        <rdfs:label
+            >Acier inoxydable</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#True -->
+
+    <Sensor_states rdf:about="#True"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Upright -->
+
+    <Sensor_states rdf:about="#Upright"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Used -->
+
+    <Sensor_states rdf:about="#Used"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Equipment_SH_Ontology.owl#Wood -->
+
+    <Equipment_material rdf:about="#Wood">
+        <rdfs:label>Wood</rdfs:label>
+        <rdfs:label>Bois</rdfs:label>
+    </Equipment_material>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Passive"/>
+            <rdf:Description rdf:about="#Active"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Non_Contact_sensor"/>
+            <rdf:Description rdf:about="#Handhold_sensor"/>
+            <rdf:Description rdf:about="#Contact_sensor"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Small"/>
+            <rdf:Description rdf:about="#Double"/>
+            <rdf:Description rdf:about="#Medium"/>
+            <rdf:Description rdf:about="#Queen"/>
+            <rdf:Description rdf:about="#King"/>
+            <rdf:Description rdf:about="#High"/>
+            <rdf:Description rdf:about="#Single"/>
+            <rdf:Description rdf:about="#Large"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Oval"/>
+            <rdf:Description rdf:about="#Square"/>
+            <rdf:Description rdf:about="#Round"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Sensitive"/>
+            <rdf:Description rdf:about="#Hard"/>
+            <rdf:Description rdf:about="#Soft"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Silicone"/>
+            <rdf:Description rdf:about="#Silver"/>
+            <rdf:Description rdf:about="#Iron"/>
+            <rdf:Description rdf:about="#Glass_matter"/>
+            <rdf:Description rdf:about="#Stainless_steel"/>
+            <rdf:Description rdf:about="#Aluminum"/>
+            <rdf:Description rdf:about="#Cast_iron"/>
+            <rdf:Description rdf:about="#Gold_plated"/>
+            <rdf:Description rdf:about="#Wood"/>
+            <rdf:Description rdf:about="#Plastic"/>
+            <rdf:Description rdf:about="#Paper_matter"/>
+            <rdf:Description rdf:about="#Porcelain"/>
+            <rdf:Description rdf:about="#Melamine"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.941) http://owlapi.sourceforge.net -->

@@ -1,0 +1,10 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX lov4iot: <http://sensormeasurement.appspot.com/ont/m3/lov4iot#>
+
+select distinct (count(?m2mAppli) as ?nbOntoDomain) where{
+?m2mAppli rdf:type m3:M2MApplication .
+?m2mAppli m3:hasContext ?context .
+}

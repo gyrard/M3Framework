@@ -1,0 +1,194 @@
+@prefix rdf:  	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:  	<http://www.w3.org/2002/07/owl#>.
+@prefix xsd: 	<http://www.w3.org/2001/XMLSchema#>.
+
+@prefix qol: 	<load-model#>.
+@prefix unc: 	<load-uncertainty#>.
+
+
+
+## CLASSES ##
+## ------- ##
+qol:Person a rdfs:Class.
+qol:Resident a rdfs:Class;
+	rdfs:subClassOf qol:Person.
+qol:Environment a rdfs:Class.
+qol:House a rdfs:Class;
+	rdfs:subClassOf qol:Environment.
+qol:Outside a rdfs:Class;
+	rdfs:subClassOf qol:Environment.
+qol:Room a rdfs:Class;
+	rdfs:subClassOf qol:Environment.
+qol:Bedroom a rdfs:Class;
+	rdfs:subClassOf qol:Room.
+qol:Livingroom a rdfs:Class;
+	rdfs:subClassOf qol:Room.
+qol:Kitchen a rdfs:Class;
+	rdfs:subClassOf qol:Room.
+qol:Bathroom a rdfs:Class;
+	rdfs:subClassOf qol:Room.
+qol:Toilet a rdfs:Class;
+	rdfs:subClassOf qol:Room.
+qol:Object a rdfs:Class.
+qol:Furniture a rdfs:Class;
+	rdfs:subClassOf qol:Object.
+qol:Door a rdfs:Class;
+	rdfs:subClassOf qol:Furniture.
+qol:Bed a rdfs:Class;
+	rdfs:subClassOf qol:Furniture.
+qol:Sensor a rdfs:Class.
+qol:SensorState a rdfs:Class.
+qol:SensorType a rdfs:Class.
+qol:Activity a rdfs:Class.
+qol:Deviance a rdfs:Class;
+	rdfs:subClassOf qol:Activity;
+	rdfs:comment "Problematic activity"@en.
+qol:DayOfWeek a rdfs:Class;
+	rdfs:comment "we did not find any equivalent"@en;
+	rdfs:comment "values: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"@en.
+
+
+
+## OBJECT PROPERTIES ##
+## ----------------- ##
+qol:liveIn a rdf:ObjectProperty;
+	rdfs:comment "House where the resident live."@en;
+	rdfs:domain qol:Resident;
+	rdfs:range qol:Environment.
+
+qol:detectedIn a rdf:ObjectProperty;
+	rdfs:comment "Room where the resident is detected."@en;
+	rdfs:domain qol:Resident;
+	rdfs:range qol:Environment.
+
+qol:useNow a rdf:ObjectProperty;
+	rdfs:comment "Object a person is currently using."@en;
+	rdfs:domain qol:Resident;
+	rdfs:range qol:Object.
+
+qol:believedToDo a rdf:ObjectProperty;
+	rdfs:comment "Activity a resident is believed to be doing."@en;
+	rdfs:domain qol:Resident;
+	rdfs:range qol:Activity.
+
+qol:cameFrom a rdf:ObjectProperty;
+	rdfs:comment "Room the resident was in before the current one."@en;
+	rdfs:domain qol:Resident;
+	rdfs:range qol:Environment.
+
+qol:partOf a rdf:ObjectProperty;
+	a owl:TransitiveProperty;
+	rdfs:comment "Describe inclusion of environments."@en;
+	rdfs:domain qol:Environment;
+	rdfs:range qol:Environment.
+
+qol:locatedIn a rdf:ObjectProperty;
+	rdfs:comment "Location of a door in the environment."@en;
+	rdfs:domain qol:Object;
+	rdfs:range qol:Environment.
+
+qol:deployedIn a rdf:ObjectProperty;
+	rdfs:comment "Deployment location of a sensor."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range qol:Environment.
+
+qol:attachedTo a rdf:ObjectProperty;
+	rdfs:comment "Describe the binding of sensor to a furniture."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range qol:Object.
+
+qol:hasPossibleState a rdf:ObjectProperty;
+	rdfs:comment "Possible state of a sensor."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range qol:SensorState.
+
+qol:type a rdf:ObjectProperty;
+	rdfs:comment "Type of a sensor."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range qol:SensorType.
+
+qol:hasCurrentState a rdf:ObjectProperty;
+	rdfs:comment "Current state of a sensor."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range qol:SensorState.
+
+qol:hasDurationEquivalent a rdf:ObjectProperty;
+	rdfs:comment "Links a date predicate with its equivalent duration predicate."@en;
+	rdfs:domain rdf:DatatypeProperty;
+	rdfs:range rdf:DatatypeProperty.
+
+
+## DATATYPE PROPERTIES ##
+## ------------------- ##
+qol:isAlone a rdf:DatatypeProperty;
+	rdfs:comment "Is the resident alone in the environment?"@en;
+	rdfs:domain qol:Resident;
+	rdfs:range xsd:boolean.
+
+qol:inRoomSince a rdf:DatatypeProperty;
+	rdfs:comment "The time when the resident entered his current location"@en;
+	rdfs:domain qol:Resident;
+	rdfs:range xsd:dateTime;
+	qol:hasDurationEquivalent qol:inRoomFor.
+
+qol:inRoomFor a rdf:DatatypeProperty;
+	rdfs:comment "The duration since the resident entered his current location, in seconds"@en;
+	rdfs:domain qol:Resident;
+	rdfs:range xsd:duration.
+
+qol:doesActivitySince a rdf:DatatypeProperty;
+	rdfs:comment "The time when the resident supposedly started an activity"@en;
+	rdfs:domain qol:Resident;
+	rdfs:range xsd:dateTime;
+	qol:hasDurationEquivalent qol:doesActivityFor.
+
+qol:doesActivityFor a rdf:DatatypeProperty;
+	rdfs:comment "The duration since the resident supposedly started an activity, in seconds"@en;
+	rdfs:domain qol:Resident;
+	rdfs:range xsd:duration.
+
+qol:motionMeasured a rdf:DatatypeProperty;
+	rdfs:comment "Measurement of the number of sensor activations in a given space during a given time window."@en;
+	rdfs:domain qol:Environment;
+	rdfs:range xsd:int.
+
+qol:hasValue a rdf:DatatypeProperty;
+	rdfs:comment "value provided by the sensors which dont have fixed state."@en;
+	rdfs:domain qol:Sensor.
+
+qol:lastUpdate a rdf:DatatypeProperty;
+	rdfs:comment "Date and time of the last update of a sensor state."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range xsd:dateTime.
+
+qol:lastUsed a rdf:DatatypeProperty;
+	rdfs:comment "Date and time of the last time an object was used."@en;
+	rdfs:domain qol:Object;
+	rdfs:range xsd:dateTime;
+	qol:hasDurationEquivalent qol:notUsedFor.
+
+qol:notUsedFor a rdf:DatatypeProperty;
+	rdfs:comment "Duration since an object was last used."@en;
+	rdfs:domain qol:Object;
+	rdfs:range xsd:duration.
+
+qol:hasLastUpdate a rdf:DatatypeProperty;
+	rdfs:comment "Indicate whether the sensor is the last one updated."@en;
+	rdfs:domain qol:Sensor;
+	rdfs:range xsd:boolean.
+
+qol:indicateLocation a rdf:DatatypeProperty;
+	rdfs:comment "Whether SensorState indicate the resident location."@en;
+	rdfs:domain qol:SensorState;
+	rdfs:range xsd:boolean.
+
+qol:indicateUse a rdf:DatatypeProperty;
+	rdfs:comment "Whether SensorState indicate the use of an object."@en;
+	rdfs:domain qol:SensorState;
+	rdfs:range xsd:boolean.
+
+qol:getRBConfidenceScore a rdf:DatatypeProperty;
+	rdfs:comment "Rule-Based confidence score obtained by an activity, given between 0 and 100."@en;
+	rdfs:domain qol:Activity;
+	rdfs:range xsd:decimal.

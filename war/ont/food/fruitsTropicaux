@@ -1,0 +1,2480 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY sc "http://umbel.org/umbel/sc/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY nciOncology "http://www.mindswap.org/2003/nciOncology.owl#" >
+    <!ENTITY Ontology_fruits_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Ontology_fruits_tropical="http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#"
+     xmlns:sc="http://umbel.org/umbel/sc/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:nciOncology="http://www.mindswap.org/2003/nciOncology.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasColor -->
+
+    <owl:ObjectProperty rdf:about="#hasColor">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that color possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que color posee una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;une couleur poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:range rdf:resource="#Color"/>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <owl:disjointObjectProperties rdf:resource="#hasCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasFlavor"/>
+        <owl:disjointObjectProperties rdf:resource="#hasLatitudeZone"/>
+        <owl:disjointObjectProperties rdf:resource="#hasMineral"/>
+        <owl:disjointObjectProperties rdf:resource="#hasNameByCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasCountry -->
+
+    <owl:ObjectProperty rdf:about="#hasCountry">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that country possesses a popular name.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que pais posee un nombre popular.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;un pays poss&#232;de un nom populaire.</rdfs:comment>
+        <rdfs:range rdf:resource="&nciOncology;Country"/>
+        <rdfs:domain rdf:resource="#PopularName"/>
+        <owl:disjointObjectProperties rdf:resource="#hasFlavor"/>
+        <owl:disjointObjectProperties rdf:resource="#hasLatitudeZone"/>
+        <owl:disjointObjectProperties rdf:resource="#hasMineral"/>
+        <owl:disjointObjectProperties rdf:resource="#hasNameByCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasFlavor -->
+
+    <owl:ObjectProperty rdf:about="#hasFlavor">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that flavor possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que sabor posee una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;une saveur poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:range rdf:resource="#Flavor"/>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <owl:disjointObjectProperties rdf:resource="#hasLatitudeZone"/>
+        <owl:disjointObjectProperties rdf:resource="#hasMineral"/>
+        <owl:disjointObjectProperties rdf:resource="#hasNameByCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasLatitudeZone -->
+
+    <owl:ObjectProperty rdf:about="#hasLatitudeZone">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that latitude zone possesses a country.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que zona de latitud posee un pais.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie que zone de latitude poss&#232;de un pays.</rdfs:comment>
+        <rdfs:domain rdf:resource="&nciOncology;Country"/>
+        <rdfs:range rdf:resource="#LatitudeZone"/>
+        <owl:disjointObjectProperties rdf:resource="#hasMineral"/>
+        <owl:disjointObjectProperties rdf:resource="#hasNameByCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasMineral -->
+
+    <owl:ObjectProperty rdf:about="#hasMineral">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that mineral possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que mineral posee una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;une min&#233;ral poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="#Mineral"/>
+        <owl:disjointObjectProperties rdf:resource="#hasNameByCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasNameByCountry -->
+
+    <owl:ObjectProperty rdf:about="#hasNameByCountry">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that popular name possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que nombre popular posee una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie que nom populaire poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="#PopularName"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingCountry"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasProducingCountry -->
+
+    <owl:ObjectProperty rdf:about="#hasProducingCountry">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that country is a Important or significant producer of a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que pais es productor importante o significativo de una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;un pays est producteur important ou significatif d&#39;un fruit.</rdfs:comment>
+        <rdfs:range rdf:resource="&nciOncology;Country"/>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <owl:disjointObjectProperties rdf:resource="#hasProducingFruit"/>
+        <owl:disjointObjectProperties rdf:resource="#hasUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasProducingFruit -->
+
+    <owl:ObjectProperty rdf:about="#hasProducingFruit">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that fruit is produced by a country.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que fruta es producida por un pais.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;un fruit est produit par un pays.</rdfs:comment>
+        <rdfs:domain rdf:resource="&nciOncology;Country"/>
+        <rdfs:range rdf:resource="#Fruit"/>
+        <owl:inverseOf rdf:resource="#hasProducingCountry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasUse -->
+
+    <owl:ObjectProperty rdf:about="#hasUse">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that use possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que uso posee una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;usage poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="#FruitUse"/>
+        <owl:disjointObjectProperties rdf:resource="#hasVitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasVitamin -->
+
+    <owl:ObjectProperty rdf:about="#hasVitamin">
+        <rdfs:comment xml:lang="en"
+            >Relation that he identifies that vitamin possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica que vitamina posee una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La relation qui identifie qu&#39;une vitamine poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="#Vitamin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasBinomialName -->
+
+    <owl:DatatypeProperty rdf:about="#hasBinomialName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >In biology, binomial nomenclature is the formal system of naming species.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >En la biolog&#237;a, la nomenclatura binomia es el sistema formal de llamar la especie.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Dans la biologie, la nomenclature binomiale est le syst&#232;me formel de nommer l&#39;esp&#232;ce.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasHistory -->
+
+    <owl:DatatypeProperty rdf:about="#hasHistory">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Relation that identifies the history that possesses a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >La relation qui identifie l&#39;histoire qui poss&#232;de un fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Relacion que identifica la historia que posee una fruta.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasLabel -->
+
+    <owl:DatatypeProperty rdf:about="#hasLabel">
+        <rdfs:comment xml:lang="en"
+            >Label that a popular name of a fruit possesses.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Etiqueta que posee un nombre popular de una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >L&#39;&#233;tiquette qui poss&#232;de un nom populaire d&#39;un fruit.</rdfs:comment>
+        <rdfs:domain rdf:resource="#PopularName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasSizeDiameterCentimetresMax -->
+
+    <owl:DatatypeProperty rdf:about="#hasSizeDiameterCentimetresMax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Diameter maximum in centimeters that a fruit can possess in ripe state.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Diametro o ancho m&#225;ximo en centimetros que puede poseer una fruta cuando esta en estado maduro.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le diam&#232;tre maximale dans centim&#232;tres qu&#39;un fruit peut poss&#233;der dans l&#39;&#233;tat m&#251;r.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasSizeDiameterCentimetresMin -->
+
+    <owl:DatatypeProperty rdf:about="#hasSizeDiameterCentimetresMin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Diameter minimum in centimeters that a fruit can possess in ripe state.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Diametro o ancho minimo en centimetros que puede poseer una fruta cuando esta en estado maduro.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le diam&#232;tre minimum dans centim&#232;tres qu&#39;un fruit peut poss&#233;der dans l&#39;&#233;tat m&#251;r.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasSizeLongCentimetresMax -->
+
+    <owl:DatatypeProperty rdf:about="#hasSizeLongCentimetresMax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Long maximum in centimeters that a fruit can possess in ripe state.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Largo m&#225;ximo en centimetros que puede poseer una fruta cuando esta en estado maduro.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le longuer maximale dans centim&#232;tres qu&#39;un fruit peut poss&#233;der dans l&#39;&#233;tat m&#251;r.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasSizeLongCentimetresMin -->
+
+    <owl:DatatypeProperty rdf:about="#hasSizeLongCentimetresMin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Long minimum in centimeters that a fruit can possess in ripe state.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Largo minimo en centimetros que puede poseer una fruta cuando esta en estado maduro.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le longueur minimum dans centim&#232;tres qu&#39;un fruit peut poss&#233;der dans l&#39;&#233;tat m&#251;r.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#hasWeightGrams -->
+
+    <owl:DatatypeProperty rdf:about="#hasWeightGrams">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >Average weight in grams that can hold a fruit in ripe state.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Peso promedio en gramos que puede poseer una fruta cuando esta en estado maduro.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le poids moyen dans grammes qu&#39;un fruit peut poss&#233;der quand il est dans un &#233;tat m&#251;r.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Fruit"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://umbel.org/umbel/sc/Fruit -->
+
+    <owl:Class rdf:about="&sc;Fruit">
+        <owl:equivalentClass rdf:resource="#Fruit"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that makes the relationship with UMBEL adds meaning to the concept of fruit</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que hace la relacion con UMBEL adiciona significado al concepto de Fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui fait la relation avec UMBEL ajoute signification au concept de Fruit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.mindswap.org/2003/nciOncology.owl#Country -->
+
+    <owl:Class rdf:about="&nciOncology;Country">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLatitudeZone"/>
+                <owl:onClass rdf:resource="#LatitudeZone"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Fruit"/>
+        <owl:disjointWith rdf:resource="#FruitCharacteristic"/>
+        <owl:disjointWith rdf:resource="#FruitUse"/>
+        <owl:disjointWith rdf:resource="#LatitudeZone"/>
+        <owl:disjointWith rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity which brings together some names of countries. We are interested to know your latitude zone (polar, temperate or tropical).</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunos nombres de paises.  Nos interesa conocer su zona de latitud (polar, templado o tropical)</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques noms de pays. Cela nous int&#233;resse de conna&#238;tre leur zone de latitude (polaire, temp&#233;r&#233; ou tropical)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Color -->
+
+    <owl:Class rdf:about="#Color">
+        <rdfs:subClassOf rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity which brings together some colors that can hold fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunos colores que pueden poseer las frutas.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques couleurs qui peuvent poss&#233;der les fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Flavor -->
+
+    <owl:Class rdf:about="#Flavor">
+        <rdfs:subClassOf rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity which brings together some flavors that can hold fruit</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunos sabores que pueden poseer las frutas.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques saveurs qui peuvent poss&#233;der les fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Fruit -->
+
+    <owl:Class rdf:about="#Fruit">
+        <rdfs:subClassOf rdf:resource="&sc;Fruit"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasUse"/>
+                <owl:someValuesFrom rdf:resource="#FruitUse"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSizeDiameterCentimetresMin"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasMineral"/>
+                <owl:allValuesFrom rdf:resource="#Mineral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasHistory"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSizeDiameterCentimetresMax"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasWeightGrams"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasProducingCountry"/>
+                <owl:someValuesFrom rdf:resource="&nciOncology;Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasNameByCountry"/>
+                <owl:someValuesFrom rdf:resource="#PopularName"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFlavor"/>
+                <owl:allValuesFrom rdf:resource="#Flavor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasColor"/>
+                <owl:allValuesFrom rdf:resource="#Color"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasVitamin"/>
+                <owl:allValuesFrom rdf:resource="#Vitamin"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSizeLongCentimetresMin"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasBinomialName"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSizeLongCentimetresMax"/>
+                <owl:someValuesFrom rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#FruitCharacteristic"/>
+        <owl:disjointWith rdf:resource="#FruitUse"/>
+        <owl:disjointWith rdf:resource="#LatitudeZone"/>
+        <owl:disjointWith rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity which brings together some characteristics that identify a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunas caracteristicas que identifican una Fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques caract&#233;ristiques qui identifient des Fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#FruitCharacteristic -->
+
+    <owl:Class rdf:about="#FruitCharacteristic">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <owl:disjointWith rdf:resource="#FruitUse"/>
+        <owl:disjointWith rdf:resource="#LatitudeZone"/>
+        <owl:disjointWith rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Features abstract of a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Caracteristicas abstractas de una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Caract&#233;ristiques abstraites des fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#FruitUse -->
+
+    <owl:Class rdf:about="#FruitUse">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <owl:disjointWith rdf:resource="#LatitudeZone"/>
+        <owl:disjointWith rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that combines the uses that can have a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa los usos que puede tener una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe les utilisations que peuvent avoir des fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#HumanNutritionUse -->
+
+    <owl:Class rdf:about="#HumanNutritionUse">
+        <rdfs:subClassOf rdf:resource="#FruitUse"/>
+        <owl:disjointWith rdf:resource="#MedicalUse"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that combines the potential uses food that can have a fruit. As you can eat.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa los posibles usos alimenticios que puede tener una fruta.  Como se puede comer.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe les possibles utilisations alimentaires que peuvent avoir des fruits. Comme il peut &#234;tre mang&#233;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#IndustrialUse -->
+
+    <owl:Class rdf:about="#IndustrialUse">
+        <rdfs:subClassOf rdf:resource="#FruitUse"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that combines the potential industrial uses that can have a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa los posibles usos industriales que puede tener una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe les possibles utilisations industrielles que peuvent avoir des fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#LatitudeZone -->
+
+    <owl:Class rdf:about="#LatitudeZone">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <owl:disjointWith rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that brings together a climate zone on earth. It belongs to several countries.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa una zona climatica de la tierra.  A la cual pertenecen varios paises.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe une zone climatique de la terre. &#192; &#224; laquelle on appartien plusieurs pays.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#MedicalUse -->
+
+    <owl:Class rdf:about="#MedicalUse">
+        <rdfs:subClassOf rdf:resource="#FruitUse"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that includes the possible medical uses that can have a fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa los posibles usos medicos que puede tener una fruta.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe les possibles utilisations m&#233;dicales que peuvent avoir des fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Mineral -->
+
+    <owl:Class rdf:about="#Mineral">
+        <rdfs:subClassOf rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity which brings together some minerals that can hold fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunos minerales que pueden poseer las frutas.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques min&#233;raux qui peuvent poss&#233;der les fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#PhysicalCharacteristic -->
+
+    <owl:Class rdf:about="#PhysicalCharacteristic">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en"
+            >Entity that combines some features of an edible item.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunas caracteristicas de un elemento comestible.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques caract&#233;ristiques d&#39;un &#233;l&#233;ment comestible.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#PopularName -->
+
+    <owl:Class rdf:about="#PopularName">
+        <rdfs:subClassOf rdf:resource="#FruitCharacteristic"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCountry"/>
+                <owl:someValuesFrom rdf:resource="&nciOncology;Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLabel"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Entity that brings together the names which has a popular fruit in a given country.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa los nombres populares que tiene una fruta en un pais determinado.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe les noms populaires qu&#39;ont des fruits dans un pays d&#233;termin&#233;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Vitamin -->
+
+    <owl:Class rdf:about="#Vitamin">
+        <rdfs:subClassOf rdf:resource="#PhysicalCharacteristic"/>
+        <rdfs:comment xml:lang="en"
+            >Entity which brings together some vitamins that can hold fruit.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Entidad que agrupa algunos vitaminas que pueden poseer las frutas.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Entit&#233; qui groupe quelques vitamines qui peuvent poss&#233;der les fruits.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Afghanistan -->
+
+    <nciOncology:Country rdf:about="#Afghanistan">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Algeria -->
+
+    <nciOncology:Country rdf:about="#Algeria">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Argentina -->
+
+    <nciOncology:Country rdf:about="#Argentina">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Aruba -->
+
+    <nciOncology:Country rdf:about="#Aruba">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Australia -->
+
+    <nciOncology:Country rdf:about="#Australia">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Barbados -->
+
+    <nciOncology:Country rdf:about="#Barbados">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Belize -->
+
+    <nciOncology:Country rdf:about="#Belize">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Bolivia -->
+
+    <nciOncology:Country rdf:about="#Bolivia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Brazil -->
+
+    <nciOncology:Country rdf:about="#Brazil">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Brunei -->
+
+    <nciOncology:Country rdf:about="#Brunei">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Bulgaria -->
+
+    <nciOncology:Country rdf:about="#Bulgaria">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Burundi -->
+
+    <nciOncology:Country rdf:about="#Burundi">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Cambodia -->
+
+    <nciOncology:Country rdf:about="#Cambodia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Cameroon -->
+
+    <nciOncology:Country rdf:about="#Cameroon">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Canada -->
+
+    <nciOncology:Country rdf:about="#Canada">
+        <hasLatitudeZone rdf:resource="#Polar"/>
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Chile -->
+
+    <nciOncology:Country rdf:about="#Chile">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#China -->
+
+    <nciOncology:Country rdf:about="#China">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Colombia -->
+
+    <nciOncology:Country rdf:about="#Colombia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Comoros -->
+
+    <nciOncology:Country rdf:about="#Comoros">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Congo -->
+
+    <nciOncology:Country rdf:about="#Congo">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Costa_Rica -->
+
+    <nciOncology:Country rdf:about="#Costa_Rica">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Cote_d_Ivoire -->
+
+    <nciOncology:Country rdf:about="#Cote_d_Ivoire">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Cuba -->
+
+    <nciOncology:Country rdf:about="#Cuba">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Czech_Republic -->
+
+    <nciOncology:Country rdf:about="#Czech_Republic">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Denmark -->
+
+    <nciOncology:Country rdf:about="#Denmark">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Dominica -->
+
+    <nciOncology:Country rdf:about="#Dominica">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Dominican_Republic -->
+
+    <nciOncology:Country rdf:about="#Dominican_Republic">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#East_Timor -->
+
+    <nciOncology:Country rdf:about="#East_Timor">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Ecuador -->
+
+    <nciOncology:Country rdf:about="#Ecuador">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Egypt -->
+
+    <nciOncology:Country rdf:about="#Egypt">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#El_Salvador -->
+
+    <nciOncology:Country rdf:about="#El_Salvador">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Ethiopia -->
+
+    <nciOncology:Country rdf:about="#Ethiopia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Finland -->
+
+    <nciOncology:Country rdf:about="#Finland">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#France -->
+
+    <nciOncology:Country rdf:about="#France">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#French_Guiana -->
+
+    <nciOncology:Country rdf:about="#French_Guiana">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Germany -->
+
+    <nciOncology:Country rdf:about="#Germany">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Ghana -->
+
+    <nciOncology:Country rdf:about="#Ghana"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Greece -->
+
+    <nciOncology:Country rdf:about="#Greece">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Guatemala -->
+
+    <nciOncology:Country rdf:about="#Guatemala">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Guinea -->
+
+    <nciOncology:Country rdf:about="#Guinea">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Guriname -->
+
+    <nciOncology:Country rdf:about="#Guriname">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Guyana -->
+
+    <nciOncology:Country rdf:about="#Guyana">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Haiti -->
+
+    <nciOncology:Country rdf:about="#Haiti">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Honduras -->
+
+    <nciOncology:Country rdf:about="#Honduras">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Hungary -->
+
+    <nciOncology:Country rdf:about="#Hungary">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#India -->
+
+    <nciOncology:Country rdf:about="#India">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Indonesia -->
+
+    <nciOncology:Country rdf:about="#Indonesia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Iran -->
+
+    <nciOncology:Country rdf:about="#Iran">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Iraq -->
+
+    <nciOncology:Country rdf:about="#Iraq">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Israel -->
+
+    <nciOncology:Country rdf:about="#Israel">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Italy -->
+
+    <nciOncology:Country rdf:about="#Italy">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Jamaica -->
+
+    <nciOncology:Country rdf:about="#Jamaica">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Japan -->
+
+    <nciOncology:Country rdf:about="#Japan">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Jordan -->
+
+    <nciOncology:Country rdf:about="#Jordan">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Laos -->
+
+    <nciOncology:Country rdf:about="#Laos">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Libya -->
+
+    <nciOncology:Country rdf:about="#Libya">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Malaysia -->
+
+    <nciOncology:Country rdf:about="#Malaysia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Mali -->
+
+    <nciOncology:Country rdf:about="#Mali">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Malta -->
+
+    <nciOncology:Country rdf:about="#Malta">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Mauritius -->
+
+    <nciOncology:Country rdf:about="#Mauritius">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Mexico -->
+
+    <nciOncology:Country rdf:about="#Mexico">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Mozambique -->
+
+    <nciOncology:Country rdf:about="#Mozambique">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Myanmar -->
+
+    <nciOncology:Country rdf:about="#Myanmar">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Namibia -->
+
+    <nciOncology:Country rdf:about="#Namibia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#New_Zealand -->
+
+    <nciOncology:Country rdf:about="#New_Zealand">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Nicaragua -->
+
+    <nciOncology:Country rdf:about="#Nicaragua">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Niger -->
+
+    <nciOncology:Country rdf:about="#Niger">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Nigeria -->
+
+    <nciOncology:Country rdf:about="#Nigeria">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Pakistan -->
+
+    <nciOncology:Country rdf:about="#Pakistan">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Palestine -->
+
+    <nciOncology:Country rdf:about="#Palestine">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Panama -->
+
+    <nciOncology:Country rdf:about="#Panama">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Paraguay -->
+
+    <nciOncology:Country rdf:about="#Paraguay">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Peru -->
+
+    <nciOncology:Country rdf:about="#Peru">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Philippines -->
+
+    <nciOncology:Country rdf:about="#Philippines">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Polar -->
+
+    <LatitudeZone rdf:about="#Polar">
+        <rdfs:label xml:lang="en">Polar region</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Regiones polares</rdfs:label>
+        <rdfs:label xml:lang="fr">R&#233;gion polaire</rdfs:label>
+        <rdfs:comment
+            >the regions of the earth that surround the north and south poles, from the north pole to 60 degrees north and from the south pole to 60 degrees south.</rdfs:comment>
+    </LatitudeZone>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Puerto_Rico -->
+
+    <nciOncology:Country rdf:about="#Puerto_Rico">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Romania -->
+
+    <nciOncology:Country rdf:about="#Romania">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Rusia -->
+
+    <nciOncology:Country rdf:about="#Rusia">
+        <hasLatitudeZone rdf:resource="#Polar"/>
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Rwanda -->
+
+    <nciOncology:Country rdf:about="#Rwanda">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Senegal -->
+
+    <nciOncology:Country rdf:about="#Senegal">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Singapore -->
+
+    <nciOncology:Country rdf:about="#Singapore">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#South_Africa -->
+
+    <nciOncology:Country rdf:about="#South_Africa">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Spain -->
+
+    <nciOncology:Country rdf:about="#Spain">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Sri_Lanka -->
+
+    <nciOncology:Country rdf:about="#Sri_Lanka"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Sudan -->
+
+    <nciOncology:Country rdf:about="#Sudan">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Suriname -->
+
+    <nciOncology:Country rdf:about="#Suriname">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Switzerland -->
+
+    <nciOncology:Country rdf:about="#Switzerland">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Syria -->
+
+    <nciOncology:Country rdf:about="#Syria">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Temperate -->
+
+    <LatitudeZone rdf:about="#Temperate">
+        <rdfs:label xml:lang="en">temperate</rdfs:label>
+        <rdfs:label xml:lang="es">templado</rdfs:label>
+        <rdfs:label xml:lang="fr">temp&#233;r&#233;</rdfs:label>
+        <rdfs:comment
+            >that region of the Earth between 23.5 degrees North and 60 degrees North (between the Tropic of Cancer and the Arctic Circle) and between 23.5 degrees South and 60 degrees South (between the Tropic of Capricorn and the Antarctic Circle).</rdfs:comment>
+    </LatitudeZone>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Thailand -->
+
+    <nciOncology:Country rdf:about="#Thailand">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#The_bahamas -->
+
+    <nciOncology:Country rdf:about="#The_bahamas">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Tropics -->
+
+    <LatitudeZone rdf:about="#Tropics">
+        <rdfs:label xml:lang="en">tropics</rdfs:label>
+        <rdfs:label xml:lang="es">intertropical</rdfs:label>
+        <rdfs:label xml:lang="fr">tropique</rdfs:label>
+        <rdfs:comment
+            >the region of the earth that surrounds the equator, from 23.5 degrees north to 23.5 degrees south.</rdfs:comment>
+    </LatitudeZone>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Turkey -->
+
+    <nciOncology:Country rdf:about="#Turkey">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#United_Kingdom -->
+
+    <nciOncology:Country rdf:about="#United_Kingdom">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#United_States -->
+
+    <nciOncology:Country rdf:about="#United_States">
+        <hasLatitudeZone rdf:resource="#Polar"/>
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Urugay -->
+
+    <nciOncology:Country rdf:about="#Urugay">
+        <hasLatitudeZone rdf:resource="#Temperate"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Uruguay -->
+
+    <nciOncology:Country rdf:about="#Uruguay">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Venezuela -->
+
+    <nciOncology:Country rdf:about="#Venezuela">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Vietnam -->
+
+    <nciOncology:Country rdf:about="#Vietnam">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Zambia -->
+
+    <nciOncology:Country rdf:about="#Zambia">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#Zimbabwe -->
+
+    <nciOncology:Country rdf:about="#Zimbabwe">
+        <hasLatitudeZone rdf:resource="#Tropics"/>
+    </nciOncology:Country>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#aqua -->
+
+    <Color rdf:about="#aqua"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#aquamarine -->
+
+    <Color rdf:about="#aquamarine">
+        <rdfs:label xml:lang="en">aquamarine</rdfs:label>
+        <rdfs:label xml:lang="es">agua marina</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#banana -->
+
+    <Fruit rdf:about="#banana">
+        <hasWeightGrams rdf:datatype="&xsd;float">125</hasWeightGrams>
+        <hasHistory rdf:datatype="&xsd;string"
+            >The domestication of bananas took place in southeastern Asia. Many species of wild bananas still occur in New Guinea, Malaysia, Indonesia and the Philippines. Recent archaeological and palaeoenvironmental evidence at Kuk Swamp in the Western Highlands Province of Papua New Guinea suggests that banana cultivation there goes back to at least 5000 BCE, and possibly to 8000 BCE. [1] This would make the New Guinean highlands the place where bananas were first domesticated. It is likely that other species of wild bananas were later also domesticated elsewhere in southeastern Asia. Southeast Asia is the region of primary diversity of the banana. Areas of secondary diversity are found in Africa, indicating a long history of banana cultivation in the region.</hasHistory>
+        <hasProducingCountry rdf:resource="#Brazil"/>
+        <hasProducingCountry rdf:resource="#Burundi"/>
+        <hasProducingCountry rdf:resource="#China"/>
+        <hasProducingCountry rdf:resource="#Colombia"/>
+        <hasProducingCountry rdf:resource="#Costa_Rica"/>
+        <hasProducingCountry rdf:resource="#Ecuador"/>
+        <hasProducingCountry rdf:resource="#India"/>
+        <hasProducingCountry rdf:resource="#Indonesia"/>
+        <hasProducingCountry rdf:resource="#Mexico"/>
+        <hasProducingCountry rdf:resource="#Philippines"/>
+        <hasProducingCountry rdf:resource="#Thailand"/>
+        <hasMineral rdf:resource="#calcium"/>
+        <hasUse rdf:resource="#chips"/>
+        <hasMineral rdf:resource="#iron"/>
+        <hasMineral rdf:resource="#magnesium"/>
+        <hasMineral rdf:resource="#phosphorus"/>
+        <hasMineral rdf:resource="#potassium"/>
+        <hasUse rdf:resource="#pudding"/>
+        <hasColor rdf:resource="#purple"/>
+        <hasUse rdf:resource="#raw"/>
+        <hasColor rdf:resource="#red"/>
+        <hasUse rdf:resource="#sauce"/>
+        <hasUse rdf:resource="#split"/>
+        <hasVitamin rdf:resource="#vitaminB1"/>
+        <hasVitamin rdf:resource="#vitaminB2"/>
+        <hasVitamin rdf:resource="#vitaminB3"/>
+        <hasVitamin rdf:resource="#vitaminB5"/>
+        <hasVitamin rdf:resource="#vitaminB6"/>
+        <hasVitamin rdf:resource="#vitaminB9"/>
+        <hasVitamin rdf:resource="#vitaminC"/>
+        <hasColor rdf:resource="#yellow"/>
+        <hasMineral rdf:resource="#zinc"/>
+    </Fruit>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#bitter -->
+
+    <Flavor rdf:about="#bitter">
+        <rdfs:label xml:lang="en">bitter</rdfs:label>
+        <rdfs:label xml:lang="es">amargo</rdfs:label>
+        <rdfs:label xml:lang="fr">amer</rdfs:label>
+    </Flavor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#black -->
+
+    <Color rdf:about="#black">
+        <rdfs:label xml:lang="en">black</rdfs:label>
+        <rdfs:label xml:lang="es">negro</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#blue -->
+
+    <Color rdf:about="#blue">
+        <rdfs:label xml:lang="en">blue</rdfs:label>
+        <rdfs:label xml:lang="es">azul</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#bronze -->
+
+    <Color rdf:about="#bronze">
+        <rdfs:label xml:lang="en">bronce</rdfs:label>
+        <rdfs:label xml:lang="es">bronce</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#brown -->
+
+    <Color rdf:about="#brown">
+        <rdfs:label xml:lang="en">brown</rdfs:label>
+        <rdfs:label xml:lang="es">marron</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#cacao -->
+
+    <Fruit rdf:about="#cacao">
+        <hasSizeDiameterCentimetresMax rdf:datatype="&xsd;float">10</hasSizeDiameterCentimetresMax>
+        <hasSizeLongCentimetresMin rdf:datatype="&xsd;float">15</hasSizeLongCentimetresMin>
+        <hasSizeLongCentimetresMax rdf:datatype="&xsd;float">30</hasSizeLongCentimetresMax>
+        <hasWeightGrams rdf:datatype="&xsd;float">500</hasWeightGrams>
+        <hasSizeDiameterCentimetresMin rdf:datatype="&xsd;float">8</hasSizeDiameterCentimetresMin>
+        <hasHistory rdf:datatype="&xsd;string"
+            >The Maya believed that the kakaw (cacao) was discovered by the gods in a mountain that also contained other delectable foods to be used by the Maya. According to Maya mythology, the Plumed Serpent gave cacao to the Maya after humans were created from maize by divine grandmother goddess Xmucane (Bogin 1997, Coe 1996, Montejo 1999, Tedlock 1985). The Maya celebrated an annual festival in April to honor their cacao god, Ek Chuah, an event that included the sacrifice of a dog with cacao colored markings; additional animal sacrifices; offerings of cacao, feathers and incense; and an exchange of gifts. In a similar creation story, the Mexica (Aztec) god Quetzalcoatl discovered cacao (cacahuatl: &quot;&#39;bitter water&quot;&#39;), in a mountain filled with other plant foods (Coe 1996, Townsend 1992). Cacao was offered regularly to a pantheon of Mexica deities and the Madrid Codex depicts priests lancing their ear lobes (autosacrifice) and covering the cacao with blood as a suitable sacrifice to the gods. The cacao beverage as ritual were used only by men, as it was believed to be toxic for women and children.</hasHistory>
+        <hasBinomialName rdf:datatype="&xsd;string">Theobroma cacao</hasBinomialName>
+        <hasProducingCountry rdf:resource="#Brazil"/>
+        <hasProducingCountry rdf:resource="#Cameroon"/>
+        <hasProducingCountry rdf:resource="#Colombia"/>
+        <hasProducingCountry rdf:resource="#Cote_d_Ivoire"/>
+        <hasProducingCountry rdf:resource="#Ecuador"/>
+        <hasProducingCountry rdf:resource="#Ghana"/>
+        <hasProducingCountry rdf:resource="#Indonesia"/>
+        <hasProducingCountry rdf:resource="#Mexico"/>
+        <hasProducingCountry rdf:resource="#Nigeria"/>
+        <hasProducingCountry rdf:resource="#Peru"/>
+        <hasProducingCountry rdf:resource="#Venezuela"/>
+        <hasMineral rdf:resource="#calcium"/>
+        <hasMineral rdf:resource="#iron"/>
+        <hasMineral rdf:resource="#magnesium"/>
+        <hasMineral rdf:resource="#phosphorus"/>
+        <hasMineral rdf:resource="#potassium"/>
+        <hasVitamin rdf:resource="#vitaminA"/>
+        <hasVitamin rdf:resource="#vitaminB1"/>
+        <hasVitamin rdf:resource="#vitaminC"/>
+        <hasVitamin rdf:resource="#vitaminE"/>
+    </Fruit>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#calcium -->
+
+    <Mineral rdf:about="#calcium">
+        <rdfs:label xml:lang="en">calcium</rdfs:label>
+        <rdfs:label xml:lang="es">calcio</rdfs:label>
+        <rdfs:label xml:lang="fr">calcium</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#chips -->
+
+    <IndustrialUse rdf:about="#chips">
+        <rdfs:label xml:lang="en">chips</rdfs:label>
+        <rdfs:label xml:lang="es">trocitos</rdfs:label>
+        <rdfs:label xml:lang="fr">chips</rdfs:label>
+    </IndustrialUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#cream -->
+
+    <Color rdf:about="#cream">
+        <rdfs:label xml:lang="en">cream</rdfs:label>
+        <rdfs:label xml:lang="es">crema</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#cyan -->
+
+    <Color rdf:about="#cyan">
+        <rdfs:label xml:lang="en">cyan</rdfs:label>
+        <rdfs:label xml:lang="es">cian</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#fuchsia -->
+
+    <Color rdf:about="#fuchsia">
+        <rdfs:label xml:lang="en">fuchsia</rdfs:label>
+        <rdfs:label xml:lang="es">fusia</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#gastro-intestinal_maladies -->
+
+    <MedicalUse rdf:about="#gastro-intestinal_maladies">
+        <rdfs:label xml:lang="en"
+            >maladies gastro-intestinal</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >enfermedades gastro-intestinales</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >maladies gastro-intestinal</rdfs:label>
+    </MedicalUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#gray -->
+
+    <Color rdf:about="#gray">
+        <rdfs:label xml:lang="en">gray</rdfs:label>
+        <rdfs:label xml:lang="es">gris</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#green -->
+
+    <Color rdf:about="#green">
+        <rdfs:label xml:lang="en">green</rdfs:label>
+        <rdfs:label xml:lang="es">verde</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#iodine -->
+
+    <Mineral rdf:about="#iodine">
+        <rdfs:label xml:lang="en">iodine</rdfs:label>
+        <rdfs:label xml:lang="es">yodo</rdfs:label>
+        <rdfs:label xml:lang="fr">iode</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#iron -->
+
+    <Mineral rdf:about="#iron">
+        <rdfs:label xml:lang="en">iron</rdfs:label>
+        <rdfs:label xml:lang="es">hierro</rdfs:label>
+        <rdfs:label xml:lang="fr">fer</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#juice -->
+
+    <HumanNutritionUse rdf:about="#juice">
+        <rdf:type rdf:resource="#IndustrialUse"/>
+        <rdfs:label xml:lang="en">juice</rdfs:label>
+        <rdfs:label xml:lang="es">jugo</rdfs:label>
+        <rdfs:label xml:lang="fr">jus</rdfs:label>
+    </HumanNutritionUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#lime -->
+
+    <Color rdf:about="#lime">
+        <rdfs:label xml:lang="en">lime</rdfs:label>
+        <rdfs:label xml:lang="es">lima</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#magnesium -->
+
+    <Mineral rdf:about="#magnesium">
+        <rdfs:label xml:lang="en">magnesium</rdfs:label>
+        <rdfs:label xml:lang="es">magnesio</rdfs:label>
+        <rdfs:label xml:lang="fr">magn&#233;sium</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#mamey_sapote -->
+
+    <Fruit rdf:about="#mamey_sapote">
+        <hasSizeLongCentimetresMin rdf:datatype="&xsd;float">10</hasSizeLongCentimetresMin>
+        <hasSizeDiameterCentimetresMax rdf:datatype="&xsd;float">12</hasSizeDiameterCentimetresMax>
+        <hasSizeLongCentimetresMax rdf:datatype="&xsd;float">25</hasSizeLongCentimetresMax>
+        <hasSizeDiameterCentimetresMin rdf:datatype="&xsd;float">8</hasSizeDiameterCentimetresMin>
+        <hasBinomialName rdf:datatype="&xsd;string">Pouteria sapota</hasBinomialName>
+        <hasProducingCountry rdf:resource="#Mexico"/>
+        <hasUse rdf:resource="#gastro-intestinal_maladies"/>
+        <hasFlavor rdf:resource="#sweet"/>
+    </Fruit>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#maroon -->
+
+    <Color rdf:about="#maroon">
+        <rdfs:label xml:lang="en">maroon</rdfs:label>
+        <rdfs:label xml:lang="es">granate</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#navy -->
+
+    <Color rdf:about="#navy">
+        <rdfs:label xml:lang="en">navy</rdfs:label>
+        <rdfs:label xml:lang="es">azul marino</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#ointment -->
+
+    <MedicalUse rdf:about="#ointment">
+        <rdfs:label xml:lang="en">ointment</rdfs:label>
+        <rdfs:label xml:lang="es">ung&#252;ento</rdfs:label>
+        <rdfs:label xml:lang="fr">onguent</rdfs:label>
+    </MedicalUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#olive_color -->
+
+    <Color rdf:about="#olive_color"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#orange_color -->
+
+    <Color rdf:about="#orange_color"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#orange_fruit -->
+
+    <Fruit rdf:about="#orange_fruit">
+        <rdfs:label xml:lang="en">orange</rdfs:label>
+        <rdfs:label xml:lang="es">naranjado</rdfs:label>
+        <hasSizeLongCentimetresMax rdf:datatype="&xsd;float">10</hasSizeLongCentimetresMax>
+        <hasSizeLongCentimetresMin rdf:datatype="&xsd;float">4</hasSizeLongCentimetresMin>
+        <hasBinomialName rdf:datatype="&xsd;string">Citrus sinensis</hasBinomialName>
+        <hasHistory rdf:datatype="&xsd;string"
+            >Oranges originated in Southeast Asia. The fruit of Citrus sinensis is called sweet orange to distinguish it from Citrus aurantium, the bitter orange. In a number of languages, it is known as a &quot;Chinese apple&quot; (e.g. Dutch Sinaasappel, &quot;China&#39;s apple&quot;, or &quot;Apfelsine&quot; in German). The name is thought to ultimately derive from the Dravidian word for the orange tree, with its final form developing after passing through numerous intermediate languages.</hasHistory>
+        <hasProducingCountry rdf:resource="#Brazil"/>
+        <hasProducingCountry rdf:resource="#China"/>
+        <hasProducingCountry rdf:resource="#Egypt"/>
+        <hasProducingCountry rdf:resource="#India"/>
+        <hasProducingCountry rdf:resource="#Iran"/>
+        <hasProducingCountry rdf:resource="#Italy"/>
+        <hasProducingCountry rdf:resource="#Mexico"/>
+        <hasProducingCountry rdf:resource="#Pakistan"/>
+        <hasProducingCountry rdf:resource="#Spain"/>
+        <hasProducingCountry rdf:resource="#United_States"/>
+        <hasMineral rdf:resource="#calcium"/>
+        <hasMineral rdf:resource="#iron"/>
+        <hasUse rdf:resource="#juice"/>
+        <hasMineral rdf:resource="#magnesium"/>
+        <hasColor rdf:resource="#orange_color"/>
+        <hasMineral rdf:resource="#phosphorus"/>
+        <hasMineral rdf:resource="#potassium"/>
+        <hasFlavor rdf:resource="#sweet"/>
+        <hasVitamin rdf:resource="#vitaminB1"/>
+        <hasVitamin rdf:resource="#vitaminB2"/>
+        <hasVitamin rdf:resource="#vitaminB3"/>
+        <hasVitamin rdf:resource="#vitaminB5"/>
+        <hasVitamin rdf:resource="#vitaminB6"/>
+        <hasVitamin rdf:resource="#vitaminB9"/>
+        <hasVitamin rdf:resource="#vitaminC"/>
+        <hasMineral rdf:resource="#zinc"/>
+    </Fruit>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#papaya -->
+
+    <Fruit rdf:about="#papaya">
+        <hasSizeDiameterCentimetresMin rdf:datatype="&xsd;float">10</hasSizeDiameterCentimetresMin>
+        <hasSizeLongCentimetresMin rdf:datatype="&xsd;float">15</hasSizeLongCentimetresMin>
+        <hasSizeDiameterCentimetresMax rdf:datatype="&xsd;float">30</hasSizeDiameterCentimetresMax>
+        <hasSizeLongCentimetresMax rdf:datatype="&xsd;float">45</hasSizeLongCentimetresMax>
+        <hasBinomialName rdf:datatype="&xsd;string">Carica papaya</hasBinomialName>
+        <hasHistory rdf:datatype="&xsd;string"
+            >The papaya (from Carib via Spanish), is the fruit of the plant Carica papaya, in the genus Carica. It is native to the tropics of the Americas, and was cultivated in Mexico several centuries before the emergence of the Mesoamerican classic cultures. It is sometimes called &quot;big melon&quot; or &quot;pay paw,&quot; but the North American pawpaw is a different species, in the genus Asimina.</hasHistory>
+        <hasProducingCountry rdf:resource="#Belize"/>
+        <hasProducingCountry rdf:resource="#Brazil"/>
+        <hasProducingCountry rdf:resource="#Brunei"/>
+        <hasProducingCountry rdf:resource="#Cambodia"/>
+        <hasProducingCountry rdf:resource="#Colombia"/>
+        <hasProducingCountry rdf:resource="#Costa_Rica"/>
+        <hasProducingCountry rdf:resource="#East_Timor"/>
+        <hasProducingCountry rdf:resource="#Ecuador"/>
+        <hasProducingCountry rdf:resource="#El_Salvador"/>
+        <hasProducingCountry rdf:resource="#French_Guiana"/>
+        <hasProducingCountry rdf:resource="#Guatemala"/>
+        <hasProducingCountry rdf:resource="#Guyana"/>
+        <hasProducingCountry rdf:resource="#Honduras"/>
+        <hasProducingCountry rdf:resource="#India"/>
+        <hasProducingCountry rdf:resource="#Indonesia"/>
+        <hasProducingCountry rdf:resource="#Laos"/>
+        <hasProducingCountry rdf:resource="#Malaysia"/>
+        <hasProducingCountry rdf:resource="#Mexico"/>
+        <hasProducingCountry rdf:resource="#Myanmar"/>
+        <hasProducingCountry rdf:resource="#Nicaragua"/>
+        <hasProducingCountry rdf:resource="#Panama"/>
+        <hasProducingCountry rdf:resource="#Philippines"/>
+        <hasProducingCountry rdf:resource="#Singapore"/>
+        <hasProducingCountry rdf:resource="#South_Africa"/>
+        <hasProducingCountry rdf:resource="#Sri_Lanka"/>
+        <hasProducingCountry rdf:resource="#Suriname"/>
+        <hasProducingCountry rdf:resource="#Thailand"/>
+        <hasProducingCountry rdf:resource="#Venezuela"/>
+        <hasProducingCountry rdf:resource="#Vietnam"/>
+        <hasMineral rdf:resource="#calcium"/>
+        <hasMineral rdf:resource="#iron"/>
+        <hasMineral rdf:resource="#magnesium"/>
+        <hasUse rdf:resource="#ointment"/>
+        <hasColor rdf:resource="#orange_color"/>
+        <hasNameByCountry rdf:resource="#papayaPN_1"/>
+        <hasNameByCountry rdf:resource="#papayaPN_2"/>
+        <hasNameByCountry rdf:resource="#papayaPN_3"/>
+        <hasNameByCountry rdf:resource="#papayaPN_4"/>
+        <hasNameByCountry rdf:resource="#papayaPN_5"/>
+        <hasMineral rdf:resource="#phosphorus"/>
+        <hasMineral rdf:resource="#potassium"/>
+        <hasUse rdf:resource="#pudding"/>
+        <hasUse rdf:resource="#raw"/>
+        <hasMineral rdf:resource="#sodium"/>
+        <hasFlavor rdf:resource="#sweet"/>
+        <hasUse rdf:resource="#tablet_form"/>
+        <hasVitamin rdf:resource="#vitaminA"/>
+        <hasVitamin rdf:resource="#vitaminB1"/>
+        <hasVitamin rdf:resource="#vitaminB2"/>
+        <hasVitamin rdf:resource="#vitaminB3"/>
+        <hasVitamin rdf:resource="#vitaminB6"/>
+        <hasVitamin rdf:resource="#vitaminC"/>
+    </Fruit>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#papayaPN_1 -->
+
+    <PopularName rdf:about="#papayaPN_1">
+        <hasLabel rdf:datatype="&xsd;string">fruta bomba</hasLabel>
+        <hasCountry rdf:resource="#Cuba"/>
+    </PopularName>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#papayaPN_2 -->
+
+    <PopularName rdf:about="#papayaPN_2">
+        <hasLabel xml:lang="en">pawpaw</hasLabel>
+        <hasCountry rdf:resource="#Canada"/>
+        <hasCountry rdf:resource="#Jamaica"/>
+        <hasCountry rdf:resource="#United_States"/>
+    </PopularName>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#papayaPN_3 -->
+
+    <PopularName rdf:about="#papayaPN_3">
+        <hasLabel rdf:datatype="&xsd;string">Lechosa</hasLabel>
+        <hasCountry rdf:resource="#Dominican_Republic"/>
+        <hasCountry rdf:resource="#Puerto_Rico"/>
+        <hasCountry rdf:resource="#Venezuela"/>
+    </PopularName>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#papayaPN_4 -->
+
+    <PopularName rdf:about="#papayaPN_4">
+        <hasLabel>Papaw</hasLabel>
+        <hasCountry rdf:resource="#Jamaica"/>
+        <hasCountry rdf:resource="#Sri_Lanka"/>
+    </PopularName>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#papayaPN_5 -->
+
+    <PopularName rdf:about="#papayaPN_5">
+        <hasLabel xml:lang="pt">mam&#227;o</hasLabel>
+        <hasCountry rdf:resource="#Brazil"/>
+    </PopularName>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#phosphorus -->
+
+    <Mineral rdf:about="#phosphorus">
+        <rdfs:label xml:lang="en">phosphorus</rdfs:label>
+        <rdfs:label xml:lang="es">f&#243;sforo</rdfs:label>
+        <rdfs:label xml:lang="fr">phosphore</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#potassium -->
+
+    <Mineral rdf:about="#potassium">
+        <rdfs:label xml:lang="en">potassium</rdfs:label>
+        <rdfs:label xml:lang="es">potasio</rdfs:label>
+        <rdfs:label xml:lang="fr">potassium</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#pudding -->
+
+    <HumanNutritionUse rdf:about="#pudding">
+        <rdfs:label xml:lang="en">pudding</rdfs:label>
+        <rdfs:label xml:lang="es">pud&#237;n</rdfs:label>
+        <rdfs:label xml:lang="fr">pouding</rdfs:label>
+    </HumanNutritionUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#purple -->
+
+    <Color rdf:about="#purple">
+        <rdfs:label xml:lang="en">purple</rdfs:label>
+        <rdfs:label xml:lang="es">purpura</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#raw -->
+
+    <HumanNutritionUse rdf:about="#raw">
+        <rdfs:label xml:lang="en">raw</rdfs:label>
+        <rdfs:label xml:lang="es">crudo</rdfs:label>
+        <rdfs:label xml:lang="fr">cru</rdfs:label>
+    </HumanNutritionUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#red -->
+
+    <Color rdf:about="#red">
+        <rdfs:label xml:lang="en">red</rdfs:label>
+        <rdfs:label xml:lang="es">rojo</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#salad -->
+
+    <HumanNutritionUse rdf:about="#salad">
+        <rdfs:label xml:lang="en">salad</rdfs:label>
+        <rdfs:label xml:lang="es">ensalada</rdfs:label>
+        <rdfs:label xml:lang="fr">salade</rdfs:label>
+    </HumanNutritionUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#salty -->
+
+    <Flavor rdf:about="#salty">
+        <rdfs:label xml:lang="en">salty</rdfs:label>
+        <rdfs:label xml:lang="es">salado</rdfs:label>
+        <rdfs:label xml:lang="fr">sal&#233;</rdfs:label>
+    </Flavor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#sauce -->
+
+    <HumanNutritionUse rdf:about="#sauce">
+        <rdfs:label xml:lang="en">sauce</rdfs:label>
+        <rdfs:label xml:lang="es">salsa</rdfs:label>
+        <rdfs:label xml:lang="fr">sauce</rdfs:label>
+    </HumanNutritionUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#silver -->
+
+    <Color rdf:about="#silver">
+        <rdfs:label xml:lang="en">silver</rdfs:label>
+        <rdfs:label xml:lang="es">plateado</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#sodium -->
+
+    <Mineral rdf:about="#sodium">
+        <rdfs:label xml:lang="en">sodium</rdfs:label>
+        <rdfs:label xml:lang="es">sodio</rdfs:label>
+        <rdfs:label xml:lang="fr">sodium</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#sour -->
+
+    <Flavor rdf:about="#sour">
+        <rdfs:label xml:lang="en">sour</rdfs:label>
+        <rdfs:label xml:lang="es">acido</rdfs:label>
+        <rdfs:label xml:lang="fr">aigre</rdfs:label>
+    </Flavor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#split -->
+
+    <HumanNutritionUse rdf:about="#split">
+        <rdfs:label xml:lang="en">split</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >partido en pedazos</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >divis&#233; en morceaux</rdfs:label>
+    </HumanNutritionUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#sweet -->
+
+    <Flavor rdf:about="#sweet">
+        <rdfs:label xml:lang="en">sweet</rdfs:label>
+        <rdfs:label xml:lang="es">dulce</rdfs:label>
+        <rdfs:label xml:lang="fr">doux</rdfs:label>
+    </Flavor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#tablet_form -->
+
+    <MedicalUse rdf:about="#tablet_form">
+        <rdfs:label xml:lang="en">tablet</rdfs:label>
+        <rdfs:label xml:lang="es">tabletas</rdfs:label>
+        <rdfs:label xml:lang="fr">tablettes</rdfs:label>
+    </MedicalUse>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#unami -->
+
+    <Flavor rdf:about="#unami">
+        <rdfs:label xml:lang="en">unami</rdfs:label>
+        <rdfs:label xml:lang="es">carnoso</rdfs:label>
+    </Flavor>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminA -->
+
+    <Vitamin rdf:about="#vitaminA"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB1 -->
+
+    <Vitamin rdf:about="#vitaminB1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB12 -->
+
+    <Vitamin rdf:about="#vitaminB12"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB2 -->
+
+    <Vitamin rdf:about="#vitaminB2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB3 -->
+
+    <Vitamin rdf:about="#vitaminB3"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB5 -->
+
+    <Vitamin rdf:about="#vitaminB5"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB6 -->
+
+    <Vitamin rdf:about="#vitaminB6"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB8 -->
+
+    <Vitamin rdf:about="#vitaminB8"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminB9 -->
+
+    <Vitamin rdf:about="#vitaminB9"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminC -->
+
+    <Vitamin rdf:about="#vitaminC"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminE -->
+
+    <Vitamin rdf:about="#vitaminE"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#vitaminK -->
+
+    <Vitamin rdf:about="#vitaminK"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#white -->
+
+    <Color rdf:about="#white">
+        <rdfs:label xml:lang="en">white</rdfs:label>
+        <rdfs:label xml:lang="es">blanco</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#yellow -->
+
+    <Color rdf:about="#yellow">
+        <rdfs:label xml:lang="en">yellow</rdfs:label>
+        <rdfs:label xml:lang="es">amarillo</rdfs:label>
+    </Color>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#zinc -->
+
+    <Mineral rdf:about="#zinc">
+        <rdfs:label xml:lang="en">zinc</rdfs:label>
+        <rdfs:label xml:lang="es">zinc</rdfs:label>
+        <rdfs:label xml:lang="fr">zinc</rdfs:label>
+    </Mineral>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Romania"/>
+            <rdf:Description rdf:about="#Paraguay"/>
+            <rdf:Description rdf:about="#ointment"/>
+            <rdf:Description rdf:about="#papayaPN_3"/>
+            <rdf:Description rdf:about="#mamey_sapote"/>
+            <rdf:Description rdf:about="#Namibia"/>
+            <rdf:Description rdf:about="#vitaminB2"/>
+            <rdf:Description rdf:about="#Polar"/>
+            <rdf:Description rdf:about="#chips"/>
+            <rdf:Description rdf:about="#East_Timor"/>
+            <rdf:Description rdf:about="#Ghana"/>
+            <rdf:Description rdf:about="#Israel"/>
+            <rdf:Description rdf:about="#Guriname"/>
+            <rdf:Description rdf:about="#Cote_d_Ivoire"/>
+            <rdf:Description rdf:about="#Iraq"/>
+            <rdf:Description rdf:about="#Chile"/>
+            <rdf:Description rdf:about="#Bolivia"/>
+            <rdf:Description rdf:about="#potassium"/>
+            <rdf:Description rdf:about="#Japan"/>
+            <rdf:Description rdf:about="#Senegal"/>
+            <rdf:Description rdf:about="#Peru"/>
+            <rdf:Description rdf:about="#South_Africa"/>
+            <rdf:Description rdf:about="#Hungary"/>
+            <rdf:Description rdf:about="#Honduras"/>
+            <rdf:Description rdf:about="#Jordan"/>
+            <rdf:Description rdf:about="#vitaminC"/>
+            <rdf:Description rdf:about="#Belize"/>
+            <rdf:Description rdf:about="#magnesium"/>
+            <rdf:Description rdf:about="#Brunei"/>
+            <rdf:Description rdf:about="#Zambia"/>
+            <rdf:Description rdf:about="#navy"/>
+            <rdf:Description rdf:about="#Canada"/>
+            <rdf:Description rdf:about="#maroon"/>
+            <rdf:Description rdf:about="#vitaminE"/>
+            <rdf:Description rdf:about="#sweet"/>
+            <rdf:Description rdf:about="#lime"/>
+            <rdf:Description rdf:about="#Costa_Rica"/>
+            <rdf:Description rdf:about="#Denmark"/>
+            <rdf:Description rdf:about="#Turkey"/>
+            <rdf:Description rdf:about="#Rwanda"/>
+            <rdf:Description rdf:about="#Argentina"/>
+            <rdf:Description rdf:about="#Zimbabwe"/>
+            <rdf:Description rdf:about="#Tropics"/>
+            <rdf:Description rdf:about="#green"/>
+            <rdf:Description rdf:about="#Thailand"/>
+            <rdf:Description rdf:about="#Guatemala"/>
+            <rdf:Description rdf:about="#India"/>
+            <rdf:Description rdf:about="#Singapore"/>
+            <rdf:Description rdf:about="#red"/>
+            <rdf:Description rdf:about="#China"/>
+            <rdf:Description rdf:about="#tablet_form"/>
+            <rdf:Description rdf:about="#vitaminB3"/>
+            <rdf:Description rdf:about="#Bulgaria"/>
+            <rdf:Description rdf:about="#Pakistan"/>
+            <rdf:Description rdf:about="#Indonesia"/>
+            <rdf:Description rdf:about="#salad"/>
+            <rdf:Description rdf:about="#orange_fruit"/>
+            <rdf:Description rdf:about="#calcium"/>
+            <rdf:Description rdf:about="#blue"/>
+            <rdf:Description rdf:about="#brown"/>
+            <rdf:Description rdf:about="#Palestine"/>
+            <rdf:Description rdf:about="#Rusia"/>
+            <rdf:Description rdf:about="#Temperate"/>
+            <rdf:Description rdf:about="#Dominican_Republic"/>
+            <rdf:Description rdf:about="#United_Kingdom"/>
+            <rdf:Description rdf:about="#salty"/>
+            <rdf:Description rdf:about="#Libya"/>
+            <rdf:Description rdf:about="#Mexico"/>
+            <rdf:Description rdf:about="#Venezuela"/>
+            <rdf:Description rdf:about="#Malaysia"/>
+            <rdf:Description rdf:about="#Urugay"/>
+            <rdf:Description rdf:about="#papaya"/>
+            <rdf:Description rdf:about="#Uruguay"/>
+            <rdf:Description rdf:about="#France"/>
+            <rdf:Description rdf:about="#Ecuador"/>
+            <rdf:Description rdf:about="#iron"/>
+            <rdf:Description rdf:about="#Vietnam"/>
+            <rdf:Description rdf:about="#Myanmar"/>
+            <rdf:Description rdf:about="#sodium"/>
+            <rdf:Description rdf:about="#gastro-intestinal_maladies"/>
+            <rdf:Description rdf:about="#sour"/>
+            <rdf:Description rdf:about="#papayaPN_5"/>
+            <rdf:Description rdf:about="#Dominica"/>
+            <rdf:Description rdf:about="#Panama"/>
+            <rdf:Description rdf:about="#Niger"/>
+            <rdf:Description rdf:about="#Nigeria"/>
+            <rdf:Description rdf:about="#Barbados"/>
+            <rdf:Description rdf:about="#cream"/>
+            <rdf:Description rdf:about="#Ethiopia"/>
+            <rdf:Description rdf:about="#vitaminB6"/>
+            <rdf:Description rdf:about="#gray"/>
+            <rdf:Description rdf:about="#pudding"/>
+            <rdf:Description rdf:about="#El_Salvador"/>
+            <rdf:Description rdf:about="#bitter"/>
+            <rdf:Description rdf:about="#papayaPN_1"/>
+            <rdf:Description rdf:about="#Burundi"/>
+            <rdf:Description rdf:about="#white"/>
+            <rdf:Description rdf:about="#Philippines"/>
+            <rdf:Description rdf:about="#Czech_Republic"/>
+            <rdf:Description rdf:about="#Comoros"/>
+            <rdf:Description rdf:about="#vitaminB1"/>
+            <rdf:Description rdf:about="#aqua"/>
+            <rdf:Description rdf:about="#vitaminB5"/>
+            <rdf:Description rdf:about="#yellow"/>
+            <rdf:Description rdf:about="#Sudan"/>
+            <rdf:Description rdf:about="#Switzerland"/>
+            <rdf:Description rdf:about="#Egypt"/>
+            <rdf:Description rdf:about="#vitaminB12"/>
+            <rdf:Description rdf:about="#orange_color"/>
+            <rdf:Description rdf:about="#silver"/>
+            <rdf:Description rdf:about="#vitaminA"/>
+            <rdf:Description rdf:about="#Italy"/>
+            <rdf:Description rdf:about="#Laos"/>
+            <rdf:Description rdf:about="#Iran"/>
+            <rdf:Description rdf:about="#fuchsia"/>
+            <rdf:Description rdf:about="#unami"/>
+            <rdf:Description rdf:about="#French_Guiana"/>
+            <rdf:Description rdf:about="#Congo"/>
+            <rdf:Description rdf:about="#Nicaragua"/>
+            <rdf:Description rdf:about="#Suriname"/>
+            <rdf:Description rdf:about="#olive_color"/>
+            <rdf:Description rdf:about="#Guyana"/>
+            <rdf:Description rdf:about="#Germany"/>
+            <rdf:Description rdf:about="#Haiti"/>
+            <rdf:Description rdf:about="#The_bahamas"/>
+            <rdf:Description rdf:about="#Cuba"/>
+            <rdf:Description rdf:about="#vitaminB9"/>
+            <rdf:Description rdf:about="#Jamaica"/>
+            <rdf:Description rdf:about="#Aruba"/>
+            <rdf:Description rdf:about="#Cambodia"/>
+            <rdf:Description rdf:about="#phosphorus"/>
+            <rdf:Description rdf:about="#Puerto_Rico"/>
+            <rdf:Description rdf:about="#Greece"/>
+            <rdf:Description rdf:about="#aquamarine"/>
+            <rdf:Description rdf:about="#sauce"/>
+            <rdf:Description rdf:about="#Syria"/>
+            <rdf:Description rdf:about="#Finland"/>
+            <rdf:Description rdf:about="#Brazil"/>
+            <rdf:Description rdf:about="#Guinea"/>
+            <rdf:Description rdf:about="#cyan"/>
+            <rdf:Description rdf:about="#New_Zealand"/>
+            <rdf:Description rdf:about="#Afghanistan"/>
+            <rdf:Description rdf:about="#Mauritius"/>
+            <rdf:Description rdf:about="#cacao"/>
+            <rdf:Description rdf:about="#juice"/>
+            <rdf:Description rdf:about="#Australia"/>
+            <rdf:Description rdf:about="#banana"/>
+            <rdf:Description rdf:about="#black"/>
+            <rdf:Description rdf:about="#United_States"/>
+            <rdf:Description rdf:about="#bronze"/>
+            <rdf:Description rdf:about="#papayaPN_4"/>
+            <rdf:Description rdf:about="#raw"/>
+            <rdf:Description rdf:about="#vitaminK"/>
+            <rdf:Description rdf:about="#Sri_Lanka"/>
+            <rdf:Description rdf:about="#purple"/>
+            <rdf:Description rdf:about="#Spain"/>
+            <rdf:Description rdf:about="#Malta"/>
+            <rdf:Description rdf:about="#papayaPN_2"/>
+            <rdf:Description rdf:about="#Colombia"/>
+            <rdf:Description rdf:about="#Algeria"/>
+            <rdf:Description rdf:about="#Cameroon"/>
+            <rdf:Description rdf:about="#Mali"/>
+            <rdf:Description rdf:about="#iodine"/>
+            <rdf:Description rdf:about="#split"/>
+            <rdf:Description rdf:about="#Mozambique"/>
+            <rdf:Description rdf:about="#vitaminB8"/>
+            <rdf:Description rdf:about="#zinc"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Color"/>
+            <rdf:Description rdf:about="#Flavor"/>
+            <rdf:Description rdf:about="#Mineral"/>
+            <rdf:Description rdf:about="#Vitamin"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.914) http://owlapi.sourceforge.net -->
+

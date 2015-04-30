@@ -1,0 +1,504 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix naturopathy: http://sensormeasurement.appspot.com/naturopathy#
+@prefix health: http://sensormeasurement.appspot.com/health#
+@prefix nat: http://sensormeasurement.appspot.com/naturopathy-dataset/
+@prefix tourism: http://sensormeasurement.appspot.com/tourism#
+@prefix weather: http://sensormeasurement.appspot.com/weather#
+@prefix health: http://sensormeasurement.appspot.com/health#
+@prefix vac: http://sensormeasurement.appspot.com/tourism-dataset/
+@prefix transport: http://sensormeasurement.appspot.com/transport#
+@prefix transport-dataset: http://sensormeasurement.appspot.com/transport-dataset/
+@prefix weather-dataset: http://sensormeasurement.appspot.com/weather-dataset/
+@prefix emotion-dataset: http://sensormeasurement.appspot.com/emotion-dataset/
+@prefix health-dataset: http://sensormeasurement.appspot.com/health-dataset/
+@prefix home: http://sensormeasurement.appspot.com/home#
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too (?t m3:hasUnit m3:DegreeCelsius)   
+# check with M3 converter
+
+################################################################ BODY TEMPERATURE RULES ######################################################################
+#Paper: An ontology based system for social networking for health application support Obaid et al. 2013
+#IF m3:BodyTemperature GREATER_THAN 39 m3:DegreeCelsius THEN CriticallyHighFever
+#tested
+[CriticallyHighFever: 
+              (?t rdf:type m3:BodyTemperature)
+              (?t m3:hasValue ?v)
+              greaterThan(?v,39)
+              ->
+              (?t rdf:type health-dataset:CriticallyHighFever)
+       
+]
+       
+#Paper: An ontology based system for social networking for health application support Obaid et al. 2013
+#IF m3:BodyTemperature GREATER_THAN 38 m3:DegreeCelsius AND LOWER_THAN 39 m3:DegreeCelsius THEN HighFever
+[HighFever: 
+              (?t rdf:type m3:BodyTemperature)
+              (?t m3:hasValue ?v)
+              greaterThan(?v,38)
+              lessThan(?v,39)
+              ->
+              (?t rdf:type health-dataset:HighFever)
+]
+
+#Paper: An ontology based system for social networking for health application support Obaid et al. 2013
+#IF m3:BodyTemperature greaterThan 36 m3:DegreeCelsius AND lessThan 38 m3:DegreeCelsius THEN NormalFever
+[NormalBodyTemperature:
+              (?t rdf:type m3:BodyTemperature)
+              (?t m3:hasValue ?v)
+              greaterThan(?v,36)
+              lessThan(?v,38)
+              ->
+              (?t rdf:type health-dataset:NormalBodyTemperature)
+]
+
+# Paper: An ambient assisted living system for telemedicine with detection of symtoms [Jara et al. 2009]
+# IF m3:BodyTemperature lessThan 28 m3:DegreeCelsius THEN SevereHypothermia
+[SevereHypothermia:
+              (?t rdf:type m3:BodyTemperature)
+              (?t m3:hasValue ?v)
+              lessThan(?v,28)
+              ->
+              (?t rdf:type health-dataset:SevereHypothermia)
+]
+
+# Paper: An ambient assisted living system for telemedicine with detection of symtoms [Jara et al. 2009]
+# IF m3:BodyTemperature greaterThan 28 m3:DegreeCelsius AND lessThan 32 m3:DegreeCelsius THEN ModerateHypothermia
+[ModerateHypothermia: 
+              (?t rdf:type m3:BodyTemperature)
+              (?t m3:hasValue ?v)
+              greaterThan(?v,28)
+              lessThan(?v,32)
+              ->
+              (?t rdf:type health-dataset:ModerateHypothermia)
+]
+
+# Paper: An ambient assisted living system for telemedicine with detection of symtoms [Jara et al. 2009]
+# IF m3:BodyTemperature greaterThan 33 m3:DegreeCelsius AND lessThan 35 m3:DegreeCelsius THEN MildHypothermia
+[MildHypothermia: 
+              (?t rdf:type m3:BodyTemperature)
+              (?t m3:hasValue ?v)
+              greaterThan(?v,33)
+              lessThan(?v,35)
+              ->
+              (?t rdf:type health-dataset:MildHypothermia)
+]
+
+
+
+################################################################ WEATHER FORECASTING RULES ######################################################################
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 100 mm/h THEN TropicalStormRain
+# add (?t m3:hasUnit m3:MilimeterPerHour)   
+[TropicalStormRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,100)
+			  ->
+				(?measurement rdf:type weather-dataset:TropicalStormRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 20 and lessThan 50 mm/h THEN HeavyRain
+# add (?t m3:hasUnit m3:MilimeterPerHour)   
+[HeavyRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,50)
+			  ->
+				(?measurement rdf:type weather-dataset:HeavyRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 5 and lessThan 20 mm/h THEN MediumRain
+[MediumRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,5)
+              lessThan(?v,20)
+			  ->
+				(?measurement rdf:type weather-dataset:MediumRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 0 and lessThan 5 mm/h THEN LightRain
+[LightRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,5)
+			  ->
+				(?measurement rdf:type weather-dataset:LightRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# IF Rain greaterThan 50 and lessThan 100 mm/h THEN ExtremelyHeavyRain
+[ExtremelyHeavyRain: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,5)
+			  ->
+				(?measurement rdf:type weather-dataset:ExtremelyHeavyRain)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# IF Precipitation = 0 mm THEN NoPrecipitation
+[NoPrecipitation: 
+              (?measurement rdf:type m3:Precipitation)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)
+			  ->
+				(?measurement rdf:type weather-dataset:NoPrecipitation)
+]
+
+# to do add reference authors and check, improve rules
+
+[WindSpeedRainy: 
+              (?measurement rdf:type m3:WindSpeed)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,60)
+			  ->
+				(?measurement rdf:type weather-dataset:Windy)
+]
+
+[Frosty: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type weather-dataset:Frosty)
+]
+
+[Cold: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,10)
+               ->
+              (?measurement rdf:type weather-dataset:Cold)
+]
+
+
+# kofler snow rules (temperature <= 0 && precipitation > 0)
+# TEST, real rule to improve: temperature + precipitation 
+[SnowyTemperature: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+			  -> 
+				(?measurement rdf:type weather-dataset:Snowy)
+]
+
+[SunnyTemperature: 
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)
+			  ->
+				(?measurement rdf:type weather-dataset:Sunny)
+]
+
+################################################################ LUMINOSITY LUX RULES ######################################################################
+
+# See wikipedia - Illuminance Rules - http://en.wikipedia.org/wiki/Lux
+# Other Illuminance Rules http://repairfaq.cis.upenn.edu/sam/icets/basicp.htm
+
+# between 32 000  and 130 000 lux: direct sunlight
+# Bright sunlight > 20,000 Lux
+[SunnyLuminosity: 
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,32000)
+              lessThan(?v,130000)
+			  ->
+			  
+			  (?measurement rdf:type weather-dataset:Sunny)
+]
+
+# Daylight, clear sky 10,000 Lux
+[ClearSky: (?measurement naturopathy:hasColor nat:Yellow)
+              <-
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,9900)
+]
+
+# Daylight, cloudy sky 5000 Lux
+[CloudySky: (?measurement naturopathy:hasColor nat:Gray)
+              <-
+              (?measurement rdf:type m3:WeatherLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,4900)
+              lessThan(?v,5100)
+]
+
+################################################################ EMOTION RULES ######################################################################
+
+[SkinConductanceStress: 
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+              lessThan(?v,30)
+			  ->
+			  (?measurement naturopathy:affectsOn nat:Stress)
+			  (?measurement transport:hasDriverState emotion-dataset:Stressed)
+			  
+]
+
+[SkinConductanceTired: 
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)
+			  ->
+			  (?measurement transport:hasDriverState emotion-dataset:Tired)
+			  
+]
+
+[SkinConductanceAnxiety: (?measurement naturopathy:affectsOn nat:Anxiety)
+              <-
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+[HeartBeatFear: (?measurement naturopathy:affectsOn nat:Fear)
+              <-
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,130)
+]
+
+[BloodPressureStress: (?measurement naturopathy:affectsOn nat:Stress)
+              <-
+              (?measurement rdf:type m3:BloodPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+#test skin conductance type emotion
+[SkinConductanceEmotion: (?measurement rdf:type m3:Emotion)
+              <-
+              (?measurement rdf:type m3:SkinConductance)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+################################################################ HEALTH ######################################################################
+          
+[Cold: (?measurement naturopathy:hasDisease nat:Cold)
+              <-
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,38)
+]
+
+[NormalTemperature: (?measurement naturopathy:hasDisease nat:NormalTemperature)
+              <-
+              (?measurement rdf:type m3:BodyTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,39)
+]
+
+[HighCholesterol: (?measurement rdf:type nat:HighCholesterol)
+              <-
+              (?measurement rdf:type m3:Cholesterol)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,3)
+]
+
+[NormalCholesterol: (?measurement rdf:type nat:NormalCholesterol)
+              <-
+              (?measurement rdf:type m3:Cholesterol)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,2)
+              lessThan(?v,3)
+]
+
+[LowCholesterol: (?measurement rdf:type nat:LowCholesterol)
+              <-
+              (?measurement rdf:type m3:Cholesterol)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,2)
+]
+
+[BloodPressureHypertension: (?measurement naturopathy:hasDisease nat:Hypertension)
+              <-
+              (?measurement rdf:type m3:BloodPressure)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,15)
+]
+
+################################################################ SEASON RULES ######################################################################
+
+[WinterTemperature: (?measurement naturopathy:hasSeason nat:Winter)
+              <-
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,10)]
+                          
+[SummerTemperature: (?measurement naturopathy:hasSeason nat:Summer)
+              <-
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)]
+              
+[SpringTemperature: (?measurement naturopathy:hasSeason nat:Spring) 
+              <-
+              (?measurement rdf:type m3:WeatherTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,25)
+              greaterThan(?v,15)]
+           
+              
+################################################################ HOME AUTOMATION ######################################################################
+
+[AnormalMaxRoomTemperature: (?measurement rdf:type home:AnormalMaxRoomTemperature)
+              <-
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)
+]
+
+[AnormalMinRoomTemperature: (?measurement rdf:type home:AnormalMinRoomTemperature)
+              <-
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,10)
+]
+
+[NormalRoomTemperature: (?measurement rdf:type home:NormalRoomTemperature)
+              <-
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,30)
+              greaterThan(?v,10)
+]
+              
+
+################################################################ TO CLEAN ######################################################################
+################################################################ RULES SWRL JENA ######################################################################
+
+#accelerometer data m/s2
+# traffic jam
+# accelerometer megnetic field
+   
+
+
+#skin conductance to detect the stress or anxiety
+#Wearable sensors: opportunities and challenges for low cost health care [Picard et al. 1997]
+#Affective wearables [Picard et al. 1997]
+
+#accelerated hear rate
+#Affective wearables [Picard et al. 1997]
+
+# heart rate increased -> fear
+#Emotion Recognition from physiological signals for presence technology [Nasoz et al. 2003]
+
+#[CkeckForeignLanguage: (?student reve:hasSuccess xsd:True)
+#              <-
+#              (?y reve:hasCredit ?credit)
+#              greaterThan(?credit,6)
+#              ]
+         
+
+
+################################################################ Semantic Sensor Web rules sheth et al. 2008 ######################################################################
+
+# Rule: Potentially Icy (with
+# freezing temperature and rain)
+# Observation(?obs) &
+# measured(?obs, ?precip) &
+# Rain(?precip) &
+# measured(?obs, ?measurementemp) &
+# Temperature(?measurementemp) &
+# temperature_value(?measurementemp,
+# ?measurementval) &
+# lessThanOrEqual(?measurementval, 32) &
+# unit_of_measurement(?measurementemp, 
+#Fahrenheit)
+#->
+#described(?obs, Potentially_
+#Icy)
+
+# Rule: Blizzard Condition (with
+# freezing temperature, high
+# winds, and snow)
+# Observation(?obs) &
+# described(?obs, ?weather) &
+# FreezingCondition(?weather) &
+# HighWindCondition(?weather) &
+# SnowCondition(?weather) &
+# ->
+# BlizzardCondition(?weather) 
+
+################################################################ RULES SWRL FREQUENCY HERTZ ######################################################################
+#[MusicalNoteLa: (?measurement rdf:type m3:LaNote)
+#              <-
+#              (?measurement rdf:type m3:Frequency)
+#              (?measurement m3:hasValue ?v)
+#              isEqual(?v,660)
+#]
+
+# As explained by wikipedia: illuminance rules are: 
+# 0,0001 lux: moonless, overcast night sky
+# 0,002 lux: moonless clear night sky with airglow
+# between 0,27  and 1 lux: full moon on a clear night
+# 3,4 lux: dark limit of civil twilight under a clear sky
+# 50 lux: family living room lights
+# 80 lux: office building hallway/ toilet lighting
+# 100 lux: very dark overcast day
+# between 320  and 500 lux: office lighting
+# 400 lux: sunrise or sunset on a clear day
+# 1 000 lux : tv studio lighting
+# between 10 000  and 25 000 lux: full daylight (not direct sun)
+# between 32 000  and 130 000 lux: direct sunlight
+
+# As explained by http://repairfaq.cis.upenn.edu/sam/icets/basicp.htm
+# section Luminosity
+# Besides differing in color (frequency), light can also differ in luminosity, or brightness. A table lamp emits less light than a halogen lamp, but even a halogen source cannot be compared with bright sunlight, as far as luminosity is concerned. Luminosity depends on the amount of available light. It can be measured and recorded in a numeric value. In the past, it was expressed in Hefner Candlepower, but nowadays Lux is used to express the amount of luminosity.
+# Brightness Values:
+# Candle light at 20 cm             10-15 Lux
+# Street light                      10-20 Lux
+# Normal living room lighting       100 Lux
+# Office fluorescent light          300-500 Lux
+# Halogen lamp                      750 Lux
+# Sunlight, 1 hour before sunset    1000 Lux
+# Daylight, cloudy sky              5000 Lux
+# Daylight, clear sky               10,000 Lux
+# Bright sunlight                   > 20,000 Lux
+
+
+################################################################ Actuator LIGHT ######################################################################
+
+
+[LightOff: (?measurement m3:hasState m3:Off)
+              <-
+              (?measurement rdf:type m3:BuildingLuminosity)
+              (?measurement m3:hasValue ?v)
+              equal(?v,0)
+]
+
+[LightOn: (?measurement m3:hasState m3:On)
+              <-
+              (?measurement rdf:type m3:BuildingLuminosity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,1)
+]
+################################################################ TRANSPORT RULES ######################################################################
+
+# ruta if snowy -> snow chains, abs, esp, low speed
+# Paper: A mobile knowlege-based system for on-board diagnostics and car driving assistance. (2010)
+# Paper: Knowledge-based real-time car monitoring and driving assitance (2012)
+
+
+
+
+   

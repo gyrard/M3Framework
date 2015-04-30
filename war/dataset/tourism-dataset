@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY tourism "http://sensormeasurement.appspot.com/ont/m3/tourism#"> 
+         <!ENTITY weather "http://sensormeasurement.appspot.com/ont/m3/weather#"> 
+         <!ENTITY weather-dataset "http://sensormeasurement.appspot.com/dataset/weather-dataset/"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+         <!ENTITY vac "http://sensormeasurement.appspot.com/dataset/tourism-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&vac;"
+        xml:base="&vac;"
+        xmlns:vac="&vac;"
+        xmlns:foaf="&foaf;"
+        xmlns:m3="&m3;"
+        xmlns:weather="&weather-dataset;"
+        xmlns:weather-dataset="&weather-dataset;"
+        xmlns:shw="&shw;"
+        xmlns:acco="&acco;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:tourism="&tourism;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:naturopathy="&naturopathy;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+	
+	       <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+	
+	<!-- ################################################ TimeDay ############################################################################ -->
+	
+	<tourism:DayPeriod rdf:about="Evening">		
+		<rdfs:label xml:lang="en">Evening</rdfs:label>
+		<rdfs:label xml:lang="fr">Soir</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_day;Evening"/>
+	</tourism:DayPeriod>
+	
+	<tourism:DayPeriod rdf:about="Morning">		
+		<rdfs:label xml:lang="en">Morning</rdfs:label>
+		<rdfs:label xml:lang="fr">Matin</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_day;Morning"/>
+	</tourism:DayPeriod>
+	
+	<tourism:DayPeriod rdf:about="Night">		
+		<rdfs:label xml:lang="en">Night</rdfs:label>
+		<rdfs:label xml:lang="fr">Nuit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:DayPeriod>
+	
+	<tourism:DayPeriod rdf:about="Day">		
+		<rdfs:label xml:lang="en">Day</rdfs:label>
+		<rdfs:label xml:lang="fr">Jour</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_day;Day"/>
+	</tourism:DayPeriod>
+	
+	<tourism:DayPeriod rdf:about="Sunset">		
+		<rdfs:label xml:lang="en">Sunset/Setting sun</rdfs:label>
+		<rdfs:label xml:lang="fr">Coucher du soleil</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_day;Sunset"/>
+	</tourism:DayPeriod>
+	
+	<tourism:DayPeriod rdf:about="Sunrise">		
+		<rdfs:label xml:lang="en">Sunset</rdfs:label>
+		<rdfs:label xml:lang="fr">Lever du soleil</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:seeAlso rdf:resource="&sweet_day;Sunrise"/>
+	</tourism:DayPeriod>
+	
+	<!-- ################################################ GARMENT ############################################################################ -->
+	
+	<tourism:Garment rdf:ID="Pyjama">
+      	<rdfs:label xml:lang="en">Pyjama</rdfs:label>
+      	<rdfs:label xml:lang="fr">Pyjama</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="Night"/> 
+    </tourism:Garment>
+	
+	<tourism:Garment rdf:ID="Hat">
+      	<rdfs:label xml:lang="en">Hat</rdfs:label>
+      	<rdfs:label xml:lang="fr">Chapeau</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Summer"/>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Swimsuit">
+      	<rdfs:label xml:lang="en">Swimsuit</rdfs:label>
+      	<rdfs:label xml:lang="fr">Maillot de bain</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Summer"/>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Short">
+      	<rdfs:label xml:lang="en">Short</rdfs:label>
+      	<rdfs:label xml:lang="fr">Short</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Summer"/>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+    </tourism:Garment>
+    
+       <tourism:Garment rdf:ID="Umbrella">
+      	<rdfs:label xml:lang="en">Umbrella</rdfs:label>
+      	<rdfs:label xml:lang="fr">Parapluie</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Bonnet">
+      	<rdfs:label xml:lang="en">Bonnet, hat</rdfs:label>
+      	<rdfs:label xml:lang="fr">Bonnet</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="Cold"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Scarf">
+      	<rdfs:label xml:lang="en">Scarf</rdfs:label>
+      	<rdfs:label xml:lang="fr">Echarpe</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Cold"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Glove">
+      	<rdfs:label xml:lang="en">Glove</rdfs:label>
+      	<rdfs:label xml:lang="fr">Gant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Cold"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Raincoat">
+      	<rdfs:label xml:lang="en">Raincoat</rdfs:label>
+      	<rdfs:label xml:lang="fr">Vetement de pluie, impermeable</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/> 
+    </tourism:Garment>
+    	
+    <tourism:Garment rdf:ID="Turtleneck">
+      	<rdfs:label xml:lang="en">Turtleneck</rdfs:label>
+      	<rdfs:label xml:lang="fr">Col roule</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Winter"/>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Cold"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/>  
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/>  
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="SunGlass">
+      	<rdfs:label xml:lang="en">SunGlass</rdfs:label>
+      	<rdfs:label xml:lang="fr">Lunettes de soleil</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Summer"/>		
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Dress">
+      	<rdfs:label xml:lang="en">Dress</rdfs:label>
+      	<rdfs:label xml:lang="fr">Robe</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Shirt">
+      	<rdfs:label xml:lang="en">Shirt</rdfs:label>
+      	<rdfs:label xml:lang="fr">Chemise</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Garment>
+    
+    <tourism:Garment rdf:ID="Tie">
+      	<rdfs:label xml:lang="en">Tie</rdfs:label>
+      	<rdfs:label xml:lang="fr">Cravate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Garment>
+    
+     <tourism:Shoe rdf:ID="Tong">
+      	<rdfs:label xml:lang="en">Tong</rdfs:label>
+      	<rdfs:label xml:lang="fr">Tong</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Summer"/>   
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/>  
+    </tourism:Shoe>
+    
+    <tourism:Shoe rdf:ID="Boot">
+      	<rdfs:label xml:lang="en">Boot</rdfs:label>
+      	<rdfs:label xml:lang="fr">Botte</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<tourism:hasSeason rdf:resource="&naturopathy;Winter"/>  
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/>  
+    </tourism:Shoe>
+
+<!-- ################################################ ACTIVITY ############################################################################ -->
+	
+     <tourism:Place rdf:ID="Indoor">
+      	<rdfs:label xml:lang="en">Indoor</rdfs:label>
+      	<rdfs:label xml:lang="fr">En salle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Season, Light, Activity: Inspired by the Master's thesis: A real-time semantics-aware recognition system [Vasileios 2012]</dc:description> 
+    </tourism:Place>
+    
+    <tourism:Place rdf:ID="Outdoor">
+      	<rdfs:label xml:lang="en">Outdoor</rdfs:label>
+      	<rdfs:label xml:lang="fr">A l exterireur</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Season, Light, Activity: Inspired by the Master's thesis: A real-time semantics-aware recognition system [Vasileios 2012]</dc:description>
+    </tourism:Place>
+    
+     <!-- ################################################ NIGHTLIFE ############################################################################ -->
+	
+	 <tourism:Activity rdf:ID="Cinema">
+     	<rdfs:label xml:lang="en">Cinema or watching movie</rdfs:label>
+     	<rdfs:label xml:lang="fr">Cinema</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;Cloudy"/> 
+	  	<rdf:type rdf:resource="&tourism;Nightlife"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Theater">
+     	<rdfs:label xml:lang="en">Theater</rdfs:label>
+     	<rdfs:label xml:lang="fr">Theatre</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;Cloudy"/> 
+	  	<rdf:type rdf:resource="&tourism;Nightlife"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Bowling">
+     	<rdfs:label xml:lang="en">Bowling</rdfs:label>
+     	<rdfs:label xml:lang="fr">Bowling</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+	  	<rdf:type rdf:resource="&tourism;Nightlife"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Opera">
+     	<rdfs:label xml:lang="en">Opera</rdfs:label>
+     	<rdfs:label xml:lang="fr">Opera</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+	  	<rdf:type rdf:resource="&tourism;Nightlife"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Concert">
+     	<rdfs:label xml:lang="en">Concert</rdfs:label>
+     	<rdfs:label xml:lang="fr">Concert</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+	  	<rdf:type rdf:resource="&tourism;Nightlife"/>
+    </tourism:Activity>
+    
+    <!-- ################################################ RELAXATION, WELLNESS ############################################################################ -->
+	
+    <tourism:Activity rdf:ID="Yoga">
+      	<rdfs:label xml:lang="en">Yoga</rdfs:label>
+      	<rdfs:label xml:lang="fr">Yoga</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;Relaxation"/>
+    </tourism:Activity>
+	    
+    <tourism:Activity rdf:ID="Spa">
+     	<rdfs:label xml:lang="en">Spa</rdfs:label>
+     	<rdfs:label xml:lang="fr">Spa</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+	  	<rdf:type rdf:resource="&tourism;Relaxation"/>
+    </tourism:Activity>
+    
+    <!-- ################################################ SPORT ############################################################################ -->
+   
+    <tourism:Activity rdf:ID="Hiking">
+      	<rdfs:label xml:lang="en">Hiking/ Walking</rdfs:label>
+      	<rdfs:label xml:lang="fr">Randonnee</rdfs:label>
+	  	<rdfs:comment xml:lang="fr">Randonnee, promenade, marche a pied</rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Outdoor"/>
+	  	<rdf:type rdf:resource="&tourism;Sport"/>
+    </tourism:Activity>
+
+    <tourism:Activity rdf:ID="Running">
+     	<rdfs:label xml:lang="en">Running</rdfs:label>
+     	<rdfs:label xml:lang="fr"></rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Outdoor"/>
+    </tourism:Activity>
+    
+     <tourism:Activity rdf:ID="Fishing">
+     	<rdfs:label xml:lang="en">Fishing</rdfs:label>
+     	<rdfs:label xml:lang="fr">Peche</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<rdf:type rdf:resource="&tourism;Sport"/>
+	  	<tourism:isLocated rdf:resource="Outdoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="ReadingBook">
+     	<rdfs:label xml:lang="en">ReadingBook</rdfs:label>
+     	<rdfs:label xml:lang="fr">Lire un livre</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+    </tourism:Activity>
+    
+     <tourism:Activity rdf:ID="Games">
+     	<rdfs:label xml:lang="en">Games</rdfs:label>
+     	<rdfs:label xml:lang="fr">Jeux de societe</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+	  	<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/> 
+    </tourism:Activity>
+    
+      <tourism:Activity rdf:ID="Badminton">
+     	<rdfs:label xml:lang="en">Badminton</rdfs:label>
+     	<rdfs:label xml:lang="fr">Badminton</rdfs:label>
+	  	<rdfs:comment xml:lang="en"></rdfs:comment>
+	  	<tourism:isLocated rdf:resource="Outdoor"/>
+	  	<tourism:isLocated rdf:resource="Indoor"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Skating">
+      	<rdfs:label xml:lang="en">Skating</rdfs:label>
+      	<rdfs:label xml:lang="fr">Patinage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Activity>
+    
+     <tourism:Activity rdf:ID="Safari">
+      	<rdfs:label xml:lang="en">Safari</rdfs:label>
+      	<rdfs:label xml:lang="fr">Safari</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Activity>
+    
+    <!-- ################################################ MARTIAL ARTS ############################################################################ -->
+      
+    <tourism:Activity rdf:ID="Aikido">
+     	<rdfs:label xml:lang="en">Aikido</rdfs:label>
+     	<rdfs:label xml:lang="fr">Aikido</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;MartialArt"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Judo">
+     	<rdfs:label xml:lang="en">Judo</rdfs:label>
+     	<rdfs:label xml:lang="fr">Judo</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;MartialArt"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="KungFu">
+     	<rdfs:label xml:lang="en">Kung-Fu</rdfs:label>
+     	<rdfs:label xml:lang="fr">Kung-Fu</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;MartialArt"/>
+    </tourism:Activity>
+    
+     <!-- ################################################ WATER SPORT ############################################################################ -->
+   
+    <tourism:Activity rdf:ID="Boat">
+     	<rdfs:label xml:lang="en">Boat</rdfs:label>
+     	<rdfs:label xml:lang="fr">Faire du bateau</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+		<dc:description xml:lang="en">Inspired by the Paper: Design and implementation of zigbee-ontology-based exhibit guidance and recommendation system [Chien et al. 2013]</dc:description>				
+    </tourism:Activity>
+  
+    <tourism:Activity rdf:ID="Swimming">
+     	<rdfs:label xml:lang="en">Swimming</rdfs:label>
+     	<rdfs:label xml:lang="fr">Natation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="WindSurfing">
+      	<rdfs:label xml:lang="en">WindSurfing</rdfs:label>
+      	<rdfs:label xml:lang="fr">Planche a voile</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/> 
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Surfing">
+      	<rdfs:label xml:lang="en">Surfing</rdfs:label>
+      	<rdfs:label xml:lang="fr">Surf</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/> 
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="KiteSurf">
+      	<rdfs:label xml:lang="en">KiteSurf</rdfs:label>
+      	<rdfs:label xml:lang="fr">KiteSurf</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/>
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Catamaran">
+      	<rdfs:label xml:lang="en">Catamaran</rdfs:label>
+      	<rdfs:label xml:lang="fr">Catamaran</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/> 
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Scubadiving">
+      	<rdfs:label xml:lang="en">Scubadiving</rdfs:label>
+      	<rdfs:label xml:lang="fr">Plongee sous marine</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;Sport"/>
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </tourism:Activity>
+    
+     <tourism:Activity rdf:ID="Rafting">
+      	<rdfs:label xml:lang="en">Rafting</rdfs:label>
+      	<rdfs:label xml:lang="fr">Rafting</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;WaterSport"/>
+		<dc:description xml:lang="en">Inspired by the Paper: TripFromTV+: Targeting personalized tourism to interactive digital tv viewers by social networking and semantic reasoning [Blanco-Fernandez et al. 2010-2011]</dc:description>				
+    </tourism:Activity>
+    
+    
+    <!-- ################################################ OTHERS ############################################################################ -->
+   
+    <tourism:Activity rdf:ID="Kite">
+      	<rdfs:label xml:lang="en">Kite</rdfs:label>
+      	<rdfs:label xml:lang="fr">Cerf-volant</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Windy"/> 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Ski">
+      	<rdfs:label xml:lang="en">Ski</rdfs:label>
+      	<rdfs:label xml:lang="fr">Ski</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="MakeSnowman">
+      	<rdfs:label xml:lang="en">MakeSnowman</rdfs:label>
+      	<rdfs:label xml:lang="fr">Faire un bonhomme de neige</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="SnowballFight">
+      	<rdfs:label xml:lang="en">SnowballFight</rdfs:label>
+      	<rdfs:label xml:lang="fr">Bataille de boule de neige</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="SnowBoarding">
+      	<rdfs:label xml:lang="en">SnowBoarding</rdfs:label>
+      	<rdfs:label xml:lang="fr">Snowboard</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Snowy"/> 
+    </tourism:Activity>
+
+    <tourism:Activity rdf:ID="Baseball">
+      	<rdfs:label xml:lang="en">Baseball</rdfs:label>
+      	<rdfs:label xml:lang="fr">Baseball</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Tennis">
+      	<rdfs:label xml:lang="en">Tennis</rdfs:label>
+      	<rdfs:label xml:lang="fr">Tennis</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;NoPrecipitation"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="BeachVolley">
+      	<rdfs:label xml:lang="en">BeachVolley</rdfs:label>
+      	<rdfs:label xml:lang="fr">Volley sur la plage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;NoPrecipitation"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="BeachSunbathing">
+      	<rdfs:label xml:lang="en">BeachSunbathing</rdfs:label>
+      	<rdfs:label xml:lang="fr">Bain de solail a la plage</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;NoPrecipitation"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Park">
+      	<rdfs:label xml:lang="en">Park</rdfs:label>
+      	<rdfs:label xml:lang="fr">Se promener dans un parc</rdfs:label>
+		<rdfs:comment xml:lang="en">To walk in a park</rdfs:comment>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;Sunny"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;NoPrecipitation"/> 
+    </tourism:Activity>
+       
+    <tourism:Activity rdf:ID="HorseRiding">
+      	<rdfs:label xml:lang="en">HorseRiding</rdfs:label>
+      	<rdfs:label xml:lang="fr">Equitation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;Sport"/>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;NoPrecipitation"/> 
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Squash">
+      	<rdfs:label xml:lang="en">Squash</rdfs:label>
+      	<rdfs:label xml:lang="fr">Squash</rdfs:label>
+		<rdfs:comment xml:lang="en">Squash is an activity that a tourist can carry out.</rdfs:comment>
+		<rdf:type rdf:resource="&tourism;Sport"/>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;ExtremelyHeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/>
+    </tourism:Activity>
+    
+    <tourism:Activity rdf:ID="Golf">
+      	<rdfs:label xml:lang="en">Golf</rdfs:label>
+      	<rdfs:label xml:lang="fr">Golf</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;Sport"/>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;NoPrecipitation"/> 
+    </tourism:Activity>
+    
+     <tourism:Activity rdf:ID="Paintball">
+      	<rdfs:label xml:lang="en">Paintball</rdfs:label>
+      	<rdfs:label xml:lang="fr">Paintball</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&tourism;Sport"/>
+		<m3:hasRecommendation rdf:resource="&weather-dataset;LightRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;MediumRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;ExtremelyHeavyRain"/> 
+		<m3:hasRecommendation rdf:resource="&weather-dataset;HeavyRain"/>
+    </tourism:Activity>
+    
+    <!-- ################################################ Transport ############################################################################ -->
+
+	<tourism:Transport rdf:about="Pedestrian">		
+		<rdfs:label xml:lang="en">Pedestrian</rdfs:label>
+		<rdfs:label xml:lang="fr">Pieton</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Bicycle">		
+		<rdfs:label xml:lang="en">Bicycle</rdfs:label>
+		<rdfs:label xml:lang="fr">Velo</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Car">		
+		<rdfs:label xml:lang="en">Car</rdfs:label>
+		<rdfs:label xml:lang="fr">Voiture</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Bus">		
+		<rdfs:label xml:lang="en">Bus</rdfs:label>
+		<rdfs:label xml:lang="fr">Bus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Tramway">		
+		<rdfs:label xml:lang="en">Tramway</rdfs:label>
+		<rdfs:label xml:lang="fr">Tramway</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Subway">		
+		<rdfs:label xml:lang="en">Subway</rdfs:label>
+		<rdfs:label xml:lang="fr">Metro</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Plane">		
+		<rdfs:label xml:lang="en">Plane</rdfs:label>
+		<rdfs:label xml:lang="fr">Avion</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Ferry">		
+		<rdfs:label xml:lang="en">Ferry</rdfs:label>
+		<rdfs:label xml:lang="fr">Ferry</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<tourism:Transport rdf:about="Train">		
+		<rdfs:label xml:lang="en">Train</rdfs:label>
+		<rdfs:label xml:lang="fr">Train</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Transport>
+	
+	<!-- ######################################################### ROAD #####################################################################-->
+	
+	<tourism:Road rdf:about="HighWay">		
+		<rdfs:label xml:lang="en">HighWay</rdfs:label>
+		<rdfs:label xml:lang="fr">Autoroute</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Road>
+	
+	<tourism:Road rdf:about="UrbanRoad">		
+		<rdfs:label xml:lang="en">Urban Road</rdfs:label>
+		<rdfs:label xml:lang="fr">Route urbaine</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Road>
+	
+	<tourism:Road rdf:about="CampaignRoad">		
+		<rdfs:label xml:lang="en">Campaign Road</rdfs:label>
+		<rdfs:label xml:lang="fr">Route de campagne</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Road>
+	
+	<tourism:Road rdf:about="MountainRoad">		
+		<rdfs:label xml:lang="en">Mountain Road</rdfs:label>
+		<rdfs:label xml:lang="fr">Route de montagne</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</tourism:Road>
+    
+    <!-- ######################################################### ACCOMODATION #####################################################################-->
+    
+    <tourism:Accomodation rdf:ID="Camping">
+      	<rdfs:label xml:lang="en">Camping</rdfs:label>
+      	<rdfs:label xml:lang="fr">Camping</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&acco;CampingSite"/>
+    </tourism:Accomodation>
+    
+     <tourism:Accomodation rdf:ID="House">
+      	<rdfs:label xml:lang="en">House</rdfs:label>
+      	<rdfs:label xml:lang="fr">Maison de location</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&acco;House"/>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="Apartment">
+      	<rdfs:label xml:lang="en">Apartment</rdfs:label>
+      	<rdfs:label xml:lang="fr">Apartement</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&acco;Apartment"/>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="Hotel">
+      	<rdfs:label xml:lang="en">Hotel</rdfs:label>
+      	<rdfs:label xml:lang="fr">Hotel</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&acco;Hotel"/>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="Motel">
+      	<rdfs:label xml:lang="en">Motel</rdfs:label>
+      	<rdfs:label xml:lang="fr">Motel</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="GuestHouse">
+      	<rdfs:label xml:lang="en">GuestHouse</rdfs:label>
+      	<rdfs:label xml:lang="fr">Maison d'hotes</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="Farm">
+      	<rdfs:label xml:lang="en">Farm</rdfs:label>
+      	<rdfs:label xml:lang="fr">Ferme</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="YouthHostel">
+      	<rdfs:label xml:lang="en">YouthHostel</rdfs:label>
+      	<rdfs:label xml:lang="fr">Auberge de jeunesse</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Accomodation>
+    
+    <tourism:Accomodation rdf:ID="Pension">
+      	<rdfs:label xml:lang="en">Pension</rdfs:label>
+      	<rdfs:label xml:lang="fr">Pension</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+    </tourism:Accomodation>
+
+</rdf:RDF>

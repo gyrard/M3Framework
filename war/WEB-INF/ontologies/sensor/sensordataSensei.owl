@@ -1,0 +1,1109 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.0="http://sweet.jpl.nasa.gov/ontology/units.owl#"
+    xmlns="http://www.ee.surrey.ac.uk/ccsr/sensei/SWEMeasuredData.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.ee.surrey.ac.uk/ccsr/sensei/SWEMeasuredData.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/ontology/units.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Measured"/>
+  <owl:Class rdf:ID="TimePositionPair">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SensorMLData"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ConditionalValue">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AbstractDataRecord"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#AnyData"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasCondition"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DatePositionPair">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="AllowedTimes">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="GeoLocationArea">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AbstractVector"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="Envelope"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasEnvelope"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DoblePair">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AbstractDataRecord">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Quantity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Boolean"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Time"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Text"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TimeRange"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AbstractDataComponent"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Category"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="QuantityRange"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Count"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CountRange"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#AbstractDataComponent">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Component">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Quality">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Text"/>
+          <owl:Class rdf:about="#QuantityRange"/>
+          <owl:Class rdf:about="#Quantity"/>
+          <owl:Class rdf:about="#Category"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="NormilizedCurve">
+    <rdfs:subClassOf rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Category">
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SimpleDataRecord">
+    <rdfs:subClassOf rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:ID="IntegerPair">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#QuantityRange">
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Count">
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AbstractDataArray">
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SquareMatrix">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AbstractMatrix"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Envelope">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AbstractVector"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DoubleList">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#CountRange">
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AllowedValues">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AnyNumerical">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Time"/>
+          <owl:Class rdf:about="#Quantity"/>
+          <owl:Class rdf:about="#Count"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TokenList">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AbstractMatrix">
+    <rdfs:subClassOf rdf:resource="#AbstractDataArray"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BinaryBlock">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="BinaryStructure"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasMember"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="AbstractEncoding"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#AbstractEncoding">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TRSAttributeGroup">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TimeRange">
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AnyRange">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AnyData"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#AnyData">
+    <owl:disjointWith rdf:resource="#AbstractDataComponent"/>
+    <owl:disjointWith rdf:resource="#DatePositionPair"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CodeSpace"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SimpleComponentAttributeGroup"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnyNumerical"/>
+    <owl:disjointWith rdf:resource="#TokenList"/>
+    <owl:disjointWith rdf:resource="#TRSAttributeGroup"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AnyScalar"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="UomIdentifier"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AnyRange"/>
+    <owl:disjointWith rdf:resource="#Quality"/>
+    <owl:disjointWith rdf:resource="#DoblePair"/>
+    <owl:disjointWith rdf:resource="#DoubleList"/>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AnyScalar"/>
+          <owl:Class rdf:about="#AnyRange"/>
+          <owl:Class rdf:about="#AbstractDataRecord"/>
+          <owl:Class rdf:about="#AbstractDataArray"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#TimePositionPair"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TimePositionList"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AllowedValues"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AllowedTokens"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#IntegerPair"/>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith rdf:resource="#AllowedTimes"/>
+  </owl:Class>
+  <owl:Class rdf:about="#UomIdentifier">
+    <owl:disjointWith rdf:resource="#AnyData"/>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Block">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="StandardFormat">
+    <rdfs:subClassOf rdf:resource="#AbstractEncoding"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Text">
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TimePositionList">
+    <owl:disjointWith rdf:resource="#AnyData"/>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SimpleComponentAttributeGroup">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith rdf:resource="#AnyData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Position">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AbstractVector"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Quantity">
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Vector">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#AbstractVector"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#AnyNumerical"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasAnyNumerical"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="VectorOrSquareMatrix">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AbstractVector">
+    <rdfs:subClassOf rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AllowedTokens">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTokenList"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#AnyData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MultiplexedStreamFormat">
+    <rdfs:subClassOf rdf:resource="#AbstractEncoding"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Curves">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#NormilizedCurve"/>
+          <owl:Class rdf:ID="Curve"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CodeSpace">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >provides a dictionary for potential category values</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <owl:disjointWith rdf:resource="#AnyData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AnyScalar">
+    <owl:disjointWith rdf:resource="#AnyData"/>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Boolean">
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DataRecord">
+    <rdfs:subClassOf rdf:resource="#AbstractDataRecord"/>
+  </owl:Class>
+  <owl:Class rdf:about="#BinaryStructure">
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Block"/>
+          <owl:Class rdf:about="#Component"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DataArray">
+    <rdfs:subClassOf rdf:resource="#AbstractDataArray"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TextBlock">
+    <rdfs:subClassOf rdf:resource="#AbstractEncoding"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DataValue">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Time">
+    <owl:disjointWith rdf:resource="#AbstractDataRecord"/>
+    <rdfs:subClassOf rdf:resource="#AbstractDataComponent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Curve">
+    <rdfs:subClassOf rdf:resource="#AbstractDataArray"/>
+  </owl:Class>
+  <owl:Class rdf:ID="BlockEncoding">
+    <rdfs:subClassOf rdf:resource="#SensorMLData"/>
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#StandardFormat"/>
+          <owl:Class rdf:about="#TextBlock"/>
+          <owl:Class rdf:about="#BinaryBlock"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasBoolean">
+    <rdfs:domain rdf:resource="#AnyScalar"/>
+    <rdfs:range rdf:resource="#Boolean"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasVector">
+    <rdfs:range rdf:resource="#Vector"/>
+    <rdfs:domain rdf:resource="#VectorOrSquareMatrix"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAnyData">
+    <rdfs:domain rdf:resource="#DataRecord"/>
+    <rdfs:range rdf:resource="#AnyData"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOutputGain">
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#NormilizedCurve"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasValueList">
+    <rdfs:range rdf:resource="#DoubleList"/>
+    <rdfs:domain rdf:resource="#AllowedValues"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasText">
+    <rdfs:range rdf:resource="#Text"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AnyScalar"/>
+          <owl:Class rdf:about="#AnyRange"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAnyScalar">
+    <rdfs:range rdf:resource="#AnyScalar"/>
+    <rdfs:domain rdf:resource="#SimpleDataRecord"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasQuantityRange">
+    <rdfs:domain rdf:resource="#AnyRange"/>
+    <rdfs:range rdf:resource="#QuantityRange"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasBlockEncoding">
+    <rdfs:range rdf:resource="#BlockEncoding"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DataArray"/>
+          <owl:Class rdf:about="#Curve"/>
+          <owl:Class rdf:about="#SquareMatrix"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasAnyNumerical">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AnyScalar"/>
+          <owl:Class rdf:about="#Vector"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#AnyNumerical"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCategory">
+    <rdfs:range rdf:resource="#Category"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AnyScalar"/>
+          <owl:Class rdf:about="#AnyRange"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasLowerCorner">
+    <rdfs:range rdf:resource="#Vector"/>
+    <rdfs:domain rdf:resource="#Envelope"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ObjectProperty_70"/>
+  <owl:ObjectProperty rdf:about="#hasMember">
+    <rdfs:range rdf:resource="#BinaryStructure"/>
+    <rdfs:domain rdf:resource="#BinaryBlock"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSimpleDataRecord">
+    <rdfs:domain rdf:resource="#Curve"/>
+    <rdfs:range rdf:resource="#SimpleDataRecord"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCurveFunction">
+    <rdfs:range rdf:resource="#Curve"/>
+    <rdfs:domain rdf:resource="#NormilizedCurve"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSquareMatrix">
+    <rdfs:domain rdf:resource="#VectorOrSquareMatrix"/>
+    <rdfs:range rdf:resource="#SquareMatrix"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDataValue">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DataArray"/>
+          <owl:Class rdf:about="#SquareMatrix"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#DataValue"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasElementType">
+    <rdfs:domain rdf:resource="#DataArray"/>
+    <rdfs:range rdf:resource="#AnyData"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasUpperCorner">
+    <rdfs:range rdf:resource="#Vector"/>
+    <rdfs:domain rdf:resource="#Envelope"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTimePositionValue">
+    <rdfs:domain rdf:resource="#TimePositionList"/>
+    <rdfs:range rdf:resource="#TimePositionPair"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTRSDependency">
+    <rdfs:range rdf:resource="#TRSAttributeGroup"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TimeRange"/>
+          <owl:Class rdf:about="#Time"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMatrixElementType">
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#SquareMatrix"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTokenList">
+    <rdfs:domain rdf:resource="#AllowedTokens"/>
+    <rdfs:range rdf:resource="#TokenList"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAttributeGroupDependency">
+    <rdfs:range rdf:resource="#SimpleComponentAttributeGroup"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Quantity"/>
+          <owl:Class rdf:about="#Category"/>
+          <owl:Class rdf:about="#QuantityRange"/>
+          <owl:Class rdf:about="#CountRange"/>
+          <owl:Class rdf:about="#Boolean"/>
+          <owl:Class rdf:about="#Count"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasCondition">
+    <rdfs:domain rdf:resource="#ConditionalValue"/>
+    <rdfs:range rdf:resource="#AnyData"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasQuantity">
+    <rdfs:domain rdf:resource="#AnyRange"/>
+    <rdfs:range rdf:resource="#Quantity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasGeoLocationArea">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasEnvelope"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Envelope"/>
+    <rdfs:range rdf:resource="#GeoLocationArea"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasEnvelope">
+    <rdfs:domain rdf:resource="#GeoLocationArea"/>
+    <rdfs:range rdf:resource="#Envelope"/>
+    <owl:inverseOf rdf:resource="#hasGeoLocationArea"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasValue">
+    <rdfs:range rdf:resource="#AnyData"/>
+    <rdfs:domain rdf:resource="#ConditionalValue"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="hasTokenSeparator">
+    <rdfs:domain rdf:resource="#TextBlock"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTokenValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+    <rdfs:domain rdf:resource="#TokenList"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasType">
+    <rdfs:domain rdf:resource="#MultiplexedStreamFormat"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hadDubleValue">
+    <rdfs:domain rdf:resource="#DoubleList"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDateTimeValue">
+    <rdfs:domain rdf:resource="#Time"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDecimalSeparator">
+    <rdfs:domain rdf:resource="#TextBlock"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasTupleSeparator">
+    <rdfs:domain rdf:resource="#TextBlock"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasByteEncoding">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >base16</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >hex</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >raw</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >base64</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#BinaryBlock"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasVersion">
+    <rdfs:domain rdf:resource="#MultiplexedStreamFormat"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasByteOrder">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >littleEndian</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >bigEndian</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#BinaryBlock"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AbstractDataComponent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasReference">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Component"/>
+          <owl:Class rdf:about="#Block"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="hasDatePositionPair">
+    <rdfs:range rdf:resource="#DatePositionPair"/>
+    <rdfs:domain rdf:resource="#TimeRange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDoublePair">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#QuantityRange"/>
+    <rdfs:range rdf:resource="#DoblePair"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAcceleration">
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdfs:range rdf:resource="#Vector"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDescription">
+    <rdfs:domain rdf:resource="#AbstractDataComponent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTimePositionPair">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#AllowedTimes"/>
+    <rdfs:range rdf:resource="#TimePositionPair"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDefinition">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain rdf:resource="#AbstractDataComponent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasByteLength">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Block"/>
+          <owl:Class rdf:about="#BinaryBlock"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasOrientation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdfs:range rdf:resource="#VectorOrSquareMatrix"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxIntegerValue">
+    <rdfs:domain rdf:resource="#IntegerPair"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasToken">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#token"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Category"/>
+          <owl:Class rdf:about="#GeoLocationArea"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasInterPolationMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Category"/>
+    <rdfs:domain rdf:resource="#NormilizedCurve"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasState">
+    <rdfs:range rdf:resource="#VectorOrSquareMatrix"/>
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasReferenceTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#TRSAttributeGroup"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasConstraint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TimeRange"/>
+          <owl:Class rdf:about="#Count"/>
+          <owl:Class rdf:about="#CountRange"/>
+          <owl:Class rdf:about="#Quantity"/>
+          <owl:Class rdf:about="#Category"/>
+          <owl:Class rdf:about="#QuantityRange"/>
+          <owl:Class rdf:about="#Time"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#AllowedValues"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxTime">
+    <rdfs:domain rdf:resource="#TimePositionPair"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLocation">
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdfs:range rdf:resource="#Vector"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasReferenceFrame">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#SimpleComponentAttributeGroup"/>
+          <owl:Class rdf:about="#TRSAttributeGroup"/>
+          <owl:Class rdf:about="#AbstractVector"/>
+          <owl:Class rdf:about="#AbstractMatrix"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSignificantBits">
+    <rdfs:domain rdf:resource="#Component"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasIntegerPair">
+    <rdfs:range rdf:resource="#IntegerPair"/>
+    <rdfs:domain rdf:resource="#CountRange"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasUomIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TimeRange"/>
+          <owl:Class rdf:about="#Quantity"/>
+          <owl:Class rdf:about="#QuantityRange"/>
+          <owl:Class rdf:about="#Time"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://sweet.jpl.nasa.gov/ontology/units.owl#Unit"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCompression">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Block"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasBooleanValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Boolean"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasLocalFrame">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#TRSAttributeGroup"/>
+          <owl:Class rdf:about="#AbstractVector"/>
+          <owl:Class rdf:about="#AbstractMatrix"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEncryption">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Component"/>
+          <owl:Class rdf:about="#Block"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStringValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Text"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDataType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Component"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >float</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >double</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >unsignedShort</rdf:first>
+                        <rdf:rest rdf:parseType="Resource">
+                          <rdf:rest rdf:parseType="Resource">
+                            <rdf:rest rdf:parseType="Resource">
+                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                              >UTF-String</rdf:first>
+                              <rdf:rest rdf:parseType="Resource">
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >boolean</rdf:first>
+                                <rdf:rest rdf:parseType="Resource">
+                                  <rdf:rest rdf:parseType="Resource">
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                    >padding</rdf:first>
+                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                  </rdf:rest>
+                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                  >asciiString</rdf:first>
+                                </rdf:rest>
+                              </rdf:rest>
+                            </rdf:rest>
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >unsignedLong</rdf:first>
+                          </rdf:rest>
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >signedLong</rdf:first>
+                        </rdf:rest>
+                      </rdf:rest>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >unsignedByte</rdf:first>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >unsignedInt</rdf:first>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >signedInt</rdf:first>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >signedShort</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >signedByte</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isMemberOf">
+    <rdfs:range rdf:resource="#BinaryBlock"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#BinaryStructure"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMaxDoubleValue">
+    <rdfs:domain rdf:resource="#DoblePair"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMimeTypeEnum">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >image/tiff</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >image/gif</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >video/avi</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >bin</rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:rest>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >text/xml</rdf:first>
+                    </rdf:rest>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >video/mpeg</rdf:first>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >image/png</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >image/jpeg</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#StandardFormat"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMinIntegerValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#IntegerPair"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEndDate">
+    <rdfs:domain rdf:resource="#DatePositionPair"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCodeSpace">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#CodeSpace"/>
+    <rdfs:domain rdf:resource="#Category"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTime">
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdfs:range rdf:resource="#Time"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasID">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#AllowedValues"/>
+          <owl:Class rdf:about="#AllowedTokens"/>
+          <owl:Class rdf:about="#AllowedTimes"/>
+          <owl:Class rdf:about="#AbstractEncoding"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#ID"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasExtraPolationMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#NormilizedCurve"/>
+    <rdfs:range rdf:resource="#Category"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasStartDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#DatePositionPair"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasQuality">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Quality"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Boolean"/>
+          <owl:Class rdf:about="#TimeRange"/>
+          <owl:Class rdf:about="#Count"/>
+          <owl:Class rdf:about="#CountRange"/>
+          <owl:Class rdf:about="#Quantity"/>
+          <owl:Class rdf:about="#Category"/>
+          <owl:Class rdf:about="#QuantityRange"/>
+          <owl:Class rdf:about="#Time"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasCodeSpaceCategory">
+    <rdfs:range rdf:resource="#Measured"/>
+    <rdfs:domain rdf:resource="#CodeSpace"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasEncoding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDoubleValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    <rdfs:domain rdf:resource="#Quantity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAngularVelocity">
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPaddingBitsBefore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Component"/>
+          <owl:Class rdf:about="#Block"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasMinTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#TimePositionPair"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasAngularAcceleration">
+    <rdfs:range rdf:resource="#VectorOrSquareMatrix"/>
+    <rdfs:domain rdf:resource="#Position"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasInputBias">
+    <rdfs:domain rdf:resource="#NormilizedCurve"/>
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasInputGain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Quantity"/>
+    <rdfs:domain rdf:resource="#NormilizedCurve"/>
+  </owl:FunctionalProperty>
+  <Quantity rdf:ID="RoomTemperature">
+    <hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Room E24 - Temperature</hasDescription>
+    <hasUomIdentifier>
+      <rdf:Description rdf:about="http://sweet.jpl.nasa.gov/ontology/units.owl#degreeC">
+        <j.0:hasShiftingNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+        >-273</j.0:hasShiftingNumber>
+      </rdf:Description>
+    </hasUomIdentifier>
+    <hasDoubleValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >21.00</hasDoubleValue>
+  </Quantity>
+  <rdf:Description rdf:about="http://sweet.jpl.nasa.gov/ontology/units.owl#century">
+    <j.0:hasScalingNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#double"
+    >3.1556926E09</j.0:hasScalingNumber>
+  </rdf:Description>
+  <UomIdentifier rdf:ID="Celcius"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 120)  http://protege.stanford.edu -->
+<!-- The data model is adapted from OGC Web Enablement, Observation and Measurment data model -->

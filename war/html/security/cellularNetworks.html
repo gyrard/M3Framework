@@ -1,0 +1,92 @@
+<h1>
+<img src="images/security/cellular.png" width="100" height="80" >
+Security for cellular networks
+<img src="images/security/cellular.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">	
+<h3>  GSM (Global System for Mobile Communication)/ 2G</h3>
+<ul><li>
+Protocol:<br/>
+<select id="gsm_protocol" onclick="searchCountermeasureInformation('stac', document.getElementById('gsm_protocol').value, 'gsm_protocol_feature',  'gsm_security_property', 'option');" > </select>
+(e.g., choose EAP-SIM)<br/>
+Security Property: <select id="gsm_security_property"></select>
+Feature: <select id="gsm_protocol_feature"></select>
+
+</li><li>Algorithms:<br/>
+<select id="gsm_algo" onclick="searchCountermeasureInformation('stac', document.getElementById('gsm_algo').value, 'property_gsm_algo',  'property_gsm_algo', 'option');"></select>
+(e.g., choose A5) Security Property:<select id="property_gsm_algo"></select>
+
+</li><li>Key Management:<select id="gsm_key_mgt"> </select>
+		
+</li><li>Architecture:<form method="post" name="ajax" action="">
+<select id="gsm_archi" > </select> 
+</li></ul>
+</div>
+
+<div class="hero-unit">	
+<h3>GPRS (General Packet Radio Service)/ 2.5G</h3>
+<ul><li>		Algorithm:<select id="gprs_algo"> </select>
+
+</li><li>Architecture:<form method="post" name="ajax" action="">
+		<select id="gprs_archi" > </select>
+</li></ul>
+</div>
+
+<div class="hero-unit">	
+<h3>UMTS (Universal Mobile Telecommunications System)/ 3G</h3>
+<ul><li>		
+Protocol:<br/>
+<select id="umts_protocol" onclick="searchCountermeasureInformation('stac', document.getElementById('umts_protocol').value, 'umts_protocol_feature', 'umts_security_property', 'option');" ></select>
+(e.g., choose AKA) <br/> Security Property:
+<select id="umts_security_property"></select>
+Feature:		
+<select id="umts_protocol_feature"></select>
+
+		
+</li><li>Algorithms:<br/>
+<select id="umts_algo" onclick="searchCountermeasureInformation('stac', document.getElementById('umts_algo').value, '',  'property_umts_algo', 'option');" ></select>
+(e.g., choose f8) Security Property:<select id="property_umts_algo"> </select>
+
+</li><li>Attack:<select id="umts_attack"> </select>
+		
+</li><li>Architecture:
+<select id="umts_archi" > </select>
+</li></ul>
+</div>
+
+<div class="hero-unit">	
+<h3>LTE (Long Term Evolution)/ 4G</h3>
+
+Architecture:
+		<select id="lte_archi" ></select> 
+
+
+</br>
+<img src="images/security/gsm_umts_archi.jpg" width="800" height="500" title="GSM and UMTS architecture"/>
+</br>
+
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+   	request(displayResultBindingSelect, "stac/type/GSMSecurityProtocol", "gsm_protocol", "option");
+	request(displayResultBindingSelect, "stac/type/GSMSecurityAlgorithm", "gsm_algo", "option");		
+	request(displayResultBindingSelect, "stac/type/GSMKeyManagement", "gsm_key_mgt", "option");
+	request(displayResultBindingSelect, "stac/type/GSMArchitectureComponent", "gsm_archi", "option");
+	request(displayResultBindingSelect, "stac/type/GPRSSecurityAlgorithm", "gprs_algo", "option");
+	request(displayResultBindingSelect, "stac/type/GPRSArchitectureComponent", "gprs_archi", "option");	
+	request(displayResultBindingSelect, "stac/type/UMTSSecurityProtocol", "umts_protocol", "option");	
+	request(displayResultBindingSelect, "stac/type/UMTSSecurityAlgorithm", "umts_algo", "option");	
+	request(displayResultBindingSelect, "stac/type/UMTSAttack", "umts_attack", "option");
+	request(displayResultBindingSelect, "stac/type/UMTSArchitectureComponent", "umts_archi", "option");	
+	request(displayResultBindingSelect, "stac/type/LTEArchitectureComponent", "lte_archi", "option");
+
+});

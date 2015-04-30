@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY clothes "http://www.clothes.pt/ontologies/clothes.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:clothes="http://www.clothes.pt/ontologies/clothes.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Ontology rdf:about="http://www.clothes.pt/ontologies/clothes.owl">
+        <rdfs:comment xml:lang="en">Ontology For Clothes</rdfs:comment>
+    </Ontology>
+    
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#hasColour -->
+
+    <ObjectProperty rdf:about="&clothes;hasColour">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;hasColour"/>
+                <someValuesFrom rdf:resource="&clothes;Color"/>
+            </Restriction>
+        </rdfs:range>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#hasSize -->
+
+    <ObjectProperty rdf:about="&clothes;hasSize">
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;hasSize"/>
+                <someValuesFrom rdf:resource="&clothes;Size"/>
+            </Restriction>
+        </rdfs:range>
+        <rdfs:domain>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;hasSize"/>
+                <someValuesFrom rdf:resource="&clothes;Shoes"/>
+            </Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;hasSize"/>
+                <someValuesFrom rdf:resource="&clothes;Pants"/>
+            </Restriction>
+        </rdfs:domain>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#isMadeOf -->
+
+    <ObjectProperty rdf:about="&clothes;isMadeOf">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;isMadeOf"/>
+                <someValuesFrom rdf:resource="&clothes;Material"/>
+            </Restriction>
+        </rdfs:range>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#isWornedBy -->
+
+    <ObjectProperty rdf:about="&clothes;isWornedBy"/>
+    
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Colour_Data -->
+
+    <DatatypeProperty rdf:about="&clothes;Colour_Data">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <Restriction>
+                <onProperty rdf:resource="&clothes;hasColour"/>
+                <onClass rdf:resource="&clothes;Clothing"/>
+                <minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</minQualifiedCardinality>
+            </Restriction>
+        </rdfs:domain>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Material_Data -->
+
+    <DatatypeProperty rdf:about="&clothes;Material_Data">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Model_Data -->
+
+    <DatatypeProperty rdf:about="&clothes;Model_Data">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Price_Data -->
+
+    <DatatypeProperty rdf:about="&clothes;Price_Data">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#SQL_ID_DATA -->
+
+    <DatatypeProperty rdf:about="&clothes;SQL_ID_DATA">
+        <rdfs:domain rdf:resource="&clothes;Clothing"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Size_Data -->
+
+    <DatatypeProperty rdf:about="&clothes;Size_Data">
+        <rdfs:domain rdf:resource="&clothes;Pants"/>
+        <rdfs:domain rdf:resource="&clothes;Shoes"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#BootCutJeans -->
+
+    <Class rdf:about="&clothes;BootCutJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;WomensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#CasualShoes -->
+
+    <Class rdf:about="&clothes;CasualShoes">
+        <rdfs:subClassOf rdf:resource="&clothes;MenShoes"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Characteristic -->
+
+    <Class rdf:about="&clothes;Characteristic"/>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#ClassicJeans -->
+
+    <Class rdf:about="&clothes;ClassicJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;MensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#ClassicTie -->
+
+    <Class rdf:about="&clothes;ClassicTie">
+        <rdfs:subClassOf rdf:resource="&clothes;Tie"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Clothing -->
+
+    <Class rdf:about="&clothes;Clothing">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Color -->
+
+    <Class rdf:about="&clothes;Color">
+        <rdfs:subClassOf rdf:resource="&clothes;Characteristic"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#EveningShoes -->
+
+    <Class rdf:about="&clothes;EveningShoes">
+        <rdfs:subClassOf rdf:resource="&clothes;MenShoes"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#FlatShoes -->
+
+    <Class rdf:about="&clothes;FlatShoes">
+        <rdfs:subClassOf rdf:resource="&clothes;WomenShoes"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Gender -->
+
+    <Class rdf:about="&clothes;Gender">
+        <rdfs:subClassOf rdf:resource="&clothes;Clothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Jeans -->
+
+    <Class rdf:about="&clothes;Jeans">
+        <rdfs:subClassOf rdf:resource="&clothes;Pants"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#LooseFitJeans -->
+
+    <Class rdf:about="&clothes;LooseFitJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;MensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Material -->
+
+    <Class rdf:about="&clothes;Material">
+        <rdfs:subClassOf rdf:resource="&clothes;Characteristic"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#MenShoes -->
+
+    <Class rdf:about="&clothes;MenShoes">
+        <rdfs:subClassOf rdf:resource="&clothes;MensClothing"/>
+        <rdfs:subClassOf rdf:resource="&clothes;Shoes"/>
+        <disjointWith rdf:resource="&clothes;WomenShoes"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#MensClothing -->
+
+    <Class rdf:about="&clothes;MensClothing">
+        <rdfs:subClassOf rdf:resource="&clothes;Clothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#MensJeans -->
+
+    <Class rdf:about="&clothes;MensJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;Jeans"/>
+        <rdfs:subClassOf rdf:resource="&clothes;MensClothing"/>
+        <disjointWith rdf:resource="&clothes;WomensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Pants -->
+
+    <Class rdf:about="&clothes;Pants">
+        <rdfs:subClassOf rdf:resource="&clothes;Clothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#RegulatFitJeans -->
+
+    <Class rdf:about="&clothes;RegulatFitJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;MensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Shoes -->
+
+    <Class rdf:about="&clothes;Shoes">
+        <rdfs:subClassOf rdf:resource="&clothes;Clothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Size -->
+
+    <Class rdf:about="&clothes;Size">
+        <rdfs:subClassOf rdf:resource="&clothes;Characteristic"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#SkinnyJeans -->
+
+    <Class rdf:about="&clothes;SkinnyJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;WomensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#SlimFitJeans -->
+
+    <Class rdf:about="&clothes;SlimFitJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;MensJeans"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#ThinTie -->
+
+    <Class rdf:about="&clothes;ThinTie">
+        <rdfs:subClassOf rdf:resource="&clothes;Tie"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Tie -->
+
+    <Class rdf:about="&clothes;Tie">
+        <rdfs:subClassOf rdf:resource="&clothes;Clothing"/>
+        <rdfs:subClassOf rdf:resource="&clothes;MensClothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#WedgesShoes -->
+
+    <Class rdf:about="&clothes;WedgesShoes">
+        <rdfs:subClassOf rdf:resource="&clothes;WomenShoes"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#WomenShoes -->
+
+    <Class rdf:about="&clothes;WomenShoes">
+        <rdfs:subClassOf rdf:resource="&clothes;Shoes"/>
+        <rdfs:subClassOf rdf:resource="&clothes;WomensClothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#WomensClothing -->
+
+    <Class rdf:about="&clothes;WomensClothing">
+        <rdfs:subClassOf rdf:resource="&clothes;Clothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#WomensJeans -->
+
+    <Class rdf:about="&clothes;WomensJeans">
+        <rdfs:subClassOf rdf:resource="&clothes;Jeans"/>
+        <rdfs:subClassOf rdf:resource="&clothes;WomensClothing"/>
+    </Class>
+    
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Female -->
+
+    <NamedIndividual rdf:about="&clothes;Female">
+        <rdf:type rdf:resource="&clothes;Gender"/>
+        <clothes:isWornedBy rdf:resource="&clothes;Female"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.clothes.pt/ontologies/clothes.owl#Male -->
+
+    <NamedIndividual rdf:about="&clothes;Male">
+        <rdf:type rdf:resource="&clothes;Gender"/>
+        <clothes:isWornedBy rdf:resource="&clothes;Male"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->

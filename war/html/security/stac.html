@@ -1,0 +1,70 @@
+<h1>STAC (Security Toolbox: Attack & Countermeasure)</h1>
+
+<div class="hero-unit">
+
+<table>
+<tr>
+<td><img src="images/homePage/StacLogo.png" width="180" height="200" ></td>
+<td>
+The STAC (Security Toolbox: Attack & Countermeasure) application assists users in:
+<ul><li> Designing secured applications or architectures.</li>
+	<li> Be aware of main security threats.</li>
+ 	<li> Exploring security in various technologies such as
+		<a href="../?p=sensor">sensor</a>, 
+		<a href="../?p=cellular">cellular</a> (2G, 3G, 4G), 
+		<a href="../?p=wireless">wireless networks</a> (Wi-Fi, Wimax, Zigbee, Bluetooth), <a href="../?p=m2m">Mesh/M2M/Manet</a>, 
+		<a href="../?p=network">network management</a>, 
+		<a href="../?p=web">web applications</a>,
+		<a href="../?p=cryptography">cryptography</a>,
+		<a href="../?p=attack">attacks & countermeasures</a>,
+		<a href="../?p=security_property">security properties</a> (e.g., authentication),
+	 etc.
+ 	</li>
+ </ul>
+</td>
+</tr>
+</table>
+
+
+<h3>Technologies used in your application? </h3>	
+
+<ol>
+<li> Choose a technology (e.g., WiFi Technology)
+   <select id="network_comm" onchange="searchInformationRelatedToTechnology('option');"></select>	
+</li>		
+
+<li> Attacks related to this technology: <select id="attack_network_comm"></select> </li>
+<li> Wait (10 seconds!)</li>
+<li> A tooltip is displayed for more information about a specific security mechanism
+<select id="securityMechanism_network_comm" onclick="searchCountermeasureInformation('stac', document.getElementById('securityMechanism_network_comm').value, 'feature_network_comm', 'security_property_network_comm', 'option');"></select>		
+
+</li>
+<li> Click on a security mechanism (e.g., WPA2):
+</li>
+
+<li> Advantages and weaknesses are displayed (Feature):	<select id="feature_network_comm"></select></li>
+<li> Security properties satisfied are displayed: <select id="security_property_network_comm"></select></li>
+</ol>
+
+<br/>
+ Please do not forget to cite our works: 
+<br/><a href="http://scholar.google.fr/citations?view_op=view_citation&hl=en&user=sUgbvKoAAAAJ&sortby=pubdate&citation_for_view=sUgbvKoAAAAJ:RHpTSmoSYBkC">
+An Ontology-Based Approach for Helping to Secure the ETSI Machine-to-Machine Architecture [Gyrard et al., iThings 2014]</a>
+<br/><a href="http://scholar.google.fr/citations?view_op=view_citation&hl=en&user=sUgbvKoAAAAJ&sortby=pubdate&citation_for_view=sUgbvKoAAAAJ:qjMakFHDy7sC">
+The STAC (security toolbox: attacks & countermeasures) ontology [Gyrard et al., WWW 2013 Poster]</a>
+ 
+
+<br/><br/>
+<a class="redBlink" href="https://docs.google.com/forms/d/1NKiMQPVR6X6Reioud0-WBZu1bmo3T1Ah7PZm9De-apk/viewform"> <img src="images/security/satisfaction.png" width="80" height="80" title="">Please give us feedback to evaluate STAC (takes less 1 minute). Click here to fill the form.</a>
+
+<br/>
+	<img src="images/tip.png" width="80" height="80" >
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "/stac/subclassOf/Technology", "network_comm", "option");	
+	
+});
+

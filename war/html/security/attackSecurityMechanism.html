@@ -1,0 +1,68 @@
+<h1>
+<img src="images/security/attack.png" width="100" height="80" >
+Attacks & Countermeasures
+<img src="images/security/attack.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+
+<div class="hero-unit">
+<h3>Attacks & Security Mechanisms</h3>	
+<ul>
+<li>
+Attacks: <select id="attack" onclick="callWebServiceInstance('stac/hasSecurityMechanism', document.getElementById('attack').value, 'res', 'option')"></select>
+(e.g., choose eavesdropping) has security mechanism:	<select id="res"></select>
+</li> <li>			    
+
+Security Mechanisms: <select id="countermeasure" onclick="searchCountermeasureInformation('stac', document.getElementById('countermeasure').value, 'feature', 'security_property', 'option');" ></select>
+ (e.g., choose PGP) <br/>
+Security Property: <select id="security_property"></select>
+Feature: <select id="feature"></select>
+</li></ul>
+</div>
+
+<div class="hero-unit">	
+<h3>OSI Model</h3>
+    	
+<ul>
+<li>
+Application Layer:
+Attacks: <select id="attack_layer"></select>, Security Mechanisms:	<select id="count_layer"></select>
+</li> <li>	
+Physical Layer:
+Attacks: <select id="attack_layer_physical"></select>, Security Mechanisms: <select id="count_layer_physical"></select>
+</li> <li> 		
+Link Layer:
+Attacks: <select id="attack_layer_link"></select>, Security Mechanisms: <select id="count_layer_link"></select>
+</li> <li> 		
+Network Layer:	
+Attacks: <select id="attack_layer_network"></select>, Security Mechanisms: <select id="count_layer_network"></select>
+</li> <li>
+Transport Layer:
+Attacks: <select id="attack_layer_transport"></select>, Security Mechanisms: <select id="count_layer_transport"></select>
+</li></ul>
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "stac/type/Attack", "attack", "option");	
+	request(displayResultBindingSelect, "stac/type/SecurityMechanism", "countermeasure", "option");	
+	
+	callWebServiceInstance('stac/attackLayer', 'ApplicationLayer', 'attack_layer', 'option');	
+	callWebServiceInstance('stac/countLayer', 'ApplicationLayer', 'count_layer', 'option');	
+	callWebServiceInstance('stac/attackLayer', 'PhysicalLayer', 'attack_layer_physical', 'option');
+	callWebServiceInstance('stac/countLayer', 'PhysicalLayer', 'count_layer_physical', 'option');		
+	callWebServiceInstance('stac/attackLayer', 'LinkLayer', 'attack_layer_link', 'option');		
+	callWebServiceInstance('stac/countLayer', 'LinkLayer', 'count_layer_link', 'option');		
+    callWebServiceInstance('stac/attackLayer', 'NetworkLayer', 'attack_layer_network', 'option');		
+    callWebServiceInstance('stac/attackLayer', 'TransportLayer', 'attack_layer_transport', 'option');		
+	callWebServiceInstance('stac/countLayer', 'NetworkLayer', 'count_layer_network', 'option');	
+	callWebServiceInstance('stac/countLayer', 'TransportLayer', 'count_layer_transport', 'option');		
+	
+});

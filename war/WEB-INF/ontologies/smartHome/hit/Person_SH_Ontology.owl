@@ -1,0 +1,2410 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY daml "http://www.daml.org/2001/03/daml+oil#" >
+    <!ENTITY p1 "http://www.owl-ontologies.com/assert.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Behaviour "http://www.owl-ontologies.com/Behaviour.owl#" >
+    <!ENTITY Task_Ontology "http://www.owl-ontologies.com/Task_Ontology.owl#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY Person_HI_Ontology "http://www.owl-ontologies.com/Person_HI_Ontology.owl#" >
+    <!ENTITY Person_SH_Ontology2 "http://www.Smart-Homes-owl-ontologies.com/Person_SH_Ontology.owl#" >
+    <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.Smart-Homes-owl-ontologies.com/Person_SH_Ontology.owl#"
+     xml:base="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:p1="http://www.owl-ontologies.com/assert.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Person_SH_Ontology2="http://www.Smart-Homes-owl-ontologies.com/Person_SH_Ontology.owl#"
+     xmlns:Behaviour="http://www.owl-ontologies.com/Behaviour.owl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Person_HI_Ontology="http://www.owl-ontologies.com/Person_HI_Ontology.owl#"
+     xmlns:Person_SH_Ontology="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Task_Ontology="http://www.owl-ontologies.com/Task_Ontology.owl#"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#followedBy -->
+
+    <owl:ObjectProperty rdf:about="#followedBy">
+        <rdfs:label xml:lang="en">Followed By</rdfs:label>
+        <rdfs:label xml:lang="fr">Suivi Par</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property describes the bond between a patient and his attending practitionar (general practitioner or specialist).</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Cette propri&#233;t&#233; d&#233;crit le lien entre un patient et son m&#233;decin traitant (g&#233;n&#233;raliste ou sp&#233;cialiste).</rdfs:comment>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:range rdf:resource="#Physician"/>
+        <owl:inverseOf rdf:resource="#follows"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#follows -->
+
+    <owl:ObjectProperty rdf:about="#follows">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">Follows</rdfs:label>
+        <rdfs:label xml:lang="fr">Suit</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This property describes the bond (inverse) between an attending practitioner (general practitioner or specialist) and his patient.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Cette propri&#233;t&#233; d&#233;crit le lien (inverse) entre un m&#233;decin traitant (g&#233;n&#233;raliste ou sp&#233;cialiste) et son patient.</rdfs:comment>
+        <rdfs:range rdf:resource="#Patient"/>
+        <rdfs:domain rdf:resource="#Physician"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasAllergy -->
+
+    <owl:ObjectProperty rdf:about="#hasAllergy">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#Allergy"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDisease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasAsthma -->
+
+    <owl:ObjectProperty rdf:about="#hasAsthma">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#Asthma"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDisease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasBreastPaget -->
+
+    <owl:ObjectProperty rdf:about="#hasBreastPaget">
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="#hasCancer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasBrother -->
+
+    <owl:ObjectProperty rdf:about="#hasBrother">
+        <rdfs:range rdf:resource="#Brother"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="#hasSibling"/>
+        <owl:inverseOf rdf:resource="#isBrotherOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasCancer -->
+
+    <owl:ObjectProperty rdf:about="#hasCancer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette propriete permet de dire si le patient souffre d un cancer</rdfs:comment>
+        <rdfs:range rdf:resource="#Cancer"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDisease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasChild -->
+
+    <owl:ObjectProperty rdf:about="#hasChild">
+        <rdfs:subPropertyOf rdf:resource="#hasDescendant"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Daughter"/>
+                    <rdf:Description rdf:about="#Son"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasCousin -->
+
+    <owl:ObjectProperty rdf:about="#hasCousin">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <owl:inverseOf rdf:resource="#hasCousin"/>
+        <rdfs:subPropertyOf rdf:resource="#hasSibling"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Cousin"/>
+                    <rdf:Description rdf:about="#Patient"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Cousin"/>
+                    <rdf:Description rdf:about="#Patient"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasDeficiency -->
+
+    <owl:ObjectProperty rdf:about="#hasDeficiency">
+        <rdfs:comment xml:lang="fr"
+            >Cette propriete permet de definir toutes les deficiences physiques que le patient pourrait avoir et qui limiteraient ses mouvements</rdfs:comment>
+        <rdfs:range rdf:resource="#Deficiency"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasDescendant -->
+
+    <owl:ObjectProperty rdf:about="#hasDescendant">
+        <rdfs:range rdf:resource="#Descendant"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <owl:inverseOf rdf:resource="#isDescendantOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasDisease -->
+
+    <owl:ObjectProperty rdf:about="#hasDisease">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en"
+            >property which makes it possible to define the bond between the patient and his various diseases</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Propri&#233;t&#233; qui permet de d&#233;finir le lien entre le patient et ses diff&#233;rentes maladies</rdfs:comment>
+        <rdfs:range rdf:resource="#Disease"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeficiency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasFather -->
+
+    <owl:ObjectProperty rdf:about="#hasFather">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Father"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <owl:inverseOf rdf:resource="#isFatherOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasGender -->
+
+    <owl:ObjectProperty rdf:about="#hasGender">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has Gender</rdfs:label>
+        <rdfs:label xml:lang="fr">Sexe</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Permet de specifier le sexe de la personne.</rdfs:comment>
+        <rdfs:range rdf:resource="#Gender"/>
+        <rdfs:domain rdf:resource="#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasGrandChild -->
+
+    <owl:ObjectProperty rdf:about="#hasGrandChild">
+        <rdfs:subPropertyOf rdf:resource="#hasDescendant"/>
+        <owl:inverseOf rdf:resource="#isGrandChildOf"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Grand_Daughter"/>
+                    <rdf:Description rdf:about="#Grand_Son"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasMedicalHistory -->
+
+    <owl:ObjectProperty rdf:about="#hasMedicalHistory">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en"
+            >Has a Medical History</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >A un passe medical</rdfs:label>
+        <rdfs:range rdf:resource="#Medical_history"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasMother -->
+
+    <owl:ObjectProperty rdf:about="#hasMother">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="#Mother"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <owl:inverseOf rdf:resource="#isMotherOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasMotorDeficiency -->
+
+    <owl:ObjectProperty rdf:about="#hasMotorDeficiency">
+        <rdfs:range rdf:resource="#Motor_impairment"/>
+        <rdfs:subPropertyOf rdf:resource="#hasPhysicalDeficiency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasPaget -->
+
+    <owl:ObjectProperty rdf:about="#hasPaget">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Paget"/>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="#hasCancer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasPhysicalDeficiency -->
+
+    <owl:ObjectProperty rdf:about="#hasPhysicalDeficiency">
+        <rdfs:comment xml:lang="fr"
+            >Cette propriete permet d identifier toutes les deficiences physiques dont peut souffrir le patient.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:range rdf:resource="#Physical_deficiency"/>
+        <rdfs:subPropertyOf rdf:resource="#hasDeficiency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasSensorialDeficiency -->
+
+    <owl:ObjectProperty rdf:about="#hasSensorialDeficiency">
+        <rdfs:range rdf:resource="#Sensorial_deficiency"/>
+        <rdfs:subPropertyOf rdf:resource="#hasPhysicalDeficiency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasSibling -->
+
+    <owl:ObjectProperty rdf:about="#hasSibling">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">Sibling</rdfs:label>
+        <rdfs:label xml:lang="fr">Proche</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Represents the relation between the whole of the parents very close others than the father and the mother. That includes the brothers, sisters and also cousins (that are close or distant), men or women.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Repr&#233;sente le lien entre le patient et l&#39;ensemble des parents tr&#232;s proches autres que le p&#232;re et la m&#232;re. Cela englobe les fr&#232;res, les s&#339;urs et aussi les cousins (qu ils soient proches ou &#233;loign&#233;s), hommes ou femmes.</rdfs:comment>
+        <owl:inverseOf rdf:resource="#hasSibling"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Patient"/>
+                    <rdf:Description rdf:about="#Sibling"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Patient"/>
+                    <rdf:Description rdf:about="#Sibling"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasSister -->
+
+    <owl:ObjectProperty rdf:about="#hasSister">
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:range rdf:resource="#Sister"/>
+        <rdfs:subPropertyOf rdf:resource="#hasSibling"/>
+        <owl:inverseOf rdf:resource="#isSisterOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasToContact -->
+
+    <owl:ObjectProperty rdf:about="#hasToContact">
+        <rdfs:label xml:lang="en">Has to contact</rdfs:label>
+        <rdfs:label xml:lang="fr">Doit Contacter</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Defines the bond which must exist between the general practitioner and the specialist in measurement or it has him to contact the specialist concerns with the state of the patient. In the event of urgency, it is allocated to the primary care giver (contacted by the supervisor, the social worker or the system itself) to specify the step to be followed as well as the specialists to contact.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >D&#233;finit le lien qui doit exister entre le m&#233;decin g&#233;n&#233;raliste et le sp&#233;cialiste dans la mesure ou c&#39;est a lui de contacter le sp&#233;cialiste concerne par l&#39;&#233;tat du patient. En cas d&#39;urgence, il revient &#224; l&#39;urgentiste (contact&#233; par le surveillant ou le syst&#232;me lui-m&#234;me) de pr&#233;ciser la d&#233;marche &#224; suivre ainsi que les sp&#233;cialistes &#224; contacter.</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Kin"/>
+                    <rdf:Description rdf:about="#Social_staff"/>
+                    <rdf:Description rdf:about="#Specialist"/>
+                    <rdf:Description rdf:about="#Volunteer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#General_practitioner"/>
+                    <rdf:Description rdf:about="#Primary_care_physician"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isBrotherOf -->
+
+    <owl:ObjectProperty rdf:about="#isBrotherOf">
+        <rdfs:range rdf:resource="#Patient"/>
+        <rdfs:subPropertyOf rdf:resource="#hasSibling"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isChildOf -->
+
+    <owl:ObjectProperty rdf:about="#isChildOf">
+        <owl:inverseOf rdf:resource="#hasChild"/>
+        <rdfs:subPropertyOf rdf:resource="#isDescendantOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Daughter"/>
+                    <rdf:Description rdf:about="#Son"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isDeficiency -->
+
+    <owl:ObjectProperty rdf:about="#isDeficiency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Deficiency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isDescendantOf -->
+
+    <owl:ObjectProperty rdf:about="#isDescendantOf">
+        <rdfs:domain rdf:resource="#Descendant"/>
+        <rdfs:range rdf:resource="#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isFatherOf -->
+
+    <owl:ObjectProperty rdf:about="#isFatherOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Father"/>
+        <rdfs:range rdf:resource="#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isGrandChildOf -->
+
+    <owl:ObjectProperty rdf:about="#isGrandChildOf">
+        <rdfs:subPropertyOf rdf:resource="#isDescendantOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Grand_Daughter"/>
+                    <rdf:Description rdf:about="#Grand_Son"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isMotherOf -->
+
+    <owl:ObjectProperty rdf:about="#isMotherOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Mother"/>
+        <rdfs:range rdf:resource="#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isResponsibleOf -->
+
+    <owl:ObjectProperty rdf:about="#isResponsibleOf">
+        <rdfs:label xml:lang="en"
+            >Is Responsible Of</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Est Responsable De</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Permet de definir les responsabilites du gestionnaire de l habitat et des responsables des differents systemes (informatique, telecom, capteurs). Cette relation peut etre qualifiee de meta-relation puisqu elle fait le lien entre les gestionnaires et des parties d autres ontologies.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Manager"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isRiskFactor -->
+
+    <owl:ObjectProperty rdf:about="#isRiskFactor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Chronical_disease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isSisterOf -->
+
+    <owl:ObjectProperty rdf:about="#isSisterOf">
+        <rdfs:range rdf:resource="#Patient"/>
+        <rdfs:domain rdf:resource="#Sister"/>
+        <rdfs:subPropertyOf rdf:resource="#hasSibling"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#manages -->
+
+    <owl:ObjectProperty rdf:about="#manages">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Manages</rdfs:label>
+        <rdfs:label xml:lang="fr">G&#232;re</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >D&#233;crit le lien entre les gestionnaires de l&#39;Habitat et l&#39;Habitat.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Habitat_staff"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#movesIn -->
+
+    <owl:ObjectProperty rdf:about="#movesIn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Moves In</rdfs:label>
+        <rdfs:label xml:lang="fr">&#201;volue Dans</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Permet de d&#233;finir le lien entre le Patient et l&#39;Habitat.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Patient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#of_Communic_System -->
+
+    <owl:ObjectProperty rdf:about="#of_Communic_System">
+        <rdfs:domain rdf:resource="#Comm_System_manager"/>
+        <rdfs:subPropertyOf rdf:resource="#isResponsibleOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#of_Computer_System -->
+
+    <owl:ObjectProperty rdf:about="#of_Computer_System">
+        <rdfs:domain rdf:resource="#Comm_System_manager"/>
+        <rdfs:subPropertyOf rdf:resource="#isResponsibleOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#of_Habitat -->
+
+    <owl:ObjectProperty rdf:about="#of_Habitat">
+        <rdfs:domain rdf:resource="#Habitat_manager"/>
+        <rdfs:subPropertyOf rdf:resource="#isResponsibleOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#of_Tech_Area -->
+
+    <owl:ObjectProperty rdf:about="#of_Tech_Area">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Technical_manager"/>
+        <rdfs:subPropertyOf rdf:resource="#isResponsibleOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#wearSensor -->
+
+    <owl:ObjectProperty rdf:about="#wearSensor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasAge -->
+
+    <owl:DatatypeProperty rdf:about="#hasAge">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Age</rdfs:label>
+        <rdfs:label xml:lang="fr">Age</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Propriete qui decrit l&#39;age du patient a son entree a l&#39;Habitat.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasBirthDay -->
+
+    <owl:DatatypeProperty rdf:about="#hasBirthDay">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">BirthDay</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Date de naissance</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Decrit la date de naissance. Cette propriete permettra de calculer l&#39;age de la personne (et du patient particulierement) si l&#39;on a besoin.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasFirstName -->
+
+    <owl:DatatypeProperty rdf:about="#hasFirstName">
+        <rdfs:label xml:lang="en">First Name</rdfs:label>
+        <rdfs:label xml:lang="fr">Prenom</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Correspond au prenom d la personne</rdfs:comment>
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasLastName -->
+
+    <owl:DatatypeProperty rdf:about="#hasLastName">
+        <rdfs:label xml:lang="en">Last Name</rdfs:label>
+        <rdfs:label xml:lang="fr">Nom</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Definit le nom de famille de la personne, qu&#39;elle soit le patient ou l&#39;acteur</rdfs:comment>
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasMiddleName -->
+
+    <owl:DatatypeProperty rdf:about="#hasMiddleName">
+        <rdfs:label xml:lang="en">Middle Name</rdfs:label>
+        <rdfs:label xml:lang="fr">Second prenom</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Correspond au deuxieme prenom.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#hasPhoneNumber -->
+
+    <owl:DatatypeProperty rdf:about="#hasPhoneNumber">
+        <rdfs:label xml:lang="en">Phone Number</rdfs:label>
+        <rdfs:label xml:lang="fr">Telephone</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Correspond aux numeros de telephones auxquels on peut joindre les personnes (Actor) en cas d&#39;urgence.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Actor"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#isSmoker -->
+
+    <owl:DatatypeProperty rdf:about="#isSmoker">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Smoker</rdfs:label>
+        <rdfs:label xml:lang="fr">Fumeur</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Permet de dire si le patient est une personne fumeur. Cela permet de conna&#238;tre le degr&#233; de gravite de certaines maladies.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;boolean">false</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;boolean">true</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#medicalRules -->
+
+    <owl:DatatypeProperty rdf:about="#medicalRules">
+        <rdfs:label xml:lang="en">Medical Rules</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Regles medicales</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Cette propriete definit les regles a suivre pour chaque medicament (le nombre de fois a prendre par jour, la maniere, et peut-etre aussi l&#39;heure de prise).</rdfs:comment>
+        <rdfs:domain rdf:resource="#Prescripted_medication"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#pathologySpecification -->
+
+    <owl:DatatypeProperty rdf:about="#pathologySpecification">
+        <rdfs:label xml:lang="en"
+            >Pathology Designation</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Libelle Pathologie</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Permet de specifier avec exactitude la maladie ou la deficience dont souffre le patient.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Deficiency"/>
+                    <rdf:Description rdf:about="#Disease"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#pathologyStage -->
+
+    <owl:DatatypeProperty rdf:about="#pathologyStage">
+        <rdfs:label xml:lang="en">Pathology Stage</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Etape de Pathologie</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Cette propriete est utilisee dans lecas des maladies chroniques et graves comme le cancer ou l&quot;Alzheimer, etc.</rdfs:comment>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Advanced</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Beginning</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">Intermediate</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Chronical_disease"/>
+                    <rdf:Description rdf:about="#Diabetes"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#stageOfAlzheimer -->
+
+    <owl:DatatypeProperty rdf:about="#stageOfAlzheimer">
+        <rdfs:label xml:lang="en"
+            >Stage of Alzheimer</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Etape de l&#39;Alzheimer</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >This property makes it possible to define at which stage of the disease of  Alzheimer is the patient. This allows  to adopt an adequate behavior vis-a-vis the various situations. It can take 2 or 3 like values.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Cette propri&#233;t&#233; permet de d&#233;finir a quelle &#233;tape de la maladie de l&#39;Alzheimer est le patient. Ceci permet d adopter un comportement ad&#233;quat face aux diff&#233;rentes situations. Elle peut prendre 2 ou 3 comme valeurs.</rdfs:comment>
+        <rdfs:domain rdf:resource="#Patient"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;int">2</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;int">3</rdf:first>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#takingDose -->
+
+    <owl:DatatypeProperty rdf:about="#takingDose">
+        <rdfs:label xml:lang="en">Taking Dose</rdfs:label>
+        <rdfs:label xml:lang="fr">Dose a suivre</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Cette propriete decrit la dose a prendre d&#39;un medicament.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#medicalRules"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#takingMethod -->
+
+    <owl:DatatypeProperty rdf:about="#takingMethod">
+        <rdfs:label xml:lang="en">Taking Method</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Methode a suivre</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Propriete definissant la maniere dont le medicament doit etre pris.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#medicalRules"/>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">Injectable</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&rdf;List"/>
+                                <rdf:first rdf:datatype="&xsd;string">Orally</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&rdf;List"/>
+                                        <rdf:first rdf:datatype="&xsd;string">Tactile</rdf:first>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#takingTime -->
+
+    <owl:DatatypeProperty rdf:about="#takingTime">
+        <rdfs:label xml:lang="en">Taking Time</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Heure de prise de medicament</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Definit l&#39;heure de prise du medicament</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#medicalRules"/>
+        <rdfs:range rdf:resource="&xsd;time"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Actor -->
+
+    <owl:Class rdf:about="#Actor">
+        <rdfs:label xml:lang="en">Actor</rdfs:label>
+        <rdfs:label xml:lang="fr">Acteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasPhoneNumber"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Patient"/>
+        <rdfs:comment xml:lang="en"
+            >The Actor class corresponds to any person (physical or moral) playing or being able to play a part in the management of the system, from where its name of actor.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La classe Acteur correspond &#224; toute personne (physique ou morale) jouant ou pouvant jouer un r&#244;le dans la gestion du syst&#232;me, d&#39;o&#249; son nom d&#8217;acteur.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Allergist -->
+
+    <owl:Class rdf:about="#Allergist">
+        <rdfs:label xml:lang="en">Allergist</rdfs:label>
+        <rdfs:label xml:lang="fr">Allergologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Anatomo_pathologist"/>
+        <owl:disjointWith rdf:resource="#Cardiologist"/>
+        <owl:disjointWith rdf:resource="#Dermatologist"/>
+        <owl:disjointWith rdf:resource="#Endocrinologist"/>
+        <owl:disjointWith rdf:resource="#Geriatrist"/>
+        <owl:disjointWith rdf:resource="#Gynaecologist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >Doctor whose responsibility is to determine which are the causes relating to the environment (in the habitat) which would be at the origin of the patient allergy.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >M&#233;decin sp&#233;cialiste se chargeant de d&#233;terminer quelles sont les causes relatives &#224; l&#39;environnement (dans l&#39;habitat) qui seraient &#224; l&#39;origine de l&#39;allergie chez le patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Allergy -->
+
+    <owl:Class rdf:about="#Allergy">
+        <rdfs:label xml:lang="en">Allergy</rdfs:label>
+        <rdfs:label xml:lang="fr">Allergie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Arterial_hypertension"/>
+        <owl:disjointWith rdf:resource="#Arthritis"/>
+        <owl:disjointWith rdf:resource="#Asthma"/>
+        <owl:disjointWith rdf:resource="#Cancer"/>
+        <owl:disjointWith rdf:resource="#Cataract"/>
+        <owl:disjointWith rdf:resource="#Diabetes"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Aussi appel&#233;e hypersensibilit&#233;, l&#39;allergie est une r&#233;action exag&#233;r&#233;e et excessive du corps humain face &#224; des substances qui lui sont &#233;trang&#232;res et que le syst&#232;me immunitaire consid&#232;re &#224; tort comme dangereuses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Anatomo_pathologist -->
+
+    <owl:Class rdf:about="#Anatomo_pathologist">
+        <rdfs:label xml:lang="en"
+            >Anatomopathologist</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Anatomopathologiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Cardiologist"/>
+        <owl:disjointWith rdf:resource="#Dermatologist"/>
+        <owl:disjointWith rdf:resource="#Endocrinologist"/>
+        <owl:disjointWith rdf:resource="#Geriatrist"/>
+        <owl:disjointWith rdf:resource="#Gynaecologist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >Specialists interested by the macro and microscopic study in pathological fabrics. This speciality is useful in the case of diagnosis of presence or not of cancer.At least one anatomopathologist by system of habitats is necessary.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Sp&#233;cialistes int&#233;ress&#233;s par l&#39;&#233;tude macro et microscopique des tissus pathologiques. Cette sp&#233;cialit&#233; est utile dans le cas de diagnostic de pr&#233;sence ou non de cancer. Au moins un anatomopathologiste par syst&#232;me d&#39;habitats est n&#233;cessaire.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Arterial_hypertension -->
+
+    <owl:Class rdf:about="#Arterial_hypertension">
+        <rdfs:label xml:lang="en"
+            >Arterial hypertension</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Hypertension art&#233;rielle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Arthritis"/>
+        <owl:disjointWith rdf:resource="#Asthma"/>
+        <owl:disjointWith rdf:resource="#Cancer"/>
+        <owl:disjointWith rdf:resource="#Cataract"/>
+        <owl:disjointWith rdf:resource="#Diabetes"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Arthritis -->
+
+    <owl:Class rdf:about="#Arthritis">
+        <rdfs:label xml:lang="en">Arthritis</rdfs:label>
+        <rdfs:label xml:lang="fr">Arthrite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Asthma"/>
+        <owl:disjointWith rdf:resource="#Cancer"/>
+        <owl:disjointWith rdf:resource="#Cataract"/>
+        <owl:disjointWith rdf:resource="#Diabetes"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Asthma -->
+
+    <owl:Class rdf:about="#Asthma">
+        <rdfs:label xml:lang="en">Ashtma</rdfs:label>
+        <rdfs:label xml:lang="fr">Asthme</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Cancer"/>
+        <owl:disjointWith rdf:resource="#Cataract"/>
+        <owl:disjointWith rdf:resource="#Diabetes"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Auditory_deficiency -->
+
+    <owl:Class rdf:about="#Auditory_deficiency">
+        <rdfs:label xml:lang="en"
+            >Auditory deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Insuffisance auditive</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensorial_deficiency"/>
+        <owl:disjointWith rdf:resource="#Visual_deficiency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Benevole -->
+
+    <owl:Class rdf:about="#Benevole">
+        <rdfs:subClassOf rdf:resource="#Other"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Breast_cancer -->
+
+    <owl:Class rdf:about="#Breast_cancer">
+        <rdfs:subClassOf rdf:resource="#Cancer"/>
+        <owl:disjointWith rdf:resource="#Lung_cancer"/>
+        <owl:disjointWith rdf:resource="#Womb_cancer"/>
+        <rdfs:comment xml:lang="fr"
+            >Cancer de sein. Ce cancer est specifique aux femmes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Brother -->
+
+    <owl:Class rdf:about="#Brother">
+        <rdfs:subClassOf rdf:resource="#Sibling"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Male"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Cousin"/>
+        <owl:disjointWith rdf:resource="#Sister"/>
+        <rdfs:comment xml:lang="en"
+            >Is a male person (of sex), who has at least a common relative (father or mother) with the patient. It can have the same surname (surname) or not.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Est une personne de sexe masculin, qui a au moins un parent commun (p&#232;re ou m&#232;re) avec le patient. Il peut avoir le m&#234;me nom de famille (surname) ou non.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Cancer -->
+
+    <owl:Class rdf:about="#Cancer">
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Cataract"/>
+        <owl:disjointWith rdf:resource="#Diabetes"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe decrit le type de cancer dont peut etre atteint le patient. Cette information est tres importante dans lamesure ou il aurait untraiement specifique a suivre.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Cardiologist -->
+
+    <owl:Class rdf:about="#Cardiologist">
+        <rdfs:label xml:lang="en">Cardiologist</rdfs:label>
+        <rdfs:label xml:lang="fr">Cardiologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Dermatologist"/>
+        <owl:disjointWith rdf:resource="#Endocrinologist"/>
+        <owl:disjointWith rdf:resource="#Geriatrist"/>
+        <owl:disjointWith rdf:resource="#Gynaecologist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >This class includes all the doctors specialized in the study of the heart and its diseases.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe englobe tous les m&#233;decins sp&#233;cialis&#233;s dans l&#8217;&#233;tude du c&#339;ur et ses maladies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Cataract -->
+
+    <owl:Class rdf:about="#Cataract">
+        <rdfs:label xml:lang="en">Cataract</rdfs:label>
+        <rdfs:label xml:lang="fr">Cataracte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Diabetes"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Chronical_disease -->
+
+    <owl:Class rdf:about="#Chronical_disease">
+        <rdfs:label xml:lang="en"
+            >Chronical disease</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Maladie Chronique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Disease"/>
+        <owl:disjointWith rdf:resource="#Normal_disease"/>
+        <owl:disjointWith rdf:resource="#Physical_deficiency"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette clase concerne les differentes maladies chroniques dont peut souffrir le patient (comme le cancer ou des maladies psychiques entre autres)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Comm_System_manager -->
+
+    <owl:Class rdf:about="#Comm_System_manager">
+        <rdfs:label xml:lang="en"
+            >Communication System Manager</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Responsable des telecom</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Manager"/>
+        <owl:disjointWith rdf:resource="#Habitat_manager"/>
+        <rdfs:comment xml:lang="fr"
+            >C la personne qui sera en charge du systeme de communication (telecom)de l Habitat.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Compter_System_manager -->
+
+    <owl:Class rdf:about="#Compter_System_manager">
+        <rdfs:label xml:lang="en"
+            >Compter System Manager</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Responsable Informatique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Manager"/>
+        <rdfs:comment xml:lang="fr"
+            >C la personne qui sera en charge du systeme informatique de surveillance du patient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Cousin -->
+
+    <owl:Class rdf:about="#Cousin">
+        <rdfs:subClassOf rdf:resource="#Sibling"/>
+        <owl:disjointWith rdf:resource="#Sister"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Daughter -->
+
+    <owl:Class rdf:about="#Daughter">
+        <rdfs:label rdf:datatype="&xsd;string">Daughter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Descendant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Female"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Grand_Daughter"/>
+        <owl:disjointWith rdf:resource="#Grand_Son"/>
+        <owl:disjointWith rdf:resource="#Son"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Daughter_in_law -->
+
+    <owl:Class rdf:about="#Daughter_in_law">
+        <rdfs:subClassOf rdf:resource="#Other"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Female"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Deficiency -->
+
+    <owl:Class rdf:about="#Deficiency">
+        <rdfs:label xml:lang="en">Deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr">Deficience</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Medical_history"/>
+        <owl:disjointWith rdf:resource="#Disease"/>
+        <owl:disjointWith rdf:resource="#Prescripted_medication"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe devra decrire toutes les deficiences possibles (physiques et mentales) dont le patient peut etre atteint (en plus de la maladie d&#39;Alzheimer)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Dermatologist -->
+
+    <owl:Class rdf:about="#Dermatologist">
+        <rdfs:label xml:lang="en">Dermatologist</rdfs:label>
+        <rdfs:label xml:lang="fr">Dermatologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Endocrinologist"/>
+        <owl:disjointWith rdf:resource="#Geriatrist"/>
+        <owl:disjointWith rdf:resource="#Gynaecologist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Doctors specialized in the treatment of the skin diseases, mucous membranes as well as nails (superficial body growths).</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Docteurs sp&#233;cialis&#233;s dans le traitement des maladies de la peau, des muqueuses ainsi que des ongles (phan&#232;res).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Descendant -->
+
+    <owl:Class rdf:about="#Descendant">
+        <rdfs:label xml:lang="en">Descendant</rdfs:label>
+        <rdfs:label xml:lang="fr">Descendant</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Kin"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Daughter"/>
+                            <rdf:Description rdf:about="#Grand_Daughter"/>
+                            <rdf:Description rdf:about="#Grand_Son"/>
+                            <rdf:Description rdf:about="#Son"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Parent"/>
+        <owl:disjointWith rdf:resource="#Sibling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Diabetes -->
+
+    <owl:Class rdf:about="#Diabetes">
+        <rdfs:label xml:lang="en">Diabetes</rdfs:label>
+        <rdfs:label xml:lang="fr">Diab&#232;te</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Emphysema"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Disease -->
+
+    <owl:Class rdf:about="#Disease">
+        <rdfs:label xml:lang="en">Disease</rdfs:label>
+        <rdfs:label xml:lang="fr">Maladie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Medical_history"/>
+        <owl:disjointWith rdf:resource="#Intellectual_deficiency"/>
+        <owl:disjointWith rdf:resource="#Physical_deficiency"/>
+        <owl:disjointWith rdf:resource="#Prescripted_medication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Emphysema -->
+
+    <owl:Class rdf:about="#Emphysema">
+        <rdfs:label xml:lang="en">Emphysema</rdfs:label>
+        <rdfs:label xml:lang="fr">Emphyseme</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Glaucoma"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+        <rdfs:comment xml:lang="fr"
+            >Bronchite chronique</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Employee -->
+
+    <owl:Class rdf:about="#Employee">
+        <rdfs:label xml:lang="en">Employee</rdfs:label>
+        <rdfs:label xml:lang="fr">Employ&#233;</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Habitat_staff"/>
+        <owl:disjointWith rdf:resource="#Manager"/>
+        <owl:disjointWith rdf:resource="#Medical_staff"/>
+        <owl:disjointWith rdf:resource="#Volunteer"/>
+        <rdfs:comment xml:lang="en"
+            >The Employee class represents the office staff as well as the technicians other than the medical technicians.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La classe Employee repr&#233;sente le personnel de bureau ainsi que les techniciens autres que les techniciens m&#233;dicaux.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Endocrinologist -->
+
+    <owl:Class rdf:about="#Endocrinologist">
+        <rdfs:label xml:lang="en">Endocrinologist</rdfs:label>
+        <rdfs:label xml:lang="fr">Endocrinologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Geriatrist"/>
+        <owl:disjointWith rdf:resource="#Gynaecologist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >Doctor whose speciality is connected to the treatment of the diseases caused by a hormonal imbalance or a disorder of the metabolism and among which one can quote the diabetes, hyperlipidemy, thyroid disorders, hypoglycemia, osteoporosis, obesity, the hirsutism (excessive pilosity at the woman), certain forms of hypertension and anomalies of blood calcium.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >M&#233;decin dont la sp&#233;cialit&#233; est reli&#233;e au traitement des maladies provoqu&#233;es par un d&#233;s&#233;quilibre hormonal ou un trouble du m&#233;tabolisme et parmi lesquelles on peut citer le diab&#232;te, l&#39;hyperlipid&#233;mie, les troubles thyro&#239;diens, l&#39;hypoglyc&#233;mie, l&#39;ost&#233;oporose, l&#39;ob&#233;sit&#233;, l&#39;hirsutisme  (pilosit&#233; excessive chez la femme), certaines formes d&#39;hypertension et les anomalies du calcium sanguin.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="#Ref_Endocrinology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Father -->
+
+    <owl:Class rdf:about="#Father">
+        <rdfs:subClassOf rdf:resource="#Parent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Male"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Mother"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Friend -->
+
+    <owl:Class rdf:about="#Friend">
+        <rdfs:label xml:lang="en">Friend</rdfs:label>
+        <rdfs:label xml:lang="fr">Ami(e)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Other"/>
+        <owl:disjointWith rdf:resource="#Kin"/>
+        <rdfs:comment xml:lang="fr"
+            >Toute personne li&#233;e au patient par des liens d&#39;amiti&#233; g&#233;n&#233;ralement assez proche, pour s&#39;impliquer dans le processus sans attente de retour</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Gender -->
+
+    <owl:Class rdf:about="#Gender">
+        <rdfs:label xml:lang="en">Gender</rdfs:label>
+        <rdfs:label xml:lang="fr">Genre</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Female"/>
+                    <rdf:Description rdf:about="#Male"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Person"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe speciale permet de definir les deux sexes caracterisant une personne, feminin ou masculin.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#General_practitioner -->
+
+    <owl:Class rdf:about="#General_practitioner">
+        <rdfs:subClassOf rdf:resource="#Physician"/>
+        <owl:disjointWith rdf:resource="#Primary_care_physician"/>
+        <owl:disjointWith rdf:resource="#Specialist"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Geriatrist -->
+
+    <owl:Class rdf:about="#Geriatrist">
+        <rdfs:label xml:lang="en">Geriatrist</rdfs:label>
+        <rdfs:label xml:lang="fr">Geriatre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Gynaecologist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >Doctor specialist in charge of the prevention in all the problematic aspects concerning the old person (the patient) health. Its role is very essential in the maintenance of the functional autonomy of the patient. It must be the first contact in the event of major problem.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >M&#233;decin sp&#233;cialiste charg&#233; de la pr&#233;vention de tous les aspects probl&#233;matiques concernant la sant&#233; de la personne &#226;g&#233;e (le patient). Son r&#244;le est tr&#232;s essentiel dans le maintien de l&#8217;autonomie fonctionnelle du patient. Il doit &#234;tre le premier contact en cas de probl&#232;me majeur.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="#Ref_Geriatrics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Glaucoma -->
+
+    <owl:Class rdf:about="#Glaucoma">
+        <rdfs:label xml:lang="en">Glaucoma</rdfs:label>
+        <rdfs:label xml:lang="fr">Glaucome</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Paget"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Grand_Daughter -->
+
+    <owl:Class rdf:about="#Grand_Daughter">
+        <rdfs:subClassOf rdf:resource="#Descendant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Female"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Grand_Son"/>
+        <owl:disjointWith rdf:resource="#Son"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Grand_Son -->
+
+    <owl:Class rdf:about="#Grand_Son">
+        <rdfs:subClassOf rdf:resource="#Descendant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Male"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Son"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Gynaecologist -->
+
+    <owl:Class rdf:about="#Gynaecologist">
+        <rdfs:label xml:lang="en">Gynaecologist</rdfs:label>
+        <rdfs:label xml:lang="fr">Gyn&#233;cologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Haematologist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >This class describes the whole of individuals whose speciality is gynaecology, a medico-surgical practice, specific to the study of the female genital system.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe d&#233;crit l&#39;ensemble des individus dont la sp&#233;cialit&#233; est la gyn&#233;cologie,  une pratique m&#233;dico-chirurgicale, sp&#233;cifique &#224; l&#39;&#233;tude du syst&#232;me g&#233;nital f&#233;minin.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Habitat_manager -->
+
+    <owl:Class rdf:about="#Habitat_manager">
+        <rdfs:label xml:lang="en">Habitat Manager</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Gestionnaire de l&#39;Habitat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Manager"/>
+        <rdfs:comment xml:lang="fr"
+            >C la personne qui a la responsabilite de gestion de tous les aspects de l&#39;Habitat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Habitat_staff -->
+
+    <owl:Class rdf:about="#Habitat_staff">
+        <rdfs:label xml:lang="en">Habitat staff</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Personnel de l Habitat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <owl:disjointWith rdf:resource="#Social_staff"/>
+        <rdfs:comment xml:lang="fr"
+            >Represente toutes les personnes et les roles qui sont impliques directement dans la gestion du systeme d Habitat.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Haematologist -->
+
+    <owl:Class rdf:about="#Haematologist">
+        <rdfs:label rdf:datatype="&xsd;string">H&#233;matologiste</rdfs:label>
+        <rdfs:label xml:lang="en">Haematologist</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Neurologist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >Gather the specialists being interested in the field in the diseases of blood, also called &quot;H&#233;mopathies&quot;.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Regroupe les sp&#233;cialistes s&#39;int&#233;ressant au domaine des maladies du sang, appel&#233;es aussi H&#233;mopathies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Intellectual_deficiency -->
+
+    <owl:Class rdf:about="#Intellectual_deficiency">
+        <rdfs:label xml:lang="en"
+            >Intellectual Deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Deficience Intellectuelle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Deficiency"/>
+        <owl:disjointWith rdf:resource="#Physical_deficiency"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe decrit les deficiences intellectuelles dont possiblement le patient est atteint.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Kin -->
+
+    <owl:Class rdf:about="#Kin">
+        <rdfs:label xml:lang="en">Kin</rdfs:label>
+        <rdfs:label xml:lang="fr">Parent</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Volunteer"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Descendant"/>
+                            <rdf:Description rdf:about="#Parent"/>
+                            <rdf:Description rdf:about="#Sibling"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Other"/>
+        <rdfs:comment xml:lang="en"
+            >A close relation who can be Father, mother, brother, sister, son, girl, grandson, grand-daughter, cousin.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Un parent proche qui peut &#234;tre p&#232;re, m&#232;re, fr&#232;re, soeur, fils, fille, petit-fils, petite-fille, cousin et cousine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Lower_limb_impairment -->
+
+    <owl:Class rdf:about="#Lower_limb_impairment">
+        <rdfs:label xml:lang="en"
+            >Lower limb  impairment</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Handicap des membres inferieurs</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Motor_impairment"/>
+        <owl:disjointWith rdf:resource="#Upper_limb_impairment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Lung_cancer -->
+
+    <owl:Class rdf:about="#Lung_cancer">
+        <rdfs:subClassOf rdf:resource="#Cancer"/>
+        <owl:disjointWith rdf:resource="#Womb_cancer"/>
+        <rdfs:comment xml:lang="fr"
+            >Cancer de poumon peut atteindre aussi bien les femmes que les hommes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Manager -->
+
+    <owl:Class rdf:about="#Manager">
+        <rdfs:label xml:lang="en">Manager</rdfs:label>
+        <rdfs:label xml:lang="fr">Gestionnaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Habitat_staff"/>
+        <owl:disjointWith rdf:resource="#Medical_staff"/>
+        <owl:disjointWith rdf:resource="#Volunteer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Medical_history -->
+
+    <owl:Class rdf:about="#Medical_history">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Antecedents Medicaux</rdfs:label>
+        <rdfs:label xml:lang="fr">Medical History</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Person"/>
+        <owl:disjointWith rdf:resource="#Person"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe decrit les differents antecedents medicaux du patient. Ces antecedents sont divises en deux categories : les facteurs de risque de la maladie d&#39;Alzheimer et les autres deficiences.Cela permettra de mieux connaitre le patientet agir en consequence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Medical_staff -->
+
+    <owl:Class rdf:about="#Medical_staff">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <owl:disjointWith rdf:resource="#Social_staff"/>
+        <owl:disjointWith rdf:resource="#Volunteer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Medical_technician_staff -->
+
+    <owl:Class rdf:about="#Medical_technician_staff">
+        <rdfs:subClassOf rdf:resource="#Medical_staff"/>
+        <owl:disjointWith rdf:resource="#Nursing_staff"/>
+        <owl:disjointWith rdf:resource="#Physician"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Personnel m&#233;dical autre que les m&#233;decins ou le personnel infirmier</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Mother -->
+
+    <owl:Class rdf:about="#Mother">
+        <rdfs:subClassOf rdf:resource="#Parent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Female"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Motor_impairment -->
+
+    <owl:Class rdf:about="#Motor_impairment">
+        <rdfs:label xml:lang="en"
+            >Motor impairment</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Deficience Motrice</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Physical_deficiency"/>
+        <owl:disjointWith rdf:resource="#Sensorial_deficiency"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe definit les differents handicaps dont peut souffrir le patient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Neurologist -->
+
+    <owl:Class rdf:about="#Neurologist">
+        <rdfs:label xml:lang="en">Neurologist</rdfs:label>
+        <rdfs:label xml:lang="fr">Neurologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <owl:disjointWith rdf:resource="#Ophtalmologist"/>
+        <rdfs:comment xml:lang="en"
+            >The neurologist is the specialist who has the role of diagnosing and of treating all the diseases affecting the nervous system as a whole, of the patient. These diseases can be vascular, neoplasic, infectious or degenerative like Alzheimer. They can be also neuro-muscular pathologies.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le neurologue est le sp&#233;cialiste qui a pour mission de diagnostiquer et traiter toutes les maladies affectant le syst&#232;me nerveux dans sa globalit&#233;, du patient. Ces maladies peuvent &#234;tre vasculaires, n&#233;oplasiques, infectieuses ou d&#233;g&#233;n&#233;ratives comme l&#39;Alzheimer. Il peut s&#8217;agir aussi de pathologies neuro-musculaires.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="#Ref_Neurologist"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Normal_disease -->
+
+    <owl:Class rdf:about="#Normal_disease">
+        <rdfs:label xml:lang="en">Normal Disease</rdfs:label>
+        <rdfs:label xml:lang="fr">Maladie Normale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Nursing_staff -->
+
+    <owl:Class rdf:about="#Nursing_staff">
+        <rdfs:subClassOf rdf:resource="#Medical_staff"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Office_staff -->
+
+    <owl:Class rdf:about="#Office_staff">
+        <rdfs:label xml:lang="en">Office Staff</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Personnel de Bureau</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+        <owl:disjointWith rdf:resource="#Technician_staff"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Ophtalmologist -->
+
+    <owl:Class rdf:about="#Ophtalmologist">
+        <rdfs:label xml:lang="en">Ophtalmologist</rdfs:label>
+        <rdfs:label xml:lang="fr">Ophtalmologiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Specialist"/>
+        <rdfs:comment xml:lang="en"
+            >Doctor whose speciality allows him to diagnose and also treat any anomaly or disease in relation to the eyes of the patient. The treatment can go from a simple ordinance of a lotion aiming at the relief of an irritation, with a complex surgery. He&#39;ll have to cooperate occasionally with the neurologist (but often) and/or the endocrinologist (in the event of diabetes).</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >M&#233;decin apte en tant qu expert a diagnostiquer et aussi traiter toute anomalie ou maladie en relation avec les yeux du patient. Le traitement peut aller d&#8217;une simple ordonnance d&#8217;une lotion visant le soulagement d&#8217;une irritation, &#224; une chirurgie complexe. Il sera appel&#233; &#224; coop&#233;rer occasionnellement avec le neurologue (mais souvent) et/ou l&#39;endocrinologue (en cas de diab&#232;te).</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="#Ref_Ophtlmologist"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Other -->
+
+    <owl:Class rdf:about="#Other">
+        <rdfs:subClassOf rdf:resource="#Volunteer"/>
+        <rdfs:comment xml:lang="en"
+            >Any other voluntary not forming part of the family</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Toute autre b&#233;n&#233;vole ne faisant pas partie de la famille ni des amis</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Paget -->
+
+    <owl:Class rdf:about="#Paget">
+        <rdfs:label xml:lang="en">Paget Disease</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Maladie de Paget</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Psychic_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+        <rdfs:comment xml:lang="fr"
+            >Deformation de lamasse osseuse qui peut avoir des consequences orthopediques (risque de fracture), neurologiques (surdite ou cephalee), ou cardio-vasculaires (insuffisance cardiaque). Elle atteint les deux sexes mais plus frequemment les hommes a partir de 40 ans. Cette maladie, lorsque presente, peut etre liee aux facteurs de risques.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Parent -->
+
+    <owl:Class rdf:about="#Parent">
+        <rdfs:label xml:lang="en">Parents</rdfs:label>
+        <rdfs:label xml:lang="fr">Parents</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Kin"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Father"/>
+                            <rdf:Description rdf:about="#Mother"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Sibling"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Partial_visual_deficiency -->
+
+    <owl:Class rdf:about="#Partial_visual_deficiency">
+        <rdfs:label xml:lang="en"
+            >Partial_visual_deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Deficience visuelle partielle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Visual_deficiency"/>
+        <owl:disjointWith rdf:resource="#Total_visual_deficiency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Patient -->
+
+    <owl:Class rdf:about="#Patient">
+        <rdfs:subClassOf rdf:resource="#Person"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasChild"/>
+                        <owl:someValuesFrom rdf:resource="#Daughter"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasChild"/>
+                        <owl:someValuesFrom rdf:resource="#Son"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSister"/>
+                <owl:someValuesFrom rdf:resource="#Sister"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasBrother"/>
+                <owl:someValuesFrom rdf:resource="#Brother"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasDeficiency"/>
+                <owl:someValuesFrom rdf:resource="#Deficiency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Person -->
+
+    <owl:Class rdf:about="#Person">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >Person and Medical History</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Person et son passe medical</rdfs:label>
+        <rdfs:label xml:lang="fr">Personne</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasMiddleName"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasFirstName"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasBirthDay"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasLastName"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGender"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Female"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGender"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Male"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&Behaviour;Behaviour_Ontology"/>
+        <owl:disjointWith rdf:resource="&Person_HI_Ontology;Habitat"/>
+        <owl:disjointWith rdf:resource="&Task_Ontology;Task"/>
+        <rdfs:comment xml:lang="en"
+            >This class allows describing all the aspects of the person implied or being able to be implied in the management of the smart home system. A person in this context can be physical like the Patient, its caregivers, parents and friends. It can be also moral if it describes a function, a company or other.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe correspond a l&#39;ontologie de la personne et son passe medical, definie dans le cadre du systeme d &#39;habitat intelligent.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe permet de d&#233;crire tous les aspects de la personne impliqu&#233;e ou pouvant &#234;tre impliqu&#233;e dans la gestion du syst&#232;me d&#39;habitat intelligent. Une personne dans ce contexte peut &#234;tre physique comme le Patient, ses soignants ainsi que parents et amis. Elle peut &#234;tre aussi morale dans le cas o&#249; elle d&#233;crit une fonction, une compagnie ou autre.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Physical_deficiency -->
+
+    <owl:Class rdf:about="#Physical_deficiency">
+        <rdfs:label xml:lang="en"
+            >Physical Deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Deficience Physique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Deficiency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Physician -->
+
+    <owl:Class rdf:about="#Physician">
+        <rdfs:label xml:lang="en">Physician</rdfs:label>
+        <rdfs:label xml:lang="fr">M&#233;decin</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Medical_staff"/>
+        <rdfs:comment xml:lang="en"
+            >The physician is a person who holds a doctorate in medicine and whose health constitutes the field of its profession. It can be a general practitioner or specialist. The doctor implied in HIT system, should have like principal customers the same category as the people taken of load in this same system.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Le m&#233;decin est une personne qui d&#233;tient un doctorat en m&#233;decine et dont la sant&#233; constitue le domaine de sa profession. Il peut &#234;tre g&#233;n&#233;raliste ou sp&#233;cialiste. Le m&#233;decin impliqu&#233; dans le syst&#232;me HIT devrait avoir comme principale client&#232;le la m&#234;me cat&#233;gorie que les personnes prises en charge dans ce m&#234;me syst&#232;me.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Prescripted_medication -->
+
+    <owl:Class rdf:about="#Prescripted_medication">
+        <rdfs:label xml:lang="en"
+            >Prescripted medication</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Prescription medicale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Medical_history"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe decrit les differents medicaments que le patient est entrain de prendre pour soulager une ou plusieurs maladies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Primary_care_physician -->
+
+    <owl:Class rdf:about="#Primary_care_physician">
+        <rdfs:subClassOf rdf:resource="#Physician"/>
+        <owl:disjointWith rdf:resource="#Specialist"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Psychic_disease -->
+
+    <owl:Class rdf:about="#Psychic_disease">
+        <rdfs:label xml:lang="en">Psychic Disease</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Maladie Psychique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Rheumatism"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe represente le passe (et aussi une partie du present) psychique du patient.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Renal_disease -->
+
+    <owl:Class rdf:about="#Renal_disease">
+        <rdfs:label xml:lang="en">Renal disease</rdfs:label>
+        <rdfs:label xml:lang="fr">Maladie renale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Normal_disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Rheumatism -->
+
+    <owl:Class rdf:about="#Rheumatism">
+        <rdfs:label xml:lang="en">Rheumatism</rdfs:label>
+        <rdfs:label xml:lang="fr">Rhumatisme</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Ulcer"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Sensorial_deficiency -->
+
+    <owl:Class rdf:about="#Sensorial_deficiency">
+        <rdfs:label xml:lang="en"
+            >Sensorial Deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Deficience Sensorielle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Physical_deficiency"/>
+        <rdfs:comment xml:lang="fr"
+            >Cette classe decrit toutes les deficiences sensorielles que peut avoir une personne agee a partir de 65 ans</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Sibling -->
+
+    <owl:Class rdf:about="#Sibling">
+        <rdfs:label rdf:datatype="&xsd;string"></rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Kin"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Brother"/>
+                            <rdf:Description rdf:about="#Cousin"/>
+                            <rdf:Description rdf:about="#Sister"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Sister -->
+
+    <owl:Class rdf:about="#Sister">
+        <rdfs:label xml:lang="en">Sister</rdfs:label>
+        <rdfs:label xml:lang="fr">S&#339;ur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sibling"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Female"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Is a female person (of sex), who has at least a common relative (father or mother) with the patient. It can have the same surname (surname) or not.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Est une personne de sexe f&#233;minin, qui a au moins un parent commun (p&#232;re ou m&#232;re) avec le patient. Il peut avoir le m&#234;me nom de famille (surname) ou non.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Social_staff -->
+
+    <owl:Class rdf:about="#Social_staff">
+        <rdfs:label xml:lang="en">Social Worker</rdfs:label>
+        <rdfs:label xml:lang="fr">Intervenant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <owl:disjointWith rdf:resource="#Volunteer"/>
+        <rdfs:comment xml:lang="en"
+            >This class is made up people having a training in social work and (preferably) specialized in gerontology. They have as a role to deal with the patients who are presenting psychosocial difficulties, to protect them and make recognize their rights. They must communicate with the families or the specialists where necessary.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Compose de personnes ayant une formation en travail social et (de preference) specialisees en gerontologie. elles ont pour role de prendre en charge les patients presentant des difficultes psychosociales, de le proteger et faire reconnaitre ses droits. elles doivent communiquer avec les familles ou les specialistes en cas de besoin.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Son -->
+
+    <owl:Class rdf:about="#Son">
+        <rdfs:label xml:lang="en">Son</rdfs:label>
+        <rdfs:label xml:lang="fr">Fils</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Descendant"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Male"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Is a male person (of sex), who has like father or mother the patient. He can have the same surname (surname) or not.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >Est une personne de sexe masculin, qui a comme p&#232;re ou m&#232;re le patient. Il peut avoir le m&#234;me nom de famille (surname) ou non.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Son_in_law -->
+
+    <owl:Class rdf:about="#Son_in_law">
+        <rdfs:subClassOf rdf:resource="#Other"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasGender"/>
+                <owl:hasValue rdf:resource="#Male"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Specialist -->
+
+    <owl:Class rdf:about="#Specialist">
+        <rdfs:label xml:lang="en">Specialist</rdfs:label>
+        <rdfs:label xml:lang="fr">Sp&#233;cialiste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Physician"/>
+        <rdfs:comment xml:lang="en"
+            >The class Specialist is an example of the legal entity insofar as it describes the functions of the specialized doctors implied directly or indirectly in the smart home project, even if its individuals are physical people.</rdfs:comment>
+        <rdfs:comment xml:lang="fr"
+            >La classe Sp&#233;cialiste (Specialist) est un exemple de la personne morale dans la mesure o&#249; elle d&#233;crit les fonctions des m&#233;decins sp&#233;cialis&#233;s impliqu&#233;s directement ou indirectement dans le projet du HIT, m&#234;me si ses instances sont des personnes physiques.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Technical_manager -->
+
+    <owl:Class rdf:about="#Technical_manager">
+        <rdfs:label xml:lang="en"
+            >Technical Manager</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Responsable Technique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Manager"/>
+        <rdfs:comment xml:lang="fr"
+            >C la personne qui est en charge de tout ce qui est technique au niveau de l Habitat,sauf le systeme informatique et telecom.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Technician_staff -->
+
+    <owl:Class rdf:about="#Technician_staff">
+        <rdfs:label xml:lang="en"
+            >Technician Staff</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Personnel Technicien</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Employee"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Total_visual_deficiency -->
+
+    <owl:Class rdf:about="#Total_visual_deficiency">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Deficience visuelle totale</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Total visual deficiency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Visual_deficiency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Ulcer -->
+
+    <owl:Class rdf:about="#Ulcer">
+        <rdfs:label xml:lang="en">Ulcer</rdfs:label>
+        <rdfs:label xml:lang="fr">Ulcere</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+        <owl:disjointWith rdf:resource="#Urinary_incontinence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Upper_limb_impairment -->
+
+    <owl:Class rdf:about="#Upper_limb_impairment">
+        <rdfs:label xml:lang="en"
+            >Upper limb impairment</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Handicap des membres superieurs</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Motor_impairment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Urinary_incontinence -->
+
+    <owl:Class rdf:about="#Urinary_incontinence">
+        <rdfs:label xml:lang="en"
+            >Urinary Incontinence</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Incontinence Urinaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Chronical_disease"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Visual_deficiency -->
+
+    <owl:Class rdf:about="#Visual_deficiency">
+        <rdfs:label xml:lang="en"
+            >Visual Deficiency</rdfs:label>
+        <rdfs:label xml:lang="fr"
+            >Deficience visuelle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Sensorial_deficiency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Volunteer -->
+
+    <owl:Class rdf:about="#Volunteer">
+        <rdfs:subClassOf rdf:resource="#Actor"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Toute personne d&#233;sirant s&#39;impliquer dans le processus sans contrepartie, qu&#39;elle soit financi&#232;re ou autre</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Womb_cancer -->
+
+    <owl:Class rdf:about="#Womb_cancer">
+        <rdfs:subClassOf rdf:resource="#Cancer"/>
+        <rdfs:comment xml:lang="fr"
+            >Ce type de cancer est specifique aux femmes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Behaviour.owl#Behaviour_Ontology -->
+
+    <owl:Class rdf:about="&Behaviour;Behaviour_Ontology"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Person_HI_Ontology.owl#Habitat -->
+
+    <owl:Class rdf:about="&Person_HI_Ontology;Habitat"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Task_Ontology.owl#Task -->
+
+    <owl:Class rdf:about="&Task_Ontology;Task"/>
+    
+
+
+    <!-- http://www.Smart-Homes-owl-ontologies.com/Person_SH_Ontology.owl#Diabetes -->
+
+    <owl:Class rdf:about="&Person_SH_Ontology2;Diabetes"/>
+    
+
+
+    <!-- http://www.Smart-Homes-owl-ontologies.com/Person_SH_Ontology.owl#Gender -->
+
+    <owl:Class rdf:about="&Person_SH_Ontology2;Gender"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Diabetes_9 -->
+
+    <Diabetes rdf:about="#Diabetes_9"/>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Female -->
+
+    <Gender rdf:about="#Female">
+        <rdfs:label xml:lang="en">Female</rdfs:label>
+        <rdfs:label xml:lang="fr">Male</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Correspond a l&#39;instance feminin de la personne.</rdfs:comment>
+    </Gender>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Male -->
+
+    <Gender rdf:about="#Male">
+        <rdfs:label xml:lang="en">Male</rdfs:label>
+        <rdfs:label xml:lang="fr">Masculin</rdfs:label>
+        <rdfs:comment xml:lang="fr"
+            >Correspond a l&#39;instance masculin de la personne.</rdfs:comment>
+    </Gender>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Ref_Endocrinology -->
+
+    <owl:Thing rdf:about="#Ref_Endocrinology">
+        <rdfs:comment xml:lang="fr"
+            >http://www.ameq.qc.ca/mal.htm</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Ref_Geriatrics -->
+
+    <owl:Thing rdf:about="#Ref_Geriatrics">
+        <rdfs:comment xml:lang="fr"
+            >http://www.fmsq.org/amgq/associations/45.html</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Ref_Neurologist -->
+
+    <owl:Thing rdf:about="#Ref_Neurologist">
+        <rdfs:comment xml:lang="fr"
+            >http://www.anq.qc.ca</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#Ref_Ophtlmologist -->
+
+    <owl:Thing rdf:about="#Ref_Ophtlmologist">
+        <rdfs:comment xml:lang="fr"
+            >http://www.amoq.org/GrandPublic/GrandPublic-1.htm</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#true -->
+
+    <owl:Thing rdf:about="#true"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#Female"/>
+            <rdf:Description rdf:about="#Male"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.941) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY weather "http://sensormeasurement.appspot.com/ont/m3/weather#"> 
+         <!ENTITY weather-dataset "http://sensormeasurement.appspot.com/dataset/weather-dataset/"> 
+         <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+         <!ENTITY vac "http://sensormeasurement.appspot.com/dataset/tourism-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&weather-dataset;"
+        xml:base="&weather-dataset;"
+        xmlns:weather-dataset="&weather-dataset;"
+        xmlns:weather="&weather;"
+        xmlns:foaf="&foaf;"
+        xmlns:shw="&shw;"
+        xmlns:acco="&acco;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:m3="&m3;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+	
+	       <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+	
+		<!-- ################################################ SOLAR RADIATION ############################################################################ -->
+	
+	<weather:Weather rdf:about="LowRadiation">		
+		<rdfs:label xml:lang="en">LowRadiation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SolarRadiation greaterThan 0 and lessThan 250 m3:WattPerMeterSquare THEN LowRadiation [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="VeryHighRadiation">		
+		<rdfs:label xml:lang="en">VeryHighRadiation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SolarRadiation greaterThan 750 m3:WattPerMeterSquare THEN VeryHighRadiation [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="HighRadiation">		
+		<rdfs:label xml:lang="en">HighRadiation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SolarRadiation greaterThan 500 and lessThan 750 m3:WattPerMeterSquare THEN HighRadiation [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="MediumRadiation">		
+		<rdfs:label xml:lang="en">MediumRadiation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SolarRadiation greaterThan 250 and lessThan 500 m3:WattPerMeterSquare THEN MediumRadiation [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="NoRadiation">		
+		<rdfs:label xml:lang="en">NoRadiation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: NoRadiation, IF m3:SolarRadiation = 0 m3:WattPerMeterSquare THEN NoRadiation [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<!-- ################################################ ATMOSPHERIC PRESSURE ############################################################################ -->
+	
+	<weather:Weather rdf:about="VeryLowPressure">		
+		<rdfs:label xml:lang="en">VeryLowPressure</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:AtmosphericPressure lessThan 998 hPa THEN VeryLowPressure [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="HighPressure">		
+		<rdfs:label xml:lang="en">HighPressure</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:AtmosphericPressure greaterThan 1018 AND lessThan 1028 hPa THEN HighPressure [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="VeryHighPressure">		
+		<rdfs:label xml:lang="en">VeryHighPressure</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:AtmosphericPressure greaterThan 1028 hPa THEN VeryHighPressure [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="AveragePressure">		
+		<rdfs:label xml:lang="en">AveragePressure</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:AtmosphericPressure greaterThan 1008 AND lessThan 1018 hPa THEN AveragePressure [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="LowPressure">		
+		<rdfs:label xml:lang="en">LowPressure</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:AtmosphericPressure greaterThan 998 AND lessThan 1008 hPa THEN LowPressure [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<!-- ################################################ SUN POSITION ELEVATION ############################################################################ -->
+	
+	<weather:Weather rdf:about="SunNight">		
+		<rdfs:label xml:lang="en">SunNight</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan -90 and lessThan -18 degree THEN SunNight [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunBelowHorizon">		
+		<rdfs:label xml:lang="en">SunBelowHorizon</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan -90 and lessThan 0 m3:DegreeAngle THEN SunBelowHorizon [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunTwilight">		
+		<rdfs:label xml:lang="en">SunTwilight</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan -18 and lessThan 0 m3:DegreeAngle THEN SunTwilight [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunNauticalTwilight">		
+		<rdfs:label xml:lang="en">SunNauticalTwilight</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan -12 and lessThan -6 m3:DegreeAngle THEN SunNauticalTwilight [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SolarTwilight">		
+		<rdfs:label xml:lang="en">SolarTwilight</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan 0 and lessThan 6 m3:DegreeAngle THEN SolarTwilight [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunCivilTwilight">		
+		<rdfs:label xml:lang="en">SunCivilTwilight</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan -6 and lessThan 0 m3:DegreeAngle THEN SunCivilTwilight [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunAstronomicalTwilight">		
+		<rdfs:label xml:lang="en">SunAstronomicalTwilight</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan -18 and lessThan -12 m3:DegreeAngle THEN SunAstronomicalTwilight [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunDay">		
+		<rdfs:label xml:lang="en">SunDay</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:SunPositionElevation greaterThan 0 and lessThan 90 m3:DegreeAngle THEN SunDay [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<!-- ################################################ WEATHER ############################################################################ -->
+
+	<weather:Weather rdf:about="Sunny">		
+		<rdfs:label xml:lang="en">Sunny</rdfs:label>
+		<rdfs:label xml:lang="fr">Ensoleille</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Dark">		
+		<rdfs:label xml:lang="en">Dark</rdfs:label>
+		<rdfs:label xml:lang="fr">Pas de soleil, sombre</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Windy">		
+		<rdfs:label xml:lang="en">Windy</rdfs:label>
+		<rdfs:label xml:lang="fr">Venteux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;WindyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Rainy">		
+		<rdfs:label xml:lang="en">Rainy</rdfs:label>
+		<rdfs:label xml:lang="fr">Pluvieux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;RainyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="ExtremelyHeavyRain">		
+		<rdfs:label xml:lang="en">ExtremelyHeavyRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="HeavyRain">		
+		<rdfs:label xml:lang="en">HeavyRain</rdfs:label>
+		<rdfs:label xml:lang="fr">Fortement Pluvieux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="MediumRain">		
+		<rdfs:label xml:lang="en">MediumRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="LightRain">		
+		<rdfs:label xml:lang="en">LightRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Snowy">		
+		<rdfs:label xml:lang="en">Snowy</rdfs:label>
+		<rdfs:label xml:lang="fr">Neigeux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Cloudy">		
+		<rdfs:label xml:lang="en">Cloudy</rdfs:label>
+		<rdfs:label xml:lang="fr">Nuageux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;CloudyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Foggy">		
+		<rdfs:label xml:lang="en">Foggy</rdfs:label>
+		<rdfs:label xml:lang="fr">Brumeux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Stormy">		
+		<rdfs:label xml:lang="en">Stormy, Thunder</rdfs:label>
+		<rdfs:label xml:lang="fr">Orageux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;StormyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Sleety">		
+		<rdfs:label xml:lang="en">Sleety</rdfs:label>
+		<rdfs:label xml:lang="fr">Neige fondue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Frosty">		
+		<rdfs:label xml:lang="en">Frosty</rdfs:label>
+		<rdfs:label xml:lang="fr">Glacial, Gel, Givre</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Cold">		
+		<rdfs:label xml:lang="en">Cold</rdfs:label>
+		<rdfs:label xml:lang="fr">Froid</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;ColdWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Hot">		
+		<rdfs:label xml:lang="en">Hot</rdfs:label>
+		<rdfs:label xml:lang="fr">Chaud</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;HotWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="TropicalStormRain">		
+		<rdfs:label xml:lang="en">TropicalStormRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="NoPrecipitation">		
+		<rdfs:label xml:lang="en">NoPrecipitation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<!-- ################################################ CLOUD COVER ############################################################################ -->
+	
+	<weather:Weather rdf:about="UnknownCloudCover">		
+		<rdfs:label xml:lang="en">UnknownCloudCover</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:CloudCover = 9 m3:Okta THEN UnknownCloudCover [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Overcast">		
+		<rdfs:label xml:lang="en">Overcast</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:CloudCover = 8 m3:Okta THEN Overcast [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="NoCloudCover">		
+		<rdfs:label xml:lang="en">NoCloudCover</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:CloudCover = 0 m3:Okta THEN NoCloudCover [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="PartlyCloudy">		
+		<rdfs:label xml:lang="en">PartlyCloudy</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:CloudCover greaterThan 0 AND lessThan 5 m3:Okta THEN PartlyCloudy [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="MostlyCloudy">		
+		<rdfs:label xml:lang="en">MostlyCloudy</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:CloudCover greaterThan 5 AND lessThan 8 m3:Okta THEN MostlyCloudy [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<!-- ################################################ HUMIDITY ############################################################################ -->
+	
+	<weather:Weather rdf:about="DryHumidity">		
+		<rdfs:label xml:lang="en">DryHumidity</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF Humidity greaterThan 30 m3:Percent AND lessThan 40 m3:Percent THEN DryHumidity [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="AverageHumidity">		
+		<rdfs:label xml:lang="en">AverageHumidity</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF Humidity greaterThan 40 m3:Percent AND lessThan 70 m3:Percent THEN AverageHumidity [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="VeryMoistHumidity">		
+		<rdfs:label xml:lang="en">VeryMoistHumidity</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF Humidity greaterThan 80 m3:Percent THEN VeryMoistHumidity [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="VeryDryHumidity">		
+		<rdfs:label xml:lang="en">VeryDryHumidity</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF Humidity lessThan 30 m3:Percent THEN VeryDryHumidity [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="MoistHumidity">		
+		<rdfs:label xml:lang="en">MoistHumidity</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF Humidity greaterThan 70 m3:Percent AND lessThan 80 m3:Percent THEN MoistHumidity [Kofler 2011] [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>	
+	
+	<!-- ################################################ WIND DIRECTION ############################################################################ -->
+	
+	<weather:Weather rdf:about="WestWind">		
+		<rdfs:label xml:lang="en">WestWind</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:WindDirection greaterThan 225 m3:DegreeAngle AND lessThan 315 m3:DegreeAngle THEN WestWind [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SouthWind">		
+		<rdfs:label xml:lang="en">SouthWind</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:WindDirection greaterThan 135 m3:DegreeAngle AND lessThan 225 m3:DegreeAngle THEN SouthWind [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="EastWind">		
+		<rdfs:label xml:lang="en">EastWind</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:WindDirection greaterThan 45 m3:DegreeAngle AND lessThan 135 m3:DegreeAngle THEN EastWind [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="NorthWind">		
+		<rdfs:label xml:lang="en">NorthWind</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF m3:WindDirection (greaterThan 0 m3:DegreeAngle AND lessThan 45 m3:DegreeAngle) OR (greaterThan 315 m3:DegreeAngle AND lessThan 360 m3:DegreeAngle) THEN NorthWind [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<!-- ################################################ SUN POSITION DIRECTION ############################################################################ -->
+	
+	<weather:Weather rdf:about="SunFromWest">		
+		<rdfs:label xml:lang="en">SunFromWest</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF sun direction greaterThan 225 and lessThan 315 degree THEN SunFromWest [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunFromSouth">		
+		<rdfs:label xml:lang="en">SunFromSouth</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF sun direction greaterThan 135 and lessThan 225 degree THEN SunFromSouth [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunFromEast">		
+		<rdfs:label xml:lang="en">SunFromEast</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF sun direction greaterThan 45 and lessThan 135 degree THEN SunFromEast [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="SunFromNorth">		
+		<rdfs:label xml:lang="en">SunFromNorth</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Rule: IF sun direction (greaterThan 0 and lessThan 45) or (greaterThan 315 and lessThan 360) degree THEN SunFromNorth [Paul Staroch 2013]</dc:description>				
+	</weather:Weather>
+
+</rdf:RDF>

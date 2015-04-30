@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY dul "http://www.loa-cnr.it/ontologies/DUL.owl#">
+		 <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">          
+         <!ENTITY m3	"http://sensormeasurement.appspot.com/m3#"> 
+         <!ENTITY lov4iot "http://sensormeasurement.appspot.com/ont/m3/lov4iot#"> 
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#">  
+         <!ENTITY home "http://sensormeasurement.appspot.com/home#"> 
+         <!ENTITY cose "http://casas.wsu.edu/owl/cose.owl#">   
+         <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#">
+         <!ENTITY qudt "http://qudt.org/schema/qudt#">
+         <!ENTITY ucum "http://idi.fundacionctic.org/muo/ucum-instances.owl">
+  		 <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#">
+         <!ENTITY sweet_unit "http://sweet.jpl.nasa.gov/ontology/units.owl#">
+         <!ENTITY weather "http://archive.knoesis.org/research/semsci/application_domain/sem_sensor/ont/weather.owl">
+         <!ENTITY semsor_weather "http://archive.knoesis.org/research/semsci/application_domain/sem_sensor/ont/sensor-observation.owl">
+         <!ENTITY emotion "http://rhizomik.net/ontologies/2008/05/emotionsonto.owl#">         
+         <!ENTITY dbpedia "http://dbpedia.org/ontology/">
+         <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+         <!ENTITY txn	"http://lod.taxonconcept.org/ontology/txn.owl#"> 
+         <!ENTITY voaf	"http://purl.org/vocommons/voaf#"> 
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns:voaf="&voaf;"
+        xmlns="&m3;"
+        xml:base="&m3;"
+        xmlns:m3="&m3;"
+        xmlns:cose="&cose;"
+        xmlns:dul="&dul;"
+        xmlns:txn="&txn;"
+        xmlns:lov4iot="&lov4iot;"
+        xmlns:stac="&stac;"
+        xmlns:home="&home;"
+        xmlns:foaf="&foaf;"
+        xmlns:dcterms="&dcterms;"
+        xmlns:dbpedia="&dbpedia;"    
+       	xmlns:muo="&muo;"
+        xmlns:qudt="&qudt;"
+        xmlns:ucum="&ucum;"
+        xmlns:sweet_unit="&sweet_unit;"
+        xmlns:weather="&weather;"
+        xmlns:wgs84_pos="&wgs84_pos;"
+        xmlns:owl="&owl;"
+		xmlns:dc="&dc;"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+<!-- Inspired by the LOV catalogue -->
+
+	<owl:Ontology rdf:about="&lov4iot;">
+		<rdf:type rdf:resource="&voaf;Vocabulary"/>
+		<dc:title xml:lang="en">The Linked Open Vocabularies for Internet of Things Ontology (LOV4IoT)</dc:title>
+		<dc:description xml:lang="en">LOV4IoT to make statistics on the LOV4IoT dataset</dc:description>
+		<dc:creator>
+  			<foaf:Person rdf:about="mailto:gyrard@eurecom.fr">
+   			<foaf:name>Amelie Gyrard</foaf:name>
+  			</foaf:Person>
+		</dc:creator>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-02-21</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-04-07</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+		<vann:preferredNamespacePrefix>m3</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/m3#</vann:preferredNamespaceUri>
+	</owl:Ontology>
+	
+	<!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+
+	<!-- ###################################################################################################################################################### -->
+	<!-- ################################################  ############################################################################ -->
+	<!-- ###################################################################################################################################################### -->	
+		
+	<owl:ObjectProperty rdf:ID="hasOntologyStatus">
+		<rdfs:label xml:lang="en">hasOntologyStatus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:Class rdf:ID="OntologyStatus">		
+		<rdfs:label xml:lang="en">OntologyStatus</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:Class>
+
+	<owl:Class rdf:ID="Confidential">		
+		<rdfs:label xml:lang="en">Confidential or lost</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#OntologyStatus"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="OngoingProcessOnline">		
+		<rdfs:label xml:lang="en">OngoingProcessOnline</rdfs:label>
+		<rdfs:comment xml:lang="en">Trying to get the ontologies, datasets, or rules. The auhtors told use they will share them soon.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#OntologyStatus"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WaitForAnswer">		
+		<rdfs:label xml:lang="en">WaitForAnswer</rdfs:label>
+		<rdfs:comment xml:lang="en">Trying to get an answer from experts get the ontologies, datasets, or rules</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#OntologyStatus"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="Online">		
+		<rdfs:label xml:lang="en">Online but not followed LOV best practices</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#OntologyStatus"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="OnlineLOV">		
+		<rdfs:label xml:lang="en">Online and referenced by LOV</rdfs:label>
+		<rdfs:comment xml:lang="en">Online and referenced by LOV</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#OntologyStatus"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="AlreadyLOV">		
+		<rdfs:label xml:lang="en">Already online and referenced by LOV</rdfs:label>
+		<rdfs:comment xml:lang="en">Already online and referenced by LOV (without our help)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#OntologyStatus"/>
+	</owl:Class>
+
+	
+</rdf:RDF>

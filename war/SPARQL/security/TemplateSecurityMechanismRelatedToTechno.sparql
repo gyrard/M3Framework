@@ -1,0 +1,30 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX stac: <http://securitytoolbox.appspot.com/stac#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+select distinct  ?label ?comment ?uri ?paper where{
+{
+	?uri rdf:type ?securityMechanismChild.
+	?securityMechanismChild rdfs:subClassOf ?securityMechanismParent .
+ 	?securityMechanismParent rdfs:subClassOf ?restriction .
+	?restriction owl:onProperty stac:protects .
+	?restriction owl:someValuesFrom ?replace .
+ }
+ UNION{
+ 	?uri rdf:type ?securityMechanismParent.
+ 	?securityMechanismParent rdfs:subClassOf ?restriction .
+	?restriction owl:onProperty stac:protects .
+	?restriction owl:someValuesFrom ?replace .
+}
+ 	
+	?uri rdfs:label ?label .
+ 	?uri rdfs:comment ?comment.
+ 	
+ 	FILTER(LANGMATCHES(LANG(?label), "en")).
+ 	FILTER(LANGMATCHES(LANG(?comment), "en")).
+	OPTIONAL{ ?uri dc:description ?paper.}
+ 	  	 
+ }
+ 

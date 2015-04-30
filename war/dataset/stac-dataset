@@ -1,0 +1,3324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY stac	"http://securitytoolbox.appspot.com/stac#">  
+         <!ENTITY stac_data	"http://securitytoolbox.appspot.com/stac-dataset/">        
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY foaf	"http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY owl "http://www.w3.org/2002/07/owl#">             
+         <!ENTITY denker "http://www.daml.org/services/owl-s/security/security.owl#"> 
+         <!ENTITY serviceContext "http://ontology.ist-spice.org/mobile-ontology/1/0/service_context/0/service_context.owl#">  
+         <!ENTITY ct "http://www.tele.pw.edu.pl/~sims-onto/ConnectivityType.owl#" >           
+         <!ENTITY secberlin "http://preciosa.informatik.hu-berlin.de/ontology/security.owl" >    
+         <!ENTITY herzog "http://www.ida.liu.se/~iislab/projects/secont/Security.owl"> 
+         <!ENTITY securitysw "http://semanticweb.org/images/5/53/OntologySecurity.owl">                  
+         <!ENTITY kim "http://securitytoolbox.appspot.com/securityMain#">
+         <!ENTITY kimalgorithms "http://securitytoolbox.appspot.com/securityAlgorithms#">
+         <!ENTITY maso "http://securitytoolbox.appspot.com/MASO#">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+         
+     
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&stac_data;"
+        xml:base="&stac_data;"
+        xmlns:stac="&stac;"
+        xmlns:stac_data="&stac_data;"
+        xmlns:herzog="&herzog;"
+        xmlns:denker="&denker;"
+        xmlns:kim="&kim;"
+        xmlns:kimalgorithms="&kimalgorithms;"
+        xmlns:maso="&maso;"
+		xmlns:secberlin="&secberlin;"
+        xmlns:securitysw="&securitysw;"
+        xmlns:owl="&owl;"
+        xmlns:ct="&ct;"
+        xmlns:serviceContext="&serviceContext;"
+		xmlns:dc="&dc;"
+		xmlns:dcterms="&dcterms;"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:foaf="&foaf;"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	    
+       <!-- Created by Amelie Gyrard
+       See also our STAC ontology
+       Last updated: January 9th 2015 
+       Added dc:description to reference reseach articles as much as possible.
+       Mainly security for sensor networks and cellular networks.
+       -->	   
+       
+              <!--     Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+   included in this distribution in the file called "COPYING". If not, 
+   see <http://www.gnu.org/licenses/>.
+
+  Contact Information
+  M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  --> 
+       	     		
+	   <!-- ################################################ Security property  ############################################## -->
+		
+	<stac:SecurityProperty rdf:about="Confidentiality">	
+		<rdfs:label xml:lang="en">Confidentiality/Privacy </rdfs:label>
+		<rdfs:comment xml:lang="en">Confidentiality means that only destined user must be able to read data. </rdfs:comment>
+		<owl:sameAs rdf:resource="&herzog;Confidentiality"/>
+		<owl:sameAs rdf:resource="&denker;Confidentiality"/>
+		<owl:sameAs rdf:resource="&kim;Confidentiality"/>
+		<owl:sameAs rdf:resource="&maso;Confidentialite"/>
+		<owl:sameAs rdf:resource="&securitysw;Confidentiality"/>
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="Integrity">	
+		<rdfs:label xml:lang="en">Integrity</rdfs:label>
+		<rdfs:comment xml:lang="en">Data integrity guarantees that the transmitted messages are not modified by attackers, either due to malicious intent or by accident.</rdfs:comment>
+		<dc:description xml:lang="en">Integrity means that no data is altered during the communication.</dc:description>
+		<owl:sameAs rdf:resource="&herzog;Integrity"/>
+		<owl:sameAs rdf:resource="&denker;DataIntegrity"/>
+		<owl:sameAs rdf:resource="&kim;MessageIntegrity"/>
+		<owl:sameAs rdf:resource="&maso;Integrite"/>
+		<owl:sameAs rdf:resource="&securitysw;Integrity"/>
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="Authentication">	
+		<rdfs:label xml:lang="en">Authentication</rdfs:label>
+		<rdfs:comment xml:lang="en">Authentication prevents unauthorized access to the network.</rdfs:comment>
+		<owl:sameAs rdf:resource="&herzog;Authentication"/>
+		<owl:sameAs rdf:resource="&denker;Authentication"/> 
+		<!-- <owl:sameAs rdf:resource="&kim;MessageIntegrity"/> UserAuthentication MessageAuthentication -->
+		<owl:sameAs rdf:resource="&securitysw;Authentication"/>
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="NonRepudiation">	
+		<rdfs:label xml:lang="en">Non Repudiation</rdfs:label>
+		<rdfs:comment xml:lang="en">Non repudiation means that a sender is unable to deny having sent a message or infoomation.</rdfs:comment>
+		<owl:sameAs rdf:resource="&herzog;Non-Repudiation"/>
+		<owl:sameAs rdf:resource="&maso;Non-repudiation"/>
+		<owl:sameAs rdf:resource="&securitysw;NonRepudiation"/>
+	</stac:SecurityProperty>
+		
+	<stac:SecurityProperty rdf:about="Trust">	
+		<rdfs:label xml:lang="en">Trust</rdfs:label>
+		<rdfs:comment xml:lang="en">Data is reliable?</rdfs:comment>
+		<dc:description xml:lang="en">Trust is defined as the degree to which a node should be trustworthy, secure, or reliable during any interaction with the node.</dc:description>       
+		<owl:sameAs rdf:resource="&kim;Trust"/>
+		<owl:sameAs rdf:resource="&maso;Confiance"/>
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="AccessControl">		
+		<rdfs:label xml:lang="en">Access Control</rdfs:label>
+		<rdfs:comment xml:lang="en">Access Control is the mechanism that allows owners of resources to define, manage and enforce access conditions applicable to each resource.</rdfs:comment>
+		<owl:sameAs rdf:resource="&denker;AccessControl"/>
+		<owl:sameAs rdf:resource="&securitysw;AccessControl"/>
+		<owl:sameAs rdf:resource="&secberlin;AccessControl"/>	
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="Anonymity">	
+		<rdfs:label xml:lang="en">Anonymity</rdfs:label>
+		<rdfs:comment xml:lang="en">Anonymity protects user identity, making it hard to track the whereabouts of a certain user.</rdfs:comment>
+		<dc:description xml:lang="en">Anonimity hides the source of a packet during communication.</dc:description>
+		<owl:sameAs rdf:resource="&herzog;Anonymity"/>
+		<owl:sameAs rdf:resource="&denker;Anonymity"/>
+		<owl:sameAs rdf:resource="&kim;Anonymity"/>
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="Authorization">	
+		<rdfs:label xml:lang="en">Authorization</rdfs:label>
+		<rdfs:comment xml:lang="en">Only authorized persons can access to network services or resources.</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>
+		<owl:sameAs rdf:resource="&herzog;Authorisation"/>
+		<owl:sameAs rdf:resource="&denker;Authorization"/>
+		<owl:sameAs rdf:resource="&kim;Authorization"/>
+		<owl:sameAs rdf:resource="&secberlin;Authorization"/>	
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="Accountability">	
+		<rdfs:label xml:lang="en">Accountability</rdfs:label>
+		<rdfs:comment xml:lang="en">Accountability is the requirement that actions of an entity may be traced uniquely to that entity.</rdfs:comment>
+		<owl:sameAs rdf:resource="&herzog;Accountability"/>
+		<owl:sameAs rdf:resource="&secberlin;Accountability"/>		
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="Availability">	
+		<rdfs:label xml:lang="en">Availability</rdfs:label>
+		<rdfs:comment xml:lang="en">Data availability ensures that the network is alive and that data are accessible.</rdfs:comment>
+		<dc:description xml:lang="en">Availability ensures that services and information can be accessed at the time when they are required.</dc:description>
+		<owl:sameAs rdf:resource="&herzog;Availability"/>
+		<owl:sameAs rdf:resource="&kim;Availability"/>
+		<owl:sameAs rdf:resource="&securitysw;Availability"/>
+		<owl:sameAs rdf:resource="&maso;Disponibilite"/>	
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="DataFreshness">	
+		<rdfs:label xml:lang="en">Data Freshness, Replay Protection</rdfs:label>
+		<rdfs:comment xml:lang="en">Data freshness suggests that the data is recent, and it ensures that no old messages have been replayed.</rdfs:comment>
+	</stac:SecurityProperty>
+	
+	<stac:SecurityProperty rdf:about="SemanticSecurity">	
+		<rdfs:label xml:lang="en">Semantic Security</rdfs:label>
+		<rdfs:comment xml:lang="en">Semantic security ensures that an eavesdropper has no information about the message, even if it sees multiple encryptions of the same messages.</rdfs:comment>
+	</stac:SecurityProperty>
+	
+
+	<!-- ############################################################ CRYPTOGRAPHY ################################################################### -->
+	
+	<!-- stac:AsymmetricAlgorithm -->
+	
+	<stac:AsymmetricAlgorithm rdf:about="ECC">		
+		<rdfs:label xml:lang="en">Elliptic Curve Cryptography (ECC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Elliptic curve cryptography (ECC) is an approach to public-key cryptography based on the algebraic structure of elliptic curves. Because the RSA algorithm is rather inefficient in its use of key length, ECC has been proposed.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;KeyManagement"/>	
+		<owl:sameAs rdf:resource="&kimalgorithms;ECC"/>	
+		<owl:sameAs rdf:resource="&maso;Elliptic_curve"/>
+		<owl:sameAs rdf:resource="&secberlin;EllipticCurveCryptography"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:AsymmetricAlgorithm>
+	
+	<stac:AsymmetricAlgorithm rdf:about="RSA">		
+		<rdfs:label xml:lang="en">Rivest Shamir Adleman (RSA)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;KeyManagement"/>	
+		<rdf:type rdf:resource="&stac;DigitalSignature"/>		
+		<owl:sameAs rdf:resource="&kimalgorithms;RSA"/>
+		<owl:sameAs rdf:resource="&securitysw;RSAAlgorithm"/>	
+		<owl:sameAs rdf:resource="&maso;RSA"/>		
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:AsymmetricAlgorithm>
+	
+	<stac:AsymmetricAlgorithm rdf:about="ElGamal">		
+		<rdfs:label xml:lang="en">ElGamal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&securitysw;ElGammelAlgorithm"/>	
+		<owl:sameAs rdf:resource="&maso;ElGamal"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:AsymmetricAlgorithm>
+	
+	<stac:AsymmetricAlgorithm rdf:about="MerkleHellman">		
+		<rdfs:label xml:lang="en">Merkle-Hellman</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:AsymmetricAlgorithm>	
+	
+	<!-- SymmetricAlgorithm -->
+	
+	<!-- stac:StreamCipher -->
+	
+	<stac:StreamCipher rdf:about="RC4">		
+		<rdfs:label xml:lang="en">Rivest Cypher 4 (RC4)</rdfs:label>
+		<rdfs:comment xml:lang="en">RC4 is used in the WEP protocol in WiFi</rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;RC4"/>
+		<owl:sameAs rdf:resource="&secberlin;RC4"/>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:StreamCipher>
+	
+	<stac:StreamCipher rdf:about="RC5">		
+		<rdfs:label xml:lang="en">RC5</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:StreamCipher>
+	
+	<stac:StreamCipher rdf:about="RC6">		
+		<rdfs:label xml:lang="en">RC6</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:StreamCipher>
+	
+	<stac:StreamCipher rdf:about="SEAL">		
+		<rdfs:label xml:lang="en">Software-Opitmized Encryption algorithm (SEAL)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:StreamCipher>
+	
+		<!-- stac:BlockCipher -->
+	
+	<stac:BlockCipher rdf:about="DES">		
+		<rdfs:label xml:lang="en">DES</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;DES"/>
+		<owl:sameAs rdf:resource="&secberlin;DES"/>		
+		<owl:sameAs rdf:resource="&maso;DES"/>
+		<stac:isReplacedBy rdf:resource="TripleDES"/>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="Skipjack">		
+		<rdfs:label xml:lang="en">Skipjack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;Skipjack"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="Blowfish">		
+		<rdfs:label xml:lang="en">Blowfish</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;Blowfish"/>
+		<owl:sameAs rdf:resource="&secberlin;Blowfish"/>		
+		<owl:sameAs rdf:resource="&maso;Blowfish"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="Twofish">		
+		<rdfs:label xml:lang="en">Twofish</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&maso;Twofish"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="Serpent">		
+		<rdfs:label xml:lang="en">Serpent</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="CAST">		
+		<rdfs:label xml:lang="en">CAST</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;CAST"/>	
+		<owl:sameAs rdf:resource="&maso;CAST"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="IDEA">		
+		<rdfs:label xml:lang="en">International Data Encryption Algorithm (IDEA)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&maso;IDEA"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="TripleDES">		
+		<rdfs:label xml:lang="en">TripleDES</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;TripleDES"/>
+		<owl:sameAs rdf:resource="&secberlin;3DES"/>		
+		<owl:sameAs rdf:resource="&maso;_3DES"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="AES">		
+		<rdfs:label xml:lang="en">Advanced Encryption Standard (AES)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;AES"/>	
+		<owl:sameAs rdf:resource="&secberlin;AES"/>		
+		<owl:sameAs rdf:resource="&maso;AES"/>
+		<owl:sameAs rdf:resource="#Rijndael"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+
+	<stac:BlockCipher rdf:about="Rijndael">		
+		<rdfs:label xml:lang="en">Rijndael</rdfs:label>
+		<rdfs:comment xml:lang="en">Its suitability for smart card implementations.</rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:BlockCipher rdf:about="Kasumi">		
+		<rdfs:label xml:lang="en">Kasumi</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<dcterms:hasPart rdf:resource="CBC"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:BlockCipher>
+	
+	<stac:AsymmetricAlgorithm rdf:about="Michael">		
+		<rdfs:label xml:lang="en">Michael</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:AsymmetricAlgorithm>
+	
+	<!-- Mode of operation -->
+	
+	<stac:ModeOperation rdf:about="CBC">		
+		<rdfs:label xml:lang="en">Cipher-block chaining (CBC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ModeOperation>
+	
+	<stac:ModeOperation rdf:about="OCB">		
+		<rdfs:label xml:lang="en">Offset Codebook (OCB)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+	</stac:ModeOperation>
+	
+	<stac:ModeOperation rdf:about="ECB">		
+		<rdfs:label xml:lang="en">Electonic Code Book (ECB)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ModeOperation>
+	
+	<stac:ModeOperation rdf:about="PCBC">		
+		<rdfs:label xml:lang="en">Propagating Cipher-Block Chaining (PCBC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ModeOperation>
+	
+	<stac:ModeOperation rdf:about="CFB">		
+		<rdfs:label xml:lang="en">Cipher Feedback (CFB)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ModeOperation>
+	
+	<stac:ModeOperation rdf:about="OFB">		
+		<rdfs:label xml:lang="en">Output Feddback Mode(OFB)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ModeOperation>
+	
+	<stac:ModeOperation rdf:about="CTR">		
+		<rdfs:label xml:lang="en">Counter</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ModeOperation>
+	
+	<!--Key Management -->
+	
+	<stac:KeyManagement rdf:about="PublicKeyInfrastructure">		
+		<rdfs:label xml:lang="en">Public Key Infrastructure (PKI)</rdfs:label>
+		<rdfs:comment xml:lang="en">Public Key Infrastructure (PKI) is used for authentication.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;AsymmetricAlgorithm"/>
+		<rdf:type rdf:resource="&stac;DigitalCertificate"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:KeyManagement>
+	
+	<stac:KeyManagement rdf:about="RandomKeyDistribution">		
+		<rdfs:label xml:lang="en">Random Key Distribution</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:KeyManagement>
+	
+	<stac:KeyManagement rdf:about="IKE">		
+		<rdfs:label xml:lang="en">Internet Key Exchange (IKE)</rdfs:label>
+		<rdfs:comment xml:lang="en">IKE uses asymmetric algorithms (public key cryptography) where secret key for secure communication can be exchanged over an insecure channel.</rdfs:comment>		
+		<rdf:type rdf:resource="&stac;Protocol"/>		
+		<dcterms:hasPart rdf:resource="DiffieHellman"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:KeyManagement>
+	
+	<stac:KeyManagement rdf:about="PIKE">		
+		<rdfs:label xml:lang="en">Peer intermediates scheme for key establishment protocol (PIKE)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:KeyManagement>
+	
+	<stac:KeyManagement rdf:about="DiffieHellman">		
+		<rdfs:label xml:lang="en">Diffie Hellman</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:KeyManagement>
+
+	<!-- Digital Signature -->
+
+	<stac:DigitalSignature rdf:about="DSA">		
+		<rdfs:label xml:lang="en">Digital Sinature Algorithm (DSA)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<stac:DigitalSignature rdf:about="DSS">		
+		<rdfs:label xml:lang="en">Digital Sinature Standard (DSS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<stac:DigitalSignature rdf:about="ECDDSA">		
+		<rdfs:label xml:lang="en">Elliptic Curve Digital Sinature Algorithm (ECDSA)</rdfs:label>
+		<rdfs:comment xml:lang="en">ECDSA is a variant of the DSA which uses ECC.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<stac:DigitalSignature rdf:about="Rabin">		
+		<rdfs:label xml:lang="en">Rabin</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<stac:DigitalSignature rdf:about="Schnorr">		
+		<rdfs:label xml:lang="en">Schnorr</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<stac:DigitalSignature rdf:about="Pointcheval-Stern">		
+		<rdfs:label xml:lang="en">Pointcheval-Stern</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<stac:DigitalSignature rdf:about="BLS">		
+		<rdfs:label xml:lang="en">Boneh-Lynn-Shacham (BLS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:DigitalSignature>
+	
+	<!-- Certificate -->
+	
+	<stac:DigitalCertificate rdf:about="X_509">		
+		<rdfs:label xml:lang="en">X_509</rdfs:label>
+		<rdfs:comment xml:lang="en"> X.509 specifies standard formats for public key certificates, certificate revocation lists, attribute certificates, and a certification path validation algorithm.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="AccessControl"/>
+	</stac:DigitalCertificate>
+
+	<!-- Hash Function -->
+	
+	<stac:ChecksumAlgorithm rdf:about="CRC-32">		
+		<rdfs:label xml:lang="en">CRC-32</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:ChecksumAlgorithm>
+	
+	<stac:HashFunction rdf:about="HMAC">		
+		<rdfs:label xml:lang="en">Hash-based Message Authentication Code (HMAC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:HashFunction>
+	
+	<stac:HashFunction rdf:about="SHA">		
+		<rdfs:label xml:lang="en">Secure Hash Algorithm (SHA)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;SHA-1"/>
+		<owl:sameAs rdf:resource="&securitysw;SHA1"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:HashFunction>
+	
+	<stac:HashFunction rdf:about="RIPE-MD">		
+		<rdfs:label xml:lang="en">Security Hash Algorithm (RIPE-MD)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:sameAs rdf:resource="&kimalgorithms;RIPE-MD"/>
+		<owl:sameAs rdf:resource="&securitysw;RIPE-MD"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:HashFunction>
+	
+	<stac:HashFunction rdf:about="MD5">		
+		<rdfs:label xml:lang="en">Message Digest 5 (MD5)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+		<rdf:type rdf:resource="&stac;StreamCipher"/>	
+		<owl:sameAs rdf:resource="&kimalgorithms;MD5"/>
+		<owl:sameAs rdf:resource="&securitysw;MD5"/>
+		<owl:sameAs rdf:resource="&maso;MD5"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:HashFunction>
+<!-- Message Authentication Code (MAC) -->
+	
+	<stac:MAC rdf:about="OMAC">		
+		<rdfs:label xml:lang="en">One-key Message Authentication Code (OMAC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="AES"/>
+		<stac:satisfies rdf:resource="DataFreshness"/>	
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:MAC>
+	
+	<stac:MAC rdf:about="PMAC">		
+		<rdfs:label xml:lang="en">Parrallelizable Message Authentication Code (PMAC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:MAC>
+	
+	<stac:MAC rdf:about="CBC-MAC">		
+		<rdfs:label xml:lang="en">Cipher Bloch Chaining - Message Authentication Code (CBC-MAC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:MAC>
+	
+	<!-- Secure Wimax -->
+		
+	<stac:WimaxKeyManagement rdf:about="PKM">		
+		<rdfs:label xml:lang="en">Privacy and Key Management Protocol (PKM)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<dcterms:hasPart rdf:resource="X_509"/>
+		<dcterms:hasPart rdf:resource="RSA"/>
+		<dcterms:hasPart rdf:resource="AES"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WimaxKeyManagement>
+		
+	<!-- ################################################################################################################################# -->
+	<!-- ##################################################### BLUETOOTH #################################################################### -->
+	<!-- ################################################################################################################################# -->
+	
+		
+	<stac:BluetoothSecurityMechanism rdf:about="JSR82">		
+		<rdfs:label xml:lang="en">JSR-82</rdfs:label>
+		<rdf:type rdf:resource="&stac;ProgrammingLanguageSecurityMechanism"/>
+		<rdfs:comment xml:lang="en">JSR-82 is the official Java Blutooth Application Programming Interface (API)</rdfs:comment>
+	</stac:BluetoothSecurityMechanism>
+	
+	<stac:BluetoothSecurityAlgorithm rdf:about="E0">		
+		<rdfs:label xml:lang="en">E0</rdfs:label>
+		<rdfs:comment xml:lang="en">E0 is a stream cipher used in the Bluetooth protocol.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;StreamCipher"/>
+	</stac:BluetoothSecurityAlgorithm>
+	
+	<stac:BluetoothAttack rdf:about="Bluebugging">		
+		<rdfs:label xml:lang="en">Bluebugging</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:BluetoothAttack>
+	
+	<stac:BluetoothAttack rdf:about="Bluejacking">		
+		<rdfs:label xml:lang="en">Bluejacking</rdfs:label>
+		<rdfs:comment xml:lang="en">Bluejacking is the sending of either a picture or a message from one user through Bluetooth.</rdfs:comment>
+	</stac:BluetoothAttack>
+	
+	<stac:BluetoothAttack rdf:about="Bluesmack">		
+		<rdfs:label xml:lang="en">Bluesmack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:BluetoothAttack>
+	
+	<stac:BluetoothAttack rdf:about="Bluesnarf">		
+		<rdfs:label xml:lang="en">Bluesnarf</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:BluetoothAttack>
+	
+	<stac:BluetoothAttack rdf:about="Helomoto">		
+		<rdfs:label xml:lang="en">Helomoto</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:BluetoothAttack>
+	
+	<stac:BluetoothSecurityMechanism rdf:about="Bluepot">		
+		<rdfs:label xml:lang="en">Bluepot</rdfs:label>
+		<rdfs:comment xml:lang="en">Bluepot: a honeypot for bluetooth attacks.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;Honeypot"/>
+	</stac:BluetoothSecurityMechanism>
+	
+	<!-- ################################################################################################################################# -->
+	<!-- ##################################################### WIFI #################################################################### -->
+	<!-- ################################################################################################################################# -->
+	
+	
+	<stac:WifiTechnology rdf:about="WAP1">		
+		<rdfs:label xml:lang="en">Wireless Application Protocol (WAP1)</rdfs:label>
+		<rdfs:comment xml:lang="en">WAP is an open specification which enables mobile users to access the Internet.</rdfs:comment>	
+		<dcterms:hasPart rdf:resource="WTLS"/>
+		<stac:isReplacedBy rdf:resource="WAP2"/>
+	</stac:WifiTechnology>
+	
+	<stac:WifiTechnology rdf:about="WAP2">		
+		<rdfs:label xml:lang="en">Wireless Application Protocol (WAP2)</rdfs:label>
+		<rdfs:comment xml:lang="en">WAP is an open specification which enables mobile users to access the Internet.</rdfs:comment>	
+		<dcterms:hasPart rdf:resource="TLS"/>
+	</stac:WifiTechnology>	
+	
+	<stac:SecurityProtocol rdf:about="WTLS">		
+		<rdfs:label xml:lang="en">Wireless Transport Layer Security (WTLS)</rdfs:label>
+		<rdfs:comment xml:lang="en">WTLS secures, authenticates, and encrypts data transmissions between the WAP gateway and mobile devices.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<dcterms:hasPart rdf:resource="RSA"/>  <!-- ecc also possible -->
+	</stac:SecurityProtocol>	
+	
+	<stac:WifiSecurityProtocol rdf:about="WEP">		
+		<rdfs:label xml:lang="en">Wired Equivalent Privacy (WEP)</rdfs:label>
+		<rdfs:comment xml:lang="en">WEP is a security protocol to provide encrypted communication between the client and an AP, once the client is authenticated.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<dcterms:hasPart rdf:resource="RC4"/>
+		<dcterms:hasPart rdf:resource="CRCValue"/>
+		<stac:hasModeOperation rdf:resource="ECB"/>
+		<stac:hasModeOperation rdf:resource="CRC-32"/>
+		<rdf:type rdf:resource="&stac;StreamCipher"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+		<stac:hasFeature rdf:resource="NotScalable"/>
+		<stac:isReplacedBy rdf:resource="WPA1"/>
+		<stac:satisfies rdf:resource="SemanticSecurity"/>
+	</stac:WifiSecurityProtocol>
+	
+	<stac:WifiSecurityProtocol rdf:about="WPA1">		
+		<rdfs:label xml:lang="en">Wi-Fi Protected Access (WPA)</rdfs:label>
+		<rdfs:comment xml:lang="en">WPA is an authentication system.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="TKIP"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<dcterms:hasPart rdf:resource="IEEE_802.1X"/>
+		<stac:isReplacedBy rdf:resource="WPA2"/>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+	</stac:WifiSecurityProtocol>	
+		
+	<stac:WifiArchitectureComponent rdf:about="TKIP">		
+		<rdfs:label xml:lang="en">Temporal Key Integrity Protocol (TKIP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="MIC"/>
+		<dcterms:hasPart rdf:resource="RC4"/>
+		<dcterms:hasPart rdf:resource="Michael"/>
+		<dcterms:hasPart rdf:resource="EAPOL"/>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>	
+	</stac:WifiArchitectureComponent>	
+	
+	<stac:ManetSecurityMechanism rdf:about="RADIUS">		
+		<rdfs:label xml:lang="en">Remote Authentication Dial In User Service (RADIUS)</rdfs:label>
+		<rdfs:comment xml:lang="en">RADIUS is a client/server protocol.</rdfs:comment>		
+		<rdf:type rdf:resource="&stac;AuthenticationServer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Authorization"/>
+		<stac:satisfies rdf:resource="Accountability"/>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:isReplacedBy rdf:resource="Diameter"/>
+		<rdf:type rdf:resource="&stac;WifiSecurityMechanism"/>
+	</stac:ManetSecurityMechanism>
+	
+	<stac:WifiSecurityMechanism rdf:about="Diameter">		
+		<rdfs:label xml:lang="en">Diameter</rdfs:label>
+		<rdfs:comment xml:lang="en">Diameter is evolving to improve RADIUS to provide better security.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;AuthenticationServer"/>
+	</stac:WifiSecurityMechanism>
+	
+	<stac:WifiArchitectureComponent rdf:about="RSN">		
+		<rdfs:label xml:lang="en">Robust Security Network (RSN)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WifiArchitectureComponent>		
+	
+	<stac:WifiSecurityProtocol rdf:about="WPA2">		
+		<rdfs:label xml:lang="en">Wi-Fi Protected Access (WPA2)</rdfs:label>
+		<rdfs:comment xml:lang="en">A wireless security protocol in which only authorised users can access a wireless device.</rdfs:comment>
+		<owl:sameAs rdf:resource="RSN"/>
+		<dcterms:hasPart rdf:resource="AES"/>
+		<dcterms:hasPart rdf:resource="CCMP"/>
+		<dcterms:hasPart rdf:resource="GMK"/>
+		<dcterms:hasPart rdf:resource="EAP"/>
+		<dcterms:hasPart rdf:resource="IEEE_802.1X"/>
+		<dcterms:hasPart rdf:resource="TKIP"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:hasFeature rdf:resource="Secured"/>
+	</stac:WifiSecurityProtocol>		
+	
+	<stac:WifiArchitectureComponent rdf:about="CCMP">		
+		<rdfs:label xml:lang="en">Counter Mode with Cipher Block Chaining Message Authentication Code Protocol (CCMP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>		
+		<dcterms:hasPart rdf:resource="AEC"/>
+		<dcterms:hasPart rdf:resource="CTR"/>
+		<dcterms:hasPart rdf:resource="CBC"/>
+		<dcterms:hasPart rdf:resource="MIC"/>
+	</stac:WifiArchitectureComponent>		
+	
+	<stac:SecurityMechanism rdf:about="PANA">		
+		<rdfs:label xml:lang="en">Protocol for Carrying Authentication for Network Access (PANA)</rdfs:label>
+		<rdfs:comment xml:lang="en">PANA is applicable to any network technologies.</rdfs:comment>
+		<dc:description xml:lang="en">Paper: Evaluation of security attacks on UMTS authentication mechanism [Mobarhan 2012]</dc:description>		
+		<rdf:type rdf:resource="&stac;MeshSecurityProtocol"/>
+		<dcterms:hasPart rdf:resource="EAP"/>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+		<stac:hasFeature rdf:resource="SuitableHeterogeneousTechnology"/>
+	</stac:SecurityMechanism>
+	
+	<stac:SecurityMechanism rdf:about="OpenPGP">		
+		<rdfs:label xml:lang="en">OpenPGP</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+	</stac:SecurityMechanism>
+	
+	<stac:WifiSecurityProtocol rdf:about="EAP">		
+		<rdfs:label xml:lang="en">EAP (Extensible Authentication Protocol)</rdfs:label>
+		<rdfs:comment xml:lang="en">EAP is a generic authentication protocol used in wireless networks.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;WimaxSecurityProtocol"/>
+		<stac:satisfies rdf:resource="Authentication"/>			
+	</stac:WifiSecurityProtocol>
+	
+	<stac:WifiSecurityProtocol rdf:about="LEAP">		
+		<rdfs:label xml:lang="en">LEAP (Lightweight Extensible Authentication Protocol)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>		
+	</stac:WifiSecurityProtocol>
+	
+	<stac:WifiSecurityProtocol rdf:about="EAP_TLS">		
+		<rdfs:label xml:lang="en">EAP-TLS (Extensible Authentication Protocol - Transport Layer Security)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;WimaxSecurityProtocol"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WifiSecurityProtocol>
+	
+	<stac:WifiSecurityProtocol rdf:about="EAP_TTLS">		
+		<rdfs:label xml:lang="en">EAP-TTLS (EAP-Tunelled-TLS)</rdfs:label>
+		<rdfs:comment xml:lang="en">EAP-TTLS is used to support establishment of secure connections in a roaming environment and protection of user credentials.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;WimaxSecurityProtocol"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:hasFeature rdf:resource="Flexible"/>		
+	</stac:WifiSecurityProtocol>
+	
+	<stac:WifiSecurityProtocol rdf:about="PEAP">		
+		<rdfs:label xml:lang="en">PEAP (Protected Extensible Authentication Protocol)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>		
+		<stac:hasFeature rdf:resource="NotFlexible"/>
+	</stac:WifiSecurityProtocol>	
+	
+	<stac:WifiSecurityProtocol rdf:about="EAPOL">		
+		<rdfs:label xml:lang="en">EAP Over LAN (EAPOL)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>		
+	</stac:WifiSecurityProtocol>
+	
+	<stac:WifiSecurityProtocol rdf:about="EAP_MD5">		
+		<rdfs:label xml:lang="en">EAP-MD5 (EAP-Authentication and Key Agreement)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>		
+	</stac:WifiSecurityProtocol>	
+	
+	<stac:WifiKeyManagement rdf:about="PMK">		
+		<rdfs:label xml:lang="en">Pairwise Master Key (PMK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;MeshKeyManagement"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WifiKeyManagement>
+	
+	<stac:WifiKeyManagement rdf:about="PSK">		
+		<rdfs:label xml:lang="en">Pre Shared Key (PSK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WifiKeyManagement>
+	
+	<stac:WifiKeyManagement rdf:about="PTK">		
+		<rdfs:label xml:lang="en">Pairwise Transient Key (PTK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WifiKeyManagement>
+	
+	<stac:WifiKeyManagement rdf:about="GMK">		
+		<rdfs:label xml:lang="en">Group Master Key (GMK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WifiKeyManagement>
+	
+	<stac:WifiArchitectureComponent rdf:about="AccessPoint">		
+		<rdfs:label xml:lang="en">Access Point (AP)</rdfs:label>
+		<rdfs:comment xml:lang="en">An AP is a hardware device that allows wireless communication devices (e.g., PDAs or mobile computers) to connect to a wireless network. An AP connects to a wired network, and provides a bridge for data communication between wireless and wired devices.</rdfs:comment>		
+	</stac:WifiArchitectureComponent>
+	
+	<stac:WifiArchitectureComponent rdf:about="WifiMobileStation">		
+		<rdfs:label xml:lang="en">Wifi Mobile Station (STA)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:WifiArchitectureComponent>
+	
+	<stac:WifiArchitectureComponent rdf:about="IBSS">		
+		<rdfs:label xml:lang="en">Integrated Basic Service Set (IBSS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:WifiArchitectureComponent>	
+	
+	<stac:WifiArchitectureComponent rdf:about="SSID">		
+		<rdfs:label xml:lang="en">Service Set Identifier (SSID)</rdfs:label>
+		<rdfs:comment xml:lang="en">Different networks are identified by SSIDs, SSID is basically a network name.</rdfs:comment>		
+		<stac:satisfies rdf:resource="AccessControl"/>
+	</stac:WifiArchitectureComponent>	
+	
+	<stac:WifiArchitectureComponent rdf:about="BasicServiceSet">		
+		<rdfs:label xml:lang="en">Basic Service Set (BSS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:WifiArchitectureComponent>	
+	
+	<stac:WifiArchitectureComponent rdf:about="InfrastructureMode">		
+		<rdfs:label xml:lang="en">Infrastructure Mode</rdfs:label>
+		<rdfs:comment xml:lang="en">It consists of a number of wireless stations and access points.</rdfs:comment>		
+		<dcterms:hasPart rdf:resource="AccessPoint"/>
+		<dcterms:hasPart rdf:resource="WifiMobileStation"/>	
+		<dcterms:hasPart rdf:resource="BasicServiceSet"/>	
+		<dcterms:hasPart rdf:resource="IBSS"/>	
+		<dcterms:hasPart rdf:resource="SSID"/>
+	</stac:WifiArchitectureComponent>
+	
+	<stac:WifiArchitectureComponent rdf:about="AdHocMode">		
+		<rdfs:label xml:lang="en">Ad Hoc Mode</rdfs:label>
+		<rdfs:comment xml:lang="en">It consists of at least two wireless stations where no access point is involved in their communication.</rdfs:comment>		
+	</stac:WifiArchitectureComponent>
+		
+		<!-- ####################################### Architecture GSM ####################################################### -->
+	
+	<!-- Mobile Station -->	
+	
+	<stac:GSMArchitectureComponent rdf:about="RSS">		
+		<rdfs:label xml:lang="en">Radio Subsystem (RSS)</rdfs:label>
+		<rdfs:comment xml:lang="en">The RSS deals with all the radio aspects of a network.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="GSMMobileStation"/>
+		<dcterms:hasPart rdf:resource="BaseStationSubsystem"/>
+	</stac:GSMArchitectureComponent>	
+		
+	<stac:GSMArchitectureComponent rdf:about="GSMMobileStation">		
+		<rdfs:label xml:lang="en">GSM Mobile Station (MS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="MobileEquipment"/>
+		<dcterms:hasPart rdf:resource="SIM"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="MobileEquipment">		
+		<rdfs:label xml:lang="en">Mobile Equipment (ME)</rdfs:label>
+		<rdfs:comment xml:lang="en">Mobile Equipment (ME) is the mobile phone</rdfs:comment>
+		<dcterms:hasPart rdf:resource="IMEI"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="SIM">		
+		<rdfs:label xml:lang="en">Subscriber Identity Module (SIM)</rdfs:label>
+		<rdfs:comment xml:lang="en">SIM cards provide the security mechanism for GSM. SIM cards are like credit cards and identify the user to the GSM network.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="A3"/>
+		<dcterms:hasPart rdf:resource="A8"/>
+		<dcterms:hasPart rdf:resource="IMSI"/>
+		<dcterms:hasPart rdf:resource="MobileStationIsdnNumber"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="IMEI">		
+		<rdfs:label xml:lang="en">International Mobile Equipment Identity (IMEI)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="IMSI">		
+		<rdfs:label xml:lang="en">International Mobile Subscriber Identity (IMSI)</rdfs:label>
+		<rdfs:comment xml:lang="en">The IMSI is a unique identifier for a mobile subscriber in a GSM and UMTS network. It is stored in the SIM card of the mobile station.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="MobileStationIsdnNumber">		
+		<rdfs:label xml:lang="en">Mobile Station ISDN Number</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<!-- Base Station Subsystem (BSS) -->
+	
+	
+	<stac:GSMArchitectureComponent rdf:about="BaseStationSubsystem">		
+		<rdfs:label xml:lang="en">Base Station Subsystem (BSS)</rdfs:label>
+		<rdfs:comment xml:lang="en">Base Station Subsystem (BSS) controls the radio link with the Mobile Station (MS).</rdfs:comment>
+		<dcterms:hasPart rdf:resource="BaseTransceiverStation"/>
+		<dcterms:hasPart rdf:resource="BaseStationController"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="BaseTransceiverStation">		
+		<rdfs:label xml:lang="en">Base Transceiver Station (BTS)</rdfs:label>
+		<rdfs:comment xml:lang="en">The BTS is the radio equipment that transmits and receives information over the air to provide communication with the mobile station.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="BaseStationController">		
+		<rdfs:label xml:lang="en">Base Station Controller (BSC)</rdfs:label>
+		<rdfs:comment xml:lang="en">The BSC is responsible for the switching between several BTSs, and for the switching of radio channels.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<!-- Network Subsystem (NSS) -->
+	
+	<stac:GSMArchitectureComponent rdf:about="NSS">		
+		<rdfs:label xml:lang="en">Network Subsystem (NSS)</rdfs:label>
+		<rdfs:comment xml:lang="en">The NSS provides switching services between GSM and external networks.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="MSC"/>
+		<dcterms:hasPart rdf:resource="HLR"/>
+		<dcterms:hasPart rdf:resource="VLR"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="MSC">		
+		<rdfs:label xml:lang="en">Mobile services Switching Center (MSC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Mobile services Switching Center (MSC) performs the switching of calls between the mobile users (mobile and fixed) one. The MSC also handles the mobility management operations.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<!-- Operation Support Subsystem (OSS) -->
+	
+	<stac:GSMArchitectureComponent rdf:about="OSS">		
+		<rdfs:label xml:lang="en">Operation Support Subsystem (OSS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="OMC"/>
+		<dcterms:hasPart rdf:resource="EIR"/>
+		<dcterms:hasPart rdf:resource="Auc"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="OMC">		
+		<rdfs:label xml:lang="en">Operations and Maintenance Center (OMC)</rdfs:label>
+		<rdfs:comment xml:lang="en">Operations and Maintenance Center (OMC) supervises the proper operation and setup of the network.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="EIR">		
+		<rdfs:label xml:lang="en">Equipment Identity Register (EIR)</rdfs:label>
+		<rdfs:comment xml:lang="en">The EIR contains a list of valid mobile equipment.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="Auc">		
+		<rdfs:label xml:lang="en">Authentication Center (AuC)</rdfs:label>
+		<rdfs:comment xml:lang="en">AuC includes information for identifying authorized users of the GSM or GPRS network and thus prevent unauthorized use of the network.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="A3"/>
+		<dcterms:hasPart rdf:resource="A8"/>
+	</stac:GSMArchitectureComponent>
+	
+	<!-- Interface GSM -->
+	
+	<stac:GSMArchitectureComponent rdf:about="UmInterface">		
+		<rdfs:label xml:lang="en">Um Interface</rdfs:label>
+		<rdfs:comment xml:lang="en">The Mobile Station and the BSS communicate across the Um interface, also known as the radio link or the air interface.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="AInterface">		
+		<rdfs:label xml:lang="en">AInterface</rdfs:label>
+		<rdfs:comment xml:lang="en">The BSS communicates with the MSC across the A interface.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<!-- GSM databases -->
+	
+	<stac:GSMArchitectureComponent rdf:about="GSMDatabase">		
+		<rdfs:label xml:lang="en">GSM Database</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="HLR">		
+		<rdfs:label xml:lang="en">Home Location Register (HLR)</rdfs:label>
+		<rdfs:comment xml:lang="en">HLR is the database that holds subscription information for every person.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="VLR">		
+		<rdfs:label xml:lang="en">Visitor Location Register (VLR)</rdfs:label>
+		<rdfs:comment xml:lang="en">The VLR is a subscriber profile containing temporary information, and is distributed in the network according to geographical locations. The VLR performs the authentication and key agreement procedure.</rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<!-- Security GSM -->
+	
+	<stac:GSMSecurityAlgorithm rdf:about="COMP128">		
+		<rdfs:label xml:lang="en">COMP128</rdfs:label>
+		<rdfs:comment xml:lang="en">COMP128 is an implementation of the A3 and A8 algorithms defined in the GSM standard.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+	</stac:GSMSecurityAlgorithm>
+	
+	<stac:GSMSecurityAlgorithm rdf:about="A3">		
+		<rdfs:label xml:lang="en">A3</rdfs:label>
+		<rdfs:comment xml:lang="en">The A3 algorithm is the authentication algorithm for GSM networks. The A3 algorithm resides on the SIM card and at the AuC/HLR. The main purpose of this algorithm is to authenticate the identity of a mobile subscriber.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<stac:satisfies rdf:resource="Authentication"/> 
+	</stac:GSMSecurityAlgorithm>
+	
+	<stac:GSMSecurityAlgorithm rdf:about="A5_3">		
+		<rdfs:label xml:lang="en">A5</rdfs:label>
+		<rdfs:comment xml:lang="en">A5 is an encryption algorithm to encrypt the communication between the mobile phone and the base station (BTS Base Station Transceiver).</rdfs:comment>
+		<rdf:type rdf:resource="&stac;StreamCipher"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<dcterms:hasPart rdf:resource="Kasumi"/>
+	</stac:GSMSecurityAlgorithm>
+	
+	<stac:GSMSecurityAlgorithm rdf:about="A8">		
+		<rdfs:label xml:lang="en">A8</rdfs:label>
+		<rdfs:comment xml:lang="en">A8 algorithm is the ciphering key generation algorithm.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;GSMKeyManagement"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:GSMSecurityAlgorithm>
+	
+	<stac:GSMArchitectureComponent rdf:about="PIN">		
+		<rdfs:label xml:lang="en">Personal Identification Number (PIN)</rdfs:label>
+		<rdfs:comment xml:lang="en">PIN: a secret numeric password shared between a user and a system that can be used to authenticate the user to the system.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="TMSI">		
+		<rdfs:label xml:lang="en">Temporary Mobile Subscriber Identity (TMSI)</rdfs:label>
+		<rdfs:comment xml:lang="en">The TMSI is transmitted by the MS (Mobile Station). The purpose of this TMSI is to deny an intruder the possibility of gaining information on the resources used by the subscriber, preventing of tracing the user's location.</rdfs:comment>
+		<stac:satisfies rdf:resource="Anonymity"/>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:SymmetricGSMKey rdf:about="Kc">		
+		<rdfs:label xml:lang="en">Kc</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:SymmetricGSMKey>
+	
+	<stac:GSMArchitectureComponent rdf:about="RAND">		
+		<rdfs:label xml:lang="en">RAND</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:GSMArchitectureComponent rdf:about="SRES">		
+		<rdfs:label xml:lang="en">Signed Response (SRES)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GSMArchitectureComponent>
+	
+	<stac:SymmetricKey rdf:about="SymmetricGSMKey">		
+		<rdfs:label xml:lang="en">Symmetric GSM Key</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:SymmetricKey>
+		
+	<stac:GSMSecurityProtocol rdf:about="EAP_SIM">		
+		<rdfs:label xml:lang="en">EAP-SIM (Extensible Authentication Protocol - Subscriber Identity Module)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:GSMSecurityProtocol>
+	
+	<stac:GSMSecurityMechanism rdf:about="AAAServer">		
+		<rdfs:label xml:lang="en">Authentication, Authorization, Accounting (AAA)</rdfs:label>
+		<rdfs:comment xml:lang="en">Security architecture for distributed systems.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;MeshSecurityMechanism"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Authorization"/>
+		<stac:satisfies rdf:resource="Accountability"/>
+	</stac:GSMSecurityMechanism>
+	
+	<!-- ############################################### GPRS Architecture ##################################################### -->	
+	
+	<stac:GPRSArchitectureComponent rdf:about="GPRSMobileStation">		
+		<rdfs:label xml:lang="en">GPRS Mobile Station</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="TerminalEquipment"/>
+		<dcterms:hasPart rdf:resource="MobileTerminal"/>
+	</stac:GPRSArchitectureComponent>
+	
+	<stac:GPRSArchitectureComponent rdf:about="TerminalEquipment">		
+		<rdfs:label xml:lang="en">Terminal Equipment</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GPRSArchitectureComponent>
+	
+	<stac:GPRSArchitectureComponent rdf:about="MobileTerminal">		
+		<rdfs:label xml:lang="en">MobileTerminal</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GPRSArchitectureComponent>	
+	
+	<stac:GPRSArchitectureComponent rdf:about="SGSN">		
+		<rdfs:label xml:lang="en">Serving GPRS Support Node (SGSN)</rdfs:label>
+		<rdfs:comment xml:lang="en">The SGSN handles the traffic of IP packets addressed to and from a mobile station that is attached within the SGSN service area</rdfs:comment>
+	</stac:GPRSArchitectureComponent>
+	
+	<stac:GPRSArchitectureComponent rdf:about="GGSN">		
+		<rdfs:label xml:lang="en">Gateway GPRS Support Node (GGSN)</rdfs:label>
+		<rdfs:comment xml:lang="en">The GGSN provides connection with external packet switched networks such as Internet or private networks.</rdfs:comment>
+	</stac:GPRSArchitectureComponent>
+	
+	<stac:GPRSSecurityAlgorithm rdf:about="GPRS_A5">		
+		<rdfs:label xml:lang="en">GPRS_A5</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;StreamCipher"/>
+	</stac:GPRSSecurityAlgorithm>	
+	
+	<stac:GPRSArchitectureComponent rdf:about="TLLI">		
+		<rdfs:label xml:lang="en">Temporary Logical Link Identity (TLLI)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GPRSArchitectureComponent>
+	
+	<stac:GPRSArchitectureComponent rdf:about="RAI">		
+		<rdfs:label xml:lang="en">Routing Area Identity (RAI)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:GPRSArchitectureComponent>		
+			
+	<!-- GPRS security -->	
+	
+	<stac:GPRSSecurityAlgorithm rdf:about="GEA3">		
+		<rdfs:label xml:lang="en">GEA3 (GPRS Encryption Algorithm)</rdfs:label>
+		<rdfs:comment xml:lang="en">The GEA3 algorithm is integrated in the Mobile Equipment and is used for encryption the data during a data transfer under the ciphering key, Kc.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<dcterms:hasPart rdf:resource="Kasumi"/>
+		<rdf:type rdf:resource="&stac;StreamCipher"/>	
+	</stac:GPRSSecurityAlgorithm>
+	
+	<!-- ########################################### UMTS Architecture instances ######################################## -->
+	
+	<!-- User Equipment -->
+	
+	<stac:UMTSArchitectureComponent rdf:about="UserEquipment">		
+		<rdfs:label xml:lang="en">User Equipment (UE)</rdfs:label>
+		<rdfs:comment xml:lang="en">The UE is the end device of UMTS network> The user can make a phone call through user equipment. It always contains mobile phone and USIM card.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;LTEArchitecture"/>	
+		<dcterms:hasPart rdf:resource="USIM"/>
+		<dcterms:hasPart rdf:resource="MobileEquipment"/>
+		<dcterms:hasPart rdf:resource="TerminalEquipment"/>
+		<dcterms:hasPart rdf:resource="USIM"/>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="USIM">		
+		<rdfs:label xml:lang="en">Universal Subscriber Identity Module (USIM)</rdfs:label>
+		<rdfs:comment xml:lang="en">The keys and algorithms used for authentication and encryption are stored on the USIM.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<dcterms:hasPart rdf:resource="AKA"/>
+		<dcterms:hasPart rdf:resource="IMSI"/>
+	</stac:UMTSArchitectureComponent>
+	
+	<!-- UTRAN -->
+	
+	<stac:UMTSArchitectureComponent rdf:about="UTRAN">		
+		<rdfs:label xml:lang="en">Access Network (UTRAN)</rdfs:label>
+		<rdfs:comment xml:lang="en">The UTRAN is the new access network for UMTS networks, it allows connectivity between the UE (User Equipment) and the core network.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="NodeB"/>
+		<dcterms:hasPart rdf:resource="RNC"/>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="NodeB">		
+		<rdfs:label xml:lang="en">NodeB</rdfs:label>
+		<rdfs:comment xml:lang="en">Node-Bs are the bases stations of the UMTS network. A node B is mainly responsible for the transmission and reception of data.</rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="RNC">		
+		<rdfs:label xml:lang="en">Radio Network Controller (RNC)</rdfs:label>
+		<rdfs:comment xml:lang="en">The RNC is responsible for control of the Node-Bs.</rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="UuInterface">		
+		<rdfs:label xml:lang="en">Uu Interface</rdfs:label>
+		<rdfs:comment xml:lang="en">Connections between NodeBs and RNCs.</rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="IurInterface">		
+		<rdfs:label xml:lang="en">Iur Interface</rdfs:label>
+		<rdfs:comment xml:lang="en">Connection between two RNCs.</rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<!-- Core Network -->	
+	
+	<stac:UMTSArchitectureComponent rdf:about="CoreNetwork">		
+		<rdfs:label xml:lang="en">Core Network (CN)</rdfs:label>
+		<rdfs:comment xml:lang="en">The CN provides switching, routing and transit for user traffic and contains the databases and network management.</rdfs:comment>
+		<dcterms:hasPart rdf:resource="PacketSwitched"/>
+		<dcterms:hasPart rdf:resource="CommonElement"/>
+		<dcterms:hasPart rdf:resource="CircuitSwitched"/>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="PacketSwitched">		
+		<rdfs:label xml:lang="en">Packet Switched</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="SGSN"/>
+	</stac:UMTSArchitectureComponent>
+
+	<stac:UMTSArchitectureComponent rdf:about="CommonElement">		
+		<rdfs:label xml:lang="en">Common Element</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="HLR"/>
+		<dcterms:hasPart rdf:resource="AuC"/>
+		<dcterms:hasPart rdf:resource="EIR"/>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="CircuitSwitched">		
+		<rdfs:label xml:lang="en">Circuit Switched</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="MSC"/>
+		<dcterms:hasPart rdf:resource="VLR"/>
+	</stac:UMTSArchitectureComponent>
+	
+	<!-- ######################################## SECURITY UMTS instances ########################################################## -->
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f1">		
+		<rdfs:label xml:lang="en">f1</rdfs:label>
+		<rdfs:comment xml:lang="en">Message Authentication function used to calculate MAC.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/> 
+	</stac:UMTSSecurityAlgorithm>
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f2">		
+		<rdfs:label xml:lang="en">f2</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="XRES"/>
+	</stac:UMTSSecurityAlgorithm>	
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f3">		
+		<rdfs:label xml:lang="en">f3</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="CipherKeyCK"/>
+	</stac:UMTSSecurityAlgorithm>	
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f4">		
+		<rdfs:label xml:lang="en">f4</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="IntegrityKeyIK"/>
+	</stac:UMTSSecurityAlgorithm>	
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f5">		
+		<rdfs:label xml:lang="en">f5</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="AnonymityKeyAK"/>
+	</stac:UMTSSecurityAlgorithm>		
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f8">		
+		<rdfs:label xml:lang="en">f8</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Security of mobile internet access with UMTS/HSDP/LTE [Caragata 2009]</dc:description>
+		<rdf:type rdf:resource="&stac;StreamCipher"/>
+		<stac:satisfies rdf:resource="Confidentiality"/> 
+		<dcterms:hasPart rdf:resource="Kasumi"/>
+		<dcterms:hasPart rdf:resource="CipherKeyCK"/>
+	</stac:UMTSSecurityAlgorithm>	
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="f9">		
+		<rdfs:label xml:lang="en">f9</rdfs:label>
+		<rdfs:comment xml:lang="en">f9 or UIA (UMTS Integrity Algorithm) is implemented both in the mobile station and the RNC.</rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/> 
+		<dcterms:hasPart rdf:resource="Kasumi"/>
+		<dcterms:hasPart rdf:resource="IntegrityKeyIK"/>
+	</stac:UMTSSecurityAlgorithm>
+	
+	<stac:UMTSSecurityAlgorithm rdf:about="MILENAGE">		
+		<rdfs:label xml:lang="en">MILENAGE</rdfs:label>
+		<rdfs:comment xml:lang="en">Is a recommendation for AKA algorithms. MILENAGE is based on AES or Rijndael.</rdfs:comment>
+		<dc:description xml:lang="en">Paper: MILENAGE: An example of good UMTS Security [Massari 2009?]</dc:description>
+		<stac:hasFeature rdf:resource="Deprecated"/>
+		<dcterms:hasPart rdf:resource="Rijndael"/>
+	</stac:UMTSSecurityAlgorithm>
+	
+	<stac:UMTSSecurityProtocol rdf:about="EAP_AKA">		
+		<rdfs:label xml:lang="en">EAP-AKA (EAP-Authentication and Key Agreement)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;WimaxSecurityProtocol"/>
+		<stac:satisfies rdf:resource="Authentication"/>	
+	</stac:UMTSSecurityProtocol>
+	
+	<stac:UMTSSecurityMechanism rdf:about="MAPSec">		
+		<rdfs:label xml:lang="en">Mobile Application Part (MAPSec)</rdfs:label>
+		<rdfs:comment xml:lang="en">MAPSec protects existing signalling protocols and applications</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002].</dc:description>
+		<rdf:type rdf:resource="&stac;Protocol"/>	
+		<stac:satisfies rdf:resource="Integrity"/>	
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<dcterms:hasPart rdf:resource="MapsecSA"/>
+	</stac:UMTSSecurityMechanism>
+	
+	<stac:UMTSSecurityMechanism rdf:about="MapsecSA">		
+		<rdfs:label xml:lang="en">MAPSec SA (Security Association)</rdfs:label>
+		<rdfs:comment xml:lang="en">The SA contains cryptographic keys, key lifetimes, etc.</rdfs:comment>			
+	</stac:UMTSSecurityMechanism>
+	
+	<stac:UMTSSecurityProtocol rdf:about="AKA">		
+		<rdfs:label xml:lang="en">AKA (Authentication and Key Agreement)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Securing 4G networks with y-communication using AKA protocol [Rana 2011]</dc:description>
+		<stac:satisfies rdf:resource="Authentication"/>	
+		<dcterms:hasPart rdf:resource="f3"/>
+		<dcterms:hasPart rdf:resource="f4"/>	
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:UMTSSecurityProtocol>
+	
+	<stac:UMTSArchitectureComponent rdf:about="SequenceNumber">		
+		<rdfs:label xml:lang="en">Sequence Number (SQN)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="DataFreshness"/>
+	</stac:UMTSArchitectureComponent>	
+	
+	<stac:UMTSArchitectureComponent rdf:about="AuthenticationVector">		
+		<rdfs:label xml:lang="en">Authentication Vector (AV)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dcterms:hasPart rdf:resource="f1"/>
+		<dcterms:hasPart rdf:resource="f2"/>
+		<dcterms:hasPart rdf:resource="f3"/>
+		<dcterms:hasPart rdf:resource="f4"/>
+		<dcterms:hasPart rdf:resource="f5"/>
+	</stac:UMTSArchitectureComponent>
+		
+	<stac:UMTSArchitectureComponent rdf:about="XRES">		
+		<rdfs:label xml:lang="en">Expected Response (XRES)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="CipherKeyCK">		
+		<rdfs:label xml:lang="en">Cipher Key (CK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="AnonymityKeyAK">		
+		<rdfs:label xml:lang="en">Anonymity Key (AK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="IntegrityKeyIK">		
+		<rdfs:label xml:lang="en">Integrity Key (IK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+	<stac:UMTSArchitectureComponent rdf:about="AuthenticationTokenAUTN">		
+		<rdfs:label xml:lang="en">Authentication Token (AUTN)</rdfs:label>
+		<rdfs:comment xml:lang="en">It is verified bu the user to authenticate the network.</rdfs:comment>
+	</stac:UMTSArchitectureComponent>
+	
+		
+	<!-- ##################################################### 4G LTE Architecture instances ############################################################-->	
+	
+	<stac:LTEArchitectureComponent rdf:about="eNodeB">	
+		<rdfs:label xml:lang="en">eNodeB</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:LTEArchitectureComponent>
+	
+	<stac:LTEArchitectureComponent rdf:about="EUTRAN">		
+		<rdfs:label xml:lang="en">Evolved UMTS Terresrial Radio Access Network (E-UTRAN)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:LTEArchitectureComponent>
+	
+	<stac:LTEArchitectureComponent rdf:about="EPC">		
+		<rdfs:label xml:lang="en">Evolved Packet Core (EPC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:LTEArchitectureComponent>
+		
+	<!-- ########################################### Zigbee Security Architecture ################################################ -->	
+
+	
+	<!-- ######################################## MESH technology ######################################################### -->	
+	
+	<stac:MeshArchitectureComponent rdf:about="MeshRouter">		
+		<rdfs:label xml:lang="en">Mesh Router (MR)</rdfs:label>
+		<rdfs:comment xml:lang="en">Mesh routers provide access to mobile users, like AP in Wifi.</rdfs:comment>		
+	</stac:MeshArchitectureComponent>
+	
+	<stac:MeshArchitectureComponent rdf:about="MeshPointPortal">		
+		<rdfs:label xml:lang="en">Mesh Point Portal (MPP)</rdfs:label>
+		<rdfs:comment xml:lang="en">Each Mesh Point chooses which Portal to use to get access to the external world.</rdfs:comment>		
+	</stac:MeshArchitectureComponent>
+	
+	<stac:MeshArchitectureComponent rdf:about="MeshClient">		
+		<rdfs:label xml:lang="en">Mesh Client (MC)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>			
+	</stac:MeshArchitectureComponent>
+	
+	<stac:MeshArchitectureComponent rdf:about="MeshAccessPoint">		
+		<rdfs:label xml:lang="en">Mesh Access Point (MAP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:MeshArchitectureComponent>
+	
+	<stac:MeshArchitectureComponent rdf:about="MeshGateway">		
+		<rdfs:label xml:lang="en">Mesh Gateway (MG)</rdfs:label>
+		<rdfs:comment xml:lang="en">MGs provide connectivity to the wired infrastructure.</rdfs:comment>		
+	</stac:MeshArchitectureComponent>
+	
+	<stac:MeshSecurityMechanism rdf:about="SAE">		
+		<rdfs:label xml:lang="en">Simultaneous Authentication of Equals (SAE)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<rdf:type rdf:resource="&stac;LoginPassword"/>	
+		<dcterms:hasPart rdf:resource="PMK"/>	
+		<dcterms:hasPart rdf:resource="ECC"/>
+	</stac:MeshSecurityMechanism>
+	
+	<stac:MeshSecurityMechanism rdf:about="MobiSec">		
+		<rdfs:label xml:lang="en">MobiSEC</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:MeshSecurityMechanism>
+	
+	<stac:MeshSecurityMechanism rdf:about="DSA_Mesh">		
+		<rdfs:label xml:lang="en">DSA-Mesh</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="AccessControl"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>	
+	</stac:MeshSecurityMechanism>
+	
+	<!-- ##################################################### Wimax Architecture ############################################################-->	
+		
+	<stac:WimaxArchitectureComponent rdf:about="WimaxMobileStation">		
+		<rdfs:label xml:lang="en">WiMAX Mobile Station (MS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WimaxArchitectureComponent>
+	
+	<stac:WimaxArchitectureComponent rdf:about="WimaxBaseStation">		
+		<rdfs:label xml:lang="en">WiMAX Base Station (BS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WimaxArchitectureComponent>
+	
+	<stac:WimaxArchitectureComponent rdf:about="SubscriberStation">		
+		<rdfs:label xml:lang="en">Subscriber Station (SS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WimaxArchitectureComponent>
+	
+	<stac:WimaxArchitectureComponent rdf:about="RelayStation">		
+		<rdfs:label xml:lang="en">Relay Station (RS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WimaxArchitectureComponent>
+	
+	<stac:WimaxArchitectureComponent rdf:about="OperatorNetwork">		
+		<rdfs:label xml:lang="en">OperatorNetwork</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment> 
+	</stac:WimaxArchitectureComponent>
+	
+	<stac:WimaxKeyManagement rdf:about="KEK">		
+		<rdfs:label xml:lang="en">Key Encryption Key (KEK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WimaxKeyManagement>
+	
+	<stac:WimaxKeyManagement rdf:about="TEK">		
+		<rdfs:label xml:lang="en">Traffic Encryption Key (TEK)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:WimaxKeyManagement>	
+	
+	<!-- Sensor attacks -->
+	
+	<stac:SensorAttack rdf:about="Tampering">		
+		<rdfs:label xml:lang="en">Node tampering</rdfs:label>
+		<rdfs:comment xml:lang="en">An attacker can tamper with nodes physically and interrogate and compromise them by extracting sensitive information.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="PhysicalLayer"/>
+		<stac:threatens rdf:resource="Confidentiality"/>
+	</stac:SensorAttack>
+
+	<stac:SensorAttack rdf:about="Collision">		
+		<rdfs:label xml:lang="en">Collision</rdfs:label>
+		<rdfs:comment xml:lang="en">An attacker may intentionally violate the communication protocol and continually transmit messages in an attempt to generate collisions ans also deplete a sensor node by forcing too many retransmissions. When two nodes transmit packets of data on the same frequency channel, it can lead to discard of the affected data packet for re-transmission.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015], Paper: MILENAGE: An example of good UMTS Security [Massari 2009?]</dc:description>
+        <stac:occursInLayer rdf:resource="LinkLayer"/>
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>	
+		<stac:hasSecurityMechanism rdf:resource="ErrorCorrectingCode"/>
+		<stac:hasSecurityMechanism rdf:resource="CollisionDetection"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="Unfairness">		
+		<rdfs:label xml:lang="en">Unfairness</rdfs:label>
+		<rdfs:comment xml:lang="en">Unfairness is a weaker form DoS that is done by abusing MAC prority schemes. In unfairness attacks, network performance degrades because medium access control layer priority is generally disrupted accroding to the application requirements.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="LinkLayer"/>
+		<stac:hasSecurityMechanism rdf:resource="SmallFrame"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="Exhaustion">		
+		<rdfs:label xml:lang="en">Battery exhaustion</rdfs:label>
+		<rdfs:comment xml:lang="en">Exhaustion of the node's battery due to repeated retransmission. In exhaustion attacks the battery source is self-sacrificing, since wireless nodes most of the time maintains the channel active.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="LinkLayer"/>
+		<stac:hasSecurityMechanism rdf:resource="TimeDivisionMultiplexing"/>
+		<stac:hasSecurityMechanism rdf:resource="RateLimitation"/>
+	</stac:SensorAttack>
+	
+	<!-- Attacks in the Network Layer -->
+	
+	<stac:SensorAttack rdf:about="Spoofed">		
+		<rdfs:label xml:lang="en">Spoofed</rdfs:label>
+		<rdfs:comment xml:lang="en">Routing information exchanged between sensor nodes is spoofed by an attacker.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<stac:threatens rdf:resource="Authentication"/>	
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="Altered">		
+		<rdfs:label xml:lang="en">Altered</rdfs:label>
+		<rdfs:comment xml:lang="en">Routing information exchanged between sensor nodes is altered by an attacker.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="SelectiveForwarding">		
+		<rdfs:label xml:lang="en">Selective Forwarding</rdfs:label>
+		<rdfs:comment xml:lang="en">Malicious nodes may ensure that certain messages are not transmitted by simply forwarding a few packets and dropping the remaining one.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<rdf:type rdf:resource="&stac;M2MAttack"/>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="MultiPathRouting"/>	
+		<stac:hasSecurityMechanism rdf:resource="LLSP"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="Sybil">		
+		<rdfs:label xml:lang="en">Sybil</rdfs:label>
+		<rdfs:comment xml:lang="en">The malicious node presents multiple fake identities to other nodes in the network.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<rdf:type rdf:resource="&stac;M2MAttack"/>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="SPINS"/>
+		<stac:hasSecurityMechanism rdf:resource="RadioResourceTesting"/>	
+		<stac:hasSecurityMechanism rdf:resource="RandomKeyPredistribution"/>	
+		<stac:hasSecurityMechanism rdf:resource="Registration"/>	
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="Wormhole">		
+		<rdfs:label xml:lang="en">Wormhole</rdfs:label>
+		<rdfs:comment xml:lang="en">An attacker tunnels messages from one location to another location. The attacker then replays those messages from the latter location.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;M2MAttack"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="PacketLeaches"/>
+		<stac:hasSecurityMechanism rdf:resource="Timestamp"/>
+		<stac:hasSecurityMechanism rdf:resource="DirectionalAntenna"/>	
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="Sinkhole">		
+		<rdfs:label xml:lang="en">Sinkhole</rdfs:label>
+		<rdfs:comment xml:lang="en">An attacker tries to attract all neighboring nodes to establish routes though a malicious node. Once the attacker is successfuk in the sinkhole attack, then the network, is also open to other attacks, for example, eavesdropping or selective forwarding. Sinkhole attacks are very hard to detect.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;M2MAttack"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="Watchdog"/>
+		<stac:hasSecurityMechanism rdf:resource="LLSP"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="BlackHole">		
+		<rdfs:label xml:lang="en">BlackHole</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<owl:sameAs rdf:resource="Sinkhole"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="HelloFlood">		
+		<rdfs:label xml:lang="en">Hello Flood</rdfs:label>
+		<rdfs:comment xml:lang="en">The Hello Flood attack uses HELLO packets as a weapon to convince the sensors in Wireless Sensor Networks.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015], Paper: Routing security in sensor networks: Hello Flood Attack and Defense [Hamid et al. 2006]</dc:description>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="IdentityVerification"/>
+	</stac:SensorAttack>
+	
+	<stac:SensorAttack rdf:about="AcknowledgmentSpoofing">		
+		<rdfs:label xml:lang="en">Acknowledgment Spoofing</rdfs:label>
+		<rdfs:comment xml:lang="en">An adversary spoofs link layer acknowledgment (ACK) packets of neighboring nodes. By spoofing such packets, an adversary can convince the sender that "a weak link is strong or that a dead or disabled node is alive."</rdfs:comment>
+		<dc:description xml:lang="en"></dc:description>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<stac:threatens rdf:resource="Authentication"/>
+	</stac:SensorAttack>
+	
+		<!-- Attacks in the Transport Layer -->
+	
+	<!-- Flooding -->
+	
+	
+	<stac:SensorAttack rdf:about="Desynchronization">		
+		<rdfs:label xml:lang="en">Desynchronization</rdfs:label>
+		<rdfs:comment xml:lang="en">In de-synchronized attack, attacker may disrupts the established link between two legitimate two ends nodes by re-synchronizing their transmission.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="TransportLayer"/>
+		<stac:hasSecurityMechanism rdf:resource="ClientPuzzle"/>
+		<stac:threatens rdf:resource="Authentication"/>
+	</stac:SensorAttack>
+
+	<!-- Protocols for sensor Network-->
+	
+	<stac:SensorSecurityProtocol rdf:about="SPINS">		
+		<rdfs:label xml:lang="en">SPINS</rdfs:label>
+		<rdfs:comment xml:lang="en">See SPINS: Security Protocols for Sensor Networks  [Perrig et al. 2001]</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<dcterms:hasPart rdf:resource="SNEP"/>
+		<dcterms:hasPart rdf:resource="microTESLA"/>
+		<dcterms:hasPart rdf:resource="RC6"/>	
+	</stac:SensorSecurityProtocol>
+	
+	<stac:SensorSecurityProtocol rdf:about="LISP">		
+		<rdfs:label xml:lang="en">LiSP</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: LiSP: A lightweight Security Protcol for Wireless Sensor Networks [Park et al. 2004]</dc:description>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="AccessControl"/>
+		<stac:satisfies rdf:resource="Availability"/>	
+	</stac:SensorSecurityProtocol>
+	
+	
+	<stac:SensorSecurityProtocol rdf:about="TinySec">		
+		<rdfs:label xml:lang="en">TinySec</rdfs:label>
+		<rdfs:comment xml:lang="en">TinySec is a sensor protocol for the link layer.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="DataFreshness"/>
+		<stac:satisfies rdf:resource="SemanticSecurity"/>
+		<dcterms:hasPart rdf:resource="TinySec_AE"/>
+		<dcterms:hasPart rdf:resource="TinySec_Auth"/>
+		<dcterms:hasPart rdf:resource="Skipjack"/>				
+	</stac:SensorSecurityProtocol>
+	
+	<stac:SensorSecurityProtocol rdf:about="LLSP">		
+		<rdfs:label xml:lang="en">Link-Layer Security Protocol (LLSP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: An energy efficient Link-Layer Security Protocol for wireless sensor networks [Lighfoot et al. 2004]</dc:description>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<dcterms:hasPart rdf:resource="CBC"/>
+		<dcterms:hasPart rdf:resource="AES"/>
+		<stac:satisfies rdf:resource="DataFreshness"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="SemanticSecurity"/>
+	</stac:SensorSecurityProtocol>
+	
+	<stac:SensorSecurityProtocol rdf:about="MiniSec">		
+		<rdfs:label xml:lang="en">MiniSec</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper MiniSec: A secure Sensor Network Communication Architecture  [Perrig et al. 2007]</dc:description>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+		<dcterms:hasPart rdf:resource="Skipjack"/>
+		<dcterms:hasPart rdf:resource="OCB"/>		
+		<stac:satisfies rdf:resource="DataFreshness"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:SensorSecurityProtocol>
+	
+	<stac:SensorSecurityProtocol rdf:about="ContikiSec">		
+		<rdfs:label xml:lang="en">ContikiSec</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper ContikiSec: a secure network layer for wireless sensor networks under the contiki operating system [Casado et al. 2009]</dc:description>
+		<dcterms:hasPart rdf:resource="CBC"/>
+		<dcterms:hasPart rdf:resource="AES"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+	</stac:SensorSecurityProtocol>
+	
+	<!-- Key Management-->
+	
+	<stac:SensorKeyManagement rdf:about="LEAP_sensor">		
+		<rdfs:label xml:lang="en">Localized encryption and authentication protocol (LEAP)</rdfs:label>
+		<rdfs:comment xml:lang="en">LEAP is a famous key management used in sensor networks. </rdfs:comment>
+		<dc:description xml:lang="en">See Paper: LEAP: Efficient security mechanisms for large-scale distributed sensor networks [Zhu et al. 2004]</dc:description>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<dcterms:hasPart rdf:resource="IndividualKey"/>
+		<dcterms:hasPart rdf:resource="PairwiseKey"/>
+		<dcterms:hasPart rdf:resource="ClusterKey"/>
+		<dcterms:hasPart rdf:resource="GroupKey"/>
+	</stac:SensorKeyManagement>
+	
+	<stac:SymmetricSensorKey rdf:about="IndividualKey">		
+		<rdfs:label xml:lang="en">Individual Key</rdfs:label>
+		<rdfs:comment xml:lang="en">Every node has a unique key that it shares pairwise with the base station. This key is used for secure communication between a node and the base station. Similarly, the base station can use this key to encrypt any sensitive information.</rdfs:comment>
+	</stac:SymmetricSensorKey>
+	
+	<stac:SymmetricSensorKey rdf:about="PairwiseKey">		
+		<rdfs:label xml:lang="en">Pairwise Key</rdfs:label>
+		<rdfs:comment xml:lang="en">Every node shares a pairwise key with each of its immediate neighbors. IN LEAP, pairwise keys are used for securing communications that require privacy or source authentication. In many sensor networks, the immediate neighbors of a sensor node cannot be predicted in advance; consequently, these pairwise shared keys will need to be established after the network is deployed.</rdfs:comment>
+	</stac:SymmetricSensorKey>
+	
+	<stac:SymmetricSensorKey rdf:about="ClusterKey">		
+		<rdfs:label xml:lang="en">Cluster Key</rdfs:label>
+		<rdfs:comment xml:lang="en">A cluster key is a key shared by a node and all its neighbors, and it is mainly used for securing locally broadcast messages, e.g., routing control information, or securing sensor messages which can benefit from passive participation.</rdfs:comment>
+	</stac:SymmetricSensorKey>
+	
+	<stac:SymmetricSensorKey rdf:about="GroupKey">		
+		<rdfs:label xml:lang="en">Group Key</rdfs:label>
+		<rdfs:comment xml:lang="en">This is globally shared key that is used by the base station for encrypting messages that are broadcast to the whole group.</rdfs:comment>
+	</stac:SymmetricSensorKey>
+	
+	<!-- SecurityMechanisms in the Physical Layer -->
+	
+	<!-- SecurityMechanisms in the Link Layer -->
+	
+	<stac:SensorSecurityMechanism rdf:about="SmallFrame">		
+		<rdfs:label xml:lang="en">Small Frame</rdfs:label>
+		<rdfs:comment xml:lang="en">Small frames are used so that an individual node can capture the channel only for a short time.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="ErrorCorrectingCode">		
+		<rdfs:label xml:lang="en">Error Correcting Code</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="CollisionDetection">		
+		<rdfs:label xml:lang="en">Collision Detection</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="TimeDivisionMultiplexing">		
+		<rdfs:label xml:lang="en">Time Division Multiplexing</rdfs:label>
+		<rdfs:comment xml:lang="en">Time Division Multiplexing gives each node a slot for transmission without requiring arbitration for each frame.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:SensorSecurityMechanism>
+
+	<stac:SensorSecurityMechanism rdf:about="RateLimitation">		
+		<rdfs:label xml:lang="en">Rate Limitation</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<!-- SecurityMechanisms in the Network Layer -->
+	
+	<stac:SensorSecurityMechanism rdf:about="Watchdog">		
+		<rdfs:label xml:lang="en">Watchdog</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="RadioResourceTesting">		
+		<rdfs:label xml:lang="en">Radio Resource Testing</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="RandomKeyPredistribution">		
+		<rdfs:label xml:lang="en">Random Key Predistribution</rdfs:label>
+		<rdfs:comment xml:lang="en">Associates the identity of the node to the keys assigned to it and validate the keys to see if the node is really who it claims to be.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="Registration">		
+		<rdfs:label xml:lang="en">Registration Identity</rdfs:label>
+		<rdfs:comment xml:lang="en">Registration of the node identities at a central base station.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="PacketLeaches">		
+		<rdfs:label xml:lang="en">Packet Leaches</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="IdentityVerification">		
+		<rdfs:label xml:lang="en">Identity Verification</rdfs:label>
+		<rdfs:comment xml:lang="en">This protocol verifies bi-directionality of a link between two nodes.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>	
+	
+	<stac:SensorSecurityMechanism rdf:about="MultiPathRouting">		
+		<rdfs:label xml:lang="en">Multi Path Routing</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:SensorSecurityMechanism>	
+	
+	<!-- ################################################ Basis Secure network protocols ############################################################################-->
+
+	<stac:WebSecurityMechanism rdf:about="SSL">		
+		<rdfs:label xml:lang="en">Secure Socket Layer (SSL)</rdfs:label>
+		<rdfs:comment xml:lang="en">SSL is used by web browsers to secure transactions within web applications. Transport Layer Security (TLS) and its predecessor, Secure Sockets Layer (SSL), are cryptographic protocols which are designed to provide communication security over the Internet. They use X.509 certificates and hence asymmetric cryptography to assure the counterparty with whom they are communicating, and to exchange a symmetric key. </rdfs:comment>
+		<rdf:type rdf:resource="&stac;Protocol"/>		
+		<stac:protectsInLayer rdf:resource="TransportLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>		
+		<dcterms:hasPart rdf:resource="PublicKeyInfrastructure"/>
+		<stac:isReplacedBy rdf:resource="TLS"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:WebSecurityMechanism>	
+	
+	<stac:Protocol rdf:about="Kerberos">		
+		<rdfs:label xml:lang="en">Kerberos</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>	
+		<dcterms:hasPart rdf:resource="NeedhamSchroeder"/>
+	</stac:Protocol>
+	
+	<stac:WebSecurityMechanism rdf:about="TLS">		
+		<rdfs:label xml:lang="en">Transport Layer Security (TLS)</rdfs:label>
+		<rdfs:comment xml:lang="en">The TLS protocol allows for secure transactions and provides for end-to-end security at the transport layer. TLS is also known as SSL.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;Protocol"/>		
+		<stac:protectsInLayer rdf:resource="TransportLayer"/>
+		<owl:sameAs rdf:resource="SSL"/>
+	</stac:WebSecurityMechanism>
+	
+	<stac:WebSecurityMechanism rdf:about="SSH">		
+		<rdfs:label xml:lang="en">Secure Shell (SSH)</rdfs:label>
+		<rdfs:comment xml:lang="en">SSH is the now ubiquitous program for logging into or executing commands on a remote machine. It provides secure encrypted communications between two untrusted hosts over an insecure network.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;Protocol"/>		
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:hasFeature rdf:resource="Popular"/>
+		<dcterms:hasPart rdf:resource="AsymmetricAlgorithm"/>
+	</stac:WebSecurityMechanism>
+	
+	<stac:Protocol rdf:about="Ipsec">		
+		<rdfs:label xml:lang="en">Internet Security Protocol (Ipsec)</rdfs:label>
+		<rdfs:comment xml:lang="en">IPSec improves the security at the network layer of the IP based core network.</rdfs:comment>	
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]</dc:description>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<dcterms:hasPart rdf:resource="AH"/>
+		<dcterms:hasPart rdf:resource="ESP"/>
+		<dcterms:hasPart rdf:resource="IKE"/>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:Protocol>
+	
+	<stac:Protocol rdf:about="PAP">		
+		<rdfs:label xml:lang="en">Password Authentication Protocol (PAP)</rdfs:label>
+		<rdfs:comment xml:lang="en">Is an authentication protocol that uses a password.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>	
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</stac:Protocol>
+		
+	<stac:Protocol rdf:about="CHAP">		
+		<rdfs:label xml:lang="en">Challenge-Handshake Authentication Protocol (CHAP)</rdfs:label>
+		<rdfs:comment xml:lang="en">Is an authentication protocol that uses a password.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>	
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<rdf:type rdf:resource="&stac;ManetSecurityMechanism"/>
+	</stac:Protocol>
+	
+	<stac:Protocol rdf:about="ISAKMP">		
+		<rdfs:label xml:lang="en">Internet Security Association and Key Management Protocol (ISAKMP)</rdfs:label>
+		<rdfs:comment xml:lang="en">ISAKMP is a protocol defined for establishing Security Associations (SA) and cryptographic keys in an Internet environment.</rdfs:comment>	
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;KeyManagement"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:Protocol>
+	
+	<stac:Protocol rdf:about="SCHEME">		
+		<rdfs:label xml:lang="en">SCHEME</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:Protocol>
+	
+	<stac:Protocol rdf:about="Oakley">		
+		<rdfs:label xml:lang="en">Oakley (Oakley Key Determination Protocol)</rdfs:label>
+		<rdfs:comment xml:lang="en">Oakley is a key-agreement protocol</rdfs:comment>	
+		<rdf:type rdf:resource="&stac;KeyManagement"/>	
+		<stac:satisfies rdf:resource="Authentication"/>	
+		<dcterms:hasPart rdf:resource="DiffieHellman"/>
+	</stac:Protocol>
+
+	<stac:Protocol rdf:about="NeedhamSchroeder">		
+		<rdfs:label xml:lang="en">Needham-Schroeder</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:Protocol>
+	
+	<!-- ################################################ SecurityMechanisms instances ############################################################################-->
+	
+	<stac:SecurityMechanism rdf:about="PGP">		
+		<rdfs:label xml:lang="en">Pretty Good Privacy (PGP)</rdfs:label>
+		<rdfs:comment xml:lang="en">PGP is a data encryption and decryption computer program that provides privacy and authentication for data communication.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;MessageEncryptionTool"/>	
+		<stac:hasFeature rdf:resource="NotFree"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+	</stac:SecurityMechanism>	
+	
+	<stac:SecurityMechanism rdf:about="GPG">		
+		<rdfs:label xml:lang="en">Gnu Privacy Guard (GPG)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;MessageEncryptionTool"/>	
+		<stac:hasFeature rdf:resource="Free"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+	</stac:SecurityMechanism>
+	
+	<stac:SecurityMechanism rdf:about="SMIME">		
+		<rdfs:label xml:lang="en">Secure/Multipurpose Internet Mail Extension (S/MIME)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="NonRepudiation"/>
+	</stac:SecurityMechanism>
+	
+		<!-- ################################################ E-COMMERCE ############################################################################-->
+	
+	<stac:WebSecurityMechanism rdf:about="SET">		
+		<rdfs:label xml:lang="en">Secure Electronic Transaction (SET)</rdfs:label>
+		<rdfs:comment xml:lang="en">SET is protocol for securing credit card transactions over insecure networks (e.g., Internet).</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<dcterms:hasPart rdf:resource="DES"/>
+	</stac:WebSecurityMechanism>
+	
+		<!-- ################################################ NETWORK Technology instances ############################################################################-->
+	
+	<stac:NetworkManagementSecurityMechanism rdf:about="VPN">		
+		<rdfs:label xml:lang="en">Virtual Private Network (VPN)</rdfs:label>
+		<rdfs:comment xml:lang="en">VPN allows a client to use an "untrusted" network (e.g. the Internet or a wireless network) for secure communication.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;WebSecurityMechanism"/>	
+		<rdf:type rdf:resource="&stac;UMTSSecurityMechanism"/>
+		<dc:description xml:lang="en">See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<dcterms:hasPart rdf:resource="Ipsec"/>
+		<dcterms:hasPart rdf:resource="IKE"/>	
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<stac:satisfies rdf:resource="Authorization"/>
+		<stac:satisfies rdf:resource="AccessControl"/>		
+		<stac:hasSecurityMechanism rdf:resource="VPN"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:hasFeature rdf:resource="LowCostDeployment"/>
+		<stac:hasFeature rdf:resource="Secured"/>	
+	</stac:NetworkManagementSecurityMechanism>
+	
+	<stac:NetworkManagementSecurityMechanism rdf:about="ACL">		
+		<rdfs:label xml:lang="en">Access Control List (ACL)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+        <stac:satisfies rdf:resource="AccessControl"/>
+		<stac:protectsInLayer rdf:resource="TransportLayer"/>
+		<stac:protectsInLayer rdf:resource="NetworkLayer"/>
+	</stac:NetworkManagementSecurityMechanism>
+	
+	<stac:NetworkManagementSecurityMechanism rdf:about="DMZ">		
+		<rdfs:label xml:lang="en">Demilitarized zone (DMZ)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:NetworkManagementSecurityMechanism>
+	
+	<!-- stac:Proxy -->
+	
+	<stac:Proxy rdf:about="Squid">		
+		<rdfs:label xml:lang="en">Squid</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="AccessControl"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:Proxy>
+	
+	<stac:Proxy rdf:about="UltraSurf">		
+		<rdfs:label xml:lang="en">UltraSurf</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="AccessControl"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:Proxy>
+	
+	<stac:Proxy rdf:about="UltraSoft">		
+		<rdfs:label xml:lang="en">UltraSoft</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="AccessControl"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:Proxy>
+
+	<!-- ################################################ IDS instances ############################################################################-->
+		
+	<stac:IDS rdf:about="Snort">		
+		<rdfs:label xml:lang="en">Snort</rdfs:label>
+		<rdfs:comment xml:lang="en">Snort is a network intrusion detection and prevention system and excels at traffic analysis and packet logging on IP networks. Snort detects thousands of worms, vulnerability exploit attempts, port scans, and other suspicious behavior.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;IPS"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:hasFeature rdf:resource="Popular"/>
+		<stac:hasFeature rdf:resource="Free"/>	
+		<stac:hasFeature rdf:resource="Opensource"/>	
+		<stac:satisfies rdf:resource="Availability"/>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:IDS>
+	
+	<stac:IDS rdf:about="Bro">		
+		<rdfs:label xml:lang="en">Bro</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;IPS"/>
+		<stac:satisfies rdf:resource="Availability"/>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:IDS>
+	
+	<stac:IDS rdf:about="Prelude">		
+		<rdfs:label xml:lang="en">Prelude</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Availability"/>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:IDS>
+	
+	<stac:IDS rdf:about="AIDE">		
+		<rdfs:label xml:lang="en">Advanced Intrusion Detection Environment (AIDE)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Availability"/>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:hasFeature rdf:resource="Free"/>	
+	</stac:IDS>
+	
+	<stac:IDS rdf:about="Suricata">		
+		<rdfs:label xml:lang="en">Suricata</rdfs:label>
+		<rdfs:comment xml:lang="en">Suricata is an open source-based intrusion detection system (IDS)</rdfs:comment>
+		<stac:satisfies rdf:resource="Availability"/>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:hasFeature rdf:resource="Opensource"/>	
+	</stac:IDS>
+	
+		
+	<!-- Antivirus -->
+	
+	<stac:Antivirus rdf:about="Avast">		
+		<rdfs:label xml:lang="en">Avast</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>	
+		<stac:hasFeature rdf:resource="Free"/>
+	</stac:Antivirus>
+	
+	<stac:Antivirus rdf:about="Norton">		
+		<rdfs:label xml:lang="en">Norton</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>	
+		<stac:hasFeature rdf:resource="NotFree"/>
+		<rdf:type rdf:resource="&stac;Firewall"/>	
+	</stac:Antivirus>
+	
+	<stac:Antivirus rdf:about="AVG">		
+		<rdfs:label xml:lang="en">AVG</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>	
+		<stac:hasFeature rdf:resource="Free"/>
+	</stac:Antivirus>
+	
+	<stac:Antivirus rdf:about="WindowsDefender">		
+		<rdfs:label xml:lang="en">WindowsDefender</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>	
+		<stac:hasFeature rdf:resource="Free"/>
+	</stac:Antivirus>
+	
+	<stac:Antivirus rdf:about="BitDefender">		
+		<rdfs:label xml:lang="en">BitDefender</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Integrity"/>	
+		<rdf:type rdf:resource="&stac;Firewall"/>	
+	</stac:Antivirus>
+	
+	<!-- Firewall -->
+
+	<stac:Firewall rdf:about="Kapersky">		
+		<rdfs:label xml:lang="en">Kapersky</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:hasFeature rdf:resource="NotFree"/>
+		<rdf:type rdf:resource="&stac;Antivirus"/>		
+		<stac:satisfies rdf:resource="AccessControl"/>	
+	</stac:Firewall>
+	
+	<stac:Firewall rdf:about="MacAfee">		
+		<rdfs:label xml:lang="en">MacAfee</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:hasFeature rdf:resource="NotFree"/>	
+		<rdf:type rdf:resource="&stac;Antivirus"/>	
+		<stac:satisfies rdf:resource="AccessControl"/>	
+	</stac:Firewall>
+	
+	<stac:Firewall rdf:about="ZoneAlarm">		
+		<rdfs:label xml:lang="en">ZoneAlarm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:hasFeature rdf:resource="Free"/>	
+		<stac:satisfies rdf:resource="AccessControl"/>	
+	</stac:Firewall>
+	
+	<stac:Firewall rdf:about="Comodo">		
+		<rdfs:label xml:lang="en">ZoneAlarm</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:hasFeature rdf:resource="Free"/>	
+		<stac:satisfies rdf:resource="AccessControl"/>	
+	</stac:Firewall>
+	
+	<stac:Firewall rdf:about="eScan">		
+		<rdfs:label xml:lang="en">eScan</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="AccessControl"/>	
+	</stac:Firewall>
+	
+	<!-- ################################################ SecurityMechanisms instances ############################################################################-->
+	
+	<stac:SecurityMechanism rdf:about="RadioSpectrumMonitoringEquipment">		
+		<rdfs:label xml:lang="en">Radio Spectrum Monitoring Equipment</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:SecurityMechanism>
+	
+	<stac:SecurityMechanism rdf:about="SpreadSpectrumCommunication">		
+		<rdfs:label xml:lang="en">Spread Spectrum Communication</rdfs:label>
+		<rdfs:comment xml:lang="en">A modulation technique where the transmission signal is spreading over a wide range of the radio spectrum. Resilience to jamming can be augmented by increasing the power of signals using spreding techniques.</rdfs:comment>
+	</stac:SecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="ClientPuzzle">		
+		<rdfs:label xml:lang="en">Client Puzzle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="TransportLayer"/>
+	</stac:SensorSecurityMechanism>
+	
+	<stac:SensorSecurityMechanism rdf:about="DirectionalAntenna">		
+		<rdfs:label xml:lang="en">Directional Antenna</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;M2MSecurityMechanism"/>
+	</stac:SensorSecurityMechanism>	
+		
+	<stac:NetworkManagementSecurityMechanism rdf:about="MACAddressFiltering">		
+		<rdfs:label xml:lang="en">MAC Address Filtering</rdfs:label>
+		<rdfs:comment xml:lang="en">If a client's MAC address is not included in the list, the client will not be allowed to access the network.</rdfs:comment>	
+	</stac:NetworkManagementSecurityMechanism>
+	
+	<!-- ################################################ Attacks instances ############################################################################-->
+		
+	<stac:Attack rdf:about="MITM">		
+		<rdfs:label xml:lang="en">Man-in-the-Middle (MITM) attack</rdfs:label>
+		<rdfs:comment xml:lang="en">An attacker intrudes into the communication between the endpoints on a network to inject false information and intercept the data transferred between them. The attack allows an intruder to impersonate a valid GSM base station to a UMTS subscriber regardless of the fact that UMTS authentication and key agreement are used.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015], Paper: A Man-in-the-Middle Attack on UMTS [Meyer 2004]. See Paper: Malicious actions against the GPRS technology [Xenakis 2006]</dc:description>
+		<stac:hasSecurityMechanism rdf:resource="&stac;DigitalCertificate"/>
+		<stac:hasSecurityMechanism rdf:resource="HTTPS"/>
+		<stac:hasSecurityMechanism rdf:resource="PANA"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>
+		<rdf:type rdf:resource="&stac;GPRSAttack"/>
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EthernetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;RFIDTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ZigbeeTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;BluetoothTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UWBTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WifiTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WimaxTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GSMTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GPRSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EDGETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UMTSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;HSDPATechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;LTETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ManetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;SensorTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;MeshTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;M2MTechnology"/>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="CiphertextOnly">		
+		<rdfs:label xml:lang="en">Ciphertext Only</rdfs:label>
+		<rdfs:comment xml:lang="en">The attacker only knows the ciphertext.</rdfs:comment>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="KnownPlaintext">		
+		<rdfs:label xml:lang="en">Known Plaintext</rdfs:label>
+		<rdfs:comment xml:lang="en">The attacker knows pairs of plaintext and ciphertext.</rdfs:comment>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="ChosenPlaintext">		
+		<rdfs:label xml:lang="en">Chosen Plaintext</rdfs:label>
+		<rdfs:comment xml:lang="en">The attacker can get ciphers of chosen plaintexts but only before the plaintext to attack (called challenge).</rdfs:comment>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="AdaptiveChosenPlaintext">		
+		<rdfs:label xml:lang="en">Adaptive Chosen Plaintext</rdfs:label>
+		<rdfs:comment xml:lang="en">The attacker can gets ciphers of chosen plaintexts before and after challenge.</rdfs:comment>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="AdaptiveChosenPlaintextCiphertext">		
+		<rdfs:label xml:lang="en">Adaptive Chosen Plaintext Ciphertext</rdfs:label>
+		<rdfs:comment xml:lang="en">The attacker can decipher chosen ciphertexts before and after the challenge (apart fro; this letter).</rdfs:comment>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="ChosenCiphertext">		
+		<rdfs:label xml:lang="en">Chosen Ciphertext</rdfs:label>
+		<rdfs:comment xml:lang="en">The attacker can decipher chosen ciphertexts before the challenge.</rdfs:comment>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="SideChannel">		
+		<rdfs:label xml:lang="en">Side Channel</rdfs:label>
+		<rdfs:comment xml:lang="en">Side channel attack is any attack based on information gained from the physical implementation of a cryptosystem.</rdfs:comment>
+	</stac:Attack>		
+	
+	<stac:Attack rdf:about="Eavesdropping">		
+		<rdfs:label xml:lang="en">Eavesdropping</rdfs:label>
+		<rdfs:comment xml:lang="en">Eavesdropping is the act of secretly listening to the private conversation of others without their consent. Two-way authentication and encryption altgorithm can prevent from this attack.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: A study of information security for M2M and IoT [Jiang et al. 2010], Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<rdf:type rdf:resource="&stac;M2MAttack"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<rdf:type rdf:resource="&stac;WimaxAttack"/>	
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>
+		<rdf:type rdf:resource="&stac;WifiAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;EncryptionAlgorithm"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;MutualAuthentication"/>
+		<stac:hasSecurityMechanism rdf:resource="VPN"/>
+		<stac:hasSecurityMechanism rdf:resource="PANA"/>
+		<stac:hasSecurityMechanism rdf:resource="HTTPS"/>
+		<stac:hasSecurityMechanism rdf:resource="Kerberos"/>
+		<stac:occursInLayer rdf:resource="PhysicalLayer"/>		
+		<stac:threatens rdf:resource="Authentication"/>
+		<stac:hasSecurityMechanism rdf:resource="DirectionalAntenna"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EthernetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;RFIDTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ZigbeeTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;BluetoothTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UWBTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WifiTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WimaxTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GSMTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GPRSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EDGETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UMTSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;HSDPATechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;LTETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ManetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;SensorTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;MeshTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;M2MTechnology"/>
+	</stac:Attack>
+	
+	<stac:WimaxAttack rdf:about="ReplayAttack">		
+		<rdfs:label xml:lang="en">Replay Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015, Paper: An evaluation of security protocols on wireless sensor network [Ahmed et al. 2009]</dc:description>
+		<rdf:type rdf:resource="&stac;SensorAttack"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>
+		<stac:threatens rdf:resource="Freshness"/>
+		<stac:threatens rdf:resource="Availability"/>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EthernetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;RFIDTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ZigbeeTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;BluetoothTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UWBTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WifiTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WimaxTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GSMTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GPRSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EDGETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UMTSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;HSDPATechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;LTETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ManetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;SensorTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;MeshTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;M2MTechnology"/>
+		<stac:hasSecurityMechanism rdf:resource="Kerberos"/>
+		<stac:hasSecurityMechanism rdf:resource="CHAP"/>
+	</stac:WimaxAttack>
+	
+	<stac:Attack rdf:about="SpoofingAddress">		
+		<rdfs:label xml:lang="en">Spoofing/Impersonation IP or MAC Address</rdfs:label>
+		<rdfs:comment xml:lang="en">Spoofing means that hackers use someone else's IP address and receives packets from the other users.</rdfs:comment>
+		<dc:description xml:lang="en">See Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015], Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015], Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]</dc:description>
+		<stac:hasSecurityMechanism rdf:resource="VPN"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;Firewall"/>
+		<stac:hasSecurityMechanism rdf:resource="PANA"/>
+		<rdf:type rdf:resource="&stac;WifiAttack"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>
+		<rdf:type rdf:resource="&stac;SensorAttack"/>
+		<stac:threatens rdf:resource="Authentication"/>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+	</stac:Attack>	
+
+	<stac:Attack rdf:about="Sniffing">		
+		<rdfs:label xml:lang="en">Sniffing</rdfs:label>
+		<rdfs:comment xml:lang="en">Sniffing means that hacker aim to collect information (e.g. password)</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]</dc:description>
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="StolenBackup">		
+		<rdfs:label xml:lang="en">Stolen Backup</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;DatabaseAttack"/>
+	</stac:Attack>
+	
+	<stac:DatabaseAttack rdf:about="ExploitVulnarability">		
+		<rdfs:label xml:lang="en">Exploit Vulnarability</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseAttack>
+		
+	<stac:Attack rdf:about="DoS">		
+		<rdfs:label xml:lang="en">Denial of Service (DoS)</rdfs:label>
+		<rdfs:comment xml:lang="en">A DoS attack is any event that diminishes or eliminates a network's capacity to perform its expected function. Paper: Denial of Service in Sensor Networks  [Wood et al. 2002]. A DoS threats are harmful to every application. The DoS attack tries to exhaust the resources available to the victim node, by sending extra unnecessary packets and thus prevents legitimate network users from accessing services or resources to which they are entitled.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]. See Paper: Malicious actions against the GPRS technology [Xenakis 2006], Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="TransportLayer"/>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+		<rdf:type rdf:resource="&stac;SensorAttack"/>	
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+		<rdf:type rdf:resource="&stac;GPRSAttack"/>
+		<rdf:type rdf:resource="&stac;WimaxAttack"/>
+		<rdf:type rdf:resource="&stac;NetworkManagementAttack"/>
+		<rdf:type rdf:resource="&stac;DatabaseAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="ClientPuzzle"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;Technology"/>
+		<stac:hasSecurityMechanism rdf:resource="PANA"/>
+		<stac:hasSecurityMechanism rdf:resource="IPS"/>
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="Jamming">		
+		<rdfs:label xml:lang="en">Jamming</rdfs:label>
+		<rdfs:comment xml:lang="en">Jamming is the interference with the Radio Frequency (RF) used by the nodes in a network in the physical layer. It prevents the nodes to communicate with each other.</rdfs:comment>
+        <dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:occursInLayer rdf:resource="PhysicalLayer"/>
+		<rdf:type rdf:resource="&stac;SensorAttack"/>
+		<rdf:type rdf:resource="&stac;RfidAttack"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+		<rdf:type rdf:resource="&stac;WimaxAttack"/>
+		<rdf:type rdf:resource="&stac;ZigbeeAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="SpreadSpectrumCommunication"/>
+		<stac:hasSecurityMechanism rdf:resource="RadioSpectrumMonitoringEquipment"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;RFIDTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ZigbeeTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;BluetoothTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UWBTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WifiTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WimaxTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GSMTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;GPRSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;EDGETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;UMTSTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;HSDPATechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;LTETechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;ManetTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;SensorTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;MeshTechnology"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;M2MTechnology"/>
+	</stac:Attack>		
+	
+	<stac:Flooding rdf:about="IPFlooding">		
+		<rdfs:label xml:lang="en">IP Flooding</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Flooding>
+	
+	<stac:Flooding rdf:about="SYNFlooding">		
+		<rdfs:label xml:lang="en">SYN Flooding</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="TransportLayer"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+	</stac:Flooding>
+	
+	<stac:Flooding rdf:about="UDPFlooding">		
+		<rdfs:label xml:lang="en">UDP Flooding</rdfs:label>
+		<rdfs:comment xml:lang="en">Floodings attacks generally are used to drain the memry resources by sensing the control signals.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="TransportLayer"/>
+	</stac:Flooding>
+	
+	<stac:Flooding rdf:about="TCPFlooding">		
+		<rdfs:label xml:lang="en">TCP Flooding</rdfs:label>
+		<rdfs:comment xml:lang="en">Floodings attacks generally are used to drain the memry resources by sensing the control signals.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="TransportLayer"/>
+	</stac:Flooding>
+	
+	<stac:Flooding rdf:about="ARPPoisoning">		
+		<rdfs:label xml:lang="en">ARP Poisoning/ ARP Spoofing</rdfs:label>
+		<rdfs:comment xml:lang="en">Is a technique whereby an attacker sends fake ("spoofed") ARP messages. ARP (Address Resolution Protocol) is the protocol which convert MAC address into IP address.</rdfs:comment>
+	</stac:Flooding>	
+				
+	<stac:Attack rdf:about="DNSFlood">		
+		<rdfs:label xml:lang="en">DNS Flood</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:Attack>
+	
+	<stac:Attack rdf:about="DNSCachePoisoning">		
+		<rdfs:label xml:lang="en">DNS Cache Poisoning</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:Attack>
+		
+	<stac:WimaxAttack rdf:about="ForgeryAttack">		
+		<rdfs:label xml:lang="en">Forgery Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:hasSecurityMechanism rdf:resource="HMAC"/>
+	</stac:WimaxAttack>
+	
+		<!-- ########################################### RFID attacks instances ########################################################################## -->	
+	
+	<stac:RfidAttack rdf:about="RogueReader">		
+		<rdfs:label xml:lang="en">Rogue Reader </rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>		
+	</stac:RfidAttack>
+	
+	<stac:RfidAttack rdf:about="TagCloning">		
+		<rdfs:label xml:lang="en">Unauthorized tag cloning</rdfs:label>
+		<rdfs:comment xml:lang="en">Once the identification information of a tag is compromised, replication of the tag (cloning) is made possible which can be used to bypass counterfeit security measures.</rdfs:comment>		
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:threatens rdf:resource="Integrity"/>
+	</stac:RfidAttack>
+	
+	<stac:RfidAttack rdf:about="TagDisabling">		
+		<rdfs:label xml:lang="en">Unauthorized tag disabling</rdfs:label>
+		<rdfs:comment xml:lang="en">Such attacks render a RFID tag to malfunction and misbehave under the scan of a tag reader.</rdfs:comment>		
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:threatens rdf:resource="Authentication"/>
+	</stac:RfidAttack>
+	
+	<stac:RfidAttack rdf:about="TagTracking">		
+		<rdfs:label xml:lang="en">Unauthorized tag tracking</rdfs:label>
+		<rdfs:comment xml:lang="en">A tag can be traced through rogue readers, which may result in giving up of sensistive information like a person's address.</rdfs:comment>		
+		<dc:description xml:lang="en">See Paper: Survey of Security and Privacy Issues of Internet of Things [Borgohain et al. 2015]</dc:description>
+		<stac:threatens rdf:resource="Confidentiality"/>
+	</stac:RfidAttack>
+		
+	<!-- ########################################### UMTS attacks instances ########################################################################## -->
+	
+	<stac:UMTSAttack rdf:about="HijackIMSI">		
+		<rdfs:label xml:lang="en">Hijack IMSI</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:UMTSAttack>
+	
+	<!-- ########################################### Wifi attacks instances ########################################################################## -->	
+	
+	<stac:WifiAttack rdf:about="RogueAP">		
+		<rdfs:label xml:lang="en">Rogue Access Point </rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+	</stac:WifiAttack>	
+	
+	<stac:WifiAttack rdf:about="ParkingLot">		
+		<rdfs:label xml:lang="en">Parking Lot</rdfs:label>
+		<rdfs:comment xml:lang="en">Signals can be intercepted outside buildings.</rdfs:comment>	
+	</stac:WifiAttack>	
+		
+	<stac:WifiAttack rdf:about="StealNic">		
+		<rdfs:label xml:lang="en">Steal NIC (Network Interface Card)</rdfs:label>
+		<rdfs:comment xml:lang="en">Because ACLs (Access Control Lists) rely on MAC addresses which is a unique identifier for a NIC.</rdfs:comment>	
+	</stac:WifiAttack>
+	
+	<!-- ########################################### Wimax attacks instances ########################################################################## -->
+	
+	<!-- Jamming / Forgery Attack / Replay Attack / MITM / -->
+	
+	<stac:WimaxAttack rdf:about="RogueBaseStation">		
+		<rdfs:label xml:lang="en">Rogue Base Station </rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>	
+		<rdf:type rdf:resource="&stac;GSMAttack"/>	
+		<stac:isVulnerabilityOf rdf:resource="&stac;WimaxTechnology"/>	
+		<stac:isVulnerabilityOf rdf:resource="&stac;GSMTechnology"/>	
+	</stac:WimaxAttack>	
+	
+	<stac:WimaxAttack rdf:about="Scrambling">		
+		<rdfs:label xml:lang="en">Scrambling</rdfs:label>
+		<rdfs:comment xml:lang="en">Scrambling is a kind of jamming, but for short intervals of time and targeted to specific frames or parts of frames.</rdfs:comment>	
+		<stac:occursInLayer rdf:resource="PhysicalLayer"/>	
+	</stac:WimaxAttack>
+	
+	<stac:WimaxAttack rdf:about="WaterTorture">		
+		<rdfs:label xml:lang="en">Water Torture Attack</rdfs:label>
+		<rdfs:comment xml:lang="en">Pushes a Subscriber Station (SS) to drain its battery or consume computing resources by sending bogus frames.</rdfs:comment>	
+	</stac:WimaxAttack>
+	
+	<!-- ########################################### M2M attacks instances ########################################################################## -->
+
+	<stac:SensorAttack rdf:about="NodeCapture">		
+		<rdfs:label xml:lang="en">Node capture/Compromise/NodeReplication</rdfs:label>
+		<rdfs:comment xml:lang="en">A node can be completely captured and manipulated by the adversary. Paper: An evaluation of security protocols on wireless sensor network [Ahmed et al. 2009]</rdfs:comment>
+		<dc:description xml:lang="en">Resilience against node capture is one of the most challeging problems in sensor networks.</dc:description>
+        <stac:occursInLayer rdf:resource="PhysicalLayer"/>
+		<rdf:type rdf:resource="&stac;MeshAttack"/>	
+		<rdf:type rdf:resource="&stac;M2MAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="HidingNode"/>
+		<stac:hasSecurityMechanism rdf:resource="TamperResistantHarware"/>
+	</stac:SensorAttack>
+	
+	<stac:SecurityMechanism rdf:about="HidingNode">		
+		<rdfs:label xml:lang="en">Hiding Node</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="PhysicalLayer"/>
+	</stac:SecurityMechanism>
+	
+	<stac:SecurityMechanism rdf:about="TamperResistantHarware">		
+		<rdfs:label xml:lang="en">Tamper Resistant Harware</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="PhysicalLayer"/>
+	</stac:SecurityMechanism>
+	
+	<stac:M2MAttack rdf:about="Rushing">		
+		<rdfs:label xml:lang="en">Rushing</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+	</stac:M2MAttack>
+		
+	<stac:MeshAttack rdf:about="ByzantineAttack">		
+		<rdfs:label xml:lang="en">Byzantine Attack</rdfs:label>
+		<rdfs:comment xml:lang="en">It is an invalid operation of the network initiated by malicious nodes where the presence of compromised routing and compromised nodes are not detected.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+		<rdf:type rdf:resource="&stac;ManetAttack"/>
+	</stac:MeshAttack>
+	
+	<stac:MeshAttack rdf:about="RoutingTableOverflow">		
+		<rdfs:label xml:lang="en">Routing Table Overflow</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="NetworkLayer"/>
+	</stac:MeshAttack>
+	
+	<!-- ########################################### web SecurityMechanisms ########################################################################## -->
+	
+	<stac:WebSecurityMechanism rdf:about="HtAccess">		
+		<rdfs:label xml:lang="en">HtAccess</rdfs:label>
+		<rdfs:comment xml:lang="en">A .htaccess file is a directory-level configuration file supported by several web servers, that allows for decentralized management of web server configuration. They are placed inside the web tree, and are able to override a subset of the server's global configuration for the directory that they are in, and all sub-directories</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<rdf:type rdf:resource="&stac;NetworkManagementSecurityMechanism"/>
+	</stac:WebSecurityMechanism>
+	
+	<stac:WebSecurityMechanism rdf:about="OpenID">		
+		<rdfs:label xml:lang="en">OpenID</rdfs:label>
+		<rdfs:comment xml:lang="en">OpenID is an open standard that allows users to be authenticated by certain co-operating sites using a third party service, eliminating the need for webmasters to provide their own ad hoc systems and allowing users to consolidate their digital identities. </rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:hasFeature rdf:resource="Popular"/>
+	</stac:WebSecurityMechanism>
+	
+	<stac:WebSecurityMechanism rdf:about="OAuth">		
+		<rdfs:label xml:lang="en">OAuth</rdfs:label>
+		<rdfs:comment xml:lang="en">OAuth is an authentication server, an open standard for authorization.</rdfs:comment>
+		<stac:satisfies rdf:resource="Authorization"/>
+	</stac:WebSecurityMechanism>
+		
+	<stac:WebSecurityMechanism rdf:about="VeriSign">		
+		<rdfs:label xml:lang="en">VeriSign</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WebSecurityMechanism>
+			
+	<stac:WebSecurityProtocol rdf:about="LDAP">		
+		<rdfs:label xml:lang="en">Lightweight Directory Access Protocol (LDAP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebSecurityProtocol>	
+		
+	<stac:WebSecurityProtocol rdf:about="HTTPS">		
+		<rdfs:label xml:lang="en">HyperText Transfer Protocol Secure (HTTPS)</rdfs:label>
+		<rdfs:comment xml:lang="en">HTTPS is a widely used to secure the communication against eavesdroppers and thus providing confidentiality.</rdfs:comment>	
+		<stac:protectsInLayer rdf:resource="ApplicationLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<dcterms:hasPart rdf:resource="SSL"/>
+		<dcterms:hasPart rdf:resource="X_509"/>
+	</stac:WebSecurityProtocol>	
+	
+		<!-- ########################################### web attacks instances ########################################################################## -->
+	
+	<stac:WebAttack rdf:about="Adware">		
+		<rdfs:label xml:lang="en">Adware</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="Backdoor">		
+		<rdfs:label xml:lang="en">Backdoor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="Rootkit">		
+		<rdfs:label xml:lang="en">Rootkit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="Rogue">		
+		<rdfs:label xml:lang="en">Rogue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="RansomWare">		
+		<rdfs:label xml:lang="en">RansomWare</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="KeyLoger">		
+		<rdfs:label xml:lang="en">KeyLoger</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="Exploit">		
+		<rdfs:label xml:lang="en">Exploit</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="Bot">		
+		<rdfs:label xml:lang="en">Bot</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="BufferOverflow">		
+		<rdfs:label xml:lang="en">Buffer Overflow</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="XSS">		
+		<rdfs:label xml:lang="en">Cross Site Scripting (XSS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;Firewall"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="CSRF">		
+		<rdfs:label xml:lang="en">Cross Site Request Forgery (CSRF)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="SQLInjection">		
+		<rdfs:label xml:lang="en">SQL Injection</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+		<rdf:type rdf:resource="&stac;DatabaseAttack"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;Firewall"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="SessionHijacking">		
+		<rdfs:label xml:lang="en">Session Hijacking</rdfs:label>
+		<rdfs:comment xml:lang="en">To access mobile communication services on the target's account.</rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+		<stac:isVulnerabilityOf rdf:resource="&stac;WebTechnology"/>
+	</stac:WebAttack>		
+	
+	<stac:WebAttack rdf:about="SocialEngineering">		
+		<rdfs:label xml:lang="en">Social Engineering</rdfs:label>
+		<rdfs:comment xml:lang="en">Social engineering can be weird calls or mails where the caller explains the need of a user ID and password to an equipment there and the responsible is on holiday or unreachable.</rdfs:comment>
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]</dc:description>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+		<stac:threatens rdf:resource="Authentication"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;AuthenticationMethod"/>
+		<rdf:type rdf:resource="&stac;UMTSAttack"/>
+	</stac:WebAttack>
+			
+	<stac:WebAttack rdf:about="BruteForce">		
+		<rdfs:label xml:lang="en">Brute Force</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+		<rdf:type rdf:resource="&stac;DatabaseAttack"/>
+		<stac:threatens rdf:resource="Authentication"/>
+		<stac:hasSecurityMechanism rdf:resource="&stac;AuthenticationMethod"/>
+	</stac:WebAttack>
+	
+	<stac:WebAttack rdf:about="Dictionnary">		
+		<rdfs:label xml:lang="en">Dictionnary Attack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:occursInLayer rdf:resource="ApplicationLayer"/>
+	</stac:WebAttack>
+	
+		<!-- ################################################ Virus instances ############################################################################-->
+	
+	<stac:Virus rdf:about="LoveBug">		
+		<rdfs:label xml:lang="en">Love Bug</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Virus>
+	
+	<!-- ################################################ Worm instances ############################################################################-->
+	
+	<stac:Worm rdf:about="Morris">		
+		<rdfs:label xml:lang="en">Morris</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Worm>
+	
+	<stac:Worm rdf:about="Blaster">		
+		<rdfs:label xml:lang="en">BlasterWorm worm.</rdfs:label>
+		<rdfs:comment xml:lang="en">BlasterWorm is a Windows 2000 vulnerability.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;OperatingSystemAttack"/>
+		<rdf:type rdf:resource="&stac;DatabaseAttack"/>
+	</stac:Worm>
+	
+	<stac:Worm rdf:about="SQLSlammer">		
+		<rdfs:label xml:lang="en">SQLSlammer worm.</rdfs:label>
+		<rdfs:comment xml:lang="en">SQLSlammer worm took advantage of a Microsoft SQL server protocol vulnerability.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;OperatingSystemAttack"/>
+	</stac:Worm>
+	
+	<!-- ########################################### JAVA & SECURITY instances ########################################################################## -->
+
+	<stac:ProgrammingLanguageSecurityMechanism rdf:about="JCE">		
+		<rdfs:label xml:lang="en">Java Cryptography Extension (JCE)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageSecurityMechanism>
+	
+	<stac:ProgrammingLanguageSecurityMechanism rdf:about="JAAS">		
+		<rdfs:label xml:lang="en">Java Authentication and Authorization Service (JAAS)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageSecurityMechanism>
+	
+	<!-- ########################################### Security Tool instances ########################################################################## -->
+	
+	<stac:WifiAttackTool rdf:about="Aerosol">		
+		<rdfs:label xml:lang="en">Aerosol</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WifiAttackTool>
+	
+	<stac:WifiAttackTool rdf:about="AirSnort">		
+		<rdfs:label xml:lang="en">AirSnort</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WifiAttackTool>
+	
+	<stac:WifiAttackTool rdf:about="WepCrack">		
+		<rdfs:label xml:lang="en">WEP Crack</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:WifiAttackTool>
+	
+	<stac:WifiAttackTool rdf:about="AirCrack">		
+		<rdfs:label xml:lang="en">Air Crack</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Crack is a suite of tools for WEP and WPA cracking. It implments the best known cracking algorithms to recover wireless keys once enough encrypted packets have been gathered.</rdfs:comment>
+	</stac:WifiAttackTool>
+	
+	<!-- Security Magazine -->
+	
+	<stac:SecurityMagazine rdf:about="Misc">		
+		<rdfs:label xml:lang="en">Misc (Multi-System and Internet Security Cookbook)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:SecurityMagazine>
+	
+	<stac:SecurityMagazine rdf:about="HackInSight">		
+		<rdfs:label xml:lang="en">HackInSight</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:SecurityMagazine>
+	
+	<!-- Network Administration Security Tool -->
+	
+	<stac:NetworkManagementSecurityTool rdf:about="Ettercap">		
+		<rdfs:label xml:lang="en">Ettercap</rdfs:label>
+		<rdfs:comment xml:lang="en">Ettercap is a free and open source network security tool for man-in-the-middle attacks on LAN. It can be used for computer network protocol analysis and security auditing.  It is capable of intercepting traffic on a network segment, capturing passwords, and conducting active eavesdropping against a number of common protocols.</rdfs:comment>
+		<stac:hasFeature rdf:resource="Free"/>	
+		<stac:hasFeature rdf:resource="Opensource"/>	
+	</stac:NetworkManagementSecurityTool>
+	
+	<stac:NetworkManagementSecurityTool rdf:about="Nmap">		
+		<rdfs:label xml:lang="en">Nmap</rdfs:label>
+		<rdfs:comment xml:lang="en">Nmap is a security scanner</rdfs:comment>
+	</stac:NetworkManagementSecurityTool>
+
+	<stac:NetworkManagementSecurityTool rdf:about="Wireshark">		
+		<rdfs:label xml:lang="en">Wireshark or Ethereal</rdfs:label>
+		<rdfs:comment xml:lang="en">Wireshark is a network protocol packet analyzer. It allows you to examine data from a live network of from a capture file on disk. </rdfs:comment>
+		<stac:hasFeature rdf:resource="Free"/>	
+		<stac:hasFeature rdf:resource="Opensource"/>	
+	</stac:NetworkManagementSecurityTool>
+	
+	<stac:NetworkManagementSecurityTool rdf:about="Tcpdump">		
+		<rdfs:label xml:lang="en">Tcpdump</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:isReplacedBy rdf:resource="Wireshark"/>
+	</stac:NetworkManagementSecurityTool>	
+	
+	<stac:NetworkManagementSecurityTool rdf:about="BackTrack">		
+		<rdfs:label xml:lang="en">BackTrack</rdfs:label>
+		<rdfs:comment xml:lang="en">BackTrack is a distribution based on the Debian GNU/Linux distribution aimed at digital forensics and penetration testing use.</rdfs:comment>
+	</stac:NetworkManagementSecurityTool>	
+	
+	<stac:NetworkManagementSecurityTool rdf:about="JohnTheRipper">		
+		<rdfs:label xml:lang="en">John the Ripper</rdfs:label>
+		<rdfs:comment xml:lang="en">John the Ripper is a fast password cracker.</rdfs:comment>
+	</stac:NetworkManagementSecurityTool>		
+	
+	<stac:NetworkManagementSecurityTool rdf:about="Nessus">		
+		<rdfs:label xml:lang="en">Nessus</rdfs:label>
+		<rdfs:comment xml:lang="en">Nessus is a vulnerability scanner. Its goal is to detect potential vulnerabilities on the tested systems.</rdfs:comment>
+		<stac:hasFeature rdf:resource="NotFree"/>	
+	</stac:NetworkManagementSecurityTool>	
+	
+	<stac:NetworkManagementSecurityTool rdf:about="Metasploit">		
+		<rdfs:label xml:lang="en">Metasploit</rdfs:label>
+		<rdfs:comment xml:lang="en">The Metasploit Project is a computer security project that provides information about security vulnerabilities and aids in penetration testing and IDS signature development.</rdfs:comment>
+		<stac:hasFeature rdf:resource="Opensource"/>	
+		<stac:hasFeature rdf:resource="Free"/>	
+	</stac:NetworkManagementSecurityTool>	
+	
+	<!-- Obfuscation -->
+	
+	<stac:Obfuscation rdf:about="RetroGuard">		
+		<rdfs:label xml:lang="en">RetroGuard</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Obfuscation>	
+	
+	<stac:Obfuscation rdf:about="YGuard">		
+		<rdfs:label xml:lang="en">YGuard</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Obfuscation>	
+	
+	<stac:Obfuscation rdf:about="ProGuard">		
+		<rdfs:label xml:lang="en">ProGuard</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Obfuscation>	
+	
+	<!-- Database -->
+	
+	<stac:DatabaseTechnology rdf:about="MySQL">		
+		<rdfs:label xml:lang="en">MySQL</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="Oracle">		
+		<rdfs:label xml:lang="en">Oracle</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="PostgreSQL">		
+		<rdfs:label xml:lang="en">PostgreSQL</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="DB2">		
+		<rdfs:label xml:lang="en">DB2</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="SQLLite">		
+		<rdfs:label xml:lang="en">SQLLite</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="HBase">		
+		<rdfs:label xml:lang="en">HBase</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="NoSQL">		
+		<rdfs:label xml:lang="en">NoSQL</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="MongoDB">		
+		<rdfs:label xml:lang="en">MongoDB</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<stac:DatabaseTechnology rdf:about="TripleStore">		
+		<rdfs:label xml:lang="en">TripleStore</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:DatabaseTechnology>
+	
+	<!-- Honeypot -->
+	
+	<stac:Honeypot rdf:about="Honeyd">		
+		<rdfs:label xml:lang="en">Honeyd</rdfs:label>
+		<rdfs:comment xml:lang="en">Honeyd is a honeypot.</rdfs:comment>
+	</stac:Honeypot>
+	
+	<stac:Honeypot rdf:about="HoneyBOT">		
+		<rdfs:label xml:lang="en">HoneyBOT</rdfs:label>
+		<rdfs:comment xml:lang="en">HoneyBOT is a honeypot.</rdfs:comment>
+	</stac:Honeypot>
+	
+	<stac:Honeypot rdf:about="JHoney">		
+		<rdfs:label xml:lang="en">JHoney</rdfs:label>
+		<rdfs:comment xml:lang="en">JHoney is a honeypot tool for Linux written in Java.</rdfs:comment>
+	</stac:Honeypot>
+	
+	<!-- Framework -->
+	
+	<stac:FrameworkTechnology rdf:about="Hadoop">		
+		<rdfs:label xml:lang="en">Hadoop</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="Struts">		
+		<rdfs:label xml:lang="en">Struts</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="RubyOnRails">		
+		<rdfs:label xml:lang="en">Ruby On Rails</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="Spring">		
+		<rdfs:label xml:lang="en">Spring</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">Spring is a well-known Java framework. Spring does not implement its aspect-oriented features on the language level but though the use of dynamic byte code generation, thereby leaving the Java language intact.</dc:description>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="SpringSecurity">		
+		<rdfs:label xml:lang="en">Spring Security</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="Hibernate">		
+		<rdfs:label xml:lang="en">Hibernate</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="Virtuoso">		
+		<rdfs:label xml:lang="en">Virtuoso</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="Jena">		
+		<rdfs:label xml:lang="en">Jena</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<stac:FrameworkTechnology rdf:about="Sesame">		
+		<rdfs:label xml:lang="en">Sesame</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkTechnology>
+	
+	<!-- ProgrammingLanguage -->
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="Java">		
+		<rdfs:label xml:lang="en">Java</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="PHP">		
+		<rdfs:label xml:lang="en">PHP</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="DotNet">		
+		<rdfs:label xml:lang="en">.Net</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="Javascript">		
+		<rdfs:label xml:lang="en">Javascript</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="ObjectiveC">		
+		<rdfs:label xml:lang="en">ObjectiveC</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="CAML">		
+		<rdfs:label xml:lang="en">CAML</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="Python">		
+		<rdfs:label xml:lang="en">Python</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="CPlusPlus">		
+		<rdfs:label xml:lang="en">C++</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="Shell">		
+		<rdfs:label xml:lang="en">Shell</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<!-- OperatingSystem -->
+	
+	<stac:OperatingSystemTechnology rdf:about="Linux">		
+		<rdfs:label xml:lang="en">Linux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:OperatingSystemTechnology>
+	
+	<stac:OperatingSystemTechnology rdf:about="Windows">		
+		<rdfs:label xml:lang="en">Windows</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:OperatingSystemTechnology>
+	
+	<stac:OperatingSystemTechnology rdf:about="Mac">		
+		<rdfs:label xml:lang="en">Mac</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:OperatingSystemTechnology>
+	
+	<stac:OperatingSystemTechnology rdf:about="TinyOS">		
+		<rdfs:label xml:lang="en">TinyOS</rdfs:label>
+		<rdfs:comment xml:lang="en">TinyOS is an operating system for sensors.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;SensorTechnology"/>
+	</stac:OperatingSystemTechnology>
+	
+	<stac:OperatingSystemTechnology rdf:about="Contiki">		
+		<rdfs:label xml:lang="en">Contiki</rdfs:label>
+		<rdfs:comment xml:lang="en">Contiki is an operating system for sensors.</rdfs:comment>
+		<rdf:type rdf:resource="&stac;SensorTechnology"/>
+	</stac:OperatingSystemTechnology>
+	
+	<stac:ProgrammingLanguageTechnology rdf:about="Android">		
+		<rdfs:label xml:lang="en">Android</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdf:type rdf:resource="&stac;OperatingSystemTechnology"/>
+	</stac:ProgrammingLanguageTechnology>
+	
+	<stac:SecurityMechanism rdf:about="P3P">		
+		<rdfs:label xml:lang="en">Platform for Privacy Preferences (P3P)</rdfs:label>
+		<rdfs:comment xml:lang="en">Provides a language for description of privacy preferences.</rdfs:comment>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+	</stac:SecurityMechanism>
+	
+	<!-- Server -->
+	
+	<stac:ServerTechnology rdf:about="Tomcat">		
+		<rdfs:label xml:lang="en">Tomcat</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ServerTechnology>
+	
+	<stac:ServerTechnology rdf:about="GAE">		
+		<rdfs:label xml:lang="en">Google Application Engine (GAE)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ServerTechnology>
+	
+	<stac:ServerTechnology rdf:about="Glassfish">		
+		<rdfs:label xml:lang="en">Glassfish</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:ServerTechnology>
+
+	<stac:SensorTechnology rdf:about="MicaZ">		
+		<rdfs:label xml:lang="en">MicaZ</rdfs:label>
+		<rdfs:comment xml:lang="en">The MicaZ platform is largely diffused in the Wireless Sensor Networks community due to the reduced power consumption.</rdfs:comment>
+	</stac:SensorTechnology>
+
+	<!-- ###################################################### FEATURE ######################################################################-->
+		
+	<stac:Feature rdf:about="ResourceConstraint">		
+		<rdfs:label xml:lang="en">Resource Constraint</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:Feature>
+	
+	<!-- stac:PositiveFeature -->
+	
+	<stac:PositiveFeature rdf:about="LowCostDeployment">		
+		<rdfs:label xml:lang="en">Low Cost Deployment</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="Free">		
+		<rdfs:label xml:lang="en">Free</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="Opensource">		
+		<rdfs:label xml:lang="en">Opensource</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="SuitableHeterogeneousTechnology">		
+		<rdfs:label xml:lang="en">Suitable for heterogeneous technologies</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="Scalable">		
+		<rdfs:label xml:lang="en">Scalable</rdfs:label>
+		<rdfs:comment xml:lang="en">Can scale to form large-scale networks with arbitrary coverage and complexity.</rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="Flexible">		
+		<rdfs:label xml:lang="en">Flexible</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="LowEnergyConsuming">		
+		<rdfs:label xml:lang="en">Low Energy Consuming</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>	
+	
+	<stac:PositiveFeature rdf:about="Secured">		
+		<rdfs:label xml:lang="en">Secured</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="Popular">		
+		<rdfs:label xml:lang="en">Popular</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<stac:PositiveFeature rdf:about="ExchangeKeyEasy">		
+		<rdfs:label xml:lang="en">Exchange Key easy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:PositiveFeature>
+	
+	<!-- Negative feature -->
+	
+	<stac:NegativeFeature rdf:about="NotSuitableHeterogeneousTechnology">		
+		<rdfs:label xml:lang="en">Not suitable for heterogeneous technologies</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<stac:NegativeFeature rdf:about="NotFree">		
+		<rdfs:label xml:lang="en">NotFree</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<stac:NegativeFeature rdf:about="HighCostDeployment">		
+		<rdfs:label xml:lang="en">High Cost Deployment</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<stac:NegativeFeature rdf:about="NotScalable">		
+		<rdfs:label xml:lang="en">Not Scalable</rdfs:label>
+		<rdfs:comment xml:lang="en">Cannot scale for larger networks.</rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<stac:NegativeFeature rdf:about="NotFlexible">		
+		<rdfs:label xml:lang="en">Not Flexible</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:NegativeFeature>
+
+	<stac:NegativeFeature rdf:about="ExchangeKeyNotEasy">		
+		<rdfs:label xml:lang="en">Exchange Key not easy</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<stac:NegativeFeature rdf:about="Deprecated">		
+		<rdfs:label xml:lang="en">Deprecated</rdfs:label>
+		<rdfs:comment xml:lang="en">A security algorithm is deprecated when it has been cracked.</rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<stac:NegativeFeature rdf:about="HighEnergyConsuming">		
+		<rdfs:label xml:lang="en">High Energy Consuming</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:NegativeFeature>
+	
+	<!-- ################################################ OSI Model Layer ############################################################################-->
+		
+	<stac:OSIModelLayer rdf:about="PhysicalLayer">		
+		 <rdfs:label xml:lang="en">Physical Layer</rdfs:label>
+		 <rdfs:comment xml:lang="en">The physical layer defines the electrical and physical specifications of the data connection.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:OSIModelLayer rdf:about="LinkLayer">		
+		<rdfs:label xml:lang="en">Link Layer</rdfs:label>
+		<rdfs:comment xml:lang="en">The link layer is responsible for a reliable link between two nodes, by detecting and correcting errors that may occur in the physical layer.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:OSIModelLayer rdf:about="NetworkLayer">		
+		<rdfs:label xml:lang="en">NetworkLayer</rdfs:label>
+		<rdfs:comment xml:lang="en">The network layer handles the adressing and routing of the data.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:OSIModelLayer rdf:about="TransportLayer">		
+		<rdfs:label xml:lang="en">Transport Layer</rdfs:label>
+		<rdfs:comment xml:lang="en">The transport layer manages packetization of data, then the delivery of the packets, including checking for errors in the data once it arrives.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:OSIModelLayer rdf:about="SessionLayer">		
+		<rdfs:label xml:lang="en">Session Layer</rdfs:label>
+		<rdfs:comment xml:lang="en">The session layer controls the dialogues between computers.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:OSIModelLayer rdf:about="PresentationLayer">		
+		<rdfs:label xml:lang="en">Presentation Layer</rdfs:label>
+		<rdfs:comment xml:lang="en">The presentation layer is usually part of an operating system (OS) and converts incoming and outgoing data from one presentation format to another.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:OSIModelLayer rdf:about="ApplicationLayer">		
+		<rdfs:label xml:lang="en">Application Layer</rdfs:label>
+		<rdfs:comment xml:lang="en">The application layer is the layer closest to end users, which means bot the ISO application layer and the users interact directly with the software applications.</rdfs:comment>
+	</stac:OSIModelLayer>
+	
+	<stac:FrameworkSecurityMechanism rdf:about="SecureUML">		
+		<rdfs:label xml:lang="en">SecureUML</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkSecurityMechanism>
+	
+	<stac:FrameworkSecurityMechanism rdf:about="UMLSec">		
+		<rdfs:label xml:lang="en">SecureUML</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</stac:FrameworkSecurityMechanism>
+	
+	<stac:FrameworkSecurityMechanism rdf:about="AcegiSecuritySystem">		
+		<rdfs:label xml:lang="en">Acegi Security System</rdfs:label>
+		<rdfs:comment xml:lang="en">Acegi Security System is an aspect-oriented framework for incorporating security requirements into software. Acegi is build on top of Spring, the well-known Java framework. Spring does not implement its aspect-oriented features on the language level but though the use of dynamic byte code generation, thereby leaving the Java language intact. Acegi uses these aspect-oriented features to offer support for authentication and authorization services.</rdfs:comment>
+		<dc:description xml:lang="en">Acegi Security System is an aspect-oriented framework for incorporating security requirements into software. Acegi is build on top of Spring, the well-known Java framework. Spring does not implement its aspect-oriented features on the language level but though the use of dynamic byte code generation, thereby leaving the Java language intact. Acegi uses these aspect-oriented features to offer support for authentication and authorization services.</dc:description>
+		<stac:satisfies rdf:resource="Authorization"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</stac:FrameworkSecurityMechanism>
+	
+	<!-- ################################################ others instances ############################################################################-->
+	
+	<owl:NamedIndividual rdf:about="OWASP">		
+		<rdfs:label xml:lang="en">OWASP</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:NamedIndividual>
+			
+	<owl:NamedIndividual rdf:about="Supplicant">		
+		<rdfs:label xml:lang="en">Supplicant</rdfs:label>
+		<rdfs:comment xml:lang="en">The supplicant is the mobile device, it would like to access the network, and so to authenticate itself.</rdfs:comment>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="Authenticator">		
+		<rdfs:label xml:lang="en">Authenticator</rdfs:label>
+		<rdfs:comment xml:lang="en">The authenticator controls access to the network, it is the Access Point (AP).</rdfs:comment>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="DisasterRevovery">		
+		<rdfs:label xml:lang="en">Disaster Revovery</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Availability"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="InNetworkProcessing">		
+		<rdfs:label xml:lang="en">In-network Processing</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Availability"/>	
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="EnRouteFiltering">		
+		<rdfs:label xml:lang="en">En-route Filtering</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:satisfies rdf:resource="Availability"/>	
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="TransportMode">		
+		<rdfs:label xml:lang="en">Transport Mode</rdfs:label>
+		<rdfs:comment xml:lang="en">Everything in an IP packet is encrypted except the header.</rdfs:comment>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="TunnelMode">		
+		<rdfs:label xml:lang="en">Tunnel Mode</rdfs:label>
+		<rdfs:comment xml:lang="en">All parts of IP packets are encrypted.</rdfs:comment>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="AH">		
+		<rdfs:label xml:lang="en">Authentication Header (AH)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]</dc:description>
+		<stac:satisfies rdf:resource="Integrity"/>	
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="ESP">		
+		<rdfs:label xml:lang="en">Encapsulating Security Payload (ESP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<dc:description xml:lang="en">See Paper: UMTS Security: Security in Core Network and UTRAN [Abid et al. 2002]</dc:description>
+		<stac:satisfies rdf:resource="Confidentiality"/>
+		<stac:satisfies rdf:resource="Integrity"/>
+		<dcterms:hasPart rdf:resource="TransportMode"/>
+		<dcterms:hasPart rdf:resource="TunnelMode"/>
+	</owl:NamedIndividual>
+			
+	<owl:NamedIndividual rdf:about="SNEP">		
+		<rdfs:label xml:lang="en">Secure Network Encryption Protocol (SNEP)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<dcterms:hasPart rdf:resource="EncryptionAlgorithm"/>
+		<stac:satisfies rdf:resource="DataFreshness"/>
+		<stac:satisfies rdf:resource="SemanticSecurity"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="microTESLA">		
+		<rdfs:label xml:lang="en">Micro Timed, Efficient, Streaming, Loss-Tolerant Authnetication (microTESLA)</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+		<stac:satisfies rdf:resource="Authentication"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="TinySec_AE">		
+		<rdfs:label xml:lang="en">TinySec_AE</rdfs:label>
+		<rdfs:comment xml:lang="en">TinySec_AE for authenticated and encrypted messages</rdfs:comment>
+		<dcterms:hasPart rdf:resource="CBC"/>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</owl:NamedIndividual>
+	
+	<owl:NamedIndividual rdf:about="TinySec_Auth">		
+		<rdfs:label xml:lang="en">TinySec_Auth</rdfs:label>
+		<rdfs:comment xml:lang="en">TinySec_Auth for authenticated messages.</rdfs:comment>
+		<stac:protectsInLayer rdf:resource="LinkLayer"/>
+	</owl:NamedIndividual>
+			
+	<owl:NamedIndividual rdf:about="CertifyingAuthority">		
+		<rdfs:label xml:lang="en">Certifying Authority (CA)</rdfs:label>
+		<rdfs:comment xml:lang="en"> A certifying authority is a trusted third party that issues digital certificates, and verifies the validity of public keys.</rdfs:comment>
+	</owl:NamedIndividual>
+	
+</rdf:RDF>

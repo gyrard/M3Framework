@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY tourism "http://sensormeasurement.appspot.com/tourism#"> 
+         <!ENTITY naturopathy "http://sensormeasurement.appspot.com/naturopathy#"> 
+         <!ENTITY weather "http://sensormeasurement.appspot.com/weather#"> 
+         <!ENTITY weather-dataset "http://sensormeasurement.appspot.com/weather-dataset/"> 
+         <!ENTITY shw "http://paul.staroch.name/thesis/SmartHomeWeather.owl#"> 
+         <!ENTITY vac "http://sensormeasurement.appspot.com/tourism-dataset/"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY Person_SH_Ontology "http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY sweet_day "http://sweet.jpl.nasa.gov/2.3/reprTimeDay.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+         
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&weather-dataset;"
+        xml:base="&weather-dataset;"
+        xmlns:weather-dataset="&weather-dataset;"
+        xmlns:weather="&weather;"
+        xmlns:foaf="&foaf;"
+        xmlns:shw="&shw;"
+        xmlns:acco="&acco;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:tourism="&tourism;"
+        xmlns:Person_SH_Ontology="&Person_SH_Ontology;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:food="&food;"
+        xmlns:owl="&owl;"
+        xmlns:naturopathy="&naturopathy;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:sweet_season="&sweet_season;"
+       	xmlns:sweet_day="&sweet_day;"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+	
+	<!-- ################################################ WEATHER ############################################################################ -->
+
+	<weather:Weather rdf:about="Sunny">		
+		<rdfs:label xml:lang="en">Sunny</rdfs:label>
+		<rdfs:label xml:lang="fr">Ensoleille</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Windy">		
+		<rdfs:label xml:lang="en">Windy</rdfs:label>
+		<rdfs:label xml:lang="fr">Venteux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;WindyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Rainy">		
+		<rdfs:label xml:lang="en">Rainy</rdfs:label>
+		<rdfs:label xml:lang="fr">Pluvieux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;RainyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="ExtremelyHeavyRain">		
+		<rdfs:label xml:lang="en">ExtremelyHeavyRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="HeavyRain">		
+		<rdfs:label xml:lang="en">HeavyRain</rdfs:label>
+		<rdfs:label xml:lang="fr">Fortement Pluvieux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="MediumRain">		
+		<rdfs:label xml:lang="en">MediumRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="LightRain">		
+		<rdfs:label xml:lang="en">LightRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Snowy">		
+		<rdfs:label xml:lang="en">Snowy</rdfs:label>
+		<rdfs:label xml:lang="fr">Neigeux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Cloudy">		
+		<rdfs:label xml:lang="en">Cloudy</rdfs:label>
+		<rdfs:label xml:lang="fr">Nuageux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;CloudyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Foggy">		
+		<rdfs:label xml:lang="en">Foggy</rdfs:label>
+		<rdfs:label xml:lang="fr">Brumeux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Stormy">		
+		<rdfs:label xml:lang="en">Stormy, Thunder</rdfs:label>
+		<rdfs:label xml:lang="fr">Orageux</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;StormyWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Sleety">		
+		<rdfs:label xml:lang="en">Sleety</rdfs:label>
+		<rdfs:label xml:lang="fr">Neige fondue</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Frosty">		
+		<rdfs:label xml:lang="en">Frosty</rdfs:label>
+		<rdfs:label xml:lang="fr">Glacial, Gel, Givre</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Cold">		
+		<rdfs:label xml:lang="en">Cold</rdfs:label>
+		<rdfs:label xml:lang="fr">Froid</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;ColdWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="Hot">		
+		<rdfs:label xml:lang="en">Hot</rdfs:label>
+		<rdfs:label xml:lang="fr">Chaud</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<owl:equivalentClass rdf:resource="&shw;HotWeather"/>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="TropicalStormRain">		
+		<rdfs:label xml:lang="en">TropicalStormRain</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	<weather:Weather rdf:about="NoPrecipitation">		
+		<rdfs:label xml:lang="en">NoPrecipitation</rdfs:label>
+		<rdfs:label xml:lang="fr"></rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</weather:Weather>
+	
+	
+	
+
+</rdf:RDF>

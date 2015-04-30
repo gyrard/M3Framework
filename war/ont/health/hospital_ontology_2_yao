@@ -1,0 +1,2470 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:assert="http://www.owl-ontologies.com/assert.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.owl-ontologies.com/HospitalOntology.owl#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+  xml:base="http://www.owl-ontologies.com/HospitalOntology.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.owl-ontologies.com/assert.owl"/>
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Atrial_abnormalities">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Heart_diseases"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ultrasound">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Imaging_device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Research_staff">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Role"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Martial_status">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Demographic_characteristics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Medical_device">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Asset"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Person"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Activity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Location"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Hospital_administrator">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Role"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Racial">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Demographic_characteristics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Related_to_other_organs">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Diagnosis"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Laboratory">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Waiting_room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Ward"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Surgery_room"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Testing">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="excludeDiagnosis"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HeartFailureOntology"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cardiovascular_system_related">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Diagnosis"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Echocardiography_tests">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Tests"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cardiac_dysfunction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Direct_HF_related"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Syndromes">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Diagnosis"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Lipids_disorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Blood_cell_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Imaging_device">
+    <rdfs:subClassOf rdf:resource="#Medical_device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Psychologist">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Lab">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Heart_failure_risks"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Heart_diseases">
+    <rdfs:subClassOf rdf:resource="#Cardiovascular_system_related"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Treatment">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="relevantSignOrSymptom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Signs_and_symptoms"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#HeartFailureOntology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Beta_blocker">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Heart_failure_medication"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Electrophysiologic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Heart_failure_risks"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Administrative_staff">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Role"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Lab_staff">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Doctor"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Nurse"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Physical_examination">
+    <rdfs:subClassOf rdf:resource="#Testing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Resource">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="usedIn"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ClinicalContextOntology"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cardiomyopathies">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Extremities_edema">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Doctor">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Nurse"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Lab_staff"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Clinician"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Test_measurements">
+    <rdfs:subClassOf rdf:resource="#Testing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Uric_acid_disorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Blood_cell_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Congestion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Circulation_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cardiac_arrhythmia">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Staff">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="playRole"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Role"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#playRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Person"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Discharge">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Diagnose"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Treat"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Admit"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Functional_and_exertional">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Heart_failure_risks"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Signs_and_symptoms">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="accompaniedBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#accompaniedBy"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Signs_and_symptoms"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Medication"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="mayIncreaseByMed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Medication"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="mayDecreaseByMed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Patient_characteristics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_valve_surgery">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Surgical_therapy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="X-Ray">
+    <rdfs:subClassOf rdf:resource="#Imaging_device"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OXRB"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PDA"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="WheelChair"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Infusion_pump"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Computer"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Prognosis">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_characteristics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Surgeon">
+    <rdfs:subClassOf rdf:resource="#Doctor"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Physician"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Exam_room">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Role">
+    <rdfs:subClassOf rdf:resource="#ClinicalContextOntology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Test">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ejection_fraction_disorder">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hypertension">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Blood_pressure_diagnosis"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Arteriosclerosis_disorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Circulation_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Spironolactone">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Heart_failure_medication"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Test_results">
+    <rdfs:subClassOf rdf:resource="#Testing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Other_cardiovascular_signs">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Cardiovascular_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_failure_diagnosis">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Direct_HF_related"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PDA">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OXRB"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#WheelChair"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#X-Ray"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Infusion_pump"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Computing_device"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Blood_pressure_signs">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Cardiovascular_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Device_therapy">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="cautionWithMed"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Medication"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Medication"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="togetherWithMed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Medication"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Surgery_room">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Waiting_room"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Laboratory"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Ward"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Clinician">
+    <rdfs:subClassOf rdf:resource="#Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Heart_failure_medication">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="improves"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Patient_characteristics"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#improves"/>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Tests"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medication"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Pleural_effusion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Pulmonary_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Physician">
+    <owl:disjointWith rdf:resource="#Surgeon"/>
+    <rdfs:subClassOf rdf:resource="#Doctor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Waiting_room">
+    <owl:disjointWith rdf:resource="#Laboratory"/>
+    <owl:disjointWith rdf:resource="#Surgery_room"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Ward"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Treat">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Diagnose"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Discharge"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Admit"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#Computer"/>
+      <owl:Class rdf:about="#PDA"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Breath_sounds">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pulmonary_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Thromboembolic_event">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Circulation_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Signs">
+    <rdfs:subClassOf rdf:resource="#Signs_and_symptoms"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PhysicalExamination">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Heart_failure_risks">
+    <rdfs:subClassOf rdf:resource="#HeartFailureOntology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Treatment_outcome">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Patient_characteristics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Angiotensin_receptor_blocker">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_medication"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Blood_pressure_diagnosis">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Circulation_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_rhythm_signs">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Cardiovascular_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Weight_signs">
+    <rdfs:subClassOf rdf:resource="#Signs"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Other_medication">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medication"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Pharmacy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Patient_characteristics">
+    <rdfs:subClassOf rdf:resource="#HeartFailureOntology"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Other_pulmonary_signs">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pulmonary_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hypotension">
+    <rdfs:subClassOf rdf:resource="#Blood_pressure_diagnosis"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ACE_inhibitor">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_medication"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Cardiovascular_signs">
+    <rdfs:subClassOf rdf:resource="#Signs"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Diagnose">
+    <owl:disjointWith rdf:resource="#Treat"/>
+    <owl:disjointWith rdf:resource="#Discharge"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Admit"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Activity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Facility">
+    <rdfs:subClassOf rdf:resource="#Resource"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hematology_and_biochemistry_tests">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Tests"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#WheelChair">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asset"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OXRB"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PDA"/>
+    <owl:disjointWith rdf:resource="#X-Ray"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Infusion_pump"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Direct_HF_related">
+    <rdfs:subClassOf rdf:resource="#Cardiovascular_system_related"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Digoxin">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_medication"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AgeGroup">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Demographic_characteristics"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Clinical">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_risks"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_valve_diseases">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Infusion_pump">
+    <rdfs:subClassOf rdf:resource="#Medical_device"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OXRB"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PDA"/>
+    <owl:disjointWith rdf:resource="#WheelChair"/>
+    <owl:disjointWith rdf:resource="#X-Ray"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Computer"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Computing_device">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asset"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bed"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasSigns"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Signs"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasSymptoms"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Symptoms"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="suggestedPrognosis"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Prognosis"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTestResults"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Test_results"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Treatment_outcome"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="treatmentOutcome"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Tests"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="suggestedTest"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Person"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hypotheticalDiagnosis"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="suggestedDiagnosis"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Treatment"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="suggestedTreatment"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Staff"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="treatedBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Revascularization">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Surgical_therapy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Pharmacist">
+    <rdfs:subClassOf rdf:resource="#Clinician"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity">
+    <owl:disjointWith rdf:resource="#Medical_device"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasStartTime"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Person"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Resource"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasUsage"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasEndTime"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Person"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#ClinicalContextOntology"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Demographic_characteristics">
+    <rdfs:subClassOf rdf:resource="#Patient_characteristics"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Symptoms">
+    <rdfs:subClassOf rdf:resource="#Signs_and_symptoms"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Bed">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asset"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Computing_device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_sounds_and_murmurs">
+    <rdfs:subClassOf rdf:resource="#Cardiovascular_signs"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Other_tests">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Tests"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Cardiac_hypertrophy">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Ward">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Waiting_room"/>
+    <owl:disjointWith rdf:resource="#Surgery_room"/>
+    <owl:disjointWith rdf:resource="#Laboratory"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Patient_education">
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Admit">
+    <rdfs:subClassOf rdf:resource="#Activity"/>
+    <owl:disjointWith rdf:resource="#Discharge"/>
+    <owl:disjointWith rdf:resource="#Diagnose"/>
+    <owl:disjointWith rdf:resource="#Treat"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Electrocardiography_tests">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Tests"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Circulation_signs">
+    <rdfs:subClassOf rdf:resource="#Cardiovascular_signs"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Computer">
+    <rdfs:subClassOf rdf:resource="#Computing_device"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OXRB"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PDA"/>
+    <owl:disjointWith rdf:resource="#WheelChair"/>
+    <owl:disjointWith rdf:resource="#X-Ray"/>
+    <owl:disjointWith rdf:resource="#Infusion_pump"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Mineral_disorder">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Blood_cell_disorder"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Tests">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="supportsDiagnosis"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Testing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Caution_medication">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasSideEffect"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasSideEffect"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#Signs_and_symptoms"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Medication"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Diuretics">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_medication"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Left_ventricular_restoration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Surgical_therapy"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#OXRB">
+    <rdfs:subClassOf rdf:resource="#Medical_device"/>
+    <owl:disjointWith rdf:resource="#PDA"/>
+    <owl:disjointWith rdf:resource="#WheelChair"/>
+    <owl:disjointWith rdf:resource="#X-Ray"/>
+    <owl:disjointWith rdf:resource="#Infusion_pump"/>
+    <owl:disjointWith rdf:resource="#Computer"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pulmonary_crepitations">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pulmonary_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Surgical_therapy">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Medication"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#togetherWithMed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Medication"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#cautionWithMed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_aneurysm">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Stretcher">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asset"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Blood_cell_disorder">
+    <rdfs:subClassOf rdf:resource="#Cardiovascular_system_related"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Person">
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasID"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasGender"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="hasName"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Person class includes all people in the hospital.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ClinicalContextOntology"/>
+    <owl:disjointWith rdf:resource="#Medical_device"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="participateIn"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Activity"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Location"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Respirations">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Pulmonary_signs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Other_signs">
+    <rdfs:subClassOf rdf:resource="#Signs"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_rhythm_abnormalities">
+    <rdfs:subClassOf rdf:resource="#Heart_diseases"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Gender">
+    <rdfs:subClassOf rdf:resource="#Demographic_characteristics"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Circulation_disorder">
+    <rdfs:subClassOf rdf:resource="#Cardiovascular_system_related"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Effects">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Diagnosis"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Red_blood_cell_disorder">
+    <rdfs:subClassOf rdf:resource="#Blood_cell_disorder"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Imaging">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_risks"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Pulmonary_signs">
+    <rdfs:subClassOf rdf:resource="#Signs"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_murmurs">
+    <rdfs:subClassOf rdf:resource="#Heart_sounds_and_murmurs"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Asset">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#locatedIn"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Location"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#locatedIn"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Resource"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Location">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ClinicalContextOntology"/>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <owl:disjointWith rdf:resource="#Person"/>
+    <owl:disjointWith rdf:resource="#Medical_device"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Nurse">
+    <rdfs:subClassOf rdf:resource="#Clinician"/>
+    <owl:disjointWith rdf:resource="#Doctor"/>
+    <owl:disjointWith rdf:resource="#Lab_staff"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Recommendations">
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Protein_disorder">
+    <rdfs:subClassOf rdf:resource="#Blood_cell_disorder"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Skin_changes">
+    <rdfs:subClassOf rdf:resource="#Signs"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Diagnosis">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Signs_and_symptoms"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="causedSignOrSymptom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#relevantSignOrSymptom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Signs_and_symptoms"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="requiredTreatment"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Treatment"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Patient_characteristics"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="riskFactor"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Heart_failure_risks"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Demographics">
+    <rdfs:subClassOf rdf:resource="#Heart_failure_risks"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heart_sounds">
+    <rdfs:subClassOf rdf:resource="#Heart_sounds_and_murmurs"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Medication">
+    <owl:disjointWith rdf:resource="#Device_therapy"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#togetherWithMed"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Medication"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Medication"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#cautionWithMed"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Treatment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MRI">
+    <rdfs:subClassOf rdf:resource="#Imaging_device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Anesthesiologist">
+    <rdfs:subClassOf rdf:resource="#Clinician"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="#locatedIn">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Person"/>
+          <owl:Class rdf:about="#Asset"/>
+          <owl:Class rdf:about="#Activity"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Location"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="couldRelateTo"/>
+  <owl:ObjectProperty rdf:about="#relevantSignOrSymptom">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Treatment"/>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Signs_and_symptoms"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#mayIncreaseByMed">
+    <rdfs:domain rdf:resource="#Signs_and_symptoms"/>
+    <rdfs:range rdf:resource="#Medication"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#requiredTreatment">
+    <rdfs:domain rdf:resource="#Diagnosis"/>
+    <rdfs:range rdf:resource="#Treatment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#togetherWithMed">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Medication"/>
+          <owl:Class rdf:about="#Device_therapy"/>
+          <owl:Class rdf:about="#Surgical_therapy"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Medication"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasSideEffect">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Signs_and_symptoms"/>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Caution_medication"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#cautionWithMed">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Medication"/>
+          <owl:Class rdf:about="#Surgical_therapy"/>
+          <owl:Class rdf:about="#Device_therapy"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Medication"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasUsage">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#usedIn"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Resource"/>
+    <rdfs:domain rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#excludeDiagnosis">
+    <rdfs:domain rdf:resource="#Tests"/>
+    <rdfs:range rdf:resource="#Diagnosis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTestResults">
+    <rdfs:range rdf:resource="#Test_results"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#riskFactor">
+    <rdfs:range rdf:resource="#Heart_failure_risks"/>
+    <rdfs:domain rdf:resource="#Diagnosis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#causedSignOrSymptom">
+    <rdfs:range rdf:resource="#Signs_and_symptoms"/>
+    <rdfs:domain rdf:resource="#Diagnosis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#usedIn">
+    <owl:inverseOf rdf:resource="#hasUsage"/>
+    <rdfs:range rdf:resource="#Activity"/>
+    <rdfs:domain rdf:resource="#Resource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#suggestedTreatment">
+    <rdfs:range rdf:resource="#Treatment"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#treatedBy">
+    <rdfs:range rdf:resource="#Staff"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="treats"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#suggestedTest">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Tests"/>
+          <owl:Class rdf:about="#Physical_examination"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#suggestedPrognosis">
+    <rdfs:range rdf:resource="#Prognosis"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#supportsDiagnosis">
+    <rdfs:domain rdf:resource="#Tests"/>
+    <rdfs:range rdf:resource="#Diagnosis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#accompaniedBy">
+    <rdfs:domain rdf:resource="#Signs_and_symptoms"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Signs_and_symptoms"/>
+          <owl:Class rdf:about="#Diagnosis"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasParticipant">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#Person"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#participateIn"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#playRole">
+    <rdfs:range rdf:resource="#Role"/>
+    <rdfs:domain rdf:resource="#Staff"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hypotheticalDiagnosis">
+    <rdfs:domain rdf:resource="#Patient"/>
+    <rdfs:range rdf:resource="#Diagnosis"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#participateIn">
+    <rdfs:range rdf:resource="#Activity"/>
+    <owl:inverseOf rdf:resource="#hasParticipant"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#treatmentOutcome">
+    <rdfs:range rdf:resource="#Treatment_outcome"/>
+    <rdfs:domain rdf:resource="#Patient"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#treats">
+    <rdfs:domain rdf:resource="#Staff"/>
+    <rdfs:range rdf:resource="#Patient"/>
+    <owl:inverseOf rdf:resource="#treatedBy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#mayDecreaseByMed">
+    <rdfs:domain rdf:resource="#Signs_and_symptoms"/>
+    <rdfs:range rdf:resource="#Medication"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#hasGender">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Female</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Male</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#hasEndTime">
+    <rdfs:domain rdf:resource="#Activity"/>
+  </owl:DatatypeProperty>
+  <Test_results rdf:ID="E_A_ratio_less_than_1"/>
+  <Test_results rdf:ID="Fasting_serum_glucose_greater_than_110_mg_per_dl"/>
+  <Symptoms rdf:ID="Sudden_weight_increase"/>
+  <Ward rdf:ID="Ward_25"/>
+  <Other_tests rdf:ID="MRI_brain_procedure"/>
+  <swrl:IndividualPropertyAtom>
+    <swrl:argument2>
+      <swrl:Variable rdf:ID="p"/>
+    </swrl:argument2>
+    <swrl:argument1>
+      <swrl:Variable rdf:ID="c"/>
+    </swrl:argument1>
+  </swrl:IndividualPropertyAtom>
+  <Symptoms rdf:ID="Vomitting"/>
+  <Test_results rdf:ID="Valsalva_manoeuvre_indicated_change_from_pseudonormal_to_abnormal_filling_pattern"/>
+  <Ward rdf:ID="Ward_35"/>
+  <Test_results rdf:ID="Pulmonary_capillary_pressure_greater_than_40_mmHg_at_rest"/>
+  <Bed rdf:ID="Bed_57"/>
+  <Other_tests rdf:ID="Exercise_stress_test"/>
+  <Test_results rdf:ID="Left_ventricular_contractility_decreased"/>
+  <Bed rdf:ID="Bed_30"/>
+  <Nurse rdf:ID="Nurse_21"/>
+  <Bed rdf:ID="Bed_47"/>
+  <Ward rdf:ID="Ward_26"/>
+  <Ward rdf:ID="Ward_36"/>
+  <Bed rdf:ID="Bed_48"/>
+  <Symptoms rdf:ID="Muscle_ache"/>
+  <Symptoms rdf:ID="Sweating"/>
+  <Test_results rdf:ID="E_to_Ea_ratio_intermediate_greater_than_8_less_than_15"/>
+  <Blood_pressure_signs rdf:ID="Low_blood_pressure_disorder"/>
+  <Infusion_pump rdf:ID="MovableDevice_14"/>
+  <Ward rdf:ID="Ward_27"/>
+  <Demographics rdf:ID="Anemia_present"/>
+  <Nurse rdf:ID="Nurse_20"/>
+  <Lab rdf:ID="High_serum_uric_acid"/>
+  <Other_tests rdf:ID="Natriuretic_peptides"/>
+  <Functional_and_exertional rdf:ID="Reduced_work"/>
+  <Clinical rdf:ID="Aortic_stenosis_risk"/>
+  <Infusion_pump rdf:ID="MovableDevice_13"/>
+  <Bed rdf:ID="Bed_45"/>
+  <Bed rdf:ID="Bed_32"/>
+  <Test_results rdf:ID="Documented_5_kg_weight_loss_in_last_six_months"/>
+  <Functional_and_exertional rdf:ID="Periodic_breathing"/>
+  <Ward rdf:ID="Ward_24"/>
+  <Blood_pressure_signs rdf:ID="Drop_of_mean_arterial_pressure_greater_than_30_mmHg"/>
+  <Clinical rdf:ID="Prior_HF_hospitalization"/>
+  <Test_results rdf:ID="BNP_greater_than_400_ug_per_ml_NT-proBNP_greater_than_2000_pg_per_ml_"/>
+  <Test_results rdf:ID="E_to_Vp_ratio_greater_than_2.5"/>
+  <Test_results rdf:ID="FT4_increased"/>
+  <Computer rdf:ID="Computer_3"/>
+  <Test_results rdf:ID="Left_ventricular_hypertrophy_greater_than_11_to_12_mm"/>
+  <Test_results rdf:ID="Pulmonary_vascular_resistance_greater_than_24_MPa_s_per_cubic_meter"/>
+  <Bed rdf:ID="Bed_31"/>
+  <Bed rdf:ID="Bed_46"/>
+  <Symptoms rdf:ID="Sudden_weight_decrease"/>
+  <Ward rdf:ID="Ward_31"/>
+  <Test_results rdf:ID="LVEF_reduced_less_than_45_to_50_percent"/>
+  <Symptoms rdf:ID="Frothy_sputum"/>
+  <Test_results rdf:ID="Mitral_insufficiency_present"/>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >excellent</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >bad</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >medium</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >aweful</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </rdf:rest>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >good</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <Nurse rdf:ID="Nurse_25"/>
+  <Test_results rdf:ID="E_to_Vp_ratio_less_than_2"/>
+  <Demographics rdf:ID="Ischaemic_etiology"/>
+  <Computer rdf:ID="Computer_2"/>
+  <Functional_and_exertional rdf:ID="High_VE-VCO2_slope"/>
+  <Ward rdf:ID="Ward_32"/>
+  <Test_results rdf:ID="Hyperuricemia_greater_than_500_umol_per_l"/>
+  <swrl:IndividualPropertyAtom>
+    <swrl:argument2>
+      <swrl:Variable rdf:ID="s"/>
+    </swrl:argument2>
+    <swrl:argument1 rdf:resource="#c"/>
+  </swrl:IndividualPropertyAtom>
+  <Test_results rdf:ID="Body_weight_less_than_90_percent_of_ideal_body_weight"/>
+  <swrl:AtomList>
+    <rdf:first>
+      <swrl:ClassAtom>
+        <swrl:argument1 rdf:resource="#p"/>
+        <swrl:classPredicate rdf:resource="#Patient"/>
+      </swrl:ClassAtom>
+    </rdf:first>
+    <rdf:rest>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:argument2>
+                  <Symptoms rdf:ID="Palpitations"/>
+                </swrl:argument2>
+                <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:ClassAtom>
+                    <swrl:classPredicate rdf:resource="#Symptoms"/>
+                    <swrl:argument1>
+                      <Symptoms rdf:ID="Chest_pain"/>
+                    </swrl:argument1>
+                  </swrl:ClassAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:ClassAtom>
+                            <swrl:argument1>
+                              <Symptoms rdf:ID="Irregular_heart_rate"/>
+                            </swrl:argument1>
+                            <swrl:classPredicate rdf:resource="#Symptoms"/>
+                          </swrl:ClassAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                                <swrl:argument2 rdf:resource="#Irregular_heart_rate"/>
+                                <swrl:argument1 rdf:resource="#p"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:rest>
+                                      <swrl:AtomList>
+                                        <rdf:rest>
+                                          <swrl:AtomList>
+                                            <rdf:first>
+                                              <swrl:IndividualPropertyAtom>
+                                                <swrl:argument2>
+                                                  <Symptoms rdf:ID="Weakness"/>
+                                                </swrl:argument2>
+                                                <swrl:argument1 rdf:resource="#p"/>
+                                                <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                                              </swrl:IndividualPropertyAtom>
+                                            </rdf:first>
+                                            <rdf:rest>
+                                              <swrl:AtomList>
+                                                <rdf:rest>
+                                                  <swrl:AtomList>
+                                                    <rdf:first>
+                                                      <swrl:IndividualPropertyAtom>
+                                                        <swrl:argument2>
+                                                          <Symptoms rdf:ID="Peripheral_edema"/>
+                                                        </swrl:argument2>
+                                                        <swrl:argument1 rdf:resource="#p"/>
+                                                        <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                                                      </swrl:IndividualPropertyAtom>
+                                                    </rdf:first>
+                                                    <rdf:rest>
+                                                      <swrl:AtomList>
+                                                        <rdf:first>
+                                                          <swrl:ClassAtom>
+                                                            <swrl:classPredicate rdf:resource="#Signs"/>
+                                                            <swrl:argument1>
+                                                              <Blood_pressure_signs rdf:ID="High_blood_pressure_disorder"/>
+                                                            </swrl:argument1>
+                                                          </swrl:ClassAtom>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                          <swrl:AtomList>
+                                                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            <rdf:first>
+                                                              <swrl:IndividualPropertyAtom>
+    <swrl:propertyPredicate rdf:resource="#hasSigns"/>
+    <swrl:argument2 rdf:resource="#High_blood_pressure_disorder"/>
+    <swrl:argument1 rdf:resource="#p"/>                       </swrl:IndividualPropertyAtom>
+                                                            </rdf:first>
+                                                          </swrl:AtomList>
+                                                        </rdf:rest>
+                                                      </swrl:AtomList>
+                                                    </rdf:rest>
+                                                  </swrl:AtomList>
+                                                </rdf:rest>
+                                                <rdf:first>
+                                                  <swrl:ClassAtom>
+                                                    <swrl:classPredicate rdf:resource="#Symptoms"/>
+                                                    <swrl:argument1 rdf:resource="#Peripheral_edema"/>
+                                                  </swrl:ClassAtom>
+                                                </rdf:first>
+                                              </swrl:AtomList>
+                                            </rdf:rest>
+                                          </swrl:AtomList>
+                                        </rdf:rest>
+                                        <rdf:first>
+                                          <swrl:ClassAtom>
+                                            <swrl:classPredicate rdf:resource="#Symptoms"/>
+                                            <swrl:argument1 rdf:resource="#Weakness"/>
+                                          </swrl:ClassAtom>
+                                        </rdf:first>
+                                      </swrl:AtomList>
+                                    </rdf:rest>
+                                    <rdf:first>
+                                      <swrl:IndividualPropertyAtom>
+                                        <swrl:argument2>
+                                          <Symptoms rdf:ID="Coughing"/>
+                                        </swrl:argument2>
+                                        <swrl:argument1 rdf:resource="#p"/>
+                                        <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                                      </swrl:IndividualPropertyAtom>
+                                    </rdf:first>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                                <rdf:first>
+                                  <swrl:ClassAtom>
+                                    <swrl:argument1 rdf:resource="#Coughing"/>
+                                    <swrl:classPredicate rdf:resource="#Symptoms"/>
+                                  </swrl:ClassAtom>
+                                </rdf:first>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:argument2 rdf:resource="#Chest_pain"/>
+                        <swrl:argument1 rdf:resource="#p"/>
+                        <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#Palpitations"/>
+            <swrl:classPredicate rdf:resource="#Symptoms"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </rdf:rest>
+  </swrl:AtomList>
+  <Other_tests rdf:ID="Cardiopulmonary_stress_test"/>
+  <Test_results rdf:ID="Abnormalities_of_the_early_and_late_diastolic_filling_patterns"/>
+  <Doctor rdf:ID="Doctor_9"/>
+  <Nurse rdf:ID="Nurse_24"/>
+  <Computer rdf:ID="Computer_1"/>
+  <Blood_pressure_signs rdf:ID="Diastolic_blood_pressure_decreased"/>
+  <Ward rdf:ID="Ward_33"/>
+  <Test_results rdf:ID="Serum_creatinine_greater_than_top_limit_of_local_lab"/>
+  <Test_results rdf:ID="Has_lost_more_than_7_point_5_percent_weight_in_last_6_months"/>
+  <Laboratory rdf:ID="Laboratory_A"/>
+  <Test_results rdf:ID="A_mitral-A_palm_duration_greater_than_30_ms"/>
+  <Blood_pressure_signs rdf:ID="Narrow_proportional_pulse_pressure"/>
+  <Symptoms rdf:ID="Headache"/>
+  <Prognosis rdf:ID="Full_recovery_expected"/>
+  <Test_results rdf:ID="E_to_Ea_ratio_increased_greater_than_15"/>
+  <Functional_and_exertional rdf:ID="VO2_max_mL_per_kg_per_min_less_than_10-14"/>
+  <Test_results rdf:ID="LVEF_in_35-45_percent"/>
+  <Blood_pressure_signs rdf:ID="Systolic_blood_pressure_increased"/>
+  <Test_results rdf:ID="Aortic_stenosis_present"/>
+  <Bed rdf:ID="Bed_49"/>
+  <Nurse rdf:ID="Nurse_23"/>
+  <Test_results rdf:ID="Increased_left_ventricular_chamber_or_muscle_stiffness"/>
+  <Treatment_outcome rdf:ID="Not_treated_for_heart_failure"/>
+  <Clinical rdf:ID="Persistent_low_BP"/>
+  <Ward rdf:ID="Ward_34"/>
+  <Imaging rdf:ID="Low_LVEF"/>
+  <Symptoms rdf:ID="Quick_pulse"/>
+  <Test_results rdf:ID="Albumin_high_greater_than_45_g_per_l"/>
+  <Treatment_outcome rdf:ID="Not_responding_to_therapy"/>
+  <Test_results rdf:ID="BNP_less_than_100_pg_per_ml_NT-proBNP_less_than_400_pg_per_ml"/>
+  <Test_results rdf:ID="Serum_potassium_greater_than_5.5_mmol_per_l"/>
+  <Treatment_outcome rdf:ID="Worsening_ventricular_function"/>
+  <Nurse rdf:ID="Nurse_1"/>
+  <Test_results rdf:ID="VE-VCO2_ratio_greater_than_30"/>
+  <Exam_room rdf:ID="Exam_room_A"/>
+  <Test_results rdf:ID="Elevated_troponins"/>
+  <Test_results rdf:ID="Serum_urea_greater_than_top_limit_of_local_lab"/>
+  <Bed rdf:ID="Bed_38"/>
+  <Symptoms rdf:ID="Inability_to_speack"/>
+  <Patient rdf:ID="Patient_PT_0000012"/>
+  <Other_tests rdf:ID="Cardiovascular_monitoring"/>
+  <Class_3 rdf:ID="Class_3_6"/>
+  <Electrophysiologic rdf:ID="Atrial_fibrillation_present"/>
+  <Heart_failure_diagnosis rdf:ID="Diastolic_heart_failure"/>
+  <Exam_room rdf:ID="Exam_room_B"/>
+  <Imaging rdf:ID="Increased_left_ventricular_volumes"/>
+  <Bed rdf:ID="Bed_37"/>
+  <swrl:Imp rdf:ID="Hypertensive_heart_failure_diagnosis">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument1 rdf:resource="#p"/>
+                    <swrl:argument2 rdf:resource="#High_blood_pressure_disorder"/>
+                    <swrl:propertyPredicate rdf:resource="#hasSigns"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="#hasSigns"/>
+                        <swrl:argument2>
+                          <Heart_sounds_and_murmurs rdf:ID="Abnormal_heart_sounds"/>
+                        </swrl:argument2>
+                        <swrl:argument1 rdf:resource="#p"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument1 rdf:resource="#p"/>
+                            <swrl:argument2>
+                              <Test_results rdf:ID="ECG_abnormal"/>
+                            </swrl:argument2>
+                            <swrl:propertyPredicate rdf:resource="#hasTestResults"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:argument1 rdf:resource="#p"/>
+                                <swrl:argument2>
+                                  <Test_results rdf:ID="Pulmonary_venous_congestion"/>
+                                </swrl:argument2>
+                                <swrl:propertyPredicate rdf:resource="#hasTestResults"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2>
+                  <Heart_failure_diagnosis rdf:ID="Chronic_heart_failure"/>
+                </swrl:argument2>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:propertyPredicate rdf:resource="#hypotheticalDiagnosis"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:classPredicate rdf:resource="#Patient"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument2>
+              <Heart_failure_diagnosis rdf:ID="Hypertensive_heart_failure"/>
+            </swrl:argument2>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:propertyPredicate rdf:resource="#suggestedDiagnosis"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <Bed rdf:ID="Bed_40"/>
+  <Test_results rdf:ID="C-reactive_protein_level_greater_than_10_mg_per_l"/>
+  <Imaging rdf:ID="Low_cardiac_index"/>
+  <Test_results rdf:ID="Valvular_stenosis_pr_regurgitation_present"/>
+  <Electrophysiologic rdf:ID="Tachycardia_present"/>
+  <Class_3 rdf:ID="Class_3_5"/>
+  <Test_results rdf:ID="Slow_isovolumic_relaxation_time"/>
+  <Clinical rdf:ID="Low_body_mass_index"/>
+  <Test_results rdf:ID="Reduced_left_ventricular_diastolic_distensibility"/>
+  <Prognosis rdf:ID="Unknown"/>
+  <Test_results rdf:ID="FT4_decreased"/>
+  <Blood_pressure_signs rdf:ID="Systolic_blood_pressure_very_high"/>
+  <Patient rdf:ID="Patient_PT_0000014"/>
+  <Admit rdf:ID="Admission_8"/>
+  <Bed rdf:ID="Bed_51"/>
+  <Test_results rdf:ID="Decreased_peek_expiratory_flow_rate_PEFR"/>
+  <swrl:Variable rdf:ID="sbp"/>
+  <Other_tests rdf:ID="Chest_CT"/>
+  <Test_results rdf:ID="Urinalysis"/>
+  <Demographics rdf:ID="Diabetes_present"/>
+  <Clinical rdf:ID="Sleep-related_breathing_disorders"/>
+  <Bed rdf:ID="Bed_50"/>
+  <Test_results rdf:ID="Prolonged_deceleration_time"/>
+  <Bed rdf:ID="Bed_52"/>
+  <Bed rdf:ID="Bed_39"/>
+  <Test_results rdf:ID="Total_cholesterol_level_greater_than_200_mg_per_dl"/>
+  <Symptoms rdf:ID="Syncope"/>
+  <Test_results rdf:ID="Hypokalemia_less_than_3.5_mmol_per_l"/>
+  <Exam_room rdf:ID="Exam_room_D"/>
+  <Patient rdf:ID="Patient_PT_0000013"/>
+  <Symptoms rdf:ID="Dry_cough"/>
+  <Test_results rdf:ID="Transaminase_increase"/>
+  <Test_results rdf:ID="Hypernatremia_greater_than_150_mmol_per_l"/>
+  <Other_tests rdf:ID="Renal_angiography"/>
+  <swrl:Imp rdf:ID="Suggested_tests_for_systolic_heart_failure">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#suggestedDiagnosis"/>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:argument2>
+                  <Heart_failure_diagnosis rdf:ID="Systolic_heart_failure"/>
+                </swrl:argument2>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:classPredicate rdf:resource="#Patient"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:argument2 rdf:resource="#Beta_blocker"/>
+                <swrl:propertyPredicate rdf:resource="#suggestedTreatment"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:propertyPredicate rdf:resource="#suggestedTreatment"/>
+            <swrl:argument2 rdf:resource="#ACE_inhibitor"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <PDA rdf:ID="PDA1"/>
+  <Bed rdf:ID="Bed_43"/>
+  <Bed rdf:ID="Bed_34"/>
+  <OXRB rdf:ID="MovableDevice_71"/>
+  <Exam_room rdf:ID="Exam_room_E"/>
+  <Test_results rdf:ID="HDL_lower_than_35_mg_per_dl_in_males"/>
+  <Bed rdf:ID="Bed_53"/>
+  <WheelChair rdf:ID="MovableDevice_7"/>
+  <Test_results rdf:ID="LVEF_in_25-35_percent"/>
+  <Patient rdf:ID="Patient_PT_0000016"/>
+  <Other_tests rdf:ID="Right_heart_catheterization"/>
+  <Lab rdf:ID="High_serum_troponin"/>
+  <Demographics rdf:ID="Chronic_obstructive_pulmonary_disease_present"/>
+  <Doctor rdf:ID="Doctor_12"/>
+  <Test_results rdf:ID="Hyperglycemia_greater_than_6.5_mmol_per_l"/>
+  <Bed rdf:ID="Bed_33"/>
+  <PDA rdf:ID="PDA2"/>
+  <Lab rdf:ID="High_serum_bilirubin"/>
+  <Bed rdf:ID="Bed_44"/>
+  <Blood_pressure_signs rdf:ID="Systolic_blood_pressure_very_low"/>
+  <Test_results rdf:ID="Pericardium_thickening_present"/>
+  <Patient rdf:ID="Patient_PT_0000015"/>
+  <Other_tests rdf:ID="Test_for_allergens"/>
+  <Doctor rdf:ID="Doctor_13"/>
+  <Admit rdf:ID="Admission_10"/>
+  <Other_signs rdf:ID="Abdominal_bruit_present"/>
+  <Waiting_room rdf:ID="Waiting_Room_21"/>
+  <Other_tests rdf:ID="Coronary_angiography"/>
+  <Bed rdf:ID="Bed_36"/>
+  <Ward rdf:ID="Ward_28"/>
+  <Test_results rdf:ID="Hemopericardium_present"/>
+  <Other_signs rdf:ID="Akinesis"/>
+  <Bed rdf:ID="Bed_41"/>
+  <Bed rdf:ID="Bed_55"/>
+  <Other_tests rdf:ID="Endomyocardial_biopsy"/>
+  <Treatment_outcome rdf:ID="Improved_ventricular_function"/>
+  <Class_3 rdf:ID="Class_3_4"/>
+  <Test_results rdf:ID="Heart_rate_greater_than_100_beats_per_min"/>
+  <Staff rdf:ID="Staff_21"/>
+  <Diagnose rdf:ID="Diagnose_2"/>
+  <Waiting_room rdf:ID="Waiting_Room_20"/>
+  <Test_results rdf:ID="INR_greater_than_2.5"/>
+  <Ward rdf:ID="Ward_29"/>
+  <Bed rdf:ID="Bed_42"/>
+  <Bed rdf:ID="Bed_35"/>
+  <Infusion_pump rdf:ID="MovableDevice_6"/>
+  <Bed rdf:ID="Bed_56"/>
+  <Test_results rdf:ID="QRS_interval_greater_than_120_ms"/>
+  <Lab rdf:ID="High_serum_biomarkers_neurohumoral_activation"/>
+  <Blood_pressure_signs rdf:ID="Diastolic_blood_pressure_very_high"/>
+  <Test_results rdf:ID="LVEF_less_than_25_percent"/>
+  <Test_results rdf:ID="Plasma_albumin_minus_fluid_albumin_difference_greater_than_12_g_per_l"/>
+  <Lab rdf:ID="High_serum_BNP_NT_proBNP"/>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Male</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Female</rdf:first>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+  <Treatment_outcome rdf:ID="Worsening_illness"/>
+  <Doctor rdf:ID="Doctor_11"/>
+  <Test_results rdf:ID="Slow_early_left_ventricular_filling"/>
+  <Test_results rdf:ID="Fractional_shortening_reduced_lower_than_25_percent"/>
+  <Electrophysiologic rdf:ID="Low_heart_rate_variability_present"/>
+  <Test_results rdf:ID="HDL_lower_than_45_mg_per_dl_in_females"/>
+  <Treatment_outcome rdf:ID="Responding_to_therapy"/>
+  <Waiting_room rdf:ID="Waiting_Room_22"/>
+  <Test_results rdf:ID="LVEF_lower_than_30_percent"/>
+  <Doctor rdf:ID="Doctor_10"/>
+  <Symptoms rdf:ID="Confusion"/>
+  <Symptoms rdf:ID="Dizziness"/>
+  <Test_measurements rdf:ID="Laboratory_test_result_normal"/>
+  <WheelChair rdf:ID="MovableDevice_3"/>
+  <Waiting_room rdf:ID="Waiting_Room_23"/>
+  <Test_results rdf:ID="Pleural_fluid_LDH_to_normal_upper_limit_for_serum_LDH_ratio_is_greater_than_two_thirds"/>
+  <Test_results rdf:ID="Decreased_exercise_capacity"/>
+  <Test_results rdf:ID="Tricuspid_regurgitation_peak_velocity_increased_greater_than_3_m_per_s"/>
+  <Test_results rdf:ID="FT3_increased"/>
+  <Test_results rdf:ID="Decreased_forced_expiratory_volume_FEV1"/>
+  <Test_results rdf:ID="Abnormal_thyroid_tests"/>
+  <Clinical rdf:ID="Pulmonary_rales"/>
+  <Blood_pressure_signs rdf:ID="Systolic_blood_pressure_decreased"/>
+  <Test_results rdf:ID="Anemia_less_than_13_g_per_dl_in_men_less_than_12_in_women"/>
+  <swrl:ClassAtom>
+    <swrl:classPredicate rdf:resource="#Doctor"/>
+    <swrl:argument1>
+      <swrl:Variable rdf:ID="d"/>
+    </swrl:argument1>
+  </swrl:ClassAtom>
+  <Other_tests rdf:ID="Radionuclide_ventriculography"/>
+  <Test_results rdf:ID="Pleural_fluid_LDH_to_serum_LDH_ratio_greater_than_0_point_6"/>
+  <Test_results rdf:ID="Vp_less_than_45_cm_per_s"/>
+  <Heart_failure_diagnosis rdf:ID="Heart_failure"/>
+  <Lab rdf:ID="High_serum_creatinine_or_BUN"/>
+  <Treatment_outcome rdf:ID="Full_recovery"/>
+  <swrl:ClassAtom>
+    <swrl:classPredicate rdf:resource="#Surgery_room"/>
+    <swrl:argument1 rdf:resource="#s"/>
+  </swrl:ClassAtom>
+  <Functional_and_exertional rdf:ID="Low_6_min_walking_ability"/>
+  <Test_results rdf:ID="ALT_greater_than_top_limit_of_local_lab"/>
+  <Test_results rdf:ID="Early_to_atrial_left_ventricular_filling_ratio_normal_greater_than_1"/>
+  <Test_results rdf:ID="Urine_output_lower_than_0_5_ml_per_kg_per_hour"/>
+  <Other_tests rdf:ID="CAT_scan_of_brain"/>
+  <Other_tests rdf:ID="Pulmonary_function_tests"/>
+  <Prognosis rdf:ID="Poor"/>
+  <Test_results rdf:ID="E_to_Ea_ratio_reduced_less_than_8"/>
+  <Test_results rdf:ID="Increased_serum_creatinine_greater_than_150_umol_per_l"/>
+  <Test_results rdf:ID="Glomerular_filtration_rate_less_then_30_ml_per_min"/>
+  <Demographics rdf:ID="Poor_compliance"/>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >good</rdf:first>
+          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </rdf:rest>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >urgent</rdf:first>
+      </rdf:rest>
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >normal</rdf:first>
+    </owl:oneOf>
+  </owl:DataRange>
+  <Test_results rdf:ID="Serum_troponin_levels_increased"/>
+  <Test_results rdf:ID="Has_BMI_less_than_22"/>
+  <Test_results rdf:ID="ECG_normal"/>
+  <Test_results rdf:ID="Hyperkalemia_greater_than_5.5_mmol_per_l"/>
+  <Admit rdf:ID="Admission_3"/>
+  <Bed rdf:ID="Bed_29"/>
+  <Treatment_outcome rdf:ID="Improved_well_being"/>
+  <Test_results rdf:ID="Heart_rate_greater_than_60_beats_per_min"/>
+  <Test_results rdf:ID="Pleural_fluid_protein_to_serum_protein_ratio_greater_than_0_point_5"/>
+  <Lab_staff rdf:ID="LabStaff_18"/>
+  <swrl:IndividualPropertyAtom>
+    <swrl:argument2 rdf:resource="#p"/>
+    <swrl:argument1 rdf:resource="#s"/>
+  </swrl:IndividualPropertyAtom>
+  <X-Ray rdf:ID="X-Ray_machine_05"/>
+  <swrl:Imp rdf:ID="Systolic_heart_failure_detection">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#suggestedDiagnosis"/>
+            <swrl:argument2 rdf:resource="#Systolic_heart_failure"/>
+            <swrl:argument1 rdf:resource="#p"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Patient"/>
+            <swrl:argument1 rdf:resource="#p"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:argument2 rdf:resource="#Chronic_heart_failure"/>
+                <swrl:propertyPredicate rdf:resource="#hypotheticalDiagnosis"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="#hasTestResults"/>
+                        <swrl:argument1 rdf:resource="#p"/>
+                        <swrl:argument2 rdf:resource="#ECG_abnormal"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="#hasTestResults"/>
+                                <swrl:argument1 rdf:resource="#p"/>
+                                <swrl:argument2>
+                                  <Test_results rdf:ID="LVEF_lower_than_40_percent"/>
+                                </swrl:argument2>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument1 rdf:resource="#p"/>
+                            <swrl:argument2>
+                              <Test_results rdf:ID="BNP_value_higher_than_100_pg_per_ml"/>
+                            </swrl:argument2>
+                            <swrl:propertyPredicate rdf:resource="#hasTestResults"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                  </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2>
+                      <Test_results rdf:ID="Chest_X-ray_abnormal"/>
+                    </swrl:argument2>
+                    <swrl:argument1 rdf:resource="#p"/>
+                    <swrl:propertyPredicate rdf:resource="#hasTestResults"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <Prognosis rdf:ID="Very_poor"/>
+  <Lab_staff rdf:ID="LabStaff_17"/>
+  <Other_tests rdf:ID="Thoracic_radiography"/>
+  <Test_results rdf:ID="VO2_max_less_than_10-14_mL_per_kg_per_min"/>
+  <Clinical rdf:ID="NYHA_functional_class_III-IV"/>
+  <Test_results rdf:ID="Early_to_atrial_left_ventricular_filling_ratio_restrictive_greater_than_2_short_deceleration_time_less_than_115_to_150_ms"/>
+  <Lab_staff rdf:ID="LabStaff_16"/>
+  <Doctor rdf:ID="Doctor_7"/>
+  <Test_results rdf:ID="End_diastolic_diameter_increased_greater_than_55_to_60_mm"/>
+  <Ward rdf:ID="Ward_30"/>
+  <Other_signs rdf:ID="Ascites"/>
+  <Electrophysiologic rdf:ID="T-wave_alternans"/>
+  <Test_results rdf:ID="Test_results_25"/>
+  <Lab_staff rdf:ID="LabStaff_15"/>
+  <Doctor rdf:ID="Doctor_8"/>
+  <Test_results rdf:ID="Hyponatremia_less_than_135_mmol_per_l"/>
+  <Test_results rdf:ID="LVEF_greater_than_30_percent"/>
+  <Blood_pressure_signs rdf:ID="Diastolic_blood_pressure_very_low"/>
+  <Demographics rdf:ID="Renal_dysfunction_present"/>
+  <Test_results rdf:ID="Aortic_outflow_velocity_time_integral_reduced_less_than_15_cm"/>
+  <Test_results rdf:ID="Cardiothoracic_ratio_greater_than_0.5"/>
+  <Doctor rdf:ID="Doctor_5"/>
+  <Test_results rdf:ID="Triglycerides_greater_than_200_mg_per_dl"/>
+  <Lab rdf:ID="Low_serum_sodium"/>
+  <Symptoms rdf:ID="Mobility_limitation"/>
+  <Heart_failure_diagnosis rdf:ID="Acute_heart_failure"/>
+  <Test_results rdf:ID="Serum_potassium_greater_than_top_limit_of_local_lab"/>
+  <Other_tests rdf:ID="Six-minute_walk_test"/>
+  <Demographics rdf:ID="Advanced_age"/>
+  <Imaging rdf:ID="High_left_ventricular_filling_pressure_present"/>
+  <Doctor rdf:ID="Doctor_6"/>
+  <Test_measurements rdf:ID="Laboratory_test_result_abnormal"/>
+  <Demographics rdf:ID="Depression"/>
+  <Symptoms rdf:ID="Orthopnea"/>
+  <Test_results rdf:ID="Pericardium_effusion_present"/>
+  <swrl:ClassAtom>
+    <swrl:argument1 rdf:resource="#p"/>
+    <swrl:classPredicate rdf:resource="#Patient"/>
+  </swrl:ClassAtom>
+  <Imaging rdf:ID="Restrictive_mitral_filling_pattern_present"/>
+  <Electrophysiologic rdf:ID="Complex_ventricular_arhythmias"/>
+  <Test_results rdf:ID="Albumin_low_less_than_30_g_per_l"/>
+  <Test_results rdf:ID="Reduced_arterial_oxygen_saturation"/>
+  <swrl:ClassAtom>
+    <swrl:classPredicate rdf:resource="#Computer"/>
+    <swrl:argument1 rdf:resource="#c"/>
+  </swrl:ClassAtom>
+  <swrl:Imp rdf:ID="Suggested_tests_for_chronic_heart_failure">
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2 rdf:resource="#Chronic_heart_failure"/>
+                <swrl:argument1 rdf:resource="#p"/>
+                <swrl:propertyPredicate rdf:resource="#hypotheticalDiagnosis"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#Patient"/>
+            <swrl:argument1 rdf:resource="#p"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument2 rdf:resource="#Electrocardiography_tests"/>
+                            <swrl:argument1 rdf:resource="#p"/>
+                            <swrl:propertyPredicate rdf:resource="#suggestedTest"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="#suggestedTest"/>
+                        <swrl:argument1 rdf:resource="#p"/>
+                        <swrl:argument2>
+                          <Other_tests rdf:ID="Blood_test"/>
+                        </swrl:argument2>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument1 rdf:resource="#p"/>
+                    <swrl:argument2>
+                      <Other_tests rdf:ID="Chest_X-ray"/>
+                    </swrl:argument2>
+                    <swrl:propertyPredicate rdf:resource="#suggestedTest"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#suggestedTest"/>
+                <swrl:argument2 rdf:resource="#Echocardiography_tests"/>
+                <swrl:argument1 rdf:resource="#p"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#suggestedTest"/>
+            <swrl:argument2 rdf:resource="#Physical_examination"/>
+            <swrl:argument1 rdf:resource="#p"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <Electrophysiologic rdf:ID="Broad_QRS"/>
+  <Test_results rdf:ID="Cardiac_output_less_than_2_l_per_min"/>
+  <Prognosis rdf:ID="Good"/>
+  <Test_results rdf:ID="Pulmonary_S_wave_greater_than_D_wave"/>
+  <swrl:IndividualPropertyAtom>
+    <swrl:argument1 rdf:resource="#s"/>
+    <swrl:argument2 rdf:resource="#d"/>
+  </swrl:IndividualPropertyAtom>
+  <X-Ray rdf:ID="X-Ray_machine_10"/>
+  <Nurse rdf:ID="Nurse_26"/>
+  <Test_results rdf:ID="AST_greater_than_top_limit_of_local_lab"/>
+  <Doctor rdf:ID="Doctor_4"/>
+  <Blood_pressure_signs rdf:ID="Diastolic_blood_pressure_increased"/>
+  <Test_results rdf:ID="Increased_NT-proBNP"/>
+  <Symptoms rdf:ID="Anxiety"/>
+  <Test_results rdf:ID="Chest_X-ray_normal"/>
+  <swrl:Imp rdf:ID="Chronic_heart_failure_detection">
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:IndividualPropertyAtom>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:argument2 rdf:resource="#Chronic_heart_failure"/>
+            <swrl:propertyPredicate rdf:resource="#hypotheticalDiagnosis"/>
+          </swrl:IndividualPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="#p"/>
+            <swrl:classPredicate rdf:resource="#Patient"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2>
+                  <Symptoms rdf:ID="Dyspnea"/>
+                </swrl:argument2>
+                <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                <swrl:argument1 rdf:resource="#p"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2>
+                      <Symptoms rdf:ID="Fatigue"/>
+                    </swrl:argument2>
+                    <swrl:argument1 rdf:resource="#p"/>
+                    <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                        <swrl:argument1 rdf:resource="#p"/>
+                        <swrl:argument2 rdf:resource="#Peripheral_edema"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument1 rdf:resource="#p"/>
+                            <swrl:argument2 rdf:resource="#Palpitations"/>
+                            <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:argument2 rdf:resource="#Coughing"/>
+                                <swrl:argument1 rdf:resource="#p"/>
+                                <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:first>
+                                  <swrl:IndividualPropertyAtom>
+                                    <swrl:argument1 rdf:resource="#p"/>
+                                    <swrl:argument2>
+                                      <Symptoms rdf:ID="Nausea"/>
+                                    </swrl:argument2>
+                                    <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                                  </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:first>
+                                      <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="#hasSymptoms"/>
+                                        <swrl:argument1 rdf:resource="#p"/>
+                                        <swrl:argument2>
+                                          <Symptoms rdf:ID="Neurologic_deficit"/>
+                                        </swrl:argument2>
+                                      </swrl:IndividualPropertyAtom>
+                                    </rdf:first>
+                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <Other_tests rdf:ID="Cardiac_MRI"/>
+  <Test_results rdf:ID="FT3_decreased"/>
+  <Test_results rdf:ID="A_mitral-A_palm_duration_less_than_30"/>
+  <Test_results rdf:ID="Vena_cava_dilated_retrograde_flow"/>
+  <Test_results rdf:ID="End_systolic_diameter_increased_greater_than_45_mm"/>
+  <Nurse rdf:ID="Nurse_27"/>
+  <Test_results rdf:ID="TSH_decreased"/>
+  <Demographics rdf:ID="Sudden_death_resuscitated"/>
+  <Test_results rdf:ID="LVEF_greater_than_45-50_percent"/>
+  <Imaging rdf:ID="Pulmonary_hypertension_present"/>
+  <Other_tests rdf:ID="Nuclear_imaging_PET_or_SPECT"/>
+  <Test_results rdf:ID="LDL_greater_than_100_mg_per_dl"/>
+  <Test_results rdf:ID="TSH_increased"/>
+  <Electrophysiologic rdf:ID="Q_waves"/>
+  <Nurse rdf:ID="Nurse_28"/>
+  <Electrophysiologic rdf:ID="LV_hypertrophy"/>
+  <Heart_failure_diagnosis rdf:ID="Refractory_heart_failure"/>
+  <Test_results rdf:ID="Early_to_atrial_left_ventricular_filling_ratio_slowed_relaxation_less_than_1"/>
+  <Doctor rdf:ID="Doctor_2"/>
+  <Test_results rdf:ID="Urine_glucose_present"/>
+  <X-Ray rdf:ID="X-Ray_machine_11"/>
+  <Clinical rdf:ID="High_heart_rate_of_patient"/>
+  <PhysicalExamination rdf:ID="PhysicalExamination_1">
+    <hasParticipant>
+      <Patient rdf:ID="Patient_PT_0000017">
+        <hasSymptoms rdf:resource="#Palpitations"/>
+        <hasSymptoms rdf:resource="#Irregular_heart_rate"/>
+        <hasSymptoms rdf:resource="#Coughing"/>
+        <suggestedTest rdf:resource="#Electrocardiography_tests"/>
+        <suggestedTest rdf:resource="#Blood_test"/>
+        <hasSymptoms rdf:resource="#Fatigue"/>
+        <treatedBy>
+          <Staff rdf:ID="Staff_ST_0001">
+            <hasID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ST_0001</hasID>
+            <locatedIn>
+              <Exam_room rdf:ID="Exam_room_C"/>
+            </locatedIn>
+            <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Female</hasGender>
+            <playRole>
+              <Clinician rdf:ID="Clinician_20"/>
+            </playRole>
+            <treats>
+              <Patient rdf:ID="Patient_PT_0000011">
+                <suggestedTest rdf:resource="#Electrocardiography_tests"/>
+                <hasSigns>
+                  <Other_signs rdf:ID="Body_fluid_retention"/>
+                </hasSigns>
+                <hasSigns>
+                  <Other_signs rdf:ID="High_temperature"/>
+                </hasSigns>
+                <hasTestResults rdf:resource="#ECG_abnormal"/>
+                <hasSymptoms rdf:resource="#Dyspnea"/>
+                <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Female</hasGender>
+                <treatedBy>
+                  <Staff rdf:ID="Lab_staff_1">
+                    <treats rdf:resource="#Patient_PT_0000011"/>
+                  </Staff>
+                </treatedBy>
+                <hasTestResults rdf:resource="#BNP_value_higher_than_100_pg_per_ml"/>
+                <locatedIn>
+                  <Waiting_room rdf:ID="Waiting_Room_19"/>
+                </locatedIn>
+                <suggestedTest rdf:resource="#Chest_X-ray"/>
+                <hasSymptoms rdf:resource="#Palpitations"/>
+                <hypotheticalDiagnosis rdf:resource="#Chronic_heart_failure"/>
+                <hasTestResults rdf:resource="#LVEF_lower_than_40_percent"/>
+                <hasSymptoms rdf:resource="#Coughing"/>
+                <suggestedTest rdf:resource="#Blood_test"/>
+                <treatedBy rdf:resource="#Staff_ST_0001"/>
+                <hasTestResults>
+                  <Test_results rdf:ID="Increased_BNP"/>
+                </hasTestResults>
+                <participateIn>
+                  <Test rdf:ID="Test_X-ray_009">
+                    <hasParticipant rdf:resource="#Patient_PT_0000011"/>
+                  </Test>
+                </participateIn>
+                <hasSymptoms rdf:resource="#Peripheral_edema"/>
+                <hasSymptoms rdf:resource="#Weakness"/>
+                <hasSymptoms rdf:resource="#Irregular_heart_rate"/>
+                <suggestedDiagnosis rdf:resource="#Systolic_heart_failure"/>
+                <suggestedTreatment rdf:resource="#Beta_blocker"/>
+                <suggestedTest rdf:resource="#Echocardiography_tests"/>
+                <hasTestResults>
+                  <Test_results rdf:ID="Urine_proteins_present"/>
+                </hasTestResults>
+                <suggestedTreatment rdf:resource="#ACE_inhibitor"/>
+                <participateIn>
+                  <Diagnose rdf:ID="Diagnose_PT_0000011">
+                    <hasParticipant rdf:resource="#Patient_PT_0000011"/>
+                  </Diagnose>
+                </participateIn>
+                <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Mary Smith</hasName>
+                <hasSymptoms rdf:resource="#Neurologic_deficit"/>
+                <participateIn>
+                  <Test rdf:ID="Test_Blood_110">
+                    <hasParticipant rdf:resource="#Patient_PT_0000011"/>
+                  </Test>
+                </participateIn>
+                <hasID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >PT_0000011</hasID>
+                <hasSymptoms rdf:resource="#Fatigue"/>
+                <hasSymptoms rdf:resource="#Nausea"/>
+                <hasTestResults rdf:resource="#Chest_X-ray_abnormal"/>
+              </Patient>
+            </treats>
+            <treats rdf:resource="#Patient_PT_0000017"/>
+            <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Jessieca Lee</hasName>
+            <participateIn rdf:resource="#PhysicalExamination_1"/>
+          </Staff>
+        </treatedBy>
+        <hasSigns rdf:resource="#Body_fluid_retention"/>
+        <locatedIn rdf:resource="#Exam_room_C"/>
+        <hasSymptoms rdf:resource="#Neurologic_deficit"/>
+        <suggestedTest rdf:resource="#Echocardiography_tests"/>
+        <hasSymptoms rdf:resource="#Nausea"/>
+        <hasID rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >PT_0000011</hasID>
+        <suggestedTest rdf:resource="#Chest_X-ray"/>
+        <hasGender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Female</hasGender>
+        <suggestedTest rdf:resource="#Physical_examination"/>
+        <hasSymptoms rdf:resource="#Dyspnea"/>
+        <hasSymptoms rdf:resource="#Weakness"/>
+        <participateIn rdf:resource="#PhysicalExamination_1"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Mary Smith</hasName>
+        <hasSigns rdf:resource="#High_temperature"/>
+        <hypotheticalDiagnosis rdf:resource="#Chronic_heart_failure"/>
+        <hasSymptoms rdf:resource="#Peripheral_edema"/>
+      </Patient>
+    </hasParticipant>
+    <hasParticipant rdf:resource="#Staff_ST_0001"/>
+  </PhysicalExamination>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.4, Build 579)  http://protege.stanford.edu -->

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
+         <!ENTITY home "http://sensormeasurement.appspot.com/ont/m3/home#"> 
+         <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
+         <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
+         <!ENTITY fruit_tropical "http://www.semanticweb.org/ontologies/2008/9/Ontology_fruits_tropical.owl#" >
+         <!ENTITY obo "http://purl.obolibrary.org/obo/">    
+         <!ENTITY OntoReaChir "http://www.yonamoke.com/ics/en/ressources">
+         <!ENTITY registry "http://ontology-for-registry-of-children-with-special-needs.googlecode.com/svn-history/r23/trunk/Registry3.4.4.owl">
+         <!ENTITY hospital "http://www.personal.psu.edu/wxy119/hospital_ontology.owl">
+         <!ENTITY dbpedia "http://dbpedia.org/ontology/">
+         <!ENTITY food_smart_product "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#"> 
+         <!ENTITY cito "http://purl.org/spar/cito/">
+         <!ENTITY sweet_season "http://sweet.jpl.nasa.gov/2.3/reprTimeSeason.owl">
+         <!ENTITY acco "http://purl.org/acco/ns#">
+        
+         
+]> 
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&home;"
+        xmlns:food_smart_product="&food_smart_product;"
+        xml:base="&home;"
+        xmlns:home="&home;" 
+        xmlns:hospital="&hospital;"
+        xmlns:obo="&obo;"
+        xmlns:acco="&acco;"
+        xmlns:registry="&registry;"
+        xmlns:OntoReaChir="&OntoReaChir;"
+        xmlns:foaf="&foaf;"
+        xmlns:dbpedia="&dbpedia;"
+        xmlns:fruit_tropical="&fruit_tropical;"
+        xmlns:sweet_season="&sweet_season;"
+        xmlns:food="&food;"
+        xmlns:cito="&cito;"
+        xmlns:owl="&owl;"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+        xmlns:xsd="&xsd;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+       	
+
+	<owl:Ontology rdf:about="&home;">
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">home</dc:title>
+		<dc:description xml:lang="en">The home ontology</dc:description>
+		<dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amelie Gyrard.</dc:creator>
+		<dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-09-14</dc:issued> 
+ 		<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-09-14</dc:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">Version 0.1</owl:versionInfo>
+		<rdfs:comment xml:lang="en">Description of activities according to the season, the meteo.</rdfs:comment>
+		<vs:term_status>Work in progress</vs:term_status>
+		<vann:preferredNamespacePrefix>home</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/home#</vann:preferredNamespaceUri>
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Habitat_SH_Ontology.owl#">
+   				<rdfs:label>Inspired by  [Hastings et al. 2011]. </rdfs:label>
+   				<dcterms:description xml:lang="en">The home ontology has been inspired by this work.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>		
+		<cito:citesAsDataSource>
+  			<foaf:Document rdf:about="http://www.gdst.uqam.ca/Documents/Ontologies/HIT/Person_SH_Ontology.owl#">
+   				<rdfs:label>Inspired by "Ontology-based management of the telehealth smart home, dedicated to elderly in loss of cognitive autonomy" and "Le role de l'ontologie de la tache dans un habitat en tele sante" [Lafti et al. 2007]. </rdfs:label>
+   				<dcterms:description xml:lang="en">The home ontology has been inspired by this work.</dcterms:description>	
+   			</foaf:Document>
+		</cito:citesAsDataSource>
+	</owl:Ontology>
+	
+	<!-- 
+	Machine to Machine Measurement (M3) Framework 
+    Copyright(c) 2012 - 2015 Eurecom
+
+    M3 is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+
+    M3 is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with M3. The full GNU General Public License is 
+    included in this distribution in the file called "COPYING". If not, 
+    see <http://www.gnu.org/licenses/>.
+
+    Contact Information
+    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+  
+	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+  
+  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+  -->
+	
+	 <owl:Class rdf:ID="Status">
+		<rdfs:label xml:lang="en">Status</rdfs:label>
+		<rdfs:comment xml:lang="en">Status to interpret sensor values (e.g., frost)</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Activity">
+		<rdfs:label xml:lang="en">Activity</rdfs:label>
+		<rdfs:comment xml:lang="en">Activity (e.g., sleeping, watchingTV)</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:ID="Room">
+		<rdfs:label xml:lang="en">Room</rdfs:label>
+		<rdfs:comment xml:lang="en">Room in an office, building or home.</rdfs:comment>
+    </owl:Class>
+    
+     <owl:Class rdf:ID="Furniture">
+		<rdfs:label xml:lang="en">Furniture</rdfs:label>
+		<rdfs:comment xml:lang="en">Furniture can be air conditioning, heating, etc.</rdfs:comment>
+    </owl:Class>
+    
+    
+	
+</rdf:RDF>

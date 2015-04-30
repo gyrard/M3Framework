@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [     
+         <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
+         <!ENTITY foaf	"http://xmlns.com/foaf/0.1/"> 
+         <!ENTITY owl "http://www.w3.org/2002/07/owl#">             
+         <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+         <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY dc "http://purl.org/dc/elements/1.1/">      
+         <!ENTITY homeActivity "http://sensormeasurement.appspot.com/ont/home/homeActivity#">    
+         <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">  
+     
+]> 
+<rdf:RDF 
+        xmlns:rdf="&rdf;"
+        xmlns:xsd="&xsd;"
+        xmlns:owl="&owl;"
+        xmlns:rdfs="&rdfs;"
+        xmlns="&homeActivity;"
+        xmlns:homeActivity="&homeActivity;"
+        xml:base="&homeActivity;"
+		xmlns:dc="&dc;"
+		xmlns:dcterms="&dcterms;"
+       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:cc="http://creativecommons.org/ns#"
+       	xmlns:foaf="&foaf;"
+       	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+
+	<owl:Ontology rdf:about="&homeActivity;">
+		<rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+		<dc:title xml:lang="en">An ontology to detect activities in a smart home</dc:title>
+		<dc:description xml:lang="en">13 rules are described such as sweeping the floor, scrubbing the floor, making a coffee, cooking, eating or drinking, sleeping, working on a computer, taking a bath, watching tv, reading a book, sitting on the toilet, lying down relaxing, wash dishes. The ontology has been implemented with Ontology editor tool HOZO:OWL Export</dc:description>
+		<dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Konlakorn Wongpatikseree</dc:creator>
+		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-04-02</dcterms:issued> 
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-05-12</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+		<vs:term_status>Work in progress</vs:term_status>
+     	<cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/> 
+		<vann:preferredNamespacePrefix>homeActivity</vann:preferredNamespacePrefix> 
+	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/ont/home/homeActivity#</vann:preferredNamespaceUri>
+	    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A context aware information in smart home for health recommendation service based on care architecture. [Wongpatikseree et al. 2013] </rdfs:seeAlso>
+		<rdfs:seeAlso rdf:resource="http://link.springer.com/chapter/10.1007%2F978-3-642-37996-3_24#page-1"/>
+		<rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Location-based concept in activity log ontology for activity recognition in smart home domain. [Wongpatikseree et al. 2013]</rdfs:seeAlso>
+		<rdfs:seeAlso rdf:resource="http://saki.siit.tu.ac.th/acis2013/uploads_final/29__3557af91375c8a9aa3b6f92c3f9165af/A%20Context-aware%20Information%20in%20Smart%20Home%20for%20Health%20Recommendation%20Service%20based%20on%20CARE%20Architecture_Camera_Ready.pdf"/>
+		</owl:Ontology>
+
+<owl:Class rdf:ID="RelationalConcept">
+    <rdfs:label>RelationalConcept</rdfs:label>
+</owl:Class>
+<owl:ObjectProperty rdf:ID="hasPart">
+    <rdfs:label>hasPart</rdfs:label>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="hasAttribute">
+    <rdfs:label>hasAttribute</rdfs:label>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Any">
+    <rdfs:label>Any</rdfs:label>
+</owl:Class>
+<owl:Class rdf:ID="Context">
+    <rdfs:label>Context</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_sensor" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_sensor" />
+            <owl:allValuesFrom rdf:resource="#Sensor" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_obj" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_obj" />
+            <owl:allValuesFrom rdf:resource="#ObjectInstance" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_inf_activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_inf_activity" />
+            <owl:allValuesFrom rdf:resource="#InferredActivity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_hum_pos" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_hum_pos" />
+            <owl:allValuesFrom rdf:resource="#Human_Posture" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Context_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Context_ID" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_time" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_time" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_date" />
+            <owl:allValuesFrom rdf:resource="#Date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_last_activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_last_activity" />
+            <owl:allValuesFrom rdf:resource="#Last_Activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_last_object" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_last_object" />
+            <owl:allValuesFrom rdf:resource="#Last_Object" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Location">
+    <rdfs:label>Location</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Location_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Location_ID" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Location_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Location_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="InferredActivity">
+    <rdfs:label>InferredActivity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_rec_act_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_rec_act_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Have_activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Have_activity" />
+            <owl:allValuesFrom rdf:resource="#Functional_Activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_rec_act_id" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_rec_act_id" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Kitchen">
+    <rdfs:label>Kitchen</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location" />
+</owl:Class>
+<owl:Class rdf:ID="Livingroom">
+    <rdfs:label>Livingroom</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location" />
+</owl:Class>
+<owl:Class rdf:ID="Object">
+    <rdfs:label>Object</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Current_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Current_location" />
+            <owl:allValuesFrom rdf:resource="#Location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_isAttached" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_isAttached" />
+            <owl:allValuesFrom rdf:resource="#Sensor" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Object_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Object_ID" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Object_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Object_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Electric_Appliance">
+    <rdfs:label>Electric_Appliance</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object" />
+</owl:Class>
+<owl:Class rdf:ID="Furniture">
+    <rdfs:label>Furniture</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object" />
+</owl:Class>
+<owl:Class rdf:ID="Bedroom">
+    <rdfs:label>Bedroom</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location" />
+</owl:Class>
+<owl:Class rdf:ID="Bathroom">
+    <rdfs:label>Bathroom</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location" />
+</owl:Class>
+<owl:Class rdf:ID="Sensor">
+    <rdfs:label>Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Sensor_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Sensor_ID" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Status" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Status" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_AttachTo" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_AttachTo" />
+            <owl:allValuesFrom rdf:resource="#Object" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Time" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Time" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_date" />
+            <owl:allValuesFrom rdf:resource="#Date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sensor_Type">
+    <rdfs:label>Sensor_Type</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor" />
+</owl:Class>
+<owl:Class rdf:ID="Current_Sensor">
+    <rdfs:label>Current_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Infrared_Sensor">
+    <rdfs:label>Infrared_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Magnetic_Sensor">
+    <rdfs:label>Magnetic_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Pressure_Sensor">
+    <rdfs:label>Pressure_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Ultrasonic_Sensor">
+    <rdfs:label>Ultrasonic_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Water_Meter_Sensor">
+    <rdfs:label>Water_Meter_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Human">
+    <rdfs:label>Human</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_act_log" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_act_log" />
+            <owl:allValuesFrom rdf:resource="#Activity_Log" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Computer">
+    <rdfs:label>Computer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Entertainment" />
+</owl:Class>
+<owl:Class rdf:ID="Electric_Stove">
+    <rdfs:label>Electric_Stove</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="Mop">
+    <rdfs:label>Mop</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Microwave">
+    <rdfs:label>Microwave</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="Oven">
+    <rdfs:label>Oven</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="Refrigerator">
+    <rdfs:label>Refrigerator</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="Stereo">
+    <rdfs:label>Stereo</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Entertainment" />
+</owl:Class>
+<owl:Class rdf:ID="TV">
+    <rdfs:label>TV</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Entertainment" />
+</owl:Class>
+<owl:Class rdf:ID="Broom">
+    <rdfs:label>Broom</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Bed">
+    <rdfs:label>Bed</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Chair">
+    <rdfs:label>Chair</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Cupboard">
+    <rdfs:label>Cupboard</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Shower">
+    <rdfs:label>Shower</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Sofa">
+    <rdfs:label>Sofa</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Table">
+    <rdfs:label>Table</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Human_Posture">
+    <rdfs:label>Human_Posture</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Actor" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Actor" />
+            <owl:allValuesFrom rdf:resource="#Human" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Posture_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Posture_ID" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Posture_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Posture_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sit">
+    <rdfs:label>Sit</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Human_Posture" />
+</owl:Class>
+<owl:Class rdf:ID="Stand">
+    <rdfs:label>Stand</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Human_Posture" />
+</owl:Class>
+<owl:Class rdf:ID="Lie-down">
+    <rdfs:label>Lie-down</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Human_Posture" />
+</owl:Class>
+<owl:Class rdf:ID="Functional_Activity">
+    <rdfs:label>Functional_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_id" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_id" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Object_based_Actvity">
+    <rdfs:label>Object_based_Actvity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Functional_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Object" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Location_based_Activity">
+    <rdfs:label>Location_based_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object_based_Actvity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location" />
+            <owl:allValuesFrom rdf:resource="#Location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Combine_with" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Combine_with" />
+            <owl:allValuesFrom rdf:resource="#Object_based_Actvity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sweeping_the_floor">
+    <rdfs:label>Sweeping_the_floor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object_based_Actvity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Broom" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Scrubbing_the_floor">
+    <rdfs:label>Scrubbing_the_floor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object_based_Actvity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Mop" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Kitchen_Activity">
+    <rdfs:label>Kitchen_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location_based_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location" />
+            <owl:allValuesFrom rdf:resource="#Kitchen" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Bedroom_Activity">
+    <rdfs:label>Bedroom_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location_based_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location" />
+            <owl:allValuesFrom rdf:resource="#Bedroom" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Bathroom_Activity">
+    <rdfs:label>Bathroom_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location_based_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location" />
+            <owl:allValuesFrom rdf:resource="#Bathroom" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Living_room_Activity">
+    <rdfs:label>Living_room_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Location_based_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location" />
+            <owl:allValuesFrom rdf:resource="#Livingroom" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Making_a_coffee">
+    <rdfs:label>Making_a_coffee</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_hasDrinkType" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_hasDrinkType" />
+            <owl:allValuesFrom rdf:resource="#Coffee" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Coffee" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Cooking">
+    <rdfs:label>Cooking</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Electric_Stove" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Refrigerator" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Food">
+    <rdfs:label>Food</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object" />
+</owl:Class>
+<owl:Class rdf:ID="Drink">
+    <rdfs:label>Drink</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Food" />
+</owl:Class>
+<owl:Class rdf:ID="Coffee">
+    <rdfs:label>Coffee</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Juice">
+    <rdfs:label>Juice</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Softdrink">
+    <rdfs:label>Softdrink</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Tea">
+    <rdfs:label>Tea</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Milk">
+    <rdfs:label>Milk</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Alcolhol">
+    <rdfs:label>Alcolhol</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Eating_or_drinking">
+    <rdfs:label>Eating_or_drinking</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_hasFood" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_hasFood" />
+            <owl:allValuesFrom rdf:resource="#Food" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_hasPosture" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_hasPosture" />
+            <owl:allValuesFrom rdf:resource="#Sit" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sleeping">
+    <rdfs:label>Sleeping</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Bedroom_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_posture" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_posture" />
+            <owl:allValuesFrom rdf:resource="#Lie-down" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Bed" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Working_on_computer">
+    <rdfs:label>Working_on_computer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object_based_Actvity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Computer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Taking_a_bath">
+    <rdfs:label>Taking_a_bath</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Bathroom_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Shower" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Phone">
+    <rdfs:label>Phone</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Entertainment" />
+</owl:Class>
+<owl:Class rdf:ID="Watching_TV">
+    <rdfs:label>Watching_TV</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object_based_Actvity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#TV" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Reading_a_book">
+    <rdfs:label>Reading_a_book</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Object_based_Actvity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_posture" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_posture" />
+            <owl:allValuesFrom rdf:resource="#Sit" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Book" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sitting_on_the_toilet">
+    <rdfs:label>Sitting_on_the_toilet</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Bathroom_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_posture" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_posture" />
+            <owl:allValuesFrom rdf:resource="#Sit" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Lavatory" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Lying_down___relaxing">
+    <rdfs:label>Lying_down___relaxing</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Living_room_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Sofa" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_posture" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_posture" />
+            <owl:allValuesFrom rdf:resource="#Lie-down" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Lavatory">
+    <rdfs:label>Lavatory</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Gyro_Sensor">
+    <rdfs:label>Gyro_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Sensor_Type" />
+</owl:Class>
+<owl:Class rdf:ID="Door">
+    <rdfs:label>Door</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Wash_dishes">
+    <rdfs:label>Wash_dishes</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Activity" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_use" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_use" />
+            <owl:allValuesFrom rdf:resource="#Sink" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sink">
+    <rdfs:label>Sink</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Entertainment">
+    <rdfs:label>Entertainment</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Electric_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="Kitchen_Appliance">
+    <rdfs:label>Kitchen_Appliance</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Electric_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="Bottle">
+    <rdfs:label>Bottle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Activity_Log">
+    <rdfs:label>Activity_Log</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Time" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Time" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Last_Activity">
+    <rdfs:label>Last_Activity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Activity_Log" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Activity_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Activity_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Activity_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Activity_ID" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location_concept" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location_concept" />
+            <owl:allValuesFrom rdf:resource="#Location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_activities" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_activities" />
+            <owl:allValuesFrom rdf:resource="#Functional_Activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Last_Object">
+    <rdfs:label>Last_Object</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Activity_Log" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Object_info" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Object_info" />
+            <owl:allValuesFrom rdf:resource="#ObjectInstance" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Object_ID" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Object_ID" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Object_name" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Object_name" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="ADL">
+    <rdfs:label>ADL</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Collect" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Collect" />
+            <owl:allValuesFrom rdf:resource="#Last_Activity" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Time" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Time" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_have_date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_have_date" />
+            <owl:allValuesFrom rdf:resource="#Date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Date">
+    <rdfs:label>Date</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_date" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_date" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Month" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Month" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Year" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Year" />
+            <owl:allValuesFrom rdf:resource="#integer" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_Day_of_week" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_Day_of_week" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:ID="Sugar">
+    <rdfs:label>Sugar</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Drink" />
+</owl:Class>
+<owl:Class rdf:ID="Book">
+    <rdfs:label>Book</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Furniture" />
+</owl:Class>
+<owl:Class rdf:ID="Kettle">
+    <rdfs:label>Kettle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Kitchen_Appliance" />
+</owl:Class>
+<owl:Class rdf:ID="ObjectInstance">
+    <rdfs:label>ObjectInstance</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Any" />
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_object" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_object" />
+            <owl:allValuesFrom rdf:resource="#Object" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_location" />
+            <owl:allValuesFrom rdf:resource="#Location" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            <owl:onProperty rdf:resource="#has_obj_inst_id" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="#has_obj_inst_id" />
+            <owl:allValuesFrom rdf:resource="#string" />
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+
+<owl:ObjectProperty rdf:ID="has_have_sensor">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_obj">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_inf_activity">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_hum_pos">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Context_ID">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_time">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_date">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Context" />
+                <owl:Class rdf:about="#Sensor" />
+                <owl:Class rdf:about="#ADL" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_last_activity">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_last_object">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Context" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Location_ID">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Location" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Location_name">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Location" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_rec_act_name">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#InferredActivity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Have_activity">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#InferredActivity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_rec_act_id">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#InferredActivity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Current_location">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Object" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_isAttached">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Object" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Object_ID">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Object" />
+                <owl:Class rdf:about="#Last_Object" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Object_name">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Object" />
+                <owl:Class rdf:about="#Last_Object" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Sensor_ID">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Sensor" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Status">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Sensor" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_AttachTo">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Sensor" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Time">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Sensor" />
+                <owl:Class rdf:about="#Activity_Log" />
+                <owl:Class rdf:about="#ADL" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_act_log">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Human" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Actor">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Human_Posture" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Posture_ID">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Human_Posture" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Posture_name">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Human_Posture" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_id">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Functional_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_name">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Functional_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_use">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Object_based_Actvity" />
+                <owl:Class rdf:about="#Sweeping_the_floor" />
+                <owl:Class rdf:about="#Scrubbing_the_floor" />
+                <owl:Class rdf:about="#Making_a_coffee" />
+                <owl:Class rdf:about="#Cooking" />
+                <owl:Class rdf:about="#Sleeping" />
+                <owl:Class rdf:about="#Working_on_computer" />
+                <owl:Class rdf:about="#Taking_a_bath" />
+                <owl:Class rdf:about="#Watching_TV" />
+                <owl:Class rdf:about="#Reading_a_book" />
+                <owl:Class rdf:about="#Sitting_on_the_toilet" />
+                <owl:Class rdf:about="#Lying_down___relaxing" />
+                <owl:Class rdf:about="#Wash_dishes" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_location">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Location_based_Activity" />
+                <owl:Class rdf:about="#Kitchen_Activity" />
+                <owl:Class rdf:about="#Bedroom_Activity" />
+                <owl:Class rdf:about="#Bathroom_Activity" />
+                <owl:Class rdf:about="#Living_room_Activity" />
+                <owl:Class rdf:about="#ObjectInstance" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Combine_with">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Location_based_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_hasDrinkType">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Making_a_coffee" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_hasFood">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Eating_or_drinking" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_hasPosture">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Eating_or_drinking" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_posture">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="#Sleeping" />
+                <owl:Class rdf:about="#Reading_a_book" />
+                <owl:Class rdf:about="#Sitting_on_the_toilet" />
+                <owl:Class rdf:about="#Lying_down___relaxing" />
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Activity_name">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Last_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Activity_ID">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Last_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_location_concept">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Last_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_have_activities">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Last_Activity" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Object_info">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#Last_Object" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Collect">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#ADL" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_date">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Date" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Month">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Date" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Year">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Date" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_Day_of_week">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#Date" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_object">
+    <rdfs:subPropertyOf rdf:resource="#hasPart" />
+    <rdfs:domain rdf:resource="#ObjectInstance" />
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:ID="has_obj_inst_id">
+    <rdfs:subPropertyOf rdf:resource="#hasAttribute" />
+    <rdfs:domain rdf:resource="#ObjectInstance" />
+</owl:ObjectProperty>
+
+<owl:Class rdf:ID="UndefinedClass">
+    <rdfs:label>UndefinedClass</rdfs:label>
+</owl:Class>
+<owl:Class rdf:ID="integer">
+    <rdfs:label>integer</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#UndefinedClass" />
+</owl:Class>
+<owl:Class rdf:ID="string">
+    <rdfs:label>string</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#UndefinedClass" />
+</owl:Class>
+
+
+</rdf:RDF>
+

@@ -1,0 +1,3302 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://qallme.itc.it/ontology/qallme-tourism.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://qallme.itc.it/ontology/qallme-tourism.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    > 
+       Final version:4.0; Date:June 23, 2008; This ontolgy is updated by Shiyan Ou in University of Wolverhampton and reviewed by Christian Spurk in DFKI. </rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Accommodation">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Attraction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Infrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Gastro"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Site"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="GuestRoom"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasRoom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#GuestRoom"/>
+              <owl:Class rdf:ID="ConferenceRoom"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="RoomPrice"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPrice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A accommodation is lodging in a dwelling or similar living quarters afforded to travellers, usually on a short-term basis (from wikepedia). This class does not include those on vehicles such as cruise ships.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Airport">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CoachStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="MetroStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Seaport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TrainStation"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An airport terminal is a building at an airport where passengers transfer between ground transportation and the facilities that allow them to board and disembark from airplanes (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TerminalInfrastructure"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Destination">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Contact"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EventContent"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Price"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A tourism destination is a city, town, villiage, or other area,  the economy of which is dependent to a significant extent on the revenues accruing from tourism (from wikepedia).  Some times a destionation is aslo a country, e.g. Singapore. To simplify this case, a destination is also created under the country of the same name. A desintaion may contain some smaller destinations or a part of a bigger destination. In the QallMe ontology, a destination individual must be in a country individual from the "Country" class.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Period"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Genre"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasSite"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#Site"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Language"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Currency"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Metro">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="IntraCityTransportation"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bus"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="NaturalHeritage">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Attraction"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ZooAndAquarium"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ThemePark"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ReligiousHeritage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CulturalHeritage"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Natural heritage refers to a nation's fauna and flora, natural resources, and landscape, including natural park, reserve, walk, national park etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Ceremony">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Concert"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Competition"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EventContent"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Movie"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Activity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Convention"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Exhibition"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A ceremony is an activity, infused with ritual significance, performed on a special occasion, e.g. festival celebration.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Party"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Show"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Cafe">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A café is a type of cafeteria, often with an enclosed or outdoor section extending onto the pavement or sidewalk, where meals are served. Generally serving coffee and other beverages, cafés (or more commonly known as cafeterias) also serve meals but this is generally not considered their main trade in contrast to a restaurant (from wikepedia).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Restaurant"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Club"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BarAndPub"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Gastro"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EventContent">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Genre"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Here event content refers to cultural or social events of interest to tourists. We divided an event into two parts – static for its content and dynamic for its occurrences. EventContent refers to the static information of an event.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Contact"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Price"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Currency"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Period"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Language"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="InterCityTransportation">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#IntraCityTransportation"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class refers to the vehicles connecting two terminals located in two different cities or towns, such as flight, train, coach and ship.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Transportation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isBetweenDestination"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="MealPackagePrice">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="FoodPrice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DrinkPrice"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasPeriod"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="DatePeriod"/>
+              <owl:Class rdf:ID="DateTimePeriod"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#DatePeriod"/>
+              <owl:Class rdf:about="#DateTimePeriod"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPeriod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GastroPrice"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Restaurant">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Club"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cafe"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BarAndPub"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A restaurant is an establishment that serves prepared food and beverages to order, to be consumed on the premises (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Gastro"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="BedAndBreakfast">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Cottage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Campsite"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#GuestRoom"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Resort"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hostel"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Bed and Breakfast (often referred to as a B&amp;B) is a type of boarding house typically operating out of a large single family residence. Guests are accommodated at night in private bedrooms and breakfast is served in the morning - either in the bedroom or, more commonly, in a dining room or the host's kitchen (from wikipedia).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Chalet"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Gastro">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A gastro is a place for providing prepared food, drink or both for travellers.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="RestaurantRoom"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Site"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#GastroPrice"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#GastroPrice"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Infrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Attraction"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Accommodation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Gym">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Stadium"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SportsInfrastructure"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Gym, a shortened form of gymnasium, refers to facilities intended for indoor sports or exercise.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Clinic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HealthInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Pharmacy"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hospital"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Convention">
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Activity"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Exhibition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A convention, in the sense of a meeting, is a gathering of individuals who meet at a pre-arranged place and time in order to discuss or engage in some common interest.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Movie"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Competition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Party"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Show"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Activity">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Competition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Exhibition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Here, activity refers to other activities in which people can participate, as opposed to just being members of audience, e.g. outdoor adventures for children.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Party"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Movie"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Show"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Convention"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Conductor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A conductor(music) is a person who leads a musical ensemble by way of visible gestures.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Studio">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A film studio is synonymous with "major film production company", due largely to the fact that the leading production companies owned their own studio facilities, as do a few today.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ThemePark">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Today, amusement parks have largely been replaced by theme parks, and the two terms are often used interchangeably.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ZooAndAquarium"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ReligiousHeritage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#NaturalHeritage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CulturalHeritage"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Attraction"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TimePeriod">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DatePeriod"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DateTimePeriod"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Period"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Choreographer">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >People who create choreographies are called choreographers (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Performer">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Artists who participate in performing arts in front of an audience are called performers, including actors, comedians, dancers, musicians, players and singers (from wikipedia). The movie actors/actresses which are called stars are not included.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Infrastructure">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Site"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Gastro"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Attraction"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Accommodation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#FoodPrice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GastroPrice"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#MealPackagePrice"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DrinkPrice"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#DateTimePeriod">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasDatePeriod"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasTimePeriod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Period"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DatePeriod"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TimePeriod"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Exhibition">
+    <owl:disjointWith rdf:resource="#Convention"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An exhibition can be a presentation of art work or other objects (e.g. books, industrial products) in an exhibition hall. Here exhibition refers to non-permanent ones in a specific period, since permanent exhibition is regarded as a built-in part of a specific site (e.g. museum and gallery).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Competition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Party"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Movie"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Show"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Language">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Price"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Period"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Genre"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Contact"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Currency"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="PublicInfrastructure">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HealthInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="AdministrationInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConventionExhibitionInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EntertainmentInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ShoppingInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SportsInfrastructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Organizer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ship">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Train"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Flight"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Coach"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#InterCityTransportation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Seaport"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isBetweenTerminal"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Period">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Price"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Currency"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Contact"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Genre"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#CoachStation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class refers to all the coach stations rathen than only starting and end points.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Airport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MetroStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Seaport"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TrainStation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Pharmacy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HealthInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hospital"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Clinic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ReligiousHeritage">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ZooAndAquarium"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ThemePark"/>
+    <owl:disjointWith rdf:resource="#NaturalHeritage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CulturalHeritage"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Attraction"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This subclass includes church, cathedral, temple, abbey etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#BarAndPub">
+    <rdfs:subClassOf rdf:resource="#Gastro"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This subclass includes bar, pub and tavern. A bar is a establishment  that sells drinks, typically alcoholic beverages, for immediate on-premises consumption. A public house, usually known as a pub, is an establishment which serves alcoholic drinks especially beer for consumption on the premises, usually in a homely setting. A tavern is, loosely, a place of business where people gather to drink alcoholic beverages and, more than likely, also be served food, though not licenced to put up guests (from wikipedia).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Restaurant"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Club"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Cafe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ServiceProvider">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An company who provides services.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Movie">
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Competition"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Party"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <owl:disjointWith rdf:resource="#Convention"/>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Show"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Exhibition"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Currency">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Price"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Genre"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Contact"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Writer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A scriptwriter is a person who writes scripts for movies, plays, television, comedy shows, political speeches and other presentations.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Contact">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Price"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class contains contact information for a tourism site or a tourism event.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Genre"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Language"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Hospital">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HealthInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Pharmacy"/>
+    <owl:disjointWith rdf:resource="#Clinic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Genre">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Price"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A genre is a loose set of criteria for a category of composition; the term is often used to categorize literature and speech, but is also used for any other form of art or utterance. Here it mainly refers to movie genre.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Stadium">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A modern stadium is a place, or venue, for (mostly) outdoor sports, concerts or other events, consisting of a field or stage partly or completely surrounded by a structure designed to allow spectators to stand or sit and view the event.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SportsInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Gym"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Price">
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class contains price information for a product or a service.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Event"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="hasCurrency"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RoomFacility">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SiteFacility"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Facility"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It refers to a facility provided by a kind of room, for example, TV, shower, king-size bed provide in a double guestroom.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ConventionExhibitionInfrastructure">
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#AdministrationInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShoppingInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HealthInfrastructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#ConferenceRoom"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SportsInfrastructure"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Campsite">
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A campsite (or campground) is a place used for overnight stay in the out of doors. It has two types -- an impromptu area (as one might decide to stop while backpacking or hiking) or a dedicated area with improvements and various facilities (from wikipedia).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#BedAndBreakfast"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Chalet"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cottage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hostel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Resort"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Event">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Country"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An event refers to an occurrence with a specific content in a specific site and for a specific time period, e.g. movie show.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasEventContent"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#DatePeriod"/>
+              <owl:Class rdf:about="#DateTimePeriod"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPeriod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Price"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="isInSite"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="TicketPrice"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPeriod"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:about="#DatePeriod"/>
+              <owl:Class rdf:about="#DateTimePeriod"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Attraction">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A tourist attraction is a place of interest where tourists visit (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Site"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#TicketPrice"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#TicketPrice"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Gastro"/>
+    <owl:disjointWith rdf:resource="#Infrastructure"/>
+    <owl:disjointWith rdf:resource="#Accommodation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Country">
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A country is a  geographical entity, territory, most commonly associated with the notions of state or nation (from wikepedia). Currently this class only involves four countries of QALL-ME partners. In the QallMe ontology, a country individual must have at least one tourism desitination individual which is from the "Destination" class.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Price"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CreditCard"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Genre"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Competitor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Competitor is a individual or group who participants in a sports or game competition.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TicketPrice">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A ticket is a voucher to indicate that one has paid for admission to an event or establishment such as a theatre, movie theater, amusement park, zoo, museum, concert, or other attraction, or permission to travel on a vehicle such as an airliner, train, bus, or boat, typically because one has paid the fare (from wikipedia).</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RoomPrice"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GastroPrice"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Price"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DatePeriod">
+    <owl:disjointWith rdf:resource="#DateTimePeriod"/>
+    <owl:disjointWith rdf:resource="#TimePeriod"/>
+    <rdfs:subClassOf rdf:resource="#Period"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PostalAddress">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isInCountry"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="isInDestination"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Distance"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GPSCoordinate"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DirectionLocation"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This subclass contains postal information for a site.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RestaurantRoomFacility">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CinemaRoomFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConferenceRoomFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GuestRoomFacility"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#RoomFacility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CarParking">
+    <rdfs:subClassOf rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bank"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="GasStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Library"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PostOffice"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Chalet">
+    <owl:disjointWith rdf:resource="#BedAndBreakfast"/>
+    <owl:disjointWith rdf:resource="#Campsite"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cottage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hostel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Resort"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A chalet is a family or group residence in mountain resorts, or in costal regions of the United Kingdom as self-catering holiday destinations. It can  be booked from private owners or tour operators (from wikipedia).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ConferenceRoomFacility">
+    <rdfs:subClassOf rdf:resource="#RoomFacility"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CinemaRoomFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GuestRoomFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RestaurantRoomFacility"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GuestRoom">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RestaurantRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConferenceRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CinemaRoom"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="GuestRoomPrice"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasRoomFacility"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#GuestRoomFacility"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CreditCard">
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PersonOrganization"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Price"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AdministrationInfrastructure">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SportsInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConventionExhibitionInfrastructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >For example, city halls, embassies, and other government departments which provide adminstration service to the public.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ShoppingInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HealthInfrastructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ShoppingInfrastructure">
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+    <owl:disjointWith rdf:resource="#ConventionExhibitionInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SportsInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AdministrationInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#HealthInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#CinemaRoom">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RestaurantRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#GuestRoom"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConferenceRoom"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="#CinemaRoomFacility"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoomFacility"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Show">
+    <owl:disjointWith rdf:resource="#Exhibition"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Party"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Convention"/>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Competition"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Here show means theatre production in order to avoid the same term "theatre" refering to an building. Theatre is the branch of the performing arts concerned with acting out stories in front of an audience using combinations of speech, gesture, mime, puppets, music, dance, sound and spectacle — indeed any one or more elements of the other performing arts. In addition to the standard narrative dialogue style, theatre takes other forms, such as opera, operettas, ballet, mime, kabuki, puppetry, classical Indian dance, Chinese opera, mummers' plays, improvisational theatre and pantomime (from wikipedia).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Movie"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Party">
+    <owl:disjointWith rdf:resource="#Show"/>
+    <owl:disjointWith rdf:resource="#Movie"/>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Convention"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Competition"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Exhibition"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A party is a social gathering for celebration or recreation.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Month">
+    <rdfs:subClassOf rdf:resource="#Period"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <Month rdf:ID="January">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</monthNumber>
+          </Month>
+          <Month rdf:ID="February">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</monthNumber>
+          </Month>
+          <Month rdf:ID="March">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</monthNumber>
+          </Month>
+          <Month rdf:ID="April">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >4</monthNumber>
+          </Month>
+          <Month rdf:ID="May">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >5</monthNumber>
+          </Month>
+          <Month rdf:ID="June">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >6</monthNumber>
+          </Month>
+          <Month rdf:ID="July">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >7</monthNumber>
+          </Month>
+          <Month rdf:ID="August">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >8</monthNumber>
+          </Month>
+          <Month rdf:ID="September">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >9</monthNumber>
+          </Month>
+          <Month rdf:ID="October">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >10</monthNumber>
+          </Month>
+          <Month rdf:ID="November">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >11</monthNumber>
+          </Month>
+          <Month rdf:ID="December">
+            <monthNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >12</monthNumber>
+          </Month>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Seaport">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A seaport is a facility for receiving ships  to and from them and usually situated at the edge of an ocean or sea, river, or lake (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Airport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CoachStation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#MetroStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TrainStation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Coach">
+    <rdfs:subClassOf rdf:resource="#InterCityTransportation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isBetweenTerminal"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#CoachStation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Train"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Ship"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Flight"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#PersonOrganization">
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#CreditCard"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Location"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class contains all kinds of persons or groups (or organizations), including Star, Director, Writer, Performer, Conductor, Producer, Composer, Competitor, Choreographer, Service Provider, Studio.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Price"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Weekday">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <Weekday rdf:ID="Monday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</weekdayNumber>
+          </Weekday>
+          <Weekday rdf:ID="Tuesday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</weekdayNumber>
+          </Weekday>
+          <Weekday rdf:ID="Wednesday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</weekdayNumber>
+          </Weekday>
+          <Weekday rdf:ID="Thursday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >4</weekdayNumber>
+          </Weekday>
+          <Weekday rdf:ID="Friday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >5</weekdayNumber>
+          </Weekday>
+          <Weekday rdf:ID="Saturday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >6</weekdayNumber>
+          </Weekday>
+          <Weekday rdf:ID="Sunday">
+            <weekdayNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >7</weekdayNumber>
+          </Weekday>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:subClassOf rdf:resource="#Period"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Star">
+    <rdfs:subClassOf rdf:resource="#PersonOrganization"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A movie star or film star is a celebrity who is a person known for his or her roles in motion pictures.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ZooAndAquarium">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A zoo is a facility in which animals are confined within enclosures and displayed to the public, and in which they may also be bred. It also includes zoological garden, zoological park. A public aquarium is the aquatic counterpart of a zoo, housing aquatic species for viewing.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Attraction"/>
+    <owl:disjointWith rdf:resource="#ThemePark"/>
+    <owl:disjointWith rdf:resource="#ReligiousHeritage"/>
+    <owl:disjointWith rdf:resource="#NaturalHeritage"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CulturalHeritage"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#DirectionLocation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This subclass contains direction information for a site, i.e. describing how to get to a site on foot or by car.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Distance"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PostalAddress"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GPSCoordinate"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Hostel">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A hostel provides accommodation where guests can rent a bed, sometimes a bunk bed, in a dormitory and share a common bathroom, kitchen, and lounge. Rooms can be mixed or single-sex, although private rooms are increasingly common in all types of hostels (from wikepedia).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#BedAndBreakfast"/>
+    <owl:disjointWith rdf:resource="#Campsite"/>
+    <owl:disjointWith rdf:resource="#Chalet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cottage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hotel"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Resort"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Club">
+    <rdfs:subClassOf rdf:resource="#Gastro"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A nightclub (often shortened to club) is an drinking, dancing and  entertainment venue which does its primary business after dark. A nightclub is usually distinguished from other forms of drinking and entertainment establishments, such as bars, pubs or taverns, by the inclusion of a dance floor (from wikipedia).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Restaurant"/>
+    <owl:disjointWith rdf:resource="#Cafe"/>
+    <owl:disjointWith rdf:resource="#BarAndPub"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Season">
+    <rdfs:subClassOf rdf:resource="#Period"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Location">
+    <owl:disjointWith rdf:resource="#PersonOrganization"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith rdf:resource="#CreditCard"/>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith rdf:resource="#Price"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Facility"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#GasStation">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bank"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CarParking"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Library"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PostOffice"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#PublicInfrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GuestRoomPrice">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ConferenceRoomPrice"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#GuestRoom"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#DatePeriod"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPeriod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#DatePeriod"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPeriod"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoomPrice"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#HealthInfrastructure">
+    <owl:disjointWith rdf:resource="#ShoppingInfrastructure"/>
+    <owl:disjointWith rdf:resource="#ConventionExhibitionInfrastructure"/>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SportsInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#AdministrationInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SportsInfrastructure">
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+    <owl:disjointWith rdf:resource="#AdministrationInfrastructure"/>
+    <owl:disjointWith rdf:resource="#HealthInfrastructure"/>
+    <owl:disjointWith rdf:resource="#ShoppingInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ConventionExhibitionInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Distributor">
+    <rdfs:subClassOf rdf:resource="#PersonOrganization"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A film distributor is an independent company, a subsidiary company or occasionally an individual, which acts as the final agent between a film production company or some intermediary agent, and a film exhibitor, to the end of securing placement of the producer's film on the exhibitor's screen (from wikipedia). In the film business, the term "distribution" refers to the marketing and circulation of movies in theaters, and for home viewing, e.g. DVD, Video-On-Demand, Television etc.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#PostOffice">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bank"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CarParking"/>
+    <owl:disjointWith rdf:resource="#GasStation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Library"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#PublicInfrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DisabledSiteFacility">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SiteFacility"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ChildrenSiteFacility"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Library">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bank"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CarParking"/>
+    <owl:disjointWith rdf:resource="#GasStation"/>
+    <owl:disjointWith rdf:resource="#PostOffice"/>
+    <rdfs:subClassOf rdf:resource="#PublicInfrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Facility">
+    <owl:disjointWith rdf:resource="#Price"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Transportation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CreditCard"/>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Facility refers to something designed and created to serve a particular function and to afford a particular convenience or service.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Location"/>
+    <owl:disjointWith rdf:resource="#PersonOrganization"/>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Competition">
+    <owl:disjointWith rdf:resource="#Movie"/>
+    <owl:disjointWith rdf:resource="#Show"/>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+    <owl:disjointWith rdf:resource="#Party"/>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Here, competition means sports-related competition. A competition must have two or more competitors.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Concert"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Convention"/>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Exhibition"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CinemaRoomFacility">
+    <rdfs:subClassOf rdf:resource="#RoomFacility"/>
+    <owl:disjointWith rdf:resource="#ConferenceRoomFacility"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#GuestRoomFacility"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#RestaurantRoomFacility"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Resort">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A resort often combines a hotel and a variety of recreations, such as swimming pools, entertainment facilities (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    <owl:disjointWith rdf:resource="#BedAndBreakfast"/>
+    <owl:disjointWith rdf:resource="#Campsite"/>
+    <owl:disjointWith rdf:resource="#Chalet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cottage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hostel"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Hotel"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#CulturalHeritage">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cultural heritage refers to a nation's historic monuments, museum collections, gallery collections, etc, which are inherited from one's ancestors. Here clutural heritage also includes industrial heritage excludes religious heritage which is treated as another subclass since there are lots of churchs, temples in a tourism destination.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#ZooAndAquarium"/>
+    <owl:disjointWith rdf:resource="#ThemePark"/>
+    <owl:disjointWith rdf:resource="#ReligiousHeritage"/>
+    <owl:disjointWith rdf:resource="#NaturalHeritage"/>
+    <rdfs:subClassOf rdf:resource="#Attraction"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Cinema">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A cinema, also known as movie theatre or movie house, is a venue, usually a building, for viewing motion pictures ("movies" or "films") (from wikipedia).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#CinemaRoom"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Theatre"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Hotel">
+    <owl:disjointWith rdf:resource="#BedAndBreakfast"/>
+    <owl:disjointWith rdf:resource="#Campsite"/>
+    <owl:disjointWith rdf:resource="#Chalet"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Cottage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hostel"/>
+    <owl:disjointWith rdf:resource="#Resort"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A hotel often provides a number of additional guest services such as a restaurant, a swiming pool or childcare. Some hotels have conference services and meeting rooms and encourage groups to hold conventions and meetings at their location (from wikepedia). A motel is regarded as a kind of hotel specifically for motorists.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RestaurantRoom">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#RestaurantRoomFacility"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoomFacility"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#GuestRoom"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ConferenceRoom"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CinemaRoom"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Transportation">
+    <owl:disjointWith rdf:resource="#PersonOrganization"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transportation (or transport) refers to public vehicles which can transfer customers from one place to another.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Price"/>
+    <owl:disjointWith rdf:resource="#Location"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isBetweenTerminal"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith rdf:resource="#CreditCard"/>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <owl:disjointWith rdf:resource="#Facility"/>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Site"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Director">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A director is a person directs the making of a film (film director) or oversees and orchestrates the mounting of a play by unifying various endeavors and aspects of production (theatrical director).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#PersonOrganization"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GPSCoordinate">
+    <rdfs:subClassOf rdf:resource="#Location"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Distance"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PostalAddress"/>
+    <owl:disjointWith rdf:resource="#DirectionLocation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This subclass contains GPS coordinate information for a site.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Cottage">
+    <owl:disjointWith rdf:resource="#BedAndBreakfast"/>
+    <owl:disjointWith rdf:resource="#Campsite"/>
+    <owl:disjointWith rdf:resource="#Chalet"/>
+    <owl:disjointWith rdf:resource="#Hostel"/>
+    <owl:disjointWith rdf:resource="#Hotel"/>
+    <owl:disjointWith rdf:resource="#Resort"/>
+    <rdfs:subClassOf rdf:resource="#Accommodation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A cottage is a dwelling, typically in a rural, or semi-rural location, although there are cottage-style dwellings in cities (from wikepedia).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Concert">
+    <owl:disjointWith rdf:resource="#Convention"/>
+    <owl:disjointWith rdf:resource="#Ceremony"/>
+    <owl:disjointWith rdf:resource="#Party"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A concert is a live performance, usually of music, before an audience. The music may be performed by a single musician, sometimes then called a recital, or by a musical ensemble, such as an orchestra, a choir, or a musical band (from wikipedia).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Show"/>
+    <owl:disjointWith rdf:resource="#Movie"/>
+    <owl:disjointWith rdf:resource="#Competition"/>
+    <owl:disjointWith rdf:resource="#Activity"/>
+    <rdfs:subClassOf rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Exhibition"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ConferenceRoom">
+    <owl:disjointWith rdf:resource="#RestaurantRoom"/>
+    <owl:disjointWith rdf:resource="#GuestRoom"/>
+    <owl:disjointWith rdf:resource="#CinemaRoom"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#ConferenceRoomPrice"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoomFacility"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#ConferenceRoomFacility"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Room"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Composer">
+    <rdfs:subClassOf rdf:resource="#PersonOrganization"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A composer is a person who writes music.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Bus">
+    <owl:disjointWith rdf:resource="#Metro"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#IntraCityTransportation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Distance">
+    <owl:disjointWith rdf:resource="#PostalAddress"/>
+    <owl:disjointWith rdf:resource="#GPSCoordinate"/>
+    <owl:disjointWith rdf:resource="#DirectionLocation"/>
+    <rdfs:subClassOf rdf:resource="#Location"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class indicates the distance (meters) from a specfic site to another site.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#GastroPrice">
+    <rdfs:subClassOf rdf:resource="#Price"/>
+    <owl:disjointWith rdf:resource="#TicketPrice"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RoomPrice"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#IntraCityTransportation">
+    <rdfs:subClassOf rdf:resource="#Transportation"/>
+    <owl:disjointWith rdf:resource="#InterCityTransportation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class refers to the vehicles connecting two terminals within the same city or town, such as bus and metro.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Site">
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#Facility"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Room"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith rdf:resource="#Transportation"/>
+    <owl:disjointWith rdf:resource="#CreditCard"/>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#Location"/>
+    <owl:disjointWith rdf:resource="#PersonOrganization"/>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasOpeningTime"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#DateTimePeriod"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Price"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Bank">
+    <rdfs:subClassOf rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith rdf:resource="#CarParking"/>
+    <owl:disjointWith rdf:resource="#GasStation"/>
+    <owl:disjointWith rdf:resource="#Library"/>
+    <owl:disjointWith rdf:resource="#PostOffice"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RoomPrice">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Price"/>
+    <owl:disjointWith rdf:resource="#TicketPrice"/>
+    <owl:disjointWith rdf:resource="#GastroPrice"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DrinkPrice">
+    <rdfs:subClassOf rdf:resource="#GastroPrice"/>
+    <owl:disjointWith rdf:resource="#MealPackagePrice"/>
+    <owl:disjointWith rdf:resource="#FoodPrice"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Flight">
+    <rdfs:subClassOf rdf:resource="#InterCityTransportation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Airport"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isBetweenTerminal"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Train"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Ship"/>
+    <owl:disjointWith rdf:resource="#Coach"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MetroStation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This class refers to all the metro stations rathen than only starting and end points.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Airport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CoachStation"/>
+    <owl:disjointWith rdf:resource="#Seaport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TrainStation"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Room">
+    <owl:disjointWith rdf:resource="#Transportation"/>
+    <owl:disjointWith rdf:resource="#PersonOrganization"/>
+    <owl:disjointWith rdf:resource="#Genre"/>
+    <owl:disjointWith rdf:resource="#Language"/>
+    <owl:disjointWith rdf:resource="#Location"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#CreditCard"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A room must provide some specific kinds of room facilities to realize its function. For example, a guest room must provide guest room facilities (e.g. shower, telephone); a cinema room must provide some cinema room facilities (e.g. induction hearing loop); a conference room must provide some conference room facilities (e.g. projector); and a restaurant must provide some restaurant room facilities (e.g. big table).</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Currency"/>
+    <owl:disjointWith rdf:resource="#Contact"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith rdf:resource="#Destination"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoomFacility"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Facility"/>
+    <owl:disjointWith rdf:resource="#Period"/>
+    <owl:disjointWith rdf:resource="#Price"/>
+    <owl:disjointWith rdf:resource="#Site"/>
+    <owl:disjointWith rdf:resource="#Country"/>
+    <owl:disjointWith rdf:resource="#EventContent"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MovieOccurrence">
+    <rdfs:subClassOf rdf:resource="#Event"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasEventContent"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Movie"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isInSite"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Cinema"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPeriod"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#DateTimePeriod"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Theatre">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A theater or theatre is a structure where theatrical works or plays are performed or other performances such as musical concerts may be given (from wikipedia). It includes arena, concert hall, opera house and so on. All theaters provide a acting space generally known as stage and a space for their audience.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Cinema"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ChildrenSiteFacility">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SiteFacility"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#DisabledSiteFacility"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SiteFacility">
+    <owl:disjointWith rdf:resource="#RoomFacility"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It refers to a facility provied by a site, which usually does not belong to a specfic kind of room,  for example, swimming pool, bar, car park for a hotel.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Facility"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EntertainmentInfrastructure">
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasPrice"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#TicketPrice"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#SportsInfrastructure"/>
+    <owl:disjointWith rdf:resource="#ConventionExhibitionInfrastructure"/>
+    <owl:disjointWith rdf:resource="#ShoppingInfrastructure"/>
+    <owl:disjointWith rdf:resource="#AdministrationInfrastructure"/>
+    <owl:disjointWith rdf:resource="#HealthInfrastructure"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TrainStation">
+    <owl:disjointWith rdf:resource="#Airport"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CoachStation"/>
+    <owl:disjointWith rdf:resource="#MetroStation"/>
+    <owl:disjointWith rdf:resource="#Seaport"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A train terminal station refers to the termination of the railway line or service at that point (from wikipedia).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#BusStation">
+    <owl:disjointWith rdf:resource="#Airport"/>
+    <owl:disjointWith rdf:resource="#CoachStation"/>
+    <owl:disjointWith rdf:resource="#MetroStation"/>
+    <owl:disjointWith rdf:resource="#Seaport"/>
+    <owl:disjointWith rdf:resource="#TrainStation"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TerminalInfrastructure"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A local bus has many stops, and thus it is not necessary to list all the stops. Here, a bus station only refers to the starting and ending points of a bus line.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TerminalInfrastructure">
+    <owl:disjointWith rdf:resource="#AdministrationInfrastructure"/>
+    <owl:disjointWith rdf:resource="#ShoppingInfrastructure"/>
+    <owl:disjointWith rdf:resource="#HealthInfrastructure"/>
+    <owl:disjointWith rdf:resource="#EntertainmentInfrastructure"/>
+    <owl:disjointWith rdf:resource="#ConventionExhibitionInfrastructure"/>
+    <owl:disjointWith rdf:resource="#SportsInfrastructure"/>
+    <owl:disjointWith rdf:resource="#PublicInfrastructure"/>
+    <rdfs:subClassOf rdf:resource="#Infrastructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >In travel and transport, a terminal may mean airport terminal ( a building at an airport), terminal station(a passenger rail station), seaport terminal (a facility which handles shipping), and pipeline terminal (a storage facility at the downstream end of a pipeline transport) (from wikipedia).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#ConferenceRoomPrice">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoom"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#ConferenceRoom"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#RoomPrice"/>
+    <owl:disjointWith rdf:resource="#GuestRoomPrice"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GuestRoomFacility">
+    <owl:disjointWith rdf:resource="#CinemaRoomFacility"/>
+    <owl:disjointWith rdf:resource="#ConferenceRoomFacility"/>
+    <owl:disjointWith rdf:resource="#RestaurantRoomFacility"/>
+    <rdfs:subClassOf rdf:resource="#RoomFacility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Producer">
+    <rdfs:subClassOf rdf:resource="#PersonOrganization"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A producer is a person who oversees the staging of theatre productions (theatrical producer) or oversees the making of films (film producer).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Train">
+    <owl:disjointWith rdf:resource="#Ship"/>
+    <owl:disjointWith rdf:resource="#Flight"/>
+    <owl:disjointWith rdf:resource="#Coach"/>
+    <rdfs:subClassOf rdf:resource="#InterCityTransportation"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#TrainStation"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#isBetweenTerminal"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasGenre">
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:range rdf:resource="#Genre"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasWeekday">
+    <rdfs:range rdf:resource="#Weekday"/>
+    <rdfs:domain rdf:resource="#DatePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasPeriod">
+    <rdfs:range rdf:resource="#Period"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasDatePeriod">
+    <rdfs:range rdf:resource="#DatePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasMonth">
+    <rdfs:range rdf:resource="#Month"/>
+    <rdfs:domain rdf:resource="#DatePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasConductor">
+    <rdfs:domain rdf:resource="#Concert"/>
+    <rdfs:range rdf:resource="#Conductor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCaptionLanguage">
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="hasLanguage"/>
+    </rdfs:subPropertyOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The language used for the caption of a movie</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasGastro">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasSite"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#Gastro"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasOrganizer">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Convention"/>
+          <owl:Class rdf:about="#Exhibition"/>
+          <owl:Class rdf:about="#Party"/>
+          <owl:Class rdf:about="#Activity"/>
+          <owl:Class rdf:about="#Ceremony"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Organizer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPerformer">
+    <rdfs:range rdf:resource="#Performer"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Show"/>
+          <owl:Class rdf:about="#Concert"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasRoom">
+    <rdfs:range rdf:resource="#Room"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="madeInCountry">
+    <rdfs:range rdf:resource="#Country"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isBetweenTerminal">
+    <rdfs:range rdf:resource="#TerminalInfrastructure"/>
+    <rdfs:domain rdf:resource="#Transportation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasProducer">
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:range rdf:resource="#Producer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasChoreographer">
+    <rdfs:range rdf:resource="#Choreographer"/>
+    <rdfs:domain rdf:resource="#Show"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasComposer">
+    <rdfs:range rdf:resource="#Composer"/>
+    <rdfs:domain rdf:resource="#Concert"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasOpeningTime">
+    <rdfs:range rdf:resource="#Period"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasRoomFacility">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="providedByRoom"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#RoomFacility"/>
+    <rdfs:domain rdf:resource="#Room"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#providedByRoom">
+    <owl:inverseOf rdf:resource="#hasRoomFacility"/>
+    <rdfs:domain rdf:resource="#RoomFacility"/>
+    <rdfs:range rdf:resource="#Room"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isToSite">
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="#Site"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasSite">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A destination may contain one or more site which could be a accommodation, attraction, gastro or infrastructure.</rdfs:comment>
+    <rdfs:range rdf:resource="#Site"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasServiceProvider">
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdfs:range rdf:resource="#ServiceProvider"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasStar">
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:range rdf:resource="#Star"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasStudio">
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:range rdf:resource="#Studio"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasWriter">
+    <rdfs:range rdf:resource="#Writer"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Movie"/>
+          <owl:Class rdf:about="#Show"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSiteFacility">
+    <rdfs:range rdf:resource="#SiteFacility"/>
+    <rdfs:domain rdf:resource="#Site"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="providedBySite"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasEventContent">
+    <rdfs:range rdf:resource="#EventContent"/>
+    <rdfs:domain rdf:resource="#Event"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDirector">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Movie"/>
+          <owl:Class rdf:about="#Show"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Director"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isInSite">
+    <owl:inverseOf>
+      <rdf:Property rdf:ID="hasEvent"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Event"/>
+    <rdfs:range rdf:resource="#Site"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSpokenLanguage">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#hasLanguage"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#EventContent"/>
+          <owl:Class rdf:about="#Site"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Language"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The language spoken in a site.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInfrastructure">
+    <rdfs:subPropertyOf rdf:resource="#hasSite"/>
+    <rdfs:range rdf:resource="#Infrastructure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasTimePeriod">
+    <rdfs:range rdf:resource="#TimePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAccommodation">
+    <rdfs:range rdf:resource="#Accommodation"/>
+    <rdfs:subPropertyOf rdf:resource="#hasSite"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAttraction">
+    <rdfs:range rdf:resource="#Attraction"/>
+    <rdfs:subPropertyOf rdf:resource="#hasSite"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#providedBySite">
+    <owl:inverseOf rdf:resource="#hasSiteFacility"/>
+    <rdfs:range rdf:resource="#Site"/>
+    <rdfs:domain rdf:resource="#SiteFacility"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isBetweenDestination">
+    <rdfs:range rdf:resource="#Destination"/>
+    <rdfs:domain rdf:resource="#InterCityTransportation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDistributor">
+    <rdfs:range rdf:resource="#Distributor"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasPrice">
+    <rdfs:range rdf:resource="#Price"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCreditCard">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Accommodation"/>
+          <owl:Class rdf:about="#Attraction"/>
+          <owl:Class rdf:about="#Gastro"/>
+          <owl:Class rdf:about="#EntertainmentInfrastructure"/>
+          <owl:Class rdf:about="#Event"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#CreditCard"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasLanguage">
+    <rdfs:range rdf:resource="#Language"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDestination">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A country can contain one or more destination.</rdfs:comment>
+    <rdfs:range rdf:resource="#Destination"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCompetitor">
+    <rdfs:domain rdf:resource="#Competition"/>
+    <rdfs:range rdf:resource="#Competitor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSeason">
+    <rdfs:range rdf:resource="#Season"/>
+    <rdfs:domain rdf:resource="#DatePeriod"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDistance">
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdfs:range rdf:resource="#Distance"/>
+  </owl:ObjectProperty>
+  <rdf:Property rdf:about="#hasEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#isInSite"/>
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdfs:range rdf:resource="#Event"/>
+  </rdf:Property>
+  <owl:DatatypeProperty rdf:ID="cuisine">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cuisine is a specific set of cooking traditions and practices, often associated with a specific culture. A cuisine is primarily influenced by the ingredients that are available locally or through trade.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Gastro"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="menuType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It refers to the categories of foods and drinks, e.g. Drinks, Desserts, Starters, Main courses.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#GastroPrice"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="product">
+    <rdfs:domain rdf:resource="#ShoppingInfrastructure"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The products sold in a store or shopping center.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="startDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DatePeriod"/>
+          <owl:Class rdf:about="#Season"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="email">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Contact"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="endDate">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#DatePeriod"/>
+          <owl:Class rdf:about="#Season"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="shopType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >e.g. book store, computer store, dress store, jewellery store</rdfs:comment>
+    <rdfs:domain rdf:resource="#ShoppingInfrastructure"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="releaseDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="lastEntryTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+    <rdfs:domain rdf:resource="#Attraction"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="roomType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >e.g. single room, double room, en-suit room</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Room"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="direction">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#DirectionLocation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It refers to descrptive information about how to go to a site by drive or walk.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="localTransport">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#DirectionLocation"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It refers to descrptive information about bus and metro to a site.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="award">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Here award refers to a restaurant award or a movie award. A restaurant ward is to recognize the creativity, outstanding customer service and top quality dining that is on offer in the restaurants in a region, e.g. The Scottish Restaurant awards 2008. A movie award is to recognize achievements in cinema, usually by awarding various prizes, e.g. the 'Oscar' for Hollywood's Academy Awards.</rdfs:comment>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Gastro"/>
+          <owl:Class rdf:about="#Movie"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="comment">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#EventContent"/>
+          <owl:Class rdf:about="#Site"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="bookingLink">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >if it is differnt from the website URL</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Contact"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="district">
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="statusOfGPSCoordinate">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >It indicates different precision levels of the GPS coordinates obtained for a site. 
+(1)CIV = the coordinates have the street civic number precision (the best situation from automatic geocoding: there is an exact matching of address and coordinates);  
+(2)STR = the coordinates have the street precision (a point along the street: civic number not found); 
+(3)CIT = the coordinates are relative to the city centre (street name not found); 
+(4)MAN = the coordinated has been manually obtained by the user.</rdfs:comment>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >CIT</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >MAN</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >STR</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >CIV</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#GPSCoordinate"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="contactPerson">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Contact"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >it is treated as a string instead of a person object since contact person is not an important search target.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="building">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >bulding name and room number</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="bookingTelepnone">
+    <rdfs:domain rdf:resource="#Contact"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >if it is different from the telephone</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="menuItem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The items in a category of foods or drinks in a menu, for example, different drink items in "Drinks", different items in "Starters".</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#GastroPrice"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="valueOfDistance">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The default unit is "meter"</rdfs:comment>
+    <rdfs:domain rdf:resource="#Distance"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="fax">
+    <rdfs:domain rdf:resource="#Contact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="telephone">
+    <rdfs:domain rdf:resource="#Contact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="clubType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >For example, Concert clubs, R&amp;B clubs, Rock clubs.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Club"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="barType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >For example, Topless bars, Sports bars, Dance bars.</rdfs:comment>
+    <rdfs:domain rdf:resource="#BarAndPub"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="specialRequirement">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#EventContent"/>
+          <owl:Class rdf:about="#Site"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="priceRange">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Accommodation"/>
+          <owl:Class rdf:about="#Gastro"/>
+          <owl:Class rdf:about="#Attraction"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sometimes it could be average price.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="website">
+    <rdfs:domain rdf:resource="#Contact"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="mapLink">
+    <rdfs:domain rdf:resource="#DirectionLocation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="description">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Destination"/>
+          <owl:Class rdf:about="#EventContent"/>
+          <owl:Class rdf:about="#Site"/>
+          <owl:Class rdf:about="#CreditCard"/>
+          <owl:Class rdf:about="#Genre"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="priceType">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Price"/>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="isPartOfDestination">
+    <rdfs:domain rdf:resource="#Destination"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Destination"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A destination may be a part of a bigger destination.</rdfs:comment>
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:ID="hasPartDestination"/>
+    </owl:inverseOf>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="#hasPartDestination">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Destination"/>
+    <owl:inverseOf rdf:resource="#isPartOfDestination"/>
+    <rdfs:domain rdf:resource="#Destination"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A destination may contain some smaller destinations.</rdfs:comment>
+  </owl:TransitiveProperty>
+  <owl:SymmetricProperty rdf:ID="hasNearby">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The nearby sites to a specific site</rdfs:comment>
+    <owl:inverseOf rdf:resource="#hasNearby"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdfs:range rdf:resource="#Site"/>
+  </owl:SymmetricProperty>
+  <owl:FunctionalProperty rdf:ID="certificate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A motion picture rating system categorizes films with regard to suitability for audiences in terms of issues such as sex, violence, substance abuse, profanity, impudence or other types of mature content. A particular issued rating is called a certification/certificate.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isInDestination">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Destination"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A site must be located in a destnation.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="checkoutTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdfs:domain rdf:resource="#Accommodation"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="roomCapacity">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The number of the persons which can be served by a room.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Room"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="street">
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >street name and street number</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="originalTitle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Movie"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasGPSCoordinate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdfs:range rdf:resource="#GPSCoordinate"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="countryCode">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Country code (ISO 3166-1 alpha-3) is a three-part geographic coding standard for coding the names of countries and dependent areas, and the principal subdivisions thereof.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Country"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Destination"/>
+          <owl:Class rdf:about="#EventContent"/>
+          <owl:Class rdf:about="#Facility"/>
+          <owl:Class rdf:about="#PersonOrganization"/>
+          <owl:Class rdf:about="#Site"/>
+          <owl:Class rdf:about="#Transportation"/>
+          <owl:Class rdf:about="#CreditCard"/>
+          <owl:Class rdf:about="#Genre"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="seasonNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >1</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+              >3</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >4</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Season"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="currencyCode">
+    <rdfs:domain rdf:resource="#Currency"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Currency code (ISO 4217) is the international standard describing three letter codes  to define the names of currencies established by the International Organization for Standardization (ISO).</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="postalCode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PostalAddress"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasCurrency">
+    <rdfs:range rdf:resource="#Currency"/>
+    <rdfs:domain rdf:resource="#Price"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="startTime">
+    <rdfs:domain rdf:resource="#TimePeriod"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="languageCode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Language"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Language code represents natural language identifiers as defined by RFC 3066.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="starRating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Accommodation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="numOfRoom">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The number of the rooms which can provide main services in a site, for example, guest rooms and conference rooms in an accommodation, screens in a cinema.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Room"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isInCountry">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A destination or a site must be located in a countr.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Country"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasPostalAddress">
+    <rdfs:range rdf:resource="#PostalAddress"/>
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasDirectionLocation">
+    <rdfs:domain rdf:resource="#Site"/>
+    <rdfs:range rdf:resource="#DirectionLocation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Driving directions and location to a specific site</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="latitude">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#GPSCoordinate"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="exchangRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The exchage rate is to EUR.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Currency"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="monthNumber">
+    <rdfs:domain rdf:resource="#Month"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                  >5</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                      >7</rdf:first>
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                        >8</rdf:first>
+                        <rdf:rest rdf:parseType="Resource">
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                          >9</rdf:first>
+                          <rdf:rest rdf:parseType="Resource">
+                            <rdf:rest rdf:parseType="Resource">
+                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                              >11</rdf:first>
+                              <rdf:rest rdf:parseType="Resource">
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                                >12</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                              </rdf:rest>
+                            </rdf:rest>
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                            >10</rdf:first>
+                          </rdf:rest>
+                        </rdf:rest>
+                      </rdf:rest>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >6</rdf:first>
+                  </rdf:rest>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >4</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+              >3</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >1</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="duration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Transportation"/>
+          <owl:Class rdf:about="#EventContent"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="endTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#TimePeriod"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasContact">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Contact"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#EventContent"/>
+          <owl:Class rdf:about="#Site"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="weekdayNumber">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Weekday"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+          >1</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                    >6</rdf:first>
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                      >7</rdf:first>
+                    </rdf:rest>
+                  </rdf:rest>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                  >5</rdf:first>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+                >4</rdf:first>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+              >3</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >2</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="priceValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Price"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="checkinTime">
+    <rdfs:domain rdf:resource="#Accommodation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="longitude">
+    <rdfs:domain rdf:resource="#GPSCoordinate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >January</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >May</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >June</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >July</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:parseType="Resource">
+                        <rdf:rest rdf:parseType="Resource">
+                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                          >November</rdf:first>
+                          <rdf:rest rdf:parseType="Resource">
+                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                            >December</rdf:first>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </rdf:rest>
+                        </rdf:rest>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >October</rdf:first>
+                      </rdf:rest>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >September</rdf:first>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >August</rdf:first>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >April</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >March</rdf:first>
+        </rdf:rest>
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >February</rdf:first>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+  <owl:DataRange>
+    <owl:oneOf rdf:parseType="Resource">
+      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+      >Monday</rdf:first>
+      <rdf:rest rdf:parseType="Resource">
+        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tuesday</rdf:first>
+        <rdf:rest rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Friday</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >Sunday</rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:rest>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Saturday</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Thursday</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Wednesday</rdf:first>
+        </rdf:rest>
+      </rdf:rest>
+    </owl:oneOf>
+  </owl:DataRange>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

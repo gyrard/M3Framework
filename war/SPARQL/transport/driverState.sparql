@@ -1,0 +1,30 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX transport: <http://sensormeasurement.appspot.com/transport#>
+PREFIX emotion: <http://sensormeasurement.appspot.com/emotion#>
+
+SELECT DISTINCT ?name ?value ?unit ?inferType ?deduce ?driverState ?driverState2 ?action ?action5 ?suggest WHERE{
+	?measurement m3:hasName ?name.
+	?measurement m3:hasValue ?value.
+	?measurement m3:hasDateTimeValue ?time.
+	?measurement m3:hasUnit ?unit.
+	
+	?measurement transport:hasDriverState ?driverState .
+	?driverState m3:isRecommendedFor ?action.
+	
+	?measurement rdf:type ?inferTypeUri.
+	OPTIONAL { ?inferTypeUri rdfs:label ?inferType. FILTER(LANGMATCHES(LANG(?inferType), "en"))}
+	
+	?driverState rdfs:label ?deduce.
+	FILTER(LANGMATCHES(LANG(?deduce), "en"))
+		
+	
+	
+	?action rdf:type transport:Action. 
+	
+	OPTIONAL {?action rdfs:label ?suggest.
+	FILTER(LANGMATCHES(LANG(?suggest), "en"))
+	}
+
+}

@@ -1,0 +1,53 @@
+<h1>
+<img src="images/security/securityProperty.png" width="100" height="80" >
+Security properties
+<img src="images/security/securityProperty.png" width="100" height="80" >
+</h1>
+
+<div class="hero-unit">
+	<img src="images/tip.png" width="80" height="80" >
+	Surf on this web page to discover the security related to this topic. <br/>
+	Descriptions are displayed when you are hover the name of attacks, security mechanisms, etc.!
+	<img src="images/security/tooltip.png" width="500" height="300" >
+</div>
+
+<div class="hero-unit">
+<h3>Security properties</h3>	
+<ul><li>Security properties & Definitions
+		<select id="security_property_definition"></select>		
+
+</li><li>Search methods to ensure the security property:  
+<select id="all" onclick=""> </select>
+<input type="button" value="Search Methods" onclick="searchAccessControlMethod('stac/conceptSecurityProperty', document.getElementById('all').value, 'res', 'li');"/>	
+<ul id="res"></ul>	
+
+</li><li> Satisfy the property authentication: <select id="authentication"></select>		
+</li><li>Integrity: <select id="integrity"> </select>
+</li><li>Confidentiality: <select id="confidentiality"> </select>
+</li><li>Semantic Security: <select id="semanticSecurity"> </select>
+</li><li>Data Freshness: <select id="freshness"> </select>
+</li><li>Non Repudiation: <select id="nonRepudiation"></select>
+</li><li>Access Control: <select id="accessControl"></select>
+</li><li>Anonymity: <select id=anonymity> </select>
+</li><li>Availabilty: <select id="availability"></select>
+</li><li>Authorization: <select id="authorization"></select>
+</li><li>Accountability: <select id="accountability"></select>
+</li></ul>	
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "stac/type/SecurityProperty", "security_property_definition", "option");
+	request(displayResultBindingSelect, "stac/securityPropertyMethod", "all", "option");		
+	request(displayResultBindingSelect, "stac/withProperty/Authentication", "authentication", "option");
+	request(displayResultBindingSelect, "stac/withProperty/Integrity", "integrity", "option");
+	request(displayResultBindingSelect, "stac/withProperty/Confidentiality", "confidentiality", "option");
+	request(displayResultBindingSelect, "stac/withProperty/SemanticSecurity", "semanticSecurity", "option");
+	request(displayResultBindingSelect, "stac/withProperty/DataFreshness", "freshness", "option");
+	request(displayResultBindingSelect, "stac/withProperty/NonRepudiation", "nonRepudiation", "option");
+	request(displayResultBindingSelect, "stac/withProperty/AccessControl", "accessControl", "option");
+	request(displayResultBindingSelect, "stac/withProperty/Anonymity", "anonymity", "option");
+	request(displayResultBindingSelect, "stac/withProperty/Availability", "availability", "option");
+	request(displayResultBindingSelect, "stac/withProperty/Authorization", "authorization", "option");
+	request(displayResultBindingSelect, "stac/withProperty/Accountability", "accountability", "option");
+});

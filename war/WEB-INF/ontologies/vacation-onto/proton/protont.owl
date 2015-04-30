@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE owl [ 
+    <!ENTITY rdf  'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+    <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+    <!ENTITY owl  'http://www.w3.org/2002/07/owl#' >
+    <!ENTITY xsd  'http://www.w3.org/2001/XMLSchema#' >
+    <!ENTITY psys  'http://proton.semanticweb.org/2005/04/protons#'>
+    <!ENTITY ptop  'http://proton.semanticweb.org/2005/04/protont#'>
+]>
+<rdf:RDF 
+    xmlns:owl="&owl;"
+    xmlns:rdf="&rdf;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:psys="&psys;"
+    xmlns:ptop="&ptop;"
+    xmlns="&ptop;"
+    xml:base="&ptop;" 
+>
+
+
+<owl:Ontology rdf:about="">
+  <rdfs:comment>PROTON (Proto Ontology), Top module</rdfs:comment>
+  <owl:imports rdf:resource="http://proton.semanticweb.org/2005/04/protons"/>
+  <owl:versionInfo>"0.1"</owl:versionInfo>
+</owl:Ontology>
+
+<owl:Class rdf:about="#Abstract"
+	 rdfs:label="Abstract">
+	<rdfs:comment>Something, which neither happens nor exists, e.g. a number or a chemical compound formula. Those are usually some symbols, invented to refer to general notions.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&psys;Entity"/>
+</owl:Class>
+<owl:Class rdf:about="#Agent"
+	 rdfs:label="Agent">
+	<rdfs:comment>An Agent is something, which can show (carry out) an independent action, whether consciously or not. Most animals are considered agents, in most contexts; so are most organizations. According to DOLCE 2.0 "objects to which we ascribe intentions, beliefs and desires". Agent here also denotes any automatic services, including web services and servers.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
+</owl:Class>
+<owl:Class rdf:about="#ContactInformation"
+	 rdfs:label="ContactInformation">
+	<rdfs:comment>Any instance of a particular notation, used to make the contact with an individual or an organization possible.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Abstract"/>
+</owl:Class>
+<owl:Class rdf:about="#Document"
+	 rdfs:label="Document">
+	<rdfs:comment>The information content of any sort of document. The tangible aspects are ignored. It is usually a document in free text with no formal structure or semantics. </rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;InformationResource"/>
+</owl:Class>
+<owl:Class rdf:about="#Event"
+	 rdfs:comment='A dynamic event, such as "running", or "a concert".'
+	 rdfs:label="Event">
+	<rdfs:subClassOf rdf:resource="&ptop;Happening"/>
+</owl:Class>
+<owl:Class rdf:about="#GeneralTerm"
+	 rdfs:label="GeneralTerm">
+	<rdfs:comment>General concept with well defined (idiomatic) meaning which can have a set of distinct lexical items (serface realizations) associated with it. Such examples are: F2F, I18N, P2P, B2B, VIP, ASAP, Semantic Web.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Abstract"/>
+</owl:Class>
+<owl:Class rdf:about="#Group"
+	 rdfs:label="Group">
+	<rdfs:comment>A group of agents, which is not organized in any way. This could be the group of people within a bus or the shareholders of a company.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Agent"/>
+</owl:Class>
+<owl:Class rdf:about="#Happening"
+	 rdfs:label="Happening">
+	<rdfs:comment>Something that happens. It can be either dynamic - like in "drawing a circle", or static - like in "being a president". In all cases, a happening (an event, a situation, or a time period) has a certain (usually quite concrete) temporal positioning - in the simplest case this is one, denoted by start and end points in time.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&psys;Entity"/>
+</owl:Class>
+<owl:Class rdf:about="#InformationResource"
+	 rdfs:label="InformationResource">
+	<rdfs:comment>InformationResource denotes an information resources with identity, as defined in Dublin Core (DC2003ISO). InformationResource is considered any communication or message that is delivered or produced, taking into account the specific intention ot its originator, and also the supposition (and anticipation) for a particular audience or counter-agent in the process of communication (i.e. passive or active feed-back).</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Statement"/>
+</owl:Class>
+<owl:Class rdf:about="#JobPosition"
+	 rdfs:label="JobPosition">
+	<rdfs:comment>The situation of a person, holding a job (employment) position within an organization. The sub-classes of this one define a number of different types of positions.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Situation"/>
+</owl:Class>
+<owl:Class rdf:about="#Language"
+	 rdfs:comment="A spoken or written natural language"
+	 rdfs:label="Language">
+	<rdfs:subClassOf rdf:resource="&ptop;Abstract"/>
+</owl:Class>
+<owl:Class rdf:about="#Location"
+	 rdfs:label="Location">
+	<rdfs:comment>Usually a geographic location on the earth, however any sort of 3D regions also fit here. The classification is based on the ADL Feature Type Thesaurus version 070203.
+Sub-classes omitted: Administrative Areas (its sub-types are put directly under Location), Territorial waters, Tribal areas.
+For each specific type, the corresponding NIMA GNS designators (DSG) are given.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
+</owl:Class>
+<owl:Class rdf:about="#Number"
+	 rdfs:label="Number">
+	<rdfs:comment>Any given number, within the meaning that a number is one of the following: a concept of quantity derived from zero and units; or a numeral (or a string of numerals) used for identification ("she refused to give them her Social Security number"); or a phone number, etc.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Abstract"/>
+</owl:Class>
+<owl:Class rdf:about="#Object"
+	 rdfs:label="Object">
+	<rdfs:comment>Objects are entities that could be claimed to exist - in some sense of existence. An object can play a certain role in some happenings. Objects could be substantially real - as the Buckingham Palace or a hardcopy book - or substantially imperceptible - say, an electronic document that exists only virtually, one cannot touch it.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&psys;Entity"/>
+</owl:Class>
+<owl:Class rdf:about="#Organization"
+	 rdfs:label="Organization">
+	<rdfs:comment>Organization is a group, which is established in such a way that certain known relationships and obligations exist between the members, and/or between the organization and its members, and/or between the organization and `outsiders' (individuals or groups). includes both informal and legally constituted organizations. Organizations can act as agents - to undertake projects, to enter into agreements, to own property, etc. Most organizations have names. Almost all have at least two members.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Group"/>
+</owl:Class>
+<owl:Class rdf:about="#Person"
+	 rdfs:label="Person">
+	<rdfs:comment>A Person is an agent (within the meaning of Agent in BULO), which is an individual who is a human being (i.e. any living or extinct member of the family Hominidae). Wordnet 2.0.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Agent"/>
+</owl:Class>
+<owl:Class rdf:about="#Product"
+	 rdfs:label="Product">
+	<rdfs:comment>The general concept of a product model, say, Ford T. The instances of this class are not specific instances of the product - the latter are just objects. Analogous to FormalProductType in Cyc.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
+</owl:Class>
+<owl:Class rdf:about="#Role"
+	 rdfs:label="Role">
+	<rdfs:comment>The role of an entity (usually an agent) within/during/effecting (intentionally or not) a particular happening. For instance a coordinator of a project,  or a defendant in a trial, or even a material object that serves as an evidence in a trial (e.g. a weapon).</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Situation"/>
+</owl:Class>
+<owl:Class rdf:about="#Service"
+	 rdfs:label="Service">
+	<rdfs:comment>Any sort of service, ranging from scheduled flight or train services to weather forecast information/web serivce. Many services could be considered agenets.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
+</owl:Class>
+<owl:Class rdf:about="#Situation"
+	 rdfs:label="Situation">
+	<rdfs:comment>A static event or situation, like "sitting on a chair" or "holding position". Typically, those are temporarily homogenuous, i.e. they nature is not expected/required to change within their duration. As a happening, they use to happen/take place/be true for some periods of time and may or may not have a well-defined space extension.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Happening"/>
+</owl:Class>
+<owl:Class rdf:about="#Statement"
+	 rdfs:label="Statement">
+	<rdfs:comment>A message that is stated or declared; a communication (oral or written), setting forth particulars or facts, etc; "according to his statement he was in London on that day". WordNet 1.7.1</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Object"/>
+</owl:Class>
+<owl:Class rdf:about="#TimeInterval"
+	 rdfs:label="TimeInterval">
+	<rdfs:comment>This is a general time expression (TIMEEX), which refers to a particular period of time, an interval. Repeating periods (like the Spring or Christmas) are not time intervals, while specific instances of theirs (like the Spring of 1944) are. A TimeInterval could collapse, in very special cases, to a time point, however in this case, in contrast to the Abstract time point (referring to some time during the day), it should be bound to a specific date, i.e. to represent a timestamp.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Happening"/>
+</owl:Class>
+<owl:Class rdf:about="#Topic"
+	 rdfs:label="Topic">
+	<rdfs:comment>Any sort of a topic or theme, explicitly defined for classification purposes. As long as any other class or entity can play the role of a topic, the instances of this class are only those concepts, which are defined to serve as topics. The topic class is the natural top-class for linkage of logically informal taxonomies.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&ptop;Abstract"/>
+</owl:Class>
+<owl:ObjectProperty rdf:about="#childOrganizationOf"
+	 rdfs:label="childOrganizationOf">
+	<rdfs:comment>Indicates that an organization is in some sense part of another organization. This necessarily requires structural and organizational relations and may or may not indicate ownership. Its reverse, parentOrganizationOf, is a special case of partial control.</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Organization"/>
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;partOf"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#controls"
+	 rdfs:label="controls">
+	<rdfs:comment>Indicates that an Agent has full control over some object. This is typically the case of wholly-owned subsidiaries and phisicall possession of goods.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&ptop;partiallyControls"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#derivedFromSource"
+	 rdfs:label="derivedFromSource">
+	<rdfs:comment>A reference to a resource from which the present resource is derived. The present resource may be derived from the Source resource in whole or in part. Recommended best practice is to identify the referenced resource by means of a string or number
+conforming to a formal identification system. DC2003ISO</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;InformationResource"/>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#documentAbstract"
+	 rdfs:comment="An abstract or summary of a document."
+	 rdfs:label="documentAbstract">
+	<rdfs:domain rdf:resource="&ptop;Document"/>
+	<rdfs:subPropertyOf rdf:resource="&psys;description"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#documentAuthor"
+	 rdfs:comment="The creator (or one of the creators) of a document."
+	 rdfs:label="documentAuthor">
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasCreator"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#documentSubTitle"
+	 rdfs:label="documentSubTitle">
+	<rdfs:comment>A very short sub-title of a document, usually a single sentence</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Document"/>
+	<rdfs:subPropertyOf rdf:resource="&psys;laconicDescription"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#doingBusinessAs"
+	 rdfs:label="doingBusinessAs">
+	<rdfs:comment>A name used for marketing purposes. It usually does not correspond to the legal name of the organisation.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+	<rdfs:subPropertyOf rdf:resource="&psys;hasAlias"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#endTime"
+	 rdfs:comment="the end point of a happening"
+	 rdfs:label="endTime">
+	<rdfs:domain rdf:resource="&ptop;Happening"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#establishedIn"
+	 rdfs:comment="where the organization is established or registered"
+	 rdfs:label="establishedIn">
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;locatedIn"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#establishmentDate"
+	 rdfs:comment="The date when the organization get established or registered"
+	 rdfs:label="establishmentDate">
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#hasChild"
+	 rdfs:label="hasChild">
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasRelative"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasContributor"
+	 rdfs:label="hasContributor">
+	<rdfs:comment>An entity responsible for making contributions to the content of the resource. Examples of Contributor include a person, an organization, or a service. DC2003ISO</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasContactInfo"
+	 rdfs:label="hasContactInfo">
+	<rdfs:range rdf:resource="&ptop;ContactInformation"/>
+	<rdfs:domain rdf:resource="&ptop;Object"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasCreator"
+	 rdfs:label="hasCreator">
+	<rdfs:comment>An entity primarily responsible for making the content of the resource. Examples of Creator include a person, an organization, or a service. Typically, the name of a
+Creator should be used to indicate the entity. (DC2003ISO, Creator)</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasContributor"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#hasDate"
+	 rdfs:label="hasDate">
+	<rdfs:comment>Typically, Date will be associated with the creation or availability of the resource. Recommended
+best practice for encoding the date value is defined in a profile of ISO 8601 [W3CDTF] and includes (among
+others) dates of the form YYYY-MM-DD. For official documents, it could be the date of signature.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#hasEmployee"
+	 rdfs:label="hasEmployee">
+	<rdfs:comment>Relates a particular organization to its employees.</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Person"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasMember"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasLeader"
+	 rdfs:label="hasLeader">
+	<rdfs:comment>A general relation between an organization and a person who rules or guides or inspires it in some sense. It may or may not be an employee, may or may not
+be formal etc. Typically there is a single leader of an organization. </rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Person"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasMember"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasMember"
+	 rdfs:label="hasMember">
+	<rdfs:comment>Relates a particular organization to the agents which are members of that organization. This predicate indicates `generic' membership, although there may be specialized kinds of membership in the same organization. Typically, membership eligibility is determined by the organization and accepted with the agent's voluntary affiliation. In many cases Persons that take Positions within Organization are considered members of the organization, although this is no way formally encoded here. </rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+	<rdfs:domain rdf:resource="&ptop;Group"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasOldName"
+	 rdfs:label="hasOldName">
+	<rdfs:comment>Relates an entity to and old name or alias, which is no longer considered as the proper/actual one. For instance, Pekin is one of the old spellings of the name of the Chineese capital Beijing. The same happens to companies when they change the names and to womam when they get married.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&psys;hasAlias"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasParent"
+	 rdfs:label="hasParent">
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasRelative"/>
+	<owl:inverseOf rdf:resource="&ptop;hasChild"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#hasPosition"
+	 rdfs:label="hasPosition">
+	<rdfs:range rdf:resource="&ptop;JobPosition"/>
+	<rdfs:domain rdf:resource="&ptop;Person"/>
+	<owl:inverseOf rdf:resource="&ptop;holder"/>
+</owl:ObjectProperty>
+<owl:SymmetricProperty rdf:about="#hasRelative"
+	 rdfs:label="hasRelative">
+	<rdfs:range rdf:resource="&ptop;Person"/>
+	<rdfs:domain rdf:resource="&ptop;Person"/>
+</owl:SymmetricProperty>
+<owl:ObjectProperty rdf:about="#hasSibling"
+	 rdfs:label="hasSibling">
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasRelative"/>
+</owl:ObjectProperty>
+<owl:SymmetricProperty rdf:about="#hasSpouse"
+	 rdfs:label="hasSpouse">
+	<rdfs:subPropertyOf rdf:resource="&ptop;hasRelative"/>
+</owl:SymmetricProperty>
+<owl:ObjectProperty rdf:about="#hasSubject"
+	 rdfs:label="hasSubject">
+	<rdfs:comment>A topic of the content of the resource.
+Comment: Typically, Subject will be expressed as keywords, key phrases, or classification codes that
+describe a topic of the resource. Recommended best practice is to select a value from a controlled
+vocabulary or formal classification scheme. (DC2003ISO, Subject)</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+	<rdfs:range rdf:resource="&ptop;Topic"/>
+	<psys:transitiveOver rdf:resource="&ptop;subTopicOf"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#heldFrom"
+	 rdfs:comment="When the holder occupied the position"
+	 rdfs:label="heldFrom">
+	<rdfs:domain rdf:resource="&ptop;JobPosition"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;startTime"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#heldTo"
+	 rdfs:comment="When the holder released the position"
+	 rdfs:label="heldTo">
+	<rdfs:domain rdf:resource="&ptop;JobPosition"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;endTime"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#holder"
+	 rdfs:comment="The person holding the position"
+	 rdfs:label="holder">
+	<rdfs:domain rdf:resource="&ptop;JobPosition"/>
+	<rdfs:range rdf:resource="&ptop;Person"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#inLanguage"
+	 rdfs:label="inLanguage">
+	<rdfs:comment>A language of the intellectual content of the resource. Recommended best practice is to use RFC 3066 [RFC3066], which, in conjunction with ISO 639 [ISO639], defines two- and three-letter primary language tags with optional subtags. Examples include вЂњenвЂќ or
+вЂњengвЂќ for English, вЂњakk" for Akkadian, and вЂњen-GBвЂќ for English used in the United Kingdom. DC2003ISO</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+	<rdfs:range rdf:resource="&ptop;Language"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#informationResourceCoverage"
+	 rdfs:label="informationResourceCoverage">
+	<rdfs:comment>The extent or scope of the content of the resource. Typically, Coverage will include spatial location (a place name or geographic coordinates), temporal period (a period label, date, or date range), or jurisdiction (such as a named administrative entity). Recommended best practice is to select a value from a controlled vocabulary (for example, the Thesaurus of Geographic Names [TGN]) and to use, where appropriate, named places or time periods in preference to numeric identifiers such as sets of coordinates or date ranges. DC2003ISO</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#informationResourceIdentifier"
+	 rdfs:label="informationResourceIdentifier">
+	<rdfs:comment>An unambiguous reference to the information resource within a given context. Recommended best practice is to identify the resource by means of a string or number conforming to a formal identification system. Formal identification systems include but are not limited to the Uniform Resource Identifier (URI) (including the Uniform Resource Locator (URL)), the Digital Object Identifier (DOI), and the International Standard Book Number (ISBN). DC2003ISO.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#informationResourceRights"
+	 rdfs:label="informationResourceRights">
+	<rdfs:comment>Information about rights held in and over the resource. Typically, Rights will contain a rights management statement for the resource, or reference a
+service providing such information. Rights information often encompasses Intellectual Property Rights (IPR),
+Copyright, and various Property Rights. If the Rights element is absent, no assumptions may be made about any rights held in or over the resource. DC2003ISO</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#involvedIn"
+	 rdfs:label="involvedIn">
+	<rdfs:domain rdf:resource="&ptop;Agent"/>
+	<rdfs:range rdf:resource="&ptop;Happening"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#isBossOf"
+	 rdfs:label="isBossOf">
+	<rdfs:comment>Relates a Person to another one for which he is immediate boss or supervisor. This is a many-to-many relationship, i.e. there can be more than one boss of a person, even cotemporally.</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Person"/>
+	<rdfs:domain rdf:resource="&ptop;Person"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#isLegalEntity"
+	 rdfs:label="isLegalEntity">
+	<rdfs:comment>Determines whether a particular Agent is a legal entity. The range should be constrained to Boolean. Agents, for which the value is True, correspond to instances of http://www.cyc.com/2003/04/01/cyc#LegalAgent, which is defined as follows "Each instance of #$LegalAgent is an agent who has some status in a particular legal system.  At the very least, such an agent is recognized by some legal authority as having some kinds of rights and/or responsibilities as an agent (e.g., #$citizens of Germany), ...  ". In PROTON, it is modeled as property in order to avoid multiple-inheritance of classes and/or multiple classifications of instances.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Agent"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#isOwnedBy"
+	 rdfs:label="isOwnedBy">
+	<rdfs:comment></rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Object"/>
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#latitude"
+	 rdfs:label="latitude">
+	<rdfs:comment>in degrees, minutes, and seconds: no sign (+) = North;
+negative sign (-) = South.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Location"/>
+</owl:DatatypeProperty>
+<owl:TransitiveProperty rdf:about="#locatedIn"
+	 rdfs:label="locatedIn">
+	<rdfs:domain rdf:resource="&psys;Entity"/>
+	<rdfs:range rdf:resource="&ptop;Location"/>
+</owl:TransitiveProperty>
+<owl:DatatypeProperty rdf:about="#longitude"
+	 rdfs:label="longitude">
+	<rdfs:comment>in degrees, minutes, and seconds: no sign (+) = East;
+negative sign (-) = West.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Location"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#NIMA_GNS_DSG"
+	 rdfs:label="NIMA_GNS_DSG">
+	<rdfs:comment>The designator of the entity according to the NIMA GeoNames Server.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Location"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#NIMA_GNS_UFI"
+	 rdfs:label="NIMA_GNS_UFI">
+	<rdfs:comment>The Unique Feature Identifier from the NIMA GNS.  A number which uniquely identifies the location.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Location"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#numberOfEmployees"
+	 rdfs:comment="The estimated number of employees in the organization."
+	 rdfs:label="numberOfEmployees">
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#operatedBy"
+	 rdfs:label="operatedBy">
+	<rdfs:comment>A relation between a service and the agent (usually organisation), which is providing it</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+	<rdfs:domain rdf:resource="&ptop;Service"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#owns"
+	 rdfs:label="owns">
+	<rdfs:comment>An agent fully owns an Object. In many cases this means also full control, unless the agent had transferred the control to another agent.</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&ptop;partiallyOwns"/>
+</owl:ObjectProperty>
+<owl:TransitiveProperty rdf:about="#parentOrganizationOf"
+	 rdfs:comment="A relation between an organization and another one which is dependent on it in some sense. This is a transitive relation, i.e. if organization X is a parent organization of Y and the latter is a parent organization of Z, then X is also considered a parent organization of Z. Inverse of childOrganizationOf."
+	 rdfs:label="parentOrganizationOf">
+	<rdfs:range rdf:resource="&ptop;Organization"/>
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;partiallyControls"/>
+	<owl:inverseOf rdf:resource="&ptop;childOrganizationOf"/>
+</owl:TransitiveProperty>
+<owl:TransitiveProperty rdf:about="#partOf"
+	 rdfs:label="partOf">
+	<rdfs:comment>The general part-of relation which in place between a whole and each of its parts. It has a number of specializations.</rdfs:comment>
+	<rdfs:range rdf:resource="&psys;Entity"/>
+	<rdfs:domain rdf:resource="&psys;Entity"/>
+</owl:TransitiveProperty>
+<owl:ObjectProperty rdf:about="#partiallyControls"
+	 rdfs:label="partiallyControls">
+	<rdfs:comment>Any sort of partial control of an agent with respect to an object.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Agent"/>
+	<rdfs:range rdf:resource="&ptop;Object"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#partiallyOwns"
+	 rdfs:label="partiallyOwns">
+	<rdfs:comment>Indicates that an Agent has some ownership over an object. It allows wide interpretations from "I have a bike" to "John has shares in Fujitsu".</rdfs:comment>
+	<rdfs:subPropertyOf rdf:resource="&ptop;partiallyControls"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#populationCount"
+	 rdfs:label="populationCount">
+	<rdfs:domain rdf:resource="&ptop;Location"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#producedBy"
+	 rdfs:comment="A relation between a company and its product"
+	 rdfs:label="producedBy">
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+	<rdfs:domain rdf:resource="&ptop;Product"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#registeredIn"
+	 rdfs:label="registeredIn">
+	<rdfs:domain rdf:resource="&ptop;Organization"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;locatedIn"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#resourceFormat"
+	 rdfs:label="resourceFormat">
+	<rdfs:comment>The physical or digital manifestation of the resource.
+Typically, Format will include the media-type or dimensions of the resource. Format may be used to identify the software, hardware, or other equipment needed to display or operate the resource. Examples
+of dimensions include size and duration. Recommended best practice is to select a value from a controlled vocabulary (for example, the list of Internet Media Types [MIME] defining computer media formats). DC2003ISO</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#resourceType"
+	 rdfs:label="resourceType">
+	<rdfs:comment>The nature or genre of the content of the resource. Type includes terms describing general categories, functions, genres, or aggregation levels for content. Recommended best practice is to select a value from a controlled vocabulary (for example, the
+DCMI Type Vocabulary [DCT]). To describe the physical or digital manifestation of the resource, use the resourceFormat property. DC2003ISO.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#roleHolder"
+	 rdfs:label="roleHolder">
+	<rdfs:range rdf:resource="&psys;Entity"/>
+	<rdfs:domain rdf:resource="&ptop;Role"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="#roleIn"
+	 rdfs:label="roleIn">
+	<rdfs:comment>Relates the role to the Happening that conditions and takes on the effect of the role.</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Happening"/>
+	<rdfs:domain rdf:resource="&ptop;Role"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="#startTime"
+	 rdfs:comment="the starting moment of a happening"
+	 rdfs:label="startTime">
+	<rdfs:domain rdf:resource="&ptop;Happening"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#statedBy"
+	 rdfs:label="statedBy">
+	<rdfs:comment>Relating a statement to the agent who made it. In the case of an offer, it is the offerer. In case of contract those are the parties. In case of written statements, the creator/author and the "stater" could be different agents, dew to fact hat one agent my have prepared and/or published a statement on behalf of another.</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Agent"/>
+	<rdfs:domain rdf:resource="&ptop;Statement"/>
+</owl:ObjectProperty>
+<owl:TransitiveProperty rdf:about="#subRegionOf"
+	 rdfs:label="subRegionOf">
+	<rdfs:comment>The general part-of relation which in place between a whole and each of its parts. It has number of specializations.</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;Location"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;locatedIn"/>
+	<rdfs:subPropertyOf rdf:resource="&ptop;partOf"/>
+</owl:TransitiveProperty>
+<owl:TransitiveProperty rdf:about="#subTopicOf"
+	 rdfs:label="subTopicOf">
+	<rdfs:comment>A relation from a less general to a more general topic. 
+Defined to be transitive via rule.</rdfs:comment>
+	<rdfs:range rdf:resource="&ptop;Topic"/>
+	<rdfs:domain rdf:resource="&ptop;Topic"/>
+</owl:TransitiveProperty>
+<owl:DatatypeProperty rdf:about="#title"
+	 rdfs:label="title">
+	<rdfs:comment>A name given to an information resource. Typically, title will be a name by which the resource is formally known. (DC2003ISO, Title there)</rdfs:comment>
+	<rdfs:domain rdf:resource="&ptop;InformationResource"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#validFrom"
+	 rdfs:label="validFrom">
+	<rdfs:domain rdf:resource="&ptop;Statement"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="#validUntil"
+	 rdfs:label="validUntil">
+	<rdfs:domain rdf:resource="&ptop;Statement"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="#withinOrganization"
+	 rdfs:comment="Determines in which organization is the position"
+	 rdfs:label="withinOrganization">
+	<rdfs:domain rdf:resource="&ptop;JobPosition"/>
+	<rdfs:range rdf:resource="&ptop;Organization"/>
+</owl:ObjectProperty>
+</rdf:RDF>

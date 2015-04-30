@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns="http://www.medicalcomputing.net/owl/physiology.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:biochemistry="http://www.medicalcomputing.net/biochemistry.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://www.medicalcomputing.net/owl/physiology.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Copyright Alex Amies 2006</rdfs:comment>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A model for human physiology</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="CreatinineBloodConcentration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="BloodConcentration"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Creatinine is a breakdown product of creatine, an important part of muscle.  Measuring serum creatinine is the most commonly used indicator of kidney health.  However, a rise in blood creatinine levels is observed only with substantial damage.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="NervousSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The nervous system senses the outside environment, the state of the body itself, and initiates movement of the musculoskeletal system.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="EndocrineSystem">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The endocrine system helps regulates the state of the body via secretion of hormones.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="MusculoSkeletalSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The musculoskeletal system gives structure to the body and allows movement.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Reference">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The reference value or range expected for a measurement.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RestingPulse">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Measurement"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The pulse rate of the heart, normally measured in beats per minute, may be measured on any number of arteries when the patient is at rest.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CalciumBloodConcentrationNormalRange">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HealthyRange"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for calcium blood concentration.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PressureMeasurement">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The pressure measured in mmHg.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#BloodConcentration">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The concentration of a particular chemical in the blood in meq/L.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CreatinineBloodConcentrationNormalRange">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for creatinine blood concentration.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HealthyRange"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RestingPulseNormalRange">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HealthyRange"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#HealthyRange">
+    <rdfs:subClassOf rdf:resource="#Reference"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A healthy range of values that a measurement should be within.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="IntegumentarySystem">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The integumentary system consists of the elements covering the body, including skin, hair, and nails.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RespiratorySystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The respiratory system absorbs oxygen from the air and expells carbon dioxide and water.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SodiumBloodConcentrationNormalRange">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for sodium blood concentration.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#HealthyRange"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ChlorideBloodConcentration">
+    <rdfs:subClassOf rdf:resource="#BloodConcentration"/>
+    <rdfs:comment xml:lang="en">Chloride is important to the central nervous system.  In addition, the chloride-bicarbonate exchanger biological transport protein depends on the chloride ion to increase the blood's capacity for carbon dioxide.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DiastolicBloodPressure">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The diastolic blood pressure is the lowest pressure in the arteries during the cardiac cycle.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#PressureMeasurement"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ChlorideBloodConcentrationNormalRange">
+    <rdfs:subClassOf rdf:resource="#HealthyRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for chloride blood concentration.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="HumanPhysiology">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Human physiology is concerned with the physical and biochemical functions of humans beings. Physiology focusses on organs and systems, including examing and measuring the state or organs and systems to determine whether they are functioning normally.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ImmuneSystem">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The immune system protects the body from foreign biological agents.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DiastolicBloodPressureNormalRange">
+    <rdfs:subClassOf rdf:resource="#HealthyRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for the diastolic blood pressure.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ReproductiveSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The reproductive system system produces gametes in male and female and nurtures  offspring.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Measurement">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A measurement records the state of a property at some point in time.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SodiumBloodConcentration">
+    <rdfs:subClassOf rdf:resource="#BloodConcentration"/>
+    <rdfs:comment xml:lang="en">Sodium concentration in the blood. Sodium is an essential mineral macronutrient.  It has physiological roles.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CalciumBloodConcentration">
+    <rdfs:subClassOf rdf:resource="#BloodConcentration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Calcium concentration in the blood. Calcium is an essential mineral macronutrient.  It has physiological roles.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="LymphaticSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The lymphatic system lymph fluid into lymph capillaries and returns it to the vascular system.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#PhysiologicalSystem"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PhysiologicalSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A physiological system is a system within the body that functions as a unit.  The human physiological system inlcudes the circulatory, endocrine, gastrointestinal,  immune, cardio-vasular, integumentary, lymphatic, muscoloskeletal, reproductive, respiratory, and urinary systems.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="GlucoseBloodConcentration">
+    <rdfs:subClassOf rdf:resource="#BloodConcentration"/>
+    <rdfs:comment xml:lang="en">Glucose concentration in the blood is an important test for the assesment of diabetes.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="GlucoseBloodConcentrationNormalRange">
+    <rdfs:subClassOf rdf:resource="#HealthyRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for glucose blood concentration.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CirculatorySystem">
+    <rdfs:subClassOf rdf:resource="#PhysiologicalSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The circulatory system delivers oxygen and nutrients to the different parts of the body.  In order for a circulatory system to be function properly it must maintain pressure within a healthy range.  If the blood pressure suddenly falls too low the patient will go into shock.  On the other hand, chronic high blood pressure indicates a risk of cardiovascular disease.  The heart should also maintain a pulse within a certain range.  The pulse rate depends on level of exertion so that measurements are normally taken when the patient is at rest.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PotasiumBloodConcentrationNormalRange">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for potasium blood concentration.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#HealthyRange"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GastroIntestinalSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The gastroIntestinal system digests food and liquid for sustenance.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#PhysiologicalSystem"/>
+  </owl:Class>
+  <owl:Class rdf:ID="UrinarySystem">
+    <rdfs:subClassOf rdf:resource="#PhysiologicalSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The urinary system removes water and waste products from the blood  producing urine.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="PotassiumBloodConcentration">
+    <rdfs:comment xml:lang="en">Potassium concentration in the blood.  Potassium is an essential mineral macronutrient.  It is important to muscle contraction and in maintaining fluid and electrolyte balance.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#BloodConcentration"/>
+  </owl:Class>
+  <owl:Class rdf:ID="SystolicBloodPressureNormalRange">
+    <rdfs:subClassOf rdf:resource="#HealthyRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The expected range for the systolic blood pressure.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SystolicBloodPressure">
+    <rdfs:subClassOf rdf:resource="#PressureMeasurement"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The systolic blood pressure is the peak pressure measured during the cardiac cycle.</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="sodiumBloodConcentrationValue">
+    <rdfs:range rdf:resource="#SodiumBloodConcentration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's gastrointestinal system and the sodium blood concentration.</rdfs:comment>
+    <rdfs:domain rdf:resource="#GastroIntestinalSystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interpretationOfSodiumBloodConcentration">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relation of the measured value of sodium blood concentration to the reference range.</rdfs:comment>
+    <rdfs:domain rdf:resource="#SodiumBloodConcentration"/>
+    <rdfs:range rdf:resource="#SodiumBloodConcentrationNormalRange"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="creatinineBloodConcentrationValue">
+    <rdfs:domain rdf:resource="#UrinarySystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's urinary system and the creatinine blood concentration.</rdfs:comment>
+    <rdfs:range rdf:resource="#CreatinineBloodConcentration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="glucoseBloodConcentrationValue">
+    <rdfs:range rdf:resource="#GlucoseBloodConcentration"/>
+    <rdfs:domain rdf:resource="#GastroIntestinalSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's gastrointestinal system and the glucose blood concentration.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="systolicBloodPressureValue">
+    <rdfs:domain rdf:resource="#CirculatorySystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's circulatory system and the systolic blood pressure.</rdfs:comment>
+    <rdfs:range rdf:resource="#SystolicBloodPressure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interpretationOfPotasiumBloodConcentration">
+    <rdfs:range rdf:resource="#PotasiumBloodConcentrationNormalRange"/>
+    <rdfs:domain rdf:resource="#PotassiumBloodConcentration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relation of the measured value of potasium blood concentration to the reference range.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="diastolicBloodPressureValue">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's circulatory system and the diastolic blood pressure.</rdfs:comment>
+    <rdfs:range rdf:resource="#DiastolicBloodPressure"/>
+    <rdfs:domain rdf:resource="#CirculatorySystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interpretationOfCreatinineBloodConcentration">
+    <rdfs:range rdf:resource="#CreatinineBloodConcentrationNormalRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relation of the measured value of creatinine blood concentration to the reference range.</rdfs:comment>
+    <rdfs:domain rdf:resource="#CreatinineBloodConcentration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="potasiumBloodConcentrationValue">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's gastrointestinal system and the potasium blood concentration.</rdfs:comment>
+    <rdfs:range rdf:resource="#PotassiumBloodConcentration"/>
+    <rdfs:domain rdf:resource="#GastroIntestinalSystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="studiesAndEvaluates">
+    <rdfs:range rdf:resource="#PhysiologicalSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Human physiology studies the sciece of physiological systems and uses the information to evaluate the health of patients.</rdfs:comment>
+    <rdfs:domain rdf:resource="#HumanPhysiology"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="chlorideBloodConcentrationValue">
+    <rdfs:domain rdf:resource="#GastroIntestinalSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's gastrointestinal system and the chloride blood concentration.</rdfs:comment>
+    <rdfs:range rdf:resource="#ChlorideBloodConcentration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interpretationOfChlorideBloodConcentration">
+    <rdfs:range rdf:resource="#ChlorideBloodConcentrationNormalRange"/>
+    <rdfs:domain rdf:resource="#ChlorideBloodConcentration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relation of the measured value of chloride blood concentration to the reference range.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interpretationOfCalciumBloodConcentration">
+    <rdfs:range rdf:resource="#CalciumBloodConcentrationNormalRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relation of the measured value of calcium blood concentration to the reference range.</rdfs:comment>
+    <rdfs:domain rdf:resource="#CalciumBloodConcentration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="restingPulseValue">
+    <rdfs:range rdf:resource="#RestingPulse"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's circulatory system and the resting pulse.</rdfs:comment>
+    <rdfs:domain rdf:resource="#CirculatorySystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interpretationOfGlucoseBloodConcentration">
+    <rdfs:domain rdf:resource="#GlucoseBloodConcentration"/>
+    <rdfs:range rdf:resource="#GlucoseBloodConcentrationNormalRange"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relation of the measured value of glucose blood concentration to the reference range.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="calciumBloodConcentrationValue">
+    <rdfs:range rdf:resource="#CalciumBloodConcentration"/>
+    <rdfs:domain rdf:resource="#GastroIntestinalSystem"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The relation of a person's gastrointestinal system and the calciium blood concentration.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="lowerValue">
+    <rdfs:domain rdf:resource="#HealthyRange"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The lower value in a range of real numbers..</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="upperValue">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The upper value in a range of real numbers.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#HealthyRange"/>
+  </owl:DatatypeProperty>
+  <CreatinineBloodConcentrationNormalRange rdf:ID="CreatinineBloodConcentrationNormalRange_Unilab">
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The creatinine blood concentration normal range recommended by Unilab (0.5 to 1.4) in meq/L.</rdfs:comment>
+  </CreatinineBloodConcentrationNormalRange>
+  <PotasiumBloodConcentrationNormalRange rdf:ID="PotasiumBloodConcentrationNormalRange_Unilab">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The glucose blood concentration normal range recommended by Unilab (3.5 to 5.5) in meq/L.</rdfs:comment>
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+  </PotasiumBloodConcentrationNormalRange>
+  <RestingPulseNormalRange rdf:ID="RestingPulseNormalRange_AHA">
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The resting pulse healthy range recommended by the American Hearth Association (60 - 80 bpm)</rdfs:comment>
+  </RestingPulseNormalRange>
+  <DiastolicBloodPressureNormalRange rdf:ID="DiastolicBloodPressureNormalRange_AHA">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The range recommended as normal by the American Heart Association (max 80 mmHg)</rdfs:comment>
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+  </DiastolicBloodPressureNormalRange>
+  <CalciumBloodConcentrationNormalRange rdf:ID="CalciumBloodConcentrationNormalRange_Unilab">
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The calcium blood concentration normal range recommended by Unilab (8.7 to 10.5) in meq/L.</rdfs:comment>
+  </CalciumBloodConcentrationNormalRange>
+  <SodiumBloodConcentrationNormalRange rdf:ID="SodiumBloodConcentrationNormalRange_Unilab">
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The glucose blood concentration normal range recommended by Unilab (135 - 148) in meq.</rdfs:comment>
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+  </SodiumBloodConcentrationNormalRange>
+  <GlucoseBloodConcentrationNormalRange rdf:ID="GlucoseBloodConcentrationNormalRange_Unilab">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The glucose blood concentration normal range recommended by Unilab (65 to 99) in mg/DL.</rdfs:comment>
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+  </GlucoseBloodConcentrationNormalRange>
+  <SystolicBloodPressureNormalRange rdf:ID="SystolicBloodPressureNormalRange_AHA">
+    <lowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</lowerValue>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The range recommended as normal by the American Heart Association (max 120 mmHg)</rdfs:comment>
+    <upperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</upperValue>
+  </SystolicBloodPressureNormalRange>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.1, Build 284)  http://protege.stanford.edu -->
+
+

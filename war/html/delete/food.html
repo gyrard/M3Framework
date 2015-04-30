@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>M3 (Machine-to-Machine Measurement)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/food/recipe.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/food.js"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor="#F0F081">   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/food/recipe.png" width="100" height="80" >Suggest a recipe
+		
+		<img src="images/food/recipe.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+<article>
+ 
+ <article>
+ <fieldset>
+   <legend>All</legend> 		
+	<form method="post" name="ajax" action="">
+		<select id="allfood" onclick="executeFood('food/search', document.getElementById('allfood').value, 'resfood')">
+		<script type="text/javascript">
+		request(readFoodXml, "food/all/divers", "allfood");		
+		</script>
+		</select> <br/>	List: 
+        <select id="resfood"></select>
+    </form>
+ </fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>Vegetable & Fruit</legend> 
+	<form method="post" name="ajax" action="">
+		<select id="fruitVegetable" onclick="executeFood('food/search', document.getElementById('fruitVegetable').value, 'resfruitVegetable')">
+		<script type="text/javascript">
+		request(readFoodXml, "food/all/fruitVegetable", "fruitVegetable");		
+		</script>
+		</select> <br/>	List: 
+        <select id="resfruitVegetable"></select>
+    </form>
+ </fieldset>
+</article>
+
+
+<article>
+ <fieldset>
+   <legend>Meat & Fish</legend> 
+	<form method="post" name="ajax" action="">
+		<select id="meatFish" onclick="executeFood('food/search', document.getElementById('meatFish').value, 'resmeatFish')">
+		<script type="text/javascript">
+		request(readFoodXml, "food/all/meatFish", "meatFish");		
+		</script>
+		</select> <br/>	List: 
+        <select id="resmeatFish"></select>
+    </form>
+ </fieldset>
+</article>
+
+ 
+<article>
+ <fieldset>
+   <legend>Drink</legend> 
+	<form method="post" name="ajax" action="">
+		<select id="drink" onclick="executeFood('food/search', document.getElementById('drink').value, 'resdrink')">
+		<script type="text/javascript">
+		request(readFoodXml, "food/all/drink", "drink");		
+		</script>
+		</select> <br/>	List: 
+        <select id="resdrink"></select>
+    </form>
+    
+    <br/> White Wine: 
+   <select id="white_wine">
+   <script type="text/javascript">
+		request(readXmlOnlyUri, "food/wine/White", "white_wine");		
+		</script>
+    </select>
+    
+        <br/> Red Wine: 
+   <select id="red_wine">
+   <script type="text/javascript">
+		request(readXmlOnlyUri, "food/wine/Red", "red_wine");		
+		</script>
+    </select>
+    
+        <br/> Rose Wine: 
+   <select id="rose_wine">
+   <script type="text/javascript">
+		request(readXmlOnlyUri, "food/wine/Rose", "rose_wine");		
+		</script>
+    </select>
+    
+   <br/> Sweet Wine: 
+   <select id="sweet_wine">
+   <script type="text/javascript">
+		request(readXmlOnlyUri, "food/wine/Sweet", "sweet_wine");		
+		</script>
+    </select>
+    
+   <br/> Dry Wine: 
+   <select id="dry_wine">
+   <script type="text/javascript">
+		request(readXmlOnlyUri, "food/wine/Dry", "dry_wine");		
+		</script>
+    </select>
+    
+ </fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>Diets</legend> 
+	<form method="post" name="ajax" action="">
+		<select id="diet" onclick="executeFood('food/search', document.getElementById('diet').value, 'resdiet')">
+		<script type="text/javascript">
+		request(readFoodXml, "food/all/diet", "diet");		
+		</script>
+		</select> <br/>	List: 
+        <select id="resdiet"></select>
+    </form>
+ </fieldset>
+</article>
+
+<article>
+ <fieldset>
+   <legend>Recipe</legend> 
+   <select id="recipe">
+   <script type="text/javascript">
+		request(readXmlOnlyUri, "food/recipe", "recipe");		
+		</script>
+    </select>
+    
+    <br/><br/> Pizza: <select id="pizza">
+   <script type="text/javascript">
+		request(readFoodXml, "food/pizza", "pizza");		
+		</script>
+    </select>
+ </fieldset>
+</article>
+
+
+</body>
+</html>

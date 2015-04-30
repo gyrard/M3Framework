@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY ISMO "http://sensormeasurement.appspot.com/ont/security/ISMO#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY OMS_Ingles "http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY Software_Metrics "http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl#" >
+    <!ENTITY Security "http://www.ida.liu.se/~almhe/Security.owl#" >
+    <!ENTITY Measurement_Approachs "http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Characterization_and_Objectives "http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#"
+     xml:base="http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl"
+     xmlns:Measurement_Approachs="http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#"
+     xmlns:Security="http://www.ida.liu.se/~almhe/Security.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Software_Metrics="http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ISMO="http://sensormeasurement.appspot.com/ont/security/ISMO#"
+     xmlns:OMS_Ingles="http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#"
+     xmlns:Characterization_and_Objectives="http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#">
+    <owl:Ontology rdf:about="http://sensormeasurement.appspot.com/ont/security/ISMO">
+        <owl:versionInfo xml:lang="en">Information Security Measurement Ontology</owl:versionInfo>
+        <rdfs:comment xml:lang="en">Information Security Measurement Ontology (ISMO) bases on Software Measurement Ontology (SMO). Hence, ISMO contains instantiated security metrics in the form defined in the SMO.
+
+More information is available in the paper: Evesti et al. The Design, Instantiation, and Usage of Information Security Measuring Ontology, 2011.</rdfs:comment>
+        <owl:versionInfo xml:lang="en">Version 1.0</owl:versionInfo>
+        <owl:imports rdf:resource="http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl"/>
+        <owl:imports rdf:resource="http://sensormeasurement.appspot.com/ont/security/Measurement_Action.owl"/>
+        <owl:imports rdf:resource="http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl"/>
+        <owl:imports rdf:resource="http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl"/>
+        <owl:imports rdf:resource="http://www.ida.liu.se/~almhe/Security.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#Is_associated_with -->
+
+    <owl:ObjectProperty rdf:about="&Characterization_and_Objectives;Is_associated_with"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#Relates -->
+
+    <owl:ObjectProperty rdf:about="&Characterization_and_Objectives;Relates"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#AdaptableWith -->
+
+    <owl:ObjectProperty rdf:about="&ISMO;AdaptableWith">
+        <rdfs:comment>Attribute can have adaptableWith property, which refers an adaptation action. The adaptation action presents how the attribute can be adapted.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Has -->
+
+    <owl:ObjectProperty rdf:about="&ISMO;Has">
+        <rdfs:comment>Countermeasures, i.e., security mechanisms, have measurable attributes.</rdfs:comment>
+        <rdfs:range rdf:resource="&Characterization_and_Objectives;Attribute"/>
+        <rdfs:domain rdf:resource="&Security;Countermeasure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Calculated_with_1 -->
+
+    <owl:ObjectProperty rdf:about="&Measurement_Approachs;Calculated_with_1"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Calculated_with_2 -->
+
+    <owl:ObjectProperty rdf:about="&Measurement_Approachs;Calculated_with_2"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Satisfies -->
+
+    <owl:ObjectProperty rdf:about="&Measurement_Approachs;Satisfies"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Uses_1 -->
+
+    <owl:ObjectProperty rdf:about="&Measurement_Approachs;Uses_1"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Uses_2 -->
+
+    <owl:ObjectProperty rdf:about="&Measurement_Approachs;Uses_2"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Uses_5 -->
+
+    <owl:ObjectProperty rdf:about="&Measurement_Approachs;Uses_5"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#hasIndicator -->
+
+    <owl:ObjectProperty rdf:about="&OMS_Ingles;hasIndicator">
+        <rdfs:comment>Property to connect SecurityGoals to indicators. I.e., indicators are intended to measure the particular security goal.</rdfs:comment>
+        <owl:inverseOf rdf:resource="&OMS_Ingles;isIndicatorFor"/>
+        <rdfs:range rdf:resource="&Software_Metrics;Indicator"/>
+        <rdfs:domain rdf:resource="&Security;Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#hasMeasurableAttribute -->
+
+    <owl:ObjectProperty rdf:about="&OMS_Ingles;hasMeasurableAttribute">
+        <rdfs:range rdf:resource="&Characterization_and_Objectives;Attribute"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#isApplicableFor -->
+
+    <owl:ObjectProperty rdf:about="&OMS_Ingles;isApplicableFor">
+        <rdfs:comment>This property connects an analysis model for the particular countermeasure. This is needed because the same security goal is achievable with different countermeasures, and each countermeasure requires own analysis model.</rdfs:comment>
+        <rdfs:domain rdf:resource="&Measurement_Approachs;Analysis_Model"/>
+        <rdfs:range rdf:resource="&Security;Countermeasure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#isIndicatorFor -->
+
+    <owl:ObjectProperty rdf:about="&OMS_Ingles;isIndicatorFor"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl#Defined_for -->
+
+    <owl:ObjectProperty rdf:about="&Software_Metrics;Defined_for"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#Attribute -->
+
+    <owl:Class rdf:about="&Characterization_and_Objectives;Attribute">
+        <rdfs:subClassOf rdf:resource="&Security;Attack"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#Information_Need -->
+
+    <owl:Class rdf:about="&Characterization_and_Objectives;Information_Need"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Characterization_and_Objectives.owl#Measurable_Concept -->
+
+    <owl:Class rdf:about="&Characterization_and_Objectives;Measurable_Concept"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#ActionToAdapt -->
+
+    <owl:Class rdf:about="&ISMO;ActionToAdapt"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Analysis_Model -->
+
+    <owl:Class rdf:about="&Measurement_Approachs;Analysis_Model"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Measurement_Function -->
+
+    <owl:Class rdf:about="&Measurement_Approachs;Measurement_Function"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Measurement_Approachs.owl#Measurement_Method -->
+
+    <owl:Class rdf:about="&Measurement_Approachs;Measurement_Method"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl#Base_Measure -->
+
+    <owl:Class rdf:about="&Software_Metrics;Base_Measure"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl#Derived_Measure -->
+
+    <owl:Class rdf:about="&Software_Metrics;Derived_Measure"/>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/Software_Metrics.owl#Indicator -->
+
+    <owl:Class rdf:about="&Software_Metrics;Indicator"/>
+    
+
+
+    <!-- http://www.ida.liu.se/~almhe/Security.owl#ElectronicToken -->
+
+    <rdf:Description rdf:about="&Security;ElectronicToken">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OMS_Ingles;hasMeasurableAttribute"/>
+                <owl:someValuesFrom rdf:resource="&Characterization_and_Objectives;Attribute"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Attr_AuthenticationLevel -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;Attr_AuthenticationLevel">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Attribute"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Attr_NumberOfSpecialCharacters -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;Attr_NumberOfSpecialCharacters">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Attribute"/>
+        <ISMO:AdaptableWith rdf:resource="&ISMO;CallPasswordChangeFunction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Attr_PasswordLength -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;Attr_PasswordLength">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Attribute"/>
+        <ISMO:AdaptableWith rdf:resource="&ISMO;CallPasswordChangeFunction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Attr_PasswordType -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;Attr_PasswordType">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Attribute"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Attr_PasswordUsageTime -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;Attr_PasswordUsageTime">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Attribute"/>
+        <ISMO:AdaptableWith rdf:resource="&ISMO;CallPasswordChangeFunction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#Attr_SessionDuration -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;Attr_SessionDuration">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Attribute"/>
+        <ISMO:AdaptableWith rdf:resource="&ISMO;ReAuthenticate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#CallPasswordChangeFunction -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;CallPasswordChangeFunction">
+        <rdf:type rdf:resource="&ISMO;ActionToAdapt"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#CurrentTimeMinusSessionStartTime -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;CurrentTimeMinusSessionStartTime">
+        <rdf:type rdf:resource="&Measurement_Approachs;Measurement_Method"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#PasswordAuthentication -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;PasswordAuthentication">
+        <rdf:type rdf:resource="&Security;LoginSystem"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#ReAuthenticate -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;ReAuthenticate">
+        <rdf:type rdf:resource="&ISMO;ActionToAdapt"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/ISMO#SessionDuration -->
+
+    <owl:NamedIndividual rdf:about="&ISMO;SessionDuration">
+        <rdf:type rdf:resource="&Software_Metrics;Base_Measure"/>
+        <Software_Metrics:Defined_for rdf:resource="&ISMO;Attr_SessionDuration"/>
+        <Measurement_Approachs:Uses_5 rdf:resource="&ISMO;CurrentTimeMinusSessionStartTime"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#AnalysisModelForAuthenticationLevel -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;AnalysisModelForAuthenticationLevel">
+        <rdf:type rdf:resource="&Measurement_Approachs;Analysis_Model"/>
+        <rdfs:comment>|Session duration &gt; 5 := level 0|
+|Password type == ’NormalPassword’ AND Usage time &gt; 720 AND 1 &lt; Session duration &lt; 5 := level 1|
+|Password type == ’NormalPassword’ AND Usage time &lt;= 720 AND 1 &lt; Session duration &lt; 5 OR 
+Password type == ’NormalPassword’ AND Usage time &gt; 720 AND Session duration &lt; 1 := level 2|
+|Password type == ’NormalPassword’ AND Usage time &lt;= 720 AND Session duration &lt; 1 := level 3|
+|Password type == ’GoodPassword’ AND Usage time &lt;= 720 AND Session duration &lt; 1 := level 4|</rdfs:comment>
+        <isApplicableFor rdf:resource="&ISMO;PasswordAuthentication"/>
+        <Measurement_Approachs:Uses_5 rdf:resource="&ISMO;SessionDuration"/>
+        <Measurement_Approachs:Uses_5 rdf:resource="&OMS_Ingles;PasswordType"/>
+        <Measurement_Approachs:Uses_5 rdf:resource="&OMS_Ingles;UsageTime"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#AnalysisModelForPasswordType -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;AnalysisModelForPasswordType">
+        <rdf:type rdf:resource="&Measurement_Approachs;Analysis_Model"/>
+        <Measurement_Approachs:Uses_5 rdf:resource="&OMS_Ingles;NumberOfSpecialCharacters"/>
+        <Measurement_Approachs:Uses_5 rdf:resource="&OMS_Ingles;PasswordLength"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#AuthenticationLevel -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;AuthenticationLevel">
+        <rdf:type rdf:resource="&Software_Metrics;Indicator"/>
+        <Measurement_Approachs:Calculated_with_2 rdf:resource="&OMS_Ingles;AnalysisModelForAuthenticationLevel"/>
+        <Measurement_Approachs:Satisfies rdf:resource="&OMS_Ingles;AuthenticationLevelOfTheApplication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#AuthenticationLevelOfTheApplication -->
+
+    <owl:Thing rdf:about="&OMS_Ingles;AuthenticationLevelOfTheApplication">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Information_Need"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:comment>ActionToAdapt class contains means to adapt the particular attribute.</rdfs:comment>
+        <Characterization_and_Objectives:Is_associated_with rdf:resource="&OMS_Ingles;AuthenticationStrength"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#AuthenticationStrength -->
+
+    <owl:Thing rdf:about="&OMS_Ingles;AuthenticationStrength">
+        <rdf:type rdf:resource="&Characterization_and_Objectives;Measurable_Concept"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <Characterization_and_Objectives:Relates rdf:resource="&OMS_Ingles;PasswordType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#CountNumberOfDifferentKindOfSymbols -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;CountNumberOfDifferentKindOfSymbols">
+        <rdf:type rdf:resource="&Measurement_Approachs;Measurement_Method"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#CountNumberOfSymbols -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;CountNumberOfSymbols">
+        <rdf:type rdf:resource="&Measurement_Approachs;Measurement_Method"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#CurrentTimeMinusStartTime -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;CurrentTimeMinusStartTime">
+        <rdf:type rdf:resource="&Measurement_Approachs;Measurement_Method"/>
+        <rdfs:comment>current date - start date</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#NumberOfSpecialCharacters -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;NumberOfSpecialCharacters">
+        <rdf:type rdf:resource="&Software_Metrics;Base_Measure"/>
+        <rdfs:comment>Intended to measure which kind of symbols are used in a password, i.e. numbers form a one symbol group, lowercase letters another and so on.</rdfs:comment>
+        <Software_Metrics:Defined_for rdf:resource="&ISMO;Attr_NumberOfSpecialCharacters"/>
+        <Measurement_Approachs:Uses_1 rdf:resource="&OMS_Ingles;CountNumberOfDifferentKindOfSymbols"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#PasswordLength -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;PasswordLength">
+        <rdf:type rdf:resource="&Software_Metrics;Base_Measure"/>
+        <rdfs:comment>Base measure intended for measuring password length but can be utilised also other legnth measurements.</rdfs:comment>
+        <Software_Metrics:Defined_for rdf:resource="&ISMO;Attr_PasswordLength"/>
+        <Measurement_Approachs:Uses_1 rdf:resource="&OMS_Ingles;CountNumberOfSymbols"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#PasswordType -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;PasswordType">
+        <rdf:type rdf:resource="&Software_Metrics;Indicator"/>
+        <rdfs:comment>Describes the type of password, i.e., pin code, short alphabetical, etc.</rdfs:comment>
+        <Software_Metrics:Defined_for rdf:resource="&ISMO;Attr_PasswordType"/>
+        <Measurement_Approachs:Calculated_with_2 rdf:resource="&OMS_Ingles;AnalysisModelForPasswordType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://sensormeasurement.appspot.com/ont/security/OMS_Ingles.owl#UsageTime -->
+
+    <owl:NamedIndividual rdf:about="&OMS_Ingles;UsageTime">
+        <rdf:type rdf:resource="&Software_Metrics;Base_Measure"/>
+        <Software_Metrics:Defined_for rdf:resource="&ISMO;Attr_PasswordUsageTime"/>
+        <Measurement_Approachs:Uses_1 rdf:resource="&OMS_Ingles;CurrentTimeMinusStartTime"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ida.liu.se/~almhe/Security.owl#Authentication -->
+
+    <rdf:Description rdf:about="&Security;Authentication">
+        <hasIndicator rdf:resource="&OMS_Ingles;AuthenticationLevel"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

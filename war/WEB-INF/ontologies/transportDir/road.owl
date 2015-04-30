@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/road.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.livewiredg.myby.co.uk/rdf/geo-layers/context/road.owl">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Author: David George
+Date Modified: 2007-01-30 13:45
+Ontology Context: Transport and related Concepts.
+Other Information: The term "Form" equates to "object" and "Function" or "Role" rely on processes to secure their achievement.  Processes involve actions that represent "process phases"</rdfs:comment>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version 1: represents the master ontology, constructed as the initial basis for subsequent modularisation (to provide a co-ordinated start-point in the first phase of development).  May contain Dublin Core, Geo-Layers Value Partition, and other imports.</owl:versionInfo>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Master Geo-Layers Ontology</rdfs:label>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Crossroad">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="T-Junction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Roundabout"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Flyover"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Intersection"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A junction where one street or road crosses another</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TaxiOperator">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Taxi Operator</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RoadPassengerOperator"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DirectionControl">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">See value partition import file.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RoadCharacteristic"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ParkingRestriction"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="TestTrack">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RoadFacility"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="TollPlaza"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ServiceArea"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CarPark"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Test Track</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Garage"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="WeighStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="CarWash"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="TrunkRoute">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Trunk Route</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TrafficControl">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traffic Control</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Where explicit stop/start control is involved.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Roundabout">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Intersection"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#T-Junction"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Flyover"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Crossroad"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A circular road, serving as an intersection point for usually three, or more, roads; by permitting clock-wise travel, from the the point of entry, to access an adjoining road.  Some roundabouts permit two-way travel via a circle of linked mini-roundabouts.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#WeighStation">
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceArea"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarWash"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Weigh Station</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TollPlaza"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarPark"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Garage"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Intersection">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Also known as a junction, where one street or road crosses another.  Demonstrates a vertex (the point of intersection of lines).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SingleCarriageway">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HighwayCapacity"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A road containing one lane in each direction.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Single Carriageway</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadPassengerTransportation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Passenger Transportation</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#CarWash">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Garage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Car Wash</rdfs:label>
+    <owl:disjointWith rdf:resource="#WeighStation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#TollPlaza"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarPark"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceArea"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadJunction">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Junction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Intersection"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NationalCoachOperator">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadPassengerOperator"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasRoadRole"/>
+        </owl:onProperty>
+        <owl:someValuesFrom rdf:resource="#RoadPassengerTransportation"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">National Coach Operator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadSystem">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Also referred to as a highway system (Wordnet): a transportation system consisting of roads for motor transport.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road System</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="FillingStation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Garage"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Filling Station</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="OrbitalRoute">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Orbital Route</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CentralReservation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Central Reservation</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Highway">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An open way, or route, to permit the passage of powered vehicles, cyclists, and animals.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#TollPlaza">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Garage"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#WeighStation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceArea"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CarWash"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#BusStation"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarPark"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Toll Plaza</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An area where tollbooths are located.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadTunnel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Tunnel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="TrafficMonitoring">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traffic Monitoring</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#BusStation">
+    <owl:disjointWith rdf:resource="#CarWash"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarPark"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ServiceArea"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#WeighStation"/>
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <owl:disjointWith rdf:resource="#TollPlaza"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Garage"/>
+    </owl:disjointWith>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bus Station</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Lay-by">
+    <owl:equivalentClass>
+      <owl:Class rdf:ID="Layby"/>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#ServiceArea">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarPark"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <owl:disjointWith rdf:resource="#CarWash"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Service Area</rdfs:label>
+    <owl:disjointWith rdf:resource="#TollPlaza"/>
+    <owl:disjointWith rdf:resource="#BusStation"/>
+    <owl:disjointWith rdf:resource="#WeighStation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Garage"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadCharacteristic">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Serve to provide a profile for Primitives, or self-standing concepts.  Refiners, characteristics, qualities or features that can be applied to self-standing entities.  These can be imported via a ValuePartition import, where classes partition a quality.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleSale">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="GarageFunction"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vehicle Sale</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Multi-storeyCarPark">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-storey Car Park</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CarPark"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Single-levelCarPark"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="PelicanCrossing">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pelican Crossing</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TrafficLightFacility"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RouteDiversion">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Route Diversion</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="One-wayRoad">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">One-way Road</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#HighwayCapacity"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Flyover">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A bridge formed by the upper level of a crossing of two highways at different levels</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Intersection"/>
+    <owl:disjointWith rdf:resource="#Crossroad"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#T-Junction"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Roundabout"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MotorwaySystem">
+    <rdfs:subClassOf rdf:resource="#RoadSystem"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="HighSpeedNetwork"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoadRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motorway System</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="UnclassifiedRoad">
+    <rdfs:subClassOf rdf:resource="#Highway"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unclassified Road</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="A-Road">
+    <rdfs:subClassOf rdf:resource="#Highway"/>
+  </owl:Class>
+  <owl:Class rdf:ID="HardShoulder">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hard Shoulder</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TaxiRank">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Taxi Rank</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadFacility"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleRepairAndMaintenance">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#GarageFunction"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vehicle Repair And Maintenance</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadFacility">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A building or place that provides a particular service for the road system</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TrafficCalming">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Demonstrates speed regulation but no explicit stop/start control.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traffic Calming</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CycleLane">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="LaneRestriction"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cycle Lane</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="A-RoadSystem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A-Road System</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadSystem"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadPassengerOperator">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RoadOperator"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Passenger Operator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#LaneRestriction">
+    <rdfs:subClassOf rdf:resource="#RoadCharacteristic"/>
+  </owl:Class>
+  <owl:Class rdf:ID="LevelCrossing">
+    <rdfs:subClassOf rdf:resource="#Intersection"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Level Crossing</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="MinorRoad">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="HighwayImportance"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Minor Road</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadBridge">
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Bridge</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="B-RoadSystem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B-Road System</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadSystem"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ScenicRoute">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scenic Route</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LoadingArea">
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Loading Area</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="MatrixSign">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motorway warning and control system.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TrafficLightFacility"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matrix Sign</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="TrafficLight">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TrafficLightFacility"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traffic Light</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleParking">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vehicle Parking</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadOperator">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Operator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#TrafficLightFacility">
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleRepairCentre">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vehicle Repair Centre</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Garage"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Coach">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="RoadVehicle"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Motorway">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A multi-lane highway incorporating graded intersections; designed for high-speed traffic.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Highway"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoadRole"/>
+        </owl:onProperty>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="HighSpeedRoute"/>
+        </owl:someValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadHaulageOperator">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:ID="RoadFreightTransportation"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoadRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#RoadOperator"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Haulage Operator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleShowroom">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vehicle Showroom</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Garage"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SleepingPoliceman">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sleeping Policeman</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#TrafficCalming"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoadRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#T-Junction">
+    <rdfs:subClassOf rdf:resource="#Intersection"/>
+    <owl:disjointWith rdf:resource="#Roundabout"/>
+    <owl:disjointWith rdf:resource="#Flyover"/>
+    <owl:disjointWith rdf:resource="#Crossroad"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A junction, or intersection, where two roads meet to form a T</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="TravelAmenity">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Travel Amenity</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Layby">
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+    <owl:equivalentClass rdf:resource="#Lay-by"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CattleGrid">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cattle Grid</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HighwayImportance">
+    <rdfs:subClassOf rdf:resource="#RoadCharacteristic"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadCharging">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Charging</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="BusLane">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bus Lane</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#LaneRestriction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HighSpeedRoute">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#RoadRole"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High Speed Route</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadRole">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Conceptual primitives or self-standing concepts (process, function).</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Bypass">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A road that takes traffic around the edge of a community.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+  </owl:Class>
+  <owl:Class rdf:ID="TrafficRestriction">
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Restriction on type, weight or size of vehicle.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traffic Restriction</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#HighSpeedNetwork">
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">High Speed Network</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#ParkingRestriction">
+    <owl:disjointWith rdf:resource="#DirectionControl"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parking Restriction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadCharacteristic"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">See value partition import file.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadVehicle">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Vehicle</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="B-Road">
+    <rdfs:subClassOf rdf:resource="#Highway"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ChannelTunnelRailLinkTerminal">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Channel Tunnel Rail Link Terminal</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LocalBusOperator">
+    <rdfs:subClassOf rdf:resource="#RoadPassengerOperator"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#RoadPassengerTransportation"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#hasRoadRole"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Local Bus Operator</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Garage">
+    <owl:disjointWith rdf:resource="#ServiceArea"/>
+    <owl:disjointWith rdf:resource="#TollPlaza"/>
+    <owl:disjointWith rdf:resource="#BusStation"/>
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <owl:disjointWith rdf:resource="#WeighStation"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#CarPark"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CarWash"/>
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MotorwayJunction">
+    <rdfs:subClassOf rdf:resource="#Intersection"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Motorway Junction</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PassingPlace">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Passing Place</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+  </owl:Class>
+  <owl:Class rdf:ID="MajorRoad">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Major Road</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#HighwayImportance"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AlternativeRoute">
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alternative Route</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Single-levelCarPark">
+    <owl:disjointWith rdf:resource="#Multi-storeyCarPark"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CarPark"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Single-level Car Park</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="RoadSpeedLimit">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Speed Limit</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadCharacteristic"/>
+  </owl:Class>
+  <owl:Class rdf:about="#GarageFunction">
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DriveOn-DriveOffFacility">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DriveOn-DriveOff Facility</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RoadFreightTransportation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Road Freight Transportation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RoadRole"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HighwayCapacity">
+    <rdfs:subClassOf rdf:resource="#RoadCharacteristic"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VehicleRefuelling">
+    <rdfs:subClassOf rdf:resource="#GarageFunction"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Vehicle Refuelling</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#CarPark">
+    <owl:disjointWith rdf:resource="#ServiceArea"/>
+    <owl:disjointWith rdf:resource="#CarWash"/>
+    <owl:disjointWith rdf:resource="#Garage"/>
+    <owl:disjointWith rdf:resource="#BusStation"/>
+    <owl:disjointWith rdf:resource="#WeighStation"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Car Park</rdfs:label>
+    <owl:disjointWith rdf:resource="#TestTrack"/>
+    <rdfs:subClassOf rdf:resource="#RoadFacility"/>
+    <owl:disjointWith rdf:resource="#TollPlaza"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Multi-laneCarriageway">
+    <rdfs:subClassOf rdf:resource="#HighwayCapacity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A road containing two or more lanes in each direction.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-lane Carriageway</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ZebraCrossing">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:label>
+    <rdfs:subClassOf rdf:resource="#TrafficLightFacility"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="intersectionBetween"/>
+  <owl:ObjectProperty rdf:ID="hasPart">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RoadSystem"/>
+          <owl:Class rdf:about="#Highway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRoadComponent"/>
+  <owl:ObjectProperty rdf:ID="hasAccess">
+    <rdfs:range rdf:resource="#Motorway"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="encountersHazard"/>
+  <owl:ObjectProperty rdf:about="#hasRoadRole">
+    <rdfs:domain rdf:resource="#RoadSystem"/>
+    <rdfs:range rdf:resource="#RoadRole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRestriction">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RoadSystem"/>
+          <owl:Class rdf:about="#Highway"/>
+          <owl:Class rdf:about="#RoadOperator"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RoadSpeedLimit"/>
+          <owl:Class rdf:about="#ParkingRestriction"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRoadAsset"/>
+  <owl:ObjectProperty rdf:ID="hasFacility">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#RoadSystem"/>
+          <owl:Class rdf:about="#Highway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#RoadFacility"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="locatedIn">
+    <rdfs:domain rdf:resource="#RoadSystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="providesAccessTo"/>
+  <owl:ObjectProperty rdf:ID="providesResource"/>
+  <owl:ObjectProperty rdf:ID="hasSubstance"/>
+  <owl:ObjectProperty rdf:ID="contains"/>
+  <owl:ObjectProperty rdf:ID="endsAt">
+    <rdfs:range rdf:resource="#Intersection"/>
+    <rdfs:domain rdf:resource="#Highway"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="startsFrom">
+    <rdfs:domain rdf:resource="#Highway"/>
+    <rdfs:range rdf:resource="#Intersection"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="servesLocation">
+    <rdfs:domain rdf:resource="#Highway"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="accessedVia"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasForm"/>
+  <owl:ObjectProperty rdf:ID="makesUseOf">
+    <rdfs:domain rdf:resource="#RoadOperator"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="traverses">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">To extend across or cross, e.g. a bridge that traverses river, road, or railway; a highway, river, or railway, traversing a region, or mountain range.</rdfs:comment>
+    <rdfs:range rdf:resource="#Highway"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Flyover"/>
+          <owl:Class rdf:about="#RoadBridge"/>
+          <owl:Class rdf:about="#Highway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#accessedVia">
+    <rdfs:range rdf:resource="#Highway"/>
+    <owl:inverseOf rdf:resource="#servesLocation"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="heightAboveSeaLevel">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="Postcode">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="TOID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Topographical ID - part of the Digital National Framework (DNF).  16-digit reference number.</rdfs:comment>
+  </owl:FunctionalProperty>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->
