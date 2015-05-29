@@ -4,8 +4,12 @@
          <!ENTITY rdfs	"http://www.w3.org/2000/01/rdf-schema#">
          <!ENTITY owl   "http://www.w3.org/2002/07/owl#">
          <!ENTITY dcterms "http://purl.org/dc/terms/">
+         <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+         
          <!ENTITY dul "http://www.loa-cnr.it/ontologies/DUL.owl#">
-         <!ENTITY spitfire "http://spitfire-project.eu/ontology/ns/">          
+         <!ENTITY spitfire "http://spitfire-project.eu/ontology/ns/">    
+         <!ENTITY openIoT "http://openiot.eu/ontology/ns/">          
+               
 
          <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
          <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">          
@@ -22,6 +26,7 @@
         
         <!ENTITY muo "http://purl.oclc.org/NET/muo/muo#">
         <!ENTITY qudt "http://qudt.org/schema/qudt#">
+        <!ENTITY qudt_unit "http://data.qudt.org/qudt/owl/1.0.0/unit.owl#">        
         <!ENTITY ucum "http://idi.fundacionctic.org/muo/ucum-instances.owl">
         
         <!ENTITY aws "http://purl.oclc.org/NET/ssnx/meteo/aws#"> 
@@ -36,22 +41,24 @@
         <!ENTITY movie "http://www.movieontology.org/2010/01/movieontology.owl">   
         <!ENTITY mo "http://purl.org/ontology/mo/">   
 
-        <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+        
         <!ENTITY emoca "http://ns.inria.fr/emoca#" >
         <!ENTITY txn	"http://lod.taxonconcept.org/ontology/txn.owl#"> 
         <!ENTITY voaf	"http://purl.org/vocommons/voaf#"> 
+        <!ENTITY vann	"http://purl.org/vocab/vann/"> 
+        
          
 ]> 
 <rdf:RDF
         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
         xmlns:rdfs="&rdfs;"
         xmlns:voaf="&voaf;"
-        xmlns="&m3;"
         xml:base="&m3;"
         xmlns:m3="&m3;"
         xmlns:cose="&cose;"
         xmlns:dul="&dul;"
         xmlns:spitfire="&spitfire;"
+        xmlns:openIoT="&openIoT;"
         xmlns:shw="&shw;"
         xmlns:txn="&txn;"
         xmlns:naturopathy="&naturopathy;"
@@ -65,6 +72,7 @@
         
        	xmlns:muo="&muo;"
         xmlns:qudt="&qudt;"
+        xmlns:qudt_unit="&qudt_unit;"
         xmlns:ucum="&ucum;"
         
         xmlns:emoca="&emoca;"
@@ -79,7 +87,7 @@
         xmlns:movie="&movie;"
 		xmlns:dc="&dc;"
         xmlns:xsd="&xsd;"
-       	xmlns:vann="http://purl.org/vocab/vann/"
+       	xmlns:vann="&vann;"
        	xmlns:cc="http://creativecommons.org/ns#"
        	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
        	
@@ -88,21 +96,39 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 
 	<owl:Ontology rdf:about="&m3;">
 		<rdf:type rdf:resource="&voaf;Vocabulary"/>
-		<dc:title xml:lang="en">The M2M Measurements Ontology (M3)</dc:title>
-		<dc:description xml:lang="en">The M2M Measurements Ontology (M3) enables to combine data provided by heterogeneous devices measurements (sensors, RFID tags, etc.). We classify all devices, their measurements and the feature of interests (health, smart home, smart kitchen, environmental monitoring, etc.). By combining data from heterogeneous areas, we could propose new kinds of applications.</dc:description>
+		<dc:title xml:lang="en">The Machine-to-Machine Measurement (M3) Ontology</dc:title>
+		<dc:description xml:lang="en">The Machine-to-Machine Measurement (M3) Ontology is a unified language, nomenclature, dictionnary which enables semantically annotating heterogeneous IoT data produced by heterogeneous devices measurements (sensors, RFID tags, etc.). We classify all devices, their measurements and the feature of interests (health, smart home, smart kitchen, environmental monitoring, etc.). By combining data from heterogeneous areas, we could propose new kinds of applications.</dc:description>
 		<dc:creator>
   			<foaf:Person rdf:about="mailto:gyrard@eurecom.fr">
    			<foaf:name>Amelie Gyrard</foaf:name>
   			</foaf:Person>
 		</dc:creator>
 		<dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-02-21</dcterms:issued> 
- 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-04-07</dcterms:modified> 
-		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+ 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-26</dcterms:modified> 
+		<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<vs:term_status>Work in progress</vs:term_status>
 		<vann:preferredNamespacePrefix>m3</vann:preferredNamespacePrefix> 
 	    <vann:preferredNamespaceUri>http://sensormeasurement.appspot.com/m3#</vann:preferredNamespaceUri>
 	</owl:Ontology>
+	
+<!-- 
+
+May 28th 2015:
+- alignment with WGS84 vocabulary (latitude and longitude)
+
+May 26th 2015:
+- Updated the M3 ontology according to the SmartSantander phenomenon dictionnary
+- M3 aligned with QUDT unit
+
+May 20th 2015:
+- Validated with W3C SSN validator
+- Some issues remain: 
+	* (1) class not declared in any schema
+	* (2) predicate not declared in any schema because we reuse ontologies which have not been referenced in the W3C SSN validator 
+TO DO: Directly reuse the existing concept or property and not redefine it e.g., Stimulus
+BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
+-->	
 
 <!-- 
 	Machine to Machine Measurement (M3) Framework 
@@ -338,7 +364,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 	
 	<owl:Class rdf:ID="EnergyM2MDevice">		
 		<rdfs:label xml:lang="en">Energy M2M Devices (sensors or actuators)</rdfs:label>
-		<rdfs:comment xml:lang="en">For instance thermometer</rdfs:comment>
+		<rdfs:comment xml:lang="en">For instance thermometer or energy meter</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
 	</owl:Class>
 	
@@ -789,7 +815,6 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#DomainM2MDevice"/>	
 	</owl:Class>
-	
 		
 	<owl:Class rdf:ID="AtmosphericPressureSensor">		
 		<rdfs:label xml:lang="en">Atmospheric Pressure Sensor, Barometer, Barometric Pressure Sensor</rdfs:label>
@@ -960,6 +985,19 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
         </rdfs:subClassOf>	
 	</owl:Class>
 	
+	<owl:Class rdf:ID="WindChillSensor">		
+		<rdfs:label xml:lang="en">Wind Chill Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#WeatherM2MDevice"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#WindChill"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
 	<owl:Class rdf:ID="WindDirectionSensor">		
 		<rdfs:label xml:lang="en">Wind Direction Sensor</rdfs:label>
 		<rdfs:comment xml:lang="en">WindDirectionSensor, unit in Degree</rdfs:comment>
@@ -1010,6 +1048,19 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 			<owl:Restriction>
             	<owl:onProperty rdf:resource="#produces"/>
              	<owl:someValuesFrom rdf:resource="#CloudCover"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>	
+	</owl:Class>
+	
+	<owl:Class rdf:ID="EnergyMeter">		
+		<rdfs:label xml:lang="en">EnergyMeter</rdfs:label>
+		<rdfs:comment xml:lang="en">Sensor to measure emergy</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#EnergyM2MDevice"/>		
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#produces"/>
+             	<owl:someValuesFrom rdf:resource="#Energy"/>
         	</owl:Restriction>
         </rdfs:subClassOf>	
 	</owl:Class>
@@ -1209,12 +1260,6 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<owl:equivalentClass rdf:resource="&spitfire;Unit"/>
 	</owl:Class>
 	
-	<owl:Class rdf:ID="Stimulus">		
-		<rdfs:label xml:lang="en">Stimulus</rdfs:label>
-		<rdfs:comment xml:lang="en"></rdfs:comment>
-		<owl:equivalentClass rdf:resource="&ssn;Stimulus"/>
-	</owl:Class>
-	
 	<owl:Class rdf:ID="FeatureOfInterest">		
 		<rdfs:label xml:lang="en">FeatureOfInterest</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
@@ -1248,12 +1293,6 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
 	</owl:Class>
 	
-	<owl:Class rdf:ID="Process">		
-		<rdfs:label xml:lang="en">Process</rdfs:label>
-		<rdfs:comment xml:lang="en"></rdfs:comment>
-		<owl:equivalentClass rdf:resource="&ssn;Process"/>
-	</owl:Class>
-	
 	<owl:Class rdf:ID="Observation">		
 		<rdfs:label xml:lang="en">Observation</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
@@ -1284,7 +1323,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 	
 	<owl:ObjectProperty rdf:ID="detects">
   		<rdfs:domain rdf:resource="#Sensor"/>
- 		<rdfs:range  rdf:resource="#Stimulus"/>
+ 		<rdfs:range  rdf:resource="&ssn;Stimulus"/>
 		<rdfs:label xml:lang="en">detects</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<owl:equivalentProperty rdf:resource="&ssn;detects"/>
@@ -1312,7 +1351,6 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:label xml:lang="en">hasValue</rdfs:label>
 		<rdfs:comment xml:lang="en">This property is used to describe the value of a measurement (e.g, 39).</rdfs:comment>
 		<owl:equivalentProperty rdf:resource="&ssn;hasValue"/>
-		<owl:equivalentProperty rdf:resource="&dul;hasValue"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:ID="hasDateTimeValue">
@@ -1721,6 +1759,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
              	<owl:someValuesFrom rdf:resource="#Pascal"/>
         	</owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:seeAlso rdf:resource="&openIoT;AtmospherePressure"/>
         <owl:equivalentClass rdf:resource="&shw;AtmosphericPressure"/>
 	</owl:Class>
 	
@@ -1746,6 +1785,14 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
              	<owl:someValuesFrom rdf:resource="#MeterPerSecond"/>
         	</owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:seeAlso rdf:resource="&openIoT;WindSpeed"/>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="WindChill">		
+		<rdfs:label xml:lang="en">Wind chill</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+        <rdfs:seeAlso rdf:resource="&openIoT;WindChill"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="AlcoholLevel">		
@@ -1758,6 +1805,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:label xml:lang="en">Visibility</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
+		<rdfs:seeAlso rdf:resource="&openIoT;AtmosphereVisibility"/>
 		<rdfs:subClassOf>
 			<owl:Restriction>
             	<owl:onProperty rdf:resource="#hasUnit"/>
@@ -1857,6 +1905,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:subClassOf rdf:resource="#MeasurementType"/>
 		<owl:equivalentClass rdf:resource="&semsor_weather;TemperatureProperty"/>
 		<owl:equivalentClass rdf:resource="&aws;air_temperature"/>
+		<rdfs:seeAlso rdf:resource="&openIoT;Temperature"/>
 		<rdfs:subClassOf>
 			<owl:Restriction>
             	<owl:onProperty rdf:resource="#hasUnit"/>
@@ -1881,6 +1930,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:label xml:lang="en">Air Temperature</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Temperature"/>
+		<rdfs:seeAlso rdf:resource="&openIoT;AirTemperature"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Salinity">		
@@ -2251,6 +2301,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
         </rdfs:subClassOf>
 		<owl:equivalentClass rdf:resource="&dogont;HumidityMeasurementMNotification"/>
 		<owl:equivalentClass rdf:resource="&shw;Humidity"/>
+		<rdfs:seeAlso rdf:resource="&openIoT;AtmosphereHumidity"/>
 	</owl:Class>
 	
 		<owl:Class rdf:ID="LeafWetness">		
@@ -2413,6 +2464,18 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
         </rdfs:subClassOf>
 	</owl:Class>
 	
+	<owl:Class rdf:ID="Energy">		
+		<rdfs:label xml:lang="en">Energy</rdfs:label>
+		<rdfs:comment xml:lang="en">Measure procuded by energy meter</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#MeasurementType"/>	
+		<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="#KiloWattHour"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	</owl:Class>
+	
 	<owl:Class rdf:ID="LuminousIntensity">		
 		<rdfs:label xml:lang="en">Luminous Intensity</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
@@ -2524,6 +2587,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
 		<owl:equivalentClass rdf:resource="&sweet_unit;ampere"/>
+		<rdfs:seeAlso rdf:resource="&qudt_unit;Ampere"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Bar">		
@@ -2563,6 +2627,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
 		<owl:equivalentClass rdf:resource="&sweet_unit;degreeC"/>
+		<rdfs:seeAlso rdf:resource="&qudt_unit;DegreeCelsius"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="DegreeFahrenheit">		
@@ -2600,10 +2665,11 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<owl:equivalentClass rdf:resource="&sweet_unit;hour"/>
 	</owl:Class>
 	
-	<owl:Class rdf:ID="Kilo_Watt_Hour">		
+	<owl:Class rdf:ID="KiloWattHour">		
 		<rdfs:label xml:lang="en">Kilo Watt Hour</rdfs:label>
-		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:comment xml:lang="en">Unit to measure electricity by electricity meter devicesy</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<rdfs:seeAlso rdf:resource="&qudt_unit;KiloWatthour"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Liter">		
@@ -2629,6 +2695,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:comment xml:lang="en">Lux is the unit of illuminance (light).</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
 		<owl:equivalentClass rdf:resource="&sweet_unit;lux"/>
+		<rdfs:seeAlso rdf:resource="&qudt_unit;Lux"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Okta">		
@@ -2642,6 +2709,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
 		<owl:equivalentClass rdf:resource="&sweet_unit;meter"/>
+		<rdfs:seeAlso rdf:resource="&qudt_unit;Meter"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Miles">		
@@ -2672,6 +2740,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:label xml:lang="en">Meter Per Second (m/s)</rdfs:label>
 		<rdfs:comment xml:lang="en">m/s is used to measure speed measurements (e>g>, wind speed)</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<rdfs:seeAlso rdf:resource="&qudt_unit;MeterPerSecond"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Inch">		
@@ -2710,6 +2779,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
 		<owl:equivalentClass rdf:resource="&sweet_unit;percent"/>
+		<rdfs:seeAlso rdf:resource="&qudt_unit;Percent"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Radian">		
@@ -2774,12 +2844,14 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 		<rdfs:label xml:lang="en">Latitude</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<rdfs:seeAlso rdf:resource="&wgs84_pos;latitude"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Longitude">		
 		<rdfs:label xml:lang="en">Longitude</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<rdfs:seeAlso rdf:resource="&wgs84_pos;longitude"/>
 	</owl:Class>
 	
 	<owl:Class rdf:ID="Altitude">		
@@ -2874,6 +2946,12 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 	<owl:Class rdf:ID="SensorNetworks">		
 		<rdfs:label xml:lang="en">Sensor Networks</rdfs:label>
 		<rdfs:comment xml:lang="en">Used to reference and classify sensor ontologies in LOV4IoT</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="IoT">		
+		<rdfs:label xml:lang="en">Internet of Things (IoT)</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to reference and classify IoT ontologies in LOV4IoT</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>			
 	</owl:Class>
 	
@@ -3089,7 +3167,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 	
 	<owl:Class rdf:ID="Security">		
 		<rdfs:label xml:lang="en">Security (sensor, cellular, application, network management, web)</rdfs:label>
-		<rdfs:comment xml:lang="en">Used to reference and classify sensor ontologies in LOV4IoT</rdfs:comment>
+		<rdfs:comment xml:lang="en">Used to reference and classify security ontologies in LOV4IoT</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	
 	</owl:Class>
 	
@@ -3103,7 +3181,7 @@ What is the difference between ssn:observes and ssn:observedProperty? -->
 	
 	<!-- Environment -->
 	
-	<owl:Class rdf:ID="Energy">		
+	<owl:Class rdf:ID="EnergyFOI">		
 		<rdfs:label xml:lang="en">Energy or smart grid</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>	

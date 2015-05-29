@@ -206,9 +206,9 @@ public class LOV4IoTWS {
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("context", Var.NS_M3 + "City", false));
 		}
-		else if(domain.compareTo("Energy")==0){
+		else if(domain.compareTo("EnergyFOI")==0){
 			var = new ArrayList<VariableSparql>();
-			var.add(new VariableSparql("context", Var.NS_M3 + "Energy", false));
+			var.add(new VariableSparql("context", Var.NS_M3 + "EnergyFOI", false));
 		}
 		else if(domain.compareTo("Environment")==0){
 			var = new ArrayList<VariableSparql>();
@@ -237,6 +237,10 @@ public class LOV4IoTWS {
 		else if(domain.compareTo("SensorNetworks")==0){
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("context", Var.NS_M3 + "SensorNetworks", false));
+		}
+		else if(domain.compareTo("IoT")==0){
+			var = new ArrayList<VariableSparql>();
+			var.add(new VariableSparql("context", Var.NS_M3 + "IoT", false));
 		}
 		else if(domain.compareTo("Security")==0){
 			var = new ArrayList<VariableSparql>();

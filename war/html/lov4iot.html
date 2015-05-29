@@ -33,7 +33,7 @@ These domain ontologies, although very interesting, are not referenced on the <a
 	<td>Nb onto: <p class="displayNumberOntology" id="Weather"></p></td>
 	<td>Nb onto: <p class="displayNumberOntology" id="City"></p></td>	
 	<td>Nb onto: <p class="displayNumberOntology" id="SensorNetworks"></p></td>
-	<td></td>
+	<td>Nb onto: <p class="displayNumberOntology" id="IoT"></p></td>
 </tr>
 <tr>
 	<td><a href="./?p=ontologies#health"><img src="./images/domainOnto/health.png" alt="Health"  width="100" height="100" title="Healthcare" /></a></td>
@@ -54,7 +54,6 @@ These domain ontologies, although very interesting, are not referenced on the <a
 	<td>Nb onto: <p class="displayNumberOntology" id="Environment"></p></td>
 	<td>Nb onto: <p class="displayNumberOntology" id="Fire"></p></td>
 	<td>Nb onto: <p class="displayNumberOntology" id="Security"></p></td>
-	<td></td>
 	<td></td>
 	<td></td>
 </tr>
@@ -3284,14 +3283,45 @@ brake intensity</td>
 		<td>Url onto</td>
 		<td>Techno</td>
 	</tr>
+	<tr class="online">
+	<td> Gyrard et al.</td>
+	<td> 2012-2014 </td>
+	<td>The M3 (Machine-to-Machine Measurement) <a href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.sensormeasurement.appspot.com%2Fm3%23&mimetype=application%2Frdf%2Bxml&profile=technical&language=en&customizeCssUrl=">Ontology documentation</a> <a href="m3">Ontology code (XML/OWL)</a> </td>
+	<td> <img src="images/m3.jpg" width="400" height="300" >  <br/>
+	The M3 ontology is focused on the ssn:ObservationValue concept from the <a href="http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#">W3C SSN ontology </a> which
+	describes sensors and observations, and related concepts. The W3C SSN ontology does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports.
+	In the M3 ontology, we are focus on linking these domain ontologies and rules together. <br/>
+	
+	<img src="images/M3Hub_Onto_DatasetV2.jpg" width="600" height="500" >
+	
+	<br/><a href="publication/WFIOT_Gyrard.pdf" >Paper: Enrich Machine-to-Machine Data with Semantic Web Technologies for Cross-Domain Applications, WF-IoT 2014</a>
+	
+	</td> 
+	<td>		
+	See <a href="./?p=documentation"> M3 nomenclature</a>
+<!-- 
+		All sensors: <select id="sensor"> </select> <br/>
+		All M2M devices: <select id="m2mdevice"> </select> <br/>
+		RFID tags embedded on: <select id="rfid"> </select> <br/>
+		Domain: <select id="foi"> </select> <br/>
+		Measurements type: <select id="measurementType"> </select> <br/>
+ -->
+</tr>
+	<tr class="online">
+		<td>OpenIoT, Serrano, Soldatos, Calbimonte et al.</td>
+		<td>2012-2015</td>
+		<td>Paper: OpenIoT: Open Source Internet-of-Things in the Cloud</td>
+		<td><a href="http://www.openiot.eu/ontology.owl">Ontology URL</a>, <a href="https://github.com/OpenIotOrg/openiot">Open IoT Github</a><br/>(ssn:Property): temperature, airTemperature, AtmosphereHumidity, WindChill, WindSpeed, AtmospherePressure, AtmosphereVisibility</td>
+		<td>Agiculture scenario (soil moisture, temperature), air quality scenario (temperature, humidity, pressure, CO2, NO2, SO2), smart campus scenario (NFC, QR code)</td>
+	</tr>
 	<tr class="already">
-		<td>Pfisterer, Bimchas, Leggieri et al.</td>
-		<td>2013</td>
+		<td>Spitfire - Pfisterer, Bimchas, Leggieri et al. (Already on lov)</td>
+		<td>2011-2013</td>
 		<td>Paper: Annotating real-world objects using semantic entities (2013)<br/>
 		<br/>Paper: SPITFIRE: Toward a Semantic Web of Things (2011)</td>
-		<td><a href="http://spitfire-project.eu/ontology.owl">Ontology URL</a></td>
+		<td><a href="http://spitfire-project.eu/ontology.owl">Ontology URL</a>Transducer, Actuator, Electrical, Mechanical, Magnetic, Chemical, Acoustic, Thermal, Electromagnetic, Light, Motion</td>
 		<td>Dul, SSN, Event Model F onto</td>
-	</tr>
+	</tr> 
 	<tr class="ongoing">
 		<td>Nambi, Rahim, Mail: 09/10/14, Response: 10/10/14</td>
 		<td>2014</td>
@@ -3316,8 +3346,9 @@ brake intensity</td>
 	</tr>
 	<tr class="online">
 		<td>Hachem, Mail: 01/03/13, Response: 04/03/13</td>
-		<td>2011</td>
+		<td>2011-2014</td>
 		<td>PhD Thesis: Service-Oriented Middleware for the Large-Scale Mobile Internet of Things (2014)
+		<br/>Paper: Service-oriented middleware for large-scale mobile participatory sensing (2013)
 		<br/>Paper: Ontologies for the Internet of Things</td>
 		<td><a href="http://websvn.ow2.org/filedetails.php?repname=choreos&path=%2Ftrunk%2Fexecutable-service-composition%2Fc-and-e%2Ftrunk%2FCompositionManager%2FsensorsAndActuatorsComp.rdf">Ontology URL</a></td>
 		<td></td>
@@ -3447,31 +3478,6 @@ and <a href="http://www.w3.org/2005/Incubator/ssn/wiki/Incubator_Report">W3C SSN
 		<td>Url onto (these ontologies were online - no need to send emails)</td>
 		<td>Sensors</td>
 	</tr>
-	
-<tr class="online">
-	<td> Gyrard et al.</td>
-	<td> 2012-2014 </td>
-	<td>The M3 (Machine-to-Machine Measurement) <a href="http://ontorule-project.eu/parrot/parrot?documentUri=http%3A%2F%2Fwww.sensormeasurement.appspot.com%2Fm3%23&mimetype=application%2Frdf%2Bxml&profile=technical&language=en&customizeCssUrl=">Ontology documentation</a> <a href="m3">Ontology code (XML/OWL)</a> </td>
-	<td> <img src="images/m3.jpg" width="400" height="300" >  <br/>
-	The M3 ontology is focused on the ssn:ObservationValue concept from the <a href="http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#">W3C SSN ontology </a> which
-	describes sensors and observations, and related concepts. The W3C SSN ontology does not describe domain concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports.
-	In the M3 ontology, we are focus on linking these domain ontologies and rules together. <br/>
-	
-	<img src="images/M3Hub_Onto_DatasetV2.jpg" width="600" height="500" >
-	
-	<br/><a href="publication/WFIOT_Gyrard.pdf" >Paper: Enrich Machine-to-Machine Data with Semantic Web Technologies for Cross-Domain Applications, WF-IoT 2014</a>
-	
-	</td> 
-	<td>		
-	See <a href="./?p=documentation"> M3 nomenclature</a>
-<!-- 
-		All sensors: <select id="sensor"> </select> <br/>
-		All M2M devices: <select id="m2mdevice"> </select> <br/>
-		RFID tags embedded on: <select id="rfid"> </select> <br/>
-		Domain: <select id="foi"> </select> <br/>
-		Measurements type: <select id="measurementType"> </select> <br/>
- -->
-</tr>
 
 	<tr class="online">
 		<td>Alexandra Moraru, Carolina Fortuna, Mail: 03/11/14, Response: 07/11/14, 12/11/14</td>
@@ -3513,13 +3519,6 @@ and <a href="http://www.w3.org/2005/Incubator/ssn/wiki/Incubator_Report">W3C SSN
 		<td><a href="http://people.kmi.open.ac.uk/cano/preSense/">Ontology URL</a></td>
 		<td>Facebook, twitter, sparql push, sparql update trigger,example (heart rate, glucose level, temperature, gps)</td>
 	</tr> 
-	<tr class="already">
-		<td>Spitfire - Pfisterer et al. (Already on lov)</td>
-		<td>2011</td>
-		<td>Paper: SPITFIRE: Towards a Semantic Web of Things</td>
-		<td><a href="http://spitfire-project.eu/ontology/ns/">Ontology URL</a> Referenced by LOV</td>
-		<td>Transducer, Actuator, Electrical, Mechanical, Magnetic, Chemical, Acoustic, Thermal, Electromagnetic, Light, Motion</td>
-	</tr>
 	<tr >
 		<td>Patni et al.</td>
 		<td>2010</td>
@@ -3692,13 +3691,14 @@ $.getScript('javascript/swot.js',function(){
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Transportation", "Transportation", "");	
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=City", "City", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Environment", "Environment", "");
-	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Energy", "Energy", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=EnergyFOI", "Energy", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Emotion", "Emotion", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=TrackingFood", "TrackingFood", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=TrackingCD", "TrackingCD", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Activity", "Activity", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Fire", "Fire", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=SensorNetworks", "SensorNetworks", "");
+	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=IoT", "IoT", "");
 	request(displayLOV4IOTStatistics, "/lov4iot/nbOntoDomain/?domain=Security", "Security", "");
 	
 	request(displayLOV4IOTStatistics, "/lov4iot/ontoStatus/?status=Confidential", "Confidential", "");	
