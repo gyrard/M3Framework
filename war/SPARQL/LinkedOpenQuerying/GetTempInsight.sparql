@@ -1,0 +1,31 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX home: <http://sensormeasurement.appspot.com/ont/m3/home#> 
+PREFIX iot-lite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#> 
+PREFIX m3-lite: <http://purl.org/iot/vocab/m3-lite#> 
+PREFIX ssn: <http://purl.oclc.org/NET/ssnx/ssn#> 
+PREFIX rec: <http://purl.org/ontology/rec/core#> 
+
+SELECT DISTINCT ?name ?value ?unit ?inferType ?deduce ?suggest ?suggest_comment WHERE{
+
+?measurement iot-lite:value ?value.
+?measurement iot-lite:hasUnit ?unitUri.
+?measurement iot-lite:hasQuantityKind m3-lite:RoomTemperature .
+?measurement rdf:type ssn:ObservationValue .
+
+m3-lite:RoomTemperature rdfs:label ?name.
+?unitUri rdfs:label ?unit.
+
+OPTIONAL{
+			?measurement  rec:recommendation_object ?resUri. # used by home temp and noise scenario 
+			
+			?resUri rdfs:label ?suggest.
+			FILTER(LANGMATCHES(LANG(?suggest), "en"))
+			OPTIONAL{
+				?resUri dc:description ?suggest_comment. 
+				FILTER(LANGMATCHES(LANG(?suggest_comment), "en"))	
+			}
+
+}}

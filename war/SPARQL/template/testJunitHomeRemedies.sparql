@@ -1,0 +1,39 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+
+SELECT DISTINCT ?name ?value ?unit ?inferType ?deduce ?suggest ?suggest_comment WHERE{
+	?measurement m3:hasName ?name.
+	?measurement m3:hasValue ?value.
+	?measurement m3:hasDateTimeValue ?time.
+	?measurement m3:hasUnit ?unit.
+	
+	?measurement rdf:type ?inferTypeUri.
+	OPTIONAL { ?inferTypeUri rdfs:label ?inferType. FILTER(LANGMATCHES(LANG(?inferType), "en"))}
+	
+
+	
+	OPTIONAL {
+		?measurement rdf:type ?deduceUri .
+		?deduceUri rdfs:label ?deduce.
+		FILTER(LANGMATCHES(LANG(?deduce), "en"))
+		FILTER(str(?deduceUri) != str(m3:Measurement) )
+		FILTER(str(?deduceUri) != str(?inferTypeUri) )
+	
+		OPTIONAL{
+			{?deduceUri  m3:hasRecommendation ?resUri.} # used by home temp and noise scenario 
+			UNION{?resUri  m3:hasRecommendation ?deduceUri . ?resUri rdf:type ?typeRecommendedUri. } # used by body temp - home remedy scenario, tourism activity and clothes scenario
+			UNION{?resUri  m3:hasRecommendation ?inferTypeUri . ?resUri rdf:type ?typeRecommendedUri. } # used by snow scenario
+			
+			?resUri rdfs:label ?suggest.
+			FILTER(LANGMATCHES(LANG(?suggest), "en"))
+			OPTIONAL{
+				?resUri dc:description ?suggest_comment. 
+				FILTER(LANGMATCHES(LANG(?suggest_comment), "en"))	
+			}
+			
+			
+		}
+	}
+}

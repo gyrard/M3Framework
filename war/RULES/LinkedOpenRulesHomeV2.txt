@@ -1,0 +1,270 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+
+################################################################ LINKED OPEN RULES V2 - HOME ######################################################################
+# Last updated: November 17, 2015
+
+# Creator: Amelie Gyrard, Insight, Galway, Ireland
+# Refactor the file http://sensormeasurement.appspot.com/RULES/LinkedOpenRulesHome.txt designed by Amelie Gyrard, Eurecom, Sophia Antipolis, France
+# To be compliant with the FIESTA-IoT project, m3-lite and iot-lite
+
+# - Delete m3 namespace
+# - Replace m3 namespace by m3-lite
+# - Add iot-lite namespace
+# - Replace m3:hasValue by iot-lite:value
+# - Replace m3:hasUnit by iot-lite:hasUnit
+# - Handle unit, we added (?measurement iot-lite:hasUnit m3-lite:Decibel) for m3-lite:Sound
+# - Handle unit, we added (?measurement iot-lite:hasUnit m3-lite:Lux) for m3-lite:Luminosity
+# - Handle unit, we added (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius) for m3-lite:Temperature
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# Number of rules = 17 rules
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 converter
+
+
+
+################################################################ LUMINOSITY RULES ######################################################################
+# Paper: A fuzzy ontology for semantic modelling and recognition of human behavior [Rodriguez 2014]
+
+# Rule: IF m3-lite:Luminosity greaterThan 750 and LowerThan 2000 m3-lite:Lux THEN HighLighting
+[HighLighting: 
+              (?measurement rdf:type m3-lite:Luminosity)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:Lux)
+              greaterThan(?v,750)
+              lessThan(?v,2000)
+			  ->
+			  (?measurement rdf:type home-dataset:HighLighting)
+]
+
+# Rule: IF m3-lite:Luminosity greaterThan 150 and LowerThan 750 m3-lite:Lux THEN MediumLighting
+[MediumLighting: 
+              (?measurement rdf:type m3-lite:Luminosity)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:Lux)
+              greaterThan(?v,150)
+              lessThan(?v,750)
+			  ->
+			  (?measurement rdf:type home-dataset:MediumLighting)
+]
+
+# Rule: IF m3-lite:Luminosity greaterThan 20 and LowerThan 150 m3-lite:Lux THEN LowLighting
+[LowLighting: 
+              (?measurement rdf:type m3-lite:Luminosity)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:Lux)
+              greaterThan(?v,20)
+              lessThan(?v,150)
+			  ->
+			  (?measurement rdf:type home-dataset:LowLighting)
+
+]
+################################################################ NOISE SOUND RULES ######################################################################
+# Paper: A fuzzy ontology for semantic modelling and recognition of human behavior [Rodriguez 2014]
+
+# Rule: IF m3-lite:Sound greaterThan 90 and LowerThan 110 m3-lite:Decibel THEN HighSound
+[HighSound: 
+              (?measurement rdf:type m3-lite:Sound)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:Decibel)
+              greaterThan(?v,90)
+              lessThan(?v,110)
+			  ->
+			  (?measurement rdf:type home-dataset:HighSound)
+]
+
+# Rule: IF m3-lite:Sound greaterThan 40 and LowerThan 90 m3-lite:Decibel THEN MediumSound
+[MediumSound: 
+              (?measurement rdf:type m3-lite:Sound)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:Decibel)
+              greaterThan(?v,40)
+              lessThan(?v,90)
+			  ->
+			  (?measurement rdf:type home-dataset:MediumSound)
+]
+
+# Rule: IF m3-lite:Sound greaterThan 30 and LowerThan 40 m3-lite:Decibel THEN LowSound
+[LowSound: 
+              (?measurement rdf:type m3-lite:Sound)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:Decibel)
+              greaterThan(?v,30)
+              lessThan(?v,40)
+			  ->
+			  (?measurement rdf:type home-dataset:LowSound)
+]
+
+################################################################ TEMPERATURE ######################################################################
+
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# We select [Kofler 2011] rules since they define 15 rules
+
+# Overlapping with [Paul Staroch 2013] 6 rules
+# Overlapping with Yus 6 rules
+# Overlapping with Vasileios 
+# Overlapping with Rodriguez 
+
+# Rule: AboveRoomTemperature, IF m3-lite:Temperature greaterThan 25 AND lessThan 30  m3-lite:DegreeCelsius THEN AboveRoomTemperature
+# ok with staroch
+[AboveRoomTemperature: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,25)
+              lessThan(?v,30)         
+              ->     
+              (?measurement rdf:type home-dataset:AboveRoomTemperature)
+]
+
+# Rule: IF m3-lite:Temperature greaterThan 10 AND lessThan 20 m3-lite:DegreeCelsius THEN BelowRoomTemperature
+# ok with staroch
+[BelowRoomTemperature: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,10)
+              lessThan(?v,20)      
+              ->    
+              (?measurement rdf:type home-dataset:BelowRoomTemperature)    
+]
+
+# Rule: IF m3-lite:Temperature greaterThan 20 m3-lite:DegreeCelsius AND lessThan 25 m3-lite:DegreeCelsius THEN RoomTemperature
+# ok with staroch
+[RoomTemperature: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,20)
+              lessThan(?v,25)  
+              ->  
+              (?measurement rdf:type home-dataset:RoomTemperature)          
+]
+
+# Rule: IF m3-lite:Temperature lessThan 0 m3-lite:DegreeCelsius THEN BelowOrZeroTemperature
+[BelowOrZeroTemperature: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type home-dataset:BelowOrZeroTemperature)
+]
+
+# Rule: IF m3-lite:Temperature greaterThan -25 m3-lite:DegreeCelsius AND lessThan 0 m3-lite:DegreeCelsius THEN Frost
+[Frost: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,-25)
+              lessThan(?v,0)    
+              ->     
+              (?measurement rdf:type home-dataset:Frost)     
+]
+
+# Rule: ExtremeFrost, IF m3-lite:Temperature lessThan -25 m3-lite:DegreeCelsius THEN ExtremeFrost
+[ExtremeFrost: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              lessThan(?v,-25)    
+              ->   
+              (?measurement rdf:type home-dataset:ExtremeFrost)       
+]
+
+# Rule: ExtremeHeat, IF m3-lite:Temperature greaterThan 37 m3-lite:DegreeCelsius THEN ExtremeHeat
+[ExtremeHeat: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,37)  
+              ->      
+              (?measurement rdf:type home-dataset:ExtremeHeat)  
+]
+
+# Rule: IF m3-lite:Temperature greaterThan 30 m3-lite:DegreeCelsius THEN Heat
+[Heat: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,30)   
+              ->      
+              (?measurement rdf:type home-dataset:Heat)  
+]
+
+# Rule: IF m3-lite:Temperature greaterThan 0 m3-lite:DegreeCelsius THEN AboveZeroTemperature
+[AboveZeroTemperature: 
+              (?measurement rdf:type m3-lite:RoomTemperature)
+              (?measurement iot-lite:value ?v)
+              (?measurement iot-lite:hasUnit m3-lite:DegreeCelsius)
+              greaterThan(?v,0)     
+              -> 
+              (?measurement rdf:type home-dataset:AboveZeroTemperature)     
+]
+
+
+
+
+# Rule: IF BelowRoomTemperature THEN CoolingWeatherState
+
+# Rule: IF AboveRoomTemperature THEN HeatingWeatherState
+
+# Rule: IF ! AboveRoomTemperature AND NoPrecipitation and (LightWind OR StrongWind) THEN AiringWeatherState
+
+# Rule: IF AboveZeroTemperature and HeavyPrecipitation and oneOf(LightWind, Storm, StrongWind) THEN Thunderstorm
+
+# Rule: IF m3-lite:Precipitation AND BelowOrZeroTemperature THEN SnowyWeatherState
+
+# Rule: IF ! NoPrecipitation AND AboveZeroTemperature THEN RainyWeatherState
+
+
+################################################################ ######################################################################
+
+
+# Rule: LightPresence, if presence=yes THEN turn light actuator on
+# Project: [Jacquet 2013]
+# intuitively we can provide the inverse one
+[NobodyRoomSwitchOffLight: 
+              (?measurement rdf:type m3-lite:Presence)
+              (?measurement iot-lite:value ?v)
+              equal(?v,0)   
+              (?measurement2 rdf:type m3-lite:BuildingLuminosity)
+              (?measurement2 iot-lite:value ?v2)
+              greaterThan(?v2,0)   
+          
+              -> 
+              (?measurement rdf:type home-dataset:NobodyInTheRoom) 
+              (?measurement2 rdf:type home-dataset:NobodyInTheRoom)    
+]
+
+# Rule: LightPresence, if presence=yes THEN turn light actuator on
+# Project: [Jacquet 2013]
+[SomeoneRoomSwitchOnLight: 
+              (?measurement rdf:type m3-lite:Presence)
+              (?measurement iot-lite:value ?v)
+              equal(?v,1)   
+              (?measurement2 rdf:type m3-lite:BuildingLuminosity)
+              (?measurement2 iot-lite:value ?v2)
+              equal(?v2,0)   
+          
+              -> 
+              (?measurement rdf:type home-dataset:SomeoneInTheRoom) 
+              (?measurement2 rdf:type home-dataset:SomeoneInTheRoom)    
+]
+   
+           
+    

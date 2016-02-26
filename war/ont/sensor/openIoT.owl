@@ -1,0 +1,591 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+xmlns:spt="http://spitfire-project.eu/ontology/ns/" 
+xmlns:cpo="http://vocab.deri.ie/cpo#" 
+xmlns:foaf="http://xmlns.com/foaf/0.1/" 
+xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#" 
+xmlns:owl="http://www.w3.org/2002/07/owl#" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#" 
+xmlns:gr="http://purl.org/goodrelations/v1#" 
+xmlns:serv="http://usoa.deri.ie/ontology/service_v.0.1#" 
+xmlns:ssn="http://purl.oclc.org/NET/ssnx/ssn#" 
+xmlns:co="http://vocab.deri.ie/co#" 
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+xmlns:capo="http://vocab.deri.ie/capo#" 
+xmlns:ns="http://purl.org/dc/elements/1.1/" 
+xmlns:terms="http://purl.org/dc/terms/">
+
+<!-- Issue to read the openIoT ontology with the jena framework:
+ Exception in thread "main" org.apache.jena.riot.RiotException: [line: 1, col: 1 ] Content is not allowed in prolog. 
+ 
+ To fix: the way to declare the namespace: 22 June, 2015, Amelie Gyrard 
+ -->
+	<owl:Ontology rdf:about="http://spitfire-project.eu/ontology/ns">
+		<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Please report any error to myriam.leggieri_at_deri.org</rdfs:comment>
+		<ns:creator rdf:resource="http://myr.altervista.org/foaf.rdf#me" />
+		<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This ontology describes abstraction of sensors and their integration with cloud computing concepts.</rdfs:comment>
+		<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This ontology is developed by DERI ( http://www.deri.ie ) for the OpenIoT project ( http://openiot.eu ) . It is based on the alignment among the W3C Semantic Sensor Networks Incubator Group (SSN-XG) ontology, the SPITFIRE ontology and the LSM vocabulary. </rdfs:comment>
+		<ns:rights>Copyright 2010 - 2013 OpenIoT.</ns:rights>
+		<rdfs:seeAlso>http://openiot.eu</rdfs:seeAlso>
+		<ns:title xml:lang="en">OpenIoT Ontology</ns:title>
+		<ns:identifier>http://spitfire-project.eu/ontology/ns</ns:identifier>
+		<terms:license rdf:resource="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231.html" />
+	</owl:Ontology>
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator" />
+	<owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso" />
+	<owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy" />
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/identifier" />
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source" />
+	<owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label" />
+	<owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment" />
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title" />
+	<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights" />
+	<owl:Class rdf:about="http://openiot.eu/ontology/ns/Context">
+		<rdfs:comment>Sensor Context</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:Class>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/MobilityContext">
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/Context" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/VirtualSensor">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/MobileSensor">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/StaticSensor">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#MeasurementCapability">
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:Class>
+	<owl:Class rdf:about="http://spitfire-project.eu/ontology/ns/Energy">
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:Class>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Bandwidth">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#MeasurementProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/DataVolume">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#MeasurementProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Trustworthiness">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#MeasurementProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/SessionTime">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#observationResultTime" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/VirtualSensorLocation">
+		<rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Location" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/VirtualSensorTask">
+		<rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/SensorUtility">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#SystemLifetime">
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:Class>
+	<owl:Class rdf:about="http://purl.oclc.org/NET/ssnx/ssn#Latency">
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:Class>
+	<owl:Class rdf:about="http://spitfire-project.eu/ontology/ns/NetworkQuality">
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:Class>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Delay">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#MeasurementProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/DelayRange">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#MeasurementProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/NetworkBandwidth">
+		<rdfs:subClassOf rdf:resource="http://spitfire-project.eu/ontology/ns/NetworkProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/NetworkCapacity">
+		<rdfs:subClassOf rdf:resource="http://spitfire-project.eu/ontology/ns/NetworkProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/NetworkThroughput">
+		<rdfs:subClassOf rdf:resource="http://spitfire-project.eu/ontology/ns/NetworkProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/LinkCost">
+		<rdfs:subClassOf rdf:resource="http://spitfire-project.eu/ontology/ns/LinkProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/EaseOfDeployment">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Reliability">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Survivability">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Scalability">
+		<rdfs:subClassOf rdf:resource="http://spitfire-project.eu/ontology/ns/NetworkProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/ResourceOptimization">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/CostEfficiency">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Confidentiality">
+		<rdfs:subClassOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#OperatingProperty" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/CloudService">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
+		<rdfs:subClassOf rdf:resource="http://usoa.deri.ie/ontology/service_v.0.1#Service" />
+		<rdfs:label xml:lang="en">Cloud Computing service</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Computing service</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ProxyCloudService">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:label xml:lang="en">Proxy Cloud Computing service</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Computing service that is allowed to act as a Proxy</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/CloudAccess">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Cloud Access</rdfs:label>
+		<rdfs:comment xml:lang="en">Access to a Cloud Computing service</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/AnonymousAccess">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/CloudAccess" />
+		<rdfs:label xml:lang="en">Anonymous Access</rdfs:label>
+		<rdfs:comment xml:lang="en">Anonymous Access to a Cloud Computing service</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/CredentialAccess">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/CloudAccess" />
+		<rdfs:label xml:lang="en">Credential Access</rdfs:label>
+		<rdfs:comment xml:lang="en">Access to a Cloud Computing service requiring registered credentials</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ServiceStatus">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Cloud Service Status</rdfs:label>
+		<rdfs:comment xml:lang="en">Status of a Cloud Computing service</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ServiceEnabled">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/ServiceStatus" />
+		<rdfs:label xml:lang="en">Service Enabled</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Service Status Enabled</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ServiceDisabled">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/ServiceStatus" />
+		<rdfs:label xml:lang="en">Service Disabled</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Service Status Disabled</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+		<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class" />
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/ServiceStatus" />
+		<rdfs:label xml:lang="en">SSO Service Disabled</rdfs:label>
+		<rdfs:comment xml:lang="en">SSO Cloud Service Status Disabled</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/SSOServiceStatus">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">SSO Service Status</rdfs:label>
+		<rdfs:comment xml:lang="en">SSO Status of a Cloud Computing service</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/SSOServiceEnabled">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/SSOServiceStatus" />
+		<rdfs:label xml:lang="en">SSO Service Enabled</rdfs:label>
+		<rdfs:comment xml:lang="en">SSO Cloud Service Status Enabled</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ServiceAttribute">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Service Attribute</rdfs:label>
+		<rdfs:comment xml:lang="en">Attribute of a Cloud Computing service</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ServiceAttributeStatus">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Service Attribute Status</rdfs:label>
+		<rdfs:comment xml:lang="en">Status of Cloud Computing service's attributes</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/AttributeEnabled">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/ServiceAttributeStatus" />
+		<rdfs:label xml:lang="en">Service Enabled</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Service Status Enabled</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/AttributeDisabled">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/ServiceAttributeStatus" />
+		<rdfs:label xml:lang="en">Service Disabled</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Service Status Disabled</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/LoginStatus">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Login Status</rdfs:label>
+		<rdfs:comment xml:lang="en">Status of a Client Login</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/NewLogin">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/LoginStatus" />
+		<rdfs:label xml:lang="en">New Login</rdfs:label>
+		<rdfs:comment xml:lang="en">New Login</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/OldLogin">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/LoginStatus" />
+		<rdfs:label xml:lang="en">Old Login</rdfs:label>
+		<rdfs:comment xml:lang="en">Old Login</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Ticket">
+		<rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process" />
+		<rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
+		<rdfs:label xml:lang="en">Service Ticket</rdfs:label>
+		<rdfs:comment xml:lang="en">Service Ticket</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/TicketScheduler">
+		<rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Process" />
+		<rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
+		<rdfs:label xml:lang="en">Service Ticket Scheduler</rdfs:label>
+		<rdfs:comment xml:lang="en">Service Ticket Scehduler</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/TicketGrantingStatus">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Ticket Granting Status</rdfs:label>
+		<rdfs:comment xml:lang="en">Status of a Ticket grant assigned by a Ticket Scheduler</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/TicketGrantingExpired">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/TicketGrantingStatus" />
+		<rdfs:label xml:lang="en">Ticket Granting Expired</rdfs:label>
+		<rdfs:comment xml:lang="en">Ticket Granting Expired</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/TicketGrantingValid">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/TicketGrantingStatus" />
+		<rdfs:label xml:lang="en">Ticket Granting Valid</rdfs:label>
+		<rdfs:comment xml:lang="en">Ticket Granting Valid</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/SchedulerAuthentication">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:label xml:lang="en">Ticket Scheduler Authentication</rdfs:label>
+		<rdfs:comment xml:lang="en">Ticket Scheduler Authentication</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdfs:Class rdf:about="http://openiot.eu/ontology/ns/ExpirationPolicy">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+		<rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
+		<rdfs:label xml:lang="en">Expiration Policy</rdfs:label>
+		<rdfs:comment xml:lang="en">Expiration Policy for Service Tickets</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdfs:Class>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/Client">
+		<rdfs:subClassOf rdf:resource="http://vocab.deri.ie/capo#Client" />
+		<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent" />
+		<rdfs:label xml:lang="en">Cloud Computing Client</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Computing Client</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/User">
+		<rdfs:subClassOf rdf:resource="http://openiot.eu/ontology/ns/Client" />
+		<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person" />
+		<rdfs:label xml:lang="en">Cloud Computing User</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Computing User</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/ClientPermission">
+		<rdfs:subClassOf rdf:resource="http://vocab.deri.ie/cpo#ClientPermission" />
+		<rdfs:label xml:lang="en">Cloud Computing Client Permission</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Computing Client Permission</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<rdf:Description rdf:about="http://openiot.eu/ontology/ns/ClientRole">
+		<rdfs:subClassOf rdf:resource="http://vocab.deri.ie/co#ClientCredentials" />
+		<rdfs:label xml:lang="en">Cloud Computing Client Role</rdfs:label>
+		<rdfs:comment xml:lang="en">Cloud Computing Client Role</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</rdf:Description>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/timesUsed">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/creationTime">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/lastTimeUsed">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/prevLastTimeUsed">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/password">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Client" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/expression">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/evaluationOrder">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/theme">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/usernameAttr">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/ticketFrom">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/LoginStatus" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/attributeStatus">
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/ServiceAttributeStatus" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/attributeStatusFor">
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/ServiceAttributeStatus" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/attributeStatus" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/attribute">
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/ServiceAttribute" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/attributeFor">
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/ServiceAttribute" />
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/attribute" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/ssoStatus">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/SSOServiceStatus" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/ssoStatusFor">
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/SSOServiceStatus" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/ssoStatus" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/status">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/ServiceStatus" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/statusFor">
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/ServiceStatus" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/status" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/grants">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/grantedBy">
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/grants" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/access">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/CloudAccess" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/accessFor">
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudAccess" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/access" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/forService">
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/serviceFor">
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/forService" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/role">
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/ClientRole" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Client" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/roleOf">
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/ClientRole" />
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/Client" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/role" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/permission">
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/ClientPermission" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/ClientRole" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/permissionFor">
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/ClientPermission" />
+				<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/ClientRole" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/permission" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/authenticatedBy">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/expirationPolicy">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/servicesGranted">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/TicketScheduler" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/serviceBinary">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Ticket" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/addressId">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/CloudService" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+	<owl:TransitiveProperty rdf:about="http://openiot.eu/ontology/ns/context">
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/Context" />
+		<rdfs:domain rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Device" />
+		<owl:inverseOf>
+			<owl:TransitiveProperty rdf:about="http://openiot.eu/ontology/ns/contextOf">
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/Context" />
+				<rdfs:range rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Device" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/contex" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:TransitiveProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:TransitiveProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/mobility">
+		<rdfs:subPropertyOf rdf:resource="http://openiot.eu/ontology/ns/context" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/MobilityContext" />
+		<rdfs:domain rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+		<owl:inverseOf>
+			<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/mobilityOf">
+				<rdfs:subPropertyOf rdf:resource="http://openiot.eu/ontology/ns/context" />
+				<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/MobilityContext" />
+				<rdfs:range rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+				<owl:inverseOf rdf:resource="http://openiot.eu/ontology/ns/mobility" />
+				<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+			</owl:ObjectProperty>
+		</owl:inverseOf>
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/subSensor">
+		<rdfs:subPropertyOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#attachedSystem" />
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/VirtualSensor" />
+		<rdfs:range rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="http://openiot.eu/ontology/ns/forVirtualSensor">
+		<rdfs:subPropertyOf rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#attachedSystem" />
+		<rdfs:range rdf:resource="http://openiot.eu/ontology/ns/VirtualSensor" />
+		<rdfs:domain rdf:resource="http://purl.oclc.org/NET/ssnx/ssn#Sensor" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:ObjectProperty>
+	<owl:DatatypeProperty rdf:about="http://openiot.eu/ontology/ns/subSensorsCount">
+		<rdfs:domain rdf:resource="http://openiot.eu/ontology/ns/VirtualSensor" />
+		<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer" />
+		<rdfs:isDefinedBy rdf:resource="http://openiot.eu/ontology/ns" />
+	</owl:DatatypeProperty>
+</rdf:RDF>

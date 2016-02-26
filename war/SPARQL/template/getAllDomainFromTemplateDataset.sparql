@@ -1,0 +1,26 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX iot-lite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#>
+PREFIX ssn: <http://purl.oclc.org/NET/ssnx/ssn#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#>
+
+SELECT DISTINCT ?tesbed ?IoTApplicativeDomain ?labelDomain ?commentlabel WHERE{
+
+?testbed m3:hasContext ?IoTApplicativeDomain.
+
+	OPTIONAL{
+		?IoTApplicativeDomain rdfs:label ?labelDomain.
+	}
+	
+	OPTIONAL{
+		?IoTApplicativeDomain rdfs:comment ?commentlabel.
+	}
+
+}
+
+
+
+ 
+
