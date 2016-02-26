@@ -42,11 +42,19 @@
                 		<li role="presentation" class="divider"></li><!-- séparateur -->
                 		<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=documentation">M3 Documentation</a></li>                		
                 		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=architecture">M3 architecture</a> </li>
-                		<li role="presentation" class="divider"></li><!-- séparateur -->
-                		<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=lov4iot">Smarter LOV4IoT (ongoing)</a></li>
+                		
                					
 					 </ul>
               </li>	
+              
+                     <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dev">LOV4IoT<b class="caret"></b></a>
+                 <ul class="dropdown-menu" role="menu" aria-labelledby="dev">
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=ontologies">Reusing domain knowledge (LOV4IoT)</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="../?p=lov4iot">Smarter LOV4IoT (ongoing)</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="../documentation/LOV4IoTDocumentation.pdf">LOV4IoT Documentation</a></li> 
+	                  </ul>
+              </li>
 						
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="scenarios">Scenarios <b class="caret"></b></a>
@@ -61,7 +69,15 @@
                         </ul>
                </li>
                
-               <li><a href="?p=publication">Publications</a></li>
+
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dev">Publications & Docs<b class="caret"></b></a>
+                 <ul class="dropdown-menu" role="menu" aria-labelledby="dev">
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=publication">Publications</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=documentation">M3 Documentation</a></li>  
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="../documentation/LOV4IoTDocumentation.pdf">LOV4IoT Documentation</a></li> 
+	                  </ul>
+              </li>
                
 
 			<li class="dropdown">
@@ -94,16 +110,28 @@
 							<li  role="presentation"><a role="menuitem" tabindex="-1"  href="?p=STACStateOfTheArt">Security for IoT State of The Art</a></li>
                         </ul>
                </li>
-         
-               <li><a href="?p=help_us">Contributing to M3</a></li>
-                <li><a href="?p=about_us">About us</a></li>
-                  		 <li class="dropdown">
+                    
+                     <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dev">M3 community<b class="caret"></b></a>
+                 <ul class="dropdown-menu" role="menu" aria-labelledby="dev">
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=documentation">M3 Documentation</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=help_us">Contributing to M3</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=about_us">About us</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=favoriteBooks">Favorite Books & Sayings</a></li>
+	                  </ul>
+              </li>             
+                           
+                              
+                <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dev">Memento<b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dev">
 
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=learnFromScratch">Learn from scratch: Semantic Web, Web of Things, etc.</a></li>
 						
+						<li role="presentation" class="divider"></li><!-- séparateur -->
 						
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=stateOfTheArt">SWoT/SSN State of the Art</a></li>
+
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="?p=IoTTool">IoT tools</a></li>
 						
 						<li role="presentation" class="divider"></li><!-- séparateur -->
@@ -185,7 +213,15 @@
         <p class="muted credit">
 			M3 (Machine-to-Machine Measurement), SWoT (Semantic Web of Things). © M3 is under GNU GPLv3 license. 
 		
-			<br/> Designed and implemented by <a href="http://www.eurecom.fr/~gyrard/index.html">Am&eacute;lie Gyrard</a>, a PhD student at <a href="http://www.eurecom.fr/en">Eurecom</a> under the supervision of Prof. <a href="http://www.eurecom.fr/en/people/bonnet-christian">Christian Bonnet </a> and Dr. <a href="http://users.polytech.unice.fr/~karima/">Karima Boudaoud</a></a>.
+			<br/> Designed and implemented by 
+			<a href="https://www.insight-centre.org/users/amelie-gyrard">Am&eacute;lie Gyrard</a>, 
+			she was a PhD student at <a href="http://www.eurecom.fr/en">Eurecom</a> 
+			under the supervision of <a href="http://www.eurecom.fr/en/people/bonnet-christian">Prof. Christian Bonnet 
+			</a> and <a href="http://users.polytech.unice.fr/~karima/">Dr. Karima Boudaoud</a>.
+			<br/>Currently, she is a post-doc researcher at 
+			<a href="https://www.insight-centre.org/">Insight</a> within the IoT unit led by 
+			<a href="https://www.insight-centre.org/users/martin-serrano">Dr. Martin Serrano</a>.
+			<br/>This web site is still maintained (Last updated: February 2016).
 			<br/>Project in collaboration with 
 			<a href="http://www.eurecom.fr/"><img src="images/eurecom.png" width="150" height="150"></img></a>
 			<img src="images/i3s.png" width="150" height="150"></img>
@@ -301,6 +337,9 @@ $(document).ready(function () {
             break;
 		case "about_us":
             page += 'about_us.html';
+            break;
+		case "favoriteBooks":
+            page += 'favoriteBooks.html';
             break;
  		case "sensor":
             loadjscssfile('javascript/commonSendReadAjax.js','js');
@@ -419,6 +458,12 @@ $(document).ready(function () {
             loadjscssfile('javascript/commonSendReadAjax.js','js');
 			loadjscssfile('css/AmelieStyle.css','css');
             page += "smarterlov4iot.html";
+            break;  
+            
+        case "learnFromScratch":
+            loadjscssfile('javascript/commonSendReadAjax.js','js');
+			loadjscssfile('css/AmelieStyle.css','css');
+            page += "learnFromScratch.html";
             break;  
             
         // M3 documentation

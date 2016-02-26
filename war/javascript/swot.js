@@ -28,6 +28,97 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
  *******************************************************************************/
+/*
+ * Created November 4, 2015
+ * 
+ * To display all resources available within the template RDF dataset
+ * */
+function displayResultResourceAvailableFromTemplateDataset(oData, nameDiv, nameSubDiv) {
+	var racine = oData.documentElement;
+	var results = racine.getElementsByTagName("results");
+	var result, binding, uri, msg ="", comment="", uri="";
+	var ul = document.getElementById(nameDiv), li;
+	
+	
+
+	resetElement(ul);//vider la liste existante
+	ifNoResultDisplayMsg(results, nameDiv);//si pas de result trouve// resultat rouge
+
+	for(i = 0; i < results.length; i++)	{//all results only 1 tour
+		result = results[i].getElementsByTagName("result");
+		for(j = 0; j < result.length; j++)	{
+			binding = result[j].getElementsByTagName("binding");
+			msg = "", comment ="", uri="";
+			for(k = 0; k < binding.length; k++)	{
+
+				if ((binding[k].getAttribute("name") == "labelResource")
+						&& binding[k].childNodes[1].firstChild!=null){
+					msg = msg  + binding[k].childNodes[1].firstChild.data;
+				}
+				if ((binding[k].getAttribute("name") == "resource")
+						&& binding[k].childNodes[1].firstChild!=null){
+					uri = uri + binding[k].childNodes[1].firstChild.data ;
+				}
+				if ( (binding[k].getAttribute("name") == "commentResource") && binding[k].childNodes[1].firstChild!=null){
+					comment = comment  + binding[k].childNodes[1].firstChild.data ;
+				}
+	
+			}
+			li = document.createElement(nameSubDiv);
+			li.setAttribute('title', comment);
+			li.setAttribute('value', uri);
+			li.appendChild(document.createTextNode(msg));
+			ul.appendChild(li);
+		}
+	}
+}
+
+
+/*
+ * Created November 4, 2015
+ * 
+ * To display all domains available within the Template RDF dataset
+ * */
+function displayResultDomainAvailableFromTemplateDataset(oData, nameDiv, nameSubDiv) {
+	var racine = oData.documentElement;
+	var results = racine.getElementsByTagName("results");
+	var result, binding, uri, msg ="", comment="", uri="";
+	var ul = document.getElementById(nameDiv), li;
+	
+	
+
+	resetElement(ul);//vider la liste existante
+	ifNoResultDisplayMsg(results, nameDiv);//si pas de result trouve// resultat rouge
+
+	for(i = 0; i < results.length; i++)	{//all results only 1 tour
+		result = results[i].getElementsByTagName("result");
+		for(j = 0; j < result.length; j++)	{
+			binding = result[j].getElementsByTagName("binding");
+			msg = "", comment ="", uri="";
+			for(k = 0; k < binding.length; k++)	{
+
+				if ((binding[k].getAttribute("name") == "labelDomain")
+						&& binding[k].childNodes[1].firstChild!=null){
+					msg = msg  + binding[k].childNodes[1].firstChild.data;
+				}
+				if ((binding[k].getAttribute("name") == "IoTApplicativeDomain")
+						&& binding[k].childNodes[1].firstChild!=null){
+					uri = uri + binding[k].childNodes[1].firstChild.data ;
+				}
+				if ( (binding[k].getAttribute("name") == "commentlabel") && binding[k].childNodes[1].firstChild!=null){
+					comment = comment  + binding[k].childNodes[1].firstChild.data ;
+				}
+	
+			}
+			li = document.createElement(nameSubDiv);
+			li.setAttribute('title', comment);
+			li.setAttribute('value', uri);
+			li.appendChild(document.createTextNode(msg));
+			ul.appendChild(li);
+		}
+	}
+}
+
 
 function sendEmail(result_email){
 	var to = document.getElementById('to').value;

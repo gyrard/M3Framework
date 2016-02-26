@@ -78,6 +78,12 @@ public class ExecuteSparqlGeneric {
 		//load the sparql query
 		this.query = QueryFactory.create(ReadFile.readContentFile(sparqlRequest));
 	}
+	
+	public ExecuteSparqlGeneric(Model model, Query query) {
+		super();
+		this.model = model;
+		this.query = query;
+	}
 
 	public ArrayList<ResultDomainKnowledge> searchIoTApplicationTemplate(ArrayList<VariableSparql> var){
 

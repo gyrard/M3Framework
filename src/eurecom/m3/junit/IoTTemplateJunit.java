@@ -30,12 +30,15 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
  *******************************************************************************/
 package eurecom.m3.junit;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -43,92 +46,163 @@ import eurecom.common.util.ReadFile;
 import eurecom.common.util.Var;
 import eurecom.common.util.WSUtils;
 import eurecom.generic.m2mapplication.M2MAppGeneric;
+import eurecom.sparql.result.ExecuteSparqlGeneric;
 import eurecom.sparql.result.VariableSparql;
 
 /**
- * Tests for {@link Foo}.
+ * To Test the IoT application template
  *
- * @author user@example.com (John Doe)
+ * @author Amelie Gyrard 
+ * Created November 17, 2015
+ * The M3 framework is now maintained from Insight, Galway, Ireland
  */
 public class IoTTemplateJunit {
 
+	
+	//display summer
     @Test
     public void testScenarioTemperatureWeatherSeasonFood() {
-    	//test temp season scenario
     	
     	String URL = "http://sensormeasurement.appspot.com/m3/getSparqlQuery/?iotAppli=OutsideTemperatureSeasonFood";
     	
-    	String sparql_query_generated = WSUtils.queryWebServicSPARQLGenerated(URL);
+    	String sparql_query_generated = WSUtils.queryWebService(URL);
     	
-    	//System.out.println(sparql_query_generated);
-    	
-    	//execute SPARQL query
+    	String result_iot_appli = WSUtils.queryWebServiceXML("http://sensormeasurement.appspot.com/naturopathy/seasonTemperatureFoodRecipe");
     	
     	Model model = ModelFactory.createDefaultModel();
-		ReadFile.enrichJenaModelOntologyDataset(model, Var.PATH_M3_PROJECT_WEATHER_SENSOR_DATA);
+		ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
 		model.write(System.out);
 		M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 		
 		//load domain specific datasets and ontologies
-		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.PATH_M3_PROJECT_ONTOLOGY + "" + "m3");
-		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.PATH_M3_PROJECT_ONTOLOGY + Var.NATUROPATHY_ONTOLOGY_PATH);
-		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.PATH_M3_PROJECT_DATASET + Var.NATUROPATHY_DATASET_PATH);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.M3_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.NATUROPATHY_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.NATUROPATHY_DATASET_WAR);
 		
-		//use generic sparql query
+		//execute sparql query
 		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
-		var.add(new VariableSparql("inferTypeUri", Var.NS_M3 + "WeatherTemperature", false));		
-		var.add(new VariableSparql("typeRecommendedUri", Var.NS_NATUROPATHY_ONTOLOGY + "Food", false));	
-		String res = "";
-		try {
-			res = m2mappli.executeLinkedOpenRulesAndSparqlQuery(sparql_query_generated, var, Var.LINKED_OPEN_RULES_WEATHER);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(res);
+		m2mappli.model = m2mappli.reasonWithJenaRules(Var.LINKED_OPEN_RULES_WEATHER_WAR);
+		Query query = QueryFactory.create(sparql_query_generated);
+		ExecuteSparqlGeneric reqSenml = new ExecuteSparqlGeneric(m2mappli.model, query);
+		String resultSparqlsenml = reqSenml.getSelectResultAsXML(var);
+		System.out.println(resultSparqlsenml);
+		
+		//assertTrue(resultSparqlsenml.equals(result_iot_appli));
 
     }
     
- /*   @Test
-    public void testBodyTemperatureHomeRemedies() {
-    	//test temp season scenario
+    // test http://sensormeasurement.appspot.com/m3/generateTemplate/?iotAppli=WeatherLuminosityEmotion
+    @Test
+    public void testScenarioWeatherLuminosityEmotion() {
+    	String URL = "http://sensormeasurement.appspot.com/m3/getSparqlQuery/?iotAppli=WeatherLuminosityEmotion";
     	
-    	//String URL = "http://sensormeasurement.appspot.com/m3/getSparqlQuery/?iotAppli=OutsideTemperatureSeasonFood";
+    	String sparql_query_generated = WSUtils.queryWebService(URL);
     	
-    	??String sparql_query_generated = ;
-    	
-    	//System.out.println(sparql_query_generated);
-    	
-    	//execute SPARQL query
+    	String result_iot_appli = WSUtils.queryWebServiceXML("http://sensormeasurement.appspot.com/naturopathy/emotion_luminosity");
     	
     	Model model = ModelFactory.createDefaultModel();
-		ReadFile.enrichJenaModelOntologyDataset(model, Var.PATH_M3_PROJECT_HEALTH_SENSOR_DATA);
+		ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
 		model.write(System.out);
 		M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 		
 		//load domain specific datasets and ontologies
-		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.PATH_M3_PROJECT_ONTOLOGY + "" + "m3");
-		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.PATH_M3_PROJECT_ONTOLOGY + Var.NATUROPATHY_ONTOLOGY_PATH);
-		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.PATH_M3_PROJECT_DATASET + Var.NATUROPATHY_DATASET_PATH);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.M3_ONTOLOGY_WAR );
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.NATUROPATHY_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.NATUROPATHY_DATASET_WAR);
 		
-		//use generic sparql query
+		//execute sparql query
 		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
-		var.add(new VariableSparql("inferTypeUri", Var.NS_M3 + "WeatherTemperature", false));		
-		var.add(new VariableSparql("typeRecommendedUri", Var.NS_NATUROPATHY_ONTOLOGY + "Food", false));	
-		String res = "";
+		Model inf = m2mappli.reasonWithJenaRules(Var.LINKED_OPEN_RULES_WEATHER_WAR);
+		Query query = QueryFactory.create(sparql_query_generated);
+		ExecuteSparqlGeneric reqSenml = new ExecuteSparqlGeneric(inf, query);
+		String resultSparqlsenml = reqSenml.getSelectResultAsXML(var);
+		System.out.println(resultSparqlsenml);
+		
+		//assertTrue(resultSparqlsenml.equals(result_iot_appli));
+
+    }
+    
+    
+    //should display sunny cloudy
+    @Test
+    public void testLuminosityTransportationSafetyDevice() {
+    	String URL = "http://sensormeasurement.appspot.com/m3/getSparqlQuery/?iotAppli=WeatherTransportationSafetyDeviceLight";
+    	
+    	String sparql_query_generated = WSUtils.queryWebService(URL);
+    	
+    	String result_iot_appli = WSUtils.queryWebServiceXML("http://sensormeasurement.appspot.com/transport/safety_device_weather/WeatherLuminosity");
+    	
+    	Model model = ModelFactory.createDefaultModel();
+		ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+		model.write(System.out);
+		M2MAppGeneric m2mappli = new M2MAppGeneric(model);
+		
+		//load domain specific datasets and ontologies
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.M3_ONTOLOGY_WAR );
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.TRANSPORT_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.TRANSPORT_DATASET_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.WEATHER_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.WEATHER_DATASET_WAR);
+		
+		//execute sparql query
+		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
+		m2mappli.model = m2mappli.reasonWithJenaRules(Var.LINKED_OPEN_RULES_WEATHER_WAR);
+		Query query = QueryFactory.create(sparql_query_generated);
+		ExecuteSparqlGeneric reqSenml = new ExecuteSparqlGeneric(m2mappli.model, query);
+		String resultSparqlsenml = reqSenml.getSelectResultAsXML(var);
+		System.out.println(resultSparqlsenml);
+		
+		//assertTrue(resultSparqlsenml.equals(result_iot_appli));
+    }
+    
+    //should display HighFever, lemon, etc.
+    @Test
+    public void testBodyTemperatureSymptomsHomeRemedies() {
+    	String URL = "http://sensormeasurement.appspot.com/m3/getSparqlQuery/?iotAppli=BodyTemperatureSymptomHomeRemedy";
+    	
+    	String sparql_query_generated = WSUtils.queryWebService(URL);
+    	
+    	String result_iot_appli = WSUtils.queryWebServiceXML("http://sensormeasurement.appspot.com/naturopathy/sick");
+    	
+    	Model model = ModelFactory.createDefaultModel();
+		ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA_WAR);
+		
+		M2MAppGeneric m2mappli = new M2MAppGeneric(model);
+		
+		//load domain specific datasets and ontologies
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.M3_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.NATUROPATHY_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.NATUROPATHY_DATASET_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.HEALTH_ONTOLOGY_WAR);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.HEALTH_DATASET_WAR);
+		//m2mappli.model.write(System.out);
+		
+		//testJunitHomeRemedies.sparql
+		
+		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
+		var.add(new VariableSparql("inferTypeUri", Var.NS_M3 + "BodyTemperature", false));// we look for body temperature measurement
+		
 		try {
-			res = m2mappli.executeLinkedOpenRulesAndSparqlQuery(sparql_query_generated, var, Var.LINKED_OPEN_RULES_WEATHER);
+			String resultSparqlsenml = m2mappli.executeLinkedOpenRulesAndSparqlQuery
+					("./WAR/SPARQL/template/testJunitHomeRemedies.sparql", var, Var.LINKED_OPEN_RULES_HEALTH_WAR);
+			System.out.println(resultSparqlsenml);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(res);
+		//execute sparql query
+		/*ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
+		Model inf = m2mappli.reasonWithJenaRules(Var.LINKED_OPEN_RULES_HEALTH_WAR);
+		Query query = QueryFactory.create(sparql_query_generated);
+		ExecuteSparqlGeneric reqSenml = new ExecuteSparqlGeneric(inf, query);
+		String resultSparqlsenml = reqSenml.getSelectResultAsXML(var);*/
 
-    }*/
+		
+		//assertTrue(resultSparqlsenml.equals(result_iot_appli));
 
-
-    @Test
-    @Ignore
-    public void thisIsIgnored() {
     }
+    
+    //
+    
+ 
 }

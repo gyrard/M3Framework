@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Amelie Gyrard
  *
  */
-@XmlRootElement(name = "domainKnowledge")
+@XmlRootElement(name = "experiment")
 public class ResultDomainKnowledge {
 	
 	String onto;

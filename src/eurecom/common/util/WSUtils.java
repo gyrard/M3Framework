@@ -82,7 +82,11 @@ public class WSUtils {
 	}
 
 	
-
+	/**
+	 * 
+	 * @param urlWebService
+	 * @return String the result returned by the web service as JSON
+	 */
 	public static String queryWebServiceJSON(String urlWebService){
 		Client client = Client.create();
 		client.setConnectTimeout(120000);  //120 Seconds
@@ -95,7 +99,12 @@ public class WSUtils {
 		return result;
 	}
 	
-	public static String queryWebServicSPARQLGenerated(String urlWebService){
+	/**
+	 * 
+	 * @param urlWebService
+	 * @return String the result returned by the web service
+	 */
+	public static String queryWebService(String urlWebService){
 		Client client = Client.create();
 		client.setConnectTimeout(120000);  //120 Seconds
 		client.setReadTimeout(120000);  //120 Seconds
@@ -106,6 +115,24 @@ public class WSUtils {
 		//System.out.println("result senml api:" + result);
 		return result;
 	}
+	
+	/**
+	 * 
+	 * @param urlWebService
+	 * @return String the result returned by the web service
+	 */
+	public static String queryWebServiceXML(String urlWebService){
+		Client client = Client.create();
+		client.setConnectTimeout(120000);  //120 Seconds
+		client.setReadTimeout(120000);  //120 Seconds
+		WebResource webResource = client.resource(urlWebService);
+		WebResource.Builder builder = webResource.accept(MediaType.APPLICATION_XML_TYPE);
+		String result = builder.get(String.class);	//
+
+		//System.out.println("result senml api:" + result);
+		return result;
+	}
+	
 	
 	
 

@@ -119,6 +119,7 @@ public class LOV4IoTWS {
 		//no variable to replace in the SPARQL query
 		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
 		
+		//Confidential, OngoingProcessOnline, WaitForAnswer, Online, OnlineLOV, AlreadyLOV
 		if(status.compareTo("Confidential")==0){
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("ontologyStatus", Var.NS_LOV4IOT + "Confidential", false));
@@ -174,6 +175,8 @@ public class LOV4IoTWS {
 		//no variable to replace in the SPARQL query
 		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
 		
+		//BuildingAutomation, Weather, Emotion, Agriculture, Health, Tourism, Transportation, City, EnergyFOI, Environment, TrackingFood, Activity
+		//Fire, TrackingCD, TrackingDVD, SensorNetworks, IoT, Security
 		if(domain.compareTo("BuildingAutomation")==0){
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("context", Var.NS_M3 + "BuildingAutomation", false));
@@ -222,6 +225,7 @@ public class LOV4IoTWS {
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("context", Var.NS_M3 + "Activity", false));
 		}
+		//Fire, TrackingCD, TrackingDVD, SensorNetworks, IoT, Security
 		else if(domain.compareTo("Fire")==0){
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("context", Var.NS_M3 + "Fire", false));
@@ -246,6 +250,11 @@ public class LOV4IoTWS {
 			var = new ArrayList<VariableSparql>();
 			var.add(new VariableSparql("context", Var.NS_M3 + "Security", false));
 		}
+		else if(domain.compareTo("UnitFOI")==0){
+			var = new ArrayList<VariableSparql>();
+			var.add(new VariableSparql("context", Var.NS_M3 + "UnitFOI", false));
+		}
+		
 		String resultSparqlsenml = sparqlQuery.getSelectResultAsXML(var);
 
 		//System.out.println(resultSparqlsenml);
@@ -255,7 +264,7 @@ public class LOV4IoTWS {
 	//
 	
 	/**
-	 * The LOB4IOT bot to send email to encourage people to share their domain knowledge (ontologies, datasets, and rules)
+	 * The LOV4IOT bot to send email to encourage people to share their domain knowledge (ontologies, datasets, and rules)
 	 * @param recipient: email of the author, creator of the domaoin knowledge
 	 * @param paper: title of the research article that we are intereted in where they mentionned ontologies, rules relevant for Internet of Things
 	 * @return

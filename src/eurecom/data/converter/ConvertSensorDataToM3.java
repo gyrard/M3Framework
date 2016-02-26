@@ -79,8 +79,8 @@ public class ConvertSensorDataToM3 {
 	 * Convert SenML/XML data into RDF according to the M3 ontology
 	 * and store it in google app engine triplestore
 	 * @param sensorMeasurements: SenML/XML data from WLBox
-	 * @param kindJDO to store it in google app egnine datastore
-	 * @param keyNameJDO to store it in google app egnine datastore
+	 * @param kindJDO to store it in google app engine datastore
+	 * @param keyNameJDO to store it in google app engine datastore
 	 * @return
 	 * @throws IOException 
 	 * @throws JAXBException 

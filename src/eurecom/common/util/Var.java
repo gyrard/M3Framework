@@ -83,20 +83,33 @@ public class Var {
 	public static final String ROOT_OWL_WAR = "./ont/m3/";
 	public static final String ROOT_OWL_SECURITY_WAR = "./ont/security/";
 	
-	public static String PATH_M3_PROJECT_DATASET = "E:/workspace/m3/war/dataset/";
-	public static String PATH_M3_PROJECT_ONTOLOGY = "E:/workspace/m3/war/ont/m3/";
+	
+	/** for Junit tests **/
+	//public static String M3_DATASET_WAR = "./war/dataset/";
+	public static String M3_ONTOLOGY_WAR = "./war/ont/m3/m3";
+	public static final String NATUROPATHY_ONTOLOGY_WAR = "./WAR/ont/m3/naturopathy";
+	public static final String NATUROPATHY_DATASET_WAR = "./WAR/dataset/naturopathy-dataset";
+	public static final String TRANSPORT_ONTOLOGY_WAR = "./WAR/ont/m3/transport";
+	public static final String TRANSPORT_DATASET_WAR = "./WAR/dataset/transport-dataset";
+	public static final String WEATHER_ONTOLOGY_WAR = "./WAR/ont/m3/weather";
+	public static final String WEATHER_DATASET_WAR = "./WAR/dataset/weather-dataset";
+	public static final String HEALTH_ONTOLOGY_WAR = "./WAR/ont/m3/health";
+	public static final String HEALTH_DATASET_WAR = "./WAR/dataset/health-dataset";
+	public static String LINKED_OPEN_RULES_WEATHER_WAR = "./WAR/RULES/LinkedOpenRulesWeather.txt";
+	public static String LINKED_OPEN_RULES_HEALTH_WAR = "./WAR/RULES/LinkedOpenRulesHealth.txt";
+	public static String TEST_TEMPLATE_SPARQL_GENERATED = "./WAR/SPARQL/template/testTemplateGeneratedSPARQL.sparql";
+	public static String WEATHER_M3_SENSOR_DATA_WAR = "./war/dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf";
+	public static String HEALTH_M3_SENSOR_DATA_WAR = "./war/dataset/sensor_data/senml_m3_health_data.rdf";
 	
 	/** SENML M3 RDF SENSOR DATA **/
-	public static final String WEATHER_M3_SENSOR_DATA_WAR = "./dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf";
-	public static final String HOME_M3_SENSOR_DATA_WAR = "./dataset/sensor_data/senml_m3_home_data.rdf";
-	public static final String HEALTH_M3_SENSOR_DATA_WAR = "./dataset/sensor_data/senml_m3_health_data.rdf";
+	public static final String WEATHER_M3_SENSOR_DATA = "./dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf";
+	public static final String HOME_M3_SENSOR_DATA = "./dataset/sensor_data/senml_m3_home_data.rdf";
+	public static final String HEALTH_M3_SENSOR_DATA = "./dataset/sensor_data/senml_m3_health_data.rdf";
 	public static final String SNOW_DATASET = "./dataset/sensor_data/snow_dataset.rdf";
 	public static final String PRESENCE_LIGHT_DATASET = "./dataset/sensor_data/presenceLight.rdf";
 	
-	public static String PATH_M3_PROJECT_WEATHER_SENSOR_DATA = "E:/workspace/m3/war/dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf";
-	public static String PATH_M3_PROJECT_HEALTH_SENSOR_DATA = "E:/workspace/m3/war/dataset/sensor_data/senml_m3_health_data.rdf";
-	
-	
+
+		
 	public static String SURREY_DATASET = "E:/workspace/m3/war/dataset/real_dataset/data_surrey_kat.csv";
 
 	
@@ -180,7 +193,8 @@ public class Var {
 	public static String SPARQL_QUERY_NATUROPATHY_IS_RECOMMENDED_FOR = ROOT_SPARQL_NATUROPATHY + "isRecommendedFor.sparql"; 
 	
 	/** SPARQL QUERY **/
-
+	public static String SPARQL_QUERY_GET_ALL_RESOURCE_TEMPLATE_DATASET = "./SPARQL/template/getAllResourceFromTemplateDataset.sparql";
+	public static String SPARQL_QUERY_GET_ALL_DOMAIN_TEMPLATE_DATASET = "./SPARQL/template/getAllDomainFromTemplateDataset.sparql";
 	public static String SPARQL_QUERY_RECIPE_FAT_FREE = ROOT_SPARQL_HEALTH + "GetRecipeFatFree.sparql";
 	public static String SPARQL_QUERY_SWOT_TEMPLATE = ROOT_SPARQL + "swot_template.sparql";
 	public static String SPARQL_QUERY_SWOT_TEMPLATE_RULE = ROOT_SPARQL + "swot_template_rule.sparql";

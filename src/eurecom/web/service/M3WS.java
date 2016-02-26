@@ -90,10 +90,8 @@ public class M3WS {
 		try {
 			msg = m3.convertXMLSenMLIntoRDF(sensorMeasurements, featureOfInterest, featureOfInterest + "Measurement");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			msg = e.getMessage();
 		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
 			msg = e.getMessage();
 		}// base name sensor
 		return Response.status(200).entity(msg).build();
@@ -144,7 +142,7 @@ public class M3WS {
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_HOME, Var.KEY_NAME_JDO_HOME);
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.HOME_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.HOME_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 
 			ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.ROOT_OWL_WAR + "m3");
@@ -328,6 +326,60 @@ public class M3WS {
 		}
 		//return jo_iot_template.toString();
 		return Response.status(200).entity(sparql_result).build();
+	}
+	
+	/** Created: October 23, 2015
+	 * Query all resources/devices available within the testbed RDF dataset or Google Datastore
+	 * and not all resources referenced within the M3-lite taxonomy 
+	 *   
+	 * E.g., http://localhost:49318/m3/getResourceTemplateDataset/
+	 * @param 
+	 */
+	@GET
+	@Path("/getResourceTemplateDataset/")
+	@Produces(MediaType.APPLICATION_XML)
+	public static Response getResourceFromTemplateDataset() {
+		M2MAppGeneric m2mappli = new M2MAppGeneric();		
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.M3_ONTOLOGY_PATH);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.IOT_APPPLICATION_TEMPLATE_DATASET);
+						
+		// 3) Execute the SPARQL query
+		ExecuteSparqlGeneric sparqlQuery = new ExecuteSparqlGeneric(m2mappli.model, Var.SPARQL_QUERY_GET_ALL_RESOURCE_TEMPLATE_DATASET);
+
+		// 4) Sometimes we have generic SPARQL queries
+		// Here, we do not have any variables to replace within the SPARQL query
+		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
+		String resultSparqlsenml = sparqlQuery.getSelectResultAsXML(var);
+
+		// 5) return the SPARQL result
+		return Response.status(200).entity(resultSparqlsenml).build();
+	}
+	
+	/** Created: October 23, 2015
+	 * Query all IoT applicative domains available within the testbed RDF dataset or Google Datastore
+	 * and not all domains referenced within the M3-lite taxonomy 
+	 *   
+	 * E.g., http://localhost:49318/m3/getDomainTemplateDataset/
+	 * @param 
+	 */
+	@GET
+	@Path("/getDomainTemplateDataset/")
+	@Produces(MediaType.APPLICATION_XML)
+	public static Response getDomainFromTemplateDataset() {
+		M2MAppGeneric m2mappli = new M2MAppGeneric();		
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.M3_ONTOLOGY_PATH);
+		ReadFile.enrichJenaModelOntologyDataset(m2mappli.model, Var.IOT_APPPLICATION_TEMPLATE_DATASET);
+						
+		// 3) Execute the SPARQL query
+		ExecuteSparqlGeneric sparqlQuery = new ExecuteSparqlGeneric(m2mappli.model, Var.SPARQL_QUERY_GET_ALL_DOMAIN_TEMPLATE_DATASET);
+
+		// 4) Sometimes we have generic SPARQL queries
+		// Here, we do not have any variables to replace within the SPARQL query
+		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
+		String resultSparqlsenml = sparqlQuery.getSelectResultAsXML(var);
+
+		// 5) return the SPARQL result
+		return Response.status(200).entity(resultSparqlsenml).build();
 	}
 	
 	

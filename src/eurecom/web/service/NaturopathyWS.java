@@ -69,6 +69,7 @@ public class NaturopathyWS {
 	/**
 	 * Suggest home remedies according to the body temperature scenario
 	 * @return home remedies according to the body temperature
+	 * E.g., http://sensormeasurement.appspot.com/naturopathy/sick
 	 */	
 	@GET
 	@Path("/sick/")
@@ -79,7 +80,7 @@ public class NaturopathyWS {
 		//	M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_HEALTH, Var.KEY_NAME_JDO_HEALTH);
 				
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 
 			//load domain specific datasets and ontologies
@@ -156,7 +157,7 @@ public class NaturopathyWS {
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_WEATHER, Var.KEY_NAME_JDO_WEATHER);
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			//load domain specific datasets and ontologies
@@ -191,7 +192,7 @@ public class NaturopathyWS {
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_WEATHER, Var.KEY_NAME_JDO_WEATHER);
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			//load domain specific datasets and ontologies
@@ -223,7 +224,7 @@ public class NaturopathyWS {
 		try {			
 			//load the M2M measurement
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 
 			//load domain specific datasets and ontologies
@@ -256,7 +257,7 @@ public class NaturopathyWS {
 		try{
 			//load the M2M measurement
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 
 			//load domain specific datasets and ontologies
@@ -337,7 +338,6 @@ public class NaturopathyWS {
 		try {
 			msg = m3.convertXMLSenMLIntoRDF(sensorMeasurements, Var.KIND_JDO_FOOD, Var.KEY_NAME_JDO_FOOD);
 		} catch (IOException | JAXBException e) {
-			// TODO Auto-generated catch block
 			msg= e.getMessage();
 		}// base name sensor
 		return Response.status(200).entity(msg).build();

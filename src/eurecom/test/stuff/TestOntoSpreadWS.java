@@ -317,7 +317,6 @@ public class TestWS {
 			System.out.println("convert v2: " + res);
 			msg = m3.convert(res, Var.KIND_JDO_HEALTH_V2, Var.KEY_NAME_JDO_HEALTH_V2);// base name sensor
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -358,7 +357,6 @@ public class TestWS {
 		try {
 			res = WSUtils.convertJsonToXml(json_senml);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return Response.status(200).entity(res).build();

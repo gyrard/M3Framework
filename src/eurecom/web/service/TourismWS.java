@@ -98,7 +98,7 @@ public class TourismWS {
 		try {
 			//load the M2M measurement
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			
@@ -140,7 +140,7 @@ public class TourismWS {
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_WEATHER, Var.KEY_NAME_JDO_WEATHER);
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			//load domain specific datasets and ontologies

@@ -32,14 +32,16 @@ The SWoT generator enables designing SWoT applications to interpret IoT data.
 	
 </ul>
 
+<br/><a href="../?p=documentation">The documentation of this tool is available here.</a><br/>
+What are you looking for? 
+Tell us your need, and we will help you find a solution and update our system with new templates: <img src="./images/mail.png"/>
 
-<br/>Please do not forget to cite our work: 
-<br/><a href="http://www.eurecom.fr/en/people/gyrard-amelie/publications">
+<br/><br/>Please do not forget to cite our work: 
+<br/> <a href="http://www.eurecom.fr/en/publication/4601">Cross-Domain Internet of Things Application Development: M3 Framework and Evaluation [Gyrard et al. 2015]</a>
+<br/> <a href="http://www.eurecom.fr/en/people/gyrard-amelie/publications">
 Standardizing generic cross-domain applications in Internet of Things [Gyrard et al. 2014]</a>
 
-<br/><br/>
-What are you looking for? <br/>
-Tell us your need, and we will help you to find a solution: <img src="./images/mail.png"/>
+
 
 
 
@@ -66,8 +68,12 @@ Test zip file: <button type="button"  onclick="create_zip();" id="test_zip">test
 </div>
 <script type="text/javascript">
 $.getScript('javascript/swot.js',function(){
-	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Sensor&format=xml", "sensor", "option");	
-	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=FeatureOfInterest&format=xml", "domain", "option");	
+	//request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Sensor&format=xml", "sensor", "option");	
+	//request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=FeatureOfInterest&format=xml", "domain", "option");	
+	
+	request(displayResultResourceAvailableFromTemplateDataset, "/m3/getResourceTemplateDataset/", "sensor", "option");	
+	request(displayResultDomainAvailableFromTemplateDataset, "/m3/getDomainTemplateDataset/", "domain", "option");	
+	
 });
 
 

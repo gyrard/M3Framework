@@ -286,6 +286,15 @@ BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
         <txn:hasImage rdf:resource="http://sensormeasurement.appspot.com/images/sensor/speed.png"/>
 	</owl:Class>
 	
+	<!-- Updated September 2015 for CLoudIoT tool-->
+	
+	<owl:Class rdf:ID="VehicleCountSensor">		
+		<rdfs:label xml:lang="en">Vehicle count sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Number of car to manage traffic jam</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>	
+		<rdfs:subClassOf rdf:resource="#TransportM2MDevice"/>
+	</owl:Class>
+	
 	<owl:Class rdf:ID="DistanceSensor">		
 		<rdfs:label xml:lang="en">Distance Sensor, safety distance</rdfs:label>
 		<rdfs:comment xml:lang="en">Distance Sensor to detect the distance with other cars for instance (it can be a laser).</rdfs:comment>
@@ -381,6 +390,14 @@ BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
         </rdfs:subClassOf>	
 	</owl:Class>
 	
+	<owl:Class rdf:ID="StressLevelSensor">		
+		<rdfs:label xml:lang="en">Stress Level Sensor</rdfs:label>
+		<rdfs:comment xml:lang="en">Stress Level Sensor</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Sensor"/>
+		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
+		<rdfs:subClassOf rdf:resource="#EmotionM2MDevice"/>
+	</owl:Class>
+	
 	<owl:Class rdf:ID="ECG">		
 		<rdfs:label xml:lang="en">ECG or EKG (Electrocardiogram)</rdfs:label>
 		<rdfs:comment xml:lang="en">ECG or EKG (Electrocardiogram)</rdfs:comment>
@@ -459,7 +476,7 @@ BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
 	</owl:Class>
 	
 	<owl:Class rdf:ID="SkinConductanceSensor">		
-		<rdfs:label xml:lang="en">SkinConductanceSensor</rdfs:label>
+		<rdfs:label xml:lang="en">SkinConductanceSensor, GSR (Galvanic Shin Response)</rdfs:label>
 		<rdfs:comment xml:lang="en"></rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Sensor"/>	
 		<rdfs:subClassOf rdf:resource="#HealthM2MDevice"/>
@@ -1679,7 +1696,7 @@ BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
 	
 	<owl:Class rdf:ID="O3_Sensor">		
 		<rdfs:label xml:lang="en">Ozone (O3) Level Sensor</rdfs:label>
-		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:comment xml:lang="en">E.g. provided by OpenIoT, gas sensor detecting levels of ozone (O3)</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#M2MDevice"/>	
 		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
 	</owl:Class>
@@ -1700,7 +1717,7 @@ BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
 	
 	<owl:Class rdf:ID="NO2_Sensor">		
 		<rdfs:label xml:lang="en">Nitrogen Dioxide (NO2) Sensor</rdfs:label>
-		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:comment xml:lang="en">E.g. provided by OpenIoT, gas sensor detectinglevels of nitrogen dioxide (NO2)</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#Sensor"/>	
 		<rdfs:subClassOf rdf:resource="#EnvironmentM2MDevice"/>	
 		<rdfs:subClassOf rdf:resource="#GaseousPollutantSensor"/>	
@@ -2952,6 +2969,12 @@ BUT e.g., Unit concept which one should we use UCUM ontology, QUDT, MUO?
 	<owl:Class rdf:ID="IoT">		
 		<rdfs:label xml:lang="en">Internet of Things (IoT)</rdfs:label>
 		<rdfs:comment xml:lang="en">Used to reference and classify IoT ontologies in LOV4IoT</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>			
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UnitFOI">		
+		<rdfs:label xml:lang="en">Unit domain/feature of interest</rdfs:label>
+		<rdfs:comment xml:lang="en">Used to reference and classify unit ontologies in LOV4IoT</rdfs:comment>
 		<rdfs:subClassOf rdf:resource="#FeatureOfInterest"/>			
 	</owl:Class>
 	

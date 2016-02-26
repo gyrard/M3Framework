@@ -41,8 +41,6 @@ import eurecom.sparql.result.VariableSparql;
 public class MainEval {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		
 		
 			

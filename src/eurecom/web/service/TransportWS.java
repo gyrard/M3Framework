@@ -73,7 +73,6 @@ public class TransportWS {
 		try {
 			msg = ag.convertXMLSenMLIntoRDF(webServiceTransport, Var.KIND_JDO_TRANSPORT, Var.KEY_NAME_JDO_TRANSPORT);
 		} catch (IOException | JAXBException e) {
-			// TODO Auto-generated catch block
 			msg= e.getMessage();
 		}// base name sensor
 		return Response.status(200).entity(msg).build();
@@ -126,7 +125,7 @@ public class TransportWS {
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_WEATHER , Var.KEY_NAME_JDO_WEATHER);
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			//load domain specific datasets and ontologies
@@ -228,7 +227,7 @@ public class TransportWS {
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_HEALTH , Var.KEY_NAME_JDO_HEALTH);
 			
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.HEALTH_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			
@@ -263,7 +262,7 @@ public class TransportWS {
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_WEATHER , Var.KEY_NAME_JDO_WEATHER);
 			Model model = ModelFactory.createDefaultModel();
-			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA_WAR);
+			ReadFile.enrichJenaModelOntologyDataset(model, Var.WEATHER_M3_SENSOR_DATA);
 			M2MAppGeneric m2mappli = new M2MAppGeneric(model);
 			
 			//load domain specific datasets and ontologies
