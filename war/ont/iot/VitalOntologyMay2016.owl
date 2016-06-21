@@ -1,0 +1,1153 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://vital-iot.eu/ontology/ns/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://vital-iot.eu/ontology/ns/">
+    <Prefix name="" IRI="http://vital-iot.eu/ontology/ns/"/>
+    <Prefix name="dcn" IRI="http://www.w3.org/2007/uwa/context/deliveryContext.owl#"/>
+    <Prefix name="dul" IRI="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"/>
+    <Prefix name="geo" IRI="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+    <Prefix name="msm" IRI="http://iserve.kmi.open.ac.uk/ns/msm#"/>
+    <Prefix name="net" IRI="http://www.w3.org/2007/uwa/context/network.owl#"/>
+    <Prefix name="otn" IRI="http://www.pms.ifi.lmu.de/rewerse-wga1/otn/OTN.owl"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="ssn" IRI="http://purl.oclc.org/NET/ssnx/ssn#"/>
+    <Prefix name="wsl" IRI="http://www.wsmo.org/ns/wsmo-lite#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/"/>
+    <Prefix name="hard" IRI="http://www.w3.org/2007/uwa/context/hardware.owl#"/>
+    <Prefix name="http" IRI="http://www.w3.org/2011/http#"/>
+    <Prefix name="qudt" IRI="http://qudt.org/schema/qudt#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="s4ac" IRI="http://ns.inria.fr/s4ac/v2#"/>
+    <Prefix name="soft" IRI="http://www.w3.org/2007/uwa/context/software.owl#"/>
+    <Prefix name="time" IRI="http://www.w3.org/2006/time#"/>
+    <Prefix name="hrest" IRI="http://www.wsmo.org/ns/hrests#"/>
+    <Prefix name="vital" IRI="http://vital-iot.eu/ontology/ns/"/>
+    <Prefix name="sawsdl" IRI="http://www.w3.org/ns/sawsdl#"/>
+    <Prefix name="openiot" IRI="http://openiot.eu/ontology/ns/"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&xsd;string">Please report any error to 
+zeeshan.jan_at_insight-centre.org
+martin.serrano_at_insight-centre_org</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&xsd;string">This ontology is developed by Insight-NUIG ( http://www.insight-centre.org ) for the VITAL project ( http://vital-iot.eu ). </Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/license"/>
+        <IRI>http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231.html</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/identifier"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://vital-iot.eu/ontology/ns</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&xsd;string">This ontology describes classes and properties for VITAL Project..</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/rights"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Copyright 2014 - 2017 VITAL.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">VITAL Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://vital-iot.eu</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="msm:Service"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ssn:Observation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ssn:System"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ActiveRequests"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AirManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Arrival"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Aspect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Availability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AvailableBikes"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AvailableDesks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AvailableMem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="BusArrival"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CEPFilterSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CEPFilterStaticDataSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CEPFilterStaticQuerySensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CEPFilteringService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CEPICOManagementService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CEPSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ComplexEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ConfigurationService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ConnDMS"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ConnectionStability"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Continuous"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CreateCEPICO"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CreateContinuousFilter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CreateOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="CreateWorkflow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DeleteCEPICO"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DeleteContinuousFilter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DeleteWorkflow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DeployMetaService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Disconnected"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DiscoverICOs"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DiscoverServices"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DiscoverSystems"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="DiscoveryService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="EmergencyServices"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="EmptyDocks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="EnergyManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Errors"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ExecuteOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ExecuteWorkflow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="FilterStaticData"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="FilterStaticQuery"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="FilteringService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Footfall"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="FootfallDown"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="FootfallUp"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetCEPICO"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetCEPICOs"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetConfiguration"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetContinuousFilter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetContinuousFilters"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetMetaService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetMetaServiceList"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetObservations"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetOperationList"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetPerformanceMetrics"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetSLAParameters"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetSensorStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetSupportedPerformanceMetrics"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetSupportedSLAParameters"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetSystemStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="GetWorkflowList"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="HealthManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Intermittent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Line"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MaxRequests"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Mobile"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Model"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MonitoringSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MonitoringService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MovementPattern"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="NO2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="NetworkConnection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ObservationService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Operational"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="OperationalState"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="OrchestratorService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="PendingRequests"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Predicted"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="RailArrival"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="RecreationManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ResamplingFilter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ResponseTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Running"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ServedRequests"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ServiceRequest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SetConfiguration"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ShuttingDown"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SmartCity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="StartingUp"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Stationary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SubscribeToObservationStream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SysLoad"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SysUptime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="ThresholdFilter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TotalDocks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrafficManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TransportManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrustAspect"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrustConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrustEntity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrustParam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrustedEntity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TrustedModel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TubeArrival"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Unavailable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="UndeployMetaService"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="UnsubscribeFromObservationStream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="UpdateOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="UpdateWorkflow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="UsedMem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="VitalSensor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="VitalSystem"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="WasteManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="WaterManagement"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="dul:Entity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="dcn:Device"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="hard:DeviceHardware"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="hard:HardwareStatus"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="net:NetworkSupport"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="soft:DeviceSoftware"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="http:Request"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Group"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ssn:hasSubSystem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="direction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasLastKnownLocation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasLocalizer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasMovementPattern"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasNetworkConnection"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasNetworkSupport"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasStability"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="madeBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="managesSensor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="name"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="operator"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="providesService"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="providesSystem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="serviceArea"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="status"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="dul:hasLocation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="hard:deviceHardware"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="hard:status"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="net:networkSupport"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="soft:deviceSoftware"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="TrustLevel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="data"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="dolceSpecification"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="hasName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="query"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="weight"/>
+    </Declaration>
+    <SubClassOf>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+        <Class abbreviatedIRI="ssn:System"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ssn:System"/>
+        <Class IRI="SmartCity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AirManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Availability"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AvailableBikes"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AvailableDesks"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="BusArrival"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPFilterSensor"/>
+        <Class IRI="VitalSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPFilterStaticDataSensor"/>
+        <Class IRI="CEPFilterSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPFilterStaticQuerySensor"/>
+        <Class IRI="CEPFilterSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPFilteringService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPICOManagementService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPSensor"/>
+        <Class IRI="VitalSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CEPSensor"/>
+        <Class abbreviatedIRI="dcn:Device"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ConfigurationService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ConnDMS"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Continuous"/>
+        <Class IRI="ConnectionStability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CreateCEPICO"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CreateContinuousFilter"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CreateOperation"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="CreateWorkflow"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DeleteCEPICO"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DeleteContinuousFilter"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DeleteWorkflow"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DeployMetaService"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Disconnected"/>
+        <Class IRI="ConnectionStability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DiscoverICOs"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DiscoverServices"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DiscoverSystems"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DiscoveryService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="EmergencyServices"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="EmptyDocks"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="EnergyManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ExecuteOperation"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ExecuteWorkflow"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="FilterStaticData"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="FilterStaticQuery"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="FilteringService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Footfall"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="FootfallDown"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="FootfallUp"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetCEPICO"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetCEPICOs"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetConfiguration"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetContinuousFilter"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetContinuousFilters"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetMetaService"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetMetaServiceList"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetObservations"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetOperation"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetOperationList"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetPerformanceMetrics"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetSLAParameters"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetSensorStatus"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetSupportedPerformanceMetrics"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetSupportedSLAParameters"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetSystemStatus"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="GetWorkflowList"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HealthManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Intermittent"/>
+        <Class IRI="ConnectionStability"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Mobile"/>
+        <Class IRI="MovementPattern"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MonitoringSensor"/>
+        <Class IRI="VitalSensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MonitoringService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="NO2"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ObservationService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Operational"/>
+        <Class IRI="OperationalState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="OrchestratorService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Predicted"/>
+        <Class IRI="MovementPattern"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="RailArrival"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="RecreationManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ResamplingFilter"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Running"/>
+        <Class IRI="OperationalState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ServiceRequest"/>
+        <Class abbreviatedIRI="http:Request"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SetConfiguration"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ShuttingDown"/>
+        <Class IRI="OperationalState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="StartingUp"/>
+        <Class IRI="OperationalState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Stationary"/>
+        <Class IRI="MovementPattern"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SubscribeToObservationStream"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="ThresholdFilter"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TotalDocks"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TrafficManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TransportManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TrustAspect"/>
+        <Class IRI="Aspect"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TrustParam"/>
+        <Class abbreviatedIRI="ssn:Observation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TrustedEntity"/>
+        <Class IRI="TrustEntity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TrustedModel"/>
+        <Class IRI="Model"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="TubeArrival"/>
+        <Class abbreviatedIRI="ssn:Property"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Unavailable"/>
+        <Class IRI="OperationalState"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="UndeployMetaService"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="UnsubscribeFromObservationStream"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="UpdateOperation"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="UpdateWorkflow"/>
+        <Class abbreviatedIRI="msm:Operation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="VitalSensor"/>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="VitalSensor"/>
+        <Class abbreviatedIRI="dcn:Device"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="VitalSystem"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="WasteManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="WaterManagement"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="hasLastKnownLocation"/>
+        <ObjectProperty abbreviatedIRI="dul:hasLocation"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="hasLocalizer"/>
+        <ObjectProperty abbreviatedIRI="ssn:hasSubSystem"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="hasNetworkConnection"/>
+        <ObjectProperty abbreviatedIRI="ssn:hasSubSystem"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="hasNetworkSupport"/>
+        <ObjectProperty abbreviatedIRI="net:networkSupport"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="providesSystem"/>
+        <ObjectProperty abbreviatedIRI="ssn:hasSubSystem"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="direction"/>
+        <Class IRI="Line"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasLastKnownLocation"/>
+        <Class IRI="VitalSensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasLocalizer"/>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasMovementPattern"/>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasNetworkConnection"/>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasNetworkSupport"/>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasStability"/>
+        <Class IRI="NetworkConnection"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="madeBy"/>
+        <Class IRI="ServiceRequest"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="managesSensor"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="name"/>
+        <Class IRI="Line"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="operator"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="providesService"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="providesSystem"/>
+        <Class IRI="VitalSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="serviceArea"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="status"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="hard:status"/>
+        <Class abbreviatedIRI="hard:DeviceHardware"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="hard:status"/>
+        <Class abbreviatedIRI="soft:DeviceSoftware"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="direction"/>
+        <Class abbreviatedIRI="dul:Entity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasLastKnownLocation"/>
+        <Class abbreviatedIRI="dul:Entity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasLocalizer"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasMovementPattern"/>
+        <Class IRI="MovementPattern"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasNetworkConnection"/>
+        <Class IRI="NetworkConnection"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasNetworkSupport"/>
+        <Class abbreviatedIRI="net:NetworkSupport"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasStability"/>
+        <Class IRI="ConnectionStability"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="madeBy"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="managesSensor"/>
+        <Class IRI="VitalSensor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="name"/>
+        <Class abbreviatedIRI="dul:Entity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="operator"/>
+        <Class abbreviatedIRI="dul:Entity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="providesService"/>
+        <Class abbreviatedIRI="msm:Service"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="providesSystem"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="serviceArea"/>
+        <Class abbreviatedIRI="dul:Entity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="status"/>
+        <Class IRI="OperationalState"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="hard:status"/>
+        <Class abbreviatedIRI="hard:HardwareStatus"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="TrustLevel"/>
+        <Class IRI="TrustedEntity"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="data"/>
+        <Class IRI="CEPFilterStaticDataSensor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="dolceSpecification"/>
+        <Class IRI="CEPFilterSensor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="dolceSpecification"/>
+        <Class IRI="CEPSensor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="hasName"/>
+        <Class abbreviatedIRI="ssn:IotSystem"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="hasName"/>
+        <Class abbreviatedIRI="ssn:Sensor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="query"/>
+        <Class IRI="CEPFilterStaticQuerySensor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="weight"/>
+        <Class IRI="TrustConcept"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="TrustLevel"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="data"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="dolceSpecification"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="query"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="weight"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

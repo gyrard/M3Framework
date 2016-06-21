@@ -1,0 +1,783 @@
+<h1>ISWC 2016 Tutorial: <a href="http://webofthings.org/"><img src="images/ISWC2016Tutorial/SemanticWeb.png" width="100" height="100" title="Semantic Web" alt="Semantic Web"/></a>
+ meets <a href="https://en.wikipedia.org/wiki/Internet_of_Things"><img src="images/ISWC2016Tutorial/InternetOfThings.png" width="100" height="100" title="Internet of Things (IoT)" alt="Internet of Things (IoT)"/></a> and
+<a href="http://webofthings.org/"><img src="images/ISWC2016Tutorial/WebOfThings.png" width="200" height="200" title="Web of Things (WoT)" alt="Web of Things (WoT)"/></a><br/></h1>
+<!--  <center><h2>ISWC 2016 Tutorial</h2></center> -->
+<div class="hero-unit">
+
+<table>
+<tr>
+	<td>
+	<img src="images/ISWC2016Tutorial/iswc2016.png" width="800" height="600" title="International Semantic Web Conference (ISWC 2016)" alt="International Semantic Web Conference (ISWC 2016)"/>
+	</td>
+	<td>
+	<b>Welcome to this wonderful world of Semantic Web of Things!</b>
+	<br/>Enjoy your trip!
+<br/>When: October 17th or October 18th, 2016
+<br/>Where: Kobe, Japan.
+Co-located with the 15th <a href="http://iswc2016.semanticweb.org/index.html">International Semantic Web Conference (ISWC 2016)</a>
+
+
+	</td>
+</tr>
+</table>
+
+
+
+<h3>Abstract: From Internet of Things to Semantic Web of Things </h3>
+<table border >
+
+<tr>
+<td>Abstract</td>
+<td>
+An ever growing interest and wide adoption of 
+<a href="https://en.wikipedia.org/wiki/Internet_of_Things">
+<img src="images/ISWC2016Tutorial/InternetOfThings.png" width="80" height="80" title="Internet of Things (IoT)" alt="Internet of Things (IoT)"/></a>
+ technologies unleash a true potential of designing a broad range of high-quality consumer applications. Smart cities, smart buildings, and e-health are among various application domains which are benefited from IoT technologies. 
+ Diversity, dynamicity and heterogeneity of devices, networks and data are among major challenges 
+ hindering the wide adoption of IoT technologies. <br/>
+ 
+ <img src="images/ISWC2016Tutorial/SemanticWeb.png" width="70" height="70" title="Semantic Web" alt="Semantic Web"/> technologies 
+ have been effectively used in various domains, particularly, 
+ to address the heterogeneity challenge to:
+ <ul>
+ <li>Ease the interconnection of such data</li>
+  <li>Deduce new knowledge to build smart applications</li>
+   <li>Maintain interoperability at data processing, management and storage</li>
+ </ul>
+ 
+  We will familiarize our audience with the "evolution" of IoT called Web of things (WoT) 
+  which is based on existing Web standards. 
+  Combining
+  <img src="images/ISWC2016Tutorial/SemanticWeb.png" width="70" height="70" title="Semantic Web" alt="Semantic Web"/> and Web of Things technologies pave the way for the Semantic Web of Things. 
+This tutorial will introduce the basics of Internet of Things and 
+<a href="http://webofthings.org/"><img src="images/ISWC2016Tutorial/WebOfThings.png" width="150" height="150" title="Web of Things (WoT)" alt="Web of Things (WoT)"/></a>
+ in order to enable the rapid development of semantics-based Web of Things applications. 
+ Towards that goal, the tutorial will also demonstrate how semantic web technologies are employed 
+ for semantic annotation and reasoning on data to build interoperable IoT/WoT applications. 
+ One key aspect is helping IoT developers in dealing with semantic web technologies by reducing 
+ the learning curve as much as possible. We will showcase real-world use case scenarios 
+ which are designed using semantically enabled IoT frameworks 
+ (e.g.  <a href="http://www.ict-citypulse.eu/page/"><img src="images/iotproject/citypulse.png" width="100" height="100" title="CityPulse EU project" alt="CityPulse EU project"/></a>
+ <a href="http://fiesta-iot.eu/">  <img src="images/fiesta.png" width="100" height="100" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a>). 
+</td>
+</tr>
+
+<tr>
+<td>Keywords</td>
+<td>
+<a href="https://en.wikipedia.org/wiki/Internet_of_Things">
+<img src="images/ISWC2016Tutorial/InternetOfThings.png" width="80" height="80" title="Internet of Things (IoT)" alt="Internet of Things (IoT)"/></a>
+<a href="http://webofthings.org/"><img src="images/ISWC2016Tutorial/WebOfThings.png" width="150" height="150" title="Web of Things (WoT)" alt="Web of Things (WoT)"/></a>
+ <img src="images/ISWC2016Tutorial/SemanticWeb.png" width="70" height="70" title="Semantic Web" alt="Semantic Web"/>
+ </td>
+</tr>
+
+<tr>
+<td>Technologies used</td>
+<td>
+<a href="http://www.ict-citypulse.eu/page/"><img src="images/iotproject/citypulse.png" width="100" height="100" title="CityPulse EU project" alt="CityPulse EU project"/></a>
+<a href="http://fiesta-iot.eu/">  <img src="images/fiesta.png" width="100" height="100" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a> <br/>
+<a href="https://github.com/pankeshlinux/IoTSuite">IoTSuite</a><br/>
+<a href="http://sensormeasurement.appspot.com/">M3 framework & Semantic Engine</a><br/>
+<a href="https://www.w3.org/2005/Incubator/ssn/ssnx/ssn">W3C Semantic Sensor Networks (SSN) ontology</a><br/>
+<a href="http://sensormeasurement.appspot.com/m3#">Machine-to-Machine Measurement (M3) ontology</a> <br/>
+</td> </tr>
+
+
+
+</table>
+<!-- 
+<h3>Motivation</h3>
+In recent years, we have been witnessing a growing number of sensors embedded in smart devices 
+or everyday objects. Applications exploiting sensors and producing data are more and more popular. 
+More than <a href="http://www.ict-citypulse.eu/scenarios/scenarios">100 scenarios</a> have been referenced
+by IoT projects such as continuous health care, smart home, smart orchard, detecting road conditions 
+or air pollution countermeasures. However, one of the challenging problem 
+with the existing IoT applications is 
+that devices are not/or little interoperable with each other since their data is based on proprietary
+formats and they do not use common terms or vocabulary to describe interoperable IoT data. 
+Semantic web technologies have already shown their benefits in other domains than IoT. 
+IoT interoperability is still in its infancy phase. Semantic web technologies can be employed in IoT 
+to overcome the challenge in dealing with interoperability of data produced by devices 
+already employed in real-life. 
+
+Through this tutorial, we aim to bridge this gap between IoT and Semantic worlds 
+by providing the participants with an overview of the existing IoT approaches with their pros 
+and cons and how the limitations of existing IoT platforms can be overcome with semantic web technologies.
+Moreover, we aim to provide the participants hands-on experience that will guide them 
+to choose a right approach for their needs to develop their semantics-based IoT applications.
+
+The main benefit of this tutorial is helping developers in dealing with semantic web technologies 
+by reducing the learning curve as much as possible. We are expecting that the tutorial will encourage semantic web experts to spread our approach of easing the integration of semantic web technologies in other domains than IoT.
+
+  -->
+</div>
+
+<div class="hero-unit">
+<h2>The team of presenters </h2>
+
+<table>
+
+<tr>
+	<td>
+		<img src="images/ISWC2016Tutorial/AmelieGyrard.png" title="Amelie Gyrard is a post-doc researcher at Insight/National University of Ireland, Galway (NUIG).
+She is actively working in the scientific development and coordination of the FIESTA-IoT (Federated Interoperable Semantic IoT/Cloud Testbeds and Applications) EU H2020 project. Her research interests are on Software engineering for Semantic Web of Things and Internet of Things (IoT), semantic web best practices and methodologies, ontology engineering, reasoning and interoperability of IoT data. She is interested in semantic-based IoT related research fields such as Ubiquitous Computing (UbiComp), Pervasive Computing, Ambient Intelligence (AmI), Context-Awareness, Ambient Assisted Living (AAL), Smart Homes, Semantic Sensor Networks (SSN), Machine-to-Machine (M2M), Internet of Things (IoT), Web of Things (WoT), Smart Cities and Physical-Cyber-Social Computing (PCS). She holds a Ph.D. from Eurecom since April 2015 where she designed and implemented the Machine-to-Machine Measurement (M3) framework. The title of her dissertation is 'Designing Cross-Domain Semantic Web of Things Applications'. She also disseminated her work in standardizations such as ETSI M2M, oneM2M (working group on management, abstraction and semantics) and W3C Web of Things. She is a reviewer for international conferences and journals (IJSWIS Journal, Sensors Journal, IoT Journal, ICCCT)." alt="Amelie Gyrard"/>
+		<img src="images/insight.png" width="150" height="150" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>	
+	</td>	
+	<td>
+		<img src="images/ISWC2016Tutorial/PankeshPatel.png" title="Pankesh Patel is serving ABB Corporate Research-Bangalore, India as a Research Scientist. 
+He focuses in building software development methodologies and tools to easily
+develop applications in the cross-section of Software Engineering,
+Cyber-Physical Systems, and Internet of Things. With this research, 
+he has published more than 15 research articles in
+prestigious events like MIDDLEWARE, S-CUBE, OOPSLA,
+ICSE, SCC, ICDCN, Journal of System and Software (JSS),
+and CRC press for book chapter as a first author. He regularly
+serves various academic events as PC and invited/keynote
+speaker. He obtained his Ph.D. from the University of Paris VI
+(UPMC) and INRIA (French National Institute for Research
+in Computer Science and Automation) Paris, France." alt="Pankesh Patel"/>
+		<img src="images/ISWC2016Tutorial/abb.png" width="150" height="150" title="ABB Corporate Research, India" alt="ABB Corporate Research, India"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/SoumyaKantiDatta.png" title="Soumya Kanti Datta is a Research Engineer in EURECOM, France and is working on many French research projects and technology transfer to industry. His research focuses on innovation, standardization and development of next-generation technologies in Internet of Things, Machine-to-Machine Communications, Smart Cities and Mobile computing. He is an active member of IEEE Communication Society and IEEE Consumer Electronics (CE) Society. He leads the activities of IEEE CE Society Future Directions on IoT. He has published more than 35 research papers in top IEEE Conferences and Journals. He regularly serves the IEEE conferences in many capacities. He is a frequent participant of ETSI events and regularly gives presentations and tutorials on IoT at various events including ETSI and IEEE Conferences. Currently he is involved in oneM2M partnership project and W3C Web of Things Interest Group and is actively contributing to their standard development activities. Soumya holds an M.Sc in Communications and Computer Security from Telecom ParisTech (EURECOM), France." alt="Soumya Kanti Datta"/>
+		<img src="images/eurecom.png" width="150" height="150" title="EURECOM, Sophia Antipolis, France" alt="EURECOM, Sophia Antipolis, France"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/MuhammadIntizarAli.png" title="Dr. Muhammad Intizar Ali is an Adjunct Lecturer, Research Fellow and Project Leader at the Unit for Reasoning and Querying at Insight Centre for Data Analytics, National University of Ireland, Galway. His research interests include Semantic Web, Data Integration, Internet of Things (IoT), Linked Data, Federated Query Processing, Stream Query Processing and Optimal Query Processing over large scale distributed data sources. He is actively involved in various EU funded and industry-funded projects aimed at providing IoT enabled adaptive intelligence for smart city applications and smart enterprise communication systems. He is serving as a PC member of various journals, international conferences and workshops. He is also actively participating in W3C efforts for standardization in RDF Stream Processing Community Group. Dr. Ali obtained his Ph.D. (with distinction) from Vienna University of Technology, Austria in 2011. " alt="Muhammad Intizar Ali"/>
+		<img src="images/insight.png" width="150" height="150" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>
+	</td>
+</tr>
+
+<tr>
+	<td><a href="https://www.insight-centre.org/users/amelie-gyrard">Amelie Gyrard</a></td>
+	<td><a href="https://in.linkedin.com/in/pankeshpatel">Pankesh Patel</a></td>
+	<td><a href="https://sites.google.com/site/skdunfolded/home">Soumya Kanti Datta</a></td>
+	<td><a href="http://www.intizarali.org/">Muhammad Intizar Ali </a></td>
+</tr>
+</table>
+<!--  
+<tr>
+	<td><img src="images/insight.png" width="150" height="150" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>	</td>
+	<td><img src="images/ISWC2016Tutorial/abb.png" width="150" height="150" title="ABB Corporate Research, India" alt="ABB Corporate Research, India"/></td>
+	<td><img src="images/eurecom.png" width="150" height="150" title="EURECOM, Sophia Antipolis, France" alt="EURECOM, Sophia Antipolis, France"/></td>
+	<td><img src="images/insight.png" width="150" height="150" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/></td>
+</tr>
+-->
+
+
+
+<!-- 
+<ul>
+<li><a href="https://www.insight-centre.org/users/amelie-gyrard">Amelie Gyrard</a> (Insight Centre for Data Analytics, Galway, Ireland)</li>
+<li><a href="https://in.linkedin.com/in/pankeshpatel">Pankesh Patel</a> (ABB Corporate Research, India)</li>
+<li><a href="https://sites.google.com/site/skdunfolded/home">Soumya Kanti Datta</a> (EURECOM, Sophia Antipolis, France)</li>
+<li><a href="http://www.intizarali.org/">Muhammad Intizar Ali </a> (Insight Centre for Data Analytics, Galway, Ireland)</li>
+</ul>
+
+ -->
+
+
+<h2>Program</h2>
+
+<h3>Part I: Internet of Things (IoT) - 30 mins - <a href="https://en.wikipedia.org/wiki/Internet_of_Things"><img src="images/ISWC2016Tutorial/InternetOfThings.png" width="100" height="100" title="Internet of Things (IoT)" alt="Internet of Things (IoT)"/></a></h3>
+
+
+<table border>
+
+<tr>
+	<td>Abstract</td>
+	<td>The tutorial will start with an introduction aimed at setting a common context 
+between the IoT and SWoT for all participants. 
+It will provide an understanding of commonly used terminology 
+by presenting a domain model. 
+This is followed by a discussion on Common Service Functions (CSFs) to build IoT ecosystems 
+including uniform metadata exchange, 
+device registration, resource discovery, device management, data management and repository. 
+The entire ecosystem is highly fragmented due to individualized implementations of these CSFs 
+as well as data-silos arising due to non-uniform treatment of IoT data originating at 
+heterogeneous domains. To mitigate these issues, <a href="http://www.onem2m.org/">oneM2M</a> partnership project (an initiative to standardize IoT by standard development organizations around the world) is exploiting semantic web technologies. 
+Techniques for rapid application development will then be discussed which are based on 
+(i) such architecture, (ii) model-based development, 
+(iii) macro-programming  languages and compilers (iv) node-centric programming such as 
+<a href="http://nodered.org/">Node-RED</a>.
+
+These concepts will be delivered using examples with code snippets. 
+We will present hands-on tips to start with the IoT application development 
+immediately and demonstrate our current project 
+<a href="https://github.com/pankeshlinux/IoTSuite">IoTSuite</a>, a toolkit for prototyping IoT applications.
+	</td>
+</tr>
+
+
+<tr>
+	<td>Technologies</td>
+	<td>
+		<a href="https://github.com/pankeshlinux/IoTSuite">IoTSuite</a>,
+		<a href="http://nodered.org/">Node-RED</a>,
+		<a href="http://www.onem2m.org/">oneM2M</a>
+	</td>
+</tr>
+
+<tr>
+	<td>Support</td>
+	<td>
+	<ul>
+	<li> <a href="https://www.youtube.com/watch?v=nS_Je7IzPvM">IoTSuite Demo</a> (video recoreded shared on YouTube) <br/></li>
+	<li> <a href="http://www.slideshare.net/pankeshlinux/iotsuite-a-framework-to-design-implement-and-deploy-iot-applications">IoTSuite Poster</a> (shared on SlideShare)</li>
+	<li><a href="http://www.slideshare.net/pankeshlinux/a-tool-suite-for-prototyping-internet-of-things-applications">IoTSuite Tool Demo Slides</a> (shared on SlideShare)</li>
+	<li>More Slides & Demos (To Appear) </li>
+	</ul>
+	</td>
+</tr>
+
+<tr>
+	<td>Presenters</td>
+	<td>
+<table>
+
+<tr>
+	<td>
+		<img src="images/ISWC2016Tutorial/PankeshPatel.png" width="70" height="70" title="Pankesh Patel is serving ABB Corporate Research-Bangalore, India as a Research Scientist. 
+He focuses in building software development methodologies and tools to easily
+develop applications in the cross-section of Software Engineering,
+Cyber-Physical Systems, and Internet of Things. With this research, 
+he has published more than 15 research articles in
+prestigious events like MIDDLEWARE, S-CUBE, OOPSLA,
+ICSE, SCC, ICDCN, Journal of System and Software (JSS),
+and CRC press for book chapter as a first author. He regularly
+serves various academic events as PC and invited/keynote
+speaker. He obtained his Ph.D. from the University of Paris VI
+(UPMC) and INRIA (French National Institute for Research
+in Computer Science and Automation) Paris, France." alt="Pankesh Patel"/>
+		<img src="images/ISWC2016Tutorial/abb.png" width="70" height="70" title="ABB Corporate Research, India" alt="ABB Corporate Research, India"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/SoumyaKantiDatta.png" width="70" height="70" title="Soumya Kanti Datta is a Research Engineer in EURECOM, France and is working on many French research projects and technology transfer to industry. His research focuses on innovation, standardization and development of next-generation technologies in Internet of Things, Machine-to-Machine Communications, Smart Cities and Mobile computing. He is an active member of IEEE Communication Society and IEEE Consumer Electronics (CE) Society. He leads the activities of IEEE CE Society Future Directions on IoT. He has published more than 35 research papers in top IEEE Conferences and Journals. He regularly serves the IEEE conferences in many capacities. He is a frequent participant of ETSI events and regularly gives presentations and tutorials on IoT at various events including ETSI and IEEE Conferences. Currently he is involved in oneM2M partnership project and W3C Web of Things Interest Group and is actively contributing to their standard development activities. Soumya holds an M.Sc in Communications and Computer Security from Telecom ParisTech (EURECOM), France." alt="Soumya Kanti Datta"/>
+		<img src="images/eurecom.png" width="70" height="70" title="EURECOM, Sophia Antipolis, France" alt="EURECOM, Sophia Antipolis, France"/>
+	</td>
+</tr>
+
+<tr>
+	<td><a href="https://in.linkedin.com/in/pankeshpatel">Pankesh Patel</a></td>
+	<td><a href="https://sites.google.com/site/skdunfolded/home">Soumya Kanti Datta</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+
+<h3>Part II: Moving from IoT to Web of Things (WoT) - 30 mins - <img src="images/ISWC2016Tutorial/WebOfThings.png" width="300" height="300" title="Web Of Things (WoT)" alt="Web Of Things (WoT)"/></h3>
+
+<table border>
+<tr>
+	<td>Abstract</td>
+	<td>Utilizing the RESTful web services, standards and best practices can bring harmony and interoperability among the IoT platforms and ecosystems. In this session, we will leverage the IoT
+concepts described previously and combine it with the Web, thus preparing foundation for the next session on -- ``Semantic Web of Things''. We will start this
+session by some motivation scenarios for the WoT. 
+The session will highlight semantics for thing description such as <a href="json-ld.org/">JSON-LD</a>,
+ <a href="https://rdfa.info/">RDFa</a>; and standardization efforts by 
+ <a href="https://www.w3.org/WoT/IG/">W3C WoT Interest Group (IG)</a>. The WoT IG activities are split into four Task Forces (TFs). Among them the TF on Thing Description is looking into semantic-based representation of things while TF of Discovery examines semantic-based discovery. Benefits of utilizing the semantic web technologies will be thoroughly highlighted. We will discuss how the presented WoT and Semantic Web concepts 
+can be integrated in real-world WoT applications.</td>
+<tr>
+	<td>Technologies</td>
+	<td>
+		<a href="https://github.com/pankeshlinux/IoTSuite">IoTSuite</a>,  
+		<a href="json-ld.org/">JSON-LD</a>, 
+		<a href="https://rdfa.info/">RDFa
+	</td>
+</tr>
+
+<tr>
+	<td>Support</td>
+	<td>
+	<ul>
+	<li>More Slides & Demos (To Appear) </li>
+	</ul>
+
+	</td>
+</tr>
+
+<tr>
+	<td>Presenters</td>
+	<td>
+<table>
+
+<tr>
+	<td>
+		<img src="images/ISWC2016Tutorial/PankeshPatel.png" width="70" height="70" title="Pankesh Patel is serving ABB Corporate Research-Bangalore, India as a Research Scientist. 
+He focuses in building software development methodologies and tools to easily
+develop applications in the cross-section of Software Engineering,
+Cyber-Physical Systems, and Internet of Things. With this research, 
+he has published more than 15 research articles in
+prestigious events like MIDDLEWARE, S-CUBE, OOPSLA,
+ICSE, SCC, ICDCN, Journal of System and Software (JSS),
+and CRC press for book chapter as a first author. He regularly
+serves various academic events as PC and invited/keynote
+speaker. He obtained his Ph.D. from the University of Paris VI
+(UPMC) and INRIA (French National Institute for Research
+in Computer Science and Automation) Paris, France." alt="Pankesh Patel"/>
+		<img src="images/ISWC2016Tutorial/abb.png" width="70" height="70" title="ABB Corporate Research, India" alt="ABB Corporate Research, India"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/SoumyaKantiDatta.png" width="70" height="70" title="Soumya Kanti Datta is a Research Engineer in EURECOM, France and is working on many French research projects and technology transfer to industry. His research focuses on innovation, standardization and development of next-generation technologies in Internet of Things, Machine-to-Machine Communications, Smart Cities and Mobile computing. He is an active member of IEEE Communication Society and IEEE Consumer Electronics (CE) Society. He leads the activities of IEEE CE Society Future Directions on IoT. He has published more than 35 research papers in top IEEE Conferences and Journals. He regularly serves the IEEE conferences in many capacities. He is a frequent participant of ETSI events and regularly gives presentations and tutorials on IoT at various events including ETSI and IEEE Conferences. Currently he is involved in oneM2M partnership project and W3C Web of Things Interest Group and is actively contributing to their standard development activities. Soumya holds an M.Sc in Communications and Computer Security from Telecom ParisTech (EURECOM), France." alt="Soumya Kanti Datta"/>
+		<img src="images/eurecom.png" width="70" height="70" title="EURECOM, Sophia Antipolis, France" alt="EURECOM, Sophia Antipolis, France"/>
+	</td>
+</tr>
+
+<tr>
+	<td><a href="https://in.linkedin.com/in/pankeshpatel">Pankesh Patel</a></td>
+	<td><a href="https://sites.google.com/site/skdunfolded/home">Soumya Datta</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<h3>Part III: Semantic Web of Things (SWoT) platforms - 30 mins</h3>
+
+<table border>
+
+<tr>
+	<td>Abstract</td>
+	<td>While the previous sessions outline the benefits of  integrating semantic web 
+	technologies to IoT and WoT, this session dives deeper into semantics. 
+	It explains the way to semantically annotate data produced by IoT devices by using the 
+	<a href="https://www.w3.org/2005/Incubator/ssn/ssnx/ssn">W3C Semantic Sensor Networks (SSN) ontology</a> 
+	and the <a href="http://sensormeasurement.appspot.com/m3#">Machine-to-Machine Measurement (M3) ontology</a> 
+to unify terms to describe sensor data. 
+M3 Framework has been designed to assist developers in developing semantics-based WoT applications. M3 enables enriching IoT data with meaningful information using logic-based inference engine 
+	(e.g., deducing hot from an outdoor temperature) 
+but also enables combining IoT application domains.
+The design of the M3 semantic engine is flexible enough to be deployed at a cloud or a Gateway or 
+even an Android powered device.
+This section will extend and improve the tutorial online exploiting the semantic engine.
+The M3 semantic engine will be explained in this context and the hands-on session will enable 
+to use it in practice.
+</td>
+</tr>
+
+
+<tr>
+	<td>Technologies</td>
+	<td>
+		<a href="http://sensormeasurement.appspot.com/">M3 framework & Semantic Engine</a>
+		</td>
+</tr>
+
+<tr>
+	<td>Support</td>
+	<td>
+	<ul>
+		<li> <a href="http://fr.slideshare.net/AmlieGyrard/designing-crossdomain-semantic-web-of-things-applications">SWoT Slides</a> (shared on SlideShare)</li>
+		<li> <a href="https://www.youtube.com/watch?v=vDpoQdH56YU&feature=youtu.be"> Demos </a> (video recored shared on YouTube)</li>
+		<li>More Slides & Demos (To Appear) </li>
+	</ul>
+	</td>
+</tr>
+
+<tr>
+	<td>Presenters</td>
+	<td>
+<table>
+
+<tr>
+	<td>
+		<img src="images/ISWC2016Tutorial/AmelieGyrard.png" width="70" height="70" title="Amelie Gyrard is a post-doc researcher at Insight/National University of Ireland, Galway (NUIG).
+She is actively working in the scientific development and coordination of the FIESTA-IoT (Federated Interoperable Semantic IoT/Cloud Testbeds and Applications) EU H2020 project. Her research interests are on Software engineering for Semantic Web of Things and Internet of Things (IoT), semantic web best practices and methodologies, ontology engineering, reasoning and interoperability of IoT data. She is interested in semantic-based IoT related research fields such as Ubiquitous Computing (UbiComp), Pervasive Computing, Ambient Intelligence (AmI), Context-Awareness, Ambient Assisted Living (AAL), Smart Homes, Semantic Sensor Networks (SSN), Machine-to-Machine (M2M), Internet of Things (IoT), Web of Things (WoT), Smart Cities and Physical-Cyber-Social Computing (PCS). She holds a Ph.D. from Eurecom since April 2015 where she designed and implemented the Machine-to-Machine Measurement (M3) framework. The title of her dissertation is 'Designing Cross-Domain Semantic Web of Things Applications'. She also disseminated her work in standardizations such as ETSI M2M, oneM2M (working group on management, abstraction and semantics) and W3C Web of Things. She is a reviewer for international conferences and journals (IJSWIS Journal, Sensors Journal, IoT Journal, ICCCT)." alt="Amelie Gyrard"/>
+		<img src="images/insight.png" width="70" height="70" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>	
+	</td>	
+	<td>
+		<img src="images/ISWC2016Tutorial/SoumyaKantiDatta.png" width="70" height="70" title="Soumya Kanti Datta is a Research Engineer in EURECOM, France and is working on many French research projects and technology transfer to industry. His research focuses on innovation, standardization and development of next-generation technologies in Internet of Things, Machine-to-Machine Communications, Smart Cities and Mobile computing. He is an active member of IEEE Communication Society and IEEE Consumer Electronics (CE) Society. He leads the activities of IEEE CE Society Future Directions on IoT. He has published more than 35 research papers in top IEEE Conferences and Journals. He regularly serves the IEEE conferences in many capacities. He is a frequent participant of ETSI events and regularly gives presentations and tutorials on IoT at various events including ETSI and IEEE Conferences. Currently he is involved in oneM2M partnership project and W3C Web of Things Interest Group and is actively contributing to their standard development activities. Soumya holds an M.Sc in Communications and Computer Security from Telecom ParisTech (EURECOM), France." alt="Soumya Kanti Datta"/>
+		<img src="images/eurecom.png" width="70" height="70" title="EURECOM, Sophia Antipolis, France" alt="EURECOM, Sophia Antipolis, France"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/MuhammadIntizarAli.png" width="70" height="70" title="Dr. Muhammad Intizar Ali is an Adjunct Lecturer, Research Fellow and Project Leader at the Unit for Reasoning and Querying at Insight Centre for Data Analytics, National University of Ireland, Galway. His research interests include Semantic Web, Data Integration, Internet of Things (IoT), Linked Data, Federated Query Processing, Stream Query Processing and Optimal Query Processing over large scale distributed data sources. He is actively involved in various EU funded and industry-funded projects aimed at providing IoT enabled adaptive intelligence for smart city applications and smart enterprise communication systems. He is serving as a PC member of various journals, international conferences and workshops. He is also actively participating in W3C efforts for standardization in RDF Stream Processing Community Group. Dr. Ali obtained his Ph.D. (with distinction) from Vienna University of Technology, Austria in 2011." alt="Muhammad Intizar Ali"/>
+		<img src="images/insight.png" width="70" height="70" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>
+	</td>
+</tr>
+
+<tr>
+
+	<td><a href="https://www.insight-centre.org/users/amelie-gyrard">Amelie Gyrard</a></td>
+	<td><a href="https://sites.google.com/site/skdunfolded/home">Soumya Datta</a></td>
+	<td><a href="http://www.intizarali.org/">Intizar Ali </a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<h3>Part IV: Semantics-based Smart City Demos - 30 mins -  <img src="images/ISWC2016Tutorial/smartCity.png" width="300" height="300" title="Smart Cities" alt="Smart Cities"/></h3>
+
+<table border>
+
+<tr>
+	<td>Abstract</td>
+	<td>
+
+
+Realizing the true potential of semantic technologies, various IoT frameworks have been proposed 
+which address the data interoperability issues using the Semantic Web technologies and standards. 
+In this session, we will demonstrate practical scenarios designed in the context of 
+smart cities projects, which leverage the benefits of 
+semantic interoperability and provide real-time data analytics solutions for large-scale IoT data 
+streams. We will showcase a real-time data analytics and decision support 
+applications (City Route Planner and Parking Space Finder) developed for the City of Aarhus, Denmark 
+using the CityPulse Framework. Both applications process 
+real-time IoT data streams and perform real-time data analytics using semantic technologies and 
+user-centric decision support. We will also demonstrate a second related to the 
+<a href="http://fiesta-iot.eu/" >  
+ <img src="images/fiesta.png" width="100" height="100" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a> EU project ensuring semantic interoperability of IoT data,
+ testbeds and experiments/applications. It reuses the semantic engine presented in the previous section.
+ Sensor data produced by smart cities such as Santander in Spain is exploited and 
+combined with other data coming from others cities such as Galway in Ireland and Guildford in United Kingdom.
+ A set of <a href="http://fiesta-iot-tools.appspot.com/">FIESTA-IoT Tools</a> can be used to register and discover testbeds and experiments to later run the experiment to provide smart IoT applications to end-users.
+
+<a href="http://www.ict-citypulse.eu/page/">
+<img src="images/iotproject/citypulse.png" width="100" height="100" title="CityPulse EU project" alt="CityPulse EU project"/></a>
+ is another EU project aiming at analyzing data provided by other smart cites such as Ahruus in Denmark and are mainly focused on scalability issues. CityPulse develops semantics-based IoT applications.
+</td>
+</tr>
+
+
+<tr>
+	<td>Technologies</td>
+	<td>
+		 <a href="https://www.w3.org/2005/Incubator/ssn/ssnx/ssn">W3C Semantic Sensor Networks (SSN) ontology</a><br/>
+		 <a href="http://sensormeasurement.appspot.com/m3#">Machine-to-Machine Measurement (M3) ontology</a> <br/>
+		 <a href="http://fiesta-iot.eu/">  <img src="images/fiesta.png" width="150" height="150" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a> 
+  		<a href="http://fiesta-iot-tools.appspot.com/">FIESTA-IoT Tools</a>
+		<a href="http://www.ict-citypulse.eu/page/"><img src="images/iotproject/citypulse.png" width="150" height="150" title="CityPulse EU project" alt="CityPulse EU project"/></a>
+	</td>
+</tr>
+
+<tr>
+	<td>Support</td>
+	<td>
+	<ul>
+	<li><a href="http://fiesta-iot-tools.appspot.com/">FIESTA-IoT Tools</a></li>
+	<li>More Slides & Demos (To Appear)</a></li>
+	</ul>
+	
+	</td>
+</tr>
+
+<tr>
+	<td>Presenters</td>
+	<td>
+<table>
+
+<tr>
+	<td>
+		<img src="images/ISWC2016Tutorial/AmelieGyrard.png" width="70" height="70" title="Amelie Gyrard is a post-doc researcher at Insight/National University of Ireland, Galway (NUIG).
+She is actively working in the scientific development and coordination of the FIESTA-IoT (Federated Interoperable Semantic IoT/Cloud Testbeds and Applications) EU H2020 project. Her research interests are on Software engineering for Semantic Web of Things and Internet of Things (IoT), semantic web best practices and methodologies, ontology engineering, reasoning and interoperability of IoT data. She is interested in semantic-based IoT related research fields such as Ubiquitous Computing (UbiComp), Pervasive Computing, Ambient Intelligence (AmI), Context-Awareness, Ambient Assisted Living (AAL), Smart Homes, Semantic Sensor Networks (SSN), Machine-to-Machine (M2M), Internet of Things (IoT), Web of Things (WoT), Smart Cities and Physical-Cyber-Social Computing (PCS). She holds a Ph.D. from Eurecom since April 2015 where she designed and implemented the Machine-to-Machine Measurement (M3) framework. The title of her dissertation is 'Designing Cross-Domain Semantic Web of Things Applications'. She also disseminated her work in standardizations such as ETSI M2M, oneM2M (working group on management, abstraction and semantics) and W3C Web of Things. She is a reviewer for international conferences and journals (IJSWIS Journal, Sensors Journal, IoT Journal, ICCCT)." alt="Amelie Gyrard"/>
+		<img src="images/insight.png" width="70" height="70" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>	
+	</td>	
+	<td>
+		<img src="images/ISWC2016Tutorial/MuhammadIntizarAli.png" width="70" height="70" title="Dr. Muhammad Intizar Ali is an Adjunct Lecturer, Research Fellow and Project Leader at the Unit for Reasoning and Querying at Insight Centre for Data Analytics, National University of Ireland, Galway. His research interests include Semantic Web, Data Integration, Internet of Things (IoT), Linked Data, Federated Query Processing, Stream Query Processing and Optimal Query Processing over large scale distributed data sources. He is actively involved in various EU funded and industry-funded projects aimed at providing IoT enabled adaptive intelligence for smart city applications and smart enterprise communication systems. He is serving as a PC member of various journals, international conferences and workshops. He is also actively participating in W3C efforts for standardization in RDF Stream Processing Community Group. Dr. Ali obtained his Ph.D. (with distinction) from Vienna University of Technology, Austria in 2011." alt="Muhammad Intizar Ali"/>
+		<img src="images/insight.png" width="70" height="70" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>
+	</td>
+</tr>
+
+<tr>
+
+	<td><a href="https://www.insight-centre.org/users/amelie-gyrard">Amelie Gyrard</a></td>
+	<td><a href="http://www.intizarali.org/">Intizar Ali </a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<h3>Part V: Hands-on sessions - Semantic Web of Things (SWoT) in practice - 90 mins</h3>
+
+
+  
+  
+<table border>
+
+<tr>
+	<td>Abstract</td>
+	<td>The last section is for practitioning the different tools presented  previously: 
+IoT tools, WoT tools, SWoT tools and data analytics tools to be able 
+to design semantics-based IoT/WoT applications.<br/><br/>
+
+ <ol> 
+  <li>Running <a href="https://github.com/pankeshlinux/IoTSuite">IoTSuite</a>, WoTKit and IBM IoT Foundation.</li>
+  <li>Running <a href="http://sensormeasurement.appspot.com/"><img src="images/m3/logoM3.png" width="150" height="150" title="M3 framework" alt="M3 framework"/> framework</a> on the Cloud and embedded on Android-powered devices.</li>
+  <li>Data Analytics with <a href="http://www.ict-citypulse.eu/page/"><img src="images/iotproject/citypulse.png" width="150" height="150" title="CityPulse EU project" alt="CityPulse EU project"/></a></li>
+  <li>Semantic interoperability with 
+  <a href="http://fiesta-iot.eu/">  <img src="images/fiesta.png" width="150" height="150" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a>
+  </ol>
+  </td>
+</tr>
+
+
+<tr>
+	<td>Technologies</td>
+	<td>
+	
+	<a href="http://sensormeasurement.appspot.com/"><img src="images/m3/logoM3.png" width="150" height="150" title="M3 framework" alt="M3 framework"/></a>
+		 <a href="http://fiesta-iot.eu/">  <img src="images/fiesta.png" width="150" height="150" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a> 
+  		<a href="http://fiesta-iot-tools.appspot.com/">FIESTA-IoT Tools</a>
+		<a href="http://www.ict-citypulse.eu/page/"><img src="images/iotproject/citypulse.png" width="150" height="150" title="CityPulse EU project" alt="CityPulse EU project"/></a>
+	</td>
+</tr>
+
+<tr>
+	<td>Support</td>
+	<td>
+	IoTSuite:<ul>
+	<li><a href="https://github.com/pankeshlinux/IoTSuite">IoTSuite code</a> (shared on github)</li>
+	<li><a href="https://github.com/pankeshlinux/IoTSuite/wiki">IoTSuite Documentation</a></li>
+	<li><a href="http://www.slideshare.net/pankeshlinux/iotsuite-user-manual">IoTSuite User Manual</a></li>
+	</ul>
+	
+	M3 framework:
+	<ul>
+			<li> <a href="https://github.com/gyrard/M3Framework">M3 framework code</a> (shared on Github)</li>
+		<li> <a href="http://sensormeasurement.appspot.com/documentation/M3APIDocumentation.pdf">M3 documentation</a></li>
+	</ul>
+
+		More Slides & Demos (To Appear)</a>
+		
+	</td>
+</tr>
+
+<tr>
+	<td>Presenters</td>
+	<td>
+<table>
+
+<tr>
+
+	<td>
+		<img src="images/ISWC2016Tutorial/AmelieGyrard.png" width="70" height="70" title="Amelie Gyrard is a post-doc researcher at Insight/National University of Ireland, Galway (NUIG).
+She is actively working in the scientific development and coordination of the FIESTA-IoT (Federated Interoperable Semantic IoT/Cloud Testbeds and Applications) EU H2020 project. Her research interests are on Software engineering for Semantic Web of Things and Internet of Things (IoT), semantic web best practices and methodologies, ontology engineering, reasoning and interoperability of IoT data. She is interested in semantic-based IoT related research fields such as Ubiquitous Computing (UbiComp), Pervasive Computing, Ambient Intelligence (AmI), Context-Awareness, Ambient Assisted Living (AAL), Smart Homes, Semantic Sensor Networks (SSN), Machine-to-Machine (M2M), Internet of Things (IoT), Web of Things (WoT), Smart Cities and Physical-Cyber-Social Computing (PCS). She holds a Ph.D. from Eurecom since April 2015 where she designed and implemented the Machine-to-Machine Measurement (M3) framework. The title of her dissertation is 'Designing Cross-Domain Semantic Web of Things Applications'. She also disseminated her work in standardizations such as ETSI M2M, oneM2M (working group on management, abstraction and semantics) and W3C Web of Things. She is a reviewer for international conferences and journals (IJSWIS Journal, Sensors Journal, IoT Journal, ICCCT)." alt="Amelie Gyrard"/>
+		<img src="images/insight.png" width="70" height="70" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>	
+	</td>	
+		<td>
+		<img src="images/ISWC2016Tutorial/PankeshPatel.png" width="70" height="70" title="Pankesh Patel is serving ABB Corporate Research-Bangalore, India as a Research Scientist. 
+He focuses in building software development methodologies and tools to easily
+develop applications in the cross-section of Software Engineering,
+Cyber-Physical Systems, and Internet of Things. With this research, 
+he has published more than 15 research articles in
+prestigious events like MIDDLEWARE, S-CUBE, OOPSLA,
+ICSE, SCC, ICDCN, Journal of System and Software (JSS),
+and CRC press for book chapter as a first author. He regularly
+serves various academic events as PC and invited/keynote
+speaker. He obtained his Ph.D. from the University of Paris VI
+(UPMC) and INRIA (French National Institute for Research
+in Computer Science and Automation) Paris, France." alt="Pankesh Patel"/>
+		<img src="images/ISWC2016Tutorial/abb.png" width="70" height="70" title="ABB Corporate Research, India" alt="ABB Corporate Research, India"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/SoumyaKantiDatta.png" width="70" height="70" title="Soumya Kanti Datta is a Research Engineer in EURECOM, France and is working on many French research projects and technology transfer to industry. His research focuses on innovation, standardization and development of next-generation technologies in Internet of Things, Machine-to-Machine Communications, Smart Cities and Mobile computing. He is an active member of IEEE Communication Society and IEEE Consumer Electronics (CE) Society. He leads the activities of IEEE CE Society Future Directions on IoT. He has published more than 35 research papers in top IEEE Conferences and Journals. He regularly serves the IEEE conferences in many capacities. He is a frequent participant of ETSI events and regularly gives presentations and tutorials on IoT at various events including ETSI and IEEE Conferences. Currently he is involved in oneM2M partnership project and W3C Web of Things Interest Group and is actively contributing to their standard development activities. Soumya holds an M.Sc in Communications and Computer Security from Telecom ParisTech (EURECOM), France." alt="Soumya Kanti Datta"/>
+		<img src="images/eurecom.png" width="70" height="70" title="EURECOM, Sophia Antipolis, France" alt="EURECOM, Sophia Antipolis, France"/>
+	</td>
+	<td>
+		<img src="images/ISWC2016Tutorial/MuhammadIntizarAli.png" width="70" height="70" title="Dr. Muhammad Intizar Ali is an Adjunct Lecturer, Research Fellow and Project Leader at the Unit for Reasoning and Querying at Insight Centre for Data Analytics, National University of Ireland, Galway. His research interests include Semantic Web, Data Integration, Internet of Things (IoT), Linked Data, Federated Query Processing, Stream Query Processing and Optimal Query Processing over large scale distributed data sources. He is actively involved in various EU funded and industry-funded projects aimed at providing IoT enabled adaptive intelligence for smart city applications and smart enterprise communication systems. He is serving as a PC member of various journals, international conferences and workshops. He is also actively participating in W3C efforts for standardization in RDF Stream Processing Community Group. Dr. Ali obtained his Ph.D. (with distinction) from Vienna University of Technology, Austria in 2011. " alt="Muhammad Intizar Ali"/>
+		<img src="images/insight.png" width="70" height="70" title="Insight Centre for Data Analytics, Galway, Ireland" alt="Insight Centre for Data Analytics, Galway, Ireland"/>
+	</td>
+</tr>
+
+<tr>
+
+	<td><a href="https://www.insight-centre.org/users/amelie-gyrard">Amelie Gyrard</a></td>
+	<td><a href="https://in.linkedin.com/in/pankeshpatel">Pankesh Patel</a></td>
+	<td><a href="https://sites.google.com/site/skdunfolded/home">Soumya Datta</a></td>
+	<td><a href="http://www.intizarali.org/">Intizar Ali </a></td>
+	
+	
+</tr>
+</table>
+</td>
+</tr>
+</table>
+  
+ <h2>Prerequisite knowledge</h2>
+ Since this tutorial is for ISWC, we assume that attendees have some basics regarding semantic web languages and ontologies. 
+ <br/>The knowledge of a semantic web framework such as:
+ <a href="https://jena.apache.org/">Jena</a>  and the set up of the Eclipse environment and Java 1.7 already done would be appreciated. 
+We will provide basics to understand IoT and WoT in our presentations.  
+<br/>Our step-by-step tutorial will guide people to use both WoT and semantic web to develop 
+Semantic Web of Things applications.<br/><br/>
+
+
+In case you are not familiar with semantic web technologies, we can guide you to learn the basics: <br/> 
+<b>How to learn semantic web technologies?</b><br/>
+
+Semantic web technologies can be learnt with:
+<ul>
+
+<li><a href="https://jena.apache.org/">Jena framework</a></li>
+<li><a href="https://jena.apache.org/tutorials/rdf_api.html">Jena tutorial - An Introduction to RDF and the Jena RDF API</a>. RDF is the first language to learn in semantic web.</li>
+<li><a href="https://jena.apache.org/tutorials/sparql.html">Jena tutorial - SPARQL</a>. SPARQL is a query language to query RDF data.</li>
+<li><a href="https://jena.apache.org/documentation/query/manipulating_sparql_using_arq.html">Jena tutorial - Manipulating SPARQL using ARQ</a></li>
+<li><a href="http://corese.inria.fr/srv/tutorial/rdf">Corese</a></li>
+</ul> 
+
+<b>How to learn ontologies?</b><br/>
+You have nice tutorials to understand ontologies:
+<ul>
+<li><a href="http://protege.stanford.edu/publications/ontology_development/ontology101.pdf">
+Ontology Development 101: A Guide to Creating Your First Ontology</a></li>
+<li><a href="https://mariaiulianadascalu.files.wordpress.com/2014/02/owl-cs-manchester-ac-uk_-eowltutorialp4_v1_3.pdf">
+Design the Pizza ontology with Protege</a></li>
+<li><a href="http://protege.stanford.edu/">Protege</a> is a software to design ontologies.</li>
+</ul>
+
+
+ <h2>Acknowledgments</h2>
+ This work is partially supported by the  <a href="http://fiesta-iot.eu/" >  
+ <img src="images/fiesta.png" width="100" height="100" title="FIESTA-IoT H2020 EU project" alt="FIESTA-IoT H2020 EU project"/></a>
+  from the European Horizon 2020 Programme with the Grant Agreement No. CNECT-ICT-643943,  
+  Science Foundation Ireland (SFI)
+under grant No. SFI/12/RC/228, EU FP7 <a href="http://www.ict-citypulse.eu/page/">
+<img src="images/iotproject/citypulse.png" width="100" height="100" title="CityPulse EU project" alt="CityPulse EU project"/></a> Project under grant
+No.603095.  
+and French ANR project <a href="http://www.agence-nationale-recherche.fr/?Projet=ANR-13-INFR-0008"> DataTweet</a>.
+
+<h2>References</h2>
+[Barnaghi et al., ESWC 2014] 
+<a href="http://2014.eswc-conferences.org/sites/default/files/eswc2014euprojects_submission_17.pdf">Citypulse: Real-time iot stream processing and large-scale data analytics for smart
+city applications</a><br/>
+
+[Compton et al., 2012]
+<a href="http://www.sciencedirect.com/science/article/pii/S1570826812000571">
+The ssn ontology of the w3c semantic sensor network incubator group</a>  <br/>
+ 
+[Datta et al., WF-IoT 2015]
+<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7389112">
+Resource discovery in internet of things:
+Current trends and future standardization aspects</a><br/>
+
+[Datta et al., RIoT 2015]
+<a href="http://www.computer.org/csdl/proceedings/riot/2015/8325/00/07104900-abs.html">
+A lightweight framework for efficient m2m device management
+in onem2m architecture </a> <br/>
+
+[Datta et al., WF-IoT 2014] 
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=6803221">
+An iot gateway centric architecture to provide
+novel m2m services </a><br/>
+
+[Datta et al., iThings 2014] 
+<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7059643">
+Smart m2m gateway based architecture for m2m device and
+endpoint management </a> <br/>
+
+[Gao et al., 2014]
+<a href="https://insight-centre.org/sites/default/files/publications/automateddiscovery.pdf">Semantic discovery and integration of urban data
+streams</a> <br/>
+
+[Guinard et al., 2010]
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5678452"></>A resource oriented architecture for the web of
+things</a> <br/>
+
+[Gyrard et al., 2015] 
+<a href="http://www.eurecom.fr/fr/publication/4553/download/cm-publi-4553.pdf">
+Designing Cross-Domain Semantic Web of Things Applications</a><br/>
+
+[Gyrard et al., iThings 2015] 
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7396579&newsearch=true&queryText=A%20Unified%20Semantic%20Engine%20for%20Internet%20of%20Things%20and%20Smart%20Cities:%20From%20Sensor%20Data%20to%20End-Users%20Applications">
+A unified semantic engine for internet of things and smart
+cities: From sensor data to end-users applications. </a><br/>
+
+
+
+[Gyrard et al., Globecomm Workshop 2014]
+<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7063496">Standardizing generic crossdomain
+applications in Internet of Things </a><br/>
+
+[Gyrard et al., FICloud 2015]
+<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7300791">
+Cross-domain Internet of
+Things application development: M3 framework and evaluation</a> <br/>
+
+[Gyrard et al., iThings 2015] 
+<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7396571">
+Assisting iot projects and
+developers in designing interoperable semantic web of things applications</a><br/>
+
+[Gyrard et al., APNOMS 2015]
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7275364&newsearch=true&queryText=Integrating%20Machine-to-Machine%20Measurement%20Framework%20into%20oneM2M%20Architecture">
+Integrating machine-to-machine
+measurement framework into onem2m architecture </a> <br/>
+
+[Haller et al., iThings 2013]
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6682101">
+A domain model for the internet of things</a> <br/>
+
+[Intizar et al. ISWC 2015]
+<a href="http://iswc2015.semanticweb.org/sites/iswc2015.semanticweb.org/files/93670319.pdf">
+ Citybench: A configurable benchmark to evaluate rsp
+engines using smart city datasets</a><br/>
+
+[Kim et al., WF-IoT 2014]
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6803126">
+OpenIoT: An open service framework for the Internet of Things.</a><br/>
+
+[Tonjes et al., ESWC 2014]
+<a href="http://2014.eswc-conferences.org/sites/default/files/eswc2014euprojects_submission_17.pdf">
+ Real time iot stream processing and
+large-scale data analytics for smart city applications</a> <br/>
+
+
+[Paganelli et al., Journal, 2014]
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=6906241">
+A web of things framework for restful applications
+and its experimentation in a smart city</a><br/>
+
+[Patel et al., Journal, 2015] 
+<a href="http://www.sciencedirect.com/science/article/pii/S0164121215000187">Enabling high-level application development for the internet
+of things</a><br/>
+
+[Patel et al., 2014]
+<a href="http://dl.acm.org/citation.cfm?id=2593784"> A Model-driven Development Framework
+for Developing Sense-compute-control Applications</a> <br/>
+
+[Patel et al., 2011] 
+<a href="http://dl.acm.org/citation.cfm?id=2093195">Towards application development for
+the internet of things.</a><br/>
+
+[Soukaras et al. 2015] 
+<a href="https://www.researchgate.net/publication/273003282_IoTSuite_A_ToolSuite_for_Prototyping_Internet_of_Things_Applications">
+IoTSuite: a toolsuite for prototyping
+internet of things applications. </a> <br/>
+
+<h3>Surveys related to Semantic Web of Things</h3>
+
+<a href="http://www.eurecom.fr/fr/publication/4553/download/cm-publi-4553.pdf">Designing Cross-Domain Semantic Web of Things Applications [Gyrard et al. 2015]</a><br/>
+
+<a href="https://www.researchgate.net/publication/261959307_Semantic_Web_of_Things_an_analysis_of_the_application_semantics_for_the_IoT_moving_towards_the_IoT_convergence">Semantic Web of Things: an analysis of the application semantics for the IoT moving towards the IoT convergence [Jara et al. 2014]</a><br/>
+
+<a href="http://cse.iitkgp.ac.in/~bivasm/uc_notes/IoT_Survey.pdf">Context Aware Computing for The Internet of Things: A Survey [Perera et al. 2013]</a><br/>
+
+<a href="http://zeynepaltan.info/9-InternetofThings-1.pdf">Semantics for the Internet of Things: early progress and back to the future [Barnaghi et al. 2012] </a> <br/>
+
+<a href="http://www.sciencedirect.com/science/article/pii/S0167739X13000241"> Internet of Things (IoT): A vision, architectural elements, and future directions [Gubbi et al. 2013]</a><br/>
+
+<a href="http://www.cse.hcmut.edu.vn/~ttqnguyet/Downloads/SIS/References/Internet%20of%20things/(1)%20IoT%20A%20survey%20from%20data%20centric%20perspective.pdf">The Internet of Things: A Survey from the data-centric perspective [Aggarwal et al. 2013]</a><br/>
+
+<a href="http://www.jocm.us/uploadfile/2013/0412/20130412025359146.pdf"> The Web of Things: A survey [Zeng et al. 2011]</a><br/>
+
+<a href="http://www.sciencedirect.com/science/article/pii/S1389128610001568">The Internet of Things: A Survey [Aztori et al. 2010]</a><br/>
+
+
+<!--  
+[McBride et al., 2002] <a href="https://jena.apache.org/">Jena framework: A semantic web toolkit</a>.<br/>
+[FIESTA-IoT consortium, D2.4, 2015]
+<a href="http://fiesta-iot.eu/fiesta-project/deliverables/">
+Deliverable 2.4 FIESTA Meta-Cloud Architecture and Technical
+Specifications</a><br/>
+
+ -->
+
+</div>
+

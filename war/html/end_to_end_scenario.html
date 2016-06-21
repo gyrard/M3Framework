@@ -1,0 +1,127 @@
+<!--  Creator Amelie GYRARD
+Project in collaboration with INSIGHT Center for Data Analytics/National University of Galway, Ireland
+Created: June 2016
+
+IMPROVEMENTS TO DO:
+ BUG to fix: Big space at the end of the document - How to remove it?
+<p style="visibility: hidden" id="content_file"></p> 
+Used to generate the zip file, otherwise the download does not appear
+
+-->
+
+<h1>Tutorial 1: Deducing meaningful information <br/>from a Body Thermometer </h1>
+
+<div class="hero-unit">
+
+<!-- 
+Goal: Designing the naturopathy application based on a body thermometer sensor (See path A picture above) <br/>
+Input: Data provided by a body thermometer (e.g., temperature 39 Degree Celcius)<br/>
+Output: Deducing meaningful information from sensor data.  <br/>
+ -->
+ 
+<p> <img src="images/tutorial/Tutorial1_BodyThermometer_Naturopathy.png" alt="" width="1200" height="1200"/></p>
+
+
+
+
+
+<h3>STEP 1: Generating IoT application template</h3>
+
+<!--  Back-END Tip: We are using the SWoT generator in the back-end. <br/> -->
+	<ol>
+		
+		<li>Choose the hardware sensor that will provide data 
+		<br/>In this tutorial, choose "Thermometer" in the drop-down list: <select id="sensor" ></select> </li>
+		<li>Choose the domain where is deployed your sensor.
+		<br/>In this tutorial, choose "Healthcare" in the drop-down list: <select id="domain" ></select> </li>
+		<li>Click on this button to find pre-defined IoT application templates: <button type="button" onclick="searchIoTApplicationTemplate();">Search IoT Application Template</button> </li>
+		<li>Choose an application template (Body Temperature, Symptoms and Home Remedies): <select  width="300" style="width: 300px" id="iot_application_template" > </select>	</li>
+		<li><button type="button" onclick="generateIoTApplicationTemplate();">Generate the IoT application template (ZIP file)</button></li>
+			
+				</ol>
+		 <div id="generate_iot_application_template"></div>	
+
+		
+<h3>STEP 2: Semantically annotating data with RDF</h3>
+
+Input: Sensor data (Current format supported: SenML/XML data), template that has just been downloaded<br/>
+Output: RDF Data semantically annotated with M3 ontology, W3C SSN, etc. (<a href="../?p=documentation">more information here</a>)
+<br/>Tip: Use Chrome to get the result as text :-)<div id="res_convert_xml"></div>
+
+<br/>
+OPTION 1: Use the default data suggested<br/>
+OPTION 2: Copy/paste your SenML/XML data (need to be surrounded by zone balise):<br/>
+ <textarea class="form-control" rows="10"  id="senmlText">
+<zone name="health">
+<senml bn="urn:body:uuid:c68ad78b-09eb-4303-ae3c-d5d23149ee96">
+<e n="temperature" t="1374069830362" u="Cel" v="38.7"/>
+</senml></zone>
+
+</textarea>
+ 
+<input type="button" class="btn2" value="SenML/XML to RDF Converter" onclick="convertSenMLToRDFFormat('xml');"/>
+
+
+
+	
+<h3>STEP 3: Write Java code</h3>
+
+
+We are using the pre-defined naturopathy template that you just downloaded by using a web service:<br/>
+<a href="http://sensormeasurement.appspot.com/naturopathy/sick">Click on this link to get the result provided by the web service</a><br/>
+
+<br/>You can follow this <a href="../documentation/M3APIDocumentation.pdf">documentation (see section I)</a> to build yourself the application with the Jena framework<br/>
+<br/>TO DO: Create a skeleton JAVA application to ease the development. <br/>
+TO DO: Generate a JAR file with the skeleton to load the template (STEP 1) + RDF data (STEP 2) <br/>
+TO DO: Generate generic Web service?<br/>
+
+
+
+<h3>STEP 4: Executing the reasoning engine to deduce meaningful information</h3>
+ The reasoning engine has been executed in the result provided by the web service.<br/>
+ The result is parsed in Javascript (Deduce): See STEP 6.  <br/>
+<input type="button" class="btn" value="Execute the reasoning engine to deduce meaningful information" onclick='request(displayGenericSparqlResult, "naturopathy/sick", "temp_health");'/>
+		
+
+<!--  TO DO: Button to run the reasoning engine - web services.  -->
+
+<h3>STEP 5: Executing the query engine to get suggestions</h3>
+The query engine has been executed in the result provided by the web service.<br/>
+The result is parsed in Javascript (Suggest): See STEP 6. <br/>
+<!--  TO DO: Button to run the query engine - web services.-->
+
+<input type="button" class="btn" value="Execute the query engine to get suggestions" onclick='request(displayGenericSparqlResult, "naturopathy/sick", "temp_health");'/>
+
+	
+
+<h3>STEP 6: Displaying the result in the user interface</h3>
+
+Deducing meaningful information from body thermometer. 
+<br/>Output:
+<div id="temp_health"></div>
+
+<br/>TO DO: Parse the result to display it in a user-friendly interface. 
+(E.g., replacing text by pictures :) ) <br/>
+
+<br/>
+Do not hesitate to ask us questions, we will be delighted to guide you and improve our demos according to your needs <br/> <img src="./images/mail.png"/>
+
+
+<p style="visibility: hidden" id="content_file"></p> 
+<!--  IMPROVEMENTS TO DO:
+
+<p style="visibility: hidden" id="content_file"></p> 
+Used to generate the zip file, otherwise the download does not appear
+-- BUG to fix: Big space at the end of the document - How to remove it?
+-->
+</div>
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	//used by the swot generator
+	request(displayResultResourceAvailableFromTemplateDataset, "/m3/getResourceTemplateDataset/", "sensor", "option");	
+	request(displayResultDomainAvailableFromTemplateDataset, "/m3/getDomainTemplateDataset/", "domain", "option");	
+	
+});
+
+
