@@ -69,6 +69,7 @@ public class NaturopathyWS {
 	/**
 	 * Suggest home remedies according to the body temperature scenario
 	 * @return home remedies according to the body temperature
+	 * This web service interpet body temperature data
 	 * E.g., http://sensormeasurement.appspot.com/naturopathy/sick
 	 */	
 	@GET

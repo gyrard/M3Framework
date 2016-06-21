@@ -5,7 +5,7 @@
          <!ENTITY lov4iot "http://sensormeasurement.appspot.com/ont/m3/lov4iot#"> 
          <!ENTITY owl   "http://www.w3.org/2002/07/owl#" >
          <!ENTITY m3 "http://sensormeasurement.appspot.com/m3#"> 
-         <!ENTITY lov4iot "http://sensormeasurement.appspot.com/dataset/lov4iot-dataset/"> 
+         <!ENTITY lov4iot_dataset "http://sensormeasurement.appspot.com/dataset/lov4iot-dataset"> 
          <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
          <!ENTITY xsd   "http://www.w3.org/2001/XMLSchema#">  
          <!ENTITY food "http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#" >
@@ -566,7 +566,8 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
 	    <m3:hasSecurityMechanism rdf:resource="&stac_data;HtAccess"/>
 	    <m3:hasSecurityMechanism rdf:resource="&stac_data;OAuth"/>
 	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
-	    <m3:hasUrlOntology rdf:resource="http://elite.polito.it/ontologies/dogont.owl"/>	
+	    <m3:hasUrlOntology rdf:resource="http://elite.polito.it/ontologies/dogont.owl"/>
+	    <m3:hasUrlOntology rdf:resource="http://elite.polito.it/ontologies/poweront.owl"/>	
 	    <dcterms:creator>
   			<foaf:Person rdf:about="mailto:dario.bonino@gmail.com">
    			<foaf:name>Dario Bonino</foaf:name>
@@ -2435,14 +2436,42 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
 	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
     </m3:M2MApplication>
     
+      <m3:M2MApplication rdf:about="Vital">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+     	<m3:hasContext rdf:resource="&m3;IoT"/>
+		<rdfs:label xml:lang="en">Vital project and ontology</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Visual Development Environment for Semantically Interoperable Smart Cities Applications [Roukounaki et al. 2015]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://vital-iot.eu/ontology/ns/ontology.owl"/>
+    </m3:M2MApplication>
+    
     <m3:M2MApplication rdf:about="OpenIoT">
      	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
      	<m3:hasContext rdf:resource="&m3;IoT"/>
 		<rdfs:label xml:lang="en">OpenIoT project and ontology</rdfs:label>
 		<rdfs:comment xml:lang="en">Paper: OpenIoT: Open Source Internet-of-Things in the Cloud [Soldatos et al. 2015]</rdfs:comment>
 	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
-	    <m3:hasUrlOntology rdf:resource="http://www.openiot.eu/ontology.owl"/>
+	    <m3:hasUrlOntology rdf:resource="http://sensormeasurement.appspot.com/ont/sensor/openIoT.owl"/>
     </m3:M2MApplication>
+    
+       <m3:M2MApplication rdf:about="FIESTAIOT">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+     	<m3:hasContext rdf:resource="&m3;IoT"/>
+		<rdfs:label xml:lang="en">FIESTA-IoT project and ontology</rdfs:label>
+		<rdfs:comment xml:lang="en">FIESTA-IoT project and ontology</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
+	    <m3:hasUrlOntology rdf:resource="https://mimove-apps.paris.inria.fr/ontology/fiesta-iot.owl"/>
+    </m3:M2MApplication>
+    
+    <m3:M2MApplication rdf:about="M3Lite">
+     	<m3:hasContext rdf:resource="&m3;SensorNetworks"/>
+     	<m3:hasContext rdf:resource="&m3;IoT"/>
+		<rdfs:label xml:lang="en">M3-lite ontology</rdfs:label>
+		<rdfs:comment xml:lang="en">M3-lite ontology</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </m3:M2MApplication>
+    
     
      <m3:M2MApplication rdf:about="OneM2M">
      	<m3:hasContext rdf:resource="&m3;IoT"/>
@@ -2501,14 +2530,15 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
     <m3:M2MApplication rdf:about="Seydoux2015">
      	<m3:hasContext rdf:resource="&m3;IoT"/>
      	<m3:hasContext rdf:resource="&m3;BuildingAutomation"/>
-		<rdfs:label xml:lang="en">IoT-O ontology [Seydoux et al. ]</rdfs:label>
+		<rdfs:label xml:lang="en">IoT-O ontology, SAN (Semantic Actuator Network) ontology [Seydoux et al. ]</rdfs:label>
 		<rdfs:comment xml:lang="en">Paper: Semantique et Internet des Objets: d un etat de l art a une ontologie modulaire [Seydoux et al. 2015]</rdfs:comment>
-	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;OnlineLOV"/>
 	    <m3:hasM2MDevice rdf:resource="&m3;LightSensor"/>
 	    <m3:hasM2MDevice rdf:resource="&m3;Lamp"/>
 	    <m3:hasUrlOntology rdf:resource="http://www.irit.fr/recherches/MELODI/ontologies/IoT-O"/>
+	    <m3:hasUrlOntology rdf:resource="https://www.irit.fr/recherches/MELODI/ontologies/SAN"/>
 	    <m3:hasUrlDataset rdf:resource="http://www.irit.fr/recherches/MELODI/ontologies/IoT-O-InstSystemesBoucles.owl"/>
-	    <m3:hasUrlRule rdf:resource="http://www.irit.fr/recherches/MELODI/ontologies/IoT-O-InstSystemesBoucles.owl"/>	
+	    <m3:hasUrlRule rdf:resource="http://www.irit.fr/recherches/MELODI/ontologies/IoT-O-InstSystemesBoucles.owl"/>	   
     </m3:M2MApplication>
     
     <m3:M2MApplication rdf:about="Fed4FireMofi2015">
@@ -2756,6 +2786,15 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
     
     
     <!-- ################################################ SECURITY ONTOLOGIES ############################################## -->
+    
+    
+    <m3:M2MApplication rdf:about="Mozzaquatro2015">
+     	<m3:hasContext rdf:resource="&m3;Security"/>
+		<rdfs:label xml:lang="en">IoT Security Ontology</rdfs:label>
+		<rdfs:comment xml:lang="en">Paper: Towards a Reference Ontology for Security in the Internet of Things  [Mozzaquatro et al. 2015]</rdfs:comment>
+	    <lov4iot:hasOntologyStatus rdf:resource="&lov4iot;Online"/>
+	    <m3:hasUrlOntology rdf:resource="https://raw.githubusercontent.com/brunomozza/IoTSecurityOntology/master/iotsec.owl"/>
+    </m3:M2MApplication>  
     
      <m3:M2MApplication rdf:about="Gyrard2013">
      	<m3:hasContext rdf:resource="&m3;Security"/>

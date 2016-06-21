@@ -151,6 +151,7 @@ function displayGenericSparqlResult(oData, nameDiv, nameSubDiv) {
 	var result, binding, uri, msg ="", suggest_comment ="";
 	var ul = document.getElementById(nameDiv), li, li2;
 	var type = "", indexBegin, indexEnd;
+	
 
 	for(i = 0; i < results.length; i++)	{//all results only 1 tour
 		result = results[i].getElementsByTagName("result");
@@ -283,8 +284,9 @@ function generateIoTApplication(oData, nameDiv, nameSubDiv) {
 	var ul = document.getElementById(nameDiv), li;
 	var files = oData.split("@"); ;
 
-	resetElement(ul);//vider la liste existante
-	ifNoResultDisplayMsg(files, nameDiv);//si pas de result trouve// resultat rouge 
+	create_zip(files);
+	//resetElement(ul);//vider la liste existante
+	//ifNoResultDisplayMsg(files, nameDiv);//si pas de result trouve// resultat rouge 
 
 /*	for(i = 0; i < files.length-1; i++)	{
 		li = document.createElement(nameSubDiv);
@@ -293,7 +295,7 @@ function generateIoTApplication(oData, nameDiv, nameSubDiv) {
 
 	}*/	
 	
-	create_zip(files);
+	
 }
 
 //READ FILES (ONTOLOGIES, DATASETS, RULES, SPARQL)

@@ -156,6 +156,9 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
 }
 
 /**
+ * 
+ * Sensor-based Linked Open Rules (S-LOR)
+ * 
  * Get all rules associated to a specific sensor
  * Web service used in http://sensormeasurement.appspot.com/?p=swot_page
  * Web service used in http://sensormeasurement.appspot.com/?p=swot_template
