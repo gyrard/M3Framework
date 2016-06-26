@@ -66,7 +66,9 @@ import eurecom.sparql.result.VariableSparql;
  * 
  * Add web service format (xml or json) subclassOf web service and searchTemplate
  * @author Gyrard Amelie
- *
+ * 
+ * 
+ * June 2016: Semantic Annotation web services SHOULD ME MOVED TO SemanticAnnotatorWS.java
  */
 
 @Path("/m3")
@@ -79,6 +81,9 @@ public class M3WS {
 	 * @param urlSenml URI where you find senml sensor data (e.g., http://emulator-box-services.appspot.com/senml/zones/ahdzfmVtdWxhdG9yLWJveC1zZXJ2aWNlc3IWCxIJWm9uZUFkbWluIgd3ZWF0aGVyDA)
 	 * @param featureOfInterest to store in google datastore (Java Data Object - JDO)
 	 * @return RDF/XML sensor data according to the M3 ontology 
+	 * 
+	 * June 2016: SHOULD ME MOVED TO SemanticAnnotatorWS.java
+	 * modify html + doc then delete
 	 */
 	@GET
 	@Path("/convert/")
@@ -104,6 +109,9 @@ public class M3WS {
 	 * Used by home scenario
 	 * @param domain
 	 * @return
+	 * 
+	 * June 2016: SHOULD ME MOVED TO SemanticAnnotatorWS.java
+	 * modify html + doc then delete
 	 */
 	@GET
 	@Path("/convertGeneric/")

@@ -546,25 +546,31 @@ function displayResultRuleTemplate(oData, nameDiv, nameSubDiv) {
 	}
 }
 
-
+/*//used by SLOR
+//move to javascript/SLOR/slor.js
 function executeSwotAndRuleTemplateRfid(){
 	sendData(displayResultSwotTemplate,'/swot', document.getElementById('rfid').value, 'rfid_template', 'li');
 	sendData(displayResultRuleTemplate,'/swot/rule', document.getElementById('rfid').value, 'rfid_rule_template', 'li');
 }
 
+//used by SLOR
+//move to javascript/SLOR/slor.js
 function executeSwotAndRuleTemplateActuator(){
 	sendData(displayResultSwotTemplate,'/swot', document.getElementById('actuator').value, 'actuator_template', 'li');
 	sendData(displayResultRuleTemplate,'/swot/rule', document.getElementById('actuator').value, 'actuator_rule_template', 'li');
 }
 
+//used by SLOR
+//move to javascript/SLOR/slor.js
 function executeSwotAndRuleTemplateSensor(){
 	sendData(displayResultSwotTemplate,'/swot', document.getElementById('sensor').value, 'sensor_template', 'li');
 	sendData(displayResultRuleTemplate,'/swot/rule', document.getElementById('sensor').value, 'sensor_rule_template', 'li');
-}
+}*/
 
 //used by ontologies.html to show the m3 ontologies: sensors, domains, etc
 //used by swot template tool
 //used by security
+//used by SLOR
 function displayResultBindingSelect(oData, nameDiv, nameSubDiv) {
 	var racine = oData.documentElement;
 	var results = racine.getElementsByTagName("results");

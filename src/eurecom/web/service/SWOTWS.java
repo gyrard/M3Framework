@@ -141,11 +141,20 @@ public Response getSenmlTextAndConvert(@QueryParam(value = "data") String senmlD
 
 
 /**
- * Get all devices classified by domains
- * Web service used in http://sensormeasurement.appspot.com/?p=swot_page
- * @param m2mdevice referenced in the M3 nomenclature implemented in the M3 ontology
+ * Created: 2015 <br/><br/>
+ * 
+ * Sensor-based Linked Open Rules (S-LOR) tool <br/><br/>
+ * 
+ * Get all devices classified by domains <br/>
+ * Web service used in http://sensormeasurement.appspot.com/?p=swot_page <br/>
+ *
+ * @param m2mdevice referenced in the M3 nomenclature implemented in the M3 ontology<br/>
  * @return
+ * 
+ * TO DO: Web service should be move to SLORWS + modify demos + documentations SLOR <br/>
+ * Deprecated June 2016 <br/>
  */
+@Deprecated
 @GET
 @Path("/{m2mdevice}")
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -156,8 +165,9 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
 }
 
 /**
+ * Created: 2015
  * 
- * Sensor-based Linked Open Rules (S-LOR)
+ * Sensor-based Linked Open Rules (S-LOR) tool
  * 
  * Get all rules associated to a specific sensor
  * Web service used in http://sensormeasurement.appspot.com/?p=swot_page
@@ -165,6 +175,7 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
  * @param m2mdevice referenced in the M3 nomenclature implemented in the M3 ontology
  * @return
  */
+@Deprecated
 @GET
 @Path("/rule/{m2mdevice}")
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
