@@ -54,6 +54,8 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import eurecom.common.util.Var;
 import eurecom.store.jdo.GenericJDO;
 /**
+ * 
+ * Semantically annotate SenML/JSON data with RDF/XML compliant with the M3 ontology
  * Semantically annotate sensor data
  * Input: SenML sensor data (XML or JSON)
  * Output: Sensor data in Resource Description Framework (RDF) compatible with the M3 ontology
@@ -61,6 +63,9 @@ import eurecom.store.jdo.GenericJDO;
  * SenML: Media Types for Sensor Markup Language (SENML) [Jennings 2012]
  * @author Gyrard Amelie 
  * Last Updated: September 2014
+ * 
+ * TODO: Create a new package m3.semantic.annotator
+ * TODO: Move this file to the package m3.semantic.annotator
  */
 public class ConvertSensorDataToM3 {
 

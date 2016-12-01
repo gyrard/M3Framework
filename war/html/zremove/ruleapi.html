@@ -1,0 +1,106 @@
+<h1>Generate IoT applications to reason on sensor data <br/>(M3 framework APIs)</h1>
+<div class="hero-unit">
+
+
+
+
+<center><img src="./images/m3/UseCaseDiagramM3frameworkV2.jpg" width="400" height="400"/></center>
+
+<h3>STEP: Search IoT Application Template API</h3>
+	<ul>
+		<li>Input: sensor deployed (e.g., LightSensor) + context (e.g., Weather)</li>
+		<li>M3 proposes a list of IoT application templates. E.g.,:<br/>
+			1- Suggest safety devices in the smart car according to the weather measurements <br/>
+			2- Suggest activities for tourism according to the weather measurements <br/>
+			3- Suggest clothes for tourism according to the weather measurements <br/>
+		</li> 
+	</ul>
+	
+<h3>STEP: Choose IoT Application Template API</h3>
+	<ul>
+		<li>Choose an application template <br/>
+		E.g., 1- Suggest safety devices in the smart car according to the weather measurements</li>
+	</ul>
+	
+<h3>STEP: Generate IoT application template</h3>
+	<ul> 
+		<li>Input: Application wanted <br/>(E.g., 1- Suggest safety devices in the smart car according to the weather measurements)</li>
+		<li>Output: Generate a ZIP file the with the domain knowledge fitting your needs:
+		<ul>
+			<li>Ontologies</li>
+			<li>Datasets</li>
+			<li>Rules</li>
+			<li>Sparql query + variable</li>
+		</ul>
+		
+		</li>
+		<li>Current version - Download M3 ontologies and datasets fitting your needs:
+			<ul>
+				<li> M3 <a href="./m3">ontology</a></li>
+				<li> Naturopathy <a href="./naturopathy">ontology</a> & <a href="./dataset/naturopathy-dataset">dataset</a></li>
+				<li> Tourism <a href="./tourism">ontology</a> & <a href="./dataset/tourism-dataset">dataset</a></li>
+				<li> Weather <a href="./weather">ontology</a> & <a href="./dataset/weather-dataset">dataset</a> (ongoing)</li>
+				<li> Transport <a href="./transport">ontology</a> & <a href="./dataset/transport-dataset">dataset</a> (ongoing)</li>
+				<li> Emotion <a href="./emotion">ontology</a> & <a href="./dataset/emotion-dataset">dataset</a> (ongoing)</li>
+				<li> Health <a href="./health">ontology</a> & <a href="./dataset/health-dataset">dataset</a> (ongoing)</li>
+				<li> Home <a href="./home">ontology</a> & <a href="./dataset/home-dataset">dataset</a> (ongoing)</li>
+			</ul>
+</li>
+	</ul>
+
+
+
+<h3>STEP: Converting sensor data to ease the reasoning (M3 converter API)</h3>
+	<ul>
+	<li>Requirements:
+		<ul>
+			<li><a href="http://www.ietf.org/archive/id/draft-jennings-senml-10.txt">Sensor Markup Language (SENML)</a> documentation</li>
+			<li>Follow the M3 <a href="./publication/NomenclatureSensorData.pdf">Nomenclature sensor data </a> to describe sensor data in a unified way to ease the reasoning</li>
+		</ul>
+	</li>
+	<li>Input: SenML/XML or SenML/JSON sensor data</li>
+	<li>Convert sensor data:<br/>
+		<ul>
+			<li>Use web service <a href="./?p=senml_converter"> SenML to RDF converter </a></li>
+			<li>OR .jar Java library (ongoing)</li>
+	</ul>
+	<li>Output: Store the result in a file "M3_sensor_data.rdf"</li>
+</ul>
+
+
+<h3>STEP: Reasoning on sensor data (M3 Reasoning API)</h3>
+<ol>
+<li>Tutorial: <a href="https://jena.apache.org/tutorials/rdf_api.html">An Introduction to RDF and the Jena RDF API</a> <br/></li>
+<li>Storing RDF sensor data ("M3_sensor_data.rdf" file) in a Jena Model:<br/><br/>
+Model model = ModelFactory.createDefaultModel();<br/>
+InputStream in = new FileInputStream(PATH_FILE + "M3_sensor_data.rdf");<br/>
+model.read( in, fileURL );<br/>
+in.close();<br/>
+</li>
+<li>Tutorial: <a href="https://jena.apache.org/documentation/inference/">Reasoners and rule engines: Jena inference support</a> </li>
+<li>Download the files with rules: <a href="./RULES/LinkedOpenRules.txt" > Sensor-based Linked Open Rules (S-LOR)</a><br/> Syntax: Jena rules, fileName = "LinkedOpenRules.txt"</li>
+<li> Reasoning on sensor data:<br/>
+Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL(PATH_FILE + "LinkedOpenRules.txt"));// read rules<br/>
+reasoner.setDerivationLogging(true);<br/>
+InfModel infModel = ModelFactory.createInfModel(reasoner, model); //apply the reasoner<br/>
+// infModel model updated with sensor data inferred<br/>
+</li>
+</ol>
+
+
+<h3>STEP: Query sensor data inferred</h3>
+<ol>
+<li>Write and execute SPARQL query manually. <br/>E.g., <a href="./SPARQL/weatherTransportSafetyDevice.sparql">weatherTransportSafetyDevice.sparql</a></li>
+<li>OR SPARQL template API generated in the zip file (ongoing) </a></li>
+<li>Future version: ELDA API? </a></li>
+</ol>
+
+<h3>STEP: Parse sensor data API (ongoing)</h3>
+
+<h3>STEP: Display sensor data inferred the result API (ongoing)</h3>
+
+
+
+
+</div>
+

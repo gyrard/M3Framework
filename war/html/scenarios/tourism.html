@@ -1,0 +1,112 @@
+<h1>Tourism (Weather & Emotion & Activity & Transport)</h1>
+
+<div class="hero-unit">
+Please do not forget to cite our work: 
+<br/><a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6803229&queryText%3DEnrich+Machine-to-Machine+Data+with+Semantic+Web+Technologies+for+Cross-Domain+Applications">
+Enrich machine-to-machine data with semantic web technologies for cross-domain applications [Gyrard et al., WF-IOT 2014]</a>
+<h3>Suggesting activities according to the weather</h3>
+	<p> <ol>
+	<!--  
+			<li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate Weather measurements</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert weather Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert weather measurements" onclick='requestText(alert, "/tourism/convert_tourism", "res_convert");'/>
+				<div id="res_convert"></div>
+		
+			</li>
+			-->
+
+				<li> This scenario is based on: <a href="../dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf">M3 RDF sensor data</a></li>
+				<li>We deduce the weather outside.</li>
+				<li>We propose activities according to the weather. </li>
+				<li>M2M Application (Temperature => weather => Activity):
+					<input type="button" class="btn" value="Activity & Temperature" onclick='sendData(displayGenericSparqlResult, "tourism/activity_weather", "WeatherTemperature", "weatherActivity", "li");'/>
+				</li>
+				<li>M2M Application (Luminosity => weather => Activity):
+					<input type="button" class="btn" value="Activity & Luminosity" onclick='sendData(displayGenericSparqlResult, "tourism/activity_weather", "WeatherLuminosity", "weatherActivity", "li");'/>
+				</li>
+				<li>M2M Application (Precipitation => weather => Activity):
+					<input type="button" class="btn" value="Activity & Precipitation" onclick='sendData(displayGenericSparqlResult, "tourism/activity_weather", "Precipitation", "weatherActivity", "li");'/>
+				</li>
+				<li>M2M Application (Wind speed => weather => Activity):
+					<input type="button" class="btn" value="Activity & Wind Speed" onclick='sendData(displayGenericSparqlResult, "tourism/activity_weather", "WindSpeed", "weatherActivity", "li");'/>
+				</li>	
+		</ol> 
+
+	</p> 
+		<div id="weatherActivity"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Suggesting clothes according to the weather</h3>
+	<p> <ol>
+		<!-- 
+			<li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate Weather measurements</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert weather Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert weather measurements" onclick='requestText(alert, "/tourism/convert_tourism", "res_convert");'/>
+				<div id="res_convert"></div>
+		
+			</li>
+			-->
+				<li> This scenario is based on: <a href="../dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf">M3 RDF sensor data</a></li>
+				<li>We deduce the weather outside.</li>
+				<li>We propose clothes according to the weather. </li>
+				<li>M2M Application (Temperature => weather => Clothes):
+					<input type="button" class="btn" value="Clothes & Temperature" onclick='sendData(displayGenericSparqlResult, "tourism/clothes_weather", "WeatherTemperature", "clothesWeather", "li");'/>
+				</li>
+				<li>M2M Application (Luminosity => weather => Clothes):
+					<input type="button" class="btn" value="Clothes & Luminosity" onclick='sendData(displayGenericSparqlResult, "tourism/clothes_weather", "WeatherLuminosity", "clothesWeather", "li");'/>
+				</li>
+				<li>M2M Application (Precipitation => weather => Clothes):
+					<input type="button" class="btn" value="Clothes & Precipitation" onclick='sendData(displayGenericSparqlResult, "tourism/clothes_weather", "Precipitation", "clothesWeather", "li");'/>
+				</li>
+				<li>M2M Application (Wind speed => weather => Clothes):
+					<input type="button" class="btn" value="Clothes & Wind Speed" onclick='sendData(displayGenericSparqlResult, "tourism/clothes_weather", "WindSpeed", "clothesWeather", "li");'/>
+				</li>	
+		</ol> 
+
+	</p> 
+		<div id="clothesWeather"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Suggesting garments when it is snowy</h3>
+	<p> <ol>
+
+				<li> This scenario is based on: <a href="../dataset/sensor_data/snow_dataset.rdf">M3 RDF sensor data</a> (temperature + precipitation)</li>
+				<li>We deduce SNOW.</li>
+				<li>We propose safety devices or actions according to snow. </li>
+				<li>M2M Application (Temperature + precipitation => snow => Garments):
+					<input type="button" class="btn" value="Snow => Garments" onclick='sendData(displayGenericSparqlResult, "tourism/snowGarment", "", "snowGarment", "li");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="snowGarment"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Suggesting activities when it is snowy</h3>
+	<p> <ol>
+
+				<li> This scenario is based on: <a href="../dataset/sensor_data/snow_dataset.rdf">M3 RDF sensor data</a> (temperature + precipitation)</li>
+				<li>We deduce SNOW.</li>
+				<li>We propose safety devices or actions according to snow. </li>
+				<li>M2M Application (Temperature + precipitation => snow => Activities):
+					<input type="button" class="btn" value="Snow => Activities" onclick='sendData(displayGenericSparqlResult, "tourism/snowActivity", "", "snowActivity", "li");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="snowActivity"></div>
+</div>
+
+
+
+
+

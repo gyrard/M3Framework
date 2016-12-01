@@ -1,0 +1,67 @@
+<h1><img src="images/scenario/restaurant.png" alt="">Scenario: Restaurant</h1>
+
+<div class="hero-unit">
+<h3>Suggest a restaurant according to your location (longitude and latitude)</h3>
+<p> <img src="images/scenario/restoScenario.jpg" alt="" width="600" height="400"/></p>
+	<p> <ol>
+			<li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate location measurements: Latitude (37.323), Longitude (-122.03218)</a>
+			</li>
+<li>M2M Aggregation Gateway (Convert Location Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert into semantic location measurements" onclick='requestText(alert, "/restaurant/convert", "res_convert");'/>
+				<div id="res_convert"></div>
+
+			</li>
+
+			<li>Link semantic location measurements to the <a href="http://www.geonames.org/"><img src="images/scenario/geonames.png" alt="geonames" width="100" height="50"/></a> dataset</li>
+ <li>Link semantic location measurements to the <a href="https://files.ifi.uzh.ch/ddis/oldweb/ddis/fileadmin/ont/nli/restaurant.owl">restaurant</a> dataset</li>
+    
+
+ 			<li>M2M application: Suggest a restaurant. (Wait 10 seconds!)
+				<ul id="resto">
+				<div id="map"></div>
+			</li>
+
+		</ol> 
+	</p> 
+</div>
+
+
+				<script type="text/javascript">
+var myMap;
+$.getScript('javascript/restaurant.js',function(){
+				//request(resultSearchRestaurant, "/restaurant/resto", "resto");
+				
+				request(showRestaurantOnMap,"/restaurant/resto", "resto");
+//});	
+//$.getScript('http://maps.google.com/maps/api/js?sensor=false',function(){
+				// Afficher la carte
+				// position de paris
+	var myLatlng = new google.maps.LatLng(48.856809, 2.3493);
+	// On centre la carte sur la position actuelle de l'utilisateur
+	/*
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+			function (position) {
+				myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			}
+		);
+	}//*/
+		 
+	// Carte centrée sur myLatLng, zoom 12
+	var myMapOptions = {
+		zoom: 12,
+		center: myLatlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	
+	// Création de la carte
+	var myMap = new google.maps.Map(
+		document.getElementById('map'),
+		myMapOptions
+	);
+	
+});			
+		</script>
+

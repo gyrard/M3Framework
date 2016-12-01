@@ -197,7 +197,7 @@ public class Var {
 	public static String SPARQL_QUERY_GET_ALL_DOMAIN_TEMPLATE_DATASET = "./SPARQL/template/getAllDomainFromTemplateDataset.sparql";
 	public static String SPARQL_QUERY_RECIPE_FAT_FREE = ROOT_SPARQL_HEALTH + "GetRecipeFatFree.sparql";
 	public static String SPARQL_QUERY_SWOT_TEMPLATE = ROOT_SPARQL + "swot_template.sparql";
-	public static String SPARQL_QUERY_SWOT_TEMPLATE_RULE = ROOT_SPARQL + "swot_template_rule.sparql";
+	public static String SPARQL_QUERY_SWOT_TEMPLATE_RULE = ROOT_SPARQL + "slor/swot_template_rule.sparql";
 	public static String SPARQL_QUERY_M3_HUB = ROOT_SPARQL + "m3Hub.sparql";
 
 	// NATUROPATHY SCENARIO **/

@@ -96,11 +96,16 @@ public class LOV4IoTWS {
 	
 	
 	/**
-	 * Execute a SPARQL query to count the different status of ontologies 
-	 * Last updated February 2nd 2015
-	 * @param 
-	 * @return the number of ontologies referenced in the LOV4IoT RDF dataset according to their status
+	 * Execute a SPARQL query to count the different status of ontologies <br/>
+	 * 
 	 * E.g., http://sensormeasurement.appspot.com/lov4iot/ontoStatus/?status=Online
+	 * 
+	 * 
+	 * @param 
+	 * @return the number of ontologies referenced in the LOV4IoT RDF dataset according to their status <br/>
+	 * <br/>
+	 * Last updated February 2015 <br/>
+	 * 
 	 */
 	@GET
 	@Path("/ontoStatus/")

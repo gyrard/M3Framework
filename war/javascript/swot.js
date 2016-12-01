@@ -689,7 +689,7 @@ function callWebServiceInstance(url, data, elem, subElem) {
 
 /***************************************** BEGIN SENML ************************************************************************/
 
-// sensor data are froma an url
+// sensor data are from an url
 function convertSenMLToRDF(){
 	var url = document.getElementById('url').value;
 	requestText(displaySenmlConvertToRDF, "/swot/convert_senml_to_rdf/"+ encodeURIComponent(url), "res_convert");

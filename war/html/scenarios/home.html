@@ -1,0 +1,64 @@
+<h1><img src="images/scenario/home.png" alt="">Home</h1>
+<div class="hero-unit">
+
+<h3>Temperature</h3>
+	<p> <ol>
+			<li>
+				Sensor measurements: <a href="./dataset/sensor_data/senml_m3_home_data.rdf">M3 RDF HOME DATA</a>
+			</li>
+			<!--  <li>M2M Aggregation Gateway (Convert Home Measurements into Semantic Data):
+				
+				<input type="button" class="btn" value="Convert home measurements" onclick='requestText(alert, "/m3/convertGeneric/?domain=BuildingAutomation", "res_convert");'/>
+				<div id="res_convert"></div>
+			</li>
+			 -->
+				<li>We deduce that the temperature corresponds to the room temperature.  </li>
+				<li>We deduce that the temperature value is normal or not</li>
+				<li> M2M Application: Temperature => RoomTemperature => NormalTemperature or not:
+				<input type="button" class="btn" value="Interpret temperature values" onclick='request(displayGenericSparqlResult, "m3/iotAppli/?measurementName=RoomTemperature", "temperature");'/>
+				
+			</li>
+		</ol> 
+	</p> 
+<div id="temperature"></div>
+
+
+<h3>Sound</h3>
+	<p> <ol>
+			<li>
+				Sensor measurements: <a href="./dataset/sensor_data/senml_m3_home_data.rdf">M3 RDF HOME DATA</a>
+			</li>
+			<!--  <li>M2M Aggregation Gateway (Convert Home Measurements into Semantic Data):
+				
+				<input type="button" class="btn" value="Convert home measurements" onclick='requestText(alert, "/m3/convertGeneric/?domain=BuildingAutomation", "res_convert");'/>
+				<div id="res_convert"></div>
+			</li>
+			 -->
+				<li>We deduce that the sound value is normal or not</li>
+				<li> M2M Application:
+				<input type="button" class="btn" value="Interpret sound values" onclick='request(displayGenericSparqlResult, "m3/iotAppli/?measurementName=Sound", "sound");'/>
+				
+			</li>
+		</ol> 
+	</p> 
+<div id="sound"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Deduce nobody in the room: switch off light</h3>
+	<p> <ol>
+
+				<li> This scenario is based on these <a href="../dataset/sensor_data/presenceLight.rdf">M3 RDF sensor data</a> (presence + light)</li>
+				<li>We deduce NobodyInTheRoom.</li>
+				<li>We propose switch off light since nobody is in the room. </li>
+				<li>M2M Application (presence + light => Nobody => SwitchOffLight):
+					<input type="button" class="btn" value="Nobody => SwitchOffLight" onclick='sendData(displayGenericSparqlResult, "m3/presenceLight", "", "presenceLight", "li");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="presenceLight"></div>
+</div>
+
+
+

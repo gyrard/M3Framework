@@ -39,9 +39,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import m3.knowledge.lov4iot.LOV4IoT_SearchProject;
+import m3.reasoning.slor.SLOR_SearchRule;
 import eurecom.common.util.Var;
-import eurecom.search.knowledge.SearchProject;
-import eurecom.search.knowledge.SearchRule;
 
 
 /**
@@ -98,7 +98,10 @@ Logger logger = Logger.getLogger("Web service");
 @Produces(MediaType.APPLICATION_XML)
 public static String getRulesSpecificToSensor(@PathParam("device") String device) {
 	try{
-		SearchRule rule = new SearchRule(Var.LOV4IOT_DATASET_PATH, Var.SPARQL_QUERY_SWOT_TEMPLATE_RULE, Var.RULE_DATASET_PATH);
+		SLOR_SearchRule rule = new SLOR_SearchRule(
+				Var.LOV4IOT_DATASET_PATH, 
+				Var.SPARQL_QUERY_SWOT_TEMPLATE_RULE, 
+				Var.RULE_DATASET_PATH);
 		return rule.getRuleSpecificToSensor(device);
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -128,7 +131,7 @@ public static String getRulesSpecificToSensor(@PathParam("device") String device
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 @Produces(MediaType.APPLICATION_XML)
 public static String getProjectsSpecificToSensor(@PathParam("device") String device) {
-	SearchProject project = new SearchProject(
+	LOV4IoT_SearchProject project = new LOV4IoT_SearchProject(
 			Var.LOV4IOT_DATASET_PATH, 
 			m3_onto, 
 			sparql_query, 

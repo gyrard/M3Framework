@@ -36,6 +36,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Object to represent the sensor measurements after the reasoning
  * @author Amelie Gyrard
+ * 
+ * Used by M3WS.java and SemanticAnnotatorWS.java
  *
  */
 @XmlRootElement(name = "experiment")

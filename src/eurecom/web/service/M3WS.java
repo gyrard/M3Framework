@@ -140,6 +140,12 @@ public class M3WS {
 	 * Interpret the sound value http://sensormeasurement.appspot.com/m3/iotAppli?measurementName=Sound
 	 * Used by home scenario
 	 * @return the interpretation of sensor measurement values
+	 * 
+	 * July 2016: Used by home scenario (home.html)
+	 * Used by experiment end to end scenario within FIESTA-IoT
+	 * 
+	 * Think about refactoring ScenarioWS.java and move it there?
+	 * 
 	 */
 	@GET
 	@Path("/iotAppli/")

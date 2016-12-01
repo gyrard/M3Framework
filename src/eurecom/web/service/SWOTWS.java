@@ -45,6 +45,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBException;
 
+import m3.knowledge.lov4iot.LOV4IoT_SearchProject;
+import m3.reasoning.slor.SLOR_SearchRule;
+
 import org.json.JSONException;
 
 import com.hp.hpl.jena.rdf.model.Model;
@@ -53,8 +56,6 @@ import eurecom.common.util.ReadFile;
 import eurecom.common.util.Var;
 import eurecom.constrained.devices.ConvertRaspberrySensorData;
 import eurecom.data.converter.ConvertSensorDataToM3;
-import eurecom.search.knowledge.SearchProject;
-import eurecom.search.knowledge.SearchRule;
 
 
 /**
@@ -160,11 +161,13 @@ public Response getSenmlTextAndConvert(@QueryParam(value = "data") String senmlD
 @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 @Produces(MediaType.APPLICATION_XML)
 public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String m2mdevice) {
-	SearchProject project = new SearchProject(Var.LOV4IOT_DATASET_PATH, m3_onto, sparql_query, stac_onto, stac_dataset);
+	LOV4IoT_SearchProject project = new LOV4IoT_SearchProject(Var.LOV4IOT_DATASET_PATH, m3_onto, sparql_query, stac_onto, stac_dataset);
 	return project.getProjectSpecificToSensor(m2mdevice);
 }
 
 /**
+ * Deprecated, htthis web service has been moved to http://sensormeasurement.appspot.com/slor/rule/BodyThermometer
+ * 
  * Created: 2015
  * 
  * Sensor-based Linked Open Rules (S-LOR) tool
@@ -174,6 +177,10 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
  * Web service used in http://sensormeasurement.appspot.com/?p=swot_template
  * @param m2mdevice referenced in the M3 nomenclature implemented in the M3 ontology
  * @return
+ * 
+ * TO DO should be removed? August 2016
+ * check .html using this web service?
+ * should be refactor and use slor/ web services SLORWS.java
  */
 @Deprecated
 @GET
@@ -182,7 +189,7 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
 @Produces(MediaType.APPLICATION_XML)
 public static String getRulesSpecificToSensor(@PathParam("m2mdevice") String m2mdevice) {
 	try{
-		SearchRule rule = new SearchRule(Var.LOV4IOT_DATASET_PATH, Var.SPARQL_QUERY_SWOT_TEMPLATE_RULE, Var.RULE_DATASET_PATH);
+		SLOR_SearchRule rule = new SLOR_SearchRule(Var.LOV4IOT_DATASET_PATH, Var.SPARQL_QUERY_SWOT_TEMPLATE_RULE, Var.RULE_DATASET_PATH);
 		return rule.getRuleSpecificToSensor(m2mdevice);
 	} catch (Exception e) {
 		e.printStackTrace();

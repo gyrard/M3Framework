@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>M3 (Machine-to-Machine Measurement)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/home.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/senml.js"></script>
+<script type="text/javascript" src="javascript/health.js"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor=#AAEFC8>   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/home.png" width="100" height="80" >Home
+		
+		<img src="images/home.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+<article>
+
+
+<article>
+ <fieldset>
+   <legend>M2M Aggregation Gateway: Convert Home Measurements into Semantic Data</legend> 
+		
+		<a href="http://emulator-box-services.appspot.com/senmladmin/zones"> SenML sensor measurements </a>
+		<br/><br/>
+		
+		<input type="button" value="Convert home measurements" onclick='requestText(alert, "home/convert", "res_convert");'/>
+		<div id="res_convert"></div>
+		
+		
+		<br/>Humidity Measurements:	
+		<ul id="humidity"></ul>	
+		
+		<br/>Light Measurements:
+		<ul id="light"></ul>	
+
+<script type="text/javascript">
+request(readSenml, "home/humidity", "humidity");
+request(readSenml, "home/light", "light");
+</script>
+		
+Mouvement
+ </fieldset>
+</article>
+
+</body>
+</html>

@@ -49,9 +49,13 @@ import eurecom.common.util.Var;
 import eurecom.data.converter.ConvertSensorDataToM3;
 
 /**
- * Enrich SenML/json data with semantics
+ *
+ * Semantically annotate SenML/JSON data with RDF/XML compliant with the M3 ontology
  * Sensor data are provided by the raspberry pi - WLBOX
  * @author Amelie gyrard
+ * 
+ * TODO: Create a new package m3.semantic.annotator
+ * TODO: Move this file to the package m3.semantic.annotator
  *
  */
 public class ConvertRaspberrySensorData {
@@ -77,6 +81,9 @@ public class ConvertRaspberrySensorData {
 			// looping through the entire m2m device configurations
 			for (int i = 0; i < raw_data.length(); i++) {
 				JSONObject c = raw_data.getJSONObject(i);
+				//JSONObject body = c.getJSONObject("body");
+				//[] json array
+				//{} json object
 
 				// get type sensor measurement
 				resourceMeasurement.addProperty(hasName, ResourceFactory.createTypedLiteral(c.getString("s_typemeasurement"), XSDDatatype.XSDstring)); 

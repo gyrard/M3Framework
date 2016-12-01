@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>M3 (Machine-to-Machine Measurement)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/resto.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/senml.js"></script>
+<script type="text/javascript" src="javascript/restaurant.js"></script>
+<script src="javascript/location.js"> </script> 
+  
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor=FEC158>   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/resto.png" width="100" height="80" >Restaurant
+		
+		<img src="images/resto.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+
+<article>
+<fieldset>
+   <legend>M2M Aggregation Gateway: Convert Location Measurements into Semantic Data</legend> 
+   
+   <a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate location measurements</a>
+   
+		<br/><br/><input type="button" value="Convert into semantic location measurements" onclick='requestText(alert, "restaurant/convert", "res_convert");'/>
+		<div id="res_convert"></div>
+		
+		<br/><input type="button" value="Display semantic location measurements" onclick='request(readSenml, "restaurant/measurement", "loc_value");'/>	
+		<ul id="loc_value"></ul>			
+</fieldset>
+</article>
+
+
+<article>
+ <fieldset>
+   <legend>M2M application: link to geonames and restaurant ontologies</legend> 
+   
+   
+
+<!-- Link my semantic location measurements to the Linked Open Data.
+
+		<select id="geonames">
+				<script type="text/javascript">
+				request(readSenml, "restaurant/geonames", "geonames", "option");		
+		</script>
+		</select>
+
+-->
+
+   Link my semantic location measurements to restaurants.
+
+		<ul id="resto">
+				<script type="text/javascript">
+				request(resultSearchRestaurant, "restaurant/resto", "resto");		
+		</script>
+		</ul>		
+
+</fieldset>
+</article>
+
+<!--
+
+<article> 
+   <fieldset>
+       <legend>Search nearby restaurants </legend> 
+       
+       	City:
+		<select id="city">
+		<script type="text/javascript">
+		request(getCityFoodTypeRating, "restaurant/city", "city");
+		</script>
+		</select>
+		
+		<br/><br/>Food type:
+		<select id="foodType">
+		<script type="text/javascript">
+		request(getCityFoodTypeRating, "restaurant/foodType", "foodType");
+		</script>
+		</select>
+		
+		<br/><br/>Rating:
+		<select id="rating">
+		<script type="text/javascript">
+		request(getCityFoodTypeRating, "restaurant/rating", "rating");
+		</script>
+		
+		</select><br/>
+
+  	<br/>	
+  	<form method="post" name="ajax" action="">
+		<input type="button" value="Search restaurant" onclick="executeRestaurant('restaurant/search', document.getElementById('foodType').value, document.getElementById('city').value, document.getElementById('rating').value,'result_resto')"/>
+  		<ul id="result_resto"> 
+    </form>
+    
+  
+   </fieldset>
+ </article>
+ 
+ <article> 
+ <fieldset>
+ <legend>Search my location</legend>
+    
+    <div id="coords">
+		<button onclick="getCoordPosition();">Get coordinates</button>
+		<div id="geolocation"></div>
+	</div>
+	<div id="map">
+		<button id="see_position" onclick="showGoogleMap();">Position with Google Map</button>
+		<div id="contentMap" style="height: 280px"></div>
+	</div>	
+	    
+ </fieldset>
+ </article>
+
+-->
+
+</body>
+</html>

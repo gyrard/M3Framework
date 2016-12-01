@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>STAC (Security Toolbox: Attacks & Countermeasures)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta description="" />
+
+<link rel="icon" href="images/gift/gift.png" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/menuHorizontal.css" type="text/css" />
+<script type="text/javascript" src="javascript/menuRecommendation.js"> </script> 
+<script type="text/javascript" src="javascript/commonSendReadAjax.js"></script>
+<script type="text/javascript" src="javascript/senml.js"></script>
+<script type="text/javascript" src="javascript/health.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body bgcolor="#B0E3E5">   
+
+<header>
+	<h1> 
+		<p class="centre"><img src="images/security/tutorial.png" width="100" height="80" >SPARQL endpoint
+		
+		<img src="images/security/tutorial.png" width="100" height="80" ></p>
+	</h1>
+	<h3></h3>
+</header>
+
+
+<article>
+ <fieldset>
+   <legend>SPARQL endpoint</legend> 
+
+Sparql request:<br/>
+  <textarea rows=5 cols=100 id="sparql">
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> select distinct ?subject ?label ?comment where{
+ ?subject rdfs:subClassOf ?class .
+ ?subject rdfs:label ?label.
+  ?subject rdfs:comment ?comment.
+ }
+	</textarea>
+	<br/><br/>
+	<button onclick='executeSparqlEndpoint("sparql/endpoint", document.getElementById("sparql").value,"result");'> Submit</button>
+	<br/><br/>
+	Sparql result:<br/>
+	<textarea rows=10 cols=100 id="result">
+	
+	</textarea>
+	
+	<!--  fonctionne <button onclick='executeSparqlEndpoint("sparql/endpoint", document.getElementById("sparql").value,"result");'> Submit</button>  -->
+	
+</article>
+
+</body>
+</html>

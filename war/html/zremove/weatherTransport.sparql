@@ -1,0 +1,38 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX transport: <http://sensormeasurement.appspot.com/transport#>
+
+SELECT DISTINCT ?value ?typeLabel  ?unit  ?weather ?thing ?thing2 WHERE{
+
+	{
+		?measurement m3:hasName ?name.
+		?measurement m3:hasValue ?value.
+		?measurement m3:hasDateTimeValue ?time.
+		?measurement m3:hasUnit ?unit.
+		?measurement rdf:type ?typeUri.
+		OPTIONAL { ?typeUri rdfs:label ?typeLabel.}
+		
+		?measurement transport:hasWeather ?weatherID .
+		?weatherID rdf:type transport:WheaterCondition.
+		?weatherID rdfs:label ?weather.
+		?weatherID transport:putOn ?thingID.
+		?thingID rdfs:label ?thing.
+	}
+	UNION
+	{
+		?measurement m3:hasName ?name.
+		?measurement m3:hasValue ?value.
+		?measurement m3:hasDateTimeValue ?time.
+		?measurement m3:hasUnit ?unit.
+		?measurement rdf:type ?typeUri.
+		OPTIONAL { ?typeUri rdfs:label ?typeLabel.}
+		
+		?measurement transport:hasWeather ?weatherID .
+		?weatherID rdf:type transport:WheaterCondition.
+		?weatherID rdfs:label ?weather.
+		?weatherID transport:put ?thingID.
+		?thingID rdfs:label ?thing.
+	}
+
+}

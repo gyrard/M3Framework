@@ -1,0 +1,83 @@
+<h1>Transport (Weather & Safety devices & Driver's state)</h1>
+
+<div class="hero-unit">
+Please do not forget to cite our work: 
+<br/><a href="http://www.eurecom.fr/en/people/gyrard-amelie/publications">
+Standardizing generic cross-domain applications in Internet of Things [Gyrard et al. 2014]</a>
+
+<h3>Suggesting safety devices in the smart car according to the weather</h3>
+	<p> <ol>
+	<!--  
+			<li>SenML API (Simulate M2M measurements):
+				<a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate weather measurements</a>
+			</li>
+			<li>M2M Aggregation Gateway (Convert transport Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert weather measurements" onclick='requestText(alert, "/transport/convert_transport", "res_convert");'/>
+				<div id="res_convert"></div>
+		
+			</li>
+			-->
+
+				<li> This scenario is based on: <a href="../dataset/sensor_data/weatherData_8KB_17Septembre2014.rdf">M3 RDF sensor data</a></li>
+				<li>We deduce the weather outside.</li>
+				<li>We propose safety devices according to the weather. </li>
+				<li>M2M Application (Temperature => weather => Safety devices):
+					<input type="button" class="btn" value="Safety devices & Temperature" onclick='sendData(displayGenericSparqlResult, "transport/safety_device_weather", "WeatherTemperature", "weatherActivity", "li");'/>
+				</li>
+				<li>M2M Application (Luminosity => weather => Safety devices):
+					<input type="button" class="btn" value="Safety devices & Luminosity" onclick='sendData(displayGenericSparqlResult, "transport/safety_device_weather", "WeatherLuminosity", "weatherActivity", "li");'/>
+				</li>
+				<li>M2M Application (Precipitation => weather => Safety devices):
+					<input type="button" class="btn" value="Safety devices & Precipitation" onclick='sendData(displayGenericSparqlResult, "transport/safety_device_weather", "Precipitation", "weatherActivity", "li");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="weatherActivity"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Suggesting safety devices in the smart car when it is snowy</h3>
+	<p> <ol>
+
+				<li> This scenario is based on: <a href="../dataset/sensor_data/snow_dataset.rdf">M3 RDF sensor data</a> (temperature + precipitation)</li>
+				<li>We deduce SNOW.</li>
+				<li>We propose safety devices or actions according to snow. </li>
+				<li>M2M Application (Temperature + precipitation => snow => Safety devices or actions):
+					<input type="button" class="btn" value="Snow => Safety devices or Actions" onclick='sendData(displayGenericSparqlResult, "transport/snow", "", "snow", "li");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="snow"></div>
+</div>
+
+<div class="hero-unit">
+<h3>Deducing driver's state</h3>
+	<p> <ol>
+			<!--  <li>SenML API (Simulate M2M measurements): <a href="http://emulator-box-services.appspot.com/senmladmin/zones">Simulate Health measurements</a>	</li>-->
+			<li>This scenario is based on: <a href="./dataset/sensor_data/senml_m3_health_data.rdf">M3 RDF health data</a>
+			<!--<li>M2M Aggregation Gateway (Convert transport Measurements into Semantic Data):
+				</br>
+				<input type="button" class="btn" value="Convert health measurements" onclick='requestText(alert, "/transport/convert_transport", "res_convert");'/>
+				<div id="res_convert"></div>
+		
+			</li>
+			-->
+
+				<li>We deduce the state of the person.</li>
+				<li>We propose behavior according to the state of the person. </li>
+				<li>M2M Application (Skin Conductance => Driver's state):
+					<input type="button" class="btn" value="State & Behavior" onclick='sendData(displayGenericSparqlResult, "transport/driver_state", "SkinConductance", "driverState", "li");'/>
+				</li>
+		</ol> 
+
+	</p> 
+		<div id="driverState"></div>
+</div>
+
+
+
+
+
