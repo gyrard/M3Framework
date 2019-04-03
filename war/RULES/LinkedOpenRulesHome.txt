@@ -6,13 +6,34 @@
 @prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
 
 ################################################################ LINKED OPEN RULES - HOME ######################################################################
-# Last update: 9 September 2014
+# Last updated:
+- May 2018
+  Minor typos 
+
+- January 2017
+
+
+# Created: 9 September 2014
 # Creator: Gyrard
 # Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
 #  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
 #		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
 
-# Number of rules = 17 rules
+# Number of rules = 18 rules
+
+################################################################ IMPROVEMENTS TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 converter
+
+# ADD (?measurement m3:hasUnit m3:Decibel) for m3:Sound
+# ADD (?measurement m3:hasUnit m3:Lux) for m3:Luminosity
+# ADD (?measurement m3:hasUnit m3:DegreeCelsius) for m3:Temperature
+
+# Last Updated: 22 January 2017
+# IMPLEMENTATION MISTAKE
+# ?measurement rdf:type home-dataset:LowTemperature is an implementation mistake
+# rdf:type should be replaced  by something like m3:isRelatedTo
+# ?measurement m3:isRelatedTo home-dataset:LowTemperature
 
 ################################################################ GNU License ######################################################################
 #
@@ -45,14 +66,6 @@
 #  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
 
-
-################################################################ TO DO ######################################################################
-# FUTURE VERSIONS, TO DO: handle units too  
-# check with M3 converter
-
-# ADD (?measurement m3:hasUnit m3:Decibel) for m3:Sound
-# ADD (?measurement m3:hasUnit m3:Lux) for m3:Luminosity
-# ADD (?measurement m3:hasUnit m3:DegreeCelsius) for m3:Temperature
 
 ################################################################ LUMINOSITY RULES ######################################################################
 # Paper: A fuzzy ontology for semantic modelling and recognition of human behavior [Rodriguez 2014]
@@ -120,7 +133,7 @@
 			  (?measurement rdf:type home-dataset:LowSound)
 ]
 
-################################################################ TEMPERATURE ######################################################################
+################################################################ INSIDE TEMPERATURE ######################################################################
 
 # Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
 # Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
@@ -165,6 +178,21 @@
               ->  
               (?measurement rdf:type home-dataset:RoomTemperature)          
 ]
+
+# ?measurement rdf:type home-dataset:LowTemperature is an implementation mistake
+# should be replaced  by something like
+# ?measurement m3:isRelatedTo home-dataset:LowTemperature
+#for pankesh scenario
+[LowTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,25)  
+              ->  
+              (?measurement rdf:type home-dataset:LowTemperature)         
+              (?measurement m3:isRelatedTo home-dataset:LowTemperature)          
+]
+#              
 
 # Rule: IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature
 [BelowOrZeroTemperature: 

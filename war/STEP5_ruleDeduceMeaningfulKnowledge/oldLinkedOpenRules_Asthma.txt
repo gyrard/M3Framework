@@ -1,0 +1,216 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+
+################################################################ January 2019 - Heat, Humidity, and Asthma Symptoms 2012 ######################################################################
+# Web site Source: https://www.everydayhealth.com/asthma/heat-humidity-and-asthma-symptoms.aspx
+# American Journal of Respiratory and Critical Care Medicine
+# Room temperature of about 71 degrees Fahrenheit ditd not trigger asthma symptoms,
+#but breating in super-hot air at 120 degrees Fahrenheit fid.
+# heat stress affects the phisiology of our airways and leads to an asthma reaction
+
+# when yopu have an increase in humidity, the humidity itself can trigger asthma - Susan Laubach Associate physician at the ALlergy and Asthma Medical Group and Research Center in San Diego
+
+# int he summer, we seen an increase in mold.
+
+# State of the Air app from the American Lung Association
+
+# swimming is a recommended exercice for asthmatics
+
+# sometimes chlorine triggers symptoms
+
+#set you rindoor humidity to 50 percent or lower to cut down on dust mites, lod and humitidy allergens that grow in warm, moist environments.
+ 
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ LINKED OPEN RULES ASTHMA ######################################################################
+# Updated JUNE 2018: m3:AirQualityIndex replaced by kao:OutdoorAirQualityIndex
+# Updated JUNE 2018: environment-onto:VeryUnhealthyQualityIndexUS by kao:VeryUnhealthyQualityIndexUS same for all rules of this type
+# Last updated: May 2018
+# Created: April 2018
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# Extension for Healthcare
+# Number of rules =  rules
+
+#April, May 2018
+#- add rules for PeakFLow
+#- air quality rules US
+#- pollen level
+#- outdoor temperature
+#- outdoor humidity
+#- inside temperature
+#- heart beat
+
+#TO DO:
+#- find rules onitric oxide NO
+#- find rules carborn oxide CO
+#- indoor humidity
+
+# Last updated: May 2018
+# Created: April 2018
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# Extension for Healthcare
+# Number of rules =  rules
+
+# April, May 2018
+#- add rules for PeakFLow
+#- air quality rules US
+#- pollen level
+#- outdoor temperature
+#- outdoor humidity
+#- inside temperature
+#- heart beat
+
+#TO DO:
+#- find rules onitric oxide NO
+#- find rules carborn oxide CO
+#- indoor humidity
+
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 semantic annotator
+
+
+
+
+################################################################ AIR QUALITY RULES US ######################################################################
+# check dedicated file
+
+
+################################################################ PEAK FLOW METER RULES ######################################################################
+# check dedicated file
+
+################################################################ OUTDOOR TEMPERATURE ######################################################################
+[Frosty: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type weather-onto:Frosty)
+]
+
+[Cold: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,10)
+               ->
+              (?measurement rdf:type weather-onto:Cold)
+]
+
+################################################################ INDOOR HUMIDITY ######################################################################
+# TO DO
+
+
+################################################################ OUTSIDE HUMIDITY RULES ######################################################################
+# DEDICATED FILE
+
+
+################################################################ POLLEN LEVEL RULES ######################################################################
+
+# DEDICATED FILE
+
+################################################################ ONITRIC OXIDE RULES ######################################################################
+# TO DO
+
+
+
+################################################################ HEALTH - HEARTBEAT RULES ######################################################################
+# add (?measurement m3:hasUnit m3:BeatPerMinute)   
+# correctness ok 2 rules [Tanantong 2011] + 3 rules [Hristoskova 2014]
+# completude no > 300 nothing
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# FastHeartBeat, IF m3:HeartBeat greaterThan 102 m3:BeatPerMinute AND lessThan 150 m3:BeatPerMinute THEN FastHeartBeat
+[FastHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,102)
+              lessThan(?v,150)
+              ->
+              (?measurement rdf:type health-dataset:FastHeartBeat)
+]
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# SlowHeartBeat, IF m3:HeartBeat greaterThan 40 m3:BeatPerMinute AND lessThan 58 m3:BeatPerMinute THEN SlowHeartBeat
+[SlowHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,40)
+              lessThan(?v,58)
+              ->
+              (?measurement rdf:type health-dataset:SlowHeartBeat)
+]
+
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# NormalHeartRate, IF m3:HeartBeat greaterThan 55 m3:BeatPerMinute AND lessThan 64 m3:BeatPerMinute THEN NormalHeartRate
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# NormalHeartBeat, IF m3:HeartBeat greaterThan 58 m3:BeatPerMinute AND lessThan 102 m3:BeatPerMinute THEN NormalHeartBeat
+[NormalHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,58)
+              lessThan(?v,102)
+              ->
+              (?measurement rdf:type health-dataset:NormalHeartBeat)
+]
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Tachycardia, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute THEN Tachycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VeryFastHeartBeat, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute AND lessThan 300 m3:BeatPerMinute THEN VeryFastHeartBeat
+[VeryFastHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,150)
+              lessThan(?v,300)
+              ->
+              (?measurement rdf:type health-dataset:VeryFastHeartBeat)
+]
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Bradycardia, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN Bradycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VerySlowHeartBeat, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN VerySlowHeartBeat
+[VerySlowHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,40)
+              ->
+              (?measurement rdf:type health-dataset:VerySlowHeartBeat)
+]
+
+
+################################################################ INSIDE TEMPERATURE ######################################################################
+
+# DEDICATED FILE

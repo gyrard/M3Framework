@@ -1,0 +1,129 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ SNORING LEVEL SCENARIO [Yacchiarema et al. IEEE Access 2018] ######################################################################
+# March 2019
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# Obtrusive Sleep Apnea (OSA)
+
+
+# Heart rate has a strong link with strokes and heart attacks in people who have OSA because sleep disorders influence the autonomic nervous system and can cause heart rate disturbances [18].
+# A heart rate monitor placed on the elery's chest is used to monitor the heart rate during sleep, considering that 12:00 am to 06:00 am is the interval with a high risk of a heart attack [19].
+# [18] Paper: Comparison of detrended fluctuation analysis and spectral analysis for heart rate variability in sleep and sleep apnea [Penzel et al. 2003]
+# [19] Paper: Day-nigh pattern of sudden death in obstructive sleep apnea [Gami et al. 2005]
+
+# [20] Paper: Does snoring intensity correlate with the severity of obstructive sleep apnea? [Maimon et al. 2010]
+# Snoring intensity: snoring is a major symptom of OSA and its intensity is closely correlated with the severity of this syndrome, that is, the intesity of snoring increases as OSA becomes more severe [20].
+# Therefore, it is necessary to detect snoring and assess its intensity.
+# To do this, a 3-pin sound sensor module is used and located in the elderly person's room.
+
+# SNORING LEVEL, MonitoringInterval = 22:00 - 08:00
+# IF SnoringLevel < 40 dB then NormalSnoringLevel
+# IF SnoringLevel BETWEEN 40 AND 50 dB then MildSnoringLevel
+# IF SnoringLevel BETWEEN 50 AND 60 dB then ModerateSnoringLevel
+# IF SnoringLevel >= 60 dB then SevereSnoringLevel and ACTION = NHPC (Notifications to health professionals and caregivers)
+
+# To handle kao ontology scenario - patient instance example
+ [NormalSnoringLevel: 
+			(?patientURI kao:hasSnoringLevel ?snoringLevel)
+            lessThan(?snoringLevel,40)
+			->
+			(?patientURI rdf:type kao:NormalSnoringLevel)
+]
+
+
+# To handle senml data scenario - iot generic reasoner
+[NormalSnoringLevel2: 
+              (?measurement rdf:type kao:SnoringLevel)
+              (?measurement sosa:hasSimpleResult ?snoringLevel)
+              lessThan(?snoringLevel,40)
+			  ->
+			(?measurement rdf:type kao:NormalSnoringLevel)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [MildSnoringLevel: 
+			(?patientURI kao:hasSnoringLevel ?snoringLevel)
+            greaterThan(?snoringLevel,40)
+            lessThan(?snoringLevel,50)
+			->
+			(?patientURI rdf:type kao:MildSnoringLevel)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[MildSnoringLevel2: 
+              (?measurement rdf:type kao:SnoringLevel)
+              (?measurement sosa:hasSimpleResult ?snoringLevel)
+              greaterThan(?snoringLevel,40)
+              lessThan(?snoringLevel,50)
+			  ->
+			(?measurement rdf:type kao:MildSnoringLevel)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [ModerateSnoringLevel: 
+			(?patientURI kao:hasSnoringLevel ?snoringLevel)
+            greaterThan(?snoringLevel,50)
+            lessThan(?snoringLevel,60)
+			->
+			(?patientURI rdf:type kao:ModerateSnoringLevel)
+]
+
+
+# To handle senml data scenario - iot generic reasoner
+[ModerateSnoringLevel2: 
+              (?measurement rdf:type kao:SnoringLevel)
+              (?measurement sosa:hasSimpleResult ?snoringLevel)
+              greaterThan(?snoringLevel,50)
+            lessThan(?snoringLevel,60)
+			  ->
+			(?measurement rdf:type kao:ModerateSnoringLevel)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [SevereSnoringLevel: 
+			(?patientURI kao:hasSnoringLevel ?snoringLevel)
+            greaterThan(?snoringLevel,60)
+			->
+			(?patientURI rdf:type kao:SevereSnoringLevel)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[SevereSnoringLevel2: 
+              (?measurement rdf:type kao:SnoringLevel)
+              (?measurement sosa:hasSimpleResult ?snoringLevel)
+              greaterThan(?snoringLevel,60)
+			  ->
+			(?measurement rdf:type kao:SevereSnoringLevel)
+]
+

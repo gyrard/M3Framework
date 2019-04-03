@@ -1,0 +1,43 @@
+# Last updated: August 2018: scenario high pollen -> recommendation
+# Last updated: July 2018: complaint with W3C SOSA/SOSA V2
+
+PREFIX kao: <http://purl.org/kao#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT ?name ?value ?unit ?semanticAnnotationType ?deduce ?suggest ?suggest_comment ?deduceUri ?suggestUri WHERE{
+	?measurement sosa:observedProperty ?name.
+	?measurement sosa:hasSimpleResult ?value.
+	?measurement sosa:resultTime ?time.
+	?measurement qudt:unit ?unit.
+	
+	?measurement rdf:type ?semanticAnnotationTypeUri.
+	
+	OPTIONAL { 
+		?semanticAnnotationTypeUri rdfs:label ?semanticAnnotationType. 
+		FILTER(LANGMATCHES(LANG(?semanticAnnotationType), "en"))
+	}
+		
+	OPTIONAL {
+		?measurement rdf:type ?deduceUri .
+		?deduceUri rdfs:label ?deduce.
+		FILTER(LANGMATCHES(LANG(?deduce), "en"))
+		FILTER(str(?deduceUri) != str(sosa:ObservableProperty) )
+		FILTER(str(?deduceUri) != str(?semanticAnnotationTypeUri) )
+	
+		OPTIONAL{
+
+		?deduceUri kao:hasRecommendation ?suggestUri . # e.g high pollen -> do not go out
+		# ?suggestUri rdf:type ?typeRecommendedUri.  
+			?suggestUri rdfs:label ?suggest.
+			FILTER(LANGMATCHES(LANG(?suggest), "en"))
+			OPTIONAL{
+				?suggestUri rdfs:comment ?suggest_comment. #dc:description
+				FILTER(LANGMATCHES(LANG(?suggest_comment), "en"))	
+			}			
+		}
+	}
+}

@@ -1,3 +1,9 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +33,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.io.IOException;
@@ -68,10 +74,10 @@ import eurecom.sparql.result.VariableSparql;
 @Path("/restaurant")
 public class RestaurantWS {
 
-	/** Get the SenML measurement from the WLBOX
+	*//** Get the SenML measurement from the WLBOX
 	 * longitude and latitude simulated Latitude (37.323), Longitude (-122.03218)
 	 * @return RDF sensor data compliant with M3
-	 */
+	 *//*
 	@GET
 	@Path("/convert/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -88,11 +94,11 @@ public class RestaurantWS {
 		return Response.status(200).entity(msg).build();
 	}
 
-	/**
+	*//**
 	 * Search all food measurements
 	 * @param property
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/measurement")
 	@Produces(MediaType.APPLICATION_XML)
@@ -101,11 +107,11 @@ public class RestaurantWS {
 		return m2mappli.getMeasurements();	
 	}
 	
-	/**
+	*//**
 	 * Link to geonames, a daset to retrieve information from a longitude and a latitude
 	 * @param property
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/geonames")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -114,11 +120,11 @@ public class RestaurantWS {
 		return m2mappli.linkToGeonames().toString();	
 	}
 	
-	/**
+	*//**
 	 * Link to resto ontologies
 	 * @param property
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/resto")
 	@Produces(MediaType.APPLICATION_XML)
@@ -127,11 +133,11 @@ public class RestaurantWS {
 		return m2mappli.linkToResto();	
 	}
 
-	/**
+	*//**
 	 * Search all type of restaurant (e.g., pizzeria) in the restaurant ontology and dataset
 	 * @param property
 	 * @return an XML result all type of restaurant 
-	 */
+	 *//*
 	@GET
 	@Path("/foodType")
 	@Produces(MediaType.APPLICATION_XML)
@@ -143,11 +149,11 @@ public class RestaurantWS {
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Search all cities available in the restaurant ontology and dataset
 	 * @param property
 	 * @return an XML result all cities of restaurant 
-	 */	
+	 *//*	
 	@GET
 	@Path("/city")
 	@Produces(MediaType.APPLICATION_XML)
@@ -159,11 +165,11 @@ public class RestaurantWS {
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Search all ratings of restaurant in the ontology and dataset
 	 * @param property
 	 * @return an XML result all ratings of restaurant 
-	 */	
+	 *//*	
 	@GET
 	@Path("/rating")
 	@Produces(MediaType.APPLICATION_XML)
@@ -174,19 +180,19 @@ public class RestaurantWS {
 		ArrayList<SparqlResultMatchingFood> resultSparql = req.getSparqlResult(var);
 		
 		//faire ce code en sparql
-		/*		String rating = "";
+				String rating = "";
 		int index = 0;
 		for(int i = 0 ; i< resultSparql.getResults().size(); i++){
 			rating = resultSparql.getResults().get(i).getLabel();
 			index = rating.indexOf("^^");
 			rating = rating.substring(0, index);
 			resultSparql.getResults().get(i).setLabel(rating);
-		}*/
+		}
 			
 		return resultSparql;
 	}
 	
-/*	@GET
+	@GET
 	@Path("/search/{foodType}")
 	@Produces(MediaType.APPLICATION_XML)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -203,7 +209,7 @@ public class RestaurantWS {
 		var.add(v2);
 		ArrayList<SparqlResultRestaurant> resultSparql = req.executeRequest(var);
 		return resultSparql;
-	}*/
+	}
 	
 	
 	@GET
@@ -227,11 +233,11 @@ public class RestaurantWS {
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Search a resto for a specific city
 	 * @param city
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/searchResto/{city}/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -256,3 +262,4 @@ public class RestaurantWS {
 	}
 	
 }
+*/

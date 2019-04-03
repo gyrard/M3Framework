@@ -1,0 +1,251 @@
+<!-- 
+	
+	Last updated: March 2019
+	- scenario food caloric level
+	- scneario snoring level
+	- steps count
+	
+	
+	Updated: August 2018
+	Created: July 2018 
+-->
+
+<h1>Health Reasoner V2</h1>
+
+
+<p class="paragraphCenter">Last updated: March 2019
+<br/><br/>
+A reasoner to interpret (IoT) datasets (some real datasets are provided by the <a href="http://wiki.knoesis.org/index.php/KHealth:_Semantic_Multisensory_Mobile_Approach_to_Personalized_Asthma_Care">kHealth project)</a>.
+<br/>
+The current example is a Graphical User Interface (GUI) to show the impact of our health reasoner.
+<br/>
+Currently our Java code works for various scenarios (air quality, pollen, outside humidity, heart rate, inside temperature, snoring level, food caloric level, steps count, body mass index, peak flow, sleep disorder breathing) but is extended to support more scenarios (up to than 25 parameters).
+<br/>
+
+</p>
+
+
+<table border>
+
+<tr>
+
+<!-- ##############################################
+###################### Choose an existing scenario ############################
+################################################### -->
+
+	<td>
+	<h2>(0) Choose an existing scenario</h2>
+
+Choose an existing scenario:
+			
+<select id="scenario" >
+  		<option value="OutdoorAirQualityIndex">Air Quality</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="PollenLevel">Pollen</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="OutsideHumidity">Outside Humidity</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="HeartBeat">Heart Beat</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="RoomTemperature">Inside Temperature (e.g., Room)</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="SnoringLevel">Snoring Level</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="CaloricLevel">Food Caloric Level</option><!--  value should be compliant with kao ontology -->
+ 	 	<option value="StepsCount">Steps Count</option><!--  value should be compliant with kao ontology --> 
+ 	 	<option value="PeakExpiratoryFlow">Peak Expiratory Flow</option><!--  value should be compliant with kao ontology --> 
+ 	 	<option value="SleepDisorderBreathing">Sleep Disorder Breathing</option><!--  value should be compliant with kao ontology --> 
+ 	 	<option value="BodyMassIndex">Body Mass Index</option><!--  value should be compliant with kao ontology --> 	 	
+ 	 	<!-- TO DO peak flow -->
+</select>
+
+<!-- <select>
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+ 	 	<optgroup id="personstepCount" label="Person's steps Count 2">
+     		<option value="SedentaryPersonStepsCount">Sedentary Person's steps Count</option> value should be compliant with kao ontology
+  		</optgroup>
+</select> -->
+
+</td>
+<td>
+
+
+
+
+	<!-- id="buttonExecuteKHealthReasoner" is used in AmelieStyle.css and in javascript below -->
+<button type="button" 
+onclick='executeHealthReasoner();'
+id="buttonExecuteKHealthReasoner" 
+title="Click on this button to automatically:  (1) Input = show the raw (IoT) dataset, 
+(2) Output = semantically annotate the dataset, (3) Output = execute the health reasoner, and (4) Output = parse the result">
+Automatically: <br/>
+(1) Input = show the raw (IoT) dataset, <br/>
+(2) Output = semantically annotate the dataset, <br/>
+(3) Output = execute the health reasoner to get smarter data, and <br/>
+(4) Output = parse the result for a better visualization.</button>
+	<td>
+</tr>
+	
+	<!-- ####################################################################
+################### (1) Input = show the raw (IoT) dataset ############################
+#################################################################################### -->
+<tr>
+	<td>
+<h2>(1) Input = show the raw (IoT) dataset</h2>
+Input: raw IoT data (e.g., SenML/XML [1]). Ideally it should support all formats (CSV, Google Sheets, etc.).
+<br/>
+Assume that you have simple data such as pollen = 10.4. 
+<br/>
+<br/>
+</td>
+<td>
+<textarea id="textAreaInputSensorData">
+Click on this button above to retrieve the raw data used for this scenario.
+</textarea>
+
+ 
+
+	</td>
+</tr>
+
+
+
+<!-- ####################################################################
+################### (3) Output = execute the health reasoner to get smarter data ############################
+#################################################################################### -->
+<tr>
+	<td>
+		<h2>(2) Output = semantically annotate the dataset <br/>(3) Output = execute the health reasoner to get smarter data</h2>
+		Output: smarter data enriched with semantic web technologies (Linked Data, ontologies, etc.):
+		<br/>
+	</td>
+
+<td>
+<textarea id="textAreaOutputSensorData">
+Click on this button above to automatically semantic annotate the data and execute the health reasoner.
+</textarea>
+
+</td>
+
+</tr>
+
+<!-- ####################################################################
+################### (3) Output = parse the result for a better visualization ############################
+#################################################################################### -->
+<tr>
+<td>
+<h2>(4) Output = parse the result for a better visualization</h2>
+</td>
+<td>
+	<div id="smartDataParsed"></div>
+</td>
+
+</tr>
+</table>
+
+<!-- ####################################################################
+################### References ############################
+#################################################################################### -->
+<h2>References</h2>
+[1] <a href="https://tools.ietf.org/html/draft-ietf-core-senml-16">Media Types for Sensor Measurement Lists (SenML) draft-ietf-core-senml-16 [Jennings et al. 2018]</a>
+
+</div>
+<script type="text/javascript">
+
+function executeHealthReasoner(){
+	
+	//display content of the senml file 
+	var urlWebServiceReadFile = "/healthreasoner/readrawdatafile?scenario=" + document.getElementById("scenario").value;
+	request(displayResultReasoner, urlWebServiceReadFile, "textAreaInputSensorData", "textAreaInputSensorData");
+	
+	var url = "/healthreasoner/executeGenericReasoner?scenario=" + document.getElementById("scenario").value;
+	request(displayResultReasoner, url, "textAreaOutputSensorData", "textAreaOutputSensorData");
+	//	//alert("diplay text output SPARQL returned by the kHealth reasoner");
+	//diplay text output SPARQL returned by the kHealth reasoner
+//	document.getElementById("buttonExecuteKHealthReasoner").value = "test";
+	// call semantic annotator web service
+	
+	// http://localhost:8086//healthreasoner/readrawdatafile?scenario=HeartBeat
+	//executeHealthReasonerParseResult
+	var urlParseData = "/healthreasoner/executeGenericReasoner?scenario=" + document.getElementById("scenario").value;
+	//request(displayResultReasoner, url, "textAreaOutputSensorData", "textAreaOutputSensorData");
+
+	///** REMOVE THE PREVIOUS PARSED RESULT LISTED IN CASE WE WANT TO PLAY WITH ANOTER SCENARIO **/
+	resetElement(smartDataParsed);
+	request(displayGenericSparqlResultHealth, urlParseData, "smartDataParsed", "smartDataParsed");
+	
+	
+}
+
+/** query the web service http://localhost:8082/healthreasoner/executeReasoner to execute the reasoner  **/
+function displayResultReasoner(oData, nameDiv){
+	
+	var text =(new XMLSerializer()).serializeToString(oData);
+	//alert(text);
+	document.getElementById(nameDiv).textContent = text;
+}
+
+/***************************************** SCENARIOS DISPLAY GENERIC SPARQL RESULT ************************************************************************/
+
+/* Updated August 2018: Parse result returned by the health reasoner */
+function displayGenericSparqlResultHealth(oData, nameDiv, nameSubDiv) {
+	
+	var racine = oData.documentElement;
+	var results = racine.getElementsByTagName("results");
+	var result, binding, uri;
+	var msg = "", msgInput = "", msgOutput = "", suggest_comment ="";
+	var ul = document.getElementById(nameDiv), li, li2;
+	var type = "", indexBegin, indexEnd;
+	
+	
+	
+	for(i = 0; i < results.length; i++)	{//all results only 1 tour
+		result = results[i].getElementsByTagName("result");
+		//IF NO RESULT FOUND
+		if (result.length == 0){
+			//alert(result.length);
+			msg = "Sorry, No result found!";
+			li = document.createElement(nameSubDiv);
+			li2 = document.createElement('li');
+			li2.appendChild(document.createTextNode(msg));
+			li.appendChild(li2);
+			ul.appendChild(li);
+		}
+		for(j = 0; j < result.length; j++)	{
+			binding = result[j].getElementsByTagName("binding");
+			msg = "", msgInput = "", msgOutput = "", suggest_comment="";
+			for(k = 0; k < binding.length; k++)	{
+				if (binding[k].getAttribute("name") == "name"){
+					msgInput = msgInput + "Input data: Name=" + binding[k].childNodes[1].firstChild.data ;
+				}
+				if (binding[k].getAttribute("name") == "unit"){
+					msgInput = msgInput + ", Unit=" + binding[k].childNodes[1].firstChild.data ;
+				}
+				if (binding[k].getAttribute("name") == "value"){
+					msgInput = msgInput + ", Value = " + binding[k].childNodes[1].firstChild.data + "\n \r" ;// next line does not work
+				}
+				if (binding[k].getAttribute("name") == "semanticAnnotationType"){
+					msgOutput = msgOutput + ", Output: semanticAnnotationType = " + binding[k].childNodes[1].firstChild.data ;
+				}
+
+				if (binding[k].getAttribute("name") == "deduce"){
+					msgOutput = msgOutput + ", Deduce = " + binding[k].childNodes[1].firstChild.data ;
+				}
+				else if (binding[k].getAttribute("name") == "suggest"){
+					msgOutput = msgOutput + ", Suggest= " + binding[k].childNodes[1].firstChild.data ;
+				}
+				else if (binding[k].getAttribute("name") == "suggest_comment"){
+					suggest_comment = binding[k].childNodes[1].firstChild.data ;
+				}		
+				
+				//msg = msg + msgOutput + msgOutput;
+				
+			}
+			li = document.createElement("li");
+			li.setAttribute('title', suggest_comment);//display proof suggestion dc:description
+			li.appendChild(document.createTextNode(msgInput));
+			//li.appendChild(document.createTextNode(""));
+			li.appendChild(document.createTextNode(msgOutput));
+			ul.appendChild(li);			
+		}
+	}
+}
+
+</script>

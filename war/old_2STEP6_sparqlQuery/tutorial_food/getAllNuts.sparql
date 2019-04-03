@@ -1,0 +1,19 @@
+# Created: January 2019
+# TUTORIAL: Query all nuts from the food taxonomy from the SmartProducts project http://projects.kmi.open.ac.uk/smartproducts/ontology.html
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX food_taxonomy: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food_taxonomy.owl>
+
+SELECT DISTINCT ?nutURI ?nutLabel WHERE{
+	?nutURI rdfs:subClassOf <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Nuts>.
+	?nutURI rdfs:label ?nutLabel.
+}
+
+# RDF example:
+#    <!-- http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Walnut -->
+#
+#    <owl:Class rdf:about="http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Walnut">
+#        <rdfs:label>Walnut</rdfs:label>
+#        <rdfs:subClassOf rdf:resource="http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Nuts"/>
+#    </owl:Class>

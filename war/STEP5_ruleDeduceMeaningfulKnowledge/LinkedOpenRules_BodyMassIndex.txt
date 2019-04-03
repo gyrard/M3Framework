@@ -1,0 +1,125 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: http://qudt.org/schema/qudt#
+@prefix foaf: http://xmlns.com/foaf/0.1/
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+@prefix schema: https://schema.org/ 
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+
+################################################################ TEST RDF SUBCLASSOF REASONER WHEAT GLUTEN / GLUTEN ######################################################################
+# January 2019
+[r1: (?A rdfs:subClassOf ?C) <- (?A rdfs:subClassOf ?B) (?B rdfs:subClassOf ?C)]
+
+################################################################ BODY MASS INDEX (BMI) RULES ######################################################################
+#Last updated: March 2019
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# BMI, MonitoringInterval = Daily
+# IF BMI < 18.5 kg/m2 then UnderweightBMI and ACTION = NHPC (Notifications to health professionals and caregivers) [Yacchiarema et al. IEEE Access 2018]
+# IF BMI BETWEEN 18.5 AND 24.9 kg/m2 then NormalBMI [Yacchiarema et al. IEEE Access 2018]
+# IF BMI BETWEEN 25 AND 29.9 kg/m2 then OverweightBMI and ACTION = NHPC (Notifications to health professionals and caregivers) [Yacchiarema et al. IEEE Access 2018]
+# IF BMI >= 30 kg/m2 then ObeseBMI and ACTION = NHPC (Notifications to health professionals and caregivers) [Yacchiarema et al. IEEE Access 2018]
+
+# December 2018
+# The BMI is universally expressed in kg/m2, resulting from mass in kilograms and height in metres. 
+# If pounds and inches are used, a conversion factor of 703 (kg/m2)/(lb/in2) must be applied. When the term BMI is used informally, the units are usually omitted.
+# https://en.wikipedia.org/wiki/Body_mass_index
+
+# Revathy: http://www.who.int/growthref/who2007_bmi_for_age/en/
+# Revathy: Below Normal, Normal, Overweight, Obesity for a patient based on their gender, age and BMI (kg/m2). 
+
+# Created: July  2018 - Body Mass Index (BMI) rules
+# Creator: Amelie Gyrard, Knoesis, Wright State University, Ohio, USA
+
+# Created: December 2018
+[ComputeHasBodyMassIndex: 
+				(?patientURI rdfs:comment ?patientComment)
+				(?patientURI schema:weight ?weight) 
+				(?patientURI schema:height ?height)
+				(?patient foaf:age ?age) 
+				#divide( ?weight, ?height, ?bmi)
+			  ->
+			  (?patient kao:hasBodyMassIndex ?bmi) 
+]
+
+# (?weight / ?height)
+#(divide( xsd:decimal(?weight), xsd:decimal(?height)))
+
+
+# TO DO: rule must be improved: patient is a male or female, age, etc. 
+# Paper: Modularizing ontology and designing inference patterns to personnalize health condition assessment: the case of obesity [Sogic et al. 2016] threshold 16.3?
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# IF BMI < 18.5 kg/m2 then UnderweightBMI and ACTION = NHPC (Notifications to health professionals and caregivers) [Yacchiarema et al. IEEE Access 2018]
+[UnderWeightBMICondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+              (?measurement sosa:hasSimpleResult ?bmi)
+              lessThan(?bmi,18.5)
+			  ->
+				(?measurement rdf:type kao:UnderWeightBMICondition)
+]
+
+# TO DO: rule must be improved: patient is a male or female, age, etc. 
+# Paper: Modularizing ontology and designing inference patterns to personnalize health condition assessment: the case of obesity [Sogic et al. 2016] Trheshold 16.5 23.5
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# IF BMI BETWEEN 18.5 AND 24.9 kg/m2 then NormalBMI [Yacchiarema et al. IEEE Access 2018]
+[NormalWeightBMICondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,18.5)
+              lessThan(?v,24.9)
+			  ->
+				(?measurement rdf:type kao:NormalWeightBMICondition)
+]
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# IF BMI BETWEEN 25 AND 29.9 kg/m2 then OverweightBMI and ACTION = NHPC (Notifications to health professionals and caregivers) [Yacchiarema et al. IEEE Access 2018]
+[OverweightBMICondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+             (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,25)
+              lessThan(?v,29.9)
+			  ->
+				(?measurement rdf:type kao:OverweightBMICondition)
+]
+
+# TO DO: rule must be improved: patient is a male or female, age, etc. 
+# Paper: Modularizing ontology and designing inference patterns to personnalize health condition assessment: the case of obesity [Sogic et al. 2016] [Threshold: 25.9-50?]
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# IF BMI >= 30 kg/m2 then ObeseBMI and ACTION = NHPC (Notifications to health professionals and caregivers) [Yacchiarema et al. IEEE Access 2018]
+# Updated: March 2019
+[ObeseWeightBMICondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+             (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,30)
+			  ->
+				(?measurement rdf:type kao:ObeseWeightBMICondition)
+]

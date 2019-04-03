@@ -27,7 +27,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.constrained.devices;
 
 import java.io.File;
@@ -46,12 +46,12 @@ import eurecom.common.util.ReadFile;
 import eurecom.generic.m2mapplication.M2MAppGeneric;
 import eurecom.sparql.result.ExecuteSparqlGeneric;
 
-/**
+*//**
  * Read the content of the M3 template (a zip file)
  * To recognize ontologies, rules, datasets, SPARQL query
  * @author Amelie gyrard
  *
- */
+ *//*
 public class ReadZipFile {
 	
 	public static String ZIP_FILE_IOT_APPLI = "e:\\M3IoTApplicationTemplate.zip";
@@ -89,9 +89,9 @@ public class ReadZipFile {
 		//EXECUTE RULES
 		
 		//try {
-		/*	zipfile = new ZipFile(ZIP_FILE_IOT_APPLI);
+			zipfile = new ZipFile(ZIP_FILE_IOT_APPLI);
 			File file = new File("./WAR/M3IoTApplicationTemplate");
-			unzip(zipfile, file);*/
+			unzip(zipfile, file);
 			
 			for (int i = 0; i < FILE_TO_LOAD.size(); i++) {
 				System.out.println(FILE_TO_LOAD.get(i));
@@ -119,10 +119,10 @@ public class ReadZipFile {
 				e.printStackTrace();
 			}
 			
-		/*} catch (IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 	
@@ -170,3 +170,4 @@ public class ReadZipFile {
 		    return file;
 		}
 }
+*/

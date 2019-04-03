@@ -1,3 +1,9 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +33,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.util.ArrayList;
@@ -42,21 +48,21 @@ import javax.ws.rs.core.MediaType;
 import eurecom.generic.m2mapplication.WlboxApi;
 import eurecom.sparql.result.SparqlResultMatchingFood;
 
-/**
+*//**
  * DO NOT USE IT ANYMORE
  * Still used by the WLBOX?
  * if yes do not delete
  * @author gyrard amelie
  * To return the web services in JSON
  * After I found the solution to return the result either as JSON or as XML
- * */
+ * *//*
 @Path("/json/m3")
 public class M3JsonWS {
 	
-	/**
+	*//**
 	 * Get all sensors (e.g., thermometer) referenced in the M3 nomenclature implemented in the M3 ontology
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/sensor")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -64,10 +70,10 @@ public class M3JsonWS {
 		return WlboxApi.getSubclassOf("Sensor");	
 	}
 	
-	/**
+	*//**
 	 * Get all domains (e.g., health, transport) referenced in the M3 nomenclature implemented in the M3 ontology
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/featureOfInterest")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -76,10 +82,10 @@ public class M3JsonWS {
 		return WlboxApi.getSubclassOf("FeatureOfInterest");	
 	}
 	
-	/**
+	*//**
 	 * I do not remember the purpose of this web service
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/featureOfInterest/{name}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -90,10 +96,10 @@ public class M3JsonWS {
 	
 	
 	
-	/**
+	*//**
 	 * Get all measurement types (e.g., bodytemperature, rfid on food) referenced in the M3 nomenclature implemented in the M3 ontology
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/measurement")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -106,3 +112,4 @@ public class M3JsonWS {
 	}
 
 }
+*/

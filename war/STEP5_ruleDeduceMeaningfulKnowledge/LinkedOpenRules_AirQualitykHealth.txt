@@ -1,0 +1,163 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ AIR QUALITY RULES Oprea et al. 2009 ######################################################################
+# January 2019
+# Paper: AIR_POLLUTION_Onto: An ontology for air pollution analysis and control [Oprea et al. 2009]
+# Carbone dioxide (C02)
+# Carbone Monoxide (CO)
+# Nitrogen dioxide (NO2)
+# Nitrogen Oxides (NOx)
+# Suspended particulates Respirable Particulate Matter (PM10)
+# Fine Particulate Matter (PM2.5)
+# Sulfure Dioxide (SO2)
+# Ozone (O3)
+# Lead (Pb)
+# Volatile Organic Compounds (VOC)
+
+# ConcentrationLevel <= MAC => AdmissibleConcentration
+# ConcentrationLevel > MAC => IndmissibleConcentration
+# RainfallLevel > 1mm => It rains
+# RainfallLevel < 1mm => It does not rain
+
+
+
+
+################################################################ AIR QUALITY RULES US ######################################################################
+# UPDATED December 2018
+# For example, the PM2.5 value representing # the air quality of each block is actually a number. We apply reasoning rules to derive new facts such as
+# (Blockid, Has Air Quality, Good) if the value of PM2.5 is smaller than "30".
+# Semantic Framework of Internet of Things for Smart Cities: Case Studies [Zhang et al. 2016]
+
+
+
+# Updated JULY 2018: to be compliant with the semantic annotator for SOSA ontology
+# replace ?measurement m3:hasValue ?v by ?measurement sosa:hasSimpleResult ?value.
+# Updated JUNE 2018: m3:AirQualityIndex replaced by kao:OutdoorAirQualityIndex
+# Updated JUNE 2018: environment-onto:VeryUnhealthyQualityIndexUS by kao:VeryUnhealthyQualityIndexUS same for all rules of this type
+# Created: April 2018 Air quality rules
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# AQI unit = no unit?
+# Number of rules =  rules
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index and Air Quality Index (AQI) Basics https://airnow.gov/index.cfm?action=aqibasics.aqi
+# http://aqicn.org/
+# United States
+
+# PM2.5 24-Hour AQI Loop, Courtesy US EPA
+# The United States Environmental Protection Agency (EPA) has developed an Air Quality Index that is used to report air quality. This AQI is divided into six categories indicating increasing levels of health concern. An AQI value over 300 represents hazardous air quality and below 50 the air quality is good.[10]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 0 to 50	
+# Levels of Health Concern = Good	
+# Colors = Green 
+# Rule: IF AirQualityIndex greaterThan 0 and LowerThan 50 THEN GoodOutdoorAirQualityIndexUS
+# ISSUE SHOULD IT BE?: (?measurement rdf:type kao:OutdoorAirQualityIndex) replaced by (?measurement rdf:type ao-bioportal:MOCHA-Asthma_000182
+# BUT WOULD BE A NIGHMARE FOR DEBUGGING
+[GoodOutdoorAirQualityIndexUS: 
+              (?measurement rdf:type kao:OutdoorAirQualityIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,0)
+              lessThan(?v,50)
+			  ->
+				(?measurement rdf:type kao:GoodOutdoorAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 51 to 100	
+# Levels of Health Concern = Moderate	
+# Colors = Yellow
+# Rule: IF AirQualityIndex greaterThan 51 and LowerThan 100 THEN ModerateOutdoorAirQualityIndexUS
+[ModerateOutdoorAirQualityIndexUS: 
+              (?measurement rdf:type kao:OutdoorAirQualityIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,51)
+              lessThan(?v,100)
+			  ->
+				(?measurement rdf:type kao:ModerateOutdoorAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 101 to 150	
+# Levels of Health Concern = Unhealthy for Sensitive Groups	
+# Colors = Orange
+# Rule: IF AirQualityIndex greaterThan 101 and LowerThan 150 THEN UnhealthyOutdoorAirQualityIndexUS
+[UnhealthyOutdoorAirQualityIndexUS: 
+              (?measurement rdf:type kao:OutdoorAirQualityIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,101)
+              lessThan(?v,150)
+			  ->
+				(?measurement rdf:type kao:UnhealthyOutdoorAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values =  151 to 200	
+# Levels of Health Concern = Unhealthy	
+# Colors = Red 
+# Rule: IF AirQualityIndex greaterThan 151 and LowerThan 200 THEN UnhealthyForSensitiveGroupsOutdoorAirQualityIndexUS
+[UnhealthyForSensitiveGroupsOutdoorAirQualityIndexUS: 
+              (?measurement rdf:type kao:OutdoorAirQualityIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,151)
+              lessThan(?v,200)
+			  ->
+				(?measurement rdf:type kao:UnhealthyForSensitiveGroupsOutdoorAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 201 to 300	
+# Levels of Health Concern = Very Unhealthy
+# Colors = Purple 
+# Rule: IF AirQualityIndex greaterThan 201 and LowerThan 300 THEN VeryUnhealthyOutdoorAirQualityIndexUS
+[VeryUnhealthyOutdoorAirQualityIndexUS: 
+              (?measurement rdf:type kao:OutdoorAirQualityIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,201)
+              lessThan(?v,300)
+			  ->
+				(?measurement rdf:type kao:VeryUnhealthyOutdoorAirQualityIndexUS)
+]
+
+# AQI Values = 301 to 500	
+# Levels of Health Concern = Hazardous
+# Colors = Maroon 
+# Rule: IF AirQualityIndex greaterThan 301 and LowerThan 500 THEN HazardousOutdoorAirQualityIndexUS
+[HazardousOutdoorAirQualityIndexUS: 
+              (?measurement rdf:type kao:OutdoorAirQualityIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,301)
+              lessThan(?v,500)
+			  ->
+				(?measurement rdf:type kao:HazardousOutdoorAirQualityIndexUS)
+]

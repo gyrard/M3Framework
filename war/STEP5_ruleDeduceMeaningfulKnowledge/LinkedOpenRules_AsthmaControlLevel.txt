@@ -1,0 +1,81 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: http://qudt.org/schema/qudt#
+@prefix foaf: http://xmlns.com/foaf/0.1/
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATION ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ LINKED OPEN RULES ASTHMA CONTROL LEVEL ######################################################################
+# Created: November 2018
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# Creator: Utkarshani Jaimini, Knoesis, Wright State University
+# Extension for Healthcare Asthma Project
+# Number of rules = 3 rules
+
+################################################################ ASTHMA CONTROL LEVEL RULES ######################################################################
+# Source: NHLBI asthma guidelines: https://www.nhlbi.nih.gov/files/docs/guidelines/asthma_qrg.pdf 
+
+# IF PATIENT AGE BETWEEN 0-4 YEARS AND SYMPTOMS <= 2 days per week AND NIGHTIME AWAKENINS <=1x per month AND ... THEN WELL controled
+# IF PATIENT AGE BETWEEN 5-11 YEARS AND ...
+# IF PATIENT AGE >= 12 YEARS AND ...
+# TO FINISH
+# Rule: AsthmaLevelWellControlled
+[AsthmaLevelWellControlled_Age_0_4: 
+				(?patient rdfs:comment ?patientComment)
+				(?patient kao:hasSymptom ?symptom) 
+				(?patient foaf:age ?age) 
+              	greaterThan(?age,0)
+              	lessThan(?age,4)
+			  ->
+			  (?patient rdf:type kao:AsthmaLevelWellControlled_Age_0_4)
+]
+
+
+# TO DO
+# Rule: AsthmaLevelNotWellControlled
+#[AsthmaLevelNotWellControlled: 
+#              (?measurement rdf:type kao:PeakExpiratoryFlow)
+#              (?measurement sosa:hasSimpleResult ?v)
+# 			  greaterThan(?v,50)
+#              lessThan(?v,80)
+#			  ->
+#			  (?measurement rdf:type kao:AsthmaLevelNotWellControlled)
+#]
+
+# TO DO
+# Rule: AsthmaLevelNotWellControlled
+# [AsthmaLevelVeryPoorlyControlled: 
+#              (?measurement rdf:type kao:PeakExpiratoryFlow)
+#              (?measurement sosa:hasSimpleResult ?v)
+# 			  greaterThan(?v,50)
+#              lessThan(?v,80)
+#			  ->
+#			  (?measurement rdf:type kao:AsthmaLevelVeryPoorlyControlled)
+#]
+

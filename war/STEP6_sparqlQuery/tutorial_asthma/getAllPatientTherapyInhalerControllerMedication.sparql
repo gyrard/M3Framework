@@ -1,0 +1,32 @@
+# Created: December 2018
+# TUTORIAL: Query the patient's therapy, onlye rescue medication
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+# kao:ControllerMedicationn rdfs:subClassOf kao:Therapy
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX kao: <http://purl.org/kao#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?therapyLabel ?therapyURI WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	
+	?patientURI kao:hasTherapy ?therapyURI.
+	?therapyURI rdfs:subClassOf kao:InhalerController.
+	?therapyURI rdfs:comment ?therapyComment. 
+	?therapyURI rdfs:label ?therapyLabel. 
+}
+
+# ?therapyURI rdfs:subClassOf <http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091>. #Controller Medication
+
+# RDF example:
+#	<owl:NamedIndividual rdf:about="Patient_scenario__InhalerControllerMedication">		
+#		<rdfs:label xml:lang="en">Patient scenario Inhaler Controller Medication (e.g., Symbicort)</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient scenario Inhaler Controller Medication (e.g., Symbicort)</rdfs:comment>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#		<kao:hasSymptom rdf:resource="http://purl.org/kao#Cough"/>
+#		<kao:hasTherapy rdf:resource="http://purl.org/kao#Symbicort"/>
+#		<kao:hasRiskFactor rdf:resource="http://purl.org/kao#PollenLevel"/>	
+#		<kao:hasRiskFactor rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+#		<kao:hasWokeUpLastNight rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kao:hasWokeUpLastNight>	
+#	</owl:NamedIndividual>

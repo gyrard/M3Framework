@@ -1,4 +1,11 @@
-package eurecom.web.service;
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+	
+
+/*package eurecom.web.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -27,24 +34,24 @@ import eurecom.generic.m2mapplication.M2MAppGeneric;
 import eurecom.sparql.result.ExecuteSparql;
 import eurecom.sparql.result.VariableSparql;
 
-/**
+*//**
 
  * @author Gyrard Amelie
  * Tag4IoT To analyze/get popular terms in ontologies
  * 
- */
+ *//*
 
 @Path("/tag4iot")
 public class Tag4IoTWS {
 	
 	
-	/**
+	*//**
 	 * Get list of ontologies that we already try to get popular terms without generating issues
 	 * Last updated June 17 2015
 	 * @param 
 	 * @return list of ontologies, name - url
 	 * E.g., /tag4iot/getListOnto/
-	 */
+	 *//*
 	@GET
 	@Path("/getListOnto/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -55,3 +62,4 @@ public class Tag4IoTWS {
 	}
 	
 }
+*/

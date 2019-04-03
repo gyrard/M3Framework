@@ -1,0 +1,12 @@
+# via Hussein December 2019
+# Sparql endpoint: https://dbpedia.org/sparql
+
+SELECT ?sc ?lab ?p ?o 
+WHERE {
+  ?sc skos:broader{1,3} <http://dbpedia.org/resource/Category:Viruses> .
+  # ?sc skos:broader{1,3} <http://dbpedia.org/resource/Category:Virus_taxonomy> .
+  optional {?sc rdfs:label ?lab  } .
+  ?sc ?p ?o 
+  filter (lang(?lab) = "en")
+  filter ((lang(?o) = "en") || isURI(?o))
+} 

@@ -27,7 +27,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.constrained.devices;
 
 import java.util.ArrayList;
@@ -42,11 +42,11 @@ import eurecom.generic.m2mapplication.M2MAppGeneric;
 import eurecom.sparql.result.ExecuteSparqlGeneric;
 import eurecom.sparql.result.VariableSparql;
 
-/**
+*//**
  * M2M application to reason on sensor data provided by raspberryPi
  * @author Amelie gyrard
  *
- */
+ *//*
 public class MainReasonSensorData {
 
 	public static String SENSOR_DATA_FILE = "./WAR/dataset/sensor_data/raspberry_sensor_data";
@@ -113,3 +113,4 @@ public class MainReasonSensorData {
 		return result;
 	}
 }
+*/

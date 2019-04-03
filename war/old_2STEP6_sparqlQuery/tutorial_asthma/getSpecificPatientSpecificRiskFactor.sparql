@@ -1,0 +1,31 @@
+# Created: November 2018
+# TUTORIAL: Query the patient's risk factor
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX kao: <http://purl.org/kao#>
+PREFIX schema: <https://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?riskFactorLabel ?riskFactorURIrequested WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	
+	?patientURI kao:hasRiskFactor ?riskFactorURI. 
+	?riskFactorURI rdfs:label ?riskFactorLabel.
+	
+	?patientURI rdf:type schema:Person
+		
+	# FILTER ( ?patientURI = ?patientURIrequested)
+	FILTER ( ?riskFactorURI = ?riskFactorURIrequested)
+	
+}
+
+# RDF example:
+# 	<owl:NamedIndividual rdf:about="Patient_id_KH030">		
+#		<rdfs:label xml:lang="en">Patient id number KH030</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient id number KH030</rdfs:comment>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#		<kao:hasRiskFactor rdf:resource="http://purl.org/kao#PollenLevel"/>	
+#	</owl:NamedIndividual>

@@ -1,3 +1,9 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +33,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.io.IOException;
@@ -49,7 +55,7 @@ import eurecom.sparql.result.SparqlResultMatchingFood;
 import eurecom.sparql.result.SparqlResultRecipe;
 import eurecom.sparql.result.SparqlResultRecipeNaturopathy;
 
-/**
+*//**
  * DO NOT USE IT ANYMORE
  * Still used by Soumya?
  * @author gyrard amelie
@@ -58,16 +64,16 @@ import eurecom.sparql.result.SparqlResultRecipeNaturopathy;
  * By adding:
  * @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
  *	public static Response nameFunction( @QueryParam(value = "format") String format) {
- */
+ *//*
 @Path("json/kitchen")
 public class ApiJsonWS {
 
 	
-	/**
+	*//**
 	 * Convert senml measurements into semantic measurements
 	 * @param data converted according to the format RDF
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/convert/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -85,10 +91,10 @@ public class ApiJsonWS {
 		return Response.status(200).entity(msg).build();
 	}
 
-	/**
+	*//**
 	 * Link semantic food measurements to existing semantic dataset (recipe, food, naturopathy)
 	 * @return SparqlResult: food available in the kitchen
-	 */
+	 *//*
 	@GET
 	@Path("/matchingFood/")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -100,10 +106,10 @@ public class ApiJsonWS {
 	}
 
 
-	/**
+	*//**
 	 * Search all food measurements
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/food")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -133,3 +139,4 @@ public class ApiJsonWS {
 	}
 
 }
+*/

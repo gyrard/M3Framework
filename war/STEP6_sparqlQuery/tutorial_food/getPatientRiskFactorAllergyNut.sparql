@@ -1,0 +1,30 @@
+# Created: January 2019
+# TUTORIAL: Scenario to get all patients having the allergy to nuts
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX kao: <http://purl.org/kao#>
+PREFIX schema: <https://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?riskFactorLabel WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	
+	?patientURI kao:hasRiskFactor ?riskFactorURI. # to consider allergies
+	#?riskFactorURI can be replaced by <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Nuts>. 
+	#?riskFactorURI can be replaced by <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Gluten>.
+	#?riskFactorURI rdfs:label ?riskFactorLabel.
+	
+	?patientURI rdf:type schema:Person	
+}
+
+# RDF example:
+#	<owl:NamedIndividual rdf:about="http://purl.org/kao#Patient_scenario_test_allergy_nut">		
+#		<rdfs:label xml:lang="en">Patient scenario test has allergies (e.g., nuts).</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient scenario test has allergies (e.g., nuts).</rdfs:comment>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#		<kao:hasRiskFactor rdf:resource="http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Nuts"/>	
+#		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-01-16</dcterms:modified> 
+#       <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-01-16</dcterms:issued>
+#	</owl:NamedIndividual>

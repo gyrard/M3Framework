@@ -1,0 +1,533 @@
+########################################################################
+######## CHECK ASthma Obesity project for this set of rules ###############
+######################################## ######################################
+
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATION ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ LINKED OPEN RULES ASTHMA ######################################################################
+# Last updated: April 2018
+# Created: April 2018
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# Extension for Healthcare
+# Number of rules =  rules
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 semantic annotator
+
+
+
+################################################################ PEAK FLOW METER RULES ######################################################################
+# TO DO: add unit peak flow (?measurement m3:hasUnit m3-lite:unitPeakFlow) ?
+# Source: http://www.lung.org/assets/documents/asthma/peak-flow-meter.pdf 
+
+
+#Green Zone: 80 to 100 percent of your usual or "normal" peak flow rate signals all clear. A reading in this zone
+# means that your asthma is under reasonably good control. It would be advisable to continue your prescribed program of management.
+# Rule: AsthmaGreenZone
+[AsthmaGreenZone: 
+              (?measurement rdf:type m3:PeakFLow)
+              (?measurement m3:hasValue ?v)
+              (?measurement m3:hasUnit m3-lite:Lux)
+ 			  greaterThan(?v,80)
+              lessThan(?v,100)
+			  ->
+			  (?measurement rdf:type asthma-onto:AsthmaGreenZone)
+]
+
+# Yellow Zone: 50 to 80 percent of your usual or "normal" peak flow rate signals caution. It is a time for decisions.
+# Your airways are narrowing and may require extra treatment. Your symptoms can get better or worse
+# depending on what you do, or how and when you use your prescribed medication. You and your healthcare provider should have a plan for yellow zone readings.
+# Rule: AsthmaYellowZone
+[AsthmaYellowZone: 
+              (?measurement rdf:type m3:PeakFLow)
+              (?measurement m3:hasValue ?v)
+              
+ 			  greaterThan(?v,50)
+              lessThan(?v,80)
+			  ->
+			  (?measurement rdf:type asthma-onto:AsthmaYellowZone)
+]
+
+
+# Red Zone: Less than 50 percent of your usual or "normal" peak flow rate signals a Medical Alert. 
+# Immediate decisions and actions need to be taken. Severe airway narrowing may be occurring. 
+# Take your rescue medications right away. Contact your healthcare provider now and follow the plan he has given you for red zone readings.
+# Some healthcare providers may suggest zones with a smaller range, such as 90 to 100 percent.
+# Always follow your healthcare provider's suggestions about your peak flow rate.
+
+# Rule: AsthmaRedZone
+[AsthmaRedZone: 
+              (?measurement rdf:type m3:PeakFLow)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,50)
+			  ->
+			  (?measurement rdf:type asthma-onto:AsthmaGreenZone)
+]
+
+
+################################################################ OUTDOOR TEMPERATURE ######################################################################
+[Frosty: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type weather-onto:Frosty)
+]
+
+[Cold: 
+              (?measurement rdf:type m3:Temperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,10)
+               ->
+              (?measurement rdf:type weather-onto:Cold)
+]
+
+################################################################ OUTDOOR HUMIDITY ######################################################################
+
+################################################################ OUTSIDE HUMIDITY RULES ######################################################################
+
+# Completeness: ok
+# Correctness: conflict resolved, we choose Staroch rules (5 rules)
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+
+# Rule: IF Humidity greaterThan 30 m3:Percent AND lessThan 40 m3:Percent THEN DryHumidity
+[DryHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)
+              lessThan(?v,40)
+			  ->
+				(?measurement rdf:type weather-onto:DryHumidity)
+]
+ 
+# Rule: IF Humidity greaterThan 40 m3:Percent AND lessThan 70 m3:Percent THEN AverageHumidity
+[AverageHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,40)
+              lessThan(?v,70)
+			  ->
+				(?measurement rdf:type weather-onto:AverageHumidity)
+]
+
+# Rule: IF Humidity greaterThan 80 m3:Percent THEN VeryMoistHumidity
+[VeryMoistHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,80)
+			  ->
+				(?measurement rdf:type weather-onto:VeryMoistHumidity)
+]
+
+# Rule: IF Humidity lessThan 30 m3:Percent THEN VeryDryHumidity
+[VeryDryHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,30)
+			  ->
+				(?measurement rdf:type weather-onto:VeryDryHumidity)
+]
+
+# Rule:  IF Humidity greaterThan 70 m3:Percent AND lessThan 80 m3:Percent THEN MoistHumidity
+[MoistHumidity: 
+              (?measurement rdf:type m3:Humidity)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,70)
+              lessThan(?v,80)
+			  ->
+				(?measurement rdf:type weather-onto:MoistHumidity)
+]
+
+
+################################################################ AIR QUALITY RULES US ######################################################################
+# NEW APRIL 2018
+# AQI unit = no unit?
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index and Air Quality Index (AQI) Basics https://airnow.gov/index.cfm?action=aqibasics.aqi
+# http://aqicn.org/
+# United States
+
+# PM2.5 24-Hour AQI Loop, Courtesy US EPA
+# The United States Environmental Protection Agency (EPA) has developed an Air Quality Index that is used to report air quality. This AQI is divided into six categories indicating increasing levels of health concern. An AQI value over 300 represents hazardous air quality and below 50 the air quality is good.[10]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 0 to 50	
+# Levels of Health Concern = Good	
+# Colors = Green 
+# Rule: IF AirQualityIndex greaterThan 0 and LowerThan 50 THEN GoodAirQualityIndexUS
+[GoodAirQualityIndexUS: 
+              (?measurement rdf:type m3:AirQualityIndex)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,50)
+			  ->
+				(?measurement rdf:type environment-onto:GoodAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 51 to 100	
+# Levels of Health Concern = Moderate	
+# Colors = Yellow
+# Rule: IF AirQualityIndex greaterThan 51 and LowerThan 100 THEN ModerateAirQualityIndexUS
+[ModerateAirQualityIndexUS: 
+              (?measurement rdf:type m3:AirQualityIndex)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,51)
+              lessThan(?v,100)
+			  ->
+				(?measurement rdf:type environment-onto:ModerateAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 101 to 150	
+# Levels of Health Concern = Unhealthy for Sensitive Groups	
+# Colors = Orange
+# Rule: IF AirQualityIndex greaterThan 101 and LowerThan 150 THEN UnhealthySensitiveGroupAirQualityIndexUS
+[UnhealthySensitiveGroupAirQualityIndexUS: 
+              (?measurement rdf:type m3:AirQualityIndex)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,101)
+              lessThan(?v,150)
+			  ->
+				(?measurement rdf:type environment-onto:UnhealthySensitiveGroupAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values =  151 to 200	
+# Levels of Health Concern = Unhealthy	
+# Colors = Red 
+# Rule: IF AirQualityIndex greaterThan 151 and LowerThan 200 THEN UnhealthyAirQualityIndexUS
+[UnhealthyAirQualityIndexUS: 
+              (?measurement rdf:type m3:AirQualityIndex)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,151)
+              lessThan(?v,200)
+			  ->
+				(?measurement rdf:type environment-onto:UnhealthyAirQualityIndexUS)
+]
+
+# According to Wikipedia Air Quality Index (AQI): https://en.wikipedia.org/wiki/Air_quality_index
+# AQI Values = 201 to 300	
+# Levels of Health Concern = Very Unhealthy
+# Colors = Purple 
+# Rule: IF AirQualityIndex greaterThan 201 and LowerThan 300 THEN VeryUnhealthyQualityIndexUS
+[VeryUnhealthyAirQualityIndexUS: 
+              (?measurement rdf:type m3:AirQualityIndex)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,201)
+              lessThan(?v,300)
+			  ->
+				(?measurement rdf:type environment-onto:VeryUnhealthyQualityIndexUS)
+]
+
+
+# AQI Values = 301 to 500	
+# Levels of Health Concern = Hazardous
+# Colors = Maroon 
+# Rule: IF AirQualityIndex greaterThan 301 and LowerThan 500 THEN HazardousAirQualityIndexUS
+[HazardousAirQualityIndexUS: 
+              (?measurement rdf:type m3:AirQualityIndex)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,301)
+              lessThan(?v,500)
+			  ->
+				(?measurement rdf:type environment-onto:HazardousAirQualityIndexUS)
+]
+
+################################################################ POLLEN LEVEL RULES ######################################################################
+# NEW APRIL 2018
+# pollen unit = no unit?
+
+# According to https://www.pollen.com/
+# Rule: IF PollenLevel greaterThan 0 and LowerThan 2.4 THEN LowPollenLevel
+[LowPollenLevel: 
+              (?measurement rdf:type m3:PollenLevel)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)
+              lessThan(?v,2.4)
+			  ->
+				(?measurement rdf:type environment-onto:LowPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# Rule: IF PollenLevel greaterThan 2.5 and LowerThan 4.8 THEN LowMediumPollenLevel
+[LowMediumPollenLevel: 
+              (?measurement rdf:type m3:PollenLevel)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,2.5)
+              lessThan(?v,4.8)
+			  ->
+				(?measurement rdf:type environment-onto:LowMediumPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# medium 4.9 - 7.2
+# Rule: IF PollenLevel greaterThan 4.9 and LowerThan 7.2 THEN MediumPollenLevel
+[MediumPollenLevel: 
+              (?measurement rdf:type m3:PollenLevel)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,4.9)
+              lessThan(?v,7.2)
+			  ->
+				(?measurement rdf:type environment-onto:MediumPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# medium - high 7.3 - 9.6
+# Rule: IF PollenLevel greaterThan 7.3 and LowerThan 9.6 THEN MediumHighPollenLevel
+[MediumHighPollenLevel: 
+              (?measurement rdf:type m3:PollenLevel)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,7.3)
+              lessThan(?v,9.6)
+			  ->
+				(?measurement rdf:type environment-onto:MediumHighPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# high 9.7 - 12
+# Rule: IF PollenLevel greaterThan 9.7 and LowerThan 12 THEN HighPollenLevel
+[HighPollenLevel: 
+              (?measurement rdf:type m3:PollenLevel)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,9.7)
+              lessThan(?v,12)
+			  ->
+				(?measurement rdf:type environment-onto:HighPollenLevel)
+]
+
+################################################################ ONITRIC OXIDE RULES ######################################################################
+# TO DO
+
+
+
+################################################################ HEALTH - HEARTBEAT RULES ######################################################################
+# add (?measurement m3:hasUnit m3:BeatPerMinute)   
+# correctness ok 2 rules [Tanantong 2011] + 3 rules [Hristoskova 2014]
+# completude no > 300 nothing
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# FastHeartBeat, IF m3:HeartBeat greaterThan 102 m3:BeatPerMinute AND lessThan 150 m3:BeatPerMinute THEN FastHeartBeat
+[FastHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,102)
+              lessThan(?v,150)
+              ->
+              (?measurement rdf:type health-dataset:FastHeartBeat)
+]
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# SlowHeartBeat, IF m3:HeartBeat greaterThan 40 m3:BeatPerMinute AND lessThan 58 m3:BeatPerMinute THEN SlowHeartBeat
+[SlowHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,40)
+              lessThan(?v,58)
+              ->
+              (?measurement rdf:type health-dataset:SlowHeartBeat)
+]
+
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# NormalHeartRate, IF m3:HeartBeat greaterThan 55 m3:BeatPerMinute AND lessThan 64 m3:BeatPerMinute THEN NormalHeartRate
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# NormalHeartBeat, IF m3:HeartBeat greaterThan 58 m3:BeatPerMinute AND lessThan 102 m3:BeatPerMinute THEN NormalHeartBeat
+[NormalHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,58)
+              lessThan(?v,102)
+              ->
+              (?measurement rdf:type health-dataset:NormalHeartBeat)
+]
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Tachycardia, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute THEN Tachycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VeryFastHeartBeat, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute AND lessThan 300 m3:BeatPerMinute THEN VeryFastHeartBeat
+[VeryFastHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,150)
+              lessThan(?v,300)
+              ->
+              (?measurement rdf:type health-dataset:VeryFastHeartBeat)
+]
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Bradycardia, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN Bradycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VerySlowHeartBeat, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN VerySlowHeartBeat
+[VerySlowHeartBeat: 
+              (?measurement rdf:type m3:HeartBeat)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,40)
+              ->
+              (?measurement rdf:type health-dataset:VerySlowHeartBeat)
+]
+
+
+################################################################ INSIDE TEMPERATURE ######################################################################
+
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# We select [Kofler 2011] rules since they define 15 rules
+
+# Overlapping with [Paul Staroch 2013] 6 rules
+# Overlapping with Yus 6 rules
+# Overlapping with Vasileios 
+# Overlapping with Rodriguez 
+
+# Rule: AboveRoomTemperature, IF m3:Temperature greaterThan 25 AND lessThan 30  m3:DegreeCelsius THEN AboveRoomTemperature
+# ok with staroch
+[AboveRoomTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,25)
+              lessThan(?v,30)         
+              ->     
+              (?measurement rdf:type home-dataset:AboveRoomTemperature)
+]
+
+# Rule: IF m3:Temperature greaterThan 10 AND lessThan 20 m3:DegreeCelsius THEN BelowRoomTemperature
+# ok with staroch
+[BelowRoomTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,10)
+              lessThan(?v,20)      
+              ->    
+              (?measurement rdf:type home-dataset:BelowRoomTemperature)    
+]
+
+# Rule: IF m3:Temperature greaterThan 20 m3:DegreeCelsius AND lessThan 25 m3:DegreeCelsius THEN RoomTemperature
+# ok with staroch
+[RoomTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,25)  
+              ->  
+              (?measurement rdf:type home-dataset:RoomTemperature)          
+]
+
+# ?measurement rdf:type home-dataset:LowTemperature is an implementation mistake
+# should be replaced  by something like
+# ?measurement m3:isRelatedTo home-dataset:LowTemperature
+#for pankesh scenario
+[LowTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,20)
+              lessThan(?v,25)  
+              ->  
+              (?measurement rdf:type home-dataset:LowTemperature)         
+              (?measurement m3:isRelatedTo home-dataset:LowTemperature)          
+]
+#              
+
+# Rule: IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature
+[BelowOrZeroTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type home-dataset:BelowOrZeroTemperature)
+]
+
+# Rule: IF m3:Temperature greaterThan -25 m3:DegreeCelsius AND lessThan 0 m3:DegreeCelsius THEN Frost
+[Frost: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,-25)
+              lessThan(?v,0)    
+              ->     
+              (?measurement rdf:type home-dataset:Frost)     
+]
+
+# Rule: ExtremeFrost, IF m3:Temperature lessThan -25 m3:DegreeCelsius THEN ExtremeFrost
+[ExtremeFrost: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              lessThan(?v,-25)    
+              ->   
+              (?measurement rdf:type home-dataset:ExtremeFrost)       
+]
+
+# Rule: ExtremeHeat, IF m3:Temperature greaterThan 37 m3:DegreeCelsius THEN ExtremeHeat
+[ExtremeHeat: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,37)  
+              ->      
+              (?measurement rdf:type home-dataset:ExtremeHeat)  
+]
+
+# Rule: IF m3:Temperature greaterThan 30 m3:DegreeCelsius THEN Heat
+[Heat: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,30)   
+              ->      
+              (?measurement rdf:type home-dataset:Heat)  
+]
+
+# Rule: IF m3:Temperature greaterThan 0 m3:DegreeCelsius THEN AboveZeroTemperature
+[AboveZeroTemperature: 
+              (?measurement rdf:type m3:RoomTemperature)
+              (?measurement m3:hasValue ?v)
+              greaterThan(?v,0)     
+              -> 
+              (?measurement rdf:type home-dataset:AboveZeroTemperature)     
+]
+
+
+
+
+# Rule: IF BelowRoomTemperature THEN CoolingWeatherState
+
+# Rule: IF AboveRoomTemperature THEN HeatingWeatherState
+
+# Rule: IF ! AboveRoomTemperature AND NoPrecipitation and (LightWind OR StrongWind) THEN AiringWeatherState
+
+# Rule: IF AboveZeroTemperature and HeavyPrecipitation and oneOf(LightWind, Storm, StrongWind) THEN Thunderstorm
+
+# Rule: IF m3:Precipitation AND BelowOrZeroTemperature THEN SnowyWeatherState
+
+# Rule: IF ! NoPrecipitation AND AboveZeroTemperature THEN RainyWeatherState

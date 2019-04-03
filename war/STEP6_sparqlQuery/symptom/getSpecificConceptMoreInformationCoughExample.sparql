@@ -1,0 +1,25 @@
+# Created: February 2019
+# TUTORIAL: Get the more information about chest sound, cough, etc.
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+
+SELECT DISTINCT ?potentialSymptom ?label WHERE{
+	?potentialSymptom rdfs:label ?label.
+	FILTER ( xsd:string("cough") = ?label). # works only if exact match
+	
+	#FILTER (LANGMATCHES(LANG(?label), "en")). # can be used only if labels are explicitly mentioned that they will be in English
+}
+
+ #   <owl:Class rdf:about="http://purl.obolibrary.org/obo/SYMP_0000614">
+ #       <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/SYMP_0000514"/>
+ #       <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cough is a respiratory system and chest symptom characterized by an explosive expulsion of air from the lungs acting as a protective mechanism to clear the air passages or as a symptom of pulmonary disturbance.</obo:IAO_0000115>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD9CM_2005:786.2</oboInOwl:hasDbXref>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SyOID:8253</oboInOwl:hasDbXref>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_CUI:C0010200</oboInOwl:hasDbXref>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UMLS_ICD9CM_2005_AUI:A0043303</oboInOwl:hasDbXref>
+ #       <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symptoms</oboInOwl:hasOBONamespace>
+ #       <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SYMP:0000614</oboInOwl:id>
+ #       <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cough</rdfs:label>
+ #   </owl:Class>

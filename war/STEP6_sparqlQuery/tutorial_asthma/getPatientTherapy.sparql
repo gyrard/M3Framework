@@ -1,0 +1,24 @@
+# Created: November 2018
+# TUTORIAL: Query the patient's therapy
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX kao: <http://purl.org/kao#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?therapyLabel  WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	
+	?patientURI kao:hasTherapy ?therapyURI.
+	?therapyURI rdfs:comment ?therapyComment. 
+	?therapyURI rdfs:label ?therapyLabel. 
+}
+
+# RDF example:
+# 	<owl:NamedIndividual rdf:about="Patient_id_KH030">		
+#		<rdfs:label xml:lang="en">Patient id number KH030</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient id number KH030</rdfs:comment>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#		<kao:hasTherapy rdf:resource="http://purl.org/kao#Ventolin"/>
+#	</owl:NamedIndividual>

@@ -1,0 +1,47 @@
+# Last updated: July 2018: complaint with W3C SOSA/SOSA V2
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX naturopathy-dataset: <http://sensormeasurement.appspot.com/dataset/naturopathy-dataset/>
+
+SELECT DISTINCT ?name ?value ?unit ?semanticAnnotationType ?deduce ?suggest ?suggest_comment WHERE{
+	?measurement sosa:observedProperty ?name.
+	?measurement sosa:hasSimpleResult ?value.
+	?measurement sosa:resultTime ?time.
+	?measurement qudt:unit ?unit.
+	
+	?measurement rdf:type ?semanticAnnotationTypeUri.
+	
+	OPTIONAL { 
+		?semanticAnnotationTypeUri rdfs:label ?semanticAnnotationType. 
+		FILTER(LANGMATCHES(LANG(?semanticAnnotationType), "en"))
+	}
+		
+	OPTIONAL {
+		?measurement rdf:type ?deduceUri .
+		?deduceUri rdfs:label ?deduce.
+		FILTER(LANGMATCHES(LANG(?deduce), "en"))
+		FILTER(str(?deduceUri) != str(sosa:ObservableProperty) )
+		FILTER(str(?deduceUri) != str(?semanticAnnotationTypeUri) )
+	
+		OPTIONAL{
+
+		# used by body temp - home remedy scenario, tourism activity and clothes scenario
+		?resUri  m3:hasRecommendation ?deduceUri . 
+		?resUri rdf:type ?typeRecommendedUri.  
+
+			?resUri rdfs:label ?suggest.
+			FILTER(LANGMATCHES(LANG(?suggest), "en"))
+			OPTIONAL{
+				?resUri dc:description ?suggest_comment. 
+				FILTER(LANGMATCHES(LANG(?suggest_comment), "en"))	
+			}
+			
+			
+		}
+	}
+}

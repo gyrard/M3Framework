@@ -1,0 +1,313 @@
+########################################################################
+######## RULES FOR WELL_BEING AND HAPPINESS ###############
+######## CREATED: FEBRUARY 2016 ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ LINKED OPEN RULES WELL_BEING AND HAPPINESS ######################################################################
+# March 2019
+
+PHQ-9 questionnaire for depression such as  (1) Feeling Down, (2) Eating and Sleep Disorder, (3) Low Self-esteem, and (4) Suicidal Thoughts.
+
+
+################################################################ Depression [Chang et al. 2015] ######################################################################
+Mobile cloud-based depression diagnosis using an ontology and a Bayesian network [Chang et al. 2015]
+# Future Generation Computer Systems Journal
+# Impact factor: 4.639 (March 2019)
+# OntoBayes
+# Jade framework
+
+# [Dysthymia:
+(?patient sf:Have_This_Symptom sf:Sadness),
+(?patient sf:Have_This_Symptom sf:Fatigue),
+(?patient sf:Have_This_Symptom sf:Sleep_Disturbance),
+(?patient sf:Have_This_Symptom sf:Eating_Disturbance),
+(?patient sf:Have_This_Symptom sf:Low_Self_Esteem),
+(?patient sf:Have_This_Symptom sf:Anxiety),
+-> (?patient sf:May_Cause sf:Dysthymia),
+
+The rule indicates that if a patient has the symptoms of “Sadness”, “Fatigue”, etc., then the outcome for the patient may be “Dysthymia”.
+
+
+
+################################################################ SLEEP APNEA [Yacchiarema et al. IEEE Access 2018] ######################################################################
+# March 2019
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# Obtrusive Sleep Apnea (OSA)
+
+
+# Heart rate has a strong link with strokes and heart attacks in people who have OSA because sleep disorders influence the autonomic nervous system and can cause heart rate disturbances [18].
+# A heart rate monitor placed on the elery's chest is used to monitor the heart rate during sleep, considering that 12:00 am to 06:00 am is the interval with a high risk of a heart attack [19].
+# [18] Paper: Comparison of detrended fluctuation analysis and spectral analysis for heart rate variability in sleep and sleep apnea [Penzel et al. 2003]
+# [19] Paper: Day-nigh pattern of sudden death in obstructive sleep apnea [Gami et al. 2005]
+
+# [20] Paper: Does snoring intensity correlate with the severity of obstructive sleep apnea? [Maimon et al. 2010]
+# Snoring intensity: snoring is a major symptom of OSA and its intensity is closely correlated with the severity of this syndrome, that is, the intesity of snoring increases as OSA becomes more severe [20].
+# Therefore, it is necessary to detect snoring and assess its intensity.
+# To do this, a 3-pin sound sensor module is used and located in the elderly person's room.
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# STEPS COUNT, MonitoringInterval = Daily
+# IF StepsCount < 5000 steps then SedentaryStepsCount and ACTION = NHPC (Notifications to health professionals and caregivers)
+# IF StepsCount BETWEEN 5000 AND 7499 steps then MildActiveStepsCount
+# IF StepsCount BETWEEN 7500 AND 9999 steps then ModerateActiveStepsCount
+# IF StepsCount BETWEEN 10000 AND 12499 steps then ActiveStepsCount
+# IF StepsCount >= 12500 steps then HighActiveStepsCount
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# TEMPERATURE, MonitoringInterval = 22:00 - 08:00
+# IF Temperature < 18 DegC then LowTemperature and ACTION = Turn on on/off Air Conditioner / NHPC (Notifications to health professionals and caregivers)
+# IF Temperature > 22 DegC then HighTemperature
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# HUMIDITY, MonitoringInterval = 22:00 - 08:00
+# IF Humidity < 50 percent then LowHumidity
+# IF Humidity > 70 percent then HighHumidity
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# HEART RATE, MonitoringInterval = 22:00 - 08:00
+# IF HeartRate < 50 bpm then BradycardiaHeartRate and ACTION = NHPC (Notifications to health professionals and caregivers)
+# IF HeartRate BETWEEN 60 AND 100 bpm then NormalHeartRate
+# IF HeartRate >= 100 bpm then TachycardiaHeartRate and ACTION = NHPC (Notifications to health professionals and caregivers)
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# SNORING LEVEL, MonitoringInterval = 22:00 - 08:00
+# IF SnoringLevel < 40 dB then NormalSnoringLevel
+# IF SnoringLevel BETWEEN 40 AND 50 dB then MildSnoringLevel
+# IF SnoringLevel BETWEEN 50 AND 60 dB then ModerateSnoringLevel
+# IF SnoringLevel >= 60 dB then SevereSnoringLevel and ACTION = NHPC (Notifications to health professionals and caregivers)
+
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# BMI, MonitoringInterval = Daily
+# IF BMI < 18.5 kg/m2 then UnderweightBMI and ACTION = NHPC (Notifications to health professionals and caregivers)
+# IF BMI BETWEEN 18.5 AND 24.9 kg/m2 then NormalBMI
+# IF BMI BETWEEN 25 AND 29.9 kg/m2 then OverweightBMI and ACTION = NHPC (Notifications to health professionals and caregivers)
+# IF BMI >= 30 kg/m2 then ObeseBMI and ACTION = NHPC (Notifications to health professionals and caregivers)
+
+################################################################ Compendium of Physical Activites ######################################################################
+# February 2019
+# Paper: Compendium of Physical Activites: An update of activity codes and MET intensitiess [Ainsworth et al. 2000]
+# Paper: Compendium of Physical Activites: A second update of codes and MET values [Ainsworth et al. 2011]
+# Physical Activities Compendium Metabolic Equivalent of Task (MET) value to be estimated each day
+
+# This compendium of physical activities designed to enable the comparison of self-report physical activities across studies, contains activities such as home activities, inactivity, self care, sports, and walking among others.
+
+
+
+
+################################################################  ######################################################################
+# February 2019
+# Paper: Ontological Modeling of Motivational Messages for Physical Activity Coaching [Villalonga et al. 2017]
+# Technologies: Protege, Pellet
+
+# Action = {Bicycling, ConditioningExervice, Dancing, FishingAndHunting, HomeActivities, HomeRepair, Inactivity, LawnAndGarden, 
+# MusicPlaying, Occupation, Running, SelfCare, SexualActivity, Sports, Transportation, Walking, WaterActivities, WinterActiviies, ReligiousActivites, VolunteerActivites}
+# Walking = {ClimbingHall, DescendingStair, Hiking, Eating}
+# Eating = {HavingBreakfast, HavingLunch, HavingDinner}
+# HomeActivities = {Dusting, WashingDishes}
+
+# What about going for a walk in the park?
+# You have been too inactive, why don't you wash the dishes?
+
+# if the user has spent too much time at home, the system recommends an outdoor activity
+# if it is raining, the system recommends an indoor activity
+# if the user has a god, then walking the dog
+# if the user does not have a bike, the system does not recommend cycling
+
+# hasIntensity (walking, "3.5" double)
+# hasIntensity (eating, "1.5" double)
+# hasIntensity (washing_dishes, "2.5" double)
+# Time = {Morning, Afternoon, Evening, Night}
+# hasTime (HavingBreakfast, Morning)
+# hasTime (HavingLunch, Afternoon)
+# hasTime (HavingDinner, Evening)
+
+# DBpedia ontology
+# Place = {ArchitecturalStructure, NaturalPlace, Park, Garden}
+# ArchitecturalStructure = {Building, SportFacility}
+# NaturalPlace = {Beach, Cave, Mountain}
+# SportFacility = {Stadium, SkiArea}
+# Building = {Dwelling, Factory, Hospital, Hotel, Restaurant, ShippingMall}
+
+# Individual: House type of Dwelling
+# Individual: Hill type of Mountain
+# Individual: Dog type of Animal
+# Individual: Bike type of Transport
+# Individual: Car type of Transport
+
+# hasPlace (ClimbingHill, Hill)
+# hasPlace (Dusting, Home)
+# hasPlace (WashingDishes, House)
+
+# hasRequiredElement (Bicycling, Bike)
+
+# Location = {IndoorLocation, OutdoorLocation}
+# IndoorLocation = {Building, Cave}
+# OutdoorLocation = {Stadium, SkiArea, Beach, Mountain, Park, Garden}
+# Element = {Animal, Device, Transport}
+
+
+################################################################ BEWELL - WELLBEING SCORE: SLEEPING, ACTVITY, SOCIAL INTERACTION [Lane et al. 2011] ######################################################################
+# Paper: Bewell: A smartphone application to monitor, model and promote wellbeing [Lane et al. 2011]
+# BeWell computes a wellbeing score for sleep behavior within a single day using a gaussian function
+# February 2019
+
+# sleep_day (HR_act) = Ae exp (- ((HR_act - HR_ideal) power 2 )/2 * ( (HR-hi - HR_lo) power 2) )
+# HR_act = total quantity of sleep over 24 hour period
+# HR_ideal = ideal hours asleep, by default = 7 hours
+# HR_hi = upper limit of acceptable sleep duration, by default = 9 hours
+# HR_lo = lower limit of acceptable sleep duration, by default = 5 hours
+
+
+# Paper: Compendium of Physical Activites: An update of activity codes and MET intensitiess [Ainsworth et al. 2000]
+# Physical Activities Compendium Metabolic Equivalent of Task (MET) value to be estimated each day
+
+# Center for Disease Control and Prevention: http://www.cdc.gov
+# Our daily scores of physical activity are simply a linear regression
+# physical_day (MET_act) = (MET_hi - MET_lo)*MET_act + MET_lo
+# MET_act is the actual value for a user during that day
+# MET_hi high guidelines for adult aerobic activity set by the CDC
+# MET_lo minimum guidelines for adult aerobic activity set by the CDC
+# Values between 300 and 150 minutes and moderate-intensity per week.
+# Such aeroboic activity should be accompanied by muscle-strenghthening programs
+
+# Activity = {driving, stationary, running, walking}
+
+# we measure social isolation based on the total duration of ambient conversations, which are detected by inferences made using the mobile phone microphone.
+# social_day (DUR_act) = ((DUR_hi - (DUR_lo) * (DUR_act) + DUR_lo)
+# DUR_act = duration of conversation detected relative to the total time the microphone is active during a single day.
+# DUR_hi = 0.35 using the  mean conversation ratio of a small 10 person experiment
+# DUR_lo = 0 
+
+################################################################ MUSIC THERAPY AND IOT [Pingle 2016] ######################################################################
+# February 2019
+# Paper: IoT for Music Therapy [Pingle et al. 2016] 
+# Paper: Music therapy and data mining using Indian ragas as supplementary medicine [Pingle et al. 2015] 
+# Antibiotic medicine to reduce stress, but side effects
+# Music therapy might be useful in reducing stress without any side effects
+# Music sounds are important for our nervous system. 
+# Happiness molecules are created during music therapy session. 
+# These happiness molecules are reducing our stress level.
+# The music used would be part of Hindustani music.
+# This type of music may help to reduce stress of a person.
+
+# to reduce stress: consume antibiotic medicine
+# to reduce stress: listen music therapy, music therapy helps a person to calm down his brain waves.
+
+# Other papers:
+
+# Paper: Positive music effects on two types of negative stressful conditions [Yamamoto et al.]
+# heart rate, respiratory rate, cortisol concentration level.
+# 20 participants
+
+# Paper: Effects of music therapy on children with disabilities [Sze et al. 2004]
+# Paper: Clinical issues: Music therapy in an adult cancer inpatient treatment setting [OCallaghan et al. Journal of the Society for Integrative Oncology 2006]
+# Paper: The effects of different types of music on perceived and physiological measures of stress [Burns et al. American Music Therapy Association]
+
+# skin temperature, brain activity, heart rate
+# relaxation level
+# anxiety level
+
+################################################################  ######################################################################
+# February 2019
+# Paper: An Internet of Things (IoT) Application for Predicting the Quantity of Future Heart Attack Patients [Ahmed 2017]
+# If the blood sugar level more than 120 mg/dl, this result is treated as one and if this is 120 mg/dl or less than that, this is defined as normal or zero.
+
+################################################################ ######################################################################
+# February 2019
+# Paper: Semantic-based recommendation of nutrition diets for the elderly from agroalimentary thesauri [Espin et al. 2013]
+# caloric level
+# calories per 100g
+# medium caloric content (99-200)
+# very low caloric content (0-50)
+# very high caloric content (>299)
+# high caloric content (199-300)
+# low caloric content (49-100)
+
+################################################################ Paper: Motivate: Towards context-aware recommendation mobile system for healthy living [Lin et al. 2011] ######################################################################
+# February 2019
+# Paper: Motivate: Towards context-aware recommendation mobile system for healthy living [Lin et al. 2011]
+
+# Location = Work -> recommendation = take a break
+# Location = Work -> recommendation = take stairs
+# Location = Home -> recommendation = housework
+# Location = Home -> recommendation = stretching
+# Location = Home -> recommendation = gardening
+# Location = Outdoor -> recommendation = walk to a park
+# Location = Outdoor -> recommendation = cycling to a park
+# Location = Indoor -> recommendation = shopping
+# Location = Indoor -> recommendation = got to museum or exhibition
+# Location = Transportation -> recommendation = take a detour home
+# Location = Transportation -> recommendation = walk to work
+# Location = Transportation -> recommendation = cycle to work
+
+################################################################ Expert Systems With Applications Elsevier Journal - Afzal et al. 2018] ######################################################################
+# February 2019
+# Paper: Personalization of wellness recommendation using contextual interpretation [Expert Systems With Applications Elsevier Journal - Afzal et al. 2018]
+
+# HLC = High Level Context
+# R1: IF (Location = Transport && HLC = Commuting && Weather = DoNotCare)
+# R2: IF (Location = Restaurant && HLC = HavingMeal && Weather = DoNotCare)
+# R3: IF (Location = Home && HLC = Sleeping && Weather = DoNotCare)
+# Rn: IF (Location = Offoce && HLC = OfficeWork && Weather = DoNotCare)
+
+# Recommendation 1: SedentaryBehavior = ProlongedSitting, Criterion= 15-20 min sitting, Recommendation = TAKE A BREAK! Get out of your chair or couch every 15 min and merely stand up and then sit beck down. Or do some stretching for 20-30s. [Mercola et al. 2014]
+# Paper: Ten minutes of intermittent movement for every hour of sitting may counteract ill health effects of prolonged sitting [Mercola et al. 2014]
+
+# Recommendation 2: SedentaryBehavior = ProlongedSitting, Criterion= 1h sitting in char for non-obese adults, Recommendation = Take a 5 minutes walk for very hour you spend in your chair. [Thosar et al. 2015]
+# Paper: Effect of prolonged  sitting and breaks in sitting time on endothelial function [Thosar et al. 2015]
+
+# Recommendation 3: SedentaryBehavior = ProlongedStanding, Criterion= 2h standing in workplace, Recommendation = Take a 5sitting break. Have a rest of 4-5 min, 2-3 times per hour of standing. [Gregory et al. 2008]
+# Paper: Prolonged standing as a precursor for the development of low back discomfort: An investigation of possible mechanisms [Gregory et al. 2008]
+
+# Recommendation 4: SedentaryBehavior = ProlongedStanding, Criterion= 1h standing for males, Recommendation = Perform preventive stretching. Relax your legs every after 30 min . [? et al. 2015]
+
+# Recommendation 5: SedentaryBehavior = ProlongedLyingDown, Criterion= 1h lying down as a bed rest, Recommendation = Bodies are made to move. Please have a walk of 5 min. 2-3 times every after 1h of inactive lying down period [Convertino et al. 1997]
+# Paper: An overview of the issues: Physiological effects of bed rest and restricted physical activity[Convertino et al. 1997]
+
+# Scenario: Contexts (Location, HighLevelContext, Weather, Emotion)
+# Scenario: Home, Inactivity, Rainy, Neutral -> Walking
+# Scenario: Home, HavingMeal, Cloudy, Sadness -> Walking
+# Scenario: Home, Sleeping, Rainy, Neutral -> Streching
+# Scenario: Outdoors, Commuting, Rainy, Neutral -> Walking
+# Scenario: Gym, Exercising, Rainy, Neutral -> Running
+# Scenario: Mall, UnidentifiedHLC, Rainy, Sadness -> Running
+# Scenario: UnidentifiedLocation, Inactivity, Rainy, Anger -> Cycling
+# Scenario: Gym, Sleeping, Rainy, Neutral -> Running
+# Scenario: Restaurant, Sleeping, Rainy, Sadness -> Running
+# Scenario: Home, Inactivity, Rainy, Sadness -> Cycling
+# Scenario: Yard, Sleeping, Rainy, Happiness -> Walking
+# Scenario: Office, OfficeWork, Rainy, Neutral -> Walking/ Running
+# Scenario: Yard, UnidentifiedHLC, Rainy, Sadness -> Walking/ Stretching
+# Scenario: Home, Exercising, Sunny, UnidentifiedEmotion-> Walking
+
+
+
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+

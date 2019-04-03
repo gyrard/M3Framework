@@ -1,0 +1,26 @@
+# Created: February 2019
+# TUTORIAL: Get the taxonomy of viralInfectousDisease from the Human Disease Ontology (HDO)
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+# Relevant for Hussein
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+
+SELECT DISTINCT ?viralInfectousDisease ?viralInfectousDiseaseLabel ?definition WHERE{
+	?viralInfectousDisease rdfs:subClassOf <http://purl.obolibrary.org/obo/DOID_934>.
+	?viralInfectousDisease rdfs:label ?viralInfectousDiseaseLabel.
+	?viralInfectousDisease <http://purl.obolibrary.org/obo/IAO_0000115> ?definition. # property Definitions
+}
+
+ #   <Class rdf:about="http://purl.obolibrary.org/obo/DOID_0060478">
+ #       <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/DOID_934"/>
+ #       <metadata:treeView rdf:resource="http://purl.obolibrary.org/obo/DOID_934"/>
+ #       <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A viral infectious disease that has_material_basis in Zika virus, which is transmitted_by Aedes aegypti mosquitoes and targets neural progenitor cells and  neuronal cells in all stages of maturity and has_symptom fever, has_symptom rash, has_symptom headaches and has_symptom joint pain.</obo:IAO_0000115>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10:U06</oboInOwl:hasDbXref>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ICD10CM:A92.8</oboInOwl:hasDbXref>
+ #       <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MESH:D000071243</oboInOwl:hasDbXref>
+ #      <oboInOwl:hasExactSynonym rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zika virus disease</oboInOwl:hasExactSynonym>
+ #      <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disease_ontology</oboInOwl:hasOBONamespace>
+ #      <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060478</oboInOwl:id>
+ #      <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zika fever</rdfs:label>
+ #      <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOID:0060478</skos:notation>
+  #  </Class>

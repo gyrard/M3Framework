@@ -1,0 +1,27 @@
+# Created: January 2019
+# TUTORIAL: Scenario chocolate depression
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX naturopathy-dataset: <http://sensormeasurement.appspot.com/naturopathy-dataset/>
+PREFIX m3: <http://sensormeasurement.appspot.com/m3#>
+
+SELECT DISTINCT ?foodURI ?recommendationURI ?foodLabel ?recommendationLabel WHERE{
+	?foodURI m3:hasRecommendation ?recommendationURI.
+	?foodURI rdfs:label ?foodLabel.
+	OPTIONAL{ ?recommendationURI rdfs:label ?recommendationLabel.}
+}
+
+# RDF example:
+#	<naturopathy:Food rdf:about="Chocolate">
+#		<rdfs:label xml:lang="fr">Chocolat</rdfs:label>
+#		<rdfs:label xml:lang="en">Chocolate</rdfs:label>
+#       <rdf:type rdf:resource="&food;Chocolate"/>
+#        <naturopathy:hasNutrient rdf:resource="Magnesium"/>
+#        <naturopathy:hasNutrient rdf:resource="Protein"/>
+#        <m3:hasRecommendation rdf:resource="Stress"/>
+#        <m3:hasRecommendation rdf:resource="Sadness"/>
+#        <m3:hasRecommendation rdf:resource="Depression"/>
+#        <naturopathy:toAvoid rdf:resource="Insomnia"/>
+#        <naturopathy:toAvoid rdf:resource="Headache"/>
+#    </naturopathy:Food>

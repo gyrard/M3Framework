@@ -1,3 +1,9 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +33,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.io.IOException;
@@ -48,21 +54,21 @@ import javax.xml.bind.JAXBException;
 import m3.knowledge.lov4iot.LOV4IoT_SearchProject;
 import m3.reasoning.slor.SLOR_SearchRule;
 
-import org.json.JSONException;
+//import org.json.JSONException;
 
 import com.hp.hpl.jena.rdf.model.Model;
 
 import eurecom.common.util.ReadFile;
 import eurecom.common.util.Var;
-import eurecom.constrained.devices.ConvertRaspberrySensorData;
+//import eurecom.constrained.devices.ConvertRaspberrySensorData;
 import eurecom.data.converter.ConvertSensorDataToM3;
 
 
-/**
+*//**
  * SenML to RDF converter web services
  * @author Amelie Gyrard
  *
- */
+ *//*
 @Path("/swot")
 public class SWOTWS {;
 
@@ -75,11 +81,11 @@ Logger logger = Logger.getLogger("Web service");
 
 
 
-/**
+*//**
  * SenML to RDF converter web service from the url
  * @param uriInfo
  * @return
- */
+ *//*
 @GET
 @Path("/convert_senml_to_rdf/{url}")
 @Produces(MediaType.TEXT_PLAIN)
@@ -105,12 +111,12 @@ public Response getSenmlUrlAndConvert(@Context UriInfo uriInfo) {
 	return Response.status(200).entity(msg).build();
 }
 
-/**
+*//**
  * get senml sensor data in a textarea and convert them into RDF
  * Web service used in http://sensormeasurement.appspot.com/?p=senml_converter
  * @param senmlData
  * @return
- */
+ *//*
 @GET
 @Path("/convert_senml_to_rdf/")
 @Produces(MediaType.TEXT_PLAIN)
@@ -125,12 +131,12 @@ public Response getSenmlTextAndConvert(@QueryParam(value = "data") String senmlD
 			msg = m3.convertXMLSenMLIntoRDF(senmlData, "featureOfInterest", "featureOfInterest" + "Measurement");
 			System.out.println("if: "+ format + " " +msg);
 		}
-	/*	else if (format.compareTo("json")==0){			
+		else if (format.compareTo("json")==0){			
 			ConvertRaspberrySensorData m3 = new ConvertRaspberrySensorData();
 			Model model = m3.convertRaspberrySensorDataToRDF(senmlData, Var.RULE_M3_NEW_TYPE);
 			msg = model.toString();
 			System.out.println("else if: " + format + " " +msg);
-		}*/
+		}
 	} catch (IOException | JAXBException e) {
 		// TODO Auto-generated catch block
 		msg= e.getMessage();
@@ -141,7 +147,7 @@ public Response getSenmlTextAndConvert(@QueryParam(value = "data") String senmlD
 
 
 
-/**
+*//**
  * Created: 2015 <br/><br/>
  * 
  * Sensor-based Linked Open Rules (S-LOR) tool <br/><br/>
@@ -154,7 +160,7 @@ public Response getSenmlTextAndConvert(@QueryParam(value = "data") String senmlD
  * 
  * TO DO: Web service should be move to SLORWS + modify demos + documentations SLOR <br/>
  * Deprecated June 2016 <br/>
- */
+ *//*
 @Deprecated
 @GET
 @Path("/{m2mdevice}")
@@ -165,7 +171,7 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
 	return project.getProjectSpecificToSensor(m2mdevice);
 }
 
-/**
+*//**
  * Deprecated, htthis web service has been moved to http://sensormeasurement.appspot.com/slor/rule/BodyThermometer
  * 
  * Created: 2015
@@ -181,7 +187,7 @@ public static String getProjectsSpecificToSensor(@PathParam("m2mdevice") String 
  * TO DO should be removed? August 2016
  * check .html using this web service?
  * should be refactor and use slor/ web services SLORWS.java
- */
+ *//*
 @Deprecated
 @GET
 @Path("/rule/{m2mdevice}")
@@ -204,3 +210,4 @@ public static String getRulesSpecificToSensor(@PathParam("m2mdevice") String m2m
 }
 
 
+*/

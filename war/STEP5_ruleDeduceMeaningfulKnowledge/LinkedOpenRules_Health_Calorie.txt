@@ -1,0 +1,149 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################  ######################################################################
+# March 2019
+# Paper: Semantic-based recommendation of nutrition diets for the elderly form agroalimentary thesauri [Espin et al. 2013]
+
+# body mass index (BMI)
+# NutElCare Ontology
+
+# NutElCare SWRL
+# Foods(?c), "calories per 100g"(?c, ?x), greaterThan(?x, 99), lessThan(?x, 200) -> "Caloric level" (?c, "MEDIUM caloric content")
+# Foods(?c), "calories per 100g"(?c, ?x), greaterThan(?x, 0), lessThan(?x, 50) -> "Caloric level" (?c, "VERY LOW caloric content")
+# Foods(?c), "calories per 100g"(?c, ?x), greaterThan(?x, 299) -> "Caloric level" (?c, "VERY HIGH caloric content")
+# Foods(?c), "calories per 100g"(?c, ?x), greaterThan(?x, 199), lessThan(?x, 300) -> "Caloric level" (?c, "HIGH caloric content")
+# Foods(?c), "calories per 100g"(?c, ?x), greaterThan(?x, 49), lessThan(?x, 100) -> "Caloric level" (?c, "LOW caloric content")
+
+# To handle kao ontology scenario - patient instance example
+ [VeryHighCaloricContent: 
+			(?patientURI kao:hasIngestedCalorie ?calorie)
+            greaterThan(?calorie,299)
+			->
+			(?patientURI rdf:type kao:VeryHighCaloricContent)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[VeryHighCaloricContent2: 
+              (?measurement rdf:type kao:CaloricLevel)
+              (?measurement sosa:hasSimpleResult ?calorie)
+              greaterThan(?calorie,299)
+			  ->
+			(?measurement rdf:type kao:VeryHighCaloricContent)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [HighCaloricContent: 
+			(?patientURI kao:hasIngestedCalorie ?calorie)
+            greaterThan(?calorie,199)
+            lessThan(?calorie,300)
+			->
+			(?patientURI rdf:type kao:HighCaloricContent)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[HighCaloricContent2: 
+              (?measurement rdf:type kao:CaloricLevel)
+              (?measurement sosa:hasSimpleResult ?calorie)
+              greaterThan(?calorie,199)
+              lessThan(?calorie,300)
+			  ->
+			(?measurement rdf:type kao:HighCaloricContent)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [LowCaloricContent: 
+			(?patientURI kao:hasIngestedCalorie ?calorie)
+            greaterThan(?calorie,49)
+            lessThan(?calorie,100)
+			->
+			(?patientURI rdf:type kao:LowCaloricContent)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[LowCaloricContent2: 
+              (?measurement rdf:type kao:CaloricLevel)
+              (?measurement sosa:hasSimpleResult ?calorie)
+              greaterThan(?calorie,49)
+              lessThan(?calorie,100)
+			  ->
+			(?measurement rdf:type kao:LowCaloricContent)
+]
+
+
+# To handle kao ontology scenario - patient instance example
+ [VeryLowCaloricContent: 
+			(?patientURI kao:hasIngestedCalorie ?calorie)
+            greaterThan(?calorie,0)
+            lessThan(?calorie,50)
+			->
+			(?patientURI rdf:type kao:VeryLowCaloricContent)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[VeryLowCaloricContent2: 
+              (?measurement rdf:type kao:CaloricLevel)
+              (?measurement sosa:hasSimpleResult ?calorie)
+              greaterThan(?calorie,0)
+              lessThan(?calorie,50)
+			  ->
+			(?measurement rdf:type kao:VeryLowCaloricContent)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [MediumCaloricContent: 
+			(?patientURI kao:hasIngestedCalorie ?calorie)
+            greaterThan(?calorie,99)
+            lessThan(?calorie,200)
+			->
+			(?patientURI rdf:type kao:MediumwCaloricContent)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[MediumCaloricContent2: 
+              (?measurement rdf:type kao:CaloricLevel)
+              (?measurement sosa:hasSimpleResult ?calorie)
+              greaterThan(?calorie,99)
+              lessThan(?calorie,200)
+			  ->
+			(?measurement rdf:type kao:MediumCaloricContent)
+]
+
+# TO DO: replace ?calorie or patientURI rdf:type - find a better solution
+# TO DO: add kao:VeryHighCaloricContent within the ontology
+# TO DO: difference between total ingested calorie and food calorie 
+
+# ?patientURI rdfs:label ?patientLabel.
+#	?patientURI rdfs:comment ?patientComment.
+#	?patientURI kao:hasIngestedCalorie ?calorie. 	
+

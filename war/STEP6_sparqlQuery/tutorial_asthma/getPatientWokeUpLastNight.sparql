@@ -1,0 +1,21 @@
+# Created: November 2018
+# TUTORIAL: Query if the patient woke up last night
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX kao: <http://purl.org/kao#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?wokeUp  WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	?patientURI kao:hasWokeUpLastNight ?wokeUp. 
+}
+
+# RDF example:
+#	<owl:NamedIndividual rdf:about="Patient_hasWokeUpLastNightScenario">		
+#		<rdfs:label xml:lang="en">Patient scenario has woke up last night</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient scenario  has woke up last night</rdfs:comment>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#		<kao:hasWokeUpLastNight rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kao:hasWokeUpLastNight>	
+#	</owl:NamedIndividual>

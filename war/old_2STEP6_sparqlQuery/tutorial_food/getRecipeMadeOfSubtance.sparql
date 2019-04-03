@@ -1,0 +1,23 @@
+# Created: January 2019
+# TUTORIAL: Generic sparql query to get all recipes with a specific ingredient (e.g., Walnut) from the food taxonomy from the SmartProducts project http://projects.kmi.open.ac.uk/smartproducts/ontology.html
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX food_taxonomy: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food_taxonomy.owl#>
+PREFIX food_ontology: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#>
+PREFIX genericsmartproducts: <http://kmi.open.ac.uk/projects/smartproducts/ontologies/generic.owl#>
+
+SELECT DISTINCT ?recipeURI WHERE{
+	#?foodURI rdf:type food_ontology:Recipe.
+	#?recipeLabel rdfs:label ?foodLabel.	
+	?recipeURI genericsmartproducts:madeOfSubstance ?foodURIUser.
+}
+
+# RDF example:
+#  <rdf:Description rdf:about="http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#AppleCakeInAJarWalnutPortion">
+#    <generic:hasQuantity rdf:resource="http://kmi.open.ac.uk/projects/smartproducts/ontologies/recipes.owl#0.6Cup"/>
+#    <generic:madeOfSubstance rdf:resource="http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#Walnut"/>
+#    <rdf:type rdf:resource="http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#IngredientPortion"/>
+#    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+#  </rdf:Description>

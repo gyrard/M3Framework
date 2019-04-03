@@ -1,0 +1,65 @@
+<!--  Last updated 23 March 2017 
+Refactoring Ongoing
+This web page should not be updated here anymore but the one from the SLOR web site
+http://linkedopenreasoning.appspot.com/?p=slor
+
+-->
+<h1>
+<img src="../images/logos/SLORLogoV2.png" width="100" height="100"/>
+Sensor-based Linked Open Rules (S-LOR)
+<img src="../images/logos/SLORLogoV2.png" width="100" height="100"/>
+</h1>
+
+<div class="hero-unit">
+<h3>How to reason on sensor data? </h3>
+Select a sensor and we provide rules and projects exploiting this sensor.
+
+<br/><br/>
+<h3>Sensors used in your application? </h3>	
+
+
+
+
+Choose a sensor (e.g., precipitation sensor)
+   <select id="sensor" onclick="executeSwotAndRuleTemplateSensor();">
+   		<option>-- List of sensors will be displayed soon -- </option>
+   </select>	
+ <br/>Rules using this sensor: <br/><ul id="sensor_rule_template"> </ul>	
+ <br/>Projects using this sensor too: <br/><ul id="sensor_template"> </ul>	
+</div>
+
+<div class="hero-unit">
+<h3>Actuators used in your application? </h3>	
+
+Choose an actuator (e.g., window)
+   <select id="actuator" onclick="executeSwotAndRuleTemplateActuator();">
+   		<option>-- List of actuators will be displayed soon -- </option>
+   </select>	
+
+ <br/>Rules using this actuator (e.g., choose TV): <br/><ul id="actuator_rule_template"> </ul>	
+ <br/>Projects using this actuator too: <br/><ul id="actuator_template"> </ul>	
+</div>
+
+<div class="hero-unit">
+<h3>RFID tag used in your application? </h3>	
+
+Choose an RFID tag (e.g., food)
+   <select id="rfid" onclick="executeSwotAndRuleTemplateRfid();">
+   	<option>-- List of RFID tags will be displayed soon -- </option>
+   
+   </select>	
+  <br/>Rules using this rfid tag (e.g., choose Mop): <br/><ul id="rfid_rule_template"> </ul>	
+ <br/>Projects using this rfid tag too: <br/><ul id="rfid_template"> </ul>	
+
+</div>
+
+
+
+
+<script type="text/javascript">
+$.getScript('javascript/swot.js',function(){
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Sensor&format=xml", "sensor", "option");	
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=Actuator&format=xml", "actuator", "option");	
+	request(displayResultBindingSelect, "/m3/subclassOf/?nameClass=RFIDTag&format=xml", "rfid", "option");	
+	
+});

@@ -1,0 +1,150 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ STEP COUNT SCENARIO [Yacchiarema et al. IEEE Access 2018] ######################################################################
+# March 2019
+# Paper: A Smart System for Sleep Monitoring by Integrating IoT With Big Data Analytics [Yacchiarema et al. IEEE Access 2018]
+# Obtrusive Sleep Apnea (OSA)
+
+
+# Heart rate has a strong link with strokes and heart attacks in people who have OSA because sleep disorders influence the autonomic nervous system and can cause heart rate disturbances [18].
+# A heart rate monitor placed on the elery's chest is used to monitor the heart rate during sleep, considering that 12:00 am to 06:00 am is the interval with a high risk of a heart attack [19].
+# [18] Paper: Comparison of detrended fluctuation analysis and spectral analysis for heart rate variability in sleep and sleep apnea [Penzel et al. 2003]
+# [19] Paper: Day-nigh pattern of sudden death in obstructive sleep apnea [Gami et al. 2005]
+
+# [20] Paper: Does snoring intensity correlate with the severity of obstructive sleep apnea? [Maimon et al. 2010]
+# Snoring intensity: snoring is a major symptom of OSA and its intensity is closely correlated with the severity of this syndrome, that is, the intesity of snoring increases as OSA becomes more severe [20].
+# Therefore, it is necessary to detect snoring and assess its intensity.
+# To do this, a 3-pin sound sensor module is used and located in the elderly person's room.
+
+
+# STEPS COUNT, MonitoringInterval = Daily
+# IF StepsCount < 5000 steps then SedentaryStepsCount and ACTION = NHPC (Notifications to health professionals and caregivers)
+# IF StepsCount BETWEEN 5000 AND 7499 steps then MildActiveStepsCount
+# IF StepsCount BETWEEN 7500 AND 9999 steps then ModerateActiveStepsCount
+# IF StepsCount BETWEEN 10000 AND 12499 steps then ActiveStepsCount
+# IF StepsCount >= 12500 steps then HighActiveStepsCount
+
+# To handle kao ontology scenario - patient instance example
+ [SedentaryStepsCount: 
+			(?patientURI kao:hasStepsCount ?stepsCount)
+            lessThan(?stepsCount,5000)
+			->
+			(?patientURI rdf:type kao:SedentaryStepsCount)
+]
+
+
+# To handle senml data scenario - iot generic reasoner
+[SedentaryStepsCount2: 
+              (?measurement rdf:type kao:StepsCount)
+              (?measurement sosa:hasSimpleResult ?stepsCount)
+              lessThan(?stepsCount,5000)
+			  ->
+			(?measurement rdf:type kao:SedentaryStepsCount)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [MildActiveStepsCount: 
+			(?patientURI kao:hasStepsCount ?stepsCount)
+            greaterThan(?stepsCount,5000)
+            lessThan(?stepsCount,7499)
+			->
+			(?patientURI rdf:type kao:MildActiveStepsCount)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[MildActiveStepsCount2: 
+              (?measurement rdf:type kao:StepsCount)
+              (?measurement sosa:hasSimpleResult ?stepsCount)
+              greaterThan(?stepsCount,5000)
+              lessThan(?stepsCount,7499)
+			  ->
+			(?measurement rdf:type kao:MildActiveStepsCount)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [ModerateActiveStepsCount: 
+			(?patientURI kao:hasStepsCount ?stepsCount)
+            greaterThan(?stepsCount,7500)
+            lessThan(?stepsCount,9999)
+			->
+			(?patientURI rdf:type kao:ModerateActiveStepsCount)
+]
+
+
+# To handle senml data scenario - iot generic reasoner
+[ModerateActiveStepsCount2: 
+              (?measurement rdf:type kao:StepsCount)
+              (?measurement sosa:hasSimpleResult ?stepsCount)
+              greaterThan(?stepsCount,7500)
+            lessThan(?stepsCount,9999)
+			  ->
+			(?measurement rdf:type kao:ModerateActiveStepsCount)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [ActiveStepsCount: 
+			(?patientURI kao:hasStepsCount ?stepsCount)
+            greaterThan(?stepsCount,10000)
+            lessThan(?stepsCount,12499)
+			->
+			(?patientURI rdf:type kao:ActiveStepsCount)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[ActiveStepsCount2: 
+              (?measurement rdf:type kao:StepsCount)
+              (?measurement sosa:hasSimpleResult ?stepsCount)
+              greaterThan(?stepsCount,10000)
+              lessThan(?stepsCount,12499)
+			  ->
+			(?measurement rdf:type kao:ActiveStepsCount)
+]
+
+# To handle kao ontology scenario - patient instance example
+ [HighActiveStepsCount: 
+			(?patientURI kao:hasStepsCount ?stepsCount)
+            greaterThan(?stepsCount,12500)
+			->
+			(?patientURI rdf:type kao:HighActiveStepsCount)
+]
+
+# To handle senml data scenario - iot generic reasoner
+[HighActiveStepsCount2: 
+              (?measurement rdf:type kao:StepsCount)
+              (?measurement sosa:hasSimpleResult ?stepsCount)
+              greaterThan(?stepsCount,12500)
+			  ->
+			(?measurement rdf:type kao:HighActiveStepsCount)
+]
+

@@ -1,0 +1,87 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: http://qudt.org/schema/qudt#
+@prefix foaf: http://xmlns.com/foaf/0.1/
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+@prefix schema: https://schema.org/ 
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+
+################################################################ SLEEP RULES (January 2019) ######################################################################
+# Rule Creation: March 2019
+
+# Added: January 2019
+# Bachelor thesis: Development of a Portable System for Collecting and Processing Bio-signals and Sounds to Support the Diagnosis of Sleep Apnea [Raisa Angelidou 2015]
+# Mild Sleep Disorder Breathing (SDB) 5-15 events per hour of sleep
+# Moderate Sleep Disorder Breathing (SDB) 15-30 events per hour of sleep
+# Severe Sleep Disorder Breathing (SDB) > 30 events per hour of sleep
+# events = Apnea-Hypopnea Index (AHI)
+
+
+# Bachelor thesis: Development of a Portable System for Collecting and Processing Bio-signals and Sounds to Support the Diagnosis of Sleep Apnea [Raisa Angelidou 2015]
+# (By deduction - Not explicitly given) Normal Sleep Disorder Breathing (SDB) < 5 events per hour of sleep
+[NormalSleepDisorderBreathing: 
+              (?measurement rdf:type kao:SleepDisorderBreathing)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,5.0)
+			  ->
+				(?measurement rdf:type kao:NormalSleepDisorderBreathing)
+]
+
+# Bachelor thesis: Development of a Portable System for Collecting and Processing Bio-signals and Sounds to Support the Diagnosis of Sleep Apnea [Raisa Angelidou 2015]
+# Mild Sleep Disorder Breathing (SDB) 5-15 events per hour of sleep
+[MildSleepDisorderBreathing: 
+              (?measurement rdf:type kao:SleepDisorderBreathing)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,5)
+              lessThan(?v,15)
+			  ->
+				(?measurement rdf:type kao:MildSleepDisorderBreathing)
+]
+
+# Bachelor thesis: Development of a Portable System for Collecting and Processing Bio-signals and Sounds to Support the Diagnosis of Sleep Apnea [Raisa Angelidou 2015]
+# Moderate Sleep Disorder Breathing (SDB) 15-30 events per hour of sleep
+[ModerateSleepDisorderBreathing: 
+              (?measurement rdf:type kao:SleepDisorderBreathing)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,15)
+              lessThan(?v,30)
+			  ->
+				(?measurement rdf:type kao:ModerateSleepDisorderBreathing)
+]
+
+# Bachelor thesis: Development of a Portable System for Collecting and Processing Bio-signals and Sounds to Support the Diagnosis of Sleep Apnea [Raisa Angelidou 2015]
+# Severe Sleep Disorder Breathing (SDB) > 30 events per hour of sleep
+[SevereSleepDisorderBreathing: 
+              (?measurement rdf:type kao:SleepDisorderBreathing)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,30)
+			  ->
+				(?measurement rdf:type kao:SevereSleepDisorderBreathing)
+]

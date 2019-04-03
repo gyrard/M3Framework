@@ -1,3 +1,11 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+		
+
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +35,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.io.IOException;
@@ -51,18 +59,18 @@ import eurecom.data.converter.ConvertSensorDataToM3;
 import eurecom.generic.m2mapplication.M2MAppGeneric;
 import eurecom.sparql.result.VariableSparql;
 
-/**
+*//**
  * Scenario transport to suggest safety devices according to the weather forecasting
  * @author Amelie Gyrard
  *
- */
+ *//*
 @Path("/transport")
 public class TransportWS {
 	
-	/**
+	*//**
 	 * Convert SenML weather measurements according to the M3 nomenclature implemented in the M3 ontology
 	 * @return RDF sensor data compliant with M3
-	 */
+	 *//*
 	@GET
 	@Path("/convert_transport/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -79,14 +87,14 @@ public class TransportWS {
 	}
 	
 
-	/**
+	*//**
 	 * Get all safety devices related to weather measurements
 	 * @param property
 	 * @return interpretation of measurements and suggestions of safety devices
 	 * E.g., sensormeasurement.appspot.com/transport/safety_device_weather/Precipitation
 	 * E.g., sensormeasurement.appspot.com/transport/safety_device_weather/WeatherLuminosity
 	 * E.g., sensormeasurement.appspot.com/transport/safety_device_weather/WeatherTemperature
-	 */
+	 *//*
 	@GET
 	@Path("/safety_device_weather/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -95,15 +103,15 @@ public class TransportWS {
 		String result="No result";
 		try {
 			
-			/**
+			*//**
 			 *  TEST THE SAME SCENARIO TRANSPORT
 			 *  PRECIPITATION
 			 *  WEATHER DATASET 5KB
 			 *  TEST 1ST ROUND
 			 *  AND AVG OTHER ROUND UNTIL 10
-			 */		
+			 *//*		
 			
-			/* FOR EVALUATION
+			 FOR EVALUATION
 			int nb_round = 10;
 			long avg_sparql = 0;
 			long avg_reasoning = 0;
@@ -120,7 +128,7 @@ public class TransportWS {
 					avg_access_data = avg_access_data + Var.TIME_ACCESS_SENSOR_DATA;
 					avg_reasoning = avg_reasoning + Var.TIME_REASONING;
 					avg_sparql = avg_sparql + Var.TIME_SPARQL_QUERY;
-				}			*/	
+				}				
 				
 			//load the M2M measurement
 			//M2MAppGeneric m2mappli = new M2MAppGeneric(Var.KIND_JDO_WEATHER , Var.KEY_NAME_JDO_WEATHER);
@@ -147,12 +155,12 @@ public class TransportWS {
 			
 			//}
 			
-			/** FOR EVALUATION
+			*//** FOR EVALUATION
 			 * 
 			System.out.println("AVG Access to data:" + avg_access_data/nb_round);
 			System.out.println("AVG Reasoning:" + avg_reasoning/nb_round);
 			System.out.println("AVG Sparql:" + avg_sparql/nb_round);
-			 */
+			 *//*
 			
 			
 			return result;
@@ -163,13 +171,13 @@ public class TransportWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Get all safety devices related to weather measurements
 	 * This is a new scenario to test a more complicated rule involving two sensors at the same time
 	 * @param property
 	 * @return interpretation of snow and suggestions of safety devices
 	 * E.g., sensormeasurement.appspot.com/transport/snow/
-	 */
+	 *//*
 	@GET
 	@Path("/snow/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -207,7 +215,7 @@ public class TransportWS {
 	}
 	
 	
-	/**
+	*//**
 	 * Deduce driver's state
 	 * Seems it doeas not work anymore
 	 * Maybe wrong sensore measurements
@@ -216,7 +224,7 @@ public class TransportWS {
 	 * @param property
 	 * @return Deduce driver's state
 	 * E.g., sensormeasurement.appspot.com/transport/driver_state/SkinConductance
-	 */
+	 *//*
 	@GET
 	@Path("/driver_state/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -275,8 +283,8 @@ public class TransportWS {
 
 			//variable in the sparql query
 			ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
-			/*var.add(new VariableSparql("inferTypeUri", Var.NS_M3 + property, false));
-			var.add(new VariableSparql("typeRecommendedUri", Var.NS_TRANSPORT_ONTOLOGY+ "SafetyDevice", false));*/
+			var.add(new VariableSparql("inferTypeUri", Var.NS_M3 + property, false));
+			var.add(new VariableSparql("typeRecommendedUri", Var.NS_TRANSPORT_ONTOLOGY+ "SafetyDevice", false));
 
 			result =  m2mappli.executeLinkedOpenRulesAndSparqlQuery(Var.SPARQL_QUERY_TEST_SPARQL_GENERATED, var, Var.LINKED_OPEN_RULES_WEATHER);
 			// works also for SPARQL_TRANSPORT_SAFETY_DEVICE_LIGHT
@@ -284,12 +292,12 @@ public class TransportWS {
 			
 			//}
 			
-			/** FOR EVALUATION
+			*//** FOR EVALUATION
 			 * 
 			System.out.println("AVG Access to data:" + avg_access_data/nb_round);
 			System.out.println("AVG Reasoning:" + avg_reasoning/nb_round);
 			System.out.println("AVG Sparql:" + avg_sparql/nb_round);
-			 */
+			 *//*
 			
 			
 			return result;
@@ -300,3 +308,4 @@ public class TransportWS {
 		return null;
 	}
 }
+*/

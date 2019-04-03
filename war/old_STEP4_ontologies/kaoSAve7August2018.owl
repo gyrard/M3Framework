@@ -1,0 +1,2573 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/kao#"
+     xml:base="http://purl.org/kao"
+     xmlns:kofler-weather-onto="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl"
+     xmlns:staroch-weather-onto="http://paul.staroch.name/thesis/SmartHomeWeather.owl"
+     xmlns:dogont="http://elite.polito.it/ontologies/dogont.owl#"
+     xmlns:qudt="http://data.qudt.org/qudt/owl/1.0.0/unit.owl#"
+     xmlns:iot-lite="http://purl.oclc.org/NET/UNIS/fiware/iot-lite#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ssn="http://purl.oclc.org/NET/ssnx/ssn#"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:kao="http://purl.org/kao#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:mthreelite="http://purl.org/iot/vocab/m3-lite#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:sosa="http://www.w3.org/ns/sosa/"
+     xmlns:onemtom="http://www.onem2m.org/ontology/Base_Ontology/base_ontology#"
+     xmlns:qu="http://purl.org/NET/ssnx/qu/qu#"
+     xmlns:fiesta-iot="http://purl.org/iot/ontology/fiesta-iot#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:dbpedia="http://dbpedia.org/ontology/"
+     xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+     xmlns:ao="http://purl.bioontology.org/ontology/AO"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dul="http://www.loa.istc.cnr.it/ontologies/DUL.owl#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://purl.org/kao#">
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.89</owl:versionInfo>
+        <dc:description xml:lang="en">The kHealth Asthma Ontology (kAO) is used to semantically annotate and deduce high level abstractions from datasets provided by the kHealth project.</dc:description>
+        <dc:creator rdf:resource="mailto:amelie@knoesis.org"/>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+        <dc:title xml:lang="en">The kHealth Asthma Ontology (kAO)</dc:title>
+        <vann:preferredNamespacePrefix>kao</vann:preferredNamespacePrefix>
+        <dc:creator rdf:resource="mailto:utkarshani@knoesis.org"/>
+        <vs:term_status>Work in progress</vs:term_status>
+        <rdfs:comment xml:lang="en">The kHealth Asthma Ontology (kAO) is used to semantically annotate and deduce high level abstractions from datasets provided by the kHealth project.</rdfs:comment>
+        <vann:preferredNamespaceUri>http://purl.org/kao#</vann:preferredNamespaceUri>
+    </owl:Ontology>
+    
+
+
+
+	<!--	
+	Difference between rdf:ID and rdf:about
+	https://www.ibm.com/developerworks/library/x-tiprdfai/index.html
+	-->
+	
+	<!--	
+	Last updated: August 2018
+	- kofler-weather-onto for inside temperature scenario
+	- staroch-weather-onto for inside temperature scenario
+	- staroch-weather-onto for outside humidity scenario
+	- remove units LiterPerMinute and liter for peak flow (TO HANDLE later)
+	- change <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		by <rdfs:subClassOf rdf:resource="http://purl.org/kao#HeartBeat"/> for heart beat, outdoor quality, etc.
+	
+	TO DO: check difference rdf:about= rdf:ID=
+	should we use rdfs:seeAlso or owl:EquivalentClass?
+	
+	remindre when adding new concept for the semantic annotation and reasoner
+	<owl:Class rdf:about="http://purl.org/kao#OutsideHumidity">	
+	 
+	
+	Last Updated: July 2018
+	- new scenario such as heart rate
+	- change <rdfs:subClassOf rdf:resource="#MeasurementType"/> by <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+	
+	-->	
+	
+	  <!-- ####################################################################################
+ 	     ################# Labels and comments are important for ontology matching, automatic documentation, etc. ############## 
+ 	     #################################################################################### -->
+ 	     
+ 	      <!-- ####################################################################################
+ 	     ################# BMI SCENARIO ############## 
+ 	     #################################################################################### -->
+
+    <owl:Class rdf:about="http://purl.org/kao#NormalWeightCondition">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-17</dcterms:issued>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-17</dcterms:modified>
+        <rdfs:comment xml:lang="en">Normal Weight Condition. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+        <rdfs:label xml:lang="en">Normal Weight Condition</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/kao#ObeseCondition -->
+
+    <owl:Class rdf:about="http://purl.org/kao#ObeseCondition">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-17</dcterms:issued>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-17</dcterms:modified>
+        <rdfs:comment xml:lang="en">Obese Condition. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+        <rdfs:label xml:lang="en">Obese Condition</rdfs:label>
+    </owl:Class>
+ 	     
+<!-- ####################################################################################
+ 	     ################# OUTSIDE HUMIDITY SCENARIO ############## 
+ 	     #################################################################################### -->
+
+	<owl:Class rdf:about="http://purl.org/kao#OutsideHumidity">		
+		<rdfs:label xml:lang="en">Outside Humidity</rdfs:label>
+		<rdfs:comment xml:lang="en">Outside humidity to interpret data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#Humidity"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+	
+	<owl:Class rdf:about="http://purl.org/kao#DryHumidity">		
+		<rdfs:label xml:lang="en">Dry Humidity</rdfs:label>
+		<rdfs:comment xml:lang="en">Dry Humidity to interpret data generated for the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#OutsideHumidity"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#Dry"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+	
+	<owl:Class rdf:about="http://purl.org/kao#NormalHumidity">		
+		<rdfs:label xml:lang="en">Normal Humidity</rdfs:label>
+		<rdfs:comment xml:lang="en">Normal Humidity to interpret data generated for the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#OutsideHumidity"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#NormalHumidity"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+	
+	<owl:Class rdf:about="http://purl.org/kao#VeryMoistHumidity">		
+		<rdfs:label xml:lang="en">Very Moist Humidity</rdfs:label>
+		<rdfs:comment xml:lang="en">Very Moist Humidity to interpret data generated for the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#OutsideHumidity"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#VeryMoist"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+	
+	<owl:Class rdf:about="http://purl.org/kao#VeryDryHumidity">		
+		<rdfs:label xml:lang="en">VeryDryHumidity</rdfs:label>
+		<rdfs:comment xml:lang="en">Very Dry Humidity to interpret data generated for the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#OutsideHumidity"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#VeryDry"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+	
+	<owl:Class rdf:about="http://purl.org/kao#MoistHumidity">		
+		<rdfs:label xml:lang="en">Moist Humidity</rdfs:label>
+		<rdfs:comment xml:lang="en">Moist Humidity to interpret data generated for the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#OutsideHumidity"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#Moist"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+
+<!-- ####################################################################################
+ 	     ################# INSIDE TEMPERARURE SCENARIO ############## 
+ 	     #################################################################################### -->
+ 	
+ 	<!-- WARNING: If we directly reuse staroch or kofler namespace issue for the generic application ?-->
+ 	
+ 	<!-- BUG &staroch-weather-onto;RoomTemperature -> The entity "staroch-weather-onto" was referenced, but not declared. 
+ 	so add the full URL 
+ 	ontology code returned: http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature 
+ 	ontology code returned: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature
+ 	ontology code returned: http://elite.polito.it/ontologies/dogont.owl#TemperatureMeasurementMNotification 
+ 	
+ 	Kofler ontology has more concepts to interpret room temperature
+ 	-->
+ 	    
+ 	    
+ 	<!-- <owl:equivalentClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureMeasurementMNotification"/> -->     
+ 	<owl:Class rdf:about="http://purl.org/kao#RoomTemperature">		
+		<rdfs:label xml:lang="en">Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">Room Temperature to interpret data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>	
+	
+	<owl:Class rdf:about="http://purl.org/kao#AboveRoomTemperature">		
+		<rdfs:label xml:lang="en">Above Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">Above Room Temperature to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:about="http://purl.org/kao#BelowRoomTemperature">		
+		<rdfs:label xml:lang="en">Below Room Temperature</rdfs:label>
+		<rdfs:comment xml:lang="en">Below Room Temperature to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+	<!-- not provided by staroch but provided by kofler -->
+	<owl:Class rdf:about="http://purl.org/kao#BelowOrZeroTemperature">		
+		<rdfs:label xml:lang="en">BelowOrZeroTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">BelowOrZeroTemperature to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:about="http://purl.org/kao#Frost">		
+		<rdfs:label xml:lang="en">Frost</rdfs:label>
+		<rdfs:comment xml:lang="en">Frost to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+	<!-- not provided by staroch but provided by kofler -->
+	<!-- <owl:equivalentClass rdf:resource="http://elite.polito.it/ontologies/dogont.owl#TemperatureMeasurementMNotification"/> --> 
+	<owl:Class rdf:about="http://purl.org/kao#ExtremeFrost">		
+		<rdfs:label xml:lang="en">ExtremeFrost</rdfs:label>
+		<rdfs:comment xml:lang="en">Extreme Frost to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+		<!-- not provided by staroch but provided by kofler -->
+	<owl:Class rdf:about="http://purl.org/kao#ExtremeHeat">		
+		<rdfs:label xml:lang="en">ExtremeHeat</rdfs:label>
+		<rdfs:comment xml:lang="en">Extreme Heat to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:about="http://purl.org/kao#Heat">		
+		<rdfs:label xml:lang="en">Heat</rdfs:label>
+		<rdfs:comment xml:lang="en">Heat to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:about="http://purl.org/kao#AboveZeroTemperature">		
+		<rdfs:label xml:lang="en">AboveZeroTemperature</rdfs:label>
+		<rdfs:comment xml:lang="en">Above Zero Temperature to interpret room temperature data generated by the Foobot sensor from the KHealth project.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#RoomTemperature"/>
+		<rdfs:seeAlso rdf:resource="https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-02</dcterms:issued>
+	</owl:Class>    
+    
+    <!-- ####################################################################################
+ 	     ################# HEART RATE SCENARIO ############## 
+ 	     #################################################################################### -->
+    
+	 <owl:Class rdf:ID="HeartBeat">		
+		<rdfs:label xml:lang="en">Heart beat, heart rate</rdfs:label>
+		<rdfs:comment xml:lang="en">Heart rate measurement, unit bpm. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="FastHeartBeat">		
+		<rdfs:label xml:lang="en">FastHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">FastHeartBeat, IF m3:HeartBeat greaterThan 102 m3:BeatPerMinute AND lessThan 150 m3:BeatPerMinute THEN FastHeartBeat [Tanantong 2011]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#HeartBeat"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="SlowHeartBeat">		
+		<rdfs:label xml:lang="en">SlowHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">SlowHeartBeat, IF m3:HeartBeat greaterThan 40 m3:BeatPerMinute AND lessThan 58 m3:BeatPerMinute THEN SlowHeartBeat [Tanantong 2011]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#HeartBeat"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="NormalHeartBeat">		
+		<rdfs:label xml:lang="en">NormalHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">NormalHeartBeat, IF m3:HeartBeat greaterThan 58 m3:BeatPerMinute AND lessThan 102 m3:BeatPerMinute THEN NormalHeartBeat [Hristoskova 2014] [Tanantong 2011]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#HeartBeat"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="VeryFastHeartBeat">		
+		<rdfs:label xml:lang="en">VeryFastHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">VeryFastHeartBeat, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute AND lessThan 300 m3:BeatPerMinute THEN VeryFastHeartBeat [Hristoskova 2014] [Tanantong 2011]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#HeartBeat"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="VerySlowHeartBeat">		
+		<rdfs:label xml:lang="en">VerySlowHeartBeat</rdfs:label>
+		<rdfs:comment xml:lang="en">VerySlowHeartBeat, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN VerySlowHeartBeat [Hristoskova 2014] [Tanantong 2011]</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#HeartBeat"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-07-27</dcterms:issued>
+	</owl:Class> 	     
+ 	     
+ 	     <!-- ####################################################################################
+ 	     ################# PEAK FLOW METER ############## 
+ 	     #################################################################################### -->
+ 	     
+ 	 <owl:Class rdf:ID="AsthmaGreenZone">		
+		<rdfs:label xml:lang="en">Asthma Green Zone</rdfs:label>
+		<rdfs:comment xml:lang="en">Green Zone: 80 to 100 percent of your usual or "normal" peak flow rate signals all clear. A reading in this zone means that your asthma is under reasonably good control. It would be advisable to continue your prescribed program of management. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:issued>
+	</owl:Class>
+	
+	 <owl:Class rdf:ID="AsthmaYellowZone">		
+		<rdfs:label xml:lang="en">Asthma Yellow Zone</rdfs:label>
+		<rdfs:comment xml:lang="en">Yellow Zone: 50 to 80 percent of your usual or "normal" peak flow rate signals caution. It is a time for decisions. Your airways are narrowing and may require extra treatment. Your symptoms can get better or worse depending on what you do, or how and when you use your prescribed medication. You and your healthcare provider should have a plan for yellow zone readings. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:issued>
+	</owl:Class>
+		    
+	  <owl:Class rdf:ID="AsthmaRedZone">		
+		<rdfs:label xml:lang="en">Asthma Red Zone</rdfs:label>
+		<rdfs:comment xml:lang="en">Red Zone: Less than 50 percent of your usual or "normal" peak flow rate signals a Medical Alert. Immediate decisions and actions need to be taken. Severe airway narrowing may be occurring. Take your rescue medications right away. Contact your healthcare provider now and follow the plan he has given you for red zone readings. Some healthcare providers may suggest zones with a smaller range, such as 90 to 100 percent. Always follow your healthcare provider's suggestions about your peak flow rate. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:issued>
+	</owl:Class>
+	
+	<!-- ####################################################################################
+ 	     ################# PEAK FLOW METER Description ############## 
+ 	     #################################################################################### -->
+ 
+  <owl:Class rdf:ID="PeakExpiratoryFlow">		
+		<rdfs:label xml:lang="en">Peak Expiratory Flow (PEF)</rdfs:label>
+		<rdfs:comment xml:lang="en">The peak expiratory flow (PEF), also called peak expiratory flow rate (PEFR) is a person's maximum speed of expiration, as measured with a peak flow meter, a small, hand-held device used to monitor a person's ability to breathe out air. Peak expiratory flow is typically measured in units of liters per minute (L/min). Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-03-27</dcterms:issued>
+	</owl:Class>
+	
+	<!--
+	PeakExpiratoryFlow
+	<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="http://data.qudt.org/qudt/owl/1.0.0/unit.owl#LiterPerMinute"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf> 
+	
+	-->
+	
+	
+	<!--
+	
+	ForcedExpiratoryVolume
+	
+	<rdfs:subClassOf>
+			<owl:Restriction>
+            	<owl:onProperty rdf:resource="#hasUnit"/>
+             	<owl:someValuesFrom rdf:resource="http://data.nasa.gov/qudt/owl/unit#Liter"/>
+        	</owl:Restriction>
+        </rdfs:subClassOf>
+	-->
+	
+	<owl:Class rdf:ID="ForcedExpiratoryVolume">		
+		<rdfs:label xml:lang="en">Forced Expiratory Volume (FEV)</rdfs:label>
+		<rdfs:comment xml:lang="en">Forced Expiratory Volume is typically measured in units of liters (L). Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+	    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-29</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-03-27</dcterms:issued>
+	</owl:Class> 
+ 
+ 	<owl:Class rdf:ID="PollenLevel">		
+		<rdfs:label xml:lang="en">Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en">Pollen Level can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-04-12</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-04-12</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LowPollenLevel">		
+		<rdfs:label xml:lang="en">Low Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PollenLevel"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LowPollenLevel">		
+		<rdfs:label xml:lang="en">Low Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PollenLevel"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="LowMediumPollenLevel">		
+		<rdfs:label xml:lang="en">Low Medium Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PollenLevel"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MediumPollenLevel">		
+		<rdfs:label xml:lang="en">Medium Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PollenLevel"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="MediumHighPollenLevel">		
+		<rdfs:label xml:lang="en">Medium High Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PollenLevel"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="HighPollenLevel">		
+		<rdfs:label xml:lang="en">High Pollen Level</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#PollenLevel"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-19</dcterms:issued>
+	</owl:Class>
+	
+		<!-- ####################################################################################
+ 	     ################# OutdoorAirQualityIndex ############## 
+ 	     #################################################################################### -->
+ 	     
+	<!-- try to reuse directly the one from bioPortal -->
+	
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182 -->
+
+	<!--
+	<owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182">		
+		<rdfs:label xml:lang="en">Outdoor Air Quality Index</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>
+	
+	-->
+	
+	  <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000183 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000183">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Indoor air quality</rdfs:label>
+    </owl:Class>
+	
+	  <owl:Class rdf:ID="AirQualityIndex">		
+		<rdfs:label xml:lang="en">Air Quality Index</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+		<rdfs:seeAlso rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-04-12</dcterms:issued>
+	</owl:Class>	 
+	
+	<owl:Class rdf:ID="GoodOutdoorAirQualityIndexUS">		
+		<rdfs:label xml:lang="en">Good Outdoor Air Quality Index US</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>	<!-- = Outdoor Air Quality Index from AO BioPortal -->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="ModerateOutdoorAirQualityIndexUS">		
+		<rdfs:label xml:lang="en">Moderate Outdoor Air Quality Index US</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>	<!-- = Outdoor Air Quality Index from AO BioPortal -->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UnhealthyOutdoorAirQualityIndexUS">		
+		<rdfs:label xml:lang="en">Unhealthy Outdoor Air Quality Index US</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>	<!-- = Outdoor Air Quality Index from AO BioPortal -->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="UnhealthyForSensitiveGroupsOutdoorAirQualityIndexUS">		
+		<rdfs:label xml:lang="en">Unhealthy For Sensitive Groups Outdoor Air Quality Index US</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>	<!-- = Outdoor Air Quality Index from AO BioPortal -->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>
+	
+	<owl:Class rdf:ID="VeryUnhealthyOutdoorAirQualityIndexUS">		
+		<rdfs:label xml:lang="en">Very Unhealthy Outdoor Air Quality Index US</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>	<!-- = Outdoor Air Quality Index from AO BioPortal -->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>	
+
+	<owl:Class rdf:ID="HazardousOutdoorAirQualityIndexUS">		
+		<rdfs:label xml:lang="en">Hazardous Outdoor Air Quality Index US</rdfs:label>
+		<rdfs:comment xml:lang="en">Air Quality Index can be used to detect asthma symptoms. Useful for kHealth projects (asthma, bariatric surgery, etc.) at Knoesis.</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="http://purl.org/kao#AirQualityIndex"/>
+		<rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000182"/>	<!-- = Outdoor Air Quality Index from AO BioPortal -->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-08-03</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-06-20</dcterms:issued>
+	</owl:Class>
+	
+	
+	<!-- ####################################################################################
+ 	     ################# Others ############## 
+ 	     #################################################################################### -->
+    	
+	<owl:Class rdf:ID="EAQI">		
+		<rdfs:label xml:lang="en">European Air Quality Index (EAQI)</rdfs:label>
+		<rdfs:comment xml:lang="en">European Air Quality Index (EAQI)</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="#Unit"/>	
+		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-04-12</dcterms:modified> 
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-04-12</dcterms:issued>
+	</owl:Class>
+
+ 
+ 	<owl:Class rdf:ID="Patient">		
+		<rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Person"/>
+		<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>		
+	</owl:Class>
+ 
+ 	
+ 	<!-- ####################################################################################
+ 	     ################# Concepts reused from Asthma Ontology from BioPortal ############## 
+ 	     #################################################################################### -->
+ 	
+ 	<!-- TO DO: find which IRI is better to use:
+ 	- http://purl.bioontology.org/ontology/AO/
+ 	- http://childhealthservicemodels.eu/asthma# 
+ 	-->
+ 	
+	
+	<!-- ####################################################################################
+ 	     ################# Therapy Hierarchy ############## 
+ 	     #################################################################################### -->
+ 	
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000036 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000036">
+        <rdfs:label xml:lang="en">Therapy</rdfs:label>
+    </owl:Class>
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000089 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000089">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000036"/>
+        <rdfs:label xml:lang="en">Other</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000036"/>
+        <rdfs:label xml:lang="en">Reliever</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000036"/>
+        <rdfs:label xml:lang="en">Controller</rdfs:label>
+    </owl:Class>
+	
+		<!-- ####################################################################################
+ 	     ################# AO Controller Hierarchy ############## 
+ 	     #################################################################################### -->
+	
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000109 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000109">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Long-acting bronchodiltator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000110 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000110">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Levalbuterol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000111 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000111">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Albuterol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000112 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000112">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Mast cell stabilizer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000113 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000113">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Cromolyn</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000114 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000114">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Salmeterol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000115 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000115">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Theophyllines</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000117 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000117">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Nedocromil sodium</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000118 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000118">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Ketotifen</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000119 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000119">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Sodium chromoglycate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000120 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000120">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Zafirlukast</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000121 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000121">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Montelukast</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000122 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000122">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Leukotriene receptor antagonists (LTRA)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000123 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000123">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Inhaled corticosteriods</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000124 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000124">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Omalizumab</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000125 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000125">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Low-dose inhaled corticosteriods (ICS)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000126 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000126">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000091"/>
+        <rdfs:label xml:lang="en">Corticosteroids</rdfs:label>
+    </owl:Class>
+	
+			<!-- ####################################################################################
+ 	     ################# AO Other Hierarchy ############## 
+ 	     #################################################################################### -->
+	
+	
+	  <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000092 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000092">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000089"/>
+        <rdfs:label xml:lang="en">Adjuncts used to administer therapies such as spacer devices</rdfs:label>
+    </owl:Class>
+	
+
+	
+		<!-- ####################################################################################
+ 	     ################# AO Reliever Hierarchy ############## 
+ 	     #################################################################################### -->
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000093 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000093">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Short-acting bronchodilator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000094 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000094">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Muscarinic antagonists</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000095 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000095">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Xanthine bronchodilators</rdfs:label>
+    </owl:Class>
+	
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000096 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000096">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Compound bronchodilators</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000097 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000097">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Ventilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000098 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000098">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Epinephrine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000099 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000099">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Adrenaline</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000100 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000100">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Aminophylline</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000101 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000101">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Magnesium sulfate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000102 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000102">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Heliox</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000103 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000103">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Inspired oxygen</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000104 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000104">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Nebulized ipratropium bromide</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000105 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000105">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Anticholinergics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000106 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000106">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Anticholinergic bronchodilators: ipratropium, tiotroprium, aclidinum</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000107 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000107">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Beta agonist</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000108 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000108">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000090"/>
+        <rdfs:label xml:lang="en">Short and long acting beta agonists</rdfs:label>
+    </owl:Class>
+	
+		<!-- ####################################################################################
+ 	     ################# SYMPTOM HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	<owl:DatatypeProperty rdf:ID="hasSymptom">
+		<rdfs:label xml:lang="en">hasSymptom</rdfs:label>
+		<rdfs:comment xml:lang="en"></rdfs:comment>
+	</owl:DatatypeProperty>
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034">
+        <rdfs:label xml:lang="en">Symptoms</rdfs:label>
+    </owl:Class>
+	
+	<!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000083 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000083">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Other</rdfs:label>
+    </owl:Class>    
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000084 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000084">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Chest tightness</rdfs:label>
+    </owl:Class> 
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000085 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000085">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Airway inflammation/limitation</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000087 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000087">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Cough</rdfs:label>
+    </owl:Class>
+	
+	<!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000088 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000088">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Wheeze</rdfs:label>
+    </owl:Class>
+    
+    <!-- extension of the asthma ontology from bioportal and some updates -->
+	
+	<!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000086 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000086">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Shortness of breath or hard and fast breathing</rdfs:label>
+    </owl:Class>
+    
+
+    <owl:Class rdf:about="http://purl.org/kao#NoseOpenWide">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Nose open wide</rdfs:label>
+    </owl:Class>
+	
+	<owl:Class rdf:about="http://purl.org/kao#CannotTalkInFullSentence">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000034"/>
+        <rdfs:label xml:lang="en">Cannot talk in full sentence</rdfs:label>
+    </owl:Class>
+	
+
+	
+	
+			<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY RISK FACTORS HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061">
+        <rdfs:label xml:lang="en">Risk factors</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061"/>
+        <rdfs:label xml:lang="en">Allergens</rdfs:label>
+    </owl:Class>
+    
+
+
+  
+    
+			<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY GENETIC HIERARCHY ############## 
+ 	     #################################################################################### -->
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061"/>
+        <rdfs:label xml:lang="en">Genetic</rdfs:label>
+    </owl:Class>	
+	
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000170 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000170">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Gene-environment interactions</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000171 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000171">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Gene-gene interactions</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000172 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000172">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Gender effects</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000173 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000173">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Parent-of-origin/ethnicity effects</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000174 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000174">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Epigenetics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000175 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000175">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Maternal asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000176 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000176">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000064"/>
+        <rdfs:label xml:lang="en">Parental atopy</rdfs:label>
+    </owl:Class>
+	
+	
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY ENVIRONMENTAL HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	<!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061"/>
+        <rdfs:label xml:lang="en">Environmental</rdfs:label>
+    </owl:Class>
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000159 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000159">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Cold air</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000160 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000160">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Exercise</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000161 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000161">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">High BMI</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000162 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000162">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Passive smoking exposure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000163 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000163">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Active smoking</rdfs:label>
+    </owl:Class>
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000177 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000177">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Stresses</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000178 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000178">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Psychosocial environment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000179 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000179">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Respiratory infections</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000180 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000180">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Gut colonization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000181 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000181">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Nutrition</rdfs:label>
+    </owl:Class>
+        
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000184 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000184">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Pharmacological agents such as histamine or metacholine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000185 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000185">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Medications</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000186 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000186">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Occupational exposure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000187 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000187">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Chemicals</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000188 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000188">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Weather</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000189 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000189">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Geography/place of birth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000190 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000190">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000063"/>
+        <rdfs:label xml:lang="en">Parental smoking</rdfs:label>
+    </owl:Class>
+	
+	
+					<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY HOST HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061"/>
+        <rdfs:label xml:lang="en">Host</rdfs:label>
+    </owl:Class>
+	
+	   <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000071 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000071">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Premature/gestational age</rdfs:label>
+    </owl:Class>
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000164 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000164">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Immunity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000165 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000165">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Airway inflammation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000166 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000166">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Lung function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000167 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000167">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Sex effects</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000168 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000168">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Family size/birth order/number of siblings</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000169 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000169">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000065"/>
+        <rdfs:label xml:lang="en">Maternal smoking during pregnancy</rdfs:label>
+    </owl:Class>
+	
+				<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY ALLERGENS HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+
+    	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000061"/>
+        <rdfs:label xml:lang="en">Allergens</rdfs:label>
+    </owl:Class>
+	
+	
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000152 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000152">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">Dust mite</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000153 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000153">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">House dust</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000154 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000154">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">Mould</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000155 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000155">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">Pollen</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000156 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000156">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">Food</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000157 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000157">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">Pet/animal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000158 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000158">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000062"/>
+        <rdfs:label xml:lang="en">Cockroach</rdfs:label>
+    </owl:Class>
+	
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY DIAGNOSIS HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	<!-- http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033">
+        <rdfs:label xml:lang="en">Diagnosis</rdfs:label>
+    </owl:Class>
+	
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY GENERAL HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033"/>
+        <rdfs:label xml:lang="en">General</rdfs:label>
+    </owl:Class>	
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000031 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000031">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Atopic asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000032 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000032">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Hay fever with asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000033 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000033">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Status asthmaticus NOS</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000034 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000034">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Asthma - currently active</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000035 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000035">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Allergic asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000036 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000036">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Unspecified asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000037 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000037">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Unspecified asthma with (acute) exacerbation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000038 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000038">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Unspecified asthma uncomplicated</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000039 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000039">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Unspecified asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000040 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000040">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Other and unspecified asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000041 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000041">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Mild intermittent asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000042 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000042">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Mild intermittent asthma with (acute) exacerbation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000043 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000043">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Mild intermittent asthma uncomplicated</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000044 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000044">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Mild intermittent asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000045 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000045">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Severe asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000046 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000046">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Moderate asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000047 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000047">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Mild asthma</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000048 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000048">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Occasional asthma</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000049 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000049">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Asthma NOS</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000050 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000050">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Mixed asthma</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000051 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000051">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Intrinsic asthma NOS</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000052 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000052">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Intrinsic asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000053 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000053">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Intrinsic asthma without status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000054 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000054">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Intrinsic asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000055 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000055">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Extrinsic asthma NOS</rdfs:label>
+    </owl:Class>
+	
+	
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000056 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000056">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Extrinsic asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000057 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000057">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Extrinsic asthma without status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000058 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000058">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Extrinsic (atopic) asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000059 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000059">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Asthma unspecified</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000060 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000060">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000000"/>
+        <rdfs:label xml:lang="en">Asthma</rdfs:label>
+    </owl:Class>
+    
+	
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY INACTIVE HIERARCHY ############## 
+ 	     #################################################################################### -->
+   
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000003 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000003">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033"/>
+        <rdfs:label xml:lang="en">Inactive</rdfs:label>
+    </owl:Class>
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000011 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000011">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000003"/>
+        <rdfs:label xml:lang="en">Asthma - currently dormant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000012 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000012">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000003"/>
+        <rdfs:label xml:lang="en">Inactive asthma</rdfs:label>
+    </owl:Class>
+    
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY SPECIFIC HIERARCHY ############## 
+ 	     #################################################################################### -->
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033"/>
+        <rdfs:label xml:lang="en">Specific</rdfs:label>
+    </owl:Class>
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000005 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000005">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004"/>
+        <rdfs:label xml:lang="en">Asthma in pregnancy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000006 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000006">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004"/>
+        <rdfs:label xml:lang="en">Occupational asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000007 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000007">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004"/>
+        <rdfs:label xml:lang="en">Asthma with fixed airflow limitation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000008 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000008">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004"/>
+        <rdfs:label xml:lang="en">Asthma with obesity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000009 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000009">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004"/>
+        <rdfs:label xml:lang="en">Late-onset asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000010 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000010">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000004"/>
+        <rdfs:label xml:lang="en">Non-allergic asthma</rdfs:label>
+    </owl:Class>
+    
+	
+	
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY CHRONIC HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	   <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033"/>
+        <rdfs:label xml:lang="en">Chronic</rdfs:label>
+    </owl:Class>
+	
+	<!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000013 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000013">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Severe persistent asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000014 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000014">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Severe persistent asthma with (acute) exacerbation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000015 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000015">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Severe persistent asthma uncomplicated</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000016 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000016">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Severe persistent asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000017 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000017">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Moderate persistent asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000018 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000018">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Moderate persistent asthma with (acute) exacerbation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000019 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000019">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Moderate persistent asthma uncomplicated</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000020 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000020">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Moderate persistent asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000021 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000021">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Mild persistent asthma with status asthmaticus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000022 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000022">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Mild persistent asthma with (acute) exacerbation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000023 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000023">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Mild persistent asthma uncomplicated</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000024 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000024">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Mild persistent asthma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000025 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000025">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000002"/>
+        <rdfs:label xml:lang="en">Chronic asthma with fixed airflow obstruction</rdfs:label>
+    </owl:Class>
+    
+		
+	<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY ACUTE HIERARCHY ############## 
+ 	     #################################################################################### -->
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000033"/>
+        <rdfs:label xml:lang="en">Acute</rdfs:label>
+    </owl:Class>
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000029 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000029">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001"/>
+        <rdfs:label xml:lang="en">Acute asthma</rdfs:label>
+    </owl:Class>
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000026 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000026">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001"/>
+        <rdfs:label xml:lang="en">Acute exacerbation of asthma</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000027 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000027">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001"/>
+        <rdfs:label xml:lang="en">Brittle asthma</rdfs:label>
+    </owl:Class> 
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000028 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000028">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001"/>
+        <rdfs:label xml:lang="en">Asthma attack</rdfs:label>
+    </owl:Class>
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000030 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000030">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-ADHD_000001"/>
+        <rdfs:label xml:lang="en">Difficult asthma</rdfs:label>
+    </owl:Class>
+	
+	
+		<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY HALLERGY TEST HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	  <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Allergy test</rdfs:label>
+    </owl:Class>
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000001 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000001">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Dust mite allergy test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000002 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000002">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Mould allergy test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000003 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000003">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Pollen allergy test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000004 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000004">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Food allergy test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000005 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000005">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Pet allergy test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000006 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000006">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Skin prick test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000007 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000007">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">IgE antibody allergy test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000008 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000008">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Radioallergosorbent test (RAST)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000009 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000009">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000075"/>
+        <rdfs:label xml:lang="en">Atopy</rdfs:label>
+    </owl:Class>
+	
+	
+			<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY HISTORY AND INVESTIGATIONS HIERARCHY ############## 
+ 	     #################################################################################### -->
+		 
+		 	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000072 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000072">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Airways responsiveness test</rdfs:label>
+    </owl:Class>
+		
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000074 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000074">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Fractional exhaled nitric oxide (FeNO) test</rdfs:label>
+    </owl:Class>
+	
+		<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY PEAK EXPIRATORY FLOW TEST HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Peak expiratory flow test (PEFR)</rdfs:label>
+    </owl:Class>
+	
+	
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000040 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000040">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PEFR increases by at least 20% in response to asthma treatment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000041 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000041">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Diurinal variation &gt;20% for 3 days in a week over several week</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000042 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000042">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">60-80% of predicted peak expiratory flow rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000043 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000043">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Best ever peak expiratory rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000044 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000044">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Diurnal variation of PEFR</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000045 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000045">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Expected peak expiratory flow rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000046 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000046">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Forced vital capacity - FVC</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000047 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000047">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">FVC after bronchodilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000048 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000048">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Less than 60% of predicted peak expiratory flow rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000049 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000049">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">More than 80% of predicted peak expiratory flow rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000050 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000050">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Peak expiratory flow rate flow rate: PEFR/PFR</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000051 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000051">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Peak monitoring using diary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000052 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000052">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PEFR after exercise</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000053 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000053">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PEFR monitoring</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000054 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000054">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PEFR post steroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000055 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000055">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PEFR pre steroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000056 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000056">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PEFR using EN 13826 device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000057 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000057">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Percentage of best ever PEFR</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000058 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000058">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Percentage of PEFR variability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000059 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000059">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PFR - after bronchodilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000060 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000060">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">PFR - before bronchodilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000061 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000061">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Predict PEFR using EN13826 std</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000062 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000062">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Recorded/predicted PEFR ratio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000063 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000063">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Serial peak expiratory flow rate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000064 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000064">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073"/>
+        <rdfs:label xml:lang="en">Serial PEFR abnormal</rdfs:label>
+    </owl:Class>
+    
+	
+		<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY HISTORY AND INVESTIGATIONS HIERARCHY ############## 
+ 	     #################################################################################### -->
+
+	
+	 <!-- http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035">
+        <rdfs:label xml:lang="en">History and investigations</rdfs:label>
+    </owl:Class>
+	
+	    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000072 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000072">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Airways responsiveness test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000073">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Peak expiratory flow test (PEFR)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000074 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000074">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Fractional exhaled nitric oxide (FeNO) test</rdfs:label>
+    </owl:Class>
+    
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000076 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000076">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">oother</rdfs:label>
+    </owl:Class>
+	
+		<!-- ####################################################################################
+ 	     ################# AO ONTOLOGY SPIROMETRY HIERARCHY ############## 
+ 	     #################################################################################### -->
+	
+	
+	   <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-EPI_0000035"/>
+        <rdfs:label xml:lang="en">Spirometry</rdfs:label>
+    </owl:Class>
+	
+	
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000016 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000016">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Post bronchodilator spirometry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000017 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000017">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV (forced expiratory volume) 1 after bronchodilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000018 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000018">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1 pre steroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000019 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000019">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Airway obstruction reversible</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000020 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000020">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1 after change bronchodilator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000021 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000021">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1 before bronchodilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000022 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000022">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1 post steroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000023 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000023">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1 reversibility</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000024 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000024">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC &lt; 70% of predicted</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000025 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000025">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC percent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000026 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000026">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC ratio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000027 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000027">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC ratio abnormal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000028 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000028">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC ratio after bronchdilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000029 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000029">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC ratio before bronchodilation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000030 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000030">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">FEV1/FVC ratio post steroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000031 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000031">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Obstructive airway pattern FEV1/FVC &lt;0.7 on spirometry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000032 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000032">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Peak flow meter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000033 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000033">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Positive reversibility to corticosteroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000034 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000034">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Positive reversibility to salbutamol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000035 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000035">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Reversibility positive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000036 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000036">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Reversibility to corticosteroids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000037 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000037">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Reversibility to ipratropium</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000038 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000038">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Reversibility to salbutamol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000039 -->
+
+    <owl:Class rdf:about="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000039">
+        <rdfs:subClassOf rdf:resource="http://childhealthservicemodels.eu/asthma#MOCHA-Asthma_000014"/>
+        <rdfs:label xml:lang="en">Spirometry screening</rdfs:label>
+    </owl:Class>
+    
+
+
+</rdf:RDF>

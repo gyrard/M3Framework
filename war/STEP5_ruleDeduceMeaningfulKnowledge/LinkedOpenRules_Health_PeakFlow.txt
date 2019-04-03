@@ -1,0 +1,105 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ LINKED OPEN RULES ASTHMA ######################################################################
+# Updated JUNE 2018: m3:AirQualityIndex replaced by kao:OutdoorAirQualityIndex
+# Updated JUNE 2018: environment-onto:VeryUnhealthyQualityIndexUS by kao:VeryUnhealthyQualityIndexUS same for all rules of this type
+# Last updated: May 2018
+# Created: April 2018
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# Extension for Healthcare
+# Number of rules =  rules
+
+#April, May 2018
+#- add rules for PeakFLow
+#- air quality rules US
+#- pollen level
+#- outdoor temperature
+#- outdoor humidity
+#- inside temperature
+#- heart beat
+
+#TO DO:
+#- find rules onitric oxide NO
+#- find rules carborn oxide CO
+#- indoor humidity
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 semantic annotator
+
+
+################################################################ PEAK FLOW METER RULES ######################################################################
+# TO DO: add unit peak flow (?measurement m3:hasUnit m3-lite:unitPeakFlow) ?
+# Source: http://www.lung.org/assets/documents/asthma/peak-flow-meter.pdf 
+
+
+# Green Zone: 80 to 100 percent of your usual or "normal" peak flow rate signals all clear. A reading in this zone
+# means that your asthma is under reasonably good control. It would be advisable to continue your prescribed program of management.
+# Rule: AsthmaGreenZone
+# TO DO: (?measurement m3:hasUnit m3:LiterPerMinute)
+[AsthmaGreenZone: 
+              (?measurement rdf:type kao:PeakExpiratoryFlow)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,80)
+              lessThan(?v,100)
+			  ->
+			  (?measurement rdf:type kao:AsthmaGreenZone)
+]
+
+# Yellow Zone: 50 to 80 percent of your usual or "normal" peak flow rate signals caution. It is a time for decisions.
+# Your airways are narrowing and may require extra treatment. Your symptoms can get better or worse
+# depending on what you do, or how and when you use your prescribed medication. You and your healthcare provider should have a plan for yellow zone readings.
+# Rule: AsthmaYellowZone
+[AsthmaYellowZone: 
+              (?measurement rdf:type kao:PeakExpiratoryFlow)
+              (?measurement sosa:hasSimpleResult ?v)
+ 			  greaterThan(?v,50)
+              lessThan(?v,80)
+			  ->
+			  (?measurement rdf:type kao:AsthmaYellowZone)
+]
+
+
+# Red Zone: Less than 50 percent of your usual or "normal" peak flow rate signals a Medical Alert. 
+# Immediate decisions and actions need to be taken. Severe airway narrowing may be occurring. 
+# Take your rescue medications right away. Contact your healthcare provider now and follow the plan he has given you for red zone readings.
+# Some healthcare providers may suggest zones with a smaller range, such as 90 to 100 percent.
+# Always follow your healthcare provider's suggestions about your peak flow rate.
+# Rule: AsthmaRedZone
+[AsthmaRedZone: 
+              (?measurement rdf:type kao:PeakExpiratoryFlow)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,50)
+			  ->
+			  (?measurement rdf:type kao:AsthmaGreenZone)
+]

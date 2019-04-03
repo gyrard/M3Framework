@@ -1,3 +1,10 @@
+/**
+ * AUGUST 2018
+ * DO NOT REMOVE USED BY slor.html
+ * http://linkedopenreasoning.appspot.com/?p=slor
+ */
+
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom

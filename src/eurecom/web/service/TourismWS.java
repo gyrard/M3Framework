@@ -1,3 +1,10 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+	
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +34,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.io.IOException;
@@ -51,18 +58,18 @@ import eurecom.data.converter.ConvertSensorDataToM3;
 import eurecom.generic.m2mapplication.M2MAppGeneric;
 import eurecom.sparql.result.VariableSparql;
 
-/**
+*//**
  * Scenario tourism to suggest activities or garments according to the weather forecasting
  * @author Amelie Gyrard
  *
- */
+ *//*
 @Path("/tourism")
 public class TourismWS {
 	
-	/**
+	*//**
 	 * Convert SenML weather measurements according to the M3 nomenclature implemented in the M3 ontology
 	 * @return RDF sensor data compliant with M3
-	 */
+	 *//*
 	@GET
 	@Path("/convert_tourism/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -81,7 +88,7 @@ public class TourismWS {
 	
 	//@queryParam
 		
-	/**
+	*//**
 	 * Get all activities related to weather measurements
 	 * @param property
 	 * @return interpretation of weather and suggestions of activities
@@ -89,7 +96,7 @@ public class TourismWS {
 	 * E.g., sensormeasurement.appspot.com/tourism/activity_weather/WeatherLuminosity
 	 * E.g., sensormeasurement.appspot.com/tourism/activity_weather/WeatherTemperature
 	 * E.g., sensormeasurement.appspot.com/tourism/activity_weather/WindSpeed
-	 */
+	 *//*
 	@GET
 	@Path("/activity_weather/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -122,7 +129,7 @@ public class TourismWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Get all garments related to weather measurements
 	 * @param property
 	 * @return interpretation of weather and suggestions of garments
@@ -130,7 +137,7 @@ public class TourismWS {
 	 * E.g., sensormeasurement.appspot.com/tourism/clothes_weather/WeatherTemperature
 	 * E.g., sensormeasurement.appspot.com/tourism/clothes_weather/WindSpeed
 	 * 
-	 */
+	 *//*
 	@GET
 	@Path("/clothes_weather/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -164,13 +171,13 @@ public class TourismWS {
 	}
 	
 	
-	/**
+	*//**
 	 * Get all garments related to weather measurements
 	 * This is a new scenario to test a more complicated rule involving two sensors at the same time
 	 * @param property
 	 * @return interpretation of snow and suggestions of garments
 	 * E.g., sensormeasurement.appspot.com/tourism/snowGarment/
-	 */
+	 *//*
 	@GET
 	@Path("/snowGarment/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -208,13 +215,13 @@ public class TourismWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Get all activities related to weather measurements
 	 * This is a new scenario to test a more complicated rule involving two sensors at the same time
 	 * @param property
 	 * @return interpretation of snow and suggestions of activities
 	 * 
-	 */
+	 *//*
 	@GET
 	@Path("/snowActivity/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -254,3 +261,4 @@ public class TourismWS {
 	
 	
 }
+*/

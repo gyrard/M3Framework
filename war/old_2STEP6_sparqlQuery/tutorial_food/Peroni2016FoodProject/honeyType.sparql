@@ -1,0 +1,19 @@
+# Created: February 2019
+# TUTORIAL: 
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+# http://etna.istc.cnr.it/food-sparql/
+# https://w3id.org/food/sparql
+
+PREFIX wine: <http://w3id.org/food/ontology/disciplinare-vino/>
+PREFIX honey: <http://w3id.org/food/ontology/disciplinare-miele/>
+PREFIX upper: <http://w3id.org/food/ontology/disciplinare-upper/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX wi: <http://purl.org/ontology/wi/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?honeyURI ?honeyLabel WHERE {
+  ?honeyURI a honey:Miele ;
+  OPTIONAL {?honeyURI rdfs:label ?honeyLabel}
+  FILTER (LANGMATCHES(LANG(?honeyLabel), "en")).	
+}

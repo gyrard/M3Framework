@@ -1,0 +1,67 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATION ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ BODY MASS INDEX (BMI) RULES ######################################################################
+# Created: July  2018 - Body Mass Index (BMI) rules
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+
+# TO DO: rule must be improved: patient is a male or female, age, etc. 
+# Paper: Modularizing ontology and designing inference patterns to personnalize health condition assessment: the case of obesity [Sogic et al. 2016]
+[UnderWeightCondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,16.3)
+			  ->
+				(?measurement rdf:type kao:UnderWeightCondition)
+]
+
+# TO DO: rule must be improved: patient is a male or female, age, etc. 
+# Paper: Modularizing ontology and designing inference patterns to personnalize health condition assessment: the case of obesity [Sogic et al. 2016]
+[NormalWeightCondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,16.5)
+              lessThan(?v,23.5)
+			  ->
+				(?measurement rdf:type kao:NormalWeightCondition)
+]
+
+# TO DO: rule must be improved: patient is a male or female, age, etc. 
+# Paper: Modularizing ontology and designing inference patterns to personnalize health condition assessment: the case of obesity [Sogic et al. 2016]
+[ObeseCondition: 
+              (?measurement rdf:type kao:BodyMassIndex)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,25.9)
+              lessThan(?v,50)
+			  ->
+				(?measurement rdf:type kao:ObeseCondition)
+]

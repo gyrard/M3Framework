@@ -1,0 +1,500 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix kofler-weather-onto: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl
+@prefix staroch-weather-onto: http://paul.staroch.name/thesis/SmartHomeWeather.owl
+
+# August 2018: kofler-weather-onto used for inside temperature
+# August 2018: staroch-weather-onto used for inside temperature
+
+#########################################################################################################################################
+# The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+# M3 framework project: http://sensormeasurement.appspot.com/
+# She was a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+# This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+# This work is being extended for the KHealth project
+# add new semantic annotation rules for air quality pollen, etc.
+
+# DO NOT FORGET TO CITE OUR PUBLICATIONS:
+# http://sensormeasurement.appspot.com/?p=publication
+# PhD: Designing Cross-Domain Semantic Web of Things Applications [Gyrard 2015]
+#########################################################################################################################################
+# TO DO: Semantic annotation for units as well
+#[LiterPerMeter: (?measurementUri m3:hasUnit m3:LiterPerMeter)
+#              <-
+#              (?measurementUri qudt:unit "l/min")
+#]
+
+
+# November 2018
+# TO DO: patient 
+# TO DO: patient has age
+# TO DO: patient has symptom
+# TO DO: patient has risk factor
+# TO DO: patient has therapy
+# TO DO: patient has disease
+# TO DO: patient has investigation
+
+
+
+#########################################  Sleep Disorder Breathing (SDB) ########################################################################
+# NEW: March 2019
+[SleepDisorderBreathing: (?measurementUri rdf:type kao:SleepDisorderBreathing)
+             <-
+              (?measurementUri sosa:observedProperty "sdb")
+             (?sensor m3:produces ?measurementUri)
+]
+
+[SleepDisorderBreathing2: (?measurementUri rdf:type kao:SleepDisorderBreathing)
+              <-
+              (?measurementUri sosa:observedProperty "Sleep Disorder Breathing")
+              (?sensor m3:produces ?measurementUri)
+]
+
+[SleepDisorderBreathing3: (?measurementUri rdf:type kao:SleepDisorderBreathing)
+              <-
+              (?measurementUri sosa:observedProperty "sleep disorder breathing")
+              (?sensor m3:produces ?measurementUri)
+]
+
+
+
+#########################################  BMI SCENARIO: HEIGHT, WEIGHT, AGE OF THE PATIENT ########################################################################
+# Updated: March 2019
+# NEW AUGUST 2018: inside temperature scenario
+# WARNING m3:Home because in senml file: <zone name="Home">
+
+# NEW JULY 2018: 
+# NEW JUNE 2018: rule for air quality domain=environment (to explicitly add the context)
+# WARNING: namespace URL http://purl.org/kao#
+# WARNING: check that rdf:type kao:PollenLevel, PollenLevel is a concept within the kao ontology
+# "air quality" is the word found within raw data (e.g., SenML file within 'rawSensorDataset' repository) for automatic semantic annotation according to the kao ontology
+
+
+[BodyMassIndex: (?measurementUri rdf:type kao:BodyMassIndex)
+              <-
+              (?measurementUri sosa:observedProperty "bmi")
+              (?sensor m3:produces ?measurementUri)
+]
+
+[BodyMassIndex: (?measurementUri rdf:type kao:BodyMassIndex)
+              <-
+              (?measurementUri sosa:observedProperty "bmi")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+[BodyMassIndex: (?measurementUri rdf:type kao:BodyMassIndex)
+              <-
+              (?measurementUri sosa:observedProperty "body mass index")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+[BodyMassIndex: (?measurementUri rdf:type kao:BodyMassIndex)
+              <-
+              (?measurementUri sosa:observedProperty "body mass index")
+              (?sensor m3:produces ?measurementUri)
+]
+
+[Weight: (?measurementUri rdf:type kao:Weight)
+              <-
+              (?measurementUri sosa:observedProperty "weight")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+[Height: (?measurementUri rdf:type kao:Height)
+              <-
+              (?measurementUri sosa:observedProperty "height")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+[Age: (?measurementUri rdf:type kao:Age)
+              <-
+              (?measurementUri sosa:observedProperty "age")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+# March 2019
+[CaloricLevel: (?measurementUri rdf:type kao:CaloricLevel)
+              <-
+              (?measurementUri sosa:observedProperty "food calories")
+              (?sensor m3:produces ?measurementUri)
+]
+
+# March 2019
+[SnoringLevel: (?measurementUri rdf:type kao:SnoringLevel)
+              <-
+              (?measurementUri sosa:observedProperty "snoring level")
+              (?sensor m3:produces ?measurementUri)
+]
+
+# March 2019
+[StepsCount: (?measurementUri rdf:type kao:StepsCount)
+              <-
+              (?measurementUri sosa:observedProperty "steps count")
+              (?sensor m3:produces ?measurementUri)
+]
+
+
+# August 2018
+# no environment for JSON annotator for real pollen dataset
+[PollenLevel: (?measurementUri rdf:type kao:PollenLevel)
+              <-
+              (?measurementUri sosa:observedProperty "pollen")
+              (?sensor m3:produces ?measurementUri)
+]
+
+# NEW JUNE 2018: rule for pollen domain=environment (to explicitly add the context)
+# WARNING: namespace URL http://purl.org/kao#
+# WARNING: check that rdf:type kao:PollenLevel, PollenLevel is a concept within the kao ontology
+# "pollen" is the word found within raw data (e.g., SenML file within 'rawSensorDataset' repository) for automatic semantic annotation according to the kao ontology
+[PollenLevel: (?measurementUri rdf:type kao:PollenLevel)
+              <-
+              (?measurementUri sosa:observedProperty "pollen")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Environment)
+]
+
+
+#########################################  OUTSIDE HUMIDITY SCENARIO ########################################################################
+# NEW AUGUST 2018: inside temperature scenario
+# compliant with weather ontologies Kofler or staroch
+# WARNING m3:Home because in senml file: <zone name="Home">
+# TO DO: kofler-weather-onto:RoomTemperature?
+
+[OutsideHumidity: (?measurementUri rdf:type kao:OutsideHumidity)
+              <-
+              (?measurementUri sosa:observedProperty "humidity")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Environment)
+]
+
+#########################################  INSIDE TEMPERATURE SCENARIO ########################################################################
+# NEW AUGUST 2018: inside temperature scenario
+# compliant with weather ontologies Kofler or staroch
+# WARNING m3:Home because in senml file: <zone name="Home">
+# TO DO: kofler-weather-onto:RoomTemperature?
+
+[RoomTemperature: (?measurementUri rdf:type kao:RoomTemperature)
+              <-
+              (?measurementUri sosa:observedProperty "temperature")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Home)
+]
+
+
+##################################################### HEART BEAT SCENARIO ####################################################################################
+# ISSUE not the same URL: http://qudt.org/vocab/unit#HeartBeatsPerMinute
+# http://qudt.org/vocab/unit#HeartBeatsPerMinute
+# NEW JULY 2018: to handle synonyms or typo issues
+# WARNING: should be m3:Health and not m3:health - WHY? DO NOT REMEMBER
+[HeartBeat: (?measurementUri rdf:type kao:HeartBeat)
+              <-
+              (?measurementUri sosa:observedProperty "heart rate")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+# NEW JULY 2018: to handle synonyms or typo issues
+# WARNING: should be m3:Health and not m3:health - WHY? DO NOT REMEMBER
+[HeartBeat: (?measurementUri rdf:type kao:HeartBeat)
+              <-
+              (?measurementUri sosa:observedProperty "heartbeat")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+# NEW JULY 2018: to handle synonyms or typo issues
+# WARNING: should be m3:Health and not m3:health - WHY? DO NOT REMEMBER
+[HeartBeat: (?measurementUri rdf:type kao:HeartBeat)
+              <-
+              (?measurementUri sosa:observedProperty "HeartBeat")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+
+# NEW JULY 2018: to handle synonyms or typo issues
+# WARNING: should be m3:Health and not m3:health - WHY? DO NOT REMEMBER
+[HeartBeat: (?measurementUri rdf:type kao:HeartBeat)
+              <-
+              (?measurementUri sosa:observedProperty "heart beat")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+# NEW JULY 2018: m3:hasName replaced by sosa:observedProperty (do not forget to add the sosa namespace)
+# NEW JUNE 2018: rule for air quality domain=environment (to explicitly add the context)
+# WARNING: namespace URL http://purl.org/kao#
+# WARNING: check that rdf:type kao:PollenLevel, PollenLevel is a concept within the kao ontology
+# "air quality" is the word found within raw data (e.g., SenML file within 'rawSensorDataset' repository) for automatic semantic annotation according to the kao ontology
+[OutdoorAirQualityIndex: (?measurementUri rdf:type kao:OutdoorAirQualityIndex)
+              <-
+              (?measurementUri sosa:observedProperty "air quality")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Environment)
+]
+
+# NEW JUNE 2018: rule for peak flow domain=health (to explicitly add the context)
+# WARNING: namespace URL http://purl.org/kao#
+# WARNING: check that rdf:type ForcedExpiratoryVolume, ForcedExpiratoryVolume is a concept within the kao ontology
+# "fev" is the word found within raw data (e.g., SenML file within 'rawSensorDataset' repository) for automatic semantic annotation according to the kao ontology
+
+[ForcedExpiratoryVolume: (?measurementUri rdf:type kao:ForcedExpiratoryVolume)
+              <-
+              (?measurementUri sosa:observedProperty "fev")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+# NEW JUNE 2018: rule for peak flow domain=health (to explicitly add the context)
+# WARNING: namespace URL http://purl.org/kao#
+# WARNING: check that rdf:type kao:PeakExpiratoryFlow, PeakExpiratoryFlow is a concept within the kao ontology
+# "pef" is the word found within raw data (e.g., SenML file within 'rawSensorDataset' repository) for automatic semantic annotation according to the kao ontology
+[PeakExpiratoryFlow: (?measurementUri rdf:type kao:PeakExpiratoryFlow)
+              <-
+              (?measurementUri sosa:observedProperty "pef")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+# NEW May 2018 for kHealthProject at Knoesis, Wright State University
+[BodyTemperature: (?measurementUri rdf:type m3:BodyTemperature)
+              <-
+              (?measurementUri sosa:observedProperty "temperature")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Health)
+]
+
+#################################################################  Semantic annotation for other kind of data (GENERIC FILE)  ########################################################################
+
+################################################################ GNU License ######################################################################
+#
+#	Machine to Machine Measurement (M3) Framework 
+#    Copyright(c) 2012 - 2015 Eurecom
+#
+#    M3 is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#
+#    M3 is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with M3. The full GNU General Public License is 
+#    included in this distribution in the file called "COPYING". If not, 
+#    see <http://www.gnu.org/licenses/>.
+#
+#    Contact Information
+#    M3 : gyrard__at__eurecom.fr, bonnet__at__eurecom.fr, karima.boudaoud__at__unice.fr
+#  
+#	The M3 framework has been designed and implemented during Amelie Gyrard's thesis.
+#	She is a PhD student at Eurecom under the supervision of Prof. Christian Bonnet (Eurecom) and Dr. Karima Boudaoud (I3S-CNRS/University of Nice Sophia Antipolis).
+#	This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (ANR-13-INFR-0008). 
+#  
+#  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
+
+#[DegreeCelsiusUnit: (?measurementUri m3:hasUnit m3:DegreeCelsius)
+#              <-
+#              (?measurementUri m3:hasUnit "Cel")
+#]
+
+[FogLamp: (?measurementUri rdf:type m3:FogLamp)
+              <-
+              (?measurementUri m3:hasName "fog lamp")
+]
+
+[BodyTemperature: (?measurementUri rdf:type m3:BodyTemperature)
+              <-
+              (?measurementUri m3:hasName "temperature")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+
+[BodyTemperature: (?measurementUri rdf:type m3:BodyTemperature)
+              <-
+              (?measurementUri m3:hasName "BodyTemperature")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+        
+[WeatherTemperature: (?measurementUri rdf:type m3:WeatherTemperature)
+              <-
+              (?measurementUri m3:hasName "temperature")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+[WeatherTemperature: (?measurementUri rdf:type m3:WeatherTemperature)
+              <-
+              (?measurementUri m3:hasName "temperature")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:environment)
+]
+
+
+[Food: (?measurementUri rdf:type m3:Food)
+              <-
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:kitchen)
+]
+
+[Location: (?measurementUri rdf:type m3:Location)
+              <-
+              (?measurementUri m3:hasName "lon")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:place)
+]
+
+[Location: (?measurementUri rdf:type m3:Location)
+              <-
+              (?measurementUri m3:hasName "lat")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:place)
+]
+
+[Location: (?measurementUri rdf:type m3:Location)
+              <-
+              (?measurementUri m3:hasName "lon")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Place)
+]
+
+[Location: (?measurementUri rdf:type m3:Location)
+              <-
+              (?measurementUri m3:hasName "lat")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:Place)
+]
+
+
+[Presence: (?measurementUri rdf:type m3:Presence)
+              <-
+              (?measurementUri m3:hasName "presence")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:home)
+]
+
+[CloudCover: (?measurementUri rdf:type m3:CloudCover)
+              <-
+              (?measurementUri m3:hasName "CloudCover")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:home)
+]
+
+[Illuminance: (?measurementUri rdf:type m3:Illuminance)
+              <-
+              (?measurementUri m3:hasName "light")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:home)
+]
+
+[WeatherLuminosity: (?measurementUri rdf:type m3:WeatherLuminosity)
+              <-
+              (?measurementUri m3:hasName "luminosity")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+[BuildingLuminosity: (?measurementUri rdf:type m3:BuildingLuminosity)
+              <-
+              (?measurementUri m3:hasName "luminosity")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:home)
+]
+
+[Sound: (?measurementUri rdf:type m3:Sound)
+              <-
+              (?measurementUri m3:hasName "sound")
+              (?sensor m3:produces ?measurementUri)
+]
+
+
+[Cholesterol: (?measurementUri rdf:type m3:Cholesterol)
+              <-
+              (?measurementUri m3:hasName "cholesterol")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+
+[WindSpeed: (?measurementUri rdf:type m3:WindSpeed)
+              <-
+              (?measurementUri m3:hasName "wind speed")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+[WindSpeed: (?measurementUri rdf:type m3:WindSpeed)
+              <-
+              (?measurementUri m3:hasName "WindSpeed")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+[WindDirection: (?measurementUri rdf:type m3:WindDirection)
+              <-
+              (?measurementUri m3:hasName "WindDirection")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+[Precipitation: (?measurementUri rdf:type m3:Precipitation)
+              <-
+              (?measurementUri m3:hasName "precipitation")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+[Precipitation: (?measurementUri rdf:type m3:Precipitation)
+              <-
+              (?measurementUri m3:hasName "Precipitation")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:weather)
+]
+
+
+
+[Glucose: (?measurementUri rdf:type m3:Glucose)
+              <-
+              (?measurementUri m3:hasName "glucose")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+
+
+[SkinConductance: (?measurementUri rdf:type m3:SkinConductance)
+              <-
+              (?measurementUri m3:hasName "skin conductance")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+
+[BloodPressure: (?measurementUri rdf:type m3:BloodPressure)
+              <-
+              (?measurementUri m3:hasName "blood pressure")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+
+[BloodPressure: (?measurementUri rdf:type m3:BloodPressure)
+              <-
+              (?measurementUri m3:hasName "BloodPressure")
+              (?sensor m3:produces ?measurementUri)
+              (?sensor m3:observes m3:health)
+]
+
+
+
+   

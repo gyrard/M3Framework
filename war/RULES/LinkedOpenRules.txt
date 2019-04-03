@@ -40,6 +40,24 @@
 #  
 #  	Address: Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
+################################################################  LINKED OPEN RULES FOR TRANSPORT ######################################################################
+# New: December 2018
+# Paper: Ontology-based context awareness for driving assistance systems [Armand et al. 2014]
+
+# Rule 1:
+# vehicle(?v1) ∧ distanceToSubjectVehicle(?v1,?d1)
+# ∧ vehicle(?v2) ∧ distanceToSubjectVehicle(?v2,?d2)
+# ∧ isFollowingParameter(?f) ∧ hasValue(?f,?fParam)
+# ∧ subtract(?sub,?d2,?d1) ∧ lessThan(?diff,?fParam)
+# -> isFollowing(?v2,?v1)
+
+# Paper: Ontology-based context awareness for driving assistance systems [Armand et al. 2014]
+# Rule 2:
+#vehicle(?v1) ∧ StopIntersection(?stop1)
+#∧ isToReach(?v1,?stop1)
+#→ hasToStop(?v1,?stop1)
+
+
 
 ################################################################  LINKED OPEN RULES BY DOMAIN ######################################################################
 

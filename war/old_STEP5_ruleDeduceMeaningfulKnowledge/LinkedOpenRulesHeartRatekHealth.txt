@@ -1,0 +1,110 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATION ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ HEART RATE RULES ######################################################################
+# Updated JULY 2018: heart rate rules
+
+# to be compliant with the semantic annotator for SOSA ontology
+# replace ?measurement m3:hasValue ?v by ?measurement sosa:hasSimpleResult ?value.
+# Updated JULY 2018: m3:HearBeat replaced by kao:HearBeat
+# Updated JUNE 2018: health-dataset:FastHeartBeat by kao:FastHeartBeat same for all rules of this type
+
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+
+################################################################ HEALTH - HEARTBEAT RULES ######################################################################
+# add (?measurement m3:hasUnit m3:BeatPerMinute)   
+# correctness ok 2 rules [Tanantong 2011] + 3 rules
+# completude no > 300 nothing
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# FastHeartBeat, IF m3:HeartBeat greaterThan 102 m3:BeatPerMinute AND lessThan 150 m3:BeatPerMinute THEN FastHeartBeat [Tanantong 2011]
+[FastHeartBeat: 
+              (?measurement rdf:type kao:HeartBeat)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,102)
+              lessThan(?v,150)
+              ->
+              (?measurement rdf:type kao:FastHeartBeat)
+]
+
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# SlowHeartBeat, IF m3:HeartBeat greaterThan 40 m3:BeatPerMinute AND lessThan 58 m3:BeatPerMinute THEN SlowHeartBeat [Tanantong 2011]
+[SlowHeartBeat: 
+              (?measurement rdf:type kao:HeartBeat)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,40)
+              lessThan(?v,58)
+              ->
+              (?measurement rdf:type kao:SlowHeartBeat)
+]
+
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# NormalHeartRate, IF m3:HeartBeat greaterThan 55 m3:BeatPerMinute AND lessThan 64 m3:BeatPerMinute THEN NormalHeartRate
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# NormalHeartBeat, IF m3:HeartBeat greaterThan 58 m3:BeatPerMinute AND lessThan 102 m3:BeatPerMinute THEN NormalHeartBeat [Hristoskova 2014] [Tanantong 2011]
+[NormalHeartBeat: 
+              (?measurement rdf:type kao:HeartBeat)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,58)
+              lessThan(?v,102)
+              ->
+              (?measurement rdf:type kao:NormalHeartBeat)
+]
+
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Tachycardia, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute THEN Tachycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VeryFastHeartBeat, IF m3:HeartBeat greaterThan 150 m3:BeatPerMinute AND lessThan 300 m3:BeatPerMinute THEN VeryFastHeartBeat [Hristoskova 2014] [Tanantong 2011]
+[VeryFastHeartBeat: 
+              (?measurement rdf:type kao:HeartBeat)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,150)
+              lessThan(?v,300)
+              ->
+              (?measurement rdf:type kao:VeryFastHeartBeat)
+]
+
+# Paper: Ontology-driven monitoring of patient's vital signs enabling personalized medical detection and alert [Hristoskova 2014]
+# Bradycardia, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN Bradycardia
+# Paper: Towards continuous ECG monitoring based on rules and ontologies [Tanantong 2011]
+# VerySlowHeartBeat, IF m3:HeartBeat lessThan 40 m3:BeatPerMinute THEN VerySlowHeartBeat [Hristoskova 2014] [Tanantong 2011]
+[VerySlowHeartBeat: 
+              (?measurement rdf:type kao:HeartBeat)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,40)
+              ->
+              (?measurement rdf:type kao:VerySlowHeartBeat)
+]

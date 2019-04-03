@@ -1,0 +1,40 @@
+# Created: November 2018
+# Query patients and their symptoms
+
+PREFIX kao: <http://purl.org/kao#>
+PREFIX schema: <https://schema.org/>
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT ?patient ?patientLabel ?patientComment ?symptom ?symptomLabel ?riskFactorLabel ?therapyURI ?therapyLabel ?therapyComment ?therapyLinkedOpenDataLabel ?therapyLinkedOpenDataURI ?wokeUp WHERE{
+	?patient rdfs:label ?patientLabel.
+	?patient rdfs:comment ?patientComment.
+	?patient kao:hasSymptom ?symptom. 
+	 
+	
+	?symptom rdfs:label ?symptomLabel.
+	
+	?patient kao:hasRiskFactor ?riskFactorURI.
+	?riskFactorURI rdfs:label ?riskFactorLabel.
+	 
+	?patient kao:hasTherapy ?therapyURI. 
+	?therapyURI rdfs:comment ?therapyComment. 
+	?therapyURI rdfs:label ?therapyLabel.
+	 
+	#?patient rdf:type schema:Patient.
+	
+	?patient kao:hasWokeUpLastNight ?wokeUp.
+	
+	#FILTER (LANGMATCHES(LANG(?therapyLabel), "en")).
+	
+	OPTIONAL{ # Ventolin Scenario - rdfs:seelAlso - Linked Open Data
+	?therapyURI rdfs:seeAlso ?therapyLinkedOpenDataURI.
+	?therapyLinkedOpenDataURI rdfs:label ?therapyLinkedOpenDataLabel.
+	
+	}
+	
+}

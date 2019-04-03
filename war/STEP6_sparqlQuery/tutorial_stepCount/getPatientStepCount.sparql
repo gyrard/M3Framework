@@ -1,0 +1,60 @@
+# Created: March 2019
+# TUTORIAL: Query the patient's step count
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+# PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+# PREFIX schema: <https://schema.org/>
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+PREFIX kao: <http://purl.org/kao#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?stepsCount ?typeStepCount ?resource ?measurementURI ?measurementSimpleResult WHERE{
+		# ?patientURI rdfs:label ?patientLabel. # useful if instance uncommented within the kao ontology
+		# ?patientURI rdfs:comment ?patientComment. # useful if instance uncommented within the kao ontology
+		# ?patientURI kao:hasStepsCount ?stepsCount. # useful if instance uncommented within the kao ontology
+		
+		OPTIONAL 
+		{
+			?patientURI rdf:type ?typeStepCount.
+			?typeStepCount rdfs:subClassOf ?resource.
+		 	FILTER (?resource = <http://purl.org/kao#StepsCount>)
+		}		# TO DO: scenario to execute rules and compute step counts
+		
+	OPTIONAL
+		{
+		?measurementURI sosa:hasSimpleResult ?measurementSimpleResult.
+		?measurementURI rdf:type kao:StepsCount.
+		
+		# <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+    # <rdf:type rdf:resource="http://purl.org/kao#StepsCount"/>
+	}
+	
+}
+
+	
+
+	
+
+
+# RDF example:
+# 	<owl:NamedIndividual rdf:about="http://purl.org/kao#Patient_scenario_test_step_count_infer_sedentary">		
+#		<rdfs:label xml:lang="en">Patient scenario test has steps count: the reasoning engine infers sedentary person</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient scenario test has steps count: the reasoning engine infers sedentary person</rdfs:comment>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#		<kao:hasStepsCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1800</kao:hasStepsCount>
+#		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-04</dcterms:modified> 
+#        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-04</dcterms:issued>
+#	</owl:NamedIndividual>
+
+# Also supports:
+# <rdf:Description rdf:about="http://sensormeasurement.appspot.com/m3#Measurement3">
+#    <qudt:unit rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</qudt:unit>
+#    <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">0.0</sosa:resultTime>
+#    <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1600.0</sosa:hasSimpleResult>
+#    <sosa:observedProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">steps count</sosa:observedProperty>
+#    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+#    <rdf:type rdf:resource="http://purl.org/kao#StepsCount"/>
+#  </rdf:Description>

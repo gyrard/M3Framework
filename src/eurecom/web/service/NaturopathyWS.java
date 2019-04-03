@@ -1,3 +1,9 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +33,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.io.IOException;
@@ -58,20 +64,20 @@ import eurecom.sparql.result.SparqlResultRecipe;
 import eurecom.sparql.result.SparqlResultRecipeNaturopathy;
 import eurecom.sparql.result.VariableSparql;
 
-/**
+*//**
  * Naturopathy scenarios used in the corresponding HTML web page
  * @author Amelie Gyrard
  *
- */
+ *//*
 @Path("/naturopathy")
 public class NaturopathyWS {
 	
-	/**
+	*//**
 	 * Suggest home remedies according to the body temperature scenario
 	 * @return home remedies according to the body temperature
 	 * This web service interpet body temperature data
 	 * E.g., http://sensormeasurement.appspot.com/naturopathy/sick
-	 */	
+	 *//*	
 	@GET
 	@Path("/sick/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -103,10 +109,10 @@ public class NaturopathyWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Convert SenML health measurements according to the M3 nomenclature implemented in the M3 ontology
 	 * @return RDF sensor data compliant with M3
-	 */
+	 *//*
 	@GET
 	@Path("/convert_health/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -123,10 +129,10 @@ public class NaturopathyWS {
 		return Response.status(200).entity(msg).build();
 	}
 	
-	/**
+	*//**
 	 * Convert SenML health measurements according to the M3 nomenclature implemented in the M3 ontology
 	 * @return RDF sensor data compliant with M3
-	 */
+	 *//*
 	@GET
 	@Path("/convert_weather/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -143,11 +149,11 @@ public class NaturopathyWS {
 		return Response.status(200).entity(msg).build();
 	}
 	
-	/**
+	*//**
 	 * Scenario seasonal affective disorder
 	 * According to the luminosity measurement we can interpret your mood
 	 * @return mood deduced from the luminosity measurement
-	 */
+	 *//*
 	
 	@GET
 	@Path("/emotion_luminosity/")
@@ -179,12 +185,12 @@ public class NaturopathyWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Search food according to the season (naturopathy:hasSeason)
 	 * The Season is deduced according to the external temperature (jena rule reasoner)
 	 * File with jena rule temperature
 	 * @return the jena xml binding: result of the sparql query
-	 */
+	 *//*
 	@GET
 	@Path("/seasonTemperatureFoodRecipe/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -212,11 +218,11 @@ public class NaturopathyWS {
 		return null;
 	}
 	
-	/** scenario relationships between emotion and disease
+	*//** scenario relationships between emotion and disease
 	 * 
 	 * @param property
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/emotion_disease/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -247,10 +253,10 @@ public class NaturopathyWS {
 
 	
 
-/**
+*//**
  * Cholesterol scenario: get recipe fat free
  * @return
- */
+ *//*
 	@GET
 	@Path("/cholesterol/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -280,10 +286,10 @@ public class NaturopathyWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Search all diseases in the naturopathy dataset
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/disease/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -299,10 +305,10 @@ public class NaturopathyWS {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * Search food related to the cold symptom
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/isRecommendedFor/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -320,11 +326,11 @@ public class NaturopathyWS {
 	}
 	
 	
-	/**
+	*//**
 	 * Convert senml measurements into semantic measurements
 	 * @param data converted according to the format RDF
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/convert_food/")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -344,10 +350,10 @@ public class NaturopathyWS {
 		return Response.status(200).entity(msg).build();
 	}
 
-	/**
+	*//**
 	 * Link semantic food measurements to existing semantic dataset (recipe, food, naturopathy)
 	 * @return SparqlResult: food available in the kitchen
-	 */
+	 *//*
 	@GET
 	@Path("/matchingFood/")
 	@Produces(MediaType.APPLICATION_XML)
@@ -358,11 +364,11 @@ public class NaturopathyWS {
 		return resultSparql;
 	}
 
-	/**
+	*//**
 	 * Search a recipe
 	 * @param property
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/searchRecipe/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -373,11 +379,11 @@ public class NaturopathyWS {
 	}
 
 
-	/**
+	*//**
 	 * Search detail of a recipe
 	 * @param property
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/recipeDetail/{property}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -390,10 +396,10 @@ public class NaturopathyWS {
 	
 
 
-	/**
+	*//**
 	 * Get food available in the kitchen and their season
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/foodKitchenSeason")
 	@Produces(MediaType.APPLICATION_XML)
@@ -410,3 +416,4 @@ public class NaturopathyWS {
 	
 
 }
+*/

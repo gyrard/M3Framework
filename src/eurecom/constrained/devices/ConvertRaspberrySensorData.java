@@ -27,7 +27,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.constrained.devices;
 
 import org.json.JSONArray;
@@ -48,7 +48,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import eurecom.common.util.Var;
 import eurecom.data.converter.ConvertSensorDataToM3;
 
-/**
+*//**
  *
  * Semantically annotate SenML/JSON data with RDF/XML compliant with the M3 ontology
  * Sensor data are provided by the raspberry pi - WLBOX
@@ -57,7 +57,7 @@ import eurecom.data.converter.ConvertSensorDataToM3;
  * TODO: Create a new package m3.semantic.annotator
  * TODO: Move this file to the package m3.semantic.annotator
  *
- */
+ *//*
 public class ConvertRaspberrySensorData {
 
 	public  Model convertRaspberrySensorDataToRDF(String sensor_data, String m3_rules_url) throws org.json.JSONException{
@@ -127,3 +127,4 @@ public class ConvertRaspberrySensorData {
 		return infModel;
 	}
 }
+*/

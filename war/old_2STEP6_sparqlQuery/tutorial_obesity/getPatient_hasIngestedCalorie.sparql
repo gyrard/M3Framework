@@ -1,0 +1,31 @@
+# Updated: March 2019
+# Created: December 2018
+# TUTORIAL: Query the patient's diet
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+# PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+# PREFIX schema: <https://schema.org/>
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  
+PREFIX kao: <http://purl.org/kao#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?calorie ?typeCalorie ?resource WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	?patientURI kao:hasIngestedCalorie ?calorie. 
+	OPTIONAL 
+	{
+		?patientURI rdf:type ?typeCalorie.
+		 ?typeCalorie rdfs:subClassOf ?resource.
+		 FILTER (?resource = <http://purl.org/kao#CaloricLevel>)
+	}	# TO DO: scenario to execute rules and compute calories must be improved - difference patient has ingested calorie and food calorie
+}
+
+# RDF example:
+#	<owl:NamedIndividual rdf:about="Patient_scenario_test_has_calorie">		
+#		<rdfs:label xml:lang="en">Patient scenario test has calories.</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient scenario test has calories.</rdfs:comment>
+#		<kao:hashasIngestedCalorie>1200</kao:hashasIngestedCalorie>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#	</owl:NamedIndividual>	 

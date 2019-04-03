@@ -1,0 +1,515 @@
+<!--  Last Updated October 2017
+Should be updated here and not the one within M3
+-->
+
+<h1>Linked Open Reasoning:<br/> State of the Art & Interoperability Issues</h1>
+
+<div class="hero-unit">
+We have investigated, referenced and classified the following semantics-based reasoning mechanisms:
+<div id="list3">
+<table>
+	<tr colspan="2" center>
+		<td width=60%>
+		<ul>
+			<li><a href="#div_semanticReasoningIoT">Semantic Reasoning for IoT</a></li>
+			<li><a href="#div_machineLearning_AI_IoT_semantic_web">Semantic Web, IoT, AI and Machine Learning</a></li>
+			<li><a href="#div_linkedRules">Linked Rules</a></li>
+			<li><a href="#div_reasoners">Reasoners</a></li>
+			<li><a href="#div_ruleLanguages">Rule Languages</a></li>
+			<li><a href="#div_distributedReasoning">Distributed Reasoning & Scalability</a></li>
+			<li><a href="#div_ore_competition">ORE (OWL Reasoner Evaluation) 2015 Competition</a></li>
+			
+		</ul>
+		
+		</td>
+		
+		<td></td>
+		<td></td>
+		
+		<td>
+				<ul>
+	<li><a href="#div_web_Reasoning">Web-based Reasoning</a></li>
+	<li><a href="#div_streamReasoning">Stream Reasoning and Real-Time</a></li>
+	<li><a href="#div_recommenderSystem">Semantics-Based Recommender Systems</a></li>
+	<li><a href="#div_machineLearning">Semantics-Based Machine Learning</a></li>
+	<li><a href="#div_ruleTempate">Rule-Template</a></li>	
+	<li><a href="#div_others">Others: KNIME, etc.</a></li>
+</ul>
+		</td>
+	</tr>
+	</table>
+</div>	
+	
+<br/>	
+	Please do not forget to cite our work (see <a href="../?p=publication"> all publications</a>):
+	<ul>
+	<li>
+Book Chapter: <a href="https://www.riverpublishers.com/pdf/ebook/chapter/RP_9788793519046C6.pdf">A Review of Tools for IoT Semantics and Data Streaming Analytics</a><br/>
+Book: The Building Blocks of IoT Analytics - Internet-of-Things Analytics<br/>
+</li>
+<!-- 	
+	<li>
+	<a href="http://www.eurecom.fr/fr/publication/5144/download/comsys-publi-5144.pdf">Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities</a><br/>
+3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. <br/>
+</li> -->
+
+</ul>
+
+<!-- Table of contents 
+<ul>
+	<li><a href="#div_linkedRules">Linked Rules</a></li>
+	<li><a href="#div_reasoners">Reasoners</a></li>
+	<li><a href="#div_ruleLanguages">Rule Languages</a></li>
+	<li><a href="#div_distributedReasoning">Distributed Semantics-Based Reasoning</a></li>
+	<li><a href="#div_recommenderSystem">Distributed Semantics-Based Recommendation Systems</a></li>
+	<li><a href="#div_streamReasoning">Stream Reasoning and Real-Time</a></li>
+	<li><a href="#div_machineLearning">Semantics-Based Machine Learning</a></li>
+	<li><a href="#div_scalability">Scalability</a></li>
+	<li><a href="#div_ruleTempate">Rule-Template</a></li>	
+	<li><a href="#div_knime">Knime</a></li>
+	<li><a href="#div_others">Others</a></li>
+</ul>
+</div>
+-->
+<!--
+<p>
+Help us to share, reuse, reference and interlink semantic domain rules 
+<a href="../?p=swot_template" >(display rules related to specific sensors)</a>
+</p>
+
+
+
+
+-->
+
+
+
+
+
+<!--*********************** SEMANTIC REASONING FOR IOT ******************************* -->
+<div class="hero-unit" id="div_semanticReasoningIoT">
+<br/><br/>
+<h3>Semantic Reasoning for IoT</h3>
+PhD thesis: <a href="http://jultika.oulu.fi/files/isbn9789526213354.pdf">Lightweight data and knowledge exchange for pervasive environments</a> [Xiang Su September 2016]<br/>
+Paper: <a href="https://arxiv.org/ftp/arxiv/papers/1604/1604.08340.pdf">Semantic Reasoning for Context-aware Internet of
+Things Applications</a> [Maarala, Su et al. 2016] <br/>
+Master's Thesis: <a href="http://jultika.oulu.fi/files/nbnfioulu-201611153041.pdf">Semantic Reasoning on the Edge of Internet of Things </a> [Li Nov. 2016] <br/>
+Paper: <a href="http://ubicomp.oulu.fi/files/wims16.pdf">Stream Reasoning for the Internet of Things: Challenges and Gap Analysis</a> [Su et al. 20126]<br/>
+Paper: Towards Semantic Reasoning on the Edge of IoT Systems [Su et al. IoT 2016]<br/>
+Paper: Semantic data provisioning and reasoning for the internet of things [Maarala, Su et al. IoT Conference 2014]<br/>
+Paper: Adding semantics to internet of things [Su et al. 2015]<br/>
+Paper: Entity notation: enabling knowledge representations for resource-constrained sensors [Su et al. 2012]<br/><br/>
+
+[HYLAR-ASAWOO] Paper: <a href="http://ceur-ws.org/Vol-1361/paper1.pdf">HyLAR: Hybrid Location-Agnostic Reasoning</a> [Terdjimi et al. Developers Workshop 2015]<br/>
+[HYLAR-ASAWOO] Paper: <a href="http://www2016.net/proceedings/companion/p259.pdf">HyLAR+: Improving Hybrid Location-Agnostic Reasoning with Incremental Rule-based Update</a> [Terdjimi et al. WWW Demo 2016]<br/>
+[HYLAR-ASAWOO] <a href="https://www.npmjs.com/package/hylar#create-your-own-rules">Documentation</a><br/>
+[HYLAR-ASAWOO] <a href="http://sympozer.liris.cnrs.fr/hylar/explore/rules">GUI and tool</a><br/>
+HYLAR is a rule-based incremental reasoner for the Web.<br/><br/>
+
+
+[Wei Wang] Paper: <a href="http://epubs.surrey.ac.uk/470686/1/EuroSSC-2009.pdf">Semantic annotation and reasoning for sensor data</a> [Wei Wang et al. 2009]
+<br/><br/>
+
+<h3>Linked Data-Fu</h3>
+
+<a href="https://linked-data-fu.github.io/">Linked Data-Fu</a>: an engine to interact with LD resources via REST interfaces.<br/>
+Paper: <a href="https://planet-data.eu/sites/default/files/publications/Data-Fu_2013.pdf">Data-Fu: A Language and an Interpreter for Interaction with Read/Write Linked Data</a> [Stadtmuller et al. WWW 2013]<br/>
+Paper: <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7496418">Towards Declarative Programming and Querying in a Distributed Cyber-physical System: The i-VISION Case</a> [Kafer et al. 2016]
+<br/><br/>
+</div>
+
+
+<!--*********************** MACHINE LEARNING AI IoT Semantic Web ******************************* -->
+<div class="hero-unit" id="div_machineLearning_AI_IoT_semantic_web">
+<br/><br/>
+<h3>Semantic Web, Machine Learning and IoT</h3>
+Paper: Towards Semantic Web of Things:  A Hybrid Semantic Annotation, Extraction and Reasoning Framework for Cyber Physical System [Wu et al. 2017]
+<br/>
+Paper: Semantic Framework of Internet of Things for Smart Cities: Case Studies [Zhang et al. 2016]
+<br/>
+Paper: Machine Learning in the Internet of Things: a Semantic-enhanced Approach [Ruta et al. 2017] (Under Review)
+<br/>
+Paper: <a href="https://ac.els-cdn.com/S235286481730247X/1-s2.0-S235286481730247X-main.pdf?_tid=03e1acc2-bd5a-11e7-9aeb-00000aab0f6b&acdnat=1509358177_f454436d59fd597685db43e5666e66ba">Machine learning for Internet of Things data analysis: A survey</a> [Mahdavinejad, Barnaghi, Sheth et al. 2017]
+</div>
+
+
+<!--*********************** LINKED RULES ******************************* -->
+<div class="hero-unit" id="div_linkedRules">
+<br/><br/>
+<h3>Linked Rules</h3>
+
+[LER] Paper: <a href="http://ceur-ws.org/Vol-1551/article-03.pdf">Linked Edit Rules: A Web friendly way of checking quality of rdf data cubes</a> [Merono-Punuela et al., ISWC 2015, Workshop]<br/>
+[LER] Demo: <a href="http://linkededitrules.org/">Linked Edit Rules (LER)</a> (Dead link August 2018)<br/><br/>
+
+[Linked Rules] Paper: <a href="http://dig.csail.mit.edu/2011/Papers/LinkedRules/paper.pdf">Linked Rules: Principles for Rule Reuse on the Web</a> [Khandelwal et al. 2011] <br/><br/>
+
+[BASIL] Paper: <a href="http://ceur-ws.org/Vol-1359/paper4.pdf">A BASILar approach for building web APIs on top of SPARQL endpoints</a> [Daga et al., ISWC 2015, Workshop] <br/>
+[BASIL] Demo: <a href="http://basil.kmi.open.ac.uk/app/#/collection">BASIL</a> <br/><br/>
+
+[S-LOR] Paper: <a href="http://ceur-ws.org/Vol-1401/paper-08.pdf">Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities</a> [Gyrard et al., WWW Workshop 2017]<br/>
+[S-LOR] Paper: <a href="http://ceur-ws.org/Vol-1401/paper-08.pdf">Helping IoT application developers with sensor-based linked open rules</a> [Gyrard et al., ISWC SSN 2014] <br/>
+[S-LOR] Demo: <a href="http://linkedopenreasoning.appspot.com/?p=slorv2">S-LOR</a><br/>
+[S-LOR] Project: <a href="http://linkedopenreasoning.appspot.com/">S-LOR</a><br/>
+<a href="http://sensormeasurement.appspot.com/?p=rule">Linked Open Rules interoperability issues studing during my PhD thesis</a><br/>
+<a href="http://www.eurecom.fr/fr/publication/4553/download/cm-publi-4553.pdf">See PhD thesis - Chapter State of the art - reasoning section + tables</a><br/><br/>
+
+<h3>Survey Paper</h3>
+Paper: <a href="https://gear.kku.ac.th/~krunapon/research/pub/icsec-2013-kanda.pdf">A Review and Comparison of Rule Languages and
+Rule-based Inference Engines for the Semantic Web</a> [Rattanasawad et al. 2013] <br/>
+Tutorial: <a href="http://coherentknowledge.com/wp-content/uploads/2013/05/talk-prelim-aaai13-rules-tutorial.pdf">Semantic Web Rules:
+Fundamentals, Applications, and Standards</a> [Grosof et al. Tutorial at AAAI-13]
+</div>
+
+<!--*********************** RULE LANGUAGES ******************************* -->
+<div class="hero-unit" id="div_ruleLanguages">
+<br/><br/>
+<h3>Rule Languages</h3>
+
+<center><img height="500" width="500" src="./images/SLOR_reasoning/LinkedOpenRules.jpg"/></center>
+<a href="../html/dissemination/OntologyRuleSoftwareUsed.pdf">Classification of sensor-based domain ontologies according to the software used</a>
+<br/><br/>
+<ul>
+<li>OWL restrictions. We frequently found rules designed as owl restrictions.</li>
+<li>SWRL (Semantic Web Rule Language) is the most popular rule language since it is easy to use and used by domain experts. <br/>
+	Unfortunately, the syntax varying according to the software or inference engine employed (OWL restrictions in the ontology, Jena, SWRL Tab protege, Pellet, Fact++, etc.).
+	<ul>
+		<li> <a href="https://jena.apache.org/documentation/inference/index.html">JenaRules</a>, <a href="http://hydrogen.informatik.tu-cottbus.de/wiki/index.php/JenaRules">JenaRules wiki </a></li>
+		<li>SWRL rules for Jess</li>
+		<li>DLSafeRule</li><li> <a href="http://protege.cim3.net/cgi-bin/wiki.pl?SWRLTab">SWRL Tab (Plugin Protege) [O'Connor 2006]</a></li>		
+		<li> <a href="http://weblog.clarkparsia.com/2007/08/27/understanding-swrl-part-2-dl-safety/">SWRL DL Safe Rule</a> that restricts rules to operate on only known individuals of ontology.</li>
+		<li> <a href="http://protege.cim3.net/cgi-bin/wiki.pl?SWRLJessTab">SWRLJess Tab (Plugin Protege)</a></li>
+		<li> <a href="https://www.onistt.org/display/SWRLIQ/SWRL-IQ;jsessionid=236225E1FD93E7480A84F7FDA4AC976E">SWRL-IQ  (Plugin Protege)</a></li>
+		<li> <a href="http://protege.cim3.net/cgi-bin/wiki.pl?SQWRL">SQWRL (Plugin Protege)</a></li>
+		<li> <a href="http://protege.cim3.net/cgi-bin/wiki.pl?SWRLDroolsTab">SWRLDroolsTab (Plugin Protege)</a></li>
+		<li>Paper: SWRL: A Semantic Web Rule Language Combining OWL and RuleML [Horrocks et al. 2004]</li>
+	</ul>
+</li>
+
+	<li>  <a href="http://spinrdf.org/"> SPIN (SPARQL Inferencing Notation) </a> is advocated by semantic web experts 
+		<ul>
+			<li> Jena SPIN rules (Jena ARQ API) </li>
+			<li> <a href="http://spinrdf.org/sp.html">SPIN SPARQL syntax </a> </li>
+			<li> SPARQL CONSTUCT (equivalent to SWRL rules)</li>
+			<li> <a href="http://composing-the-semantic-web.blogspot.fr/2011/04/spinmap-sparql-based-ontology-mapping.html" > SPINMap </a> <br/> </li>
+			<li> <a href="http://sparqlmotion.org/" > SPARQL Motion </a> <br/> </li>
+		</ul>
+	</li>
+
+<li><a href="http://www.w3.org/TR/rif-overview/">RIF (Rule Interchange Format)</a>. Usual software used by domain experts do not implement RIF</li>
+		<ul>
+		
+		<li> <a href="https://www.w3.org/2005/rules/wiki/Implementations"> RIF implementations </a></li>
+			<li> <a href="http://www-sop.inria.fr/members/Oumy.Seye/"> RIF2SPARQL </a> [Oumy Seye et al. 2012] </li>
+			<li> <a href="http://www-sop.inria.fr/members/Oumy.Seye/"> RIF validator </a>[Oumy Seye et al. 2012]</li>
+			<li> Paper: R2RIF - Rule Integration Plugin for Protege OWL [Pomarolli et al. 2012] - No plugin found  </li>
+			<li><a href="http://www.w3.org/2005/rules/wiki/Implementations">RIF implementations</a></li>
+			<li><a href="http://dig.csail.mit.edu/2011/Papers/LinkedRules/paper.pdf">Linked Rules: Principles for Rule Reuse on the Web [Khandelwal 2011]</a></li>
+		</ul>
+<li>F-Logic  </li>
+</ul>
+</div>
+
+
+<!--*********************** ORE 2015 COMPETITION ******************************* -->
+<div class="hero-unit" id="div_ore_competition">
+<br/><br/>
+<h3>ORE (OWL Reasoner Evaluation) 2015 Competition</h3>
+<ul>
+	<li><a href="http://owl.cs.manchester.ac.uk/tools/list-of-reasoners/">List of reasoners (from Manchester)</a></li>
+	<li><a href="http://www.rsgoncalves.com/files/pubs/2016_iswc.pdf">The OWL Reasoner Evaluation (ORE) 2015 Resources</a> [Parsia et al. ISWC 2016]</li>
+	<li>ORE 2015 reasoner competition dataset [Matentzoglu et al. 2015]</li>
+	<li>A survey of current, stand-alone OWL reasoners [Matentzoglu et al. 2015]</li>
+	<li>The owl reasoner evaluation (ORE) 2015 competition report [Parsia et al. 2015]</li>
+	<li><a href="http://owl.cs.manchester.ac.uk/publications/supporting-material/ore-2015-report/">Supporting Materials: ORE 2015 Report</a></li>
+</ul>
+</div>
+
+<!--*********************** REASONERS ******************************* -->
+<div class="hero-unit" id="div_reasoners">
+<br/><br/>
+<h3>Reasoners</h3>
+
+
+<ul>
+<li><a href="http://drools.org/">DROOLS engine</a></li>
+<li> <a href="http://owllink-owlapi.sourceforge.net/" >OWLlink API</a> to access remote reasoners</li>
+<li> <a href="https://jena.apache.org/documentation/inference/" > Jena inference engine </a> </li>
+<li> <a href="http://www.jessrules.com/links/" > JESS (Java Expert System Shell) </a> Rule engine for the java platform</li>
+<li> <a href="http://clarkparsia.com/pellet/" >Pellet </a> is an OWL 2 reasoner for JAVA.</li>
+	<ul>
+		<li> <a href="http://clarkparsia.com/pellet/protege/" > Pellet - Protege </a></li>
+		<li> <a href="http://clarkparsia.com/pellet/faq/using-pellet-in-jena/" > Pellet - Jena </a></li>
+		<li>Paper: Pellet: a practical OWL-DL reasoner [Sirin et al. 2007]</li>
+	</ul>
+<li> 
+	<a href="http://www.franz.com/agraph/racer/" >Racer</a>, RacerPro
+	<br/>
+	Paper: Racer system description [Haarslev et al. 2001]
+</li>	
+
+<li> <a href="http://kaon2.semanticweb.org/" >Kaon2, OntoBroker  </a> </li>
+<li> <a href="http://owl.man.ac.uk/factplusplus/" >FaCT++  </a>  
+	<br/>
+	Paper: FaCT++ description logic reasoner: System description [Tsarkov et al. 2006]
+</li>
+<li> <a href="http://hermit-reasoner.com/" >HermiT  </a> 
+	<br/>
+	Paper: HermiT: an OWL 2 reasoner [Glimm et al. 2014]
+	<br/>
+	Paper: HermiT: A highly-Efficient OWL Reasoner [Shearer et al. 2008]
+ </li>
+<li> <a href="http://lat.inf.tu-dresden.de/systems/cel" >CEL DL (Description Logic) reasoner</a>  </li>
+<li> <a href="http://eulersharp.sourceforge.net/" >Euler inference engine</a>  </li>
+<li> <a href="http://compositecode.com/2014/09/20/learning-nools-rules-engine/">nools</a></li>
+<li><a href="http://rif4j.sourceforge.net/">RIF4j</a> (on sourceforge, Maven project)</li>
+</ul>
+
+</div>
+
+
+<!--*********************** RULE TEMPLATES ******************************* -->
+<div class="hero-unit" id="div_ruleTempate">
+<br/><br/>
+<h3>Rule templates</h3>
+<ul>
+<li><a href="http://lpis.csd.auth.gr/systems/DLEJena/">DLEJena</a></li>
+<li><a href="http://www.w3.org/TR/owl2-profiles/#OWL_2_RL">OWL 2 RL</a></li>
+
+</ul>
+</div>
+
+
+<!--*********************** RECOMMENDER SYSTEMS ******************************* -->
+<div class="hero-unit" id="div_recommenderSystem">
+<br/><br/>
+<h3>Semantics-Based Recommender Systems</h3>
+
+
+<a href="https://publikationen.bibliothek.kit.edu/1000042108/3158723">Cross-domain recommendations based on semantically-enhanced user web behavior</a> [Julia Hoxta PhD Thesis 2014]<br/><br/>
+
+<a href="http://afrodita.ii.uam.es/nueva_web/intranet/ga/tfdm/trabajos/Ignacio_Fernandez_Tobias.pdf">A semantic-based framework for building cross-domain networks: application to item recommendation</a> [Tobias PhD Thesis 2013]<br/>
+<a href="http://ir.ii.uam.es/reshet/pub/hetrec11.pdf">A Generic Semantic-based Framework for Cross-domain Recommendation</a> [Fernandez-Tobias et al.]
+<br/><br/>
+
+
+Music domain:<br/>
+<a href="https://pdfs.semanticscholar.org/dfd3/696827abcaca0192224033cc963327825d13.pdf">dbrec - music recommendation using DBpedia</a> [Passant et al. ISWC 2010]
+<br/>
+<a href="http://mtg.upf.edu/files/publications/f50042-ISWC2006-ocelma.pdf">Foafing the music: Briding the semantic gap in music recommendation</a> [Celma et al. 2008] - CBF
+<br/><br/>
+
+Movie domain:<br/>
+<a href="http://sisinflab.poliba.it/publications/2012/DMORZ12/i-semantics2012.pdf">Linked Open Data to support content-based recommender systems</a> Cinemappy [Noia, Mizziri, Ostuni, Romito 2012]
+<br/>
+<a href="https://pdfs.semanticscholar.org/aedf/631597505b6a6d439ae8be630c02a0f4f990.pdf">Using Linked Data to build Open Collaborative Recommender Systems</a> [Heitmann, Hayes 2010]<br/>
+
+
+
+	
+
+<br/>
+Others:<br/>
+Domain-independent recommendation system, tourism/movies/books domain [Codina et al. 2010]<br/>
+<br/>
+<a href="https://movielens.org/">Movielens Dataset</a> used for experiments.
+<a href="http://linkedmdb.org/">Linked Movie DataBase (LDMDB)</a> used for experiments.
+<ul>
+
+	<li><a href="http://ceur-ws.org/Vol-919/paper5.pdf">Ontology-based rules for recommender systems</a> [Debattista et al. ]</li>
+	<li>Event domain, EventMedia [Houda Krouf et al. 2013]</li>
+	<li>Food, recipe domain [Freyne 2011]</li>
+	<li>Movie domain, [Oufaida, Naouali 2009]</li>
+	<li>Tourism domain [Daramola 2009]</li>
+	<li>Tourism domain, eTourPlan [Dema 2009]</li>
+	<li>Food, recipe domain, WikiTaaable [Cordier 2009]</li>
+	<li>News domain, News@hand [Cantador, Bellogin, Castells et al. 2008]</li>	
+	<li>Music domain [Raimond et al. 2007-2008]</li>
+	<li>CHIP (Cultural Heritage Information Personalization), Art recommender, museum domain [Wang, Stash, Aroyo et al. 2007-2008] </li>
+	<li>Compass </li>
+</ul>
+</div>
+
+
+<!--*********************** DISTRIBUTED SCALABILITY ******************************* -->
+<div class="hero-unit" id="div_distributedReasoning">
+<br/><br/>
+<h3>Distributed Semantics-Based Reasoning</h3>
+
+[DRAOn] Paper: <a href="https://www.emse.fr/~zimmermann/Papers/ore2013.pdf">DRAOn: A Distributed Reasoner for Aligned Ontologies</a> [Le Duc et al. 2013] <br/>
+DRAOn implements the algorithm from the paper below in JAVA and provides a <a href="http://iddl.gforge.inria.fr/tutorial.html">JAVA API</a><br/>
+[DRAOn] Paper: Reasoning with a network of aligned ontologies [Zimmermann et al. 2008] <br/>
+[DRAOn] <a href="http://iddl.gforge.inria.fr/tutorial.html">Tutorial</a> 
+<br/><br/>
+
+[KaONP2P] Paper: <a href="http://www.aifb.kit.edu/images/2/27/2007_1342_Haase_A_Decentralized_1.pdf">A Decentralized Infrastructure for Query Answering over Distributed Ontologies</a> [Haase et al. 2007]<br/><br/>
+
+[LarKC] Paper: Large Scale Reasoning on the Semantic Web: What to Do When Success Is Becoming a Problem [Harmelen et al. 2009]<br/>
+[LarKC] Paper: Towards LarKC: a Platform for Web-scale reasoning [Fensel et al. 2008]<br/>
+[LarKC, Marvin] Paper: <a href="http://www.cs.vu.nl/~frankh/postscript/JWS09.pdf">Marvin: distributed reasoning over large-scale Semantic Web data</a> [Oren et al. 2009]<br/><br/>
+
+[DRAGO] Paper: DRAGO <a href="https://pdfs.semanticscholar.org/6c30/8a597c319f71da21e594a181791804da01c1.pdf">Distributed reasoning architecture for the semantic web </a> [Serafini et al. ESWC 2005]
+<br/>DRAGO is a tableau-based peer-to-peer reasoner.
+<br/><br/>
+
+[Jena HBase] <a href="http://ceur-ws.org/Vol-914/paper_14.pdf">Jena-HBase: A Distributed, Scalable and Efficient RDF Triple Store</a> [Khadilkar ISWC Demo Poster 2012]
+<br/><br/>
+
+
+[WebPIE] <a href="http://www.few.vu.nl/~jui200/webpie.html">WebPIE web site</a> <br/>
+WebPIE is a semantic-reasoning based on Hadoop [Urbani 2012]
+<br/><br/>
+
+<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.186.2063&rep=rep1&type=pdf"> Distributed SPARQL query engine using MapReduce</a> [Kulkarni 2010]
+<br/><br/>
+
+<a href="http://ceur-ws.org/Vol-996/papers/ldow2013-paper-08.pdf">Reasoning over SPARQL</a> [Coppens et al. LDOW 2013]
+It is a SPARQL query extension, remote and distributed reasoning.
+<br/><br/>
+
+
+<a href="https://www.utdallas.edu/~bxt043000/Publications/Conference-Papers/DM/C200_Storage_and_Retrieval_of_Large_RDF_Graph.pdf">Storage and Retrieval of Large RDF Graph
+Using Hadoop and MapReduce</a> [Husain et al. 2010]<br/>
+It uses MapReduce & RDF.
+<br/><br/>
+
+<a href="http://darq.sourceforge.net/">DARQ Web Site</a> <br/>
+Federated Queries with SPARQL [Quilitz 2008]. DARQ is an engine for federated queries.
+<br/><br/>
+<!--  Jena Squirrel RDF -->
+
+<a href="https://www.lri.fr/~goasdoue/MediaD/">MediaD project</a> (Distributed Mediation of Knowledge & Data)
+<br/><br/>
+<a href="http://www.omg.org/spec/DOL/">Distributed Ontology, Modeling, and Specification Language (DOL)</a> Object Management Group
+
+</div>
+
+<!--*********************** STREAM REASONING SYSTEMS ******************************* -->
+<div class="hero-unit" id="div_streamReasoning">
+<br/><br/>
+<h3>Stream Reasoning and Real-time - Linked Sensor Middleware (LSM) and Others</h3>
+
+<a href="http://streamreasoning.org/">Stream Reasoning</a> Research Web site [Calibmonte et al.]
+<br/><br/>
+
+[CQELS, LSM] Danh Le-Phuoc's PhD thesis: A native and adaptive approach for Linked Stream Data Processing [Le-Phuoc et al. 2013] <br/>
+[CQELS, LSM] Paper: Enabling Live Exploration on The Graph of Things [Le-Phuoc et al. ISWC 2014] <br/>
+[CQELS, LSM] Paper: Elastic and Scalable Processing of Linked Stream Data in the Cloud [Le Phuoc et al., ISWC 2013] <br/>
+[CQELS, LSM] Paper: A middleware framework for scalable management of linked streams [Le-Phuoc et al. 2012] <br/>
+[CQELS, LSM] Paper: Linked Stream Data Processing [Le-Phuoc et al. 2012] <br/>
+[CQELS, LSM] Paper: The Linked Sensor Middleware - Connecting the real world and the semantic web [Le-Phuoc et al. ISWC 2011] <br/>
+[CQELS, LSM] Paper: A native and adaptive approach for unified processing of linked streams and linked data [Le-Phuoc et al. ISWC 2011] <br/>
+[CQELS, LSM] Paper: Live Linked Open Sensor Database [Le-Phuoc et al. 2010] <br/>
+[CQELS, LSM] Paper: SensorMasher: publishing and building mashup of sensor data [Le-Phuoc et al. 2009] <br/>
+[CQELS, LSM] Paper: Linked open data in sensor data mashups [Le-Phuoc et al. SSN 2009] <br/>
+[CQELS, LSM] Paper: Rapid prototyping of semantic mash-ups through semantic web pipes [Le-Phuoc et al. WWW 200ssoo9] <br/>
+[CQELS, LSM] Paper: Linked Sensor Middleware (LSM) User Manual<br/>
+[CQELS, LSM] Demo: <a href="http://graphofthings.org/">Graph of Things</a>, <a href="https://code.google.com/p/deri-lsm/">LSM code</a><br/><br/>
+
+[C-SPARQL] Paper: C-SPARQL: SPARQL for continuous querying [Barbieri et al. WWW 2009]<br/><br/>
+[EP-SPARQL] Paper: EP-SPARQL: A unified Language for Event Processing and Stream Reasonig [Anicic et al. WWW 2011]
+<br/><br/>
+
+Paper: <a href="http://ceur-ws.org/Vol-1558/paper22.pdf">DIONYSUS: Towards Query-aware Distributed Processing of RDF Graph Streams</a> [Gillani, Picard, Laforest et al. Workshop 2016]
+<br/><br/>
+</div>
+
+
+
+<!--*********************** MACHINE LEARNING ******************************* -->
+<div class="hero-unit" id="div_machineLearning">
+<br/><br/>
+<h3>Semantics-Based Machine Learning: KAT, IntelligO, Moraru et al. and Others</h3>
+
+Paper: <a href="http://www.sciencedirect.com/science/article/pii/S1570826816000020">Semantic Web in data mining and knowledge discovery: A comprehensive survey</a> [Ristoski et al. 2016]
+<br/><br/>
+
+[KAT] Paper: <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7055837">A practical evaluation of information processing and abstraction techniques for the Internet of Things</a> [Ganz et al. IoT journal 2015] <br/>
+[KAT] PhD Thesis: Intelligent communication and information processing for Cyber-Physical Data [Ganz et al. 2014]   <br/>
+[KAT] Paper: Automated semantic knowledge acquisition from sensor data [Ganz et al. Systems Journal 2014]  <br/>
+[KAT] Paper: Multi-resolution data communication in wireless sensor networks [Ganz et al. WF-IoT 2014]  <br/>
+[KAT] Paper: Information abstraction and knowledge acquisition from real-world data [Ganz et al. ?] <br/>
+[KAT] Paper: Information abstraction for heterogeneous real world internet data [Ganz et al. Sensors Journal 2013]  <br/>
+[KAT] Paper: Context-aware management for sensor networks [Ganz et al. 2011] <br/>
+[KAT] Demo: <a href="http://info.ee.surrey.ac.uk/CCSR/KAT/overview.html">KAT</a> (Knowledge Acquisition Toolkit) 
+<br/><br/>
+
+[Intelligo] PhD Thesis: <a href="http://knoesis.org/sites/default/files/A-Semantics-based-Approach-to-Machine-Perception.pdf">A semantics-based approach to machine perception</a> [Henson et al. 2013]  <br/>
+[Intelligo] Paper: <a href="http://ieeexplore.ieee.org/document/6133260/">Semantic Perception: Converting Sensory Observations to Abstractions</a> [Henson et al. 2012] <br/>
+[Intelligo] Paper: <a href="http://corescholar.libraries.wright.edu/cgi/viewcontent.cgi?article=1998&context=knoesis">An efficient bit vector approach to semantics-based machine perception in resource-constrained devices</a> [Henson et al. ISWC 2012] <br/>
+[Intelligo] Paper: <a href="http://www.webont.org/owled/2011/papers/owled2011_submission_8.pdf">Representation of Parsimonious Covering Theory in OWL-DL</a> [Henson et al. 2011]<br/>
+[Intelligo] Paper: <a href="http://semsensweb.di.uoa.gr/semsensweb2009_submission_4.pdf">An ontological representation of time series observations on the Semantic Sensor Web</a> [Henson et al. SSN 2011] <br/>
+[Intelligo] Paper: <a href="http://knoesis.org/sites/default/files/Perception--Applied-Ontology-2011.pdf">An ontological approach to focusing attention and enhancing machine perception on the web</a> [Henson et al. 2011] <br/>
+[Intelligo] Paper: <a href="https://www.researchgate.net/publication/224501992_SemSOS_Semantic_sensor_Observation_Service">SemSOS: Semantic sensor Observation Service</a> [Henson et al. 2009]
+<br/><br/>
+
+Paper: Mashups for the web of things [Kenda et al. 2013]			
+<br/> Paper: A framework for semantic enrichment of sensor data [Moraru et al. 2012]
+<br/> Paper: A framework for acquiring semantic sensor descriptions (short paper) [Bradesko et al., SSN 2012]
+<br/> Paper: Metadata management for the web of things: a practical perspective [Fortuna et al. 2012]
+<br/> Master's thesis: Enrichment of sensor descriptions and measurements using semantic technologies [Moraru et al. June 2011]
+<br/> Paper: A system for publishing sensor data on the semantic web [Moraru et al. 2011]
+<br/> Paper: videk: a mash-up for environmnetal intelligence [Kenda et al. 2011]
+<br/> Paper: Exposing real world information for the web of things [Moraru et al. 2011]
+<br/> Paper: The web of things [Fortuna et al., WWW 2011 Tutorial]
+<br/> Paper: Using machine learning on sensor data [Moraru et al. 2010]
+<br/> Paper: Semi-automatic construction of topic ontologies [Fortuna et al. 2006]		
+<br/> Paper: Using semantic annotation for knowledge extraction from geographically distributed and heterogeneous sensor data [Moraru et al. 2010]
+
+
+<br/><br/>
+Handbook on ontologies, Chapter: Ontologies for Machine Learning [Blohdorn et al. 2009] <br/>
+
+<br/><br/>
+Paper: <a href="https://pdfs.semanticscholar.org/63b1/c48308ea87641b0b9677e8b7c977a9171301.pdf">A machine learning based analytical framework for semantic annotation requirements</a> [Hassanzadeh et al. 2011]
+<br/>
+</div>
+
+
+
+
+<!--*********************** Survey ******************************* -->
+<div class="hero-unit" id="div_survey">
+<br/><br/>
+<h3>Survey</h3>
+Paper: A survey on ontology reasoners and comparison [Abburu et al. 2012]
+<br/><br/>
+Paper: Benchmarking OWL reasoners [Bock et al. 2008]
+<br/><br/>
+Paper: Comparison of reasoners for large ontologies in the OWL 2 EL profile [Dentler et al. 2011] 
+</div>
+
+<!--*********************** Javascript ******************************* -->
+<div class="hero-unit" id="div_web_Reasoning">
+<br/><br/>
+
+<h3>Web based-Reasoning: Javascript-based, etc.</h3>
+
+[EYE] <a href="http://reasoning.restdesc.org/">EYE</a> (Euler Yet another proof Engine) NodeJS compatible reasoner to infer on FOL rules<br/>
+[EYE] <a href="https://github.com/josd/eye">EYE code on Github</a>
+<br/><br/>
+
+[OWLReasoner] <a href="https://code.google.com/archive/p/owlreasoner/">OWLReasoner</a> based on JSW Toolkit - JavaScript Semantic Web Toolkit<br/>
+<br/><br/>
+[HYLAR] Check also HYLAR in this web page.
+
+<br/><br/>
+Real-time Big Data Analytics: Emerging architecture [Barlow et al. 2013]
+</div>
+
+<div class="hero-unit" id="div_others">
+<h3>Others: KNIME, etc.</h3>
+[KNIME] Paper: Big data for smart cities with KNIME a real experience in the SmartSantander testbed [Jara et al. 2014] <br/>
+[KNIME] Paper: Sensors Data Fusion for Smart Cities with KNIME: A  real experience in the SmartSantander testbed [Jara et al. 2014] <br/>
+[KNIME] <a href="https://www.knime.org/knime">KNIME project</a> <br/><br/>
+
+REWERSE Reasoning on the Web<br/><br/>
+<a href="http://owl.man.ac.uk/hoolet/">Hoolet</a><br/><br/>
+[IFTTT] <a href="https://ifttt.com/recipes/do"> IFTTT</a><br/><br/>
+Paper: Context-aware hybrid reasoning framework for pervasive healthcare [yuan et al. 2013]<br/>
+Paper: Smart city architecture and its applications based on IoT [Gaur et al. 2015]<br/>
+Paper: <a href="http://ir.lib.uwo.ca/cgi/viewcontent.cgi?article=1098&context=electricalpub">Collaborative Knowledge-as-a-Service applied to the disaster management domain</a> [Grolinger et al. 2015]<br/>
+<a href="http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.16411&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false">Playing with neural networks</a><br/>
+<a href="https://research.google.com/teams/brain/">Google Brain</a><br/>
+</div>
+
+

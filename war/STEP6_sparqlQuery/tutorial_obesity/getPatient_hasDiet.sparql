@@ -1,0 +1,22 @@
+# Created: December 2018
+# TUTORIAL: Query the patient's diet
+# Creator: Amelie Gyrard, Knoesis, Wright State University (WSU), Ohio, USA
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX schema: <https://schema.org/> 
+PREFIX kao: <http://purl.org/kao#>
+
+SELECT DISTINCT ?patientURI ?patientLabel ?patientComment ?diet WHERE{
+	?patientURI rdfs:label ?patientLabel.
+	?patientURI rdfs:comment ?patientComment.
+	?patientURI kao:hasDiet ?diet. 	
+}
+
+# RDF example:
+#	<owl:NamedIndividual rdf:about="Patient_scenario_test_has_diet_chocolate">		
+#		<rdfs:label xml:lang="en">Patient scenario test has diet chocolate</rdfs:label>
+#		<rdfs:comment xml:lang="en">Patient scenario test has diet chocolate</rdfs:comment>
+#		<kao:hasDiet>Chocolate</kao:hasDiet>
+#		<rdf:type rdf:resource="https://schema.org/Person"/>
+#	</owl:NamedIndividual>	 

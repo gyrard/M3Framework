@@ -101,9 +101,12 @@ function ifNoResultDisplayMsg(uri, nameDiv){
 
 /***************************** READ DATA FROM REST SERVICES VIA AJAX *****************************************/
 
+//updated August 2018
+// Error No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:8085' is therefore not allowed access.
 //retrieve XML
 function request(callback, file, nameDiv, nameSubDiv) {
 	var xhr = getXMLHttpRequest();
+	
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
@@ -111,6 +114,7 @@ function request(callback, file, nameDiv, nameSubDiv) {
 		}
 	};
 	xhr.open("GET", file, true);
+	xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 	xhr.send(null);
 }
 

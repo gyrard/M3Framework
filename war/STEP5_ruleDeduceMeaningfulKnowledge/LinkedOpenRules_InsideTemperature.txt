@@ -1,0 +1,172 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+@prefix kofler-weather-onto: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl
+@prefix staroch-weather-onto: http://paul.staroch.name/thesis/SmartHomeWeather.owl
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ INSIDE TEMPERATURE RULES ######################################################################
+# Updated August 2018: Inside temperature rules
+
+# to be compliant with the semantic annotator for SOSA ontology
+# replace ?measurement m3:hasValue ?v by ?measurement sosa:hasSimpleResult ?value.
+# Updated August 2018: m3:HearBeat replaced by kao:HearBeat
+# Updated August 2018: health-dataset:FastHeartBeat by kao:FastHeartBeat same for all rules of this type
+
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+
+################################################################ INSIDE TEMPERATURE RULES - ASTHMA SCENARIO ######################################################################
+# add (?measurement m3:hasUnit m3:BeatPerMinute)   
+
+################################################################ INSIDE TEMPERATURE ######################################################################
+# Kofler weather ontology https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl
+# https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#RoomTemperature 
+
+# staroch weather ontology http://paul.staroch.name/thesis/SmartHomeWeather.owl
+# http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature 
+
+# Paper: An Intelligent Knowledge Representation of Smart Home Energy Parameters [Kofler 2011]
+# Paper: Thinkhome energy efficiency in future smart homes [Kofler 2011]
+# Paper: A semantic representation of energy-related information in future smart homes [Kofler 2011]
+# Paper: A knowledge-base for Energy-Efficient Smart Homes  [Kofler 2011]
+# We select [Kofler 2011] rules since they define 15 rules
+
+# Overlapping with [Paul Staroch 2013] 6 rules
+# Overlapping with Yus 6 rules
+# Overlapping with Vasileios 
+# Overlapping with Rodriguez 
+
+# Rule: AboveRoomTemperature, IF m3:Temperature greaterThan 25 AND lessThan 30  m3:DegreeCelsius THEN AboveRoomTemperature
+# kofler or staroch, both are agreed
+# IMPROVEMENT: kofler-weather-onto:RoomTemperature or kao:RoomTemperature?
+# m3:hasValue replaced by sosa:hasSimpleResult
+# rdf:type m3:RoomTemperature replaced by rdf:type kao:RoomTemperature
+[AboveRoomTemperature: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,25)
+              lessThan(?v,30)         
+              ->     
+              (?measurement rdf:type kao:AboveRoomTemperature)
+]
+
+# Rule: IF m3:Temperature greaterThan 10 AND lessThan 20 m3:DegreeCelsius THEN BelowRoomTemperature
+# ok with staroch
+[BelowRoomTemperature: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,10)
+              lessThan(?v,20)      
+              ->    
+              (?measurement rdf:type kao:BelowRoomTemperature)    
+]
+
+# Rule: IF m3:Temperature greaterThan 20 m3:DegreeCelsius AND lessThan 25 m3:DegreeCelsius THEN RoomTemperature
+# ok with staroch
+[RoomTemperature: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,20)
+              lessThan(?v,25)  
+              ->  
+              (?measurement rdf:type kao:RoomTemperature)          
+]
+            
+
+# Rule: IF m3:Temperature lessThan 0 m3:DegreeCelsius THEN BelowOrZeroTemperature
+[BelowOrZeroTemperature: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,0)
+              ->
+              (?measurement rdf:type kao:BelowOrZeroTemperature)
+]
+
+# Rule: IF m3:Temperature greaterThan -25 m3:DegreeCelsius AND lessThan 0 m3:DegreeCelsius THEN Frost
+[Frost: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,-25)
+              lessThan(?v,0)    
+              ->     
+              (?measurement rdf:type kao:Frost)     
+]
+
+# Rule: ExtremeFrost, IF m3:Temperature lessThan -25 m3:DegreeCelsius THEN ExtremeFrost
+[ExtremeFrost: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,-25)    
+              ->   
+              (?measurement rdf:type kao:ExtremeFrost)       
+]
+
+# Rule: ExtremeHeat, IF m3:Temperature greaterThan 37 m3:DegreeCelsius THEN ExtremeHeat
+[ExtremeHeat: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,37)  
+              ->      
+              (?measurement rdf:type kao:ExtremeHeat)  
+]
+
+# Rule: IF m3:Temperature greaterThan 30 m3:DegreeCelsius THEN Heat
+[Heat: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,30)   
+              ->      
+              (?measurement rdf:type kao:Heat)  
+]
+
+# Rule: IF m3:Temperature greaterThan 0 m3:DegreeCelsius THEN AboveZeroTemperature
+[AboveZeroTemperature: 
+              (?measurement rdf:type kao:RoomTemperature)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,0)     
+              -> 
+              (?measurement rdf:type kao:AboveZeroTemperature)     
+]
+
+
+
+
+# Rule: IF BelowRoomTemperature THEN CoolingWeatherState
+
+# Rule: IF AboveRoomTemperature THEN HeatingWeatherState
+
+# Rule: IF ! AboveRoomTemperature AND NoPrecipitation and (LightWind OR StrongWind) THEN AiringWeatherState
+
+# Rule: IF AboveZeroTemperature and HeavyPrecipitation and oneOf(LightWind, Storm, StrongWind) THEN Thunderstorm
+
+# Rule: IF m3:Precipitation AND BelowOrZeroTemperature THEN SnowyWeatherState
+
+# Rule: IF ! NoPrecipitation AND AboveZeroTemperature THEN RainyWeatherState

@@ -1,0 +1,110 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix ao-bioportal: http://childhealthservicemodels.eu/asthma#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+@prefix kofler-weather-onto: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl
+@prefix staroch-weather-onto: http://paul.staroch.name/thesis/SmartHomeWeather.owl
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATIONS ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 		 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# 		 Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ OUTSIDE HUMIDTIY RULES - ASTHMA SCENARIO ######################################################################
+# Updated August 2018: outside humidity rules
+# Updated August 2018: replace m3:Humidity by OutsideHumidity
+
+# to be compliant with the semantic annotator for SOSA ontology
+# replace ?measurement m3:hasValue ?v by ?measurement sosa:hasSimpleResult ?value.
+
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+
+################################################################ OUTSIDE HUMIDTIY RULES - ASTHMA SCENARIO ######################################################################
+# TO DO: add (?measurement m3:hasUnit ?unit)  
+# unit ?percent 
+
+#  replace ?measurement m3:hasValue ?v by ?measurement sosa:hasSimpleResult ?value.
+
+# Source of Knowledge: Staroch
+# staroch weather ontology: http://paul.staroch.name/thesis/SmartHomeWeather.owl
+# http://paul.staroch.name/thesis/SmartHomeWeather.owl#RoomTemperature 
+
+# Completeness: ok
+# Correctness: conflict resolved, we choose Staroch rules (5 rules)
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Rule: IF Humidity greaterThan 30 m3:Percent AND lessThan 40 m3:Percent THEN DryHumidity
+[DryHumidity: 
+              (?measurement rdf:type kao:OutsideHumidity)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,30)
+              lessThan(?v,40)
+			  ->
+				(?measurement rdf:type kao:DryHumidity)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Rule: IF Humidity greaterThan 40 m3:Percent AND lessThan 70 m3:Percent THEN NormalHumidity
+[NormalHumidity: 
+              (?measurement rdf:type kao:OutsideHumidity)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,40)
+              lessThan(?v,70)
+			  ->
+				(?measurement rdf:type kao:NormalHumidity)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Rule: IF Humidity greaterThan 80 m3:Percent THEN VeryMoistHumidity
+[VeryMoistHumidity: 
+              (?measurement rdf:type kao:OutsideHumidity)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,80)
+			  ->
+				(?measurement rdf:type kao:VeryMoistHumidity)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Rule: IF Humidity lessThan 30 m3:Percent THEN VeryDryHumidity
+[VeryDryHumidity: 
+              (?measurement rdf:type kao:OutsideHumidity)
+              (?measurement sosa:hasSimpleResult ?v)
+              lessThan(?v,30)
+			  ->
+				(?measurement rdf:type kao:VeryDryHumidity)
+]
+
+# Master's thesis: A weather ontology for predictive control in smart homes [Paul Staroch 2013]
+# Rule:  IF Humidity greaterThan 70 m3:Percent AND lessThan 80 m3:Percent THEN MoistHumidity
+[MoistHumidity: 
+              (?measurement rdf:type kao:OutsideHumidity)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,70)
+              lessThan(?v,80)
+			  ->
+				(?measurement rdf:type kao:MoistHumidity)
+]
+

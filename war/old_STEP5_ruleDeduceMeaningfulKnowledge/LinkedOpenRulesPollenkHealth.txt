@@ -1,0 +1,124 @@
+########################################################################
+######## CHECK Asthma Obesity project for this set of rules ###############
+######################################## ######################################
+@prefix qudt: <http://qudt.org/schema/qudt#>
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix home: http://sensormeasurement.appspot.com/ont/m3/home#
+@prefix home-dataset: http://sensormeasurement.appspot.com/dataset/home-dataset/
+@prefix iot-lite: http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+@prefix m3-lite: http://purl.org/iot/vocab/m3-lite#
+@prefix m3: http://sensormeasurement.appspot.com/m3#
+@prefix kao: http://purl.org/kao#
+@prefix sosa: http://www.w3.org/ns/sosa/
+@prefix asthma-onto: http://purl.org/iot/vocab/asthma#
+@prefix asthma-dataset: http://purl.org/iot/dataset/asthma-dataset#
+@prefix health-dataset: http://sensormeasurement.appspot.com/dataset/health-dataset/
+@prefix weather-onto: http://sensormeasurement.appspot.com/ont/m3/weather#
+@prefix environment-onto: http://sensormeasurement.appspot.com/ont/m3/env#
+
+################################################################ DO NOT FORGET TO CITE OUR PUBLICATION ######################################################################
+
+# Paper: Sensor-based Linked Open Rules (S-LOR): An Automated Rule Discovery Approach for IoT Applications and its use in Smart Cities
+# 3rd International ACM Smart City Workshop (AW4city) in conjunction with 26th International World Wide Web Conference (WWW 2017), April 3-7 2017, Perth, Australia. 
+# Amelie Gyrard, Martin Serrano, Soumya Kanti Datta, Joao Bosco Jares, Muhammad Intizar Ali
+
+# Paper: Demo paper: Helping IoT application developers with Sensor-based Linked Open Rules
+#  		 7th International Workshop on Semantic Sensor Networks, in conjunction with the 13th International Semantic Web Conference (ISWC) October 19-23, 2014, Riva del Garda, Trentino Italy
+#		 Amelie Gyrard, Christian Bonnet and Karima Boudaoud 
+
+# SLOR Web site: http://linkedopenreasoning.appspot.com/
+
+################################################################ LINKED OPEN RULES ASTHMA ######################################################################
+# Updated JUNE 2018: m3:AirQualityIndex replaced by kao:OutdoorAirQualityIndex
+# Updated JUNE 2018: environment-onto:VeryUnhealthyQualityIndexUS by kao:VeryUnhealthyQualityIndexUS same for all rules of this type
+# Last updated: May 2018
+# Created: April 2018
+# Creator: Amelie Gyrard, Knoesis, Wright State University
+# Extension for Healthcare
+# Number of rules =  rules
+
+#April, May 2018
+#- add rules for PeakFLow
+#- air quality rules US
+#- pollen level
+#- outdoor temperature
+#- outdoor humidity
+#- inside temperature
+#- heart beat
+
+#TO DO:
+#- find rules onitric oxide NO
+#- find rules carborn oxide CO
+#- indoor humidity
+
+################################################################ TO DO ######################################################################
+# FUTURE VERSIONS, TO DO: handle units too  
+# check with M3 semantic annotator
+
+
+################################################################ POLLEN LEVEL RULES ######################################################################
+# UPDATED JUNE 2018: replace m3 namespace by kao when relevant, idem for environment-onto
+# NEW APRIL 2018
+# pollen unit = no unit?
+
+# According to https://www.pollen.com/
+# Rule: IF PollenLevel greaterThan 0 and LowerThan 2.4 THEN LowPollenLevel
+[LowPollenLevel: 
+              (?measurement rdf:type kao:PollenLevel)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,0)
+              lessThan(?v,2.4)
+			  ->
+				(?measurement rdf:type kao:LowPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# Rule: IF PollenLevel greaterThan 2.5 and LowerThan 4.8 THEN LowMediumPollenLevel
+[LowMediumPollenLevel: 
+              (?measurement rdf:type kao:PollenLevel)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,2.5)
+              lessThan(?v,4.8)
+			  ->
+				(?measurement rdf:type kao:LowMediumPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# medium 4.9 - 7.2
+# Rule: IF PollenLevel greaterThan 4.9 and LowerThan 7.2 THEN MediumPollenLevel
+[MediumPollenLevel: 
+              (?measurement rdf:type kao:PollenLevel)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,4.9)
+              lessThan(?v,7.2)
+			  ->
+				(?measurement rdf:type kao:MediumPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# medium - high 7.3 - 9.6
+# Rule: IF PollenLevel greaterThan 7.3 and LowerThan 9.6 THEN MediumHighPollenLevel
+[MediumHighPollenLevel: 
+              (?measurement rdf:type kao:PollenLevel)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,7.3)
+              lessThan(?v,9.6)
+			  ->
+				(?measurement rdf:type kao:MediumHighPollenLevel)
+]
+
+# According to https://www.pollen.com/
+# high 9.7 - 12
+# Rule: IF PollenLevel greaterThan 9.7 and LowerThan 12 THEN HighPollenLevel
+[HighPollenLevel: 
+              (?measurement rdf:type kao:PollenLevel)
+              (?measurement sosa:hasSimpleResult ?v)
+              greaterThan(?v,9.7)
+              lessThan(?v,12)
+			  ->
+				(?measurement rdf:type kao:HighPollenLevel)
+]
+
+

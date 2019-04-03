@@ -1,3 +1,9 @@
+/**
+ * August 2018
+ * Refactoring TO REMOVE
+ * Used in m3 web site not here
+ */
+
 /*******************************************************************************
     Machine to Machine Measurement (M3) Framework 
     Copyright(c) 2012 - 2015 Eurecom
@@ -27,7 +33,7 @@ This work is supported by the Com4Innov platform of the Pole SCS and DataTweet (
   
   Address      : Eurecom, Campus SophiaTech, 450 Route des Chappes, CS 50193 - 06904 Biot Sophia Antipolis cedex, FRANCE
 
- *******************************************************************************/
+ *******************************************************************************//*
 package eurecom.web.service;
 
 import java.util.ArrayList;
@@ -50,11 +56,11 @@ import eurecom.generic.m2mapplication.M2MAppGeneric;
 import eurecom.sparql.result.ExecuteSparql;
 import eurecom.sparql.result.ExecuteSparqlGeneric;
 import eurecom.sparql.result.VariableSparql;
-/**
+*//**
  * All web service used in the STAC (Security Toolbox: Attacks and Countermeasures) tool, a security tool
  * @author Amelie Gyrard
  *
- */
+ *//*
 @Path("/stac")
 public class STACWS {
 	//public static Model model = M2MAppGeneric.loadSecurityOntologyDataset();
@@ -86,11 +92,11 @@ public class STACWS {
 		//return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Get all security mechanisms refenrenced in the stac dataset (e.g., Bluetooth)
 	 * @param nametechno
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("techno/{nametechno}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -106,11 +112,11 @@ public class STACWS {
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Get all attacks related to a specific technology
 	 * @param nametechno
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("attack/{nametechno}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -126,11 +132,11 @@ public class STACWS {
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Search all subclasses of a STAC concept
 	 * @param stacConcept ex.: Attack, SecurityMechnanism, KeyManagement, SecurityTool, SecurityProtocol, SensorProtocol
 	 * @return SparqlResult:  list of the subclasses of the concept
-	 */
+	 *//*
 	@GET
 	@Path("/type/{stacConcept}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -145,7 +151,7 @@ public class STACWS {
 		return resReqMethod;
 	}
 	
-	/**
+	*//**
 	 * 	@GET
 	@Path("/type/{stacConcept}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -158,14 +164,14 @@ public class STACWS {
 		ArrayList<SparqlResult> resReqMethod = reqMethod.getSparqlResult(var);//getSparqlResultAsXML
 		return resReqMethod;
 	}
-	 */
+	 *//*
 	
-	/**
+	*//**
 	 * Get associated security mechanisms to a specific attack.
 	 * E.g.: the name of the Attack is Jamming, the security mechanism return is SpreadSpectrumCommunication  
 	 * @param attack
 	 * @return SparqlResult: list of SecurityMechanism (uri/label/comment)
-	 */
+	 *//*
 	@GET
 	@Path("hasSecurityMechanism/{attack}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -181,12 +187,12 @@ public class STACWS {
 		return resReqMethod;
 	}
 	
-	/**
+	*//**
 	 * A securityMechanism can be composed of other securityMechanism
 	 * E.g.: The VPN securityMechanism is composed of IKE and IPsec (both are securityMechanism)
 	 * @param SecurityMechanism
 	 * @return SparqlResult: list of SecurityMechanism (uri/label/comment)
-	 */
+	 *//*
 	@GET
 	@Path("/hasPart/{securityMechanism}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -204,11 +210,11 @@ public class STACWS {
 	
 	
 
-	/**
+	*//**
 	 * Get the features (strenghts and weaknesses) of the SecurityMechanism 
 	 * @param securityMechanismName (e.g.: PGP)
 	 * @return SparqlResult: list of features (strengh and weaknesses) of the SecurityMechanism
-	 */
+	 *//*
 	@GET
 	@Path("/hasFeature/{securityMechanism}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -224,11 +230,11 @@ public class STACWS {
 		return resReqMethod;
 	}
 	
-	/**
+	*//**
 	 * Get SecurityProperty satisfied by a SecurityMechanism
 	 * @param SecurityMechanism e.g.: VPN is a SecurityMechanism, and satisfies the Confidentiality (a SecurityProperty)
 	 * @return SparqlResult: list of SecurityProperty satisfied
-	 */
+	 *//*
 	@GET
 	@Path("/satisfy/{securityMechanism}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -244,11 +250,11 @@ public class STACWS {
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Search all Attack occuring in a specific layer of the OSI model (OSIModelLayer)
 	 * @param OSILayer ex.; ApplicationLayer, PhysicalLayer, LinkLayer, NetworkLayer, TransportLayer
 	 * @return SparqlResult:  list of Attack for this specific OSIModelLayer
-	 */
+	 *//*
 	@GET
 	@Path("/attackLayer/{OSILayer}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -263,11 +269,11 @@ public class STACWS {
 		return resultSparql;
 	}
 
-	/**
+	*//**
 	 * Search all SecurityMechanism occuring in a specific layer of the OSI model (OSIModelLayer)
 	 * @param OSILayer e.g.; ApplicationLayer, PhysicalLayer, LinkLayer, NetworkLayer, TransportLayer
 	 * @return SparqlResult:  list of SecurityMechanism for this specific OSIModelLayer
-	 */
+	 *//*
 	@GET
 	@Path("/countLayer/{OSILayer}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -282,11 +288,11 @@ public class STACWS {
 		return resultSparql;
 	}
 
-	/**
+	*//**
 	 * Search all subclasses of a STAC concept
 	 * @param stacConcept ex.: Attack, SecurityMechnanism, KeyManagement, SecurityTool, SecurityProtocol, SensorProtocol
 	 * @return SparqlResult:  list of the subclasses of the concept
-	 */
+	 *//*
 	@GET
 	@Path("/subclassOf/{stacConcept}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -302,11 +308,11 @@ public class STACWS {
 	}
 	
 	
-	/**
+	*//**
 	 * Get all security property mechanisms
 	 * @param nametechno
 	 * @return
-	 */
+	 *//*
 	@GET
 	@Path("/securityPropertyMethod")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -321,11 +327,11 @@ public class STACWS {
 	}
 
 
-	/**
+	*//**
 	 * Get the name of SecurityMechanism to ensure the SecurityProperty
 	 * @param SecurityProperty e.g: Authentication, Integrity, Confidentiality, AccessControl
 	 * @return SparqlResult e.g: to ensure the Confidentiality, the SecurityMechanism is EncryptionAlgorithm
-	 */
+	 *//*
 	@GET
 	@Path("/conceptSecurityProperty/{securityProperty}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -338,25 +344,25 @@ public class STACWS {
 		ArrayList<VariableSparql> var = new ArrayList<VariableSparql>();
 		var.add(new VariableSparql("object", Var.NS_STAC_ONTO + securityProperty, false));
 		String resultSparql = req.getSelectResultAsXML(var);
-	/*	for (SparqlResult labelComment : resultSparql) {
+		for (SparqlResult labelComment : resultSparql) {
 			System.out.println(labelComment.getUri() + " " + labelComment.getLabel());
-		}*/
+		}
 
 		return resultSparql;
 	}
 	
-	/**
+	*//**
 	 * Get the name of SecurityMechanism to ensure the SecurityProperty
 	 * @param SecurityProperty e.g: Authentication, Integrity, Confidentiality, AccessControl
 	 * @return SparqlResult e.g: to ensure the Confidentiality, the SecurityMechanism is EncryptionAlgorithm
-	 */
+	 *//*
 
 
-	/**
+	*//**
 	 * Get all SecurityMechanism satisfying a specific SecurityProperty (Authentication, Confidentiality, Integrity, AccessControl, etc.)
 	 * @param securityProperty (Authentication, Confidentiality, Integrity, AccessControl, etc.)
 	 * @return SparqlResult list of all SecurityMechanism
-	 */
+	 *//*
 	@GET
 	@Path("/withProperty/{securityProperty}")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -373,3 +379,4 @@ public class STACWS {
 }
 
 
+*/
